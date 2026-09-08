@@ -1,0 +1,85 @@
+name: Bootstrap — First Time Setup
+
+on:
+  workflow_dispatch:
+    inputs:
+      pull_historical:
+        description: 'Pull historical data (2022-23 through 2024-25 seasons)?'
+        required: true
+        default: 'true'
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── Historical data ──────────────────────────────────────────────────
+      - name: Pull historical stats (hoopR 2022-23 to 2024-25)
+        if: ${{ github.event.inputs.pull_historical == 'true' }}
+        run: python collect_stats.py --start 2022 --end 2024 --master --out data/raw
+        continue-on-error: true
+
+      - name: Pull historical scores (ESPN 2022-23 to 2024-25)
+        if: ${{ github.event.inputs.pull_historical == 'true' }}
+        run: python scrape_scores.py --historical 2022 2024 --out data/raw
+        continue-on-error: true
+
+      - name: Build historical referee database (2022-23 to 2024-25)
+        if: ${{ github.event.inputs.pull_historical == 'true' }}
+        run: python scrape_refs.py --historical 2022 2024 --out data/raw
+        continue-on-error: true
+
+      # ── Current season ───────────────────────────────────────────────────
+      - name: Pull current season data
+        run: python collect_stats.py --current --out data/raw
+        continue-on-error: true
+
+      - name: Fetch today's referee assignments
+        run: python scrape_refs.py --out data/raw
+        continue-on-error: true
+
+      # ── Merge ────────────────────────────────────────────────────────────
+      - name: Merge all data
+        run: python merge_data.py --year all --raw data/raw --out data/processed
+
+      # ── Train models ─────────────────────────────────────────────────────
+      - name: Train spread model
+        run: python spread_model.py --mode train --data data/processed/master_all.csv
+
+      - name: Train totals model
+        run: python totals_model.py --mode train --data data/processed/master_all.csv
+
+      - name: Train props model
+        run: python props_model.py --mode train
+
+      # ── First predictions ────────────────────────────────────────────────
+      - name: Run first predictions
+        run: |
+          DATE=$(python active_slate_date.py)
+          python daily_runner.py --date $DATE --out predictions/predictions_$DATE.json
+          python build_dashboard.py
+
+      # ── Commit ───────────────────────────────────────────────────────────
+      - name: Commit everything
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "🏀 Bootstrap complete"
+          git push

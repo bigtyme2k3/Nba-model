@@ -1,0 +1,156 @@
+name: NBA Daily Pipeline
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # 9 AM ET
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Target date (YYYY-MM-DD), leave blank for today'
+        required: false
+        default: ''
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set target date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            TARGET="${{ github.event.inputs.date }}"
+          else
+            TARGET=$(python active_slate_date.py)
+          fi
+          echo "TARGET=$TARGET" >> $GITHUB_ENV
+          echo "YESTERDAY=$(date -u -d "$TARGET -1 day" +%Y-%m-%d 2>/dev/null || date -j -v-1d -f %Y-%m-%d "$TARGET" +%Y-%m-%d)" >> $GITHUB_ENV
+          echo "YEAR=$(date -u +%Y)" >> $GITHUB_ENV
+
+      - name: Skip run outside the NBA season
+        run: |
+          if [ "$(python active_slate_date.py --date "$TARGET" --in-season)" != "true" ]; then
+            echo "SKIP=true" >> $GITHUB_ENV
+            echo "Off-season ($TARGET) — scraping/model steps will no-op."
+          else
+            echo "SKIP=false" >> $GITHUB_ENV
+          fi
+
+      # ── Step 1: Stats ────────────────────────────────────────────────────
+      - name: Collect hoopR/ESPN data
+        if: env.SKIP != 'true'
+        run: python collect_stats.py --current --out data/raw
+        continue-on-error: true
+
+      # ── Step 2: Odds ─────────────────────────────────────────────────────
+      - name: Scrape odds (save opening snapshot)
+        if: env.SKIP != 'true'
+        run: |
+          python scrape_odds.py --date ${{ env.TARGET }} --out data/raw
+          python line_movement.py --opening --date ${{ env.TARGET }}
+        continue-on-error: true
+
+      # ── Step 3: Props ────────────────────────────────────────────────────
+      - name: Scrape PrizePicks props
+        if: env.SKIP != 'true'
+        run: python scrape_props.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
+      # ── Step 4: Scores ───────────────────────────────────────────────────
+      - name: Scrape ESPN scores
+        if: env.SKIP != 'true'
+        run: python scrape_scores.py --date ${{ env.TARGET }} --out data/raw --boxscores
+        continue-on-error: true
+
+      # ── Step 5: Injuries ─────────────────────────────────────────────────
+      - name: Fetch injury report
+        if: env.SKIP != 'true'
+        run: python scrape_injuries.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
+      # ── Step 6: Referee assignments ──────────────────────────────────────
+      - name: Fetch referee assignments
+        if: env.SKIP != 'true'
+        run: python scrape_refs.py --out data/raw
+        continue-on-error: true
+
+      # ── Step 7: Merge ────────────────────────────────────────────────────
+      - name: Merge data
+        if: env.SKIP != 'true'
+        run: python merge_data.py --year all --raw data/raw --out data/processed
+
+      # ── Step 8: Retrain (Mondays only) ───────────────────────────────────
+      - name: Retrain models (Monday only)
+        if: env.SKIP != 'true' && github.event.schedule == '0 13 * * 1'
+        run: |
+          python spread_model.py --mode train --data data/processed/master_all.csv
+          python totals_model.py --mode train --data data/processed/master_all.csv
+          python props_model.py  --mode train
+
+      # ── Step 9: Predictions ──────────────────────────────────────────────
+      - name: Generate predictions
+        if: env.SKIP != 'true'
+        run: |
+          python daily_runner.py \
+            --date ${{ env.TARGET }} \
+            --out predictions/predictions_${{ env.TARGET }}.json
+
+      # ── Step 10: Track results ───────────────────────────────────────────
+      - name: Track yesterday's results
+        if: env.SKIP != 'true'
+        run: python results_tracker.py --date ${{ env.YESTERDAY }}
+        continue-on-error: true
+
+      # ── Step 11: Line movement + CLV ─────────────────────────────────────
+      - name: Compute line movement and CLV
+        if: env.SKIP != 'true'
+        run: python line_movement.py --date ${{ env.YESTERDAY }}
+        continue-on-error: true
+
+      # ── Step 12: Build dashboard ─────────────────────────────────────────
+      - name: Build dashboard
+        if: env.SKIP != 'true'
+        run: python build_dashboard.py
+
+      # ── Step 13: Print summary ───────────────────────────────────────────
+      - name: Print best bets
+        if: env.SKIP != 'true'
+        run: |
+          python - << 'PYEOF'
+          import json, glob
+          files = sorted(glob.glob("predictions/predictions_*.json"))
+          if not files: print("No predictions found"); exit()
+          with open(files[-1]) as f: d = json.load(f)
+          print(f"\n{'='*60}\nNBA Best Bets — {d['date']}")
+          print('='*60)
+          for b in d.get('best_bets',[]):
+              e = f"+{b['edge']}" if b.get('edge',0) and b['edge']>0 else str(b.get('edge',''))
+              u = b.get('units', 0)
+              unit_str = f" [{u:.1f}u]" if u > 0 else ""
+              print(f"  #{b['rank']} [{b['type']:<6}] {b['play']:<38} {e:>6}{unit_str}  {'★'*b['stars']}")
+          print(f"\n  {len(d.get('games',[]))} games | {sum(1 for b in d.get('best_bets',[]) if b.get('stars',0)==3)} HIGH conf")
+          PYEOF
+
+      # ── Step 14: Commit ──────────────────────────────────────────────────
+      - name: Commit and push
+        if: env.SKIP != 'true'
+        run: |
+          git config user.name  "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add data/ predictions/ docs/ models/
+          git diff --cached --quiet || git commit -m "🏀 Daily update — ${{ env.TARGET }}"
+          git push
