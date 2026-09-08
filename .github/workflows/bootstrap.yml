@@ -59,14 +59,32 @@ jobs:
         run: python merge_data.py --year all --raw data/raw --out data/processed
 
       # ── Train models ─────────────────────────────────────────────────────
+      # Historical collection is best-effort (hoopR release data + ESPN's public API,
+      # both of which can be rate-limited/blocked from shared CI IPs). Don't let a bad
+      # data day crash the whole bootstrap — skip training with a clear message instead.
       - name: Train spread model
+        if: hashFiles('data/processed/master_all.csv') != ''
         run: python spread_model.py --mode train --data data/processed/master_all.csv
 
       - name: Train totals model
+        if: hashFiles('data/processed/master_all.csv') != ''
         run: python totals_model.py --mode train --data data/processed/master_all.csv
 
       - name: Train props model
+        if: hashFiles('data/processed/master_all.csv') != ''
         run: python props_model.py --mode train
+
+      - name: No historical data collected
+        if: hashFiles('data/processed/master_all.csv') == ''
+        run: |
+          echo "::warning::No data/processed/master_all.csv was produced — historical collection"
+          echo "::warning::(hoopR release data / ESPN API) likely got rate-limited or blocked from"
+          echo "::warning::this runner's IP. Re-run this workflow (a fresh runner often gets a"
+          echo "::warning::different IP), or run 'python collect_stats.py --start 2022 --end 2024"
+          echo "::warning::--master' and 'python merge_data.py --year all' locally and push the"
+          echo "::warning::results, then re-run Bootstrap to train on them."
+          echo "Placeholder props_model.py will still build a placeholder props_models.pkl below."
+          python props_model.py --mode train
 
       # ── First predictions ────────────────────────────────────────────────
       - name: Run first predictions

@@ -111,6 +111,8 @@ def fetch_historical_refs(start_year: int, end_year: int, out_dir: str):
         season_start = date(year, 10, 15)
         season_end   = min(date(year + 1, 6, 25), date.today())
         current      = season_start
+        consecutive_errors = 0
+        max_consecutive_errors = 15
 
         while current <= season_end:
             date_str = str(current)
@@ -120,6 +122,7 @@ def fetch_historical_refs(start_year: int, end_year: int, out_dir: str):
                 resp   = requests.get(url, headers=HEADERS, params=params, timeout=15)
                 resp.raise_for_status()
                 events = resp.json().get("events", [])
+                consecutive_errors = 0
 
                 for event in events:
                     status = event.get("status",{}).get("type",{}).get("name","")
@@ -157,7 +160,11 @@ def fetch_historical_refs(start_year: int, end_year: int, out_dir: str):
                         pass
 
             except Exception:
-                pass
+                consecutive_errors += 1
+                if consecutive_errors >= max_consecutive_errors:
+                    print(f"    [WARN] {consecutive_errors} consecutive failures — ESPN is likely "
+                          f"rate-limiting/blocking this runner. Stopping season {year}-{year+1} early.")
+                    break
 
             current += timedelta(days=1)
             time.sleep(0.2)

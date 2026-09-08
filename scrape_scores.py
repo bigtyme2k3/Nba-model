@@ -235,8 +235,13 @@ def scrape_date(target_date: str, out_dir: str, include_boxscores: bool = False)
     return df
 
 
-def scrape_historical(start_year: int, end_year: int, out_dir: str):
-    """Pull all results from start_year through end_year (season labeled by its start year)."""
+def scrape_historical(start_year: int, end_year: int, out_dir: str, max_consecutive_errors: int = 15):
+    """Pull all results from start_year through end_year (season labeled by its start year).
+
+    Bails out of a season early after too many consecutive request failures (e.g. the
+    runner's IP getting rate-limited/blocked by ESPN) instead of burning the whole date
+    range on requests that are all going to fail the same way.
+    """
     os.makedirs(out_dir, exist_ok=True)
     all_dfs = []
 
@@ -246,17 +251,24 @@ def scrape_historical(start_year: int, end_year: int, out_dir: str):
         end   = date(year + 1, 6, 25)
         current = start
         season_rows = []
+        consecutive_errors = 0
 
         print(f"\nSeason {year}-{year+1}:")
         while current <= end:
             try:
                 data = fetch_scoreboard(str(current))
                 df   = parse_scoreboard(data, str(current))
+                consecutive_errors = 0
                 if not df.empty and df["is_final"].any():
                     season_rows.append(df[df["is_final"]])
                     print(f"  {current}: {df['is_final'].sum()} final games", end="\r")
             except Exception as e:
+                consecutive_errors += 1
                 print(f"  {current}: error — {e}")
+                if consecutive_errors >= max_consecutive_errors:
+                    print(f"  [WARN] {consecutive_errors} consecutive failures — ESPN is likely "
+                          f"rate-limiting/blocking this runner. Stopping season {year}-{year+1} early.")
+                    break
             current += timedelta(days=1)
             time.sleep(1.0)  # Polite
 
