@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1.0'><title>NBA Betting Model</title>
+<style>
+:root{--bg:#070a12;--panel:#0d1220;--border:#ffffff14;--text:#e2e8f0;--muted:#94a3b8;--accent:#00e5a0;--bad:#f87171;--warn:#fbbf24}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Courier New',ui-monospace,monospace;margin:0}
+.app{max-width:1200px;margin:0 auto;padding:20px}
+.title{font-size:30px;font-weight:900;letter-spacing:-0.5px}
+.title span{color:var(--accent)}
+.sub{color:var(--muted);margin-top:4px}
+.tabs{display:flex;gap:8px;margin:20px 0;flex-wrap:wrap}
+button{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:12px;padding:10px 16px;font-family:inherit;font-weight:800;cursor:pointer}
+button.active{border-color:var(--accent);color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card,.panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:16px}
+.card .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:0.06em}
+.value{font-size:26px;font-weight:900;color:var(--accent);margin-top:4px}
+.bad{color:var(--bad)}
+.row{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px}
+.row b{font-size:15px}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800;border:1px solid var(--border);margin-left:6px}
+.meta{color:var(--muted);font-size:13px;margin-top:6px}
+@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+<script id='dashboard-data'>const DATA = {"date":"2026-09-08","generated":"2026-09-08T23:48:06.923108","games":[],"best_bets":[],"model_stats":{"spread":{"algo":"Ridge / GBR","cv_mae":null,"dir_acc":null,"strong_ats":null,"n":0},"totals":{"algo":"Ridge / RF","cv_mae":null,"ou_acc":null,"strong_ou":null,"n":0},"props":{"algo":"Ridge / GBR","cv_mae":null,"hit_rate":null,"strong_hr":null,"n":0}},"props":[],"player_points":[],"props_board":[],"line_shopping":[],"data_health":{"spreads_found":0,"totals_found":0,"games":0,"actionable_bets":0,"high_bets":0,"odds":"missing"},"tracking":{"overall":"0-0-0","wins":0,"losses":0,"pushes":0,"win_pct":0,"roi":0,"profit_units":0,"clv_avg":0,"by_type":{},"by_conf":{},"recent_10":[]},"model_tracking":{"overall":"0-0-0","wins":0,"losses":0,"pushes":0,"win_pct":0,"roi":0,"profit_units":0,"clv_avg":0,"by_type":{},"by_conf":{},"recent_10":[]}}; window.DATA = DATA;</script>
+</head><body>
+<div class='app'>
+  <div class='title'>🏀 NBA <span>Betting Model</span></div>
+  <div class='sub'>Daily Report · <span id='date'></span></div>
+  <div class='grid' id='health'></div>
+  <div class='tabs' id='tabs'>
+    <button onclick="show('games')">Games</button>
+    <button onclick="show('props')">Props</button>
+    <button onclick="show('bets')">Best Bets</button>
+    <button onclick="show('tracking')">Model Tracking</button>
+  </div>
+  <div id='view' class='panel'></div>
+</div>
+<script>
+const safe=(v,d='—')=>v===null||v===undefined||v===''?d:v;
+function health(){
+  const h=DATA.data_health||{};
+  document.getElementById('date').textContent=DATA.date||'';
+  document.getElementById('health').innerHTML=[
+    ['Odds',h.odds||'missing'],
+    ['Props',h.player_points||h.props||'missing'],
+    ['Games',h.games||0],
+    ['Actionable',h.actionable_bets||0],
+  ].map(x=>`<div class='card'><div class='label'>${x[0]}</div><div class='value ${String(x[1]).includes('missing')?'bad':''}'>${x[1]}</div></div>`).join('');
+}
+function show(tab){
+  [...document.querySelectorAll('#tabs button')].forEach(b=>b.classList.remove('active'));
+  const idx={games:0,props:1,bets:2,tracking:3}[tab];
+  document.querySelectorAll('#tabs button')[idx].classList.add('active');
+  let out='';
+  if(tab==='games') out=(DATA.games||[]).map(g=>`<div class='row'><b>${safe(g.away?.name||g.away_team)} @ ${safe(g.home?.name||g.home_team)}</b><span class='pill'>${safe(g.spread?.model_line)}</span><span class='pill'>${safe(g.totals?.play)} ${safe(g.totals?.line)}</span><div class='meta'>Tip ${safe(g.tip)}</div></div>`).join('')||'No games today.';
+  if(tab==='props') out=(DATA.props||DATA.player_points||[]).slice(0,80).map(p=>`<div class='row'><b>${safe(p.player)}</b> ${safe(p.stat)} ${safe(p.signal)}<div class='meta'>Line ${safe(p.line)} · Projection ${safe(p.pred)}</div></div>`).join('')||'No props loaded yet.';
+  if(tab==='bets') out=(DATA.best_bets||[]).map(b=>`<div class='row'><b>${safe(b.play)}</b><span class='pill'>${'★'.repeat(b.stars||1)}</span><div class='meta'>${safe(b.game)} · edge ${safe(b.edge)} · ${safe(b.units)}u</div></div>`).join('')||'No best bets yet — run the pipeline once odds/props are loaded.';
+  if(tab==='tracking') out=`<pre style="white-space:pre-wrap">${JSON.stringify(DATA.tracking||DATA.model_tracking||{},null,2)}</pre>`;
+  document.getElementById('view').innerHTML=out;
+}
+health();show('games');
+</script>
+</body></html>
