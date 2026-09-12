@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-11",
+  "generated": "2026-09-12T00:47:47.439458",
+  "games": [],
+  "best_bets": [],
+  "model_stats": {
+    "spread": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "dir_acc": null,
+      "strong_ats": null,
+      "n": 0
+    },
+    "totals": {
+      "algo": "Ridge / RF",
+      "cv_mae": null,
+      "ou_acc": null,
+      "strong_ou": null,
+      "n": 0
+    },
+    "props": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "hit_rate": null,
+      "strong_hr": null,
+      "n": 0
+    }
+  }
+}
