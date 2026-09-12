@@ -1,0 +1,1325 @@
+game_id,game_date,home_team,away_team,home_pts,away_pts,season,actual_spread,actual_total
+401442535,2022-06-16,Boston Celtics,Golden State Warriors,90,103,2022,-13,193
+401442534,2022-06-13,Golden State Warriors,Boston Celtics,104,94,2022,10,198
+401442533,2022-06-10,Boston Celtics,Golden State Warriors,97,107,2022,-10,204
+401442532,2022-06-08,Boston Celtics,Golden State Warriors,116,100,2022,16,216
+401442531,2022-06-05,Golden State Warriors,Boston Celtics,107,88,2022,19,195
+401442530,2022-06-02,Golden State Warriors,Boston Celtics,108,120,2022,-12,228
+401438136,2022-05-29,Miami Heat,Boston Celtics,96,100,2022,-4,196
+401438135,2022-05-27,Boston Celtics,Miami Heat,103,111,2022,-8,214
+401438948,2022-05-26,Golden State Warriors,Dallas Mavericks,120,110,2022,10,230
+401438134,2022-05-25,Miami Heat,Boston Celtics,80,93,2022,-13,173
+401438947,2022-05-24,Dallas Mavericks,Golden State Warriors,119,109,2022,10,228
+401438133,2022-05-23,Boston Celtics,Miami Heat,102,82,2022,20,184
+401438946,2022-05-22,Dallas Mavericks,Golden State Warriors,100,109,2022,-9,209
+401438132,2022-05-21,Boston Celtics,Miami Heat,103,109,2022,-6,212
+401438945,2022-05-20,Golden State Warriors,Dallas Mavericks,126,117,2022,9,243
+401438131,2022-05-19,Miami Heat,Boston Celtics,102,127,2022,-25,229
+401438944,2022-05-18,Golden State Warriors,Dallas Mavericks,112,87,2022,25,199
+401438130,2022-05-17,Miami Heat,Boston Celtics,118,107,2022,11,225
+401433616,2022-05-15,Boston Celtics,Milwaukee Bucks,109,81,2022,28,190
+401434115,2022-05-15,Phoenix Suns,Dallas Mavericks,90,123,2022,-33,213
+401433615,2022-05-13,Milwaukee Bucks,Boston Celtics,95,108,2022,-13,203
+401434775,2022-05-13,Golden State Warriors,Memphis Grizzlies,110,96,2022,14,206
+401434055,2022-05-12,Philadelphia 76ers,Miami Heat,90,99,2022,-9,189
+401434114,2022-05-12,Dallas Mavericks,Phoenix Suns,113,86,2022,27,199
+401433614,2022-05-11,Boston Celtics,Milwaukee Bucks,107,110,2022,-3,217
+401434774,2022-05-11,Memphis Grizzlies,Golden State Warriors,134,95,2022,39,229
+401434054,2022-05-10,Miami Heat,Philadelphia 76ers,120,85,2022,35,205
+401434113,2022-05-10,Phoenix Suns,Dallas Mavericks,110,80,2022,30,190
+401433613,2022-05-09,Milwaukee Bucks,Boston Celtics,108,116,2022,-8,224
+401434773,2022-05-09,Golden State Warriors,Memphis Grizzlies,101,98,2022,3,199
+401434112,2022-05-08,Dallas Mavericks,Phoenix Suns,111,101,2022,10,212
+401434053,2022-05-08,Philadelphia 76ers,Miami Heat,116,108,2022,8,224
+401433612,2022-05-07,Milwaukee Bucks,Boston Celtics,103,101,2022,2,204
+401434772,2022-05-07,Golden State Warriors,Memphis Grizzlies,142,112,2022,30,254
+401434052,2022-05-06,Philadelphia 76ers,Miami Heat,99,79,2022,20,178
+401434111,2022-05-06,Dallas Mavericks,Phoenix Suns,103,94,2022,9,197
+401434051,2022-05-04,Miami Heat,Philadelphia 76ers,119,103,2022,16,222
+401434110,2022-05-04,Phoenix Suns,Dallas Mavericks,129,109,2022,20,238
+401433611,2022-05-03,Boston Celtics,Milwaukee Bucks,109,86,2022,23,195
+401434771,2022-05-03,Memphis Grizzlies,Golden State Warriors,106,101,2022,5,207
+401434050,2022-05-02,Miami Heat,Philadelphia 76ers,106,92,2022,14,198
+401434070,2022-05-02,Phoenix Suns,Dallas Mavericks,121,114,2022,7,235
+401433610,2022-05-01,Boston Celtics,Milwaukee Bucks,89,101,2022,-12,190
+401434770,2022-05-01,Memphis Grizzlies,Golden State Warriors,116,117,2022,-1,233
+401430234,2022-04-29,Minnesota Timberwolves,Memphis Grizzlies,106,114,2022,-8,220
+401430244,2022-04-28,Toronto Raptors,Philadelphia 76ers,97,132,2022,-35,229
+401430228,2022-04-28,New Orleans Pelicans,Phoenix Suns,109,115,2022,-6,224
+401430241,2022-04-28,Utah Jazz,Dallas Mavericks,96,98,2022,-2,194
+401430251,2022-04-27,Milwaukee Bucks,Chicago Bulls,116,100,2022,16,216
+401430255,2022-04-27,Golden State Warriors,Denver Nuggets,102,98,2022,4,200
+401430219,2022-04-26,Miami Heat,Atlanta Hawks,97,94,2022,3,191
+401430231,2022-04-26,Memphis Grizzlies,Minnesota Timberwolves,111,109,2022,2,220
+401430226,2022-04-26,Phoenix Suns,New Orleans Pelicans,112,97,2022,15,209
+401430212,2022-04-25,Brooklyn Nets,Boston Celtics,112,116,2022,-4,228
+401430243,2022-04-25,Philadelphia 76ers,Toronto Raptors,88,103,2022,-15,191
+401430239,2022-04-25,Dallas Mavericks,Utah Jazz,102,77,2022,25,179
+401430249,2022-04-24,Chicago Bulls,Milwaukee Bucks,95,119,2022,-24,214
+401430253,2022-04-24,Denver Nuggets,Golden State Warriors,126,121,2022,5,247
+401430218,2022-04-24,Atlanta Hawks,Miami Heat,86,110,2022,-24,196
+401430225,2022-04-24,New Orleans Pelicans,Phoenix Suns,118,103,2022,15,221
+401430240,2022-04-23,Toronto Raptors,Philadelphia 76ers,110,102,2022,8,212
+401430237,2022-04-23,Utah Jazz,Dallas Mavericks,100,99,2022,1,199
+401430211,2022-04-23,Brooklyn Nets,Boston Celtics,103,109,2022,-6,212
+401430230,2022-04-23,Minnesota Timberwolves,Memphis Grizzlies,119,118,2022,1,237
+401430217,2022-04-22,Atlanta Hawks,Miami Heat,111,110,2022,1,221
+401430248,2022-04-22,Chicago Bulls,Milwaukee Bucks,81,111,2022,-30,192
+401430224,2022-04-22,New Orleans Pelicans,Phoenix Suns,111,114,2022,-3,225
+401430227,2022-04-21,Minnesota Timberwolves,Memphis Grizzlies,95,104,2022,-9,199
+401430235,2022-04-21,Utah Jazz,Dallas Mavericks,118,126,2022,-8,244
+401430250,2022-04-21,Denver Nuggets,Golden State Warriors,113,118,2022,-5,231
+401430210,2022-04-20,Boston Celtics,Brooklyn Nets,114,107,2022,7,221
+401430236,2022-04-20,Toronto Raptors,Philadelphia 76ers,101,104,2022,-3,205
+401430246,2022-04-20,Milwaukee Bucks,Chicago Bulls,110,114,2022,-4,224
+401430216,2022-04-19,Miami Heat,Atlanta Hawks,115,105,2022,10,220
+401430223,2022-04-19,Memphis Grizzlies,Minnesota Timberwolves,124,96,2022,28,220
+401430222,2022-04-19,Phoenix Suns,New Orleans Pelicans,114,125,2022,-11,239
+401430233,2022-04-18,Philadelphia 76ers,Toronto Raptors,112,97,2022,15,209
+401430232,2022-04-18,Dallas Mavericks,Utah Jazz,110,104,2022,6,214
+401430247,2022-04-18,Golden State Warriors,Denver Nuggets,126,106,2022,20,232
+401429891,2022-04-17,Miami Heat,Atlanta Hawks,115,91,2022,24,206
+401429890,2022-04-17,Boston Celtics,Brooklyn Nets,115,114,2022,1,229
+401429892,2022-04-17,Milwaukee Bucks,Chicago Bulls,93,86,2022,7,179
+401429893,2022-04-17,Phoenix Suns,New Orleans Pelicans,110,99,2022,11,209
+401429872,2022-04-16,Dallas Mavericks,Utah Jazz,93,99,2022,-6,192
+401429873,2022-04-16,Memphis Grizzlies,Minnesota Timberwolves,117,130,2022,-13,247
+401429874,2022-04-16,Philadelphia 76ers,Toronto Raptors,131,111,2022,20,242
+401429875,2022-04-16,Golden State Warriors,Denver Nuggets,123,107,2022,16,230
+401428074,2022-04-15,Cleveland Cavaliers,Atlanta Hawks,101,107,2022,-6,208
+401428075,2022-04-15,LA Clippers,New Orleans Pelicans,101,105,2022,-4,206
+401428072,2022-04-13,Atlanta Hawks,Charlotte Hornets,132,103,2022,29,235
+401428073,2022-04-13,New Orleans Pelicans,San Antonio Spurs,113,103,2022,10,216
+401428070,2022-04-12,Brooklyn Nets,Cleveland Cavaliers,115,108,2022,7,223
+401428071,2022-04-12,Minnesota Timberwolves,LA Clippers,109,104,2022,5,213
+401361035,2022-04-10,Brooklyn Nets,Indiana Pacers,134,126,2022,8,260
+401361036,2022-04-10,Charlotte Hornets,Washington Wizards,124,108,2022,16,232
+401361037,2022-04-10,Cleveland Cavaliers,Milwaukee Bucks,133,115,2022,18,248
+401361040,2022-04-10,Houston Rockets,Atlanta Hawks,114,130,2022,-16,244
+401361042,2022-04-10,Memphis Grizzlies,Boston Celtics,110,139,2022,-29,249
+401361045,2022-04-10,New York Knicks,Toronto Raptors,105,94,2022,11,199
+401361046,2022-04-10,Orlando Magic,Miami Heat,125,111,2022,14,236
+401361047,2022-04-10,Philadelphia 76ers,Detroit Pistons,118,106,2022,12,224
+401361043,2022-04-10,Minnesota Timberwolves,Chicago Bulls,120,124,2022,-4,244
+401361038,2022-04-10,Dallas Mavericks,San Antonio Spurs,130,120,2022,10,250
+401361039,2022-04-10,Denver Nuggets,Los Angeles Lakers,141,146,2022,-5,287
+401361041,2022-04-10,LA Clippers,Oklahoma City Thunder,138,88,2022,50,226
+401361044,2022-04-10,New Orleans Pelicans,Golden State Warriors,107,128,2022,-21,235
+401361048,2022-04-10,Phoenix Suns,Sacramento Kings,109,116,2022,-7,225
+401361049,2022-04-10,Portland Trail Blazers,Utah Jazz,80,111,2022,-31,191
+401361033,2022-04-09,Philadelphia 76ers,Indiana Pacers,133,120,2022,13,253
+401361032,2022-04-09,Memphis Grizzlies,New Orleans Pelicans,141,114,2022,27,255
+401361034,2022-04-09,San Antonio Spurs,Golden State Warriors,94,100,2022,-6,194
+401361031,2022-04-09,LA Clippers,Sacramento Kings,117,98,2022,19,215
+401361022,2022-04-08,Detroit Pistons,Milwaukee Bucks,101,131,2022,-30,232
+401361023,2022-04-08,Washington Wizards,New York Knicks,92,114,2022,-22,206
+401361024,2022-04-08,Brooklyn Nets,Cleveland Cavaliers,118,107,2022,11,225
+401361025,2022-04-08,Toronto Raptors,Houston Rockets,117,115,2022,2,232
+401361026,2022-04-08,Miami Heat,Atlanta Hawks,113,109,2022,4,222
+401361027,2022-04-08,Chicago Bulls,Charlotte Hornets,117,133,2022,-16,250
+401361028,2022-04-08,Dallas Mavericks,Portland Trail Blazers,128,78,2022,50,206
+401361029,2022-04-08,Utah Jazz,Phoenix Suns,105,111,2022,-6,216
+401361030,2022-04-08,Los Angeles Lakers,Oklahoma City Thunder,120,101,2022,19,221
+401361015,2022-04-07,Charlotte Hornets,Orlando Magic,128,101,2022,27,229
+401361016,2022-04-07,Toronto Raptors,Philadelphia 76ers,119,114,2022,5,233
+401361017,2022-04-07,Milwaukee Bucks,Boston Celtics,127,121,2022,6,248
+401361018,2022-04-07,Minnesota Timberwolves,San Antonio Spurs,127,121,2022,6,248
+401361019,2022-04-07,New Orleans Pelicans,Portland Trail Blazers,127,94,2022,33,221
+401361020,2022-04-07,Denver Nuggets,Memphis Grizzlies,122,109,2022,13,231
+401361021,2022-04-07,Golden State Warriors,Los Angeles Lakers,128,112,2022,16,240
+401361009,2022-04-06,Detroit Pistons,Dallas Mavericks,113,131,2022,-18,244
+401361010,2022-04-06,New York Knicks,Brooklyn Nets,98,110,2022,-12,208
+401361011,2022-04-06,Atlanta Hawks,Washington Wizards,118,103,2022,15,221
+401361012,2022-04-06,Chicago Bulls,Boston Celtics,94,117,2022,-23,211
+401361013,2022-04-06,Utah Jazz,Oklahoma City Thunder,137,101,2022,36,238
+401361014,2022-04-06,LA Clippers,Phoenix Suns,113,109,2022,4,222
+401360997,2022-04-05,Indiana Pacers,Philadelphia 76ers,122,131,2022,-9,253
+401360998,2022-04-05,Orlando Magic,Cleveland Cavaliers,120,115,2022,5,235
+401360999,2022-04-05,Brooklyn Nets,Houston Rockets,118,105,2022,13,223
+401361000,2022-04-05,Miami Heat,Charlotte Hornets,144,115,2022,29,259
+401361001,2022-04-05,Toronto Raptors,Atlanta Hawks,118,108,2022,10,226
+401361002,2022-04-05,Chicago Bulls,Milwaukee Bucks,106,127,2022,-21,233
+401361003,2022-04-05,Minnesota Timberwolves,Washington Wizards,114,132,2022,-18,246
+401361004,2022-04-05,Oklahoma City Thunder,Portland Trail Blazers,98,94,2022,4,192
+401361005,2022-04-05,Denver Nuggets,San Antonio Spurs,97,116,2022,-19,213
+401361006,2022-04-05,Utah Jazz,Memphis Grizzlies,121,115,2022,6,236
+401361007,2022-04-05,Sacramento Kings,New Orleans Pelicans,109,123,2022,-14,232
+401361008,2022-04-05,Phoenix Suns,Los Angeles Lakers,121,110,2022,11,231
+401360985,2022-04-03,Boston Celtics,Washington Wizards,144,102,2022,42,246
+401360986,2022-04-03,Milwaukee Bucks,Dallas Mavericks,112,118,2022,-6,230
+401360987,2022-04-03,Los Angeles Lakers,Denver Nuggets,118,129,2022,-11,247
+401360988,2022-04-03,Indiana Pacers,Detroit Pistons,117,121,2022,-4,238
+401360989,2022-04-03,Cleveland Cavaliers,Philadelphia 76ers,108,112,2022,-4,220
+401360990,2022-04-03,Orlando Magic,New York Knicks,88,118,2022,-30,206
+401360991,2022-04-03,Toronto Raptors,Miami Heat,109,114,2022,-5,223
+401360992,2022-04-03,Houston Rockets,Minnesota Timberwolves,132,139,2022,-7,271
+401360993,2022-04-03,Oklahoma City Thunder,Phoenix Suns,117,96,2022,21,213
+401360994,2022-04-03,San Antonio Spurs,Portland Trail Blazers,113,92,2022,21,205
+401360995,2022-04-03,Sacramento Kings,Golden State Warriors,90,109,2022,-19,199
+401360996,2022-04-03,LA Clippers,New Orleans Pelicans,119,100,2022,19,219
+401360980,2022-04-02,Philadelphia 76ers,Charlotte Hornets,144,114,2022,30,258
+401360981,2022-04-02,New York Knicks,Cleveland Cavaliers,101,119,2022,-18,220
+401360982,2022-04-02,Atlanta Hawks,Brooklyn Nets,122,115,2022,7,237
+401360983,2022-04-02,Chicago Bulls,Miami Heat,109,127,2022,-18,236
+401360984,2022-04-02,Golden State Warriors,Utah Jazz,111,107,2022,4,218
+401360970,2022-04-01,Orlando Magic,Toronto Raptors,89,102,2022,-13,191
+401360971,2022-04-01,Washington Wizards,Dallas Mavericks,135,103,2022,32,238
+401360972,2022-04-01,Boston Celtics,Indiana Pacers,128,123,2022,5,251
+401360973,2022-04-01,Houston Rockets,Sacramento Kings,117,122,2022,-5,239
+401360974,2022-04-01,Memphis Grizzlies,Phoenix Suns,122,114,2022,8,236
+401360975,2022-04-01,Milwaukee Bucks,LA Clippers,119,153,2022,-34,272
+401360976,2022-04-01,Oklahoma City Thunder,Detroit Pistons,101,110,2022,-9,211
+401360977,2022-04-01,San Antonio Spurs,Portland Trail Blazers,130,111,2022,19,241
+401360978,2022-04-01,Denver Nuggets,Minnesota Timberwolves,130,136,2022,-6,266
+401360979,2022-04-01,Los Angeles Lakers,New Orleans Pelicans,111,114,2022,-3,225
+401360966,2022-03-31,Detroit Pistons,Philadelphia 76ers,102,94,2022,8,196
+401360967,2022-03-31,Brooklyn Nets,Milwaukee Bucks,119,120,2022,-1,239
+401401145,2022-03-31,Atlanta Hawks,Cleveland Cavaliers,131,107,2022,24,238
+401360968,2022-03-31,Chicago Bulls,LA Clippers,135,130,2022,5,265
+401360969,2022-03-31,Utah Jazz,Los Angeles Lakers,122,109,2022,13,231
+401360955,2022-03-30,Cleveland Cavaliers,Dallas Mavericks,112,120,2022,-8,232
+401360956,2022-03-30,Indiana Pacers,Denver Nuggets,118,125,2022,-7,243
+401360957,2022-03-30,Washington Wizards,Orlando Magic,127,110,2022,17,237
+401360958,2022-03-30,Boston Celtics,Miami Heat,98,106,2022,-8,204
+401360959,2022-03-30,New York Knicks,Charlotte Hornets,114,125,2022,-11,239
+401360960,2022-03-30,Toronto Raptors,Minnesota Timberwolves,125,102,2022,23,227
+401360961,2022-03-30,Houston Rockets,Sacramento Kings,118,121,2022,-3,239
+401360962,2022-03-30,Oklahoma City Thunder,Atlanta Hawks,118,136,2022,-18,254
+401360963,2022-03-30,San Antonio Spurs,Memphis Grizzlies,111,112,2022,-1,223
+401360964,2022-03-30,Golden State Warriors,Phoenix Suns,103,107,2022,-4,210
+401360965,2022-03-30,Portland Trail Blazers,New Orleans Pelicans,107,117,2022,-10,224
+401360950,2022-03-29,Philadelphia 76ers,Milwaukee Bucks,116,118,2022,-2,234
+401360951,2022-03-29,Washington Wizards,Chicago Bulls,94,107,2022,-13,201
+401360952,2022-03-29,Brooklyn Nets,Detroit Pistons,130,123,2022,7,253
+401360953,2022-03-29,Dallas Mavericks,Los Angeles Lakers,128,110,2022,18,238
+401360954,2022-03-29,LA Clippers,Utah Jazz,121,115,2022,6,236
+401360941,2022-03-28,Charlotte Hornets,Denver Nuggets,109,113,2022,-4,222
+401360942,2022-03-28,Cleveland Cavaliers,Orlando Magic,107,101,2022,6,208
+401360943,2022-03-28,Indiana Pacers,Atlanta Hawks,123,132,2022,-9,255
+401360944,2022-03-28,Miami Heat,Sacramento Kings,123,100,2022,23,223
+401360945,2022-03-28,New York Knicks,Chicago Bulls,109,104,2022,5,213
+401360946,2022-03-28,Toronto Raptors,Boston Celtics,115,112,2022,3,227
+401360947,2022-03-28,Houston Rockets,San Antonio Spurs,120,123,2022,-3,243
+401360948,2022-03-28,Memphis Grizzlies,Golden State Warriors,123,95,2022,28,218
+401360949,2022-03-28,Portland Trail Blazers,Oklahoma City Thunder,131,134,2022,-3,265
+401360934,2022-03-27,Detroit Pistons,New York Knicks,102,104,2022,-2,206
+401360935,2022-03-27,Boston Celtics,Minnesota Timberwolves,134,112,2022,22,246
+401360936,2022-03-27,Washington Wizards,Golden State Warriors,123,115,2022,8,238
+401360937,2022-03-27,Phoenix Suns,Philadelphia 76ers,114,104,2022,10,218
+401360938,2022-03-27,New Orleans Pelicans,Los Angeles Lakers,116,108,2022,8,224
+401360939,2022-03-27,Brooklyn Nets,Charlotte Hornets,110,119,2022,-9,229
+401360940,2022-03-27,Dallas Mavericks,Utah Jazz,114,100,2022,14,214
+401360926,2022-03-26,New Orleans Pelicans,San Antonio Spurs,103,107,2022,-4,210
+401360927,2022-03-26,Orlando Magic,Sacramento Kings,110,114,2022,-4,224
+401360928,2022-03-26,Toronto Raptors,Indiana Pacers,131,91,2022,40,222
+401360929,2022-03-26,Cleveland Cavaliers,Chicago Bulls,94,98,2022,-4,192
+401360930,2022-03-26,Miami Heat,Brooklyn Nets,95,110,2022,-15,205
+401360931,2022-03-26,Memphis Grizzlies,Milwaukee Bucks,127,102,2022,25,229
+401360932,2022-03-26,Denver Nuggets,Oklahoma City Thunder,113,107,2022,6,220
+401360933,2022-03-26,Portland Trail Blazers,Houston Rockets,98,115,2022,-17,213
+401360919,2022-03-25,Charlotte Hornets,Utah Jazz,107,101,2022,6,208
+401360920,2022-03-25,Detroit Pistons,Washington Wizards,97,100,2022,-3,197
+401360921,2022-03-25,Atlanta Hawks,Golden State Warriors,121,110,2022,11,231
+401360922,2022-03-25,Miami Heat,New York Knicks,103,111,2022,-8,214
+401360923,2022-03-25,Minnesota Timberwolves,Dallas Mavericks,116,95,2022,21,211
+401360924,2022-03-25,Portland Trail Blazers,Houston Rockets,106,125,2022,-19,231
+401360925,2022-03-25,LA Clippers,Philadelphia 76ers,97,122,2022,-25,219
+401360914,2022-03-24,Toronto Raptors,Cleveland Cavaliers,117,104,2022,13,221
+401360915,2022-03-24,Memphis Grizzlies,Indiana Pacers,133,103,2022,30,236
+401360916,2022-03-24,Milwaukee Bucks,Washington Wizards,114,102,2022,12,216
+401360917,2022-03-24,New Orleans Pelicans,Chicago Bulls,126,109,2022,17,235
+401360918,2022-03-24,Denver Nuggets,Phoenix Suns,130,140,2022,-10,270
+401360903,2022-03-23,Charlotte Hornets,New York Knicks,106,121,2022,-15,227
+401360904,2022-03-23,Detroit Pistons,Atlanta Hawks,122,101,2022,21,223
+401360905,2022-03-23,Indiana Pacers,Sacramento Kings,109,110,2022,-1,219
+401360906,2022-03-23,Boston Celtics,Utah Jazz,125,97,2022,28,222
+401360907,2022-03-23,Miami Heat,Golden State Warriors,104,118,2022,-14,222
+401360908,2022-03-23,Memphis Grizzlies,Brooklyn Nets,132,120,2022,12,252
+401360909,2022-03-23,Minnesota Timberwolves,Phoenix Suns,116,125,2022,-9,241
+401360910,2022-03-23,Oklahoma City Thunder,Orlando Magic,118,102,2022,16,220
+401360911,2022-03-23,Dallas Mavericks,Houston Rockets,110,91,2022,19,201
+401360912,2022-03-23,Los Angeles Lakers,Philadelphia 76ers,121,126,2022,-5,247
+401360913,2022-03-23,Portland Trail Blazers,San Antonio Spurs,96,133,2022,-37,229
+401360899,2022-03-22,Orlando Magic,Golden State Warriors,94,90,2022,4,184
+401360900,2022-03-22,New York Knicks,Atlanta Hawks,111,117,2022,-6,228
+401360901,2022-03-22,Milwaukee Bucks,Chicago Bulls,126,98,2022,28,224
+401360902,2022-03-22,Denver Nuggets,LA Clippers,127,115,2022,12,242
+401360890,2022-03-21,Charlotte Hornets,New Orleans Pelicans,106,103,2022,3,209
+401360891,2022-03-21,Cleveland Cavaliers,Los Angeles Lakers,120,131,2022,-11,251
+401360892,2022-03-21,Detroit Pistons,Portland Trail Blazers,115,119,2022,-4,234
+401360893,2022-03-21,Philadelphia 76ers,Miami Heat,113,106,2022,7,219
+401360894,2022-03-21,Brooklyn Nets,Utah Jazz,114,106,2022,8,220
+401360895,2022-03-21,Chicago Bulls,Toronto Raptors,113,99,2022,14,212
+401360896,2022-03-21,Houston Rockets,Washington Wizards,115,97,2022,18,212
+401360897,2022-03-21,Oklahoma City Thunder,Boston Celtics,123,132,2022,-9,255
+401360898,2022-03-21,Dallas Mavericks,Minnesota Timberwolves,110,108,2022,2,218
+401360881,2022-03-20,Indiana Pacers,Portland Trail Blazers,129,98,2022,31,227
+401360882,2022-03-20,Houston Rockets,Memphis Grizzlies,98,122,2022,-24,220
+401360883,2022-03-20,Atlanta Hawks,New Orleans Pelicans,112,117,2022,-5,229
+401360884,2022-03-20,Orlando Magic,Oklahoma City Thunder,90,85,2022,5,175
+401360885,2022-03-20,Sacramento Kings,Phoenix Suns,124,127,2022,-3,251
+401360886,2022-03-20,New York Knicks,Utah Jazz,93,108,2022,-15,201
+401360887,2022-03-20,Denver Nuggets,Boston Celtics,104,124,2022,-20,228
+401360888,2022-03-20,Philadelphia 76ers,Toronto Raptors,88,93,2022,-5,181
+401360889,2022-03-20,Golden State Warriors,San Antonio Spurs,108,110,2022,-2,218
+401360877,2022-03-19,Minnesota Timberwolves,Milwaukee Bucks,138,119,2022,19,257
+401360878,2022-03-19,Charlotte Hornets,Dallas Mavericks,129,108,2022,21,237
+401360879,2022-03-19,Cleveland Cavaliers,Detroit Pistons,113,109,2022,4,222
+401360880,2022-03-19,Washington Wizards,Los Angeles Lakers,127,119,2022,8,246
+401360875,2022-03-18,Philadelphia 76ers,Dallas Mavericks,111,101,2022,10,212
+401360865,2022-03-18,New York Knicks,Washington Wizards,100,97,2022,3,197
+401360866,2022-03-18,Toronto Raptors,Los Angeles Lakers,123,128,2022,-5,251
+401360872,2022-03-18,Atlanta Hawks,Memphis Grizzlies,120,105,2022,15,225
+401360873,2022-03-18,Brooklyn Nets,Portland Trail Blazers,128,123,2022,5,251
+401360874,2022-03-18,Cleveland Cavaliers,Denver Nuggets,119,116,2022,3,235
+401360867,2022-03-18,Miami Heat,Oklahoma City Thunder,120,108,2022,12,228
+401360868,2022-03-18,Houston Rockets,Indiana Pacers,118,121,2022,-3,239
+401360869,2022-03-18,San Antonio Spurs,New Orleans Pelicans,91,124,2022,-33,215
+401360870,2022-03-18,Utah Jazz,LA Clippers,121,92,2022,29,213
+401360871,2022-03-18,Sacramento Kings,Boston Celtics,97,126,2022,-29,223
+401360876,2022-03-18,Phoenix Suns,Chicago Bulls,129,102,2022,27,231
+401360864,2022-03-17,Orlando Magic,Detroit Pistons,120,134,2022,-14,254
+401360852,2022-03-16,Charlotte Hornets,Atlanta Hawks,116,106,2022,10,222
+401360853,2022-03-16,Cleveland Cavaliers,Philadelphia 76ers,114,118,2022,-4,232
+401360854,2022-03-16,Washington Wizards,Denver Nuggets,109,127,2022,-18,236
+401360855,2022-03-16,Brooklyn Nets,Dallas Mavericks,111,113,2022,-2,224
+401360856,2022-03-16,New York Knicks,Portland Trail Blazers,128,98,2022,30,226
+401360857,2022-03-16,Houston Rockets,Phoenix Suns,112,129,2022,-17,241
+401360858,2022-03-16,Minnesota Timberwolves,Los Angeles Lakers,124,104,2022,20,228
+401360859,2022-03-16,San Antonio Spurs,Oklahoma City Thunder,122,120,2022,2,242
+401360860,2022-03-16,Utah Jazz,Chicago Bulls,125,110,2022,15,235
+401360861,2022-03-16,Golden State Warriors,Boston Celtics,88,110,2022,-22,198
+401360862,2022-03-16,Sacramento Kings,Milwaukee Bucks,126,135,2022,-9,261
+401360863,2022-03-16,LA Clippers,Toronto Raptors,100,103,2022,-3,203
+401360848,2022-03-15,Indiana Pacers,Memphis Grizzlies,102,135,2022,-33,237
+401360849,2022-03-15,Orlando Magic,Brooklyn Nets,108,150,2022,-42,258
+401360850,2022-03-15,Miami Heat,Detroit Pistons,105,98,2022,7,203
+401360851,2022-03-15,New Orleans Pelicans,Phoenix Suns,115,131,2022,-16,246
+401360839,2022-03-14,Cleveland Cavaliers,LA Clippers,120,111,2022,9,231
+401360840,2022-03-14,Atlanta Hawks,Portland Trail Blazers,122,113,2022,9,235
+401360841,2022-03-14,Philadelphia 76ers,Denver Nuggets,110,114,2022,-4,224
+401360842,2022-03-14,Oklahoma City Thunder,Charlotte Hornets,116,134,2022,-18,250
+401360843,2022-03-14,San Antonio Spurs,Minnesota Timberwolves,139,149,2022,-10,288
+401360844,2022-03-14,Golden State Warriors,Washington Wizards,126,112,2022,14,238
+401360845,2022-03-14,Sacramento Kings,Chicago Bulls,112,103,2022,9,215
+401360846,2022-03-14,Utah Jazz,Milwaukee Bucks,111,117,2022,-6,228
+401360847,2022-03-14,Los Angeles Lakers,Toronto Raptors,103,114,2022,-11,217
+401360831,2022-03-13,Brooklyn Nets,New York Knicks,110,107,2022,3,217
+401360832,2022-03-13,Detroit Pistons,LA Clippers,102,106,2022,-4,208
+401360833,2022-03-13,Boston Celtics,Dallas Mavericks,92,95,2022,-3,187
+401360834,2022-03-13,Orlando Magic,Philadelphia 76ers,114,116,2022,-2,230
+401360835,2022-03-13,Atlanta Hawks,Indiana Pacers,131,128,2022,3,259
+401360836,2022-03-13,New Orleans Pelicans,Houston Rockets,130,105,2022,25,235
+401360837,2022-03-13,Oklahoma City Thunder,Memphis Grizzlies,118,125,2022,-7,243
+401360838,2022-03-13,Phoenix Suns,Los Angeles Lakers,140,111,2022,29,251
+401360824,2022-03-12,Miami Heat,Minnesota Timberwolves,104,113,2022,-9,217
+401360825,2022-03-12,Chicago Bulls,Cleveland Cavaliers,101,91,2022,10,192
+401360826,2022-03-12,San Antonio Spurs,Indiana Pacers,108,119,2022,-11,227
+401360827,2022-03-12,Golden State Warriors,Milwaukee Bucks,122,109,2022,13,231
+401360828,2022-03-12,Denver Nuggets,Toronto Raptors,115,127,2022,-12,242
+401360829,2022-03-12,Utah Jazz,Sacramento Kings,134,125,2022,9,259
+401360830,2022-03-12,Portland Trail Blazers,Washington Wizards,127,118,2022,9,245
+401360814,2022-03-11,Orlando Magic,Minnesota Timberwolves,118,110,2022,8,228
+401360815,2022-03-11,Atlanta Hawks,LA Clippers,112,106,2022,6,218
+401360816,2022-03-11,Boston Celtics,Detroit Pistons,114,103,2022,11,217
+401360817,2022-03-11,Miami Heat,Cleveland Cavaliers,117,105,2022,12,222
+401360818,2022-03-11,Houston Rockets,Dallas Mavericks,100,113,2022,-13,213
+401360819,2022-03-11,Memphis Grizzlies,New York Knicks,118,114,2022,4,232
+401360820,2022-03-11,New Orleans Pelicans,Charlotte Hornets,120,142,2022,-22,262
+401360821,2022-03-11,San Antonio Spurs,Utah Jazz,104,102,2022,2,206
+401360822,2022-03-11,Phoenix Suns,Toronto Raptors,112,117,2022,-5,229
+401360823,2022-03-11,Los Angeles Lakers,Washington Wizards,122,109,2022,13,231
+401360812,2022-03-10,Philadelphia 76ers,Brooklyn Nets,100,129,2022,-29,229
+401360813,2022-03-10,Denver Nuggets,Golden State Warriors,102,113,2022,-11,215
+401360800,2022-03-09,Charlotte Hornets,Boston Celtics,101,115,2022,-14,216
+401360801,2022-03-09,Detroit Pistons,Chicago Bulls,108,114,2022,-6,222
+401360802,2022-03-09,Miami Heat,Phoenix Suns,90,111,2022,-21,201
+401360803,2022-03-09,Milwaukee Bucks,Atlanta Hawks,124,115,2022,9,239
+401360804,2022-03-09,Houston Rockets,Los Angeles Lakers,139,130,2022,9,269
+401360805,2022-03-09,Minnesota Timberwolves,Oklahoma City Thunder,132,102,2022,30,234
+401360806,2022-03-09,New Orleans Pelicans,Orlando Magic,102,108,2022,-6,210
+401360807,2022-03-09,Dallas Mavericks,New York Knicks,77,107,2022,-30,184
+401360808,2022-03-09,San Antonio Spurs,Toronto Raptors,104,119,2022,-15,223
+401360809,2022-03-09,Utah Jazz,Portland Trail Blazers,123,85,2022,38,208
+401360810,2022-03-09,Sacramento Kings,Denver Nuggets,100,106,2022,-6,206
+401360811,2022-03-09,LA Clippers,Washington Wizards,115,109,2022,6,224
+401360794,2022-03-08,Charlotte Hornets,Brooklyn Nets,121,132,2022,-11,253
+401360795,2022-03-08,Indiana Pacers,Cleveland Cavaliers,124,127,2022,-3,251
+401360796,2022-03-08,Orlando Magic,Phoenix Suns,99,102,2022,-3,201
+401360797,2022-03-08,Memphis Grizzlies,New Orleans Pelicans,132,111,2022,21,243
+401360798,2022-03-08,Oklahoma City Thunder,Milwaukee Bucks,115,142,2022,-27,257
+401360799,2022-03-08,Golden State Warriors,LA Clippers,112,97,2022,15,209
+401360787,2022-03-07,Detroit Pistons,Atlanta Hawks,113,110,2022,3,223
+401360788,2022-03-07,Philadelphia 76ers,Chicago Bulls,121,106,2022,15,227
+401360789,2022-03-07,Miami Heat,Houston Rockets,123,106,2022,17,229
+401360790,2022-03-07,Minnesota Timberwolves,Portland Trail Blazers,124,81,2022,43,205
+401360791,2022-03-07,Dallas Mavericks,Utah Jazz,111,103,2022,8,214
+401360792,2022-03-07,San Antonio Spurs,Los Angeles Lakers,117,110,2022,7,227
+401401144,2022-03-07,Denver Nuggets,Golden State Warriors,131,124,2022,7,255
+401360793,2022-03-07,Sacramento Kings,New York Knicks,115,131,2022,-16,246
+401360779,2022-03-06,Boston Celtics,Brooklyn Nets,126,120,2022,6,246
+401360780,2022-03-06,Milwaukee Bucks,Phoenix Suns,132,122,2022,10,254
+401360782,2022-03-06,Washington Wizards,Indiana Pacers,133,123,2022,10,256
+401360783,2022-03-06,Houston Rockets,Memphis Grizzlies,123,112,2022,11,235
+401360784,2022-03-06,Oklahoma City Thunder,Utah Jazz,103,116,2022,-13,219
+401360781,2022-03-06,Cleveland Cavaliers,Toronto Raptors,104,96,2022,8,200
+401360786,2022-03-06,Denver Nuggets,New Orleans Pelicans,138,130,2022,8,268
+401360785,2022-03-06,LA Clippers,New York Knicks,93,116,2022,-23,209
+401360773,2022-03-05,Dallas Mavericks,Sacramento Kings,114,113,2022,1,227
+401360774,2022-03-05,Charlotte Hornets,San Antonio Spurs,123,117,2022,6,240
+401360775,2022-03-05,Miami Heat,Philadelphia 76ers,99,82,2022,17,181
+401360776,2022-03-05,Memphis Grizzlies,Orlando Magic,124,96,2022,28,220
+401360777,2022-03-05,Minnesota Timberwolves,Portland Trail Blazers,135,121,2022,14,256
+401360778,2022-03-05,Los Angeles Lakers,Golden State Warriors,124,116,2022,8,240
+401360765,2022-03-04,Detroit Pistons,Indiana Pacers,111,106,2022,5,217
+401360766,2022-03-04,Philadelphia 76ers,Cleveland Cavaliers,125,119,2022,6,244
+401360767,2022-03-04,Washington Wizards,Atlanta Hawks,114,117,2022,-3,231
+401360768,2022-03-04,Chicago Bulls,Milwaukee Bucks,112,118,2022,-6,230
+401401142,2022-03-04,Toronto Raptors,Orlando Magic,97,103,2022,-6,200
+401360769,2022-03-04,New Orleans Pelicans,Utah Jazz,124,90,2022,34,214
+401360770,2022-03-04,Oklahoma City Thunder,Minnesota Timberwolves,101,138,2022,-37,239
+401360771,2022-03-04,Denver Nuggets,Houston Rockets,116,101,2022,15,217
+401360772,2022-03-04,Phoenix Suns,New York Knicks,115,114,2022,1,229
+401360529,2022-03-03,Atlanta Hawks,Chicago Bulls,130,124,2022,6,254
+401360759,2022-03-03,Boston Celtics,Memphis Grizzlies,120,107,2022,13,227
+401360760,2022-03-03,Brooklyn Nets,Miami Heat,107,113,2022,-6,220
+401360761,2022-03-03,Toronto Raptors,Detroit Pistons,106,108,2022,-2,214
+401360762,2022-03-03,Dallas Mavericks,Golden State Warriors,122,113,2022,9,235
+401360763,2022-03-03,San Antonio Spurs,Sacramento Kings,112,115,2022,-3,227
+401360764,2022-03-03,LA Clippers,Los Angeles Lakers,132,111,2022,21,243
+401360751,2022-03-02,Cleveland Cavaliers,Charlotte Hornets,98,119,2022,-21,217
+401360752,2022-03-02,Orlando Magic,Indiana Pacers,114,122,2022,-8,236
+401360753,2022-03-02,Philadelphia 76ers,New York Knicks,123,108,2022,15,231
+401360754,2022-03-02,Houston Rockets,Utah Jazz,127,132,2022,-5,259
+401360755,2022-03-02,Milwaukee Bucks,Miami Heat,120,119,2022,1,239
+401360756,2022-03-02,New Orleans Pelicans,Sacramento Kings,125,95,2022,30,220
+401360757,2022-03-02,Denver Nuggets,Oklahoma City Thunder,107,119,2022,-12,226
+401360758,2022-03-02,Phoenix Suns,Portland Trail Blazers,120,90,2022,30,210
+401360745,2022-03-01,Washington Wizards,Detroit Pistons,116,113,2022,3,229
+401360746,2022-03-01,Boston Celtics,Atlanta Hawks,107,98,2022,9,205
+401360747,2022-03-01,Toronto Raptors,Brooklyn Nets,109,108,2022,1,217
+401360748,2022-03-01,Houston Rockets,LA Clippers,100,113,2022,-13,213
+401360749,2022-03-01,Minnesota Timberwolves,Golden State Warriors,129,114,2022,15,243
+401360750,2022-03-01,Los Angeles Lakers,Dallas Mavericks,104,109,2022,-5,213
+401360739,2022-02-28,Cleveland Cavaliers,Minnesota Timberwolves,122,127,2022,-5,249
+401360740,2022-02-28,Orlando Magic,Indiana Pacers,119,103,2022,16,222
+401360545,2022-02-28,Brooklyn Nets,Toronto Raptors,97,133,2022,-36,230
+401360741,2022-02-28,Miami Heat,Chicago Bulls,112,99,2022,13,211
+401360742,2022-02-28,Memphis Grizzlies,San Antonio Spurs,118,105,2022,13,223
+401360743,2022-02-28,Milwaukee Bucks,Charlotte Hornets,130,106,2022,24,236
+401360744,2022-02-28,Oklahoma City Thunder,Sacramento Kings,110,131,2022,-21,241
+401360731,2022-02-27,New York Knicks,Philadelphia 76ers,109,125,2022,-16,234
+401360732,2022-02-27,Phoenix Suns,Utah Jazz,114,118,2022,-4,232
+401360733,2022-02-27,Indiana Pacers,Boston Celtics,128,107,2022,21,235
+401360734,2022-02-27,Charlotte Hornets,Detroit Pistons,126,127,2022,-1,253
+401360735,2022-02-27,Houston Rockets,LA Clippers,98,99,2022,-1,197
+401360736,2022-02-27,Golden State Warriors,Dallas Mavericks,101,107,2022,-6,208
+401360737,2022-02-27,Portland Trail Blazers,Denver Nuggets,92,124,2022,-32,216
+401360738,2022-02-27,Los Angeles Lakers,New Orleans Pelicans,95,123,2022,-28,218
+401360724,2022-02-26,Detroit Pistons,Boston Celtics,104,113,2022,-9,217
+401360725,2022-02-26,Atlanta Hawks,Toronto Raptors,127,100,2022,27,227
+401360726,2022-02-26,Cleveland Cavaliers,Washington Wizards,92,86,2022,6,178
+401360727,2022-02-26,Miami Heat,San Antonio Spurs,133,129,2022,4,262
+401360728,2022-02-26,Chicago Bulls,Memphis Grizzlies,110,116,2022,-6,226
+401360729,2022-02-26,Milwaukee Bucks,Brooklyn Nets,123,126,2022,-3,249
+401360730,2022-02-26,Denver Nuggets,Sacramento Kings,115,110,2022,5,225
+401360715,2022-02-25,Charlotte Hornets,Toronto Raptors,125,93,2022,32,218
+401360716,2022-02-25,Indiana Pacers,Oklahoma City Thunder,125,129,2022,-4,254
+401360717,2022-02-25,Orlando Magic,Houston Rockets,119,111,2022,8,230
+401360718,2022-02-25,Washington Wizards,San Antonio Spurs,153,157,2022,-4,310
+401360719,2022-02-25,New York Knicks,Miami Heat,100,115,2022,-15,215
+401360720,2022-02-25,Minnesota Timberwolves,Philadelphia 76ers,102,133,2022,-31,235
+401360721,2022-02-25,Phoenix Suns,New Orleans Pelicans,102,117,2022,-15,219
+401360722,2022-02-25,Utah Jazz,Dallas Mavericks,114,109,2022,5,223
+401360723,2022-02-25,Los Angeles Lakers,LA Clippers,102,105,2022,-3,207
+401360708,2022-02-24,Detroit Pistons,Cleveland Cavaliers,106,103,2022,3,209
+401360709,2022-02-24,Brooklyn Nets,Boston Celtics,106,129,2022,-23,235
+401360710,2022-02-24,Chicago Bulls,Atlanta Hawks,112,108,2022,4,220
+401360711,2022-02-24,Minnesota Timberwolves,Memphis Grizzlies,119,114,2022,5,233
+401360712,2022-02-24,Oklahoma City Thunder,Phoenix Suns,104,124,2022,-20,228
+401360713,2022-02-24,Portland Trail Blazers,Golden State Warriors,95,132,2022,-37,227
+401360714,2022-02-24,Sacramento Kings,Denver Nuggets,110,128,2022,-18,238
+401410564,2022-02-20,Team LeBron,Team Durant,163,160,2022,3,323
+401360704,2022-02-17,Charlotte Hornets,Miami Heat,107,111,2022,-4,218
+401401136,2022-02-17,Brooklyn Nets,Washington Wizards,103,117,2022,-14,220
+401360705,2022-02-17,New Orleans Pelicans,Dallas Mavericks,118,125,2022,-7,243
+401360706,2022-02-17,Milwaukee Bucks,Philadelphia 76ers,120,123,2022,-3,243
+401360707,2022-02-17,LA Clippers,Houston Rockets,142,111,2022,31,253
+401360693,2022-02-16,Orlando Magic,Atlanta Hawks,109,130,2022,-21,239
+401360694,2022-02-16,Boston Celtics,Detroit Pistons,111,112,2022,-1,223
+401360695,2022-02-16,Indiana Pacers,Washington Wizards,113,108,2022,5,221
+401360696,2022-02-16,New York Knicks,Brooklyn Nets,106,111,2022,-5,217
+401360697,2022-02-16,Chicago Bulls,Sacramento Kings,125,118,2022,7,243
+401360698,2022-02-16,Memphis Grizzlies,Portland Trail Blazers,119,123,2022,-4,242
+401360699,2022-02-16,Minnesota Timberwolves,Toronto Raptors,91,103,2022,-12,194
+401360700,2022-02-16,Oklahoma City Thunder,San Antonio Spurs,106,114,2022,-8,220
+401360701,2022-02-16,Phoenix Suns,Houston Rockets,124,121,2022,3,245
+401360702,2022-02-16,Golden State Warriors,Denver Nuggets,116,117,2022,-1,233
+401360703,2022-02-16,Los Angeles Lakers,Utah Jazz,106,101,2022,5,207
+401360686,2022-02-15,Atlanta Hawks,Cleveland Cavaliers,124,116,2022,8,240
+401360687,2022-02-15,Miami Heat,Dallas Mavericks,99,107,2022,-8,206
+401360688,2022-02-15,Philadelphia 76ers,Boston Celtics,87,135,2022,-48,222
+401360689,2022-02-15,Milwaukee Bucks,Indiana Pacers,128,119,2022,9,247
+401360690,2022-02-15,Minnesota Timberwolves,Charlotte Hornets,126,120,2022,6,246
+401360691,2022-02-15,New Orleans Pelicans,Memphis Grizzlies,109,121,2022,-12,230
+401360692,2022-02-15,Phoenix Suns,LA Clippers,103,96,2022,7,199
+401360677,2022-02-14,Washington Wizards,Detroit Pistons,103,94,2022,9,197
+401360678,2022-02-14,Brooklyn Nets,Sacramento Kings,109,85,2022,24,194
+401360679,2022-02-14,New York Knicks,Oklahoma City Thunder,123,127,2022,-4,250
+401360680,2022-02-14,Chicago Bulls,San Antonio Spurs,120,109,2022,11,229
+401360681,2022-02-14,Milwaukee Bucks,Portland Trail Blazers,107,122,2022,-15,229
+401360682,2022-02-14,New Orleans Pelicans,Toronto Raptors,120,90,2022,30,210
+401360683,2022-02-14,Denver Nuggets,Orlando Magic,121,111,2022,10,232
+401360684,2022-02-14,Utah Jazz,Houston Rockets,135,101,2022,34,236
+401360685,2022-02-14,LA Clippers,Golden State Warriors,119,104,2022,15,223
+401360675,2022-02-13,Boston Celtics,Atlanta Hawks,105,95,2022,10,200
+401360676,2022-02-13,Indiana Pacers,Minnesota Timberwolves,120,129,2022,-9,249
+401360664,2022-02-12,Portland Trail Blazers,New York Knicks,112,103,2022,9,215
+401360665,2022-02-12,Charlotte Hornets,Memphis Grizzlies,118,125,2022,-7,243
+401360666,2022-02-12,Washington Wizards,Sacramento Kings,110,123,2022,-13,233
+401360667,2022-02-12,New Orleans Pelicans,San Antonio Spurs,114,124,2022,-10,238
+401360668,2022-02-12,Philadelphia 76ers,Cleveland Cavaliers,103,93,2022,10,196
+401360669,2022-02-12,Toronto Raptors,Denver Nuggets,109,110,2022,-1,219
+401360670,2022-02-12,Miami Heat,Brooklyn Nets,115,111,2022,4,226
+401360671,2022-02-12,Chicago Bulls,Oklahoma City Thunder,106,101,2022,5,207
+401360672,2022-02-12,Dallas Mavericks,LA Clippers,97,99,2022,-2,196
+401360673,2022-02-12,Golden State Warriors,Los Angeles Lakers,117,115,2022,2,232
+401360674,2022-02-12,Phoenix Suns,Orlando Magic,132,105,2022,27,237
+401360657,2022-02-11,Detroit Pistons,Charlotte Hornets,119,141,2022,-22,260
+401360658,2022-02-11,Indiana Pacers,Cleveland Cavaliers,113,120,2022,-7,233
+401360659,2022-02-11,Philadelphia 76ers,Oklahoma City Thunder,100,87,2022,13,187
+401360660,2022-02-11,Atlanta Hawks,San Antonio Spurs,121,136,2022,-15,257
+401360661,2022-02-11,Boston Celtics,Denver Nuggets,108,102,2022,6,210
+401360662,2022-02-11,Chicago Bulls,Minnesota Timberwolves,134,122,2022,12,256
+401360663,2022-02-11,Utah Jazz,Orlando Magic,114,99,2022,15,213
+401360650,2022-02-10,Detroit Pistons,Memphis Grizzlies,107,132,2022,-25,239
+401360651,2022-02-10,Washington Wizards,Brooklyn Nets,113,112,2022,1,225
+401360652,2022-02-10,New Orleans Pelicans,Miami Heat,97,112,2022,-15,209
+401360653,2022-02-10,Houston Rockets,Toronto Raptors,120,139,2022,-19,259
+401360654,2022-02-10,Dallas Mavericks,LA Clippers,112,105,2022,7,217
+401360655,2022-02-10,Phoenix Suns,Milwaukee Bucks,131,107,2022,24,238
+401360656,2022-02-10,Golden State Warriors,New York Knicks,114,116,2022,-2,230
+401360644,2022-02-09,Cleveland Cavaliers,San Antonio Spurs,105,92,2022,13,197
+401360645,2022-02-09,Charlotte Hornets,Chicago Bulls,109,121,2022,-12,230
+401360646,2022-02-09,Oklahoma City Thunder,Toronto Raptors,98,117,2022,-19,215
+401360647,2022-02-09,Utah Jazz,Golden State Warriors,111,85,2022,26,196
+401360648,2022-02-09,Portland Trail Blazers,Los Angeles Lakers,107,105,2022,2,212
+401360649,2022-02-09,Sacramento Kings,Minnesota Timberwolves,132,119,2022,13,251
+401360634,2022-02-08,Philadelphia 76ers,Phoenix Suns,109,114,2022,-5,223
+401360635,2022-02-08,Atlanta Hawks,Indiana Pacers,133,112,2022,21,245
+401360636,2022-02-08,Brooklyn Nets,Boston Celtics,91,126,2022,-35,217
+401360637,2022-02-08,Memphis Grizzlies,LA Clippers,135,109,2022,26,244
+401360638,2022-02-08,New Orleans Pelicans,Houston Rockets,110,97,2022,13,207
+401360639,2022-02-08,Dallas Mavericks,Detroit Pistons,116,86,2022,30,202
+401360640,2022-02-08,Denver Nuggets,New York Knicks,132,115,2022,17,247
+401360641,2022-02-08,Los Angeles Lakers,Milwaukee Bucks,116,131,2022,-15,247
+401360642,2022-02-08,Portland Trail Blazers,Orlando Magic,95,113,2022,-18,208
+401360643,2022-02-08,Sacramento Kings,Minnesota Timberwolves,114,134,2022,-20,248
+401360629,2022-02-07,Charlotte Hornets,Toronto Raptors,101,116,2022,-15,217
+401360630,2022-02-07,Washington Wizards,Miami Heat,100,121,2022,-21,221
+401360631,2022-02-07,Chicago Bulls,Phoenix Suns,124,127,2022,-3,251
+401360632,2022-02-07,Oklahoma City Thunder,Golden State Warriors,98,110,2022,-12,208
+401360633,2022-02-07,Utah Jazz,New York Knicks,113,104,2022,9,217
+401360621,2022-02-06,Chicago Bulls,Philadelphia 76ers,108,119,2022,-11,227
+401360622,2022-02-06,Minnesota Timberwolves,Detroit Pistons,118,105,2022,13,223
+401360623,2022-02-06,Denver Nuggets,Brooklyn Nets,124,104,2022,20,228
+401360624,2022-02-06,Cleveland Cavaliers,Indiana Pacers,98,85,2022,13,183
+401360625,2022-02-06,Orlando Magic,Boston Celtics,83,116,2022,-33,199
+401360626,2022-02-06,Dallas Mavericks,Atlanta Hawks,103,94,2022,9,197
+401360627,2022-02-06,Houston Rockets,New Orleans Pelicans,107,120,2022,-13,227
+401360628,2022-02-06,LA Clippers,Milwaukee Bucks,113,137,2022,-24,250
+401360615,2022-02-05,Orlando Magic,Memphis Grizzlies,115,135,2022,-20,250
+401360616,2022-02-05,Charlotte Hornets,Miami Heat,86,104,2022,-18,190
+401360617,2022-02-05,Washington Wizards,Phoenix Suns,80,95,2022,-15,175
+401360618,2022-02-05,Los Angeles Lakers,New York Knicks,122,115,2022,7,237
+401360619,2022-02-05,Portland Trail Blazers,Milwaukee Bucks,108,137,2022,-29,245
+401360620,2022-02-05,Sacramento Kings,Oklahoma City Thunder,113,103,2022,10,216
+401360606,2022-02-04,Charlotte Hornets,Cleveland Cavaliers,101,102,2022,-1,203
+401360607,2022-02-04,Detroit Pistons,Boston Celtics,93,102,2022,-9,195
+401360608,2022-02-04,Indiana Pacers,Chicago Bulls,115,122,2022,-7,237
+401360609,2022-02-04,Toronto Raptors,Atlanta Hawks,125,114,2022,11,239
+401360611,2022-02-04,San Antonio Spurs,Houston Rockets,131,106,2022,25,237
+401360612,2022-02-04,Utah Jazz,Brooklyn Nets,125,102,2022,23,227
+401360613,2022-02-04,Denver Nuggets,New Orleans Pelicans,105,113,2022,-8,218
+401360610,2022-02-04,Dallas Mavericks,Philadelphia 76ers,107,98,2022,9,205
+401360614,2022-02-04,Portland Trail Blazers,Oklahoma City Thunder,93,96,2022,-3,189
+401360601,2022-02-03,Detroit Pistons,Minnesota Timberwolves,117,128,2022,-11,245
+401401143,2022-02-03,San Antonio Spurs,Miami Heat,95,112,2022,-17,207
+401360602,2022-02-03,Atlanta Hawks,Phoenix Suns,124,115,2022,9,239
+401401141,2022-02-03,Toronto Raptors,Chicago Bulls,127,120,2022,7,247
+401360604,2022-02-03,Golden State Warriors,Sacramento Kings,126,114,2022,12,240
+401360605,2022-02-03,LA Clippers,Los Angeles Lakers,111,110,2022,1,221
+401360592,2022-02-02,Indiana Pacers,Orlando Magic,118,119,2022,-1,237
+401360593,2022-02-02,Philadelphia 76ers,Washington Wizards,103,106,2022,-3,209
+401360594,2022-02-02,Boston Celtics,Charlotte Hornets,113,107,2022,6,220
+401360595,2022-02-02,New York Knicks,Memphis Grizzlies,108,120,2022,-12,228
+401360596,2022-02-02,Houston Rockets,Cleveland Cavaliers,115,104,2022,11,219
+401360597,2022-02-02,Dallas Mavericks,Oklahoma City Thunder,114,120,2022,-6,234
+401360598,2022-02-02,Utah Jazz,Denver Nuggets,108,104,2022,4,212
+401360599,2022-02-02,Sacramento Kings,Brooklyn Nets,112,101,2022,11,213
+401360600,2022-02-02,Los Angeles Lakers,Portland Trail Blazers,99,94,2022,5,193
+401360585,2022-02-01,Detroit Pistons,New Orleans Pelicans,101,111,2022,-10,212
+401360587,2022-02-01,Milwaukee Bucks,Washington Wizards,112,98,2022,14,210
+401360603,2022-02-01,Toronto Raptors,Miami Heat,110,106,2022,4,216
+401360588,2022-02-01,Chicago Bulls,Orlando Magic,126,115,2022,11,241
+401360589,2022-02-01,Minnesota Timberwolves,Denver Nuggets,130,115,2022,15,245
+401360590,2022-02-01,San Antonio Spurs,Golden State Warriors,120,124,2022,-4,244
+401360591,2022-02-01,Phoenix Suns,Brooklyn Nets,121,111,2022,10,232
+401360578,2022-01-31,Cleveland Cavaliers,New Orleans Pelicans,93,90,2022,3,183
+401360579,2022-01-31,Indiana Pacers,LA Clippers,122,116,2022,6,238
+401360580,2022-01-31,Philadelphia 76ers,Memphis Grizzlies,122,119,2022,3,241
+401360581,2022-01-31,Boston Celtics,Miami Heat,122,92,2022,30,214
+401360582,2022-01-31,New York Knicks,Sacramento Kings,116,96,2022,20,212
+401360586,2022-01-31,Atlanta Hawks,Toronto Raptors,100,106,2022,-6,206
+401360583,2022-01-31,Houston Rockets,Golden State Warriors,108,122,2022,-14,230
+401360584,2022-01-31,Oklahoma City Thunder,Portland Trail Blazers,98,81,2022,17,179
+401360570,2022-01-30,Atlanta Hawks,Los Angeles Lakers,129,121,2022,8,250
+401360571,2022-01-30,Charlotte Hornets,LA Clippers,90,115,2022,-25,205
+401360572,2022-01-30,Chicago Bulls,Portland Trail Blazers,130,116,2022,14,246
+401360573,2022-01-30,Detroit Pistons,Cleveland Cavaliers,115,105,2022,10,220
+401360574,2022-01-30,Orlando Magic,Dallas Mavericks,110,108,2022,2,218
+401360575,2022-01-30,Milwaukee Bucks,Denver Nuggets,100,136,2022,-36,236
+401360576,2022-01-30,Minnesota Timberwolves,Utah Jazz,126,106,2022,20,232
+401360577,2022-01-30,Phoenix Suns,San Antonio Spurs,115,110,2022,5,225
+401360564,2022-01-29,New Orleans Pelicans,Boston Celtics,97,107,2022,-10,204
+401360565,2022-01-29,Dallas Mavericks,Indiana Pacers,132,105,2022,27,237
+401360566,2022-01-29,Philadelphia 76ers,Sacramento Kings,103,101,2022,2,204
+401360567,2022-01-29,Miami Heat,Toronto Raptors,120,124,2022,-4,244
+401360568,2022-01-29,Memphis Grizzlies,Washington Wizards,115,95,2022,20,210
+401360569,2022-01-29,Golden State Warriors,Brooklyn Nets,110,106,2022,4,216
+401360555,2022-01-28,Orlando Magic,Detroit Pistons,119,103,2022,16,222
+401360554,2022-01-28,Charlotte Hornets,Los Angeles Lakers,117,114,2022,3,231
+401360556,2022-01-28,Atlanta Hawks,Boston Celtics,108,92,2022,16,200
+401360548,2022-01-28,New Orleans Pelicans,Denver Nuggets,105,116,2022,-11,221
+401360557,2022-01-28,Miami Heat,LA Clippers,121,114,2022,7,235
+401360558,2022-01-28,Houston Rockets,Portland Trail Blazers,110,125,2022,-15,235
+401360559,2022-01-28,Memphis Grizzlies,Utah Jazz,119,109,2022,10,228
+401360560,2022-01-28,Oklahoma City Thunder,Indiana Pacers,110,113,2022,-3,223
+401360561,2022-01-28,San Antonio Spurs,Chicago Bulls,131,122,2022,9,253
+401360562,2022-01-28,Phoenix Suns,Minnesota Timberwolves,134,124,2022,10,258
+401360563,2022-01-28,Milwaukee Bucks,New York Knicks,123,108,2022,15,231
+401360552,2022-01-27,Philadelphia 76ers,Los Angeles Lakers,105,87,2022,18,192
+401360553,2022-01-27,Golden State Warriors,Minnesota Timberwolves,124,115,2022,9,239
+401360541,2022-01-26,Cleveland Cavaliers,Milwaukee Bucks,115,99,2022,16,214
+401360542,2022-01-26,Indiana Pacers,Charlotte Hornets,126,158,2022,-32,284
+401360543,2022-01-26,Orlando Magic,LA Clippers,102,111,2022,-9,213
+401360544,2022-01-26,Atlanta Hawks,Sacramento Kings,121,104,2022,17,225
+401360546,2022-01-26,Miami Heat,New York Knicks,110,96,2022,14,206
+401401134,2022-01-26,Brooklyn Nets,Denver Nuggets,118,124,2022,-6,242
+401401140,2022-01-26,Chicago Bulls,Toronto Raptors,111,105,2022,6,216
+401360547,2022-01-26,San Antonio Spurs,Memphis Grizzlies,110,118,2022,-8,228
+401360550,2022-01-26,Utah Jazz,Phoenix Suns,97,105,2022,-8,202
+401360551,2022-01-26,Portland Trail Blazers,Dallas Mavericks,112,132,2022,-20,244
+401360533,2022-01-25,Detroit Pistons,Denver Nuggets,105,110,2022,-5,215
+401360534,2022-01-25,Toronto Raptors,Charlotte Hornets,125,113,2022,12,238
+401360535,2022-01-25,Washington Wizards,LA Clippers,115,116,2022,-1,231
+401401137,2022-01-25,Philadelphia 76ers,New Orleans Pelicans,117,107,2022,10,224
+401360536,2022-01-25,Boston Celtics,Sacramento Kings,128,75,2022,53,203
+401360537,2022-01-25,Brooklyn Nets,Los Angeles Lakers,96,106,2022,-10,202
+401360538,2022-01-25,Houston Rockets,San Antonio Spurs,104,134,2022,-30,238
+401360539,2022-01-25,Golden State Warriors,Dallas Mavericks,130,92,2022,38,222
+401360540,2022-01-25,Portland Trail Blazers,Minnesota Timberwolves,107,109,2022,-2,216
+401360528,2022-01-24,Cleveland Cavaliers,New York Knicks,95,93,2022,2,188
+401360531,2022-01-24,New Orleans Pelicans,Indiana Pacers,117,113,2022,4,230
+401360549,2022-01-24,Oklahoma City Thunder,Chicago Bulls,110,111,2022,-1,221
+401360532,2022-01-24,Phoenix Suns,Utah Jazz,115,109,2022,6,224
+401360517,2022-01-23,New York Knicks,LA Clippers,110,102,2022,8,212
+401360518,2022-01-23,Washington Wizards,Boston Celtics,87,116,2022,-29,203
+401360519,2022-01-23,Miami Heat,Los Angeles Lakers,113,107,2022,6,220
+401360520,2022-01-23,Orlando Magic,Chicago Bulls,114,95,2022,19,209
+401360521,2022-01-23,Toronto Raptors,Portland Trail Blazers,105,114,2022,-9,219
+401360522,2022-01-23,Charlotte Hornets,Atlanta Hawks,91,113,2022,-22,204
+401360523,2022-01-23,San Antonio Spurs,Philadelphia 76ers,109,115,2022,-6,224
+401360524,2022-01-23,Dallas Mavericks,Memphis Grizzlies,104,91,2022,13,195
+401360525,2022-01-23,Minnesota Timberwolves,Brooklyn Nets,136,125,2022,11,261
+401360526,2022-01-23,Denver Nuggets,Detroit Pistons,117,111,2022,6,228
+401360527,2022-01-23,Golden State Warriors,Utah Jazz,94,92,2022,2,186
+401360515,2022-01-22,Milwaukee Bucks,Sacramento Kings,133,127,2022,6,260
+401360514,2022-01-22,Cleveland Cavaliers,Oklahoma City Thunder,94,87,2022,7,181
+401360516,2022-01-22,Phoenix Suns,Indiana Pacers,113,103,2022,10,216
+401360503,2022-01-21,Charlotte Hornets,Oklahoma City Thunder,121,98,2022,23,219
+401360504,2022-01-21,Orlando Magic,Los Angeles Lakers,105,116,2022,-11,221
+401360505,2022-01-21,Philadelphia 76ers,LA Clippers,101,102,2022,-1,203
+401360506,2022-01-21,Atlanta Hawks,Miami Heat,110,108,2022,2,218
+401360507,2022-01-21,Boston Celtics,Portland Trail Blazers,105,109,2022,-4,214
+401360508,2022-01-21,Washington Wizards,Toronto Raptors,105,109,2022,-4,214
+401360509,2022-01-21,Milwaukee Bucks,Chicago Bulls,94,90,2022,4,184
+401360510,2022-01-21,San Antonio Spurs,Brooklyn Nets,102,117,2022,-15,219
+401360511,2022-01-21,Denver Nuggets,Memphis Grizzlies,118,122,2022,-4,240
+401360512,2022-01-21,Utah Jazz,Detroit Pistons,111,101,2022,10,212
+401360513,2022-01-21,Golden State Warriors,Houston Rockets,105,103,2022,2,208
+401360500,2022-01-20,New York Knicks,New Orleans Pelicans,91,102,2022,-11,193
+401360501,2022-01-20,Dallas Mavericks,Phoenix Suns,101,109,2022,-8,210
+401360502,2022-01-20,Golden State Warriors,Indiana Pacers,117,121,2022,-4,238
+401360487,2022-01-19,Philadelphia 76ers,Orlando Magic,123,110,2022,13,233
+401360488,2022-01-19,Washington Wizards,Brooklyn Nets,118,119,2022,-1,237
+401360489,2022-01-19,Atlanta Hawks,Minnesota Timberwolves,134,122,2022,12,256
+401360490,2022-01-19,Boston Celtics,Charlotte Hornets,102,111,2022,-9,213
+401360491,2022-01-19,Miami Heat,Portland Trail Blazers,104,92,2022,12,196
+401360492,2022-01-19,Chicago Bulls,Cleveland Cavaliers,117,104,2022,13,221
+401360493,2022-01-19,Milwaukee Bucks,Memphis Grizzlies,126,114,2022,12,240
+401360494,2022-01-19,Dallas Mavericks,Toronto Raptors,102,98,2022,4,200
+401360495,2022-01-19,San Antonio Spurs,Oklahoma City Thunder,118,96,2022,22,214
+401360496,2022-01-19,Utah Jazz,Houston Rockets,111,116,2022,-5,227
+401360497,2022-01-19,Denver Nuggets,LA Clippers,130,128,2022,2,258
+401360498,2022-01-19,Sacramento Kings,Detroit Pistons,131,133,2022,-2,264
+401360499,2022-01-19,Los Angeles Lakers,Indiana Pacers,104,111,2022,-7,215
+401360485,2022-01-18,New York Knicks,Minnesota Timberwolves,110,112,2022,-2,222
+401360486,2022-01-18,Golden State Warriors,Detroit Pistons,102,86,2022,16,188
+401360473,2022-01-17,Boston Celtics,New Orleans Pelicans,104,92,2022,12,196
+401360474,2022-01-17,New York Knicks,Charlotte Hornets,87,97,2022,-10,184
+401360475,2022-01-17,Washington Wizards,Philadelphia 76ers,117,98,2022,19,215
+401360476,2022-01-17,Cleveland Cavaliers,Brooklyn Nets,114,107,2022,7,221
+401360477,2022-01-17,Memphis Grizzlies,Chicago Bulls,119,106,2022,13,225
+401360478,2022-01-17,LA Clippers,Indiana Pacers,139,133,2022,6,272
+401360479,2022-01-17,Atlanta Hawks,Milwaukee Bucks,121,114,2022,7,235
+401360480,2022-01-17,Orlando Magic,Portland Trail Blazers,88,98,2022,-10,186
+401360481,2022-01-17,Miami Heat,Toronto Raptors,104,99,2022,5,203
+401360482,2022-01-17,Dallas Mavericks,Oklahoma City Thunder,104,102,2022,2,206
+401360483,2022-01-17,San Antonio Spurs,Phoenix Suns,107,121,2022,-14,228
+401360484,2022-01-17,Los Angeles Lakers,Utah Jazz,101,95,2022,6,196
+401360436,2022-01-16,Detroit Pistons,Phoenix Suns,108,135,2022,-27,243
+401360470,2022-01-16,Sacramento Kings,Houston Rockets,112,118,2022,-6,230
+401360471,2022-01-16,Minnesota Timberwolves,Golden State Warriors,119,99,2022,20,218
+401360472,2022-01-16,Denver Nuggets,Utah Jazz,102,125,2022,-23,227
+401360460,2022-01-15,Milwaukee Bucks,Toronto Raptors,96,103,2022,-7,199
+401360461,2022-01-15,Washington Wizards,Portland Trail Blazers,110,115,2022,-5,225
+401360462,2022-01-15,Atlanta Hawks,New York Knicks,108,117,2022,-9,225
+401360463,2022-01-15,Brooklyn Nets,New Orleans Pelicans,120,105,2022,15,225
+401360464,2022-01-15,Miami Heat,Philadelphia 76ers,98,109,2022,-11,207
+401360465,2022-01-15,Oklahoma City Thunder,Cleveland Cavaliers,102,107,2022,-5,209
+401360466,2022-01-15,Boston Celtics,Chicago Bulls,114,112,2022,2,226
+401360467,2022-01-15,San Antonio Spurs,LA Clippers,101,94,2022,7,195
+401360468,2022-01-15,Denver Nuggets,Los Angeles Lakers,133,96,2022,37,229
+401360469,2022-01-15,Dallas Mavericks,Orlando Magic,108,92,2022,16,200
+401360451,2022-01-14,Charlotte Hornets,Orlando Magic,109,116,2022,-7,225
+401360452,2022-01-14,Detroit Pistons,Toronto Raptors,103,87,2022,16,190
+401360453,2022-01-14,Indiana Pacers,Phoenix Suns,94,112,2022,-18,206
+401360454,2022-01-14,Philadelphia 76ers,Boston Celtics,111,99,2022,12,210
+401360456,2022-01-14,Chicago Bulls,Golden State Warriors,96,138,2022,-42,234
+401360455,2022-01-14,Miami Heat,Atlanta Hawks,124,118,2022,6,242
+401360457,2022-01-14,San Antonio Spurs,Cleveland Cavaliers,109,114,2022,-5,223
+401360458,2022-01-14,Memphis Grizzlies,Dallas Mavericks,85,112,2022,-27,197
+401360459,2022-01-14,Sacramento Kings,Houston Rockets,126,114,2022,12,240
+401360446,2022-01-13,Milwaukee Bucks,Golden State Warriors,118,99,2022,19,217
+401360447,2022-01-13,Memphis Grizzlies,Minnesota Timberwolves,116,108,2022,8,224
+401360448,2022-01-13,New Orleans Pelicans,LA Clippers,113,89,2022,24,202
+401360449,2022-01-13,Brooklyn Nets,Oklahoma City Thunder,109,130,2022,-21,239
+401360450,2022-01-13,Denver Nuggets,Portland Trail Blazers,140,108,2022,32,248
+401360437,2022-01-12,Indiana Pacers,Boston Celtics,100,119,2022,-19,219
+401360438,2022-01-12,Philadelphia 76ers,Charlotte Hornets,98,109,2022,-11,207
+401360439,2022-01-12,Washington Wizards,Orlando Magic,112,106,2022,6,218
+401360440,2022-01-12,Atlanta Hawks,Miami Heat,91,115,2022,-24,206
+401360441,2022-01-12,New York Knicks,Dallas Mavericks,108,85,2022,23,193
+401360442,2022-01-12,San Antonio Spurs,Houston Rockets,124,128,2022,-4,252
+401360443,2022-01-12,Utah Jazz,Cleveland Cavaliers,91,111,2022,-20,202
+401360444,2022-01-12,Chicago Bulls,Brooklyn Nets,112,138,2022,-26,250
+401360445,2022-01-12,Sacramento Kings,Los Angeles Lakers,125,116,2022,9,241
+401360431,2022-01-11,Washington Wizards,Oklahoma City Thunder,122,118,2022,4,240
+401360432,2022-01-11,Toronto Raptors,Phoenix Suns,95,99,2022,-4,194
+401360433,2022-01-11,Memphis Grizzlies,Golden State Warriors,116,108,2022,8,224
+401360434,2022-01-11,New Orleans Pelicans,Minnesota Timberwolves,128,125,2022,3,253
+401401138,2022-01-11,Chicago Bulls,Detroit Pistons,133,87,2022,46,220
+401360435,2022-01-11,LA Clippers,Denver Nuggets,87,85,2022,2,172
+401360426,2022-01-10,Charlotte Hornets,Milwaukee Bucks,103,99,2022,4,202
+401360427,2022-01-10,Detroit Pistons,Utah Jazz,126,116,2022,10,242
+401360428,2022-01-10,Boston Celtics,Indiana Pacers,101,98,2022,3,199
+401360429,2022-01-10,New York Knicks,San Antonio Spurs,111,96,2022,15,207
+401360530,2022-01-10,Houston Rockets,Philadelphia 76ers,91,111,2022,-20,202
+401360430,2022-01-10,Sacramento Kings,Cleveland Cavaliers,108,109,2022,-1,217
+401401133,2022-01-10,Portland Trail Blazers,Brooklyn Nets,114,108,2022,6,222
+401360421,2022-01-09,Brooklyn Nets,San Antonio Spurs,121,119,2022,2,240
+401360416,2022-01-09,LA Clippers,Atlanta Hawks,106,93,2022,13,199
+401360417,2022-01-09,Orlando Magic,Washington Wizards,100,102,2022,-2,202
+401360418,2022-01-09,Toronto Raptors,New Orleans Pelicans,105,101,2022,4,206
+401360419,2022-01-09,Houston Rockets,Minnesota Timberwolves,123,141,2022,-18,264
+401360420,2022-01-09,Oklahoma City Thunder,Denver Nuggets,95,99,2022,-4,194
+401360422,2022-01-09,Dallas Mavericks,Chicago Bulls,113,99,2022,14,212
+401360423,2022-01-09,Golden State Warriors,Cleveland Cavaliers,96,82,2022,14,178
+401360424,2022-01-09,Portland Trail Blazers,Sacramento Kings,103,88,2022,15,191
+401360425,2022-01-09,Los Angeles Lakers,Memphis Grizzlies,119,127,2022,-8,246
+401360410,2022-01-08,LA Clippers,Memphis Grizzlies,108,123,2022,-15,231
+401360411,2022-01-08,Charlotte Hornets,Milwaukee Bucks,114,106,2022,8,220
+401360412,2022-01-08,Detroit Pistons,Orlando Magic,97,92,2022,5,189
+401360413,2022-01-08,Indiana Pacers,Utah Jazz,125,113,2022,12,238
+401360414,2022-01-08,Boston Celtics,New York Knicks,99,75,2022,24,174
+401360415,2022-01-08,Phoenix Suns,Miami Heat,100,123,2022,-23,223
+401360401,2022-01-07,Philadelphia 76ers,San Antonio Spurs,119,100,2022,19,219
+401360402,2022-01-07,Brooklyn Nets,Milwaukee Bucks,109,121,2022,-12,230
+401360403,2022-01-07,Toronto Raptors,Utah Jazz,122,108,2022,14,230
+401360404,2022-01-07,Chicago Bulls,Washington Wizards,130,122,2022,8,252
+401360405,2022-01-07,Houston Rockets,Dallas Mavericks,106,130,2022,-24,236
+401360406,2022-01-07,Oklahoma City Thunder,Minnesota Timberwolves,105,135,2022,-30,240
+401360407,2022-01-07,Denver Nuggets,Sacramento Kings,121,111,2022,10,232
+401360408,2022-01-07,Los Angeles Lakers,Atlanta Hawks,134,118,2022,16,252
+401360409,2022-01-07,Portland Trail Blazers,Cleveland Cavaliers,101,114,2022,-13,215
+401360397,2022-01-06,New York Knicks,Boston Celtics,108,105,2022,3,213
+401360398,2022-01-06,Memphis Grizzlies,Detroit Pistons,118,88,2022,30,206
+401360399,2022-01-06,New Orleans Pelicans,Golden State Warriors,101,96,2022,5,197
+401360400,2022-01-06,Phoenix Suns,LA Clippers,106,89,2022,17,195
+401360386,2022-01-05,Charlotte Hornets,Detroit Pistons,140,111,2022,29,251
+401360387,2022-01-05,Orlando Magic,Philadelphia 76ers,106,116,2022,-10,222
+401360388,2022-01-05,Washington Wizards,Houston Rockets,111,114,2022,-3,225
+401360389,2022-01-05,Boston Celtics,San Antonio Spurs,97,99,2022,-2,196
+401360390,2022-01-05,Indiana Pacers,Brooklyn Nets,121,129,2022,-8,250
+401360391,2022-01-05,Dallas Mavericks,Golden State Warriors,99,82,2022,17,181
+401360392,2022-01-05,Milwaukee Bucks,Toronto Raptors,111,117,2022,-6,228
+401360393,2022-01-05,Minnesota Timberwolves,Oklahoma City Thunder,98,90,2022,8,188
+401360394,2022-01-05,Denver Nuggets,Utah Jazz,109,115,2022,-6,224
+401360395,2022-01-05,Portland Trail Blazers,Miami Heat,109,115,2022,-6,224
+401360396,2022-01-05,Sacramento Kings,Atlanta Hawks,102,108,2022,-6,210
+401360381,2022-01-04,Cleveland Cavaliers,Memphis Grizzlies,106,110,2022,-4,216
+401360382,2022-01-04,Toronto Raptors,San Antonio Spurs,129,104,2022,25,233
+401360383,2022-01-04,New York Knicks,Indiana Pacers,104,94,2022,10,198
+401360384,2022-01-04,New Orleans Pelicans,Phoenix Suns,110,123,2022,-13,233
+401360385,2022-01-04,Los Angeles Lakers,Sacramento Kings,122,114,2022,8,236
+401360371,2022-01-03,Philadelphia 76ers,Houston Rockets,133,113,2022,20,246
+401360372,2022-01-03,Washington Wizards,Charlotte Hornets,124,121,2022,3,245
+401360373,2022-01-03,Brooklyn Nets,Memphis Grizzlies,104,118,2022,-14,222
+401360374,2022-01-03,Chicago Bulls,Orlando Magic,102,98,2022,4,200
+401360375,2022-01-03,Milwaukee Bucks,Detroit Pistons,106,115,2022,-9,221
+401360376,2022-01-03,New Orleans Pelicans,Utah Jazz,104,115,2022,-11,219
+401360377,2022-01-03,Dallas Mavericks,Denver Nuggets,103,89,2022,14,192
+401360378,2022-01-03,Golden State Warriors,Miami Heat,115,108,2022,7,223
+401360379,2022-01-03,Portland Trail Blazers,Atlanta Hawks,136,131,2022,5,267
+401360380,2022-01-03,LA Clippers,Minnesota Timberwolves,104,122,2022,-18,226
+401360364,2022-01-02,Toronto Raptors,New York Knicks,120,105,2022,15,225
+401360365,2022-01-02,Boston Celtics,Orlando Magic,116,111,2022,5,227
+401360366,2022-01-02,Cleveland Cavaliers,Indiana Pacers,108,104,2022,4,212
+401360367,2022-01-02,Sacramento Kings,Miami Heat,115,113,2022,2,228
+401360368,2022-01-02,Charlotte Hornets,Phoenix Suns,99,133,2022,-34,232
+401360369,2022-01-02,Oklahoma City Thunder,Dallas Mavericks,86,95,2022,-9,181
+401360370,2022-01-02,Los Angeles Lakers,Minnesota Timberwolves,108,103,2022,5,211
+401360358,2022-01-01,Milwaukee Bucks,New Orleans Pelicans,136,113,2022,23,249
+401360359,2022-01-01,Detroit Pistons,San Antonio Spurs,117,116,2022,1,233
+401360360,2022-01-01,Washington Wizards,Chicago Bulls,119,120,2022,-1,239
+401360361,2022-01-01,Brooklyn Nets,LA Clippers,116,120,2022,-4,236
+401360362,2022-01-01,Houston Rockets,Denver Nuggets,111,124,2022,-13,235
+401360363,2022-01-01,Utah Jazz,Golden State Warriors,116,123,2022,-7,239
+401360348,2021-12-31,Boston Celtics,Phoenix Suns,123,108,2022,15,231
+401360349,2021-12-31,Indiana Pacers,Chicago Bulls,106,108,2022,-2,214
+401360350,2021-12-31,Sacramento Kings,Dallas Mavericks,96,112,2022,-16,208
+401360351,2021-12-31,Houston Rockets,Miami Heat,110,120,2022,-10,230
+401360352,2021-12-31,Cleveland Cavaliers,Atlanta Hawks,118,121,2022,-3,239
+401360353,2021-12-31,Toronto Raptors,LA Clippers,116,108,2022,8,224
+401360354,2021-12-31,Memphis Grizzlies,San Antonio Spurs,118,105,2022,13,223
+401360355,2021-12-31,Oklahoma City Thunder,New York Knicks,95,80,2022,15,175
+401360356,2021-12-31,Utah Jazz,Minnesota Timberwolves,120,108,2022,12,228
+401360357,2021-12-31,Los Angeles Lakers,Portland Trail Blazers,139,106,2022,33,245
+401360344,2021-12-30,Brooklyn Nets,Philadelphia 76ers,102,110,2022,-8,212
+401360345,2021-12-30,Orlando Magic,Milwaukee Bucks,118,136,2022,-18,254
+401360346,2021-12-30,Washington Wizards,Cleveland Cavaliers,110,93,2022,17,203
+401360335,2021-12-29,Detroit Pistons,New York Knicks,85,94,2022,-9,179
+401360336,2021-12-29,Indiana Pacers,Charlotte Hornets,108,116,2022,-8,224
+401360337,2021-12-29,Boston Celtics,LA Clippers,82,91,2022,-9,173
+401360338,2021-12-29,Chicago Bulls,Atlanta Hawks,131,117,2022,14,248
+401360339,2021-12-29,Memphis Grizzlies,Los Angeles Lakers,104,99,2022,5,203
+401360341,2021-12-29,Phoenix Suns,Oklahoma City Thunder,115,97,2022,18,212
+401360342,2021-12-29,Portland Trail Blazers,Utah Jazz,105,120,2022,-15,225
+401360343,2021-12-29,Sacramento Kings,Dallas Mavericks,95,94,2022,1,189
+401360327,2021-12-28,Orlando Magic,Milwaukee Bucks,110,127,2022,-17,237
+401360328,2021-12-28,Miami Heat,Washington Wizards,119,112,2022,7,231
+401360329,2021-12-28,Toronto Raptors,Philadelphia 76ers,109,114,2022,-5,223
+401360330,2021-12-28,Houston Rockets,Los Angeles Lakers,123,132,2022,-9,255
+401360331,2021-12-28,Minnesota Timberwolves,New York Knicks,88,96,2022,-8,184
+401360332,2021-12-28,New Orleans Pelicans,Cleveland Cavaliers,108,104,2022,4,212
+401360333,2021-12-28,Golden State Warriors,Denver Nuggets,86,89,2022,-3,175
+401360334,2021-12-28,Sacramento Kings,Oklahoma City Thunder,117,111,2022,6,228
+401360320,2021-12-27,Charlotte Hornets,Houston Rockets,123,99,2022,24,222
+401360321,2021-12-27,Atlanta Hawks,Chicago Bulls,118,130,2022,-12,248
+401360322,2021-12-27,Minnesota Timberwolves,Boston Celtics,108,103,2022,5,211
+401360323,2021-12-27,San Antonio Spurs,Utah Jazz,104,110,2022,-6,214
+401360324,2021-12-27,Phoenix Suns,Memphis Grizzlies,113,114,2022,-1,227
+401360325,2021-12-27,Portland Trail Blazers,Dallas Mavericks,117,132,2022,-15,249
+401360326,2021-12-27,LA Clippers,Brooklyn Nets,108,124,2022,-16,232
+401360312,2021-12-26,Miami Heat,Orlando Magic,93,83,2022,10,176
+401360313,2021-12-26,Cleveland Cavaliers,Toronto Raptors,144,99,2022,45,243
+401360314,2021-12-26,Washington Wizards,Philadelphia 76ers,96,117,2022,-21,213
+401360315,2021-12-26,Sacramento Kings,Memphis Grizzlies,102,127,2022,-25,229
+401360316,2021-12-26,Oklahoma City Thunder,New Orleans Pelicans,117,112,2022,5,229
+401360317,2021-12-26,San Antonio Spurs,Detroit Pistons,144,109,2022,35,253
+401360318,2021-12-26,Chicago Bulls,Indiana Pacers,113,105,2022,8,218
+401360319,2021-12-26,LA Clippers,Denver Nuggets,100,103,2022,-3,203
+401358781,2021-12-25,New York Knicks,Atlanta Hawks,101,87,2022,14,188
+401358782,2021-12-25,Milwaukee Bucks,Boston Celtics,117,113,2022,4,230
+401358783,2021-12-25,Phoenix Suns,Golden State Warriors,107,116,2022,-9,223
+401358784,2021-12-25,Los Angeles Lakers,Brooklyn Nets,115,122,2022,-7,237
+401358785,2021-12-25,Utah Jazz,Dallas Mavericks,120,116,2022,4,236
+401360300,2021-12-23,Indiana Pacers,Houston Rockets,118,106,2022,12,224
+401360301,2021-12-23,Orlando Magic,New Orleans Pelicans,104,110,2022,-6,214
+401360302,2021-12-23,Philadelphia 76ers,Atlanta Hawks,96,98,2022,-2,194
+401360303,2021-12-23,Miami Heat,Detroit Pistons,115,112,2022,3,227
+401360304,2021-12-23,New York Knicks,Washington Wizards,117,124,2022,-7,241
+401360305,2021-12-23,Dallas Mavericks,Milwaukee Bucks,95,102,2022,-7,197
+401360306,2021-12-23,Denver Nuggets,Charlotte Hornets,107,115,2022,-8,222
+401360307,2021-12-23,Phoenix Suns,Oklahoma City Thunder,113,101,2022,12,214
+401360308,2021-12-23,Utah Jazz,Minnesota Timberwolves,128,116,2022,12,244
+401360309,2021-12-23,Golden State Warriors,Memphis Grizzlies,113,104,2022,9,217
+401360311,2021-12-23,Los Angeles Lakers,San Antonio Spurs,110,138,2022,-28,248
+401360294,2021-12-22,Atlanta Hawks,Orlando Magic,98,104,2022,-6,202
+401360295,2021-12-22,Boston Celtics,Cleveland Cavaliers,111,101,2022,10,212
+401360297,2021-12-22,Milwaukee Bucks,Houston Rockets,126,106,2022,20,232
+401360298,2021-12-22,Oklahoma City Thunder,Denver Nuggets,108,94,2022,14,202
+401360299,2021-12-22,Sacramento Kings,LA Clippers,89,105,2022,-16,194
+401360289,2021-12-21,Miami Heat,Indiana Pacers,125,96,2022,29,221
+401360290,2021-12-21,New York Knicks,Detroit Pistons,105,91,2022,14,196
+401360291,2021-12-21,New Orleans Pelicans,Portland Trail Blazers,111,97,2022,14,208
+401360292,2021-12-21,Dallas Mavericks,Minnesota Timberwolves,114,102,2022,12,216
+401360293,2021-12-21,Los Angeles Lakers,Phoenix Suns,90,108,2022,-18,198
+401360281,2021-12-20,Boston Celtics,Philadelphia 76ers,103,108,2022,-5,211
+401360283,2021-12-20,Chicago Bulls,Houston Rockets,133,118,2022,15,251
+401360284,2021-12-20,Memphis Grizzlies,Oklahoma City Thunder,99,102,2022,-3,201
+401360285,2021-12-20,Utah Jazz,Charlotte Hornets,112,102,2022,10,214
+401360286,2021-12-20,Golden State Warriors,Sacramento Kings,113,98,2022,15,211
+401360287,2021-12-20,LA Clippers,San Antonio Spurs,92,116,2022,-24,208
+401360273,2021-12-19,Detroit Pistons,Miami Heat,100,90,2022,10,190
+401360274,2021-12-19,Memphis Grizzlies,Portland Trail Blazers,100,105,2022,-5,205
+401360275,2021-12-19,Sacramento Kings,San Antonio Spurs,121,114,2022,7,235
+401360272,2021-12-19,Chicago Bulls,Los Angeles Lakers,115,110,2022,5,225
+401360279,2021-12-19,Minnesota Timberwolves,Dallas Mavericks,111,105,2022,6,216
+401360280,2021-12-19,Phoenix Suns,Charlotte Hornets,137,106,2022,31,243
+401360265,2021-12-18,Detroit Pistons,Houston Rockets,107,116,2022,-9,223
+401360269,2021-12-18,Boston Celtics,New York Knicks,114,107,2022,7,221
+401360266,2021-12-18,Brooklyn Nets,Orlando Magic,93,100,2022,-7,193
+401360267,2021-12-18,Toronto Raptors,Golden State Warriors,119,100,2022,19,219
+401360268,2021-12-18,Oklahoma City Thunder,LA Clippers,104,103,2022,1,207
+401360270,2021-12-18,Milwaukee Bucks,Cleveland Cavaliers,90,119,2022,-29,209
+401360271,2021-12-18,Utah Jazz,Washington Wizards,103,109,2022,-6,212
+401360257,2021-12-17,Orlando Magic,Miami Heat,105,115,2022,-10,220
+401360258,2021-12-17,Atlanta Hawks,Denver Nuggets,115,133,2022,-18,248
+401360259,2021-12-17,Boston Celtics,Golden State Warriors,107,111,2022,-4,218
+401360262,2021-12-17,New Orleans Pelicans,Milwaukee Bucks,116,112,2022,4,228
+401360261,2021-12-17,Utah Jazz,San Antonio Spurs,126,128,2022,-2,254
+401360260,2021-12-17,Minnesota Timberwolves,Los Angeles Lakers,110,92,2022,18,202
+401360263,2021-12-17,Portland Trail Blazers,Charlotte Hornets,125,116,2022,9,241
+401360264,2021-12-17,Sacramento Kings,Memphis Grizzlies,105,124,2022,-19,229
+401360252,2021-12-16,Indiana Pacers,Detroit Pistons,122,113,2022,9,235
+401360253,2021-12-16,Brooklyn Nets,Philadelphia 76ers,114,105,2022,9,219
+401360255,2021-12-16,Houston Rockets,New York Knicks,103,116,2022,-13,219
+401360256,2021-12-16,Phoenix Suns,Washington Wizards,118,98,2022,20,216
+401360241,2021-12-15,Cleveland Cavaliers,Houston Rockets,124,89,2022,35,213
+401360242,2021-12-15,Orlando Magic,Atlanta Hawks,99,111,2022,-12,210
+401360243,2021-12-15,Philadelphia 76ers,Miami Heat,96,101,2022,-5,197
+401360244,2021-12-15,Dallas Mavericks,Los Angeles Lakers,104,107,2022,-3,211
+401360245,2021-12-15,Milwaukee Bucks,Indiana Pacers,114,99,2022,15,213
+401360246,2021-12-15,Oklahoma City Thunder,New Orleans Pelicans,110,113,2022,-3,223
+401360247,2021-12-15,San Antonio Spurs,Charlotte Hornets,115,131,2022,-16,246
+401360248,2021-12-15,Denver Nuggets,Minnesota Timberwolves,107,124,2022,-17,231
+401360249,2021-12-15,Utah Jazz,LA Clippers,124,103,2022,21,227
+401360250,2021-12-15,Portland Trail Blazers,Memphis Grizzlies,103,113,2022,-10,216
+401360251,2021-12-15,Sacramento Kings,Washington Wizards,119,105,2022,14,224
+401360237,2021-12-14,Brooklyn Nets,Toronto Raptors,131,129,2022,2,260
+401360238,2021-12-14,New York Knicks,Golden State Warriors,96,105,2022,-9,201
+401360240,2021-12-14,Portland Trail Blazers,Phoenix Suns,107,111,2022,-4,218
+401360228,2021-12-13,Cleveland Cavaliers,Miami Heat,105,94,2022,11,199
+401360229,2021-12-13,Indiana Pacers,Golden State Warriors,100,102,2022,-2,202
+401360230,2021-12-13,Toronto Raptors,Sacramento Kings,124,101,2022,23,225
+401360231,2021-12-13,Atlanta Hawks,Houston Rockets,126,132,2022,-6,258
+401360232,2021-12-13,Boston Celtics,Milwaukee Bucks,117,103,2022,14,220
+401360233,2021-12-13,Memphis Grizzlies,Philadelphia 76ers,126,91,2022,35,217
+401360234,2021-12-13,Dallas Mavericks,Charlotte Hornets,120,96,2022,24,216
+401360235,2021-12-13,Denver Nuggets,Washington Wizards,113,107,2022,6,220
+401360236,2021-12-13,LA Clippers,Phoenix Suns,111,95,2022,16,206
+401360222,2021-12-12,New York Knicks,Milwaukee Bucks,97,112,2022,-15,209
+401360223,2021-12-12,Detroit Pistons,Brooklyn Nets,104,116,2022,-12,220
+401360224,2021-12-12,Oklahoma City Thunder,Dallas Mavericks,84,103,2022,-19,187
+401360225,2021-12-12,San Antonio Spurs,New Orleans Pelicans,112,97,2022,15,209
+401360226,2021-12-12,Portland Trail Blazers,Minnesota Timberwolves,111,116,2022,-5,227
+401360227,2021-12-12,Los Angeles Lakers,Orlando Magic,106,94,2022,12,200
+401360215,2021-12-11,LA Clippers,Orlando Magic,106,104,2022,2,210
+401360216,2021-12-11,Washington Wizards,Utah Jazz,98,123,2022,-25,221
+401360217,2021-12-11,Cleveland Cavaliers,Sacramento Kings,117,103,2022,14,220
+401360218,2021-12-11,Miami Heat,Chicago Bulls,118,92,2022,26,210
+401360219,2021-12-11,Memphis Grizzlies,Houston Rockets,113,106,2022,7,219
+401360220,2021-12-11,Philadelphia 76ers,Golden State Warriors,102,93,2022,9,195
+401360221,2021-12-11,San Antonio Spurs,Denver Nuggets,112,127,2022,-15,239
+401360206,2021-12-10,Charlotte Hornets,Sacramento Kings,124,123,2022,1,247
+401360207,2021-12-10,Indiana Pacers,Dallas Mavericks,106,93,2022,13,199
+401360208,2021-12-10,Atlanta Hawks,Brooklyn Nets,105,113,2022,-8,218
+401360209,2021-12-10,Toronto Raptors,New York Knicks,90,87,2022,3,177
+401360210,2021-12-10,Houston Rockets,Milwaukee Bucks,114,123,2022,-9,237
+401360211,2021-12-10,Minnesota Timberwolves,Cleveland Cavaliers,106,123,2022,-17,229
+401360212,2021-12-10,New Orleans Pelicans,Detroit Pistons,109,93,2022,16,202
+401360213,2021-12-10,Oklahoma City Thunder,Los Angeles Lakers,95,116,2022,-21,211
+401360214,2021-12-10,Phoenix Suns,Boston Celtics,111,90,2022,21,201
+401360203,2021-12-09,Philadelphia 76ers,Utah Jazz,96,118,2022,-22,214
+401360204,2021-12-09,Memphis Grizzlies,Los Angeles Lakers,108,95,2022,13,203
+401360205,2021-12-09,San Antonio Spurs,Denver Nuggets,123,111,2022,12,234
+401360190,2021-12-08,Charlotte Hornets,Philadelphia 76ers,106,110,2022,-4,216
+401360191,2021-12-08,Cleveland Cavaliers,Chicago Bulls,115,92,2022,23,207
+401360192,2021-12-08,Detroit Pistons,Washington Wizards,116,119,2022,-3,235
+401360193,2021-12-08,Indiana Pacers,New York Knicks,122,102,2022,20,224
+401360194,2021-12-08,Miami Heat,Milwaukee Bucks,113,104,2022,9,217
+401360195,2021-12-08,Toronto Raptors,Oklahoma City Thunder,109,110,2022,-1,219
+401360196,2021-12-08,Houston Rockets,Brooklyn Nets,114,104,2022,10,218
+401360197,2021-12-08,Memphis Grizzlies,Dallas Mavericks,96,104,2022,-8,200
+401360198,2021-12-08,Minnesota Timberwolves,Utah Jazz,104,136,2022,-32,240
+401360199,2021-12-08,New Orleans Pelicans,Denver Nuggets,114,120,2022,-6,234
+401360200,2021-12-08,Golden State Warriors,Portland Trail Blazers,104,94,2022,10,198
+401360201,2021-12-08,Sacramento Kings,Orlando Magic,142,130,2022,12,272
+401360202,2021-12-08,LA Clippers,Boston Celtics,114,111,2022,3,225
+401360187,2021-12-07,Dallas Mavericks,Brooklyn Nets,99,102,2022,-3,201
+401360188,2021-12-07,San Antonio Spurs,New York Knicks,109,121,2022,-12,230
+401360189,2021-12-07,Los Angeles Lakers,Boston Celtics,117,102,2022,15,219
+401360177,2021-12-06,Charlotte Hornets,Philadelphia 76ers,124,127,2022,-3,251
+401360178,2021-12-06,Detroit Pistons,Oklahoma City Thunder,103,114,2022,-11,217
+401360179,2021-12-06,Indiana Pacers,Washington Wizards,116,110,2022,6,226
+401360180,2021-12-06,Miami Heat,Memphis Grizzlies,90,105,2022,-15,195
+401360181,2021-12-06,Chicago Bulls,Denver Nuggets,109,97,2022,12,206
+401360182,2021-12-06,Milwaukee Bucks,Cleveland Cavaliers,112,104,2022,8,216
+401360183,2021-12-06,Minnesota Timberwolves,Atlanta Hawks,110,121,2022,-11,231
+401360184,2021-12-06,Phoenix Suns,San Antonio Spurs,108,104,2022,4,212
+401360185,2021-12-06,Golden State Warriors,Orlando Magic,126,95,2022,31,221
+401360186,2021-12-06,Portland Trail Blazers,LA Clippers,90,102,2022,-12,192
+401360173,2021-12-05,Cleveland Cavaliers,Utah Jazz,108,109,2022,-1,217
+401360174,2021-12-05,Atlanta Hawks,Charlotte Hornets,127,130,2022,-3,257
+401360175,2021-12-05,Toronto Raptors,Washington Wizards,102,90,2022,12,192
+401360176,2021-12-05,Houston Rockets,New Orleans Pelicans,118,108,2022,10,226
+401360166,2021-12-04,New York Knicks,Denver Nuggets,99,113,2022,-14,212
+401360167,2021-12-04,Brooklyn Nets,Chicago Bulls,107,111,2022,-4,218
+401360168,2021-12-04,Milwaukee Bucks,Miami Heat,124,102,2022,22,226
+401360169,2021-12-04,Dallas Mavericks,Memphis Grizzlies,90,97,2022,-7,187
+401360170,2021-12-04,Golden State Warriors,San Antonio Spurs,107,112,2022,-5,219
+401360171,2021-12-04,Portland Trail Blazers,Boston Celtics,117,145,2022,-28,262
+401360172,2021-12-04,Sacramento Kings,LA Clippers,104,99,2022,5,203
+401360157,2021-12-03,Indiana Pacers,Miami Heat,104,113,2022,-9,217
+401360158,2021-12-03,Washington Wizards,Cleveland Cavaliers,101,116,2022,-15,217
+401360159,2021-12-03,Atlanta Hawks,Philadelphia 76ers,96,98,2022,-2,194
+401360160,2021-12-03,Brooklyn Nets,Minnesota Timberwolves,110,105,2022,5,215
+401360161,2021-12-03,Houston Rockets,Orlando Magic,118,116,2022,2,234
+401360162,2021-12-03,Dallas Mavericks,New Orleans Pelicans,91,107,2022,-16,198
+401360163,2021-12-03,Utah Jazz,Boston Celtics,137,130,2022,7,267
+401360164,2021-12-03,Golden State Warriors,Phoenix Suns,118,96,2022,22,214
+401360165,2021-12-03,Los Angeles Lakers,LA Clippers,115,119,2022,-4,234
+401360152,2021-12-02,New York Knicks,Chicago Bulls,115,119,2022,-4,234
+401360153,2021-12-02,Toronto Raptors,Milwaukee Bucks,97,93,2022,4,190
+401360154,2021-12-02,Memphis Grizzlies,Oklahoma City Thunder,152,79,2022,73,231
+401360155,2021-12-02,Phoenix Suns,Detroit Pistons,114,103,2022,11,217
+401360156,2021-12-02,Portland Trail Blazers,San Antonio Spurs,83,114,2022,-31,197
+401360143,2021-12-01,Indiana Pacers,Atlanta Hawks,111,114,2022,-3,225
+401360144,2021-12-01,Orlando Magic,Denver Nuggets,108,103,2022,5,211
+401360145,2021-12-01,Washington Wizards,Minnesota Timberwolves,115,107,2022,8,222
+401360146,2021-12-01,Boston Celtics,Philadelphia 76ers,88,87,2022,1,175
+401360147,2021-12-01,Miami Heat,Cleveland Cavaliers,85,111,2022,-26,196
+401360148,2021-12-01,Milwaukee Bucks,Charlotte Hornets,127,125,2022,2,252
+401360149,2021-12-01,New Orleans Pelicans,Dallas Mavericks,107,139,2022,-32,246
+401360150,2021-12-01,Oklahoma City Thunder,Houston Rockets,110,114,2022,-4,224
+401360151,2021-12-01,LA Clippers,Sacramento Kings,115,124,2022,-9,239
+401360138,2021-11-30,Brooklyn Nets,New York Knicks,112,110,2022,2,222
+401360139,2021-11-30,Toronto Raptors,Memphis Grizzlies,91,98,2022,-7,189
+401360140,2021-11-30,Phoenix Suns,Golden State Warriors,104,96,2022,8,200
+401360141,2021-11-30,Portland Trail Blazers,Detroit Pistons,110,92,2022,18,202
+401360142,2021-11-30,Sacramento Kings,Los Angeles Lakers,92,117,2022,-25,209
+401360129,2021-11-29,Philadelphia 76ers,Orlando Magic,101,96,2022,5,197
+401360130,2021-11-29,Miami Heat,Denver Nuggets,111,120,2022,-9,231
+401360131,2021-11-29,Chicago Bulls,Charlotte Hornets,133,119,2022,14,252
+401360132,2021-11-29,Houston Rockets,Oklahoma City Thunder,102,89,2022,13,191
+401360133,2021-11-29,Minnesota Timberwolves,Indiana Pacers,100,98,2022,2,198
+401360134,2021-11-29,Dallas Mavericks,Cleveland Cavaliers,96,114,2022,-18,210
+401360135,2021-11-29,San Antonio Spurs,Washington Wizards,116,99,2022,17,215
+401360136,2021-11-29,Utah Jazz,Portland Trail Blazers,129,107,2022,22,236
+401360137,2021-11-29,LA Clippers,New Orleans Pelicans,104,123,2022,-19,227
+401360124,2021-11-28,LA Clippers,Golden State Warriors,90,105,2022,-15,195
+401360125,2021-11-28,Indiana Pacers,Milwaukee Bucks,100,118,2022,-18,218
+401360126,2021-11-28,Toronto Raptors,Boston Celtics,97,109,2022,-12,206
+401360127,2021-11-28,Memphis Grizzlies,Sacramento Kings,128,101,2022,27,229
+401360128,2021-11-28,Los Angeles Lakers,Detroit Pistons,110,106,2022,4,216
+401360116,2021-11-27,Philadelphia 76ers,Minnesota Timberwolves,120,121,2022,-1,241
+401360117,2021-11-27,Atlanta Hawks,New York Knicks,90,99,2022,-9,189
+401360118,2021-11-27,Brooklyn Nets,Phoenix Suns,107,113,2022,-6,220
+401360119,2021-11-27,Cleveland Cavaliers,Orlando Magic,105,92,2022,13,197
+401360120,2021-11-27,Chicago Bulls,Miami Heat,104,107,2022,-3,211
+401360121,2021-11-27,Houston Rockets,Charlotte Hornets,146,143,2022,3,289
+401360122,2021-11-27,Dallas Mavericks,Washington Wizards,114,120,2022,-6,234
+401360123,2021-11-27,Utah Jazz,New Orleans Pelicans,127,105,2022,22,232
+401360104,2021-11-26,LA Clippers,Detroit Pistons,107,96,2022,11,203
+401360105,2021-11-26,Charlotte Hornets,Minnesota Timberwolves,133,115,2022,18,248
+401360106,2021-11-26,New York Knicks,Phoenix Suns,97,118,2022,-21,215
+401360107,2021-11-26,Orlando Magic,Chicago Bulls,88,123,2022,-35,211
+401360108,2021-11-26,Indiana Pacers,Toronto Raptors,114,97,2022,17,211
+401360109,2021-11-26,Memphis Grizzlies,Atlanta Hawks,100,132,2022,-32,232
+401360110,2021-11-26,Oklahoma City Thunder,Washington Wizards,99,101,2022,-2,200
+401360111,2021-11-26,San Antonio Spurs,Boston Celtics,96,88,2022,8,184
+401360112,2021-11-26,Denver Nuggets,Milwaukee Bucks,109,120,2022,-11,229
+401360113,2021-11-26,Utah Jazz,New Orleans Pelicans,97,98,2022,-1,195
+401360114,2021-11-26,Golden State Warriors,Portland Trail Blazers,118,103,2022,15,221
+401360115,2021-11-26,Los Angeles Lakers,Sacramento Kings,137,141,2022,-4,278
+401360091,2021-11-24,Cleveland Cavaliers,Phoenix Suns,115,120,2022,-5,235
+401360092,2021-11-24,Indiana Pacers,Los Angeles Lakers,116,124,2022,-8,240
+401360093,2021-11-24,Orlando Magic,Charlotte Hornets,99,106,2022,-7,205
+401360094,2021-11-24,Boston Celtics,Brooklyn Nets,104,123,2022,-19,227
+401360095,2021-11-24,Houston Rockets,Chicago Bulls,118,113,2022,5,231
+401360096,2021-11-24,Memphis Grizzlies,Toronto Raptors,113,126,2022,-13,239
+401360097,2021-11-24,Milwaukee Bucks,Detroit Pistons,114,93,2022,21,207
+401360098,2021-11-24,Minnesota Timberwolves,Miami Heat,113,101,2022,12,214
+401360099,2021-11-24,New Orleans Pelicans,Washington Wizards,127,102,2022,25,229
+401360100,2021-11-24,Oklahoma City Thunder,Utah Jazz,104,110,2022,-6,214
+401360101,2021-11-24,San Antonio Spurs,Atlanta Hawks,106,124,2022,-18,230
+401360102,2021-11-24,Golden State Warriors,Philadelphia 76ers,116,96,2022,20,212
+401360103,2021-11-24,Sacramento Kings,Portland Trail Blazers,125,121,2022,4,246
+401360087,2021-11-23,Detroit Pistons,Miami Heat,92,100,2022,-8,192
+401360088,2021-11-23,New York Knicks,Los Angeles Lakers,106,100,2022,6,206
+401360089,2021-11-23,Portland Trail Blazers,Denver Nuggets,119,100,2022,19,219
+401360090,2021-11-23,LA Clippers,Dallas Mavericks,104,112,2022,-8,216
+401360077,2021-11-22,Cleveland Cavaliers,Brooklyn Nets,112,117,2022,-5,229
+401360078,2021-11-22,Washington Wizards,Charlotte Hornets,103,109,2022,-6,212
+401360079,2021-11-22,Atlanta Hawks,Oklahoma City Thunder,113,101,2022,12,214
+401360080,2021-11-22,Boston Celtics,Houston Rockets,108,90,2022,18,198
+401360081,2021-11-22,Chicago Bulls,Indiana Pacers,77,109,2022,-32,186
+401360082,2021-11-22,Milwaukee Bucks,Orlando Magic,123,92,2022,31,215
+401360083,2021-11-22,New Orleans Pelicans,Minnesota Timberwolves,96,110,2022,-14,206
+401360084,2021-11-22,San Antonio Spurs,Phoenix Suns,111,115,2022,-4,226
+401360085,2021-11-22,Utah Jazz,Memphis Grizzlies,118,119,2022,-1,237
+401360086,2021-11-22,Sacramento Kings,Philadelphia 76ers,94,102,2022,-8,196
+401360072,2021-11-21,LA Clippers,Dallas Mavericks,97,91,2022,6,188
+401360073,2021-11-21,Detroit Pistons,Los Angeles Lakers,116,121,2022,-5,237
+401360074,2021-11-21,Chicago Bulls,New York Knicks,109,103,2022,6,212
+401360075,2021-11-21,Phoenix Suns,Denver Nuggets,126,97,2022,29,223
+401360076,2021-11-21,Golden State Warriors,Toronto Raptors,119,104,2022,15,223
+401360063,2021-11-20,New York Knicks,Houston Rockets,106,99,2022,7,205
+401360064,2021-11-20,Indiana Pacers,New Orleans Pelicans,111,94,2022,17,205
+401360065,2021-11-20,Washington Wizards,Miami Heat,103,100,2022,3,203
+401360066,2021-11-20,Atlanta Hawks,Charlotte Hornets,115,105,2022,10,220
+401360067,2021-11-20,Boston Celtics,Oklahoma City Thunder,111,105,2022,6,216
+401360068,2021-11-20,Milwaukee Bucks,Orlando Magic,117,108,2022,9,225
+401360069,2021-11-20,Minnesota Timberwolves,Memphis Grizzlies,138,95,2022,43,233
+401360070,2021-11-20,Portland Trail Blazers,Philadelphia 76ers,118,111,2022,7,229
+401360071,2021-11-20,Sacramento Kings,Utah Jazz,105,123,2022,-18,228
+401360054,2021-11-19,Charlotte Hornets,Indiana Pacers,121,118,2022,3,239
+401360055,2021-11-19,Detroit Pistons,Golden State Warriors,102,105,2022,-3,207
+401360056,2021-11-19,Boston Celtics,Los Angeles Lakers,130,108,2022,22,238
+401360057,2021-11-19,Brooklyn Nets,Orlando Magic,115,113,2022,2,228
+401360058,2021-11-19,Milwaukee Bucks,Oklahoma City Thunder,96,89,2022,7,185
+401360059,2021-11-19,New Orleans Pelicans,LA Clippers,94,81,2022,13,175
+401360060,2021-11-19,Denver Nuggets,Chicago Bulls,108,114,2022,-6,222
+401360061,2021-11-19,Phoenix Suns,Dallas Mavericks,112,104,2022,8,216
+401360062,2021-11-19,Sacramento Kings,Toronto Raptors,89,108,2022,-19,197
+401360048,2021-11-18,Cleveland Cavaliers,Golden State Warriors,89,104,2022,-15,193
+401360049,2021-11-18,Miami Heat,Washington Wizards,112,97,2022,15,209
+401360050,2021-11-18,Memphis Grizzlies,LA Clippers,120,108,2022,12,228
+401360051,2021-11-18,Minnesota Timberwolves,San Antonio Spurs,115,90,2022,25,205
+401360052,2021-11-18,Denver Nuggets,Philadelphia 76ers,89,103,2022,-14,192
+401360053,2021-11-18,Utah Jazz,Toronto Raptors,119,103,2022,16,222
+401360037,2021-11-17,Charlotte Hornets,Washington Wizards,97,87,2022,10,184
+401360038,2021-11-17,Detroit Pistons,Indiana Pacers,97,89,2022,8,186
+401360039,2021-11-17,Atlanta Hawks,Boston Celtics,110,99,2022,11,209
+401360040,2021-11-17,Brooklyn Nets,Cleveland Cavaliers,109,99,2022,10,208
+401360041,2021-11-17,Miami Heat,New Orleans Pelicans,113,98,2022,15,211
+401360042,2021-11-17,New York Knicks,Orlando Magic,98,104,2022,-6,202
+401360043,2021-11-17,Milwaukee Bucks,Los Angeles Lakers,109,102,2022,7,211
+401360044,2021-11-17,Minnesota Timberwolves,Sacramento Kings,107,97,2022,10,204
+401360045,2021-11-17,Oklahoma City Thunder,Houston Rockets,101,89,2022,12,190
+401360046,2021-11-17,Phoenix Suns,Dallas Mavericks,105,98,2022,7,203
+401360047,2021-11-17,Portland Trail Blazers,Chicago Bulls,112,107,2022,5,219
+401360034,2021-11-16,Brooklyn Nets,Golden State Warriors,99,117,2022,-18,216
+401360035,2021-11-16,Utah Jazz,Philadelphia 76ers,120,85,2022,35,205
+401360036,2021-11-16,LA Clippers,San Antonio Spurs,106,92,2022,14,198
+401360023,2021-11-15,Cleveland Cavaliers,Boston Celtics,92,98,2022,-6,190
+401360024,2021-11-15,Detroit Pistons,Sacramento Kings,107,129,2022,-22,236
+401360025,2021-11-15,Washington Wizards,New Orleans Pelicans,105,100,2022,5,205
+401360026,2021-11-15,Atlanta Hawks,Orlando Magic,129,111,2022,18,240
+401360027,2021-11-15,New York Knicks,Indiana Pacers,92,84,2022,8,176
+401360028,2021-11-15,Dallas Mavericks,Denver Nuggets,111,101,2022,10,212
+401360029,2021-11-15,Memphis Grizzlies,Houston Rockets,136,102,2022,34,238
+401360030,2021-11-15,Minnesota Timberwolves,Phoenix Suns,96,99,2022,-3,195
+401360031,2021-11-15,Oklahoma City Thunder,Miami Heat,90,103,2022,-13,193
+401360032,2021-11-15,Portland Trail Blazers,Toronto Raptors,118,113,2022,5,231
+401360033,2021-11-15,Los Angeles Lakers,Chicago Bulls,103,121,2022,-18,224
+401360016,2021-11-14,Los Angeles Lakers,San Antonio Spurs,114,106,2022,8,220
+401360017,2021-11-14,Atlanta Hawks,Milwaukee Bucks,120,100,2022,20,220
+401360018,2021-11-14,Charlotte Hornets,Golden State Warriors,106,102,2022,4,208
+401360019,2021-11-14,Houston Rockets,Phoenix Suns,89,115,2022,-26,204
+401360020,2021-11-14,Oklahoma City Thunder,Brooklyn Nets,96,120,2022,-24,216
+401360021,2021-11-14,Denver Nuggets,Portland Trail Blazers,124,95,2022,29,219
+401360022,2021-11-14,LA Clippers,Chicago Bulls,90,100,2022,-10,190
+401360009,2021-11-13,Utah Jazz,Miami Heat,105,111,2022,-6,216
+401360010,2021-11-13,Indiana Pacers,Philadelphia 76ers,118,113,2022,5,231
+401360011,2021-11-13,Orlando Magic,Washington Wizards,92,104,2022,-12,196
+401360012,2021-11-13,New Orleans Pelicans,Memphis Grizzlies,112,101,2022,11,213
+401360013,2021-11-13,Toronto Raptors,Detroit Pistons,121,127,2022,-6,248
+401360014,2021-11-13,Cleveland Cavaliers,Boston Celtics,91,89,2022,2,180
+401360015,2021-11-13,LA Clippers,Minnesota Timberwolves,129,102,2022,27,231
+401359998,2021-11-12,Charlotte Hornets,New York Knicks,104,96,2022,8,200
+401359999,2021-11-12,Boston Celtics,Milwaukee Bucks,122,113,2022,9,235
+401360000,2021-11-12,Cleveland Cavaliers,Detroit Pistons,98,78,2022,20,176
+401360001,2021-11-12,Houston Rockets,Portland Trail Blazers,92,104,2022,-12,196
+401360002,2021-11-12,Memphis Grizzlies,Phoenix Suns,94,119,2022,-25,213
+401360003,2021-11-12,New Orleans Pelicans,Brooklyn Nets,112,120,2022,-8,232
+401360004,2021-11-12,Oklahoma City Thunder,Sacramento Kings,105,103,2022,2,208
+401360005,2021-11-12,San Antonio Spurs,Dallas Mavericks,109,123,2022,-14,232
+401360006,2021-11-12,Denver Nuggets,Atlanta Hawks,105,96,2022,9,201
+401360007,2021-11-12,Golden State Warriors,Chicago Bulls,119,93,2022,26,212
+401360008,2021-11-12,Los Angeles Lakers,Minnesota Timberwolves,83,107,2022,-24,190
+401359995,2021-11-11,Philadelphia 76ers,Toronto Raptors,109,115,2022,-6,224
+401359996,2021-11-11,Utah Jazz,Indiana Pacers,100,111,2022,-11,211
+401359997,2021-11-11,LA Clippers,Miami Heat,112,109,2022,3,221
+401359982,2021-11-10,Cleveland Cavaliers,Washington Wizards,94,97,2022,-3,191
+401359983,2021-11-10,Orlando Magic,Brooklyn Nets,90,123,2022,-33,213
+401359984,2021-11-10,Boston Celtics,Toronto Raptors,104,88,2022,16,192
+401359985,2021-11-10,New York Knicks,Milwaukee Bucks,100,112,2022,-12,212
+401359986,2021-11-10,Houston Rockets,Detroit Pistons,104,112,2022,-8,216
+401359987,2021-11-10,Chicago Bulls,Dallas Mavericks,117,107,2022,10,224
+401359988,2021-11-10,Memphis Grizzlies,Charlotte Hornets,108,118,2022,-10,226
+401359989,2021-11-10,New Orleans Pelicans,Oklahoma City Thunder,100,108,2022,-8,208
+401359990,2021-11-10,San Antonio Spurs,Sacramento Kings,136,117,2022,19,253
+401359991,2021-11-10,Denver Nuggets,Indiana Pacers,101,98,2022,3,199
+401359992,2021-11-10,Phoenix Suns,Portland Trail Blazers,119,109,2022,10,228
+401359993,2021-11-10,Golden State Warriors,Minnesota Timberwolves,123,110,2022,13,233
+401359994,2021-11-10,Los Angeles Lakers,Miami Heat,120,117,2022,3,237
+401359979,2021-11-09,Philadelphia 76ers,Milwaukee Bucks,109,118,2022,-9,227
+401359980,2021-11-09,Utah Jazz,Atlanta Hawks,110,98,2022,12,208
+401359981,2021-11-09,LA Clippers,Portland Trail Blazers,117,109,2022,8,226
+401359971,2021-11-08,Philadelphia 76ers,New York Knicks,96,103,2022,-7,199
+401359972,2021-11-08,Chicago Bulls,Brooklyn Nets,118,95,2022,23,213
+401359973,2021-11-08,Memphis Grizzlies,Minnesota Timberwolves,125,118,2022,7,243
+401359974,2021-11-08,Dallas Mavericks,New Orleans Pelicans,108,92,2022,16,200
+401359975,2021-11-08,Denver Nuggets,Miami Heat,113,96,2022,17,209
+401359976,2021-11-08,Golden State Warriors,Atlanta Hawks,127,113,2022,14,240
+401359977,2021-11-08,Sacramento Kings,Phoenix Suns,104,109,2022,-5,213
+401359978,2021-11-08,Los Angeles Lakers,Charlotte Hornets,126,123,2022,3,249
+401359963,2021-11-07,Toronto Raptors,Brooklyn Nets,103,116,2022,-13,219
+401359964,2021-11-07,New York Knicks,Cleveland Cavaliers,109,126,2022,-17,235
+401359965,2021-11-07,Orlando Magic,Utah Jazz,107,100,2022,7,207
+401359966,2021-11-07,Washington Wizards,Milwaukee Bucks,101,94,2022,7,195
+401359967,2021-11-07,Sacramento Kings,Indiana Pacers,91,94,2022,-3,185
+401359968,2021-11-07,Oklahoma City Thunder,San Antonio Spurs,99,94,2022,5,193
+401359969,2021-11-07,Golden State Warriors,Houston Rockets,120,107,2022,13,227
+401359970,2021-11-07,LA Clippers,Charlotte Hornets,120,106,2022,14,226
+401359957,2021-11-06,Denver Nuggets,Houston Rockets,95,94,2022,1,189
+401359958,2021-11-06,Miami Heat,Utah Jazz,118,115,2022,3,233
+401359959,2021-11-06,Chicago Bulls,Philadelphia 76ers,105,114,2022,-9,219
+401359960,2021-11-06,Dallas Mavericks,Boston Celtics,107,104,2022,3,211
+401359961,2021-11-06,Phoenix Suns,Atlanta Hawks,121,117,2022,4,238
+401359962,2021-11-06,Portland Trail Blazers,Los Angeles Lakers,105,90,2022,15,195
+401359948,2021-11-05,Detroit Pistons,Brooklyn Nets,90,96,2022,-6,186
+401359949,2021-11-05,Orlando Magic,San Antonio Spurs,89,102,2022,-13,191
+401359950,2021-11-05,Washington Wizards,Memphis Grizzlies,115,87,2022,28,202
+401359951,2021-11-05,Toronto Raptors,Cleveland Cavaliers,101,102,2022,-1,203
+401359952,2021-11-05,Milwaukee Bucks,New York Knicks,98,113,2022,-15,211
+401359953,2021-11-05,Minnesota Timberwolves,LA Clippers,84,104,2022,-20,188
+401359954,2021-11-05,Golden State Warriors,New Orleans Pelicans,126,85,2022,41,211
+401359955,2021-11-05,Portland Trail Blazers,Indiana Pacers,110,106,2022,4,216
+401359956,2021-11-05,Sacramento Kings,Charlotte Hornets,140,110,2022,30,250
+401359943,2021-11-04,Detroit Pistons,Philadelphia 76ers,98,109,2022,-11,207
+401359944,2021-11-04,Atlanta Hawks,Utah Jazz,98,116,2022,-18,214
+401359945,2021-11-04,Miami Heat,Boston Celtics,78,95,2022,-17,173
+401359946,2021-11-04,Phoenix Suns,Houston Rockets,123,111,2022,12,234
+401359947,2021-11-04,Los Angeles Lakers,Oklahoma City Thunder,104,107,2022,-3,211
+401359932,2021-11-03,Cleveland Cavaliers,Portland Trail Blazers,107,104,2022,3,211
+401359933,2021-11-03,Indiana Pacers,New York Knicks,111,98,2022,13,209
+401359934,2021-11-03,Orlando Magic,Boston Celtics,79,92,2022,-13,171
+401359935,2021-11-03,Philadelphia 76ers,Chicago Bulls,103,98,2022,5,201
+401359936,2021-11-03,Washington Wizards,Toronto Raptors,100,109,2022,-9,209
+401359937,2021-11-03,Brooklyn Nets,Atlanta Hawks,117,108,2022,9,225
+401359938,2021-11-03,Memphis Grizzlies,Denver Nuggets,108,106,2022,2,214
+401359939,2021-11-03,Minnesota Timberwolves,LA Clippers,115,126,2022,-11,241
+401359940,2021-11-03,San Antonio Spurs,Dallas Mavericks,108,109,2022,-1,217
+401359941,2021-11-03,Golden State Warriors,Charlotte Hornets,114,92,2022,22,206
+401359942,2021-11-03,Sacramento Kings,New Orleans Pelicans,112,99,2022,13,211
+401359927,2021-11-02,Detroit Pistons,Milwaukee Bucks,89,117,2022,-28,206
+401359928,2021-11-02,Dallas Mavericks,Miami Heat,110,125,2022,-15,235
+401359929,2021-11-02,Utah Jazz,Sacramento Kings,119,113,2022,6,232
+401359930,2021-11-02,Phoenix Suns,New Orleans Pelicans,112,100,2022,12,212
+401359931,2021-11-02,Los Angeles Lakers,Houston Rockets,119,117,2022,2,236
+401359918,2021-11-01,Charlotte Hornets,Cleveland Cavaliers,110,113,2022,-3,223
+401359919,2021-11-01,Indiana Pacers,San Antonio Spurs,131,118,2022,13,249
+401359920,2021-11-01,Philadelphia 76ers,Portland Trail Blazers,113,103,2022,10,216
+401359921,2021-11-01,Atlanta Hawks,Washington Wizards,118,111,2022,7,229
+401359922,2021-11-01,Boston Celtics,Chicago Bulls,114,128,2022,-14,242
+401359923,2021-11-01,New York Knicks,Toronto Raptors,104,113,2022,-9,217
+401359924,2021-11-01,Memphis Grizzlies,Denver Nuggets,106,97,2022,9,203
+401359925,2021-11-01,Minnesota Timberwolves,Orlando Magic,97,115,2022,-18,212
+401359926,2021-11-01,LA Clippers,Oklahoma City Thunder,99,94,2022,5,193
+401359913,2021-10-31,Dallas Mavericks,Sacramento Kings,105,99,2022,6,204
+401359914,2021-10-31,Charlotte Hornets,Portland Trail Blazers,125,113,2022,12,238
+401359915,2021-10-31,Milwaukee Bucks,Utah Jazz,95,107,2022,-12,202
+401359916,2021-10-31,Brooklyn Nets,Detroit Pistons,117,91,2022,26,208
+401359917,2021-10-31,Los Angeles Lakers,Houston Rockets,95,85,2022,10,180
+401359902,2021-10-30,Washington Wizards,Boston Celtics,115,112,2022,3,227
+401359903,2021-10-30,Detroit Pistons,Orlando Magic,110,103,2022,7,213
+401359904,2021-10-30,New Orleans Pelicans,New York Knicks,117,123,2022,-6,240
+401359905,2021-10-30,Indiana Pacers,Toronto Raptors,94,97,2022,-3,191
+401359906,2021-10-30,Philadelphia 76ers,Atlanta Hawks,122,94,2022,28,216
+401359907,2021-10-30,Chicago Bulls,Utah Jazz,107,99,2022,8,206
+401359908,2021-10-30,Memphis Grizzlies,Miami Heat,103,129,2022,-26,232
+401359909,2021-10-30,Milwaukee Bucks,San Antonio Spurs,93,102,2022,-9,195
+401359910,2021-10-30,Golden State Warriors,Oklahoma City Thunder,103,82,2022,21,185
+401359911,2021-10-30,Minnesota Timberwolves,Denver Nuggets,91,93,2022,-2,184
+401359912,2021-10-30,Phoenix Suns,Cleveland Cavaliers,101,92,2022,9,193
+401359895,2021-10-29,Toronto Raptors,Orlando Magic,110,109,2022,1,219
+401359896,2021-10-29,Brooklyn Nets,Indiana Pacers,105,98,2022,7,203
+401359897,2021-10-29,Miami Heat,Charlotte Hornets,114,99,2022,15,213
+401359898,2021-10-29,New Orleans Pelicans,Sacramento Kings,109,113,2022,-4,222
+401359899,2021-10-29,Denver Nuggets,Dallas Mavericks,106,75,2022,31,181
+401359900,2021-10-29,Portland Trail Blazers,LA Clippers,111,92,2022,19,203
+401359901,2021-10-29,Los Angeles Lakers,Cleveland Cavaliers,113,101,2022,12,214
+401359889,2021-10-28,Philadelphia 76ers,Detroit Pistons,110,102,2022,8,212
+401359890,2021-10-28,Washington Wizards,Atlanta Hawks,122,111,2022,11,233
+401359891,2021-10-28,Chicago Bulls,New York Knicks,103,104,2022,-1,207
+401359892,2021-10-28,Houston Rockets,Utah Jazz,91,122,2022,-31,213
+401359893,2021-10-28,Dallas Mavericks,San Antonio Spurs,104,99,2022,5,203
+401359894,2021-10-28,Golden State Warriors,Memphis Grizzlies,101,104,2022,-3,205
+401359879,2021-10-27,Orlando Magic,Charlotte Hornets,111,120,2022,-9,231
+401359880,2021-10-27,Boston Celtics,Washington Wizards,107,116,2022,-9,223
+401359881,2021-10-27,Brooklyn Nets,Miami Heat,93,106,2022,-13,199
+401359882,2021-10-27,Toronto Raptors,Indiana Pacers,118,100,2022,18,218
+401359883,2021-10-27,New Orleans Pelicans,Atlanta Hawks,99,102,2022,-3,201
+401359884,2021-10-27,Milwaukee Bucks,Minnesota Timberwolves,108,113,2022,-5,221
+401359885,2021-10-27,Oklahoma City Thunder,Los Angeles Lakers,123,115,2022,8,238
+401359886,2021-10-27,Phoenix Suns,Sacramento Kings,107,110,2022,-3,217
+401359887,2021-10-27,Portland Trail Blazers,Memphis Grizzlies,116,96,2022,20,212
+401359888,2021-10-27,LA Clippers,Cleveland Cavaliers,79,92,2022,-13,171
+401359874,2021-10-26,New York Knicks,Philadelphia 76ers,112,99,2022,13,211
+401359875,2021-10-26,Oklahoma City Thunder,Golden State Warriors,98,106,2022,-8,204
+401359876,2021-10-26,Dallas Mavericks,Houston Rockets,116,106,2022,10,222
+401359877,2021-10-26,San Antonio Spurs,Los Angeles Lakers,121,125,2022,-4,246
+401359878,2021-10-26,Utah Jazz,Denver Nuggets,122,110,2022,12,232
+401359865,2021-10-25,Charlotte Hornets,Boston Celtics,129,140,2022,-11,269
+401359866,2021-10-25,Indiana Pacers,Milwaukee Bucks,109,119,2022,-10,228
+401359867,2021-10-25,Atlanta Hawks,Detroit Pistons,122,104,2022,18,226
+401359868,2021-10-25,Brooklyn Nets,Washington Wizards,104,90,2022,14,194
+401359869,2021-10-25,Miami Heat,Orlando Magic,107,90,2022,17,197
+401359870,2021-10-25,Toronto Raptors,Chicago Bulls,108,111,2022,-3,219
+401359871,2021-10-25,Minnesota Timberwolves,New Orleans Pelicans,98,107,2022,-9,205
+401359872,2021-10-25,Denver Nuggets,Cleveland Cavaliers,87,99,2022,-12,186
+401359873,2021-10-25,LA Clippers,Portland Trail Blazers,116,86,2022,30,202
+401359859,2021-10-24,Brooklyn Nets,Charlotte Hornets,95,111,2022,-16,206
+401359860,2021-10-24,New York Knicks,Orlando Magic,104,110,2022,-6,214
+401359861,2021-10-24,Houston Rockets,Boston Celtics,97,107,2022,-10,204
+401359862,2021-10-24,Oklahoma City Thunder,Philadelphia 76ers,103,115,2022,-12,218
+401359863,2021-10-24,Sacramento Kings,Golden State Warriors,107,119,2022,-12,226
+401359864,2021-10-24,Los Angeles Lakers,Memphis Grizzlies,121,118,2022,3,239
+401359851,2021-10-23,Cleveland Cavaliers,Atlanta Hawks,101,95,2022,6,196
+401359852,2021-10-23,Indiana Pacers,Miami Heat,102,91,2022,11,193
+401359853,2021-10-23,Toronto Raptors,Dallas Mavericks,95,103,2022,-8,198
+401359854,2021-10-23,Chicago Bulls,Detroit Pistons,97,82,2022,15,179
+401359855,2021-10-23,Minnesota Timberwolves,New Orleans Pelicans,96,89,2022,7,185
+401359856,2021-10-23,San Antonio Spurs,Milwaukee Bucks,111,121,2022,-10,232
+401359857,2021-10-23,Portland Trail Blazers,Phoenix Suns,134,105,2022,29,239
+401359858,2021-10-23,LA Clippers,Memphis Grizzlies,114,120,2022,-6,234
+401359843,2021-10-22,Cleveland Cavaliers,Charlotte Hornets,112,123,2022,-11,235
+401359844,2021-10-22,Orlando Magic,New York Knicks,96,121,2022,-25,217
+401359845,2021-10-22,Washington Wizards,Indiana Pacers,135,134,2022,1,269
+401358779,2021-10-22,Philadelphia 76ers,Brooklyn Nets,109,114,2022,-5,223
+401359846,2021-10-22,Boston Celtics,Toronto Raptors,83,115,2022,-32,198
+401359847,2021-10-22,Chicago Bulls,New Orleans Pelicans,128,112,2022,16,240
+401359848,2021-10-22,Houston Rockets,Oklahoma City Thunder,124,91,2022,33,215
+401359849,2021-10-22,Denver Nuggets,San Antonio Spurs,102,96,2022,6,198
+401358780,2021-10-22,Los Angeles Lakers,Phoenix Suns,105,115,2022,-10,220
+401359850,2021-10-22,Sacramento Kings,Utah Jazz,101,110,2022,-9,211
+401358777,2021-10-21,Atlanta Hawks,Dallas Mavericks,113,87,2022,26,200
+401359842,2021-10-21,Miami Heat,Milwaukee Bucks,137,95,2022,42,232
+401358778,2021-10-21,Golden State Warriors,LA Clippers,115,113,2022,2,228
+401359833,2021-10-20,Charlotte Hornets,Indiana Pacers,123,122,2022,1,245
+401359834,2021-10-20,Detroit Pistons,Chicago Bulls,88,94,2022,-6,182
+401358775,2021-10-20,New York Knicks,Boston Celtics,138,134,2022,4,272
+401359835,2021-10-20,Toronto Raptors,Washington Wizards,83,98,2022,-15,181
+401359836,2021-10-20,Memphis Grizzlies,Cleveland Cavaliers,132,121,2022,11,253
+401359837,2021-10-20,Minnesota Timberwolves,Houston Rockets,124,106,2022,18,230
+401359838,2021-10-20,New Orleans Pelicans,Philadelphia 76ers,97,117,2022,-20,214
+401359839,2021-10-20,San Antonio Spurs,Orlando Magic,123,97,2022,26,220
+401359840,2021-10-20,Utah Jazz,Oklahoma City Thunder,107,86,2022,21,193
+401358776,2021-10-20,Phoenix Suns,Denver Nuggets,98,110,2022,-12,208
+401359841,2021-10-20,Portland Trail Blazers,Sacramento Kings,121,124,2022,-3,245
+401358773,2021-10-19,Milwaukee Bucks,Brooklyn Nets,127,104,2022,23,231
+401358774,2021-10-19,Los Angeles Lakers,Golden State Warriors,114,121,2022,-7,235
