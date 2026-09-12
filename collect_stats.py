@@ -19,15 +19,21 @@ SDV_URLS = {
     "player_box": f"{SDV_BASE}/espn_nba_player_boxscores/player_box_{{year}}.rds",
     "schedule": f"{SDV_BASE}/espn_nba_schedules/nba_schedule_{{year}}.rds",
 }
+# Real espn_nba_team_boxscores schema (verified against the actual release, not assumed):
+# one row per TEAM per game, home/away flag is `team_home_away`, this team's score
+# is `team_score`, and the opponent's name/score are already inlined as
+# `opponent_team_display_name` / `opponent_team_score` — no self-join needed.
 TEAM_BOX_COLS = [
-    "game_id", "season", "game_date", "game_date_time", "team_id", "team_name",
-    "team_location", "team_abbreviation", "home_away", "field_goals_made",
-    "field_goals_attempted", "field_goal_pct", "three_point_field_goals_made",
+    "game_id", "season", "game_date", "game_date_time", "team_id",
+    "team_display_name", "team_location", "team_name", "team_abbreviation",
+    "team_home_away", "team_score", "field_goals_made", "field_goals_attempted",
+    "field_goal_pct", "three_point_field_goals_made",
     "three_point_field_goals_attempted", "three_point_field_goal_pct",
     "free_throws_made", "free_throws_attempted", "free_throw_pct",
-    "offensive_rebounds", "defensive_rebounds", "rebounds", "assists", "steals",
-    "blocks", "turnovers", "fouls", "points", "largest_lead", "team_turnovers",
-    "total_technical_fouls",
+    "offensive_rebounds", "defensive_rebounds", "total_rebounds", "assists",
+    "steals", "blocks", "turnovers", "fouls", "largest_lead", "team_turnovers",
+    "total_technical_fouls", "opponent_team_id", "opponent_team_display_name",
+    "opponent_team_score",
 ]
 PLAYER_BOX_COLS = [
     "game_id", "season", "game_date", "team_name", "team_location",
@@ -57,6 +63,29 @@ def read_rds_url(url: str) -> pd.DataFrame:
         os.unlink(path)
 
 
+def build_games_from_team_box(df: pd.DataFrame, year: int) -> pd.DataFrame:
+    """Reshape one-row-per-team-per-game hoopR data into one-row-per-game,
+    in the same shape merge_data.py already expects from scores_{year}.csv
+    (game_date, home_team, away_team, home_pts, away_pts, actual_spread/total)."""
+    if df.empty or "team_home_away" not in df.columns:
+        return pd.DataFrame()
+    home = df[df["team_home_away"] == "home"].copy()
+    if home.empty:
+        return pd.DataFrame()
+    games = home.rename(columns={
+        "team_display_name": "home_team",
+        "opponent_team_display_name": "away_team",
+        "team_score": "home_pts",
+        "opponent_team_score": "away_pts",
+    })[["game_id", "game_date", "home_team", "away_team", "home_pts", "away_pts"]].copy()
+    games["season"] = year
+    games["home_pts"] = pd.to_numeric(games["home_pts"], errors="coerce")
+    games["away_pts"] = pd.to_numeric(games["away_pts"], errors="coerce")
+    games["actual_spread"] = games["home_pts"] - games["away_pts"]
+    games["actual_total"] = games["home_pts"] + games["away_pts"]
+    return games
+
+
 def fetch_historical_season(year: int, out_dir: str) -> None:
     print(f"\n── Season {year}-{year+1} (Sportsdataverse / hoopR) ──")
     for kind, filename in (
@@ -70,14 +99,17 @@ def fetch_historical_season(year: int, out_dir: str) -> None:
             print(" [404 — not available]")
             continue
         if kind == "team_box":
+            games = build_games_from_team_box(df, year)
+            if not games.empty:
+                games_path = os.path.join(out_dir, f"hoopr_games_{year}.csv")
+                games.to_csv(games_path, index=False)
+                print(f" {len(df)} team-rows, {len(games)} games → {games_path}", end="")
             df = df[[c for c in TEAM_BOX_COLS if c in df.columns]].copy()
-            if "points" in df.columns:
-                df["pts"] = pd.to_numeric(df["points"], errors="coerce")
         elif kind == "player_box":
             df = df[[c for c in PLAYER_BOX_COLS if c in df.columns]].copy()
         path = os.path.join(out_dir, filename)
         df.to_csv(path, index=False)
-        print(f" {len(df)} rows → {path}")
+        print(f" (raw {kind}: {len(df)} rows → {path})")
         time.sleep(1)
 
 
@@ -216,9 +248,23 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
         time.sleep(0.15)
     print(f"  Total: {len(seen_games)} games")
     if team_rows:
+        team_df = pd.DataFrame(team_rows)
         path = os.path.join(out_dir, f"hoopr_team_box_{season_year}.csv")
-        pd.DataFrame(team_rows).to_csv(path, index=False)
+        team_df.to_csv(path, index=False)
         print(f"  Team box → {path} ({len(team_rows)} rows)")
+
+        home = team_df[team_df["home_away"] == "home"].copy()
+        away = team_df[team_df["home_away"] == "away"].copy()
+        keys = [c for c in ("game_id", "season", "game_date") if c in team_df.columns]
+        games = home[keys + ["team_name", "pts"]].rename(columns={"team_name": "home_team", "pts": "home_pts"}).merge(
+            away[keys + ["team_name", "pts"]].rename(columns={"team_name": "away_team", "pts": "away_pts"}),
+            on=keys, how="inner")
+        if not games.empty:
+            games["actual_spread"] = pd.to_numeric(games["home_pts"], errors="coerce") - pd.to_numeric(games["away_pts"], errors="coerce")
+            games["actual_total"] = pd.to_numeric(games["home_pts"], errors="coerce") + pd.to_numeric(games["away_pts"], errors="coerce")
+            games_path = os.path.join(out_dir, f"hoopr_games_{season_year}.csv")
+            games.to_csv(games_path, index=False)
+            print(f"  Games → {games_path} ({len(games)} games)")
     if player_rows:
         path = os.path.join(out_dir, f"hoopr_player_box_{season_year}.csv")
         pd.DataFrame(player_rows).to_csv(path, index=False)
@@ -226,23 +272,15 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
 
 
 def build_stats_master(out_dir: str) -> None:
-    files = sorted(f for f in os.listdir(out_dir) if f.startswith("hoopr_team_box_") and f.endswith(".csv"))
+    """Concatenate the per-season hoopr_games_{year}.csv files (already one-row-per-game,
+    written by fetch_historical_season/fetch_current_season) into a single reference file.
+    merge_data.py reads the per-season files directly and doesn't need this master file —
+    it's just a convenience for eyeballing everything collected so far."""
+    files = sorted(f for f in os.listdir(out_dir) if f.startswith("hoopr_games_") and f.endswith(".csv") and f != "hoopr_games_master.csv")
     if not files:
-        print("  No hoopR team box files found.")
+        print("  No hoopr_games_*.csv files found.")
         return
-    master = pd.concat([pd.read_csv(os.path.join(out_dir, f)) for f in files], ignore_index=True)
-    if "home_away" not in master.columns:
-        master.to_csv(os.path.join(out_dir, "hoopr_master.csv"), index=False)
-        return
-    home = master[master["home_away"].astype(str).str.lower() == "home"].copy()
-    away = master[master["home_away"].astype(str).str.lower() == "away"].copy()
-    keys = [c for c in ("game_id", "season", "game_date") if c in master.columns]
-    home = home.rename(columns={c: f"home_{c}" for c in home.columns if c not in keys})
-    away = away.rename(columns={c: f"away_{c}" for c in away.columns if c not in keys})
-    games = home.merge(away, on=keys, how="inner")
-    if "home_pts" in games.columns and "away_pts" in games.columns:
-        games["actual_spread"] = pd.to_numeric(games["home_pts"], errors="coerce") - pd.to_numeric(games["away_pts"], errors="coerce")
-        games["actual_total"] = pd.to_numeric(games["home_pts"], errors="coerce") + pd.to_numeric(games["away_pts"], errors="coerce")
+    games = pd.concat([pd.read_csv(os.path.join(out_dir, f)) for f in files], ignore_index=True)
     path = os.path.join(out_dir, "hoopr_games_master.csv")
     games.to_csv(path, index=False)
     print(f"  Master game file → {path} ({len(games)} games)")

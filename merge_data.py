@@ -23,13 +23,17 @@ PROCESSED_DIR = "data/processed"
 # ── Loaders ───────────────────────────────────────────────────────────────────
 
 def load_game_logs(year: int) -> pd.DataFrame:
+    # Preference order: a hand-provided game log, ESPN scoreboard scrape results,
+    # then collect_stats.py's hoopR-derived per-season games file (already in this
+    # same home_team/away_team/home_pts/away_pts/game_date shape).
     path = os.path.join(RAW_DIR, f"game_logs_{year}.csv")
     if not os.path.exists(path):
-        # Also try scores file from ESPN scraper
         path = os.path.join(RAW_DIR, f"scores_{year}.csv")
         if not os.path.exists(path):
-            print(f"  [WARN] Missing game log: year {year}")
-            return pd.DataFrame()
+            path = os.path.join(RAW_DIR, f"hoopr_games_{year}.csv")
+            if not os.path.exists(path):
+                print(f"  [WARN] Missing game log: year {year}")
+                return pd.DataFrame()
 
     df = pd.read_csv(path)
     df["season"] = year
@@ -260,6 +264,7 @@ def main():
         patterns = [
             glob(os.path.join(RAW_DIR, "game_logs_*.csv")),
             glob(os.path.join(RAW_DIR, "scores_20*.csv")),
+            glob(os.path.join(RAW_DIR, "hoopr_games_20*.csv")),
         ]
         files = [f for group in patterns for f in group]
         years = sorted(set([
