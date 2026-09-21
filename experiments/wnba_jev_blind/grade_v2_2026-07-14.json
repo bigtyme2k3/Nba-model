@@ -1,0 +1,725 @@
+{
+  "version": "jev_shadow_v2",
+  "experiment": "JEV_BLIND_HISTORICAL_SHADOW",
+  "target_date": "2026-07-14",
+  "blindness_contract": "Jev input contained only pre-result model/market fields. Outcome and actual were joined only after Jev decisions were frozen.",
+  "source_shadow": "experiments/wnba_jev_blind/jev_shadow_v2_2026-07-14.json",
+  "truth_source": "experiments/wnba_jev_blind/truth_2026-07-14.csv",
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 13795,
+    "output_tokens": 2689
+  },
+  "matched": 20,
+  "unmatched": 0,
+  "baseline_all_candidates": {
+    "rows": 20,
+    "resolved": 20,
+    "wins": 7,
+    "losses": 13,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.35,
+    "profit_units": -5.8164,
+    "roi_per_wager": -0.2908
+  },
+  "jev_bet_only": {
+    "rows": 6,
+    "resolved": 6,
+    "wins": 3,
+    "losses": 3,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.5,
+    "profit_units": 0.5706,
+    "roi_per_wager": 0.0951
+  },
+  "jev_bet_plus_lean": {
+    "rows": 17,
+    "resolved": 17,
+    "wins": 5,
+    "losses": 12,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.2941,
+    "profit_units": -6.186,
+    "roi_per_wager": -0.3639
+  },
+  "jev_watch_plus_pass": {
+    "rows": 3,
+    "resolved": 3,
+    "wins": 2,
+    "losses": 1,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.6667,
+    "profit_units": 0.3696,
+    "roi_per_wager": 0.1232
+  },
+  "by_action": {
+    "BET": {
+      "rows": 6,
+      "resolved": 6,
+      "wins": 3,
+      "losses": 3,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.5,
+      "profit_units": 0.5706,
+      "roi_per_wager": 0.0951
+    },
+    "LEAN": {
+      "rows": 11,
+      "resolved": 11,
+      "wins": 2,
+      "losses": 9,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.1818,
+      "profit_units": -6.7566,
+      "roi_per_wager": -0.6142
+    },
+    "PASS": {
+      "rows": 3,
+      "resolved": 3,
+      "wins": 2,
+      "losses": 1,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.6667,
+      "profit_units": 0.3696,
+      "roi_per_wager": 0.1232
+    }
+  },
+  "by_trust": {
+    "LOW": {
+      "rows": 4,
+      "resolved": 4,
+      "wins": 1,
+      "losses": 3,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.25,
+      "profit_units": -2.0566,
+      "roi_per_wager": -0.5142
+    },
+    "MEDIUM": {
+      "rows": 14,
+      "resolved": 14,
+      "wins": 5,
+      "losses": 9,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.3571,
+      "profit_units": -3.2598,
+      "roi_per_wager": -0.2328
+    },
+    "REJECT": {
+      "rows": 2,
+      "resolved": 2,
+      "wins": 1,
+      "losses": 1,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.5,
+      "profit_units": -0.5,
+      "roi_per_wager": -0.25
+    }
+  },
+  "anomaly_ge_050": {
+    "rows": 4,
+    "resolved": 4,
+    "wins": 2,
+    "losses": 2,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.5,
+    "profit_units": -0.6304,
+    "roi_per_wager": -0.1576
+  },
+  "anomaly_lt_050": {
+    "rows": 16,
+    "resolved": 16,
+    "wins": 5,
+    "losses": 11,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.3125,
+    "profit_units": -5.186,
+    "roi_per_wager": -0.3241
+  },
+  "review_ge_050": {
+    "rows": 20,
+    "resolved": 20,
+    "wins": 7,
+    "losses": 13,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.35,
+    "profit_units": -5.8164,
+    "roi_per_wager": -0.2908
+  },
+  "review_lt_050": {
+    "rows": 0,
+    "resolved": 0,
+    "wins": 0,
+    "losses": 0,
+    "pushes_or_voids": 0,
+    "hit_rate": null,
+    "profit_units": null,
+    "roi_per_wager": null
+  },
+  "rows": [
+    {
+      "shadow_id": "bf6ad555d6e6826ea6de651b",
+      "player": "Sonia Citron",
+      "game": "Washington Mystics @ Toronto Tempo",
+      "stat": "PR",
+      "side": "OVER",
+      "line": 21.5,
+      "odds": -108.0,
+      "actual": 4.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "BET",
+      "jev_action_probabilities": {
+        "BET": 0.87,
+        "PASS": 0.02,
+        "LEAN": 0.07,
+        "WATCH": 0.04
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.47,
+        "HIGH": 0.09,
+        "LOW": 0.23,
+        "REJECT": 0.21
+      },
+      "jev_anomaly_probability": 0.52,
+      "jev_review_probability": 0.61
+    },
+    {
+      "shadow_id": "5c4412588acb3758b72f4e38",
+      "player": "Sonia Citron",
+      "game": "Washington Mystics @ Toronto Tempo",
+      "stat": "PA",
+      "side": "OVER",
+      "line": 21.5,
+      "odds": -102.0,
+      "actual": 6.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.44,
+        "PASS": 0.01,
+        "LEAN": 0.53,
+        "WATCH": 0.02
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.79,
+        "HIGH": 0.02,
+        "REJECT": 0.07,
+        "LOW": 0.12
+      },
+      "jev_anomaly_probability": 0.3,
+      "jev_review_probability": 0.5
+    },
+    {
+      "shadow_id": "26ac90a557273e605a736f09",
+      "player": "Sonia Citron",
+      "game": "Washington Mystics @ Toronto Tempo",
+      "stat": "REB",
+      "side": "OVER",
+      "line": 3.5,
+      "odds": 104.0,
+      "actual": 2.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "BET",
+      "jev_action_probabilities": {
+        "WATCH": 0.03,
+        "PASS": 0.02,
+        "LEAN": 0.34,
+        "BET": 0.61
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.66,
+        "HIGH": 0.06,
+        "LOW": 0.19,
+        "REJECT": 0.09
+      },
+      "jev_anomaly_probability": 0.43,
+      "jev_review_probability": 0.61
+    },
+    {
+      "shadow_id": "eee00f7bd6dca2636c7fe81c",
+      "player": "Marina Mabrey",
+      "game": "Washington Mystics @ Toronto Tempo",
+      "stat": "REB",
+      "side": "OVER",
+      "line": 3.5,
+      "odds": 116.0,
+      "actual": 1.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.24,
+        "PASS": 0.02,
+        "LEAN": 0.71,
+        "WATCH": 0.03
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.78,
+        "HIGH": 0.0,
+        "LOW": 0.18,
+        "REJECT": 0.04
+      },
+      "jev_anomaly_probability": 0.31,
+      "jev_review_probability": 0.57
+    },
+    {
+      "shadow_id": "dbb1c9a73336a503cdb6232b",
+      "player": "Sarah Ashlee Barker",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "PR",
+      "side": "OVER",
+      "line": 13.5,
+      "odds": -108.0,
+      "actual": 3.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.04,
+        "PASS": 0.01,
+        "LEAN": 0.63,
+        "BET": 0.32
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.72,
+        "HIGH": 0.01,
+        "REJECT": 0.09,
+        "LOW": 0.18
+      },
+      "jev_anomaly_probability": 0.4,
+      "jev_review_probability": 0.62
+    },
+    {
+      "shadow_id": "cd42dbe68908367f4038953d",
+      "player": "Bridget Carleton",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "PA",
+      "side": "OVER",
+      "line": 13.5,
+      "odds": -123.0,
+      "actual": 6.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.07,
+        "PASS": 0.03,
+        "LEAN": 0.77,
+        "BET": 0.13
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.68,
+        "HIGH": 0.0,
+        "LOW": 0.27,
+        "REJECT": 0.05
+      },
+      "jev_anomaly_probability": 0.34,
+      "jev_review_probability": 0.58
+    },
+    {
+      "shadow_id": "b4e11d97af63099979819443",
+      "player": "Megan Gustafson",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "REB",
+      "side": "OVER",
+      "line": 3.5,
+      "odds": 119.0,
+      "actual": 0.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.11,
+        "PASS": 0.05,
+        "LEAN": 0.74,
+        "WATCH": 0.1
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.62,
+        "HIGH": 0.0,
+        "LOW": 0.33,
+        "REJECT": 0.05
+      },
+      "jev_anomaly_probability": 0.28,
+      "jev_review_probability": 0.63
+    },
+    {
+      "shadow_id": "badac3ad3d28e8bfd64bd688",
+      "player": "Carla Leite",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "PR",
+      "side": "OVER",
+      "line": 16.5,
+      "odds": -104.0,
+      "actual": 0.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.15,
+        "PASS": 0.09,
+        "LEAN": 0.7,
+        "BET": 0.06
+      },
+      "jev_trust": "LOW",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.45,
+        "HIGH": 0.0,
+        "LOW": 0.49,
+        "REJECT": 0.06
+      },
+      "jev_anomaly_probability": 0.32,
+      "jev_review_probability": 0.62
+    },
+    {
+      "shadow_id": "15b3c01015c1b2532fd104e2",
+      "player": "Isabelle Harrison",
+      "game": "Washington Mystics @ Toronto Tempo",
+      "stat": "REB",
+      "side": "OVER",
+      "line": 5.5,
+      "odds": 118.0,
+      "actual": 5.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.04,
+        "PASS": 0.15,
+        "LEAN": 0.6,
+        "WATCH": 0.21
+      },
+      "jev_trust": "LOW",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.36,
+        "HIGH": 0.0,
+        "LOW": 0.57,
+        "REJECT": 0.07
+      },
+      "jev_anomaly_probability": 0.36,
+      "jev_review_probability": 0.69
+    },
+    {
+      "shadow_id": "89ea33a26ffa21054ecb42d0",
+      "player": "Carla Leite",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "PA",
+      "side": "OVER",
+      "line": 19.5,
+      "odds": -112.0,
+      "actual": 2.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.14,
+        "PASS": 0.21,
+        "LEAN": 0.59,
+        "BET": 0.06
+      },
+      "jev_trust": "LOW",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.36,
+        "HIGH": 0.0,
+        "REJECT": 0.09,
+        "LOW": 0.55
+      },
+      "jev_anomaly_probability": 0.34,
+      "jev_review_probability": 0.65
+    },
+    {
+      "shadow_id": "fdcc533724211039384293de",
+      "player": "Carla Leite",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "3PM",
+      "side": "OVER",
+      "line": 0.5,
+      "odds": 110.0,
+      "actual": 0.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "WATCH": 0.18,
+        "PASS": 0.71,
+        "LEAN": 0.07,
+        "BET": 0.04
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.02,
+        "HIGH": 0.0,
+        "REJECT": 0.84,
+        "LOW": 0.14
+      },
+      "jev_anomaly_probability": 0.88,
+      "jev_review_probability": 0.89
+    },
+    {
+      "shadow_id": "dc1378e5a0242bacda1369de",
+      "player": "Olivia Nelson-Ododa",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "PR",
+      "side": "UNDER",
+      "line": 22.5,
+      "odds": -114.0,
+      "actual": 6.0,
+      "outcome": "WIN",
+      "profit_units": 0.8771929824561403,
+      "jev_action": "BET",
+      "jev_action_probabilities": {
+        "BET": 0.82,
+        "PASS": 0.03,
+        "LEAN": 0.12,
+        "WATCH": 0.03
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.5,
+        "HIGH": 0.21,
+        "REJECT": 0.13,
+        "LOW": 0.16
+      },
+      "jev_anomaly_probability": 0.34,
+      "jev_review_probability": 0.68
+    },
+    {
+      "shadow_id": "1b35fd9bac2f8c10401aff2d",
+      "player": "Olivia Nelson-Ododa",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "PTS",
+      "side": "UNDER",
+      "line": 13.5,
+      "odds": -106.0,
+      "actual": 4.0,
+      "outcome": "WIN",
+      "profit_units": 0.9433962264150944,
+      "jev_action": "BET",
+      "jev_action_probabilities": {
+        "BET": 0.79,
+        "PASS": 0.02,
+        "LEAN": 0.17,
+        "WATCH": 0.02
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.63,
+        "HIGH": 0.16,
+        "LOW": 0.12,
+        "REJECT": 0.09
+      },
+      "jev_anomaly_probability": 0.34,
+      "jev_review_probability": 0.57
+    },
+    {
+      "shadow_id": "114d94006171d9feb96b32d1",
+      "player": "Nyara Sabally",
+      "game": "Washington Mystics @ Toronto Tempo",
+      "stat": "PR",
+      "side": "UNDER",
+      "line": 15.5,
+      "odds": -107.0,
+      "actual": 17.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "BET",
+      "jev_action_probabilities": {
+        "BET": 0.53,
+        "PASS": 0.02,
+        "LEAN": 0.42,
+        "WATCH": 0.03
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.72,
+        "HIGH": 0.03,
+        "REJECT": 0.09,
+        "LOW": 0.16
+      },
+      "jev_anomaly_probability": 0.32,
+      "jev_review_probability": 0.58
+    },
+    {
+      "shadow_id": "a3ed73ba0dc7d563a0135efa",
+      "player": "Nyara Sabally",
+      "game": "Washington Mystics @ Toronto Tempo",
+      "stat": "PTS",
+      "side": "UNDER",
+      "line": 11.5,
+      "odds": -114.0,
+      "actual": 13.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.43,
+        "PASS": 0.02,
+        "LEAN": 0.52,
+        "WATCH": 0.03
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.72,
+        "HIGH": 0.02,
+        "REJECT": 0.09,
+        "LOW": 0.17
+      },
+      "jev_anomaly_probability": 0.34,
+      "jev_review_probability": 0.59
+    },
+    {
+      "shadow_id": "99e57c9a9c9475877264068b",
+      "player": "Kennedy Burke",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "3PM",
+      "side": "UNDER",
+      "line": 1.5,
+      "odds": 175.0,
+      "actual": 0.0,
+      "outcome": "WIN",
+      "profit_units": 1.75,
+      "jev_action": "BET",
+      "jev_action_probabilities": {
+        "BET": 0.48,
+        "PASS": 0.12,
+        "LEAN": 0.33,
+        "WATCH": 0.07
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.5,
+        "HIGH": 0.03,
+        "REJECT": 0.18,
+        "LOW": 0.29
+      },
+      "jev_anomaly_probability": 0.49,
+      "jev_review_probability": 0.69
+    },
+    {
+      "shadow_id": "6a5ae8240853a405742504e2",
+      "player": "Charlisse Leger-Walker",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "AST",
+      "side": "UNDER",
+      "line": 3.5,
+      "odds": 130.0,
+      "actual": 1.0,
+      "outcome": "WIN",
+      "profit_units": 1.3,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.34,
+        "PASS": 0.09,
+        "LEAN": 0.5,
+        "WATCH": 0.07
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.48,
+        "HIGH": 0.01,
+        "REJECT": 0.18,
+        "LOW": 0.33
+      },
+      "jev_anomaly_probability": 0.45,
+      "jev_review_probability": 0.65
+    },
+    {
+      "shadow_id": "aaa6793878b77b74e368c994",
+      "player": "Diamond Miller",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "PTS",
+      "side": "UNDER",
+      "line": 8.5,
+      "odds": -115.0,
+      "actual": 3.0,
+      "outcome": "WIN",
+      "profit_units": 0.8695652173913043,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.27,
+        "PASS": 0.33999999999999997,
+        "LEAN": 0.33,
+        "WATCH": 0.06
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.38,
+        "HIGH": 0.01,
+        "REJECT": 0.24,
+        "LOW": 0.37
+      },
+      "jev_anomaly_probability": 0.62,
+      "jev_review_probability": 0.66
+    },
+    {
+      "shadow_id": "749cd311f7abc39848e54b0d",
+      "player": "Olivia Nelson-Ododa",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "REB",
+      "side": "UNDER",
+      "line": 7.5,
+      "odds": -106.0,
+      "actual": 2.0,
+      "outcome": "WIN",
+      "profit_units": 0.9433962264150944,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.1,
+        "PASS": 0.37,
+        "LEAN": 0.39,
+        "BET": 0.14
+      },
+      "jev_trust": "LOW",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.32,
+        "HIGH": 0.01,
+        "REJECT": 0.25,
+        "LOW": 0.42
+      },
+      "jev_anomaly_probability": 0.49,
+      "jev_review_probability": 0.7
+    },
+    {
+      "shadow_id": "8ee97f8a23d810db25cb584c",
+      "player": "Sarah Ashlee Barker",
+      "game": "Portland Fire @ Connecticut Sun",
+      "stat": "3PM",
+      "side": "UNDER",
+      "line": 1.5,
+      "odds": -200.0,
+      "actual": 0.0,
+      "outcome": "WIN",
+      "profit_units": 0.5,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "WATCH": 0.06,
+        "PASS": 0.87,
+        "LEAN": 0.05,
+        "BET": 0.02
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "MEDIUM": 0.11,
+        "HIGH": 0.01,
+        "REJECT": 0.5,
+        "LOW": 0.38
+      },
+      "jev_anomaly_probability": 0.68,
+      "jev_review_probability": 0.82
+    }
+  ],
+  "unmatched_rows": [],
+  "research_only": true,
+  "production_ready": false,
+  "promotion_policy": "One historical blind slate is diagnostic only. Require prospective shadow evidence across materially more resolved decisions before any production mutation."
+}
