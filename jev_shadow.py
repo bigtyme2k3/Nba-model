@@ -36,22 +36,22 @@ CANDIDATE_KEYS = (
     "signals",
 )
 
+# Intentionally excludes existing production action/rank/score fields so Jev cannot
+# simply echo the current policy. The shadow layer sees the underlying model/market
+# evidence, then makes an independent typed judgment.
 KEEP_FIELDS = (
     "type", "game", "play", "player", "team", "opponent", "stat", "market",
-    "side", "signal", "recommendation", "action", "final_action", "line",
-    "posted_line", "model_line", "odds", "american_odds", "price", "sportsbook",
-    "best_book", "best_book_title", "edge", "edge_abs", "edge_pct",
-    "projection_edge", "model_projection", "projection", "pred",
-    "simulation_probability", "model_prob", "model_prob_pct",
-    "market_probability", "market_implied_probability", "implied_probability",
-    "implied_prob", "implied_prob_pct", "expected_value", "ev", "ev_pct",
-    "raw_ev_pct", "confidence", "confidence_score", "conf", "stars", "score",
-    "score_label", "final_score", "consensus_score", "research_grade",
-    "letter_grade", "data_quality", "book_count", "available_books",
-    "history_games", "prior_games", "injury_status", "injury_detail",
-    "prequalified_for_bet", "eligible_for_bet", "decision_reason",
-    "guardrail_failures", "selection_failures", "risks", "reasons", "flags",
-    "units", "recommended_units", "fair_odds", "tip",
+    "side", "signal", "line", "posted_line", "model_line",
+    "odds", "american_odds", "price", "sportsbook", "best_book",
+    "best_book_title", "edge", "edge_abs", "edge_pct", "projection_edge",
+    "model_projection", "projection", "pred", "simulation_probability",
+    "model_prob", "model_prob_pct", "market_probability",
+    "market_implied_probability", "implied_probability", "implied_prob",
+    "implied_prob_pct", "expected_value", "ev", "ev_pct", "raw_ev_pct",
+    "confidence", "confidence_score", "conf", "stars", "data_quality",
+    "book_count", "available_books", "history_games", "prior_games",
+    "injury_status", "injury_detail", "risks", "reasons", "flags",
+    "fair_odds", "tip",
 )
 
 
