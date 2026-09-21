@@ -1,0 +1,43 @@
+name: WNBA Jev Blind Test Runner
+
+on:
+  push:
+    paths:
+      - 'experiments/wnba_jev_blind/input_2026-08-03.json'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify TypeSafe key
+        run: |
+          test -n "$TYPESAFE_API_KEY" || (echo "TYPESAFE_API_KEY missing" && exit 1)
+
+      - name: Freeze Jev decisions before grading
+        run: |
+          python jev_shadow.py             --league wnba             --date 2026-08-03             --input experiments/wnba_jev_blind/input_2026-08-03.json             --output experiments/wnba_jev_blind/jev_shadow_2026-08-03.json             --ledger experiments/wnba_jev_blind/jev_shadow_ledger.jsonl             --max-candidates 20
+
+      - name: Grade frozen decisions
+        run: |
+          python grade_jev_historical.py             --shadow experiments/wnba_jev_blind/jev_shadow_2026-08-03.json             --truth experiments/wnba_jev_blind/truth_2026-08-03.csv             --output experiments/wnba_jev_blind/grade_2026-08-03.json
+
+      - name: Publish experiment
+        run: |
+          git config user.name "Jev Experiment Bot"
+          git config user.email "actions@github.com"
+          git add experiments/wnba_jev_blind/
+          git diff --cached --quiet || git commit -m "Jev blind WNBA experiment — 2026-08-03"
+          git push
