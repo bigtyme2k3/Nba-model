@@ -1,0 +1,929 @@
+{
+  "version": "jev_shadow_v1",
+  "league": "WNBA",
+  "generated_at_utc": "2026-09-21T21:02:52.104056+00:00",
+  "target_date": "2026-08-03",
+  "source": {
+    "target_date": "2026-08-03",
+    "source": "data/history/wnba_graded_bets.csv",
+    "research_only": true,
+    "input_path": "experiments/wnba_jev_blind/input_2026-08-03.json",
+    "candidate_key": "decisions"
+  },
+  "research_only": true,
+  "production_mutation": false,
+  "status": "OK",
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 13496,
+    "output_tokens": 2646
+  },
+  "summary": {
+    "candidates": 20,
+    "new_ledger_rows": 20,
+    "action_counts": {
+      "BET": 16,
+      "LEAN": 4
+    },
+    "trust_counts": {
+      "REJECT": 2,
+      "MEDIUM": 18
+    },
+    "review_ge_050": 17,
+    "anomaly_ge_050": 5
+  },
+  "decisions": [
+    {
+      "shadow_id": "372d59357345ad5076f571ad",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Marine Johannes",
+        "stat": "PTS",
+        "signal": "UNDER",
+        "line": 7.5,
+        "american_odds": -130,
+        "sportsbook": "DraftKings",
+        "edge_pct": 102.67,
+        "pred": -0.2,
+        "simulation_probability": 0.9046,
+        "ev_pct": 25,
+        "confidence": 91.6
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.45,
+          "LEAN": 0.13,
+          "PASS": 0.27,
+          "WATCH": 0.15
+        },
+        "action_confidence": 0.28,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "HIGH": 0.09,
+          "LOW": 0.27,
+          "REJECT": 0.52,
+          "MEDIUM": 0.12
+        },
+        "trust_confidence": 0.35,
+        "anomaly_probability": 0.83,
+        "review_probability": 0.71
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "74aa53474dbe9401ec126f58",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Sabrina Ionescu",
+        "stat": "PR",
+        "signal": "UNDER",
+        "line": 24.5,
+        "american_odds": -119,
+        "sportsbook": "DraftKings",
+        "edge_pct": 25.31,
+        "pred": 18.3,
+        "simulation_probability": 0.7702,
+        "ev_pct": 25,
+        "confidence": 90.4
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.76,
+          "LEAN": 0.13,
+          "PASS": 0.05,
+          "WATCH": 0.06
+        },
+        "action_confidence": 0.67,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.12,
+          "LOW": 0.17,
+          "REJECT": 0.14,
+          "MEDIUM": 0.57
+        },
+        "trust_confidence": 0.42,
+        "anomaly_probability": 0.51,
+        "review_probability": 0.51
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "454dc5471fe27b9e47de2e29",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Allisha Gray",
+        "opponent": "Aces",
+        "stat": "PR",
+        "signal": "UNDER",
+        "line": 22.5,
+        "american_odds": -118,
+        "sportsbook": "FanDuel",
+        "edge_pct": 25.78,
+        "pred": 16.7,
+        "simulation_probability": 0.8005,
+        "ev_pct": 25,
+        "confidence": 89.9
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.83,
+          "LEAN": 0.11,
+          "WATCH": 0.04,
+          "PASS": 0.02
+        },
+        "action_confidence": 0.77,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.19,
+          "LOW": 0.13,
+          "REJECT": 0.07,
+          "MEDIUM": 0.61
+        },
+        "trust_confidence": 0.49,
+        "anomaly_probability": 0.34,
+        "review_probability": 0.47
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "21884971d8e84a6fed16fd50",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Natisha Hiedeman",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 21.5,
+        "american_odds": -112,
+        "sportsbook": "DraftKings",
+        "edge_pct": 21.86,
+        "pred": 16.8,
+        "simulation_probability": 0.7607,
+        "ev_pct": 25,
+        "confidence": 89.9
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.78,
+          "LEAN": 0.16,
+          "PASS": 0.02,
+          "WATCH": 0.04
+        },
+        "action_confidence": 0.69,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.08,
+          "LOW": 0.15,
+          "REJECT": 0.09,
+          "MEDIUM": 0.68
+        },
+        "trust_confidence": 0.57,
+        "anomaly_probability": 0.37,
+        "review_probability": 0.44
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "2ed82f1bbf447be065d83f9a",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Phoenix Mercury @ Chicago Sky",
+        "player": "Alyssa Thomas",
+        "opponent": "Sky",
+        "stat": "PTS",
+        "signal": "UNDER",
+        "line": 14.5,
+        "american_odds": -104,
+        "sportsbook": "DraftKings",
+        "edge_pct": 28.97,
+        "pred": 10.3,
+        "simulation_probability": 0.7863,
+        "ev_pct": 25,
+        "confidence": 89.5
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.8,
+          "LEAN": 0.13,
+          "PASS": 0.03,
+          "WATCH": 0.04
+        },
+        "action_confidence": 0.73,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "MEDIUM": 0.62,
+          "LOW": 0.16,
+          "REJECT": 0.11,
+          "HIGH": 0.11
+        },
+        "trust_confidence": 0.48,
+        "anomaly_probability": 0.45,
+        "review_probability": 0.51
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "f891fd501dc41bf395afeaf3",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Phoenix Mercury @ Chicago Sky",
+        "player": "Alyssa Thomas",
+        "opponent": "Sky",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 23.5,
+        "american_odds": -119,
+        "sportsbook": "DraftKings",
+        "edge_pct": 19.15,
+        "pred": 19,
+        "simulation_probability": 0.7545,
+        "ev_pct": 25,
+        "confidence": 88.6
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.61,
+          "LEAN": 0.32,
+          "PASS": 0.03,
+          "WATCH": 0.04
+        },
+        "action_confidence": 0.48,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.06,
+          "LOW": 0.17,
+          "REJECT": 0.1,
+          "MEDIUM": 0.67
+        },
+        "trust_confidence": 0.57,
+        "anomaly_probability": 0.36,
+        "review_probability": 0.52
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "2a7bdcf3bd30d0c23e2af347",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Breanna Stewart",
+        "stat": "PR",
+        "signal": "UNDER",
+        "line": 30.5,
+        "american_odds": -125,
+        "sportsbook": "FanDuel",
+        "edge_pct": 23.93,
+        "pred": 23.2,
+        "simulation_probability": 0.7939,
+        "ev_pct": 25,
+        "confidence": 87.5
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.75,
+          "LEAN": 0.2,
+          "WATCH": 0.03,
+          "PASS": 0.02
+        },
+        "action_confidence": 0.68,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.08,
+          "LOW": 0.13,
+          "REJECT": 0.08,
+          "MEDIUM": 0.71
+        },
+        "trust_confidence": 0.61,
+        "anomaly_probability": 0.37,
+        "review_probability": 0.51
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "e5fbdd8635d658376eb73c00",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Rhyne Howard",
+        "opponent": "Aces",
+        "stat": "PTS",
+        "signal": "UNDER",
+        "line": 16.5,
+        "american_odds": -113,
+        "sportsbook": "DraftKings",
+        "edge_pct": 58.18,
+        "pred": 6.9,
+        "simulation_probability": 0.9618,
+        "ev_pct": 25,
+        "confidence": 87.4
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.84,
+          "LEAN": 0.08,
+          "PASS": 0.04,
+          "WATCH": 0.04
+        },
+        "action_confidence": 0.79,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.28,
+          "LOW": 0.19,
+          "REJECT": 0.15,
+          "MEDIUM": 0.38
+        },
+        "trust_confidence": 0.19,
+        "anomaly_probability": 0.46,
+        "review_probability": 0.59
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "33a7dd4bccc60103464aa6d6",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Breanna Stewart",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 25.5,
+        "american_odds": -110,
+        "sportsbook": "DraftKings",
+        "edge_pct": 30.98,
+        "pred": 17.6,
+        "simulation_probability": 0.8478,
+        "ev_pct": 25,
+        "confidence": 87.1
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.85,
+          "LEAN": 0.11,
+          "PASS": 0.01,
+          "WATCH": 0.03
+        },
+        "action_confidence": 0.8,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.16,
+          "LOW": 0.15,
+          "REJECT": 0.09,
+          "MEDIUM": 0.6
+        },
+        "trust_confidence": 0.46,
+        "anomaly_probability": 0.32,
+        "review_probability": 0.48
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "b6f88f87be2701683c6039a2",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Jackie Young",
+        "opponent": "Dream",
+        "stat": "PTS",
+        "signal": "UNDER",
+        "line": 19.5,
+        "american_odds": -115,
+        "sportsbook": "FanDuel",
+        "edge_pct": 40.51,
+        "pred": 11.6,
+        "simulation_probability": 0.9072,
+        "ev_pct": 25,
+        "confidence": 87
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.86,
+          "LEAN": 0.09,
+          "PASS": 0.02,
+          "WATCH": 0.03
+        },
+        "action_confidence": 0.81,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.21,
+          "LOW": 0.18,
+          "REJECT": 0.1,
+          "MEDIUM": 0.51
+        },
+        "trust_confidence": 0.35,
+        "anomaly_probability": 0.33,
+        "review_probability": 0.51
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "04db719a373ab15e3954a72e",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Jackie Young",
+        "opponent": "Dream",
+        "stat": "PRA",
+        "signal": "UNDER",
+        "line": 30.5,
+        "american_odds": -102,
+        "sportsbook": "FanDuel",
+        "edge_pct": 28.85,
+        "pred": 21.7,
+        "simulation_probability": 0.8012,
+        "ev_pct": 25,
+        "confidence": 86.9
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.73,
+          "LEAN": 0.18,
+          "PASS": 0.04,
+          "WATCH": 0.05
+        },
+        "action_confidence": 0.64,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "MEDIUM": 0.55,
+          "LOW": 0.2,
+          "REJECT": 0.13,
+          "HIGH": 0.12
+        },
+        "trust_confidence": 0.41,
+        "anomaly_probability": 0.35,
+        "review_probability": 0.59
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "c2da7947aae13ca1757c64aa",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Jordin Canada",
+        "opponent": "Aces",
+        "stat": "3PM",
+        "signal": "UNDER",
+        "line": 0.5,
+        "american_odds": -106,
+        "sportsbook": "DraftKings",
+        "edge_pct": 900,
+        "pred": -4,
+        "simulation_probability": 0.9952,
+        "ev_pct": 25,
+        "confidence": 86.8
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.67,
+          "LEAN": 0.06,
+          "PASS": 0.17,
+          "WATCH": 0.1
+        },
+        "action_confidence": 0.56,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "HIGH": 0.25,
+          "LOW": 0.27,
+          "REJECT": 0.31,
+          "MEDIUM": 0.17
+        },
+        "trust_confidence": 0.09,
+        "anomaly_probability": 0.86,
+        "review_probability": 0.78
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "9d3ee524cc87aa04c0316994",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Awa Fam",
+        "stat": "PR",
+        "signal": "UNDER",
+        "line": 17.5,
+        "american_odds": -124,
+        "sportsbook": "DraftKings",
+        "edge_pct": 32,
+        "pred": 11.9,
+        "simulation_probability": 0.8028,
+        "ev_pct": 25,
+        "confidence": 86.7
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.74,
+          "LEAN": 0.16,
+          "PASS": 0.04,
+          "WATCH": 0.06
+        },
+        "action_confidence": 0.65,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.12,
+          "LOW": 0.22,
+          "REJECT": 0.13,
+          "MEDIUM": 0.53
+        },
+        "trust_confidence": 0.37,
+        "anomaly_probability": 0.35,
+        "review_probability": 0.56
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "d2afe37c86ac82939e4aecb0",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Jewell Loyd",
+        "opponent": "Dream",
+        "stat": "PTS",
+        "signal": "UNDER",
+        "line": 8.5,
+        "american_odds": -114,
+        "sportsbook": "DraftKings",
+        "edge_pct": 84.71,
+        "pred": 1.3,
+        "simulation_probability": 0.9109,
+        "ev_pct": 25,
+        "confidence": 86.7
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.75,
+          "LEAN": 0.11,
+          "PASS": 0.08,
+          "WATCH": 0.06
+        },
+        "action_confidence": 0.66,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.21,
+          "LOW": 0.27,
+          "REJECT": 0.18,
+          "MEDIUM": 0.34
+        },
+        "trust_confidence": 0.12,
+        "anomaly_probability": 0.47,
+        "review_probability": 0.63
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "855b1555c1df7cc0777db603",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Flau'jae Johnson",
+        "stat": "PTS",
+        "signal": "UNDER",
+        "line": 14.5,
+        "american_odds": -104,
+        "sportsbook": "DraftKings",
+        "edge_pct": 43.45,
+        "pred": 8.2,
+        "simulation_probability": 0.8828,
+        "ev_pct": 25,
+        "confidence": 86.5
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.77,
+          "LEAN": 0.17,
+          "WATCH": 0.03,
+          "PASS": 0.03
+        },
+        "action_confidence": 0.68,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "MEDIUM": 0.5,
+          "LOW": 0.24,
+          "REJECT": 0.16,
+          "HIGH": 0.1
+        },
+        "trust_confidence": 0.33,
+        "anomaly_probability": 0.34,
+        "review_probability": 0.55
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "4b5b0448ea904e71839096c1",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Jordin Canada",
+        "opponent": "Aces",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 18.5,
+        "american_odds": -104,
+        "sportsbook": "FanDuel",
+        "edge_pct": 23.78,
+        "pred": 14.1,
+        "simulation_probability": 0.7424,
+        "ev_pct": 25,
+        "confidence": 86.3
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.49,
+          "LEAN": 0.41,
+          "WATCH": 0.06,
+          "PASS": 0.04
+        },
+        "action_confidence": 0.31,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.04,
+          "LOW": 0.29,
+          "REJECT": 0.15,
+          "MEDIUM": 0.52
+        },
+        "trust_confidence": 0.36,
+        "anomaly_probability": 0.35,
+        "review_probability": 0.55
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "308004875082af38da6689c6",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Chelsea Gray",
+        "opponent": "Dream",
+        "stat": "PR",
+        "signal": "UNDER",
+        "line": 14.5,
+        "american_odds": -106,
+        "sportsbook": "FanDuel",
+        "edge_pct": 29.66,
+        "pred": 10.2,
+        "simulation_probability": 0.7404,
+        "ev_pct": 25,
+        "confidence": 84.9
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "BET": 0.45,
+          "LEAN": 0.47,
+          "PASS": 0.03,
+          "WATCH": 0.05
+        },
+        "action_confidence": 0.29,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.03,
+          "LOW": 0.29,
+          "REJECT": 0.14,
+          "MEDIUM": 0.54
+        },
+        "trust_confidence": 0.39,
+        "anomaly_probability": 0.34,
+        "review_probability": 0.58
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "685d59cb7ac2ed0f4d87192c",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ New York Liberty",
+        "player": "Sabrina Ionescu",
+        "stat": "PR",
+        "signal": "UNDER",
+        "line": 23.5,
+        "american_odds": 0,
+        "edge_pct": 24.26,
+        "pred": 17.8,
+        "simulation_probability": 0.8167,
+        "ev_pct": 0,
+        "confidence": 81.8
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "BET": 0.16,
+          "LEAN": 0.34,
+          "PASS": 0.26,
+          "WATCH": 0.24
+        },
+        "action_confidence": 0.11,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.02,
+          "LOW": 0.34,
+          "REJECT": 0.2,
+          "MEDIUM": 0.44
+        },
+        "trust_confidence": 0.25,
+        "anomaly_probability": 0.57,
+        "review_probability": 0.68
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "c6c4b8bacf2d94f568881fe3",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Chelsea Gray",
+        "opponent": "Dream",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 17.5,
+        "american_odds": -105,
+        "sportsbook": "DraftKings",
+        "edge_pct": 18.86,
+        "pred": 14.2,
+        "simulation_probability": 0.6915,
+        "ev_pct": 25,
+        "confidence": 79.1
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "BET": 0.19,
+          "LEAN": 0.36,
+          "WATCH": 0.22,
+          "PASS": 0.23
+        },
+        "action_confidence": 0.13,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.03,
+          "LOW": 0.35,
+          "REJECT": 0.21,
+          "MEDIUM": 0.41
+        },
+        "trust_confidence": 0.21,
+        "anomaly_probability": 0.51,
+        "review_probability": 0.68
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "befaa9d4e8975823d988ad74",
+      "question_version": "jev_shadow_v1",
+      "league": "WNBA",
+      "target_date": "2026-08-03",
+      "issued_at_utc": "2026-09-21T21:02:52.104056+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Atlanta Dream",
+        "player": "Chelsea Gray",
+        "opponent": "Dream",
+        "stat": "PRA",
+        "signal": "UNDER",
+        "line": 21.5,
+        "american_odds": -110,
+        "sportsbook": "DraftKings",
+        "edge_pct": 21.4,
+        "pred": 16.9,
+        "simulation_probability": 0.67,
+        "ev_pct": 25,
+        "confidence": 78
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "BET": 0.2,
+          "LEAN": 0.61,
+          "PASS": 0.11,
+          "WATCH": 0.08
+        },
+        "action_confidence": 0.48,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "HIGH": 0.01,
+          "LOW": 0.4,
+          "REJECT": 0.14,
+          "MEDIUM": 0.45
+        },
+        "trust_confidence": 0.25,
+        "anomaly_probability": 0.38,
+        "review_probability": 0.65
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    }
+  ],
+  "safety": "Shadow only. Jev judgments do not alter production predictions, Best Bets, bankroll sizing, or action labels."
+}
