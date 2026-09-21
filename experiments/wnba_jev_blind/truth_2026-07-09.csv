@@ -1,0 +1,21 @@
+date,player,team,game,stat,signal,line,pred,actual,outcome,american_odds,sportsbook,confidence,final_score,simulation_probability,ev_pct,edge_pct,closing_line,clv,opponent,opponent_abbr
+2026-07-09,Carla Leite,,Las Vegas Aces @ Portland Fire,3PM,OVER,0.5,0.9,0.0,LOSS,110,FanDuel,96.1,96.1,0.9941,-16.3,860.0,,,Las Vegas Aces,LV
+2026-07-09,Allisha Gray,,Portland Fire @ Atlanta Dream,PTS,OVER,18.5,24.5,22.0,WIN,-103,DraftKings,82.4,82.4,0.8757,0,32.43,,,Seattle Storm,SEA
+2026-07-09,Rhyne Howard,,Seattle Storm @ Atlanta Dream,PTS,OVER,18.5,21.8,19.0,WIN,,,82.0,82.0,0.831,-1.5,27.57,,,Seattle Storm,SEA
+2026-07-09,Allisha Gray,,Seattle Storm @ Atlanta Dream,PR,OVER,25.5,28.4,25.0,LOSS,-102,FanDuel,73.3,73.3,0.6553,13.3,17.65,,,Seattle Storm,SEA
+2026-07-09,Bridget Carleton,,Las Vegas Aces @ Portland Fire,3PM,OVER,2.5,3.0,3.0,WIN,-154,FanDuel,48.2,48.2,0.6197,8.8,32.0,,,Las Vegas Aces,LV
+2026-07-09,Chelsea Gray,,Las Vegas Aces @ Portland Fire,RA,OVER,11.5,12.4,8.0,LOSS,-114,FanDuel,34.3,34.3,0.5575,-45.8,6.09,,,Portland Fire,POR
+2026-07-09,A'ja Wilson,,Las Vegas Aces @ Portland Fire,RA,OVER,11.5,13.5,13.0,WIN,,,,,,-42.9,,,,Portland Fire,POR
+2026-07-09,Angel Reese,,Seattle Storm @ Atlanta Dream,PTS,OVER,18.5,19.2,18.0,LOSS,,,,,,23.5,,,,Seattle Storm,SEA
+2026-07-09,Emily Engstler,,Las Vegas Aces @ Portland Fire,REB,OVER,5.5,7.8,7.0,WIN,,,,,,43.1,,,,Las Vegas Aces,LV
+2026-07-09,Natisha Hiedeman,,Seattle Storm @ Atlanta Dream,RA,OVER,7.5,8.4,8.0,WIN,,,,,,16.2,,,,Atlanta Dream,ATL
+2026-07-09,Tyasha Harris,,Indiana Fever @ Phoenix Mercury,PTS,OVER,8.5,8.9,15.0,WIN,,,,,,-28.2,,,,Phoenix Mercury,PHX
+2026-07-09,Jordin Canada,,Seattle Storm @ Atlanta Dream,PA,UNDER,20.5,17.2,22.0,LOSS,-108,FanDuel,96.4,96.4,0.7594,10.4,26.34,,,Seattle Storm,SEA
+2026-07-09,Chelsea Gray,,Phoenix Mercury @ Las Vegas Aces,PA,UNDER,19.5,13.6,15.0,WIN,-103,DraftKings,82.4,82.4,0.8132,0,30.26,,,Portland Fire,POR
+2026-07-09,A'ja Wilson,,Phoenix Mercury @ Las Vegas Aces,3PM,UNDER,0.5,-3.8,1.0,LOSS,123,DraftKings,82.1,82.1,0.9894,0,860.0,,,Portland Fire,POR
+2026-07-09,A'ja Wilson,,Phoenix Mercury @ Las Vegas Aces,PTS,UNDER,25.5,19.9,32.0,LOSS,100,FanDuel,82.0,82.0,0.8067,0,21.96,,,Portland Fire,POR
+2026-07-09,Valeriane Ayayi,,Indiana Fever @ Phoenix Mercury,3PM,UNDER,1.5,0.3,2.0,LOSS,-214,DraftKings,40.3,40.3,0.5458,-24.5,13.33,,,Indiana Fever,IND
+2026-07-09,Flau'jae Johnson,,Seattle Storm @ Atlanta Dream,AST,UNDER,5.5,3.1,5.0,WIN,,,,,,-20.1,,,,Atlanta Dream,ATL
+2026-07-09,Lexie Hull,,Indiana Fever @ Phoenix Mercury,REB,UNDER,4.5,2.8,0.0,WIN,,,,,,-3.5,,,,Phoenix Mercury,PHX
+2026-07-09,Sarah Ashlee Barker,,Las Vegas Aces @ Portland Fire,PA,UNDER,13.5,7.6,11.0,WIN,,,,,,17.7,,,,Las Vegas Aces,LV
+2026-07-09,Tyasha Harris,,Indiana Fever @ Phoenix Mercury,AST,UNDER,4.5,2.8,5.0,LOSS,,,,,,-2.2,,,,Phoenix Mercury,PHX
