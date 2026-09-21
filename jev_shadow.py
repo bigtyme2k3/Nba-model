@@ -25,7 +25,7 @@ from urllib.request import Request, urlopen
 
 API_URL = "https://api.typesafe.ai/v1/systemone"
 DEFAULT_MODEL = "jev-latest"
-QUESTION_VERSION = "jev_shadow_v1"
+QUESTION_VERSION = "jev_shadow_v2"
 
 CANDIDATE_KEYS = (
     "best_bets",
@@ -174,6 +174,7 @@ def source_meta(payload: dict[str, Any], input_path: Path, candidate_key: str | 
 
 def make_shadow_id(league: str, target_date: str, candidate: dict[str, Any]) -> str:
     identity = {
+        "question_version": QUESTION_VERSION,
         "league": league,
         "target_date": target_date,
         "type": candidate.get("type"),
@@ -191,7 +192,33 @@ def make_shadow_id(league: str, target_date: str, candidate: dict[str, Any]) -> 
 
 
 def build_questions(candidate_count: int) -> dict[str, Any]:
-    q: dict[str, Any] = {}
+    q: dict[str, Any] = {
+        "batch_directional_concentration": {
+            "type": "noul",
+            "instructions": (
+                "Does the full `candidates` set show suspicious directional concentration, "
+                "repetition, or a one-sided pattern that could indicate a systemic model or "
+                "data artifact rather than a naturally varied slate?"
+            ),
+            "criteria": {
+                "true": "The batch is suspiciously concentrated or repetitive enough to warrant slate-level caution.",
+                "false": "The batch composition is not suspiciously concentrated from the supplied state.",
+            },
+        },
+        "batch_systemic_integrity_risk": {
+            "type": "noul",
+            "instructions": (
+                "Across the full `candidates` set, is there evidence of systemic data/model "
+                "integrity risk such as implausible projections, impossible values, repeated "
+                "constant metrics, contradictory fields, or other patterns that should block "
+                "blind automated use?"
+            ),
+            "criteria": {
+                "true": "At least one systemic integrity pattern is materially concerning.",
+                "false": "No material systemic integrity pattern is apparent from the supplied state.",
+            },
+        },
+    }
     action_criteria = {
         "BET": "The candidate is coherent, sufficiently supported, and suitable to advance through the existing model's normal action gates. This is a shadow research label, not permission to place a wager.",
         "LEAN": "The candidate has meaningful support, but uncertainty or evidence quality materially reduces conviction.",
@@ -414,6 +441,14 @@ def main() -> None:
         decision_row(args.league, target_date, candidate, i, answers, issued_at)
         for i, candidate in enumerate(candidates)
     ]
+    batch = {
+        "directional_concentration_probability": fnum(
+            (answers.get("batch_directional_concentration") or {}).get("noul")
+        ),
+        "systemic_integrity_risk_probability": fnum(
+            (answers.get("batch_systemic_integrity_risk") or {}).get("noul")
+        ),
+    }
     new_rows = append_new_ledger(ledger_path, decisions)
 
     summary = {
@@ -423,6 +458,12 @@ def main() -> None:
         "trust_counts": {},
         "review_ge_050": 0,
         "anomaly_ge_050": 0,
+        "batch_directional_concentration_ge_050": (
+            (batch.get("directional_concentration_probability") or 0) >= 0.5
+        ),
+        "batch_systemic_integrity_risk_ge_050": (
+            (batch.get("systemic_integrity_risk_probability") or 0) >= 0.5
+        ),
     }
     for row in decisions:
         j = row["jev"]
@@ -443,6 +484,7 @@ def main() -> None:
             "model": response.get("model"),
             "usage": response.get("usage"),
             "summary": summary,
+            "batch": batch,
             "decisions": decisions,
             "safety": (
                 "Shadow only. Jev judgments do not alter production predictions, "
