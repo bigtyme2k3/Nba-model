@@ -1,0 +1,6 @@
+{
+  "date": "2026-07-14",
+  "input": "experiments/wnba_jev_blind/input_2026-07-14.json",
+  "truth": "experiments/wnba_jev_blind/truth_2026-07-14.csv",
+  "tag": "2026-07-14"
+}
