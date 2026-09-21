@@ -28,11 +28,11 @@ jobs:
 
       - name: Freeze Jev decisions before grading
         run: |
-          python jev_shadow.py             --league wnba             --date 2026-08-03             --input experiments/wnba_jev_blind/input_2026-08-03.json             --output experiments/wnba_jev_blind/jev_shadow_2026-08-03.json             --ledger experiments/wnba_jev_blind/jev_shadow_ledger.jsonl             --max-candidates 20
+          python jev_shadow.py             --league wnba             --date 2026-08-03             --input experiments/wnba_jev_blind/input_2026-08-03.json             --output experiments/wnba_jev_blind/jev_shadow_v2_2026-08-03.json             --ledger experiments/wnba_jev_blind/jev_shadow_ledger.jsonl             --max-candidates 20
 
       - name: Grade frozen decisions
         run: |
-          python grade_jev_historical.py             --shadow experiments/wnba_jev_blind/jev_shadow_2026-08-03.json             --truth experiments/wnba_jev_blind/truth_2026-08-03.csv             --output experiments/wnba_jev_blind/grade_2026-08-03.json
+          python grade_jev_historical.py             --shadow experiments/wnba_jev_blind/jev_shadow_v2_2026-08-03.json             --truth experiments/wnba_jev_blind/truth_2026-08-03.csv             --output experiments/wnba_jev_blind/grade_v2_2026-08-03.json
 
       - name: Publish experiment
         run: |
