@@ -1,0 +1,735 @@
+{
+  "version": "jev_shadow_v2",
+  "experiment": "JEV_BLIND_HISTORICAL_SHADOW",
+  "target_date": "2026-07-09",
+  "blindness_contract": "Jev input contained only pre-result model/market fields. Outcome and actual were joined only after Jev decisions were frozen.",
+  "source_shadow": "experiments/wnba_jev_blind/jev_shadow_v2_2026-07-09.json",
+  "truth_source": "experiments/wnba_jev_blind/truth_2026-07-09.csv",
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 13564,
+    "output_tokens": 2701
+  },
+  "matched": 20,
+  "unmatched": 0,
+  "baseline_all_candidates": {
+    "rows": 20,
+    "resolved": 20,
+    "wins": 11,
+    "losses": 9,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.55,
+    "profit_units": -6.4089,
+    "roi_per_wager": -0.5341
+  },
+  "jev_bet_only": {
+    "rows": 1,
+    "resolved": 1,
+    "wins": 0,
+    "losses": 1,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.0,
+    "profit_units": -1.0,
+    "roi_per_wager": -1.0
+  },
+  "jev_bet_plus_lean": {
+    "rows": 6,
+    "resolved": 6,
+    "wins": 4,
+    "losses": 2,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.6667,
+    "profit_units": 0.5911,
+    "roi_per_wager": 0.1182
+  },
+  "jev_watch_plus_pass": {
+    "rows": 14,
+    "resolved": 14,
+    "wins": 7,
+    "losses": 7,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.5,
+    "profit_units": -7.0,
+    "roi_per_wager": -1.0
+  },
+  "by_action": {
+    "BET": {
+      "rows": 1,
+      "resolved": 1,
+      "wins": 0,
+      "losses": 1,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.0,
+      "profit_units": -1.0,
+      "roi_per_wager": -1.0
+    },
+    "LEAN": {
+      "rows": 5,
+      "resolved": 5,
+      "wins": 4,
+      "losses": 1,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.8,
+      "profit_units": 1.5911,
+      "roi_per_wager": 0.3978
+    },
+    "PASS": {
+      "rows": 14,
+      "resolved": 14,
+      "wins": 7,
+      "losses": 7,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.5,
+      "profit_units": -7.0,
+      "roi_per_wager": -1.0
+    }
+  },
+  "by_trust": {
+    "HIGH": {
+      "rows": 1,
+      "resolved": 1,
+      "wins": 0,
+      "losses": 1,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.0,
+      "profit_units": -1.0,
+      "roi_per_wager": -1.0
+    },
+    "LOW": {
+      "rows": 3,
+      "resolved": 3,
+      "wins": 3,
+      "losses": 0,
+      "pushes_or_voids": 0,
+      "hit_rate": 1.0,
+      "profit_units": 2.5911,
+      "roi_per_wager": 0.8637
+    },
+    "MEDIUM": {
+      "rows": 2,
+      "resolved": 2,
+      "wins": 1,
+      "losses": 1,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.5,
+      "profit_units": -1.0,
+      "roi_per_wager": -1.0
+    },
+    "REJECT": {
+      "rows": 14,
+      "resolved": 14,
+      "wins": 7,
+      "losses": 7,
+      "pushes_or_voids": 0,
+      "hit_rate": 0.5,
+      "profit_units": -7.0,
+      "roi_per_wager": -1.0
+    }
+  },
+  "anomaly_ge_050": {
+    "rows": 19,
+    "resolved": 19,
+    "wins": 11,
+    "losses": 8,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.5789,
+    "profit_units": -5.4089,
+    "roi_per_wager": -0.4917
+  },
+  "anomaly_lt_050": {
+    "rows": 1,
+    "resolved": 1,
+    "wins": 0,
+    "losses": 1,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.0,
+    "profit_units": -1.0,
+    "roi_per_wager": -1.0
+  },
+  "review_ge_050": {
+    "rows": 20,
+    "resolved": 20,
+    "wins": 11,
+    "losses": 9,
+    "pushes_or_voids": 0,
+    "hit_rate": 0.55,
+    "profit_units": -6.4089,
+    "roi_per_wager": -0.5341
+  },
+  "review_lt_050": {
+    "rows": 0,
+    "resolved": 0,
+    "wins": 0,
+    "losses": 0,
+    "pushes_or_voids": 0,
+    "hit_rate": null,
+    "profit_units": null,
+    "roi_per_wager": null
+  },
+  "rows": [
+    {
+      "shadow_id": "dbba4aa0c808343ff13d7460",
+      "player": "Carla Leite",
+      "game": "Las Vegas Aces @ Portland Fire",
+      "stat": "3PM",
+      "side": "OVER",
+      "line": 0.5,
+      "odds": 110.0,
+      "actual": 0.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "WATCH": 0.13,
+        "PASS": 0.66,
+        "LEAN": 0.06,
+        "BET": 0.15
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.13,
+        "HIGH": 0.02,
+        "MEDIUM": 0.02,
+        "REJECT": 0.83
+      },
+      "jev_anomaly_probability": 0.92,
+      "jev_review_probability": 0.87
+    },
+    {
+      "shadow_id": "3930b9ae2aacd2a36176b2cd",
+      "player": "Allisha Gray",
+      "game": "Portland Fire @ Atlanta Dream",
+      "stat": "PTS",
+      "side": "OVER",
+      "line": 18.5,
+      "odds": -103.0,
+      "actual": 22.0,
+      "outcome": "WIN",
+      "profit_units": 0.970873786407767,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.16,
+        "PASS": 0.28,
+        "LEAN": 0.36,
+        "BET": 0.2
+      },
+      "jev_trust": "LOW",
+      "jev_trust_probabilities": {
+        "LOW": 0.36,
+        "HIGH": 0.02,
+        "MEDIUM": 0.29,
+        "REJECT": 0.33
+      },
+      "jev_anomaly_probability": 0.84,
+      "jev_review_probability": 0.75
+    },
+    {
+      "shadow_id": "eee35489c8647c5a448a9bb2",
+      "player": "Rhyne Howard",
+      "game": "Seattle Storm @ Atlanta Dream",
+      "stat": "PTS",
+      "side": "OVER",
+      "line": 18.5,
+      "odds": null,
+      "actual": 19.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.09,
+        "WATCH": 0.1,
+        "LEAN": 0.54,
+        "PASS": 0.27
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "LOW": 0.33,
+        "HIGH": 0.02,
+        "MEDIUM": 0.45,
+        "REJECT": 0.2
+      },
+      "jev_anomaly_probability": 0.57,
+      "jev_review_probability": 0.72
+    },
+    {
+      "shadow_id": "81902d53d3b60582deb06003",
+      "player": "Allisha Gray",
+      "game": "Seattle Storm @ Atlanta Dream",
+      "stat": "PR",
+      "side": "OVER",
+      "line": 25.5,
+      "odds": -102.0,
+      "actual": 25.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.03,
+        "PASS": 0.02,
+        "LEAN": 0.48,
+        "BET": 0.47
+      },
+      "jev_trust": "MEDIUM",
+      "jev_trust_probabilities": {
+        "LOW": 0.22,
+        "HIGH": 0.02,
+        "MEDIUM": 0.63,
+        "REJECT": 0.13
+      },
+      "jev_anomaly_probability": 0.58,
+      "jev_review_probability": 0.63
+    },
+    {
+      "shadow_id": "4e527b1d8eb54b5520b56b91",
+      "player": "Bridget Carleton",
+      "game": "Las Vegas Aces @ Portland Fire",
+      "stat": "3PM",
+      "side": "OVER",
+      "line": 2.5,
+      "odds": -154.0,
+      "actual": 3.0,
+      "outcome": "WIN",
+      "profit_units": 0.6493506493506493,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "BET": 0.09,
+        "WATCH": 0.09,
+        "LEAN": 0.6900000000000001,
+        "PASS": 0.13
+      },
+      "jev_trust": "LOW",
+      "jev_trust_probabilities": {
+        "LOW": 0.48,
+        "HIGH": 0.0,
+        "MEDIUM": 0.32,
+        "REJECT": 0.2
+      },
+      "jev_anomaly_probability": 0.62,
+      "jev_review_probability": 0.77
+    },
+    {
+      "shadow_id": "09352e4b8597f67e2e487fa4",
+      "player": "Chelsea Gray",
+      "game": "Las Vegas Aces @ Portland Fire",
+      "stat": "RA",
+      "side": "OVER",
+      "line": 11.5,
+      "odds": -114.0,
+      "actual": 8.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.0,
+        "WATCH": 0.04,
+        "LEAN": 0.02,
+        "PASS": 0.93
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.3,
+        "HIGH": 0.0,
+        "MEDIUM": 0.01,
+        "REJECT": 0.69
+      },
+      "jev_anomaly_probability": 0.78,
+      "jev_review_probability": 0.83
+    },
+    {
+      "shadow_id": "0d941f0fdb05e5d6a56c828e",
+      "player": "A'ja Wilson",
+      "game": "Las Vegas Aces @ Portland Fire",
+      "stat": "RA",
+      "side": "OVER",
+      "line": 11.5,
+      "odds": null,
+      "actual": 13.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "PASS": 0.99,
+        "BET": 0.0,
+        "LEAN": 0.0,
+        "WATCH": 0.01
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.01,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.99
+      },
+      "jev_anomaly_probability": 0.91,
+      "jev_review_probability": 0.8
+    },
+    {
+      "shadow_id": "6608e252fe552016923c0f15",
+      "player": "Angel Reese",
+      "game": "Seattle Storm @ Atlanta Dream",
+      "stat": "PTS",
+      "side": "OVER",
+      "line": 18.5,
+      "odds": null,
+      "actual": 18.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "PASS": 0.87,
+        "BET": 0.02,
+        "LEAN": 0.01,
+        "WATCH": 0.1
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.03,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.97
+      },
+      "jev_anomaly_probability": 0.89,
+      "jev_review_probability": 0.77
+    },
+    {
+      "shadow_id": "8fb081bdb75ba39de84730ee",
+      "player": "Emily Engstler",
+      "game": "Las Vegas Aces @ Portland Fire",
+      "stat": "REB",
+      "side": "OVER",
+      "line": 5.5,
+      "odds": null,
+      "actual": 7.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "WATCH": 0.13,
+        "PASS": 0.82,
+        "LEAN": 0.02,
+        "BET": 0.03
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.04,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.96
+      },
+      "jev_anomaly_probability": 0.89,
+      "jev_review_probability": 0.82
+    },
+    {
+      "shadow_id": "a1f8215e54f722ce37d027e8",
+      "player": "Natisha Hiedeman",
+      "game": "Seattle Storm @ Atlanta Dream",
+      "stat": "RA",
+      "side": "OVER",
+      "line": 7.5,
+      "odds": null,
+      "actual": 8.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.02,
+        "WATCH": 0.1,
+        "LEAN": 0.01,
+        "PASS": 0.87
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.07,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.93
+      },
+      "jev_anomaly_probability": 0.84,
+      "jev_review_probability": 0.73
+    },
+    {
+      "shadow_id": "012f9687c645220405174ff2",
+      "player": "Tyasha Harris",
+      "game": "Indiana Fever @ Phoenix Mercury",
+      "stat": "PTS",
+      "side": "OVER",
+      "line": 8.5,
+      "odds": null,
+      "actual": 15.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.0,
+        "WATCH": 0.05,
+        "LEAN": 0.01,
+        "PASS": 0.94
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.1,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.9
+      },
+      "jev_anomaly_probability": 0.77,
+      "jev_review_probability": 0.76
+    },
+    {
+      "shadow_id": "59ce78db7281980fd5e4abaa",
+      "player": "Jordin Canada",
+      "game": "Seattle Storm @ Atlanta Dream",
+      "stat": "PA",
+      "side": "UNDER",
+      "line": 20.5,
+      "odds": -108.0,
+      "actual": 22.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "BET",
+      "jev_action_probabilities": {
+        "BET": 0.84,
+        "WATCH": 0.03,
+        "LEAN": 0.08,
+        "PASS": 0.05
+      },
+      "jev_trust": "HIGH",
+      "jev_trust_probabilities": {
+        "LOW": 0.15,
+        "HIGH": 0.43,
+        "MEDIUM": 0.28,
+        "REJECT": 0.14
+      },
+      "jev_anomaly_probability": 0.44,
+      "jev_review_probability": 0.63
+    },
+    {
+      "shadow_id": "f70ca3facc2c1957dc9ecb65",
+      "player": "Chelsea Gray",
+      "game": "Phoenix Mercury @ Las Vegas Aces",
+      "stat": "PA",
+      "side": "UNDER",
+      "line": 19.5,
+      "odds": -103.0,
+      "actual": 15.0,
+      "outcome": "WIN",
+      "profit_units": 0.970873786407767,
+      "jev_action": "LEAN",
+      "jev_action_probabilities": {
+        "WATCH": 0.13,
+        "PASS": 0.2,
+        "LEAN": 0.35,
+        "BET": 0.32
+      },
+      "jev_trust": "LOW",
+      "jev_trust_probabilities": {
+        "LOW": 0.31,
+        "HIGH": 0.09,
+        "MEDIUM": 0.3,
+        "REJECT": 0.3
+      },
+      "jev_anomaly_probability": 0.85,
+      "jev_review_probability": 0.72
+    },
+    {
+      "shadow_id": "910d7d790e5acaac3df834f9",
+      "player": "A'ja Wilson",
+      "game": "Phoenix Mercury @ Las Vegas Aces",
+      "stat": "3PM",
+      "side": "UNDER",
+      "line": 0.5,
+      "odds": 123.0,
+      "actual": 1.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.34,
+        "WATCH": 0.14,
+        "LEAN": 0.17,
+        "PASS": 0.35
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.27,
+        "HIGH": 0.1,
+        "MEDIUM": 0.14,
+        "REJECT": 0.49
+      },
+      "jev_anomaly_probability": 0.89,
+      "jev_review_probability": 0.83
+    },
+    {
+      "shadow_id": "30a5d915d33338110739af2f",
+      "player": "A'ja Wilson",
+      "game": "Phoenix Mercury @ Las Vegas Aces",
+      "stat": "PTS",
+      "side": "UNDER",
+      "line": 25.5,
+      "odds": 100.0,
+      "actual": 32.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.35,
+        "WATCH": 0.11,
+        "LEAN": 0.18,
+        "PASS": 0.36
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.31,
+        "HIGH": 0.1,
+        "MEDIUM": 0.21,
+        "REJECT": 0.38
+      },
+      "jev_anomaly_probability": 0.86,
+      "jev_review_probability": 0.75
+    },
+    {
+      "shadow_id": "d352536f2e26d05898b1ffa7",
+      "player": "Valeriane Ayayi",
+      "game": "Indiana Fever @ Phoenix Mercury",
+      "stat": "3PM",
+      "side": "UNDER",
+      "line": 1.5,
+      "odds": -214.0,
+      "actual": 2.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.03,
+        "WATCH": 0.05,
+        "LEAN": 0.14,
+        "PASS": 0.78
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.22,
+        "HIGH": 0.01,
+        "MEDIUM": 0.05,
+        "REJECT": 0.72
+      },
+      "jev_anomaly_probability": 0.69,
+      "jev_review_probability": 0.68
+    },
+    {
+      "shadow_id": "79139c8ccab3adaa8353970e",
+      "player": "Flau'jae Johnson",
+      "game": "Seattle Storm @ Atlanta Dream",
+      "stat": "AST",
+      "side": "UNDER",
+      "line": 5.5,
+      "odds": null,
+      "actual": 5.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "BET": 0.01,
+        "WATCH": 0.04,
+        "LEAN": 0.01,
+        "PASS": 0.94
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.11,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.89
+      },
+      "jev_anomaly_probability": 0.72,
+      "jev_review_probability": 0.71
+    },
+    {
+      "shadow_id": "aa58640cced5086cbff27b52",
+      "player": "Lexie Hull",
+      "game": "Indiana Fever @ Phoenix Mercury",
+      "stat": "REB",
+      "side": "UNDER",
+      "line": 4.5,
+      "odds": null,
+      "actual": 0.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "PASS": 0.96,
+        "BET": 0.0,
+        "LEAN": 0.0,
+        "WATCH": 0.04
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.08,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.92
+      },
+      "jev_anomaly_probability": 0.78,
+      "jev_review_probability": 0.67
+    },
+    {
+      "shadow_id": "c9ee12266319856f77d74886",
+      "player": "Sarah Ashlee Barker",
+      "game": "Las Vegas Aces @ Portland Fire",
+      "stat": "PA",
+      "side": "UNDER",
+      "line": 13.5,
+      "odds": null,
+      "actual": 11.0,
+      "outcome": "WIN",
+      "profit_units": null,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "PASS": 0.92,
+        "BET": 0.01,
+        "LEAN": 0.01,
+        "WATCH": 0.06
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.07,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.93
+      },
+      "jev_anomaly_probability": 0.79,
+      "jev_review_probability": 0.74
+    },
+    {
+      "shadow_id": "a2c70538e9a1dbdb6e3aa5bc",
+      "player": "Tyasha Harris",
+      "game": "Indiana Fever @ Phoenix Mercury",
+      "stat": "AST",
+      "side": "UNDER",
+      "line": 4.5,
+      "odds": null,
+      "actual": 5.0,
+      "outcome": "LOSS",
+      "profit_units": -1.0,
+      "jev_action": "PASS",
+      "jev_action_probabilities": {
+        "WATCH": 0.05,
+        "PASS": 0.9299999999999999,
+        "LEAN": 0.01,
+        "BET": 0.01
+      },
+      "jev_trust": "REJECT",
+      "jev_trust_probabilities": {
+        "LOW": 0.07,
+        "HIGH": 0.0,
+        "MEDIUM": 0.0,
+        "REJECT": 0.93
+      },
+      "jev_anomaly_probability": 0.67,
+      "jev_review_probability": 0.68
+    }
+  ],
+  "unmatched_rows": [],
+  "research_only": true,
+  "production_ready": false,
+  "promotion_policy": "One historical blind slate is diagnostic only. Require prospective shadow evidence across materially more resolved decisions before any production mutation."
+}

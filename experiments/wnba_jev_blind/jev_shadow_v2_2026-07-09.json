@@ -1,0 +1,937 @@
+{
+  "version": "jev_shadow_v2",
+  "league": "WNBA",
+  "generated_at_utc": "2026-09-21T21:07:13.787632+00:00",
+  "target_date": "2026-07-09",
+  "source": {
+    "target_date": "2026-07-09",
+    "source": "data/history/wnba_graded_bets.csv",
+    "research_only": true,
+    "input_path": "experiments/wnba_jev_blind/input_2026-07-09.json",
+    "candidate_key": "decisions"
+  },
+  "research_only": true,
+  "production_mutation": false,
+  "status": "OK",
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 13564,
+    "output_tokens": 2701
+  },
+  "summary": {
+    "candidates": 20,
+    "new_ledger_rows": 20,
+    "action_counts": {
+      "PASS": 14,
+      "LEAN": 5,
+      "BET": 1
+    },
+    "trust_counts": {
+      "REJECT": 14,
+      "LOW": 3,
+      "MEDIUM": 2,
+      "HIGH": 1
+    },
+    "review_ge_050": 20,
+    "anomaly_ge_050": 19,
+    "batch_directional_concentration_ge_050": true,
+    "batch_systemic_integrity_risk_ge_050": true
+  },
+  "batch": {
+    "directional_concentration_probability": 0.78,
+    "systemic_integrity_risk_probability": 0.96
+  },
+  "decisions": [
+    {
+      "shadow_id": "dbba4aa0c808343ff13d7460",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Portland Fire",
+        "player": "Carla Leite",
+        "opponent": "Las Vegas Aces",
+        "stat": "3PM",
+        "signal": "OVER",
+        "line": 0.5,
+        "american_odds": 110,
+        "sportsbook": "FanDuel",
+        "edge_pct": 860,
+        "pred": 0.9,
+        "simulation_probability": 0.9941,
+        "ev_pct": -16.3,
+        "confidence": 96.1
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "WATCH": 0.13,
+          "PASS": 0.66,
+          "LEAN": 0.06,
+          "BET": 0.15
+        },
+        "action_confidence": 0.54,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.13,
+          "HIGH": 0.02,
+          "MEDIUM": 0.02,
+          "REJECT": 0.83
+        },
+        "trust_confidence": 0.78,
+        "anomaly_probability": 0.92,
+        "review_probability": 0.87
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "3930b9ae2aacd2a36176b2cd",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Portland Fire @ Atlanta Dream",
+        "player": "Allisha Gray",
+        "opponent": "Seattle Storm",
+        "stat": "PTS",
+        "signal": "OVER",
+        "line": 18.5,
+        "american_odds": -103,
+        "sportsbook": "DraftKings",
+        "edge_pct": 32.43,
+        "pred": 24.5,
+        "simulation_probability": 0.8757,
+        "ev_pct": 0,
+        "confidence": 82.4
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "WATCH": 0.16,
+          "PASS": 0.28,
+          "LEAN": 0.36,
+          "BET": 0.2
+        },
+        "action_confidence": 0.15,
+        "trust": "LOW",
+        "trust_probabilities": {
+          "LOW": 0.36,
+          "HIGH": 0.02,
+          "MEDIUM": 0.29,
+          "REJECT": 0.33
+        },
+        "trust_confidence": 0.15,
+        "anomaly_probability": 0.84,
+        "review_probability": 0.75
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "eee35489c8647c5a448a9bb2",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ Atlanta Dream",
+        "player": "Rhyne Howard",
+        "opponent": "Seattle Storm",
+        "stat": "PTS",
+        "signal": "OVER",
+        "line": 18.5,
+        "american_odds": 0,
+        "edge_pct": 27.57,
+        "pred": 21.8,
+        "simulation_probability": 0.831,
+        "ev_pct": -1.5,
+        "confidence": 82
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "BET": 0.09,
+          "WATCH": 0.1,
+          "LEAN": 0.54,
+          "PASS": 0.27
+        },
+        "action_confidence": 0.39,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "LOW": 0.33,
+          "HIGH": 0.02,
+          "MEDIUM": 0.45,
+          "REJECT": 0.2
+        },
+        "trust_confidence": 0.26,
+        "anomaly_probability": 0.57,
+        "review_probability": 0.72
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "81902d53d3b60582deb06003",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ Atlanta Dream",
+        "player": "Allisha Gray",
+        "opponent": "Seattle Storm",
+        "stat": "PR",
+        "signal": "OVER",
+        "line": 25.5,
+        "american_odds": -102,
+        "sportsbook": "FanDuel",
+        "edge_pct": 17.65,
+        "pred": 28.4,
+        "simulation_probability": 0.6553,
+        "ev_pct": 13.3,
+        "confidence": 73.3
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "WATCH": 0.03,
+          "PASS": 0.02,
+          "LEAN": 0.48,
+          "BET": 0.47
+        },
+        "action_confidence": 0.3,
+        "trust": "MEDIUM",
+        "trust_probabilities": {
+          "LOW": 0.22,
+          "HIGH": 0.02,
+          "MEDIUM": 0.63,
+          "REJECT": 0.13
+        },
+        "trust_confidence": 0.5,
+        "anomaly_probability": 0.58,
+        "review_probability": 0.63
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "4e527b1d8eb54b5520b56b91",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Portland Fire",
+        "player": "Bridget Carleton",
+        "opponent": "Las Vegas Aces",
+        "stat": "3PM",
+        "signal": "OVER",
+        "line": 2.5,
+        "american_odds": -154,
+        "sportsbook": "FanDuel",
+        "edge_pct": 32,
+        "pred": 3,
+        "simulation_probability": 0.6197,
+        "ev_pct": 8.8,
+        "confidence": 48.2
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "BET": 0.09,
+          "WATCH": 0.09,
+          "LEAN": 0.6900000000000001,
+          "PASS": 0.13
+        },
+        "action_confidence": 0.58,
+        "trust": "LOW",
+        "trust_probabilities": {
+          "LOW": 0.48,
+          "HIGH": 0.0,
+          "MEDIUM": 0.32,
+          "REJECT": 0.2
+        },
+        "trust_confidence": 0.31,
+        "anomaly_probability": 0.62,
+        "review_probability": 0.77
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "09352e4b8597f67e2e487fa4",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Portland Fire",
+        "player": "Chelsea Gray",
+        "opponent": "Portland Fire",
+        "stat": "RA",
+        "signal": "OVER",
+        "line": 11.5,
+        "american_odds": -114,
+        "sportsbook": "FanDuel",
+        "edge_pct": 6.09,
+        "pred": 12.4,
+        "simulation_probability": 0.5575,
+        "ev_pct": -45.8,
+        "confidence": 34.3
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "BET": 0.0,
+          "WATCH": 0.04,
+          "LEAN": 0.02,
+          "PASS": 0.93
+        },
+        "action_confidence": 0.91,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.3,
+          "HIGH": 0.0,
+          "MEDIUM": 0.01,
+          "REJECT": 0.69
+        },
+        "trust_confidence": 0.59,
+        "anomaly_probability": 0.78,
+        "review_probability": 0.83
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "0d941f0fdb05e5d6a56c828e",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Portland Fire",
+        "player": "A'ja Wilson",
+        "opponent": "Portland Fire",
+        "stat": "RA",
+        "signal": "OVER",
+        "line": 11.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 13.5,
+        "simulation_probability": 0,
+        "ev_pct": -42.9,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "PASS": 0.99,
+          "BET": 0.0,
+          "LEAN": 0.0,
+          "WATCH": 0.01
+        },
+        "action_confidence": 0.98,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.01,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.99
+        },
+        "trust_confidence": 0.99,
+        "anomaly_probability": 0.91,
+        "review_probability": 0.8
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "6608e252fe552016923c0f15",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ Atlanta Dream",
+        "player": "Angel Reese",
+        "opponent": "Seattle Storm",
+        "stat": "PTS",
+        "signal": "OVER",
+        "line": 18.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 19.2,
+        "simulation_probability": 0,
+        "ev_pct": 23.5,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "PASS": 0.87,
+          "BET": 0.02,
+          "LEAN": 0.01,
+          "WATCH": 0.1
+        },
+        "action_confidence": 0.82,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.03,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.97
+        },
+        "trust_confidence": 0.96,
+        "anomaly_probability": 0.89,
+        "review_probability": 0.77
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "8fb081bdb75ba39de84730ee",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Portland Fire",
+        "player": "Emily Engstler",
+        "opponent": "Las Vegas Aces",
+        "stat": "REB",
+        "signal": "OVER",
+        "line": 5.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 7.8,
+        "simulation_probability": 0,
+        "ev_pct": 43.1,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "WATCH": 0.13,
+          "PASS": 0.82,
+          "LEAN": 0.02,
+          "BET": 0.03
+        },
+        "action_confidence": 0.77,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.04,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.96
+        },
+        "trust_confidence": 0.95,
+        "anomaly_probability": 0.89,
+        "review_probability": 0.82
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "a1f8215e54f722ce37d027e8",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ Atlanta Dream",
+        "player": "Natisha Hiedeman",
+        "opponent": "Atlanta Dream",
+        "stat": "RA",
+        "signal": "OVER",
+        "line": 7.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 8.4,
+        "simulation_probability": 0,
+        "ev_pct": 16.2,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "BET": 0.02,
+          "WATCH": 0.1,
+          "LEAN": 0.01,
+          "PASS": 0.87
+        },
+        "action_confidence": 0.84,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.07,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.93
+        },
+        "trust_confidence": 0.91,
+        "anomaly_probability": 0.84,
+        "review_probability": 0.73
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "012f9687c645220405174ff2",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Indiana Fever @ Phoenix Mercury",
+        "player": "Tyasha Harris",
+        "opponent": "Phoenix Mercury",
+        "stat": "PTS",
+        "signal": "OVER",
+        "line": 8.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 8.9,
+        "simulation_probability": 0,
+        "ev_pct": -28.2,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "BET": 0.0,
+          "WATCH": 0.05,
+          "LEAN": 0.01,
+          "PASS": 0.94
+        },
+        "action_confidence": 0.93,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.1,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.9
+        },
+        "trust_confidence": 0.87,
+        "anomaly_probability": 0.77,
+        "review_probability": 0.76
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "59ce78db7281980fd5e4abaa",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ Atlanta Dream",
+        "player": "Jordin Canada",
+        "opponent": "Seattle Storm",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 20.5,
+        "american_odds": -108,
+        "sportsbook": "FanDuel",
+        "edge_pct": 26.34,
+        "pred": 17.2,
+        "simulation_probability": 0.7594,
+        "ev_pct": 10.4,
+        "confidence": 96.4
+      },
+      "jev": {
+        "action": "BET",
+        "action_probabilities": {
+          "BET": 0.84,
+          "WATCH": 0.03,
+          "LEAN": 0.08,
+          "PASS": 0.05
+        },
+        "action_confidence": 0.79,
+        "trust": "HIGH",
+        "trust_probabilities": {
+          "LOW": 0.15,
+          "HIGH": 0.43,
+          "MEDIUM": 0.28,
+          "REJECT": 0.14
+        },
+        "trust_confidence": 0.24,
+        "anomaly_probability": 0.44,
+        "review_probability": 0.63
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "f70ca3facc2c1957dc9ecb65",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Phoenix Mercury @ Las Vegas Aces",
+        "player": "Chelsea Gray",
+        "opponent": "Portland Fire",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 19.5,
+        "american_odds": -103,
+        "sportsbook": "DraftKings",
+        "edge_pct": 30.26,
+        "pred": 13.6,
+        "simulation_probability": 0.8132,
+        "ev_pct": 0,
+        "confidence": 82.4
+      },
+      "jev": {
+        "action": "LEAN",
+        "action_probabilities": {
+          "WATCH": 0.13,
+          "PASS": 0.2,
+          "LEAN": 0.35,
+          "BET": 0.32
+        },
+        "action_confidence": 0.13,
+        "trust": "LOW",
+        "trust_probabilities": {
+          "LOW": 0.31,
+          "HIGH": 0.09,
+          "MEDIUM": 0.3,
+          "REJECT": 0.3
+        },
+        "trust_confidence": 0.07,
+        "anomaly_probability": 0.85,
+        "review_probability": 0.72
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "910d7d790e5acaac3df834f9",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Phoenix Mercury @ Las Vegas Aces",
+        "player": "A'ja Wilson",
+        "opponent": "Portland Fire",
+        "stat": "3PM",
+        "signal": "UNDER",
+        "line": 0.5,
+        "american_odds": 123,
+        "sportsbook": "DraftKings",
+        "edge_pct": 860,
+        "pred": -3.8,
+        "simulation_probability": 0.9894,
+        "ev_pct": 0,
+        "confidence": 82.1
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "BET": 0.34,
+          "WATCH": 0.14,
+          "LEAN": 0.17,
+          "PASS": 0.35
+        },
+        "action_confidence": 0.14,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.27,
+          "HIGH": 0.1,
+          "MEDIUM": 0.14,
+          "REJECT": 0.49
+        },
+        "trust_confidence": 0.32,
+        "anomaly_probability": 0.89,
+        "review_probability": 0.83
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "30a5d915d33338110739af2f",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Phoenix Mercury @ Las Vegas Aces",
+        "player": "A'ja Wilson",
+        "opponent": "Portland Fire",
+        "stat": "PTS",
+        "signal": "UNDER",
+        "line": 25.5,
+        "american_odds": 100,
+        "sportsbook": "FanDuel",
+        "edge_pct": 21.96,
+        "pred": 19.9,
+        "simulation_probability": 0.8067,
+        "ev_pct": 0,
+        "confidence": 82
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "BET": 0.35,
+          "WATCH": 0.11,
+          "LEAN": 0.18,
+          "PASS": 0.36
+        },
+        "action_confidence": 0.14,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.31,
+          "HIGH": 0.1,
+          "MEDIUM": 0.21,
+          "REJECT": 0.38
+        },
+        "trust_confidence": 0.17,
+        "anomaly_probability": 0.86,
+        "review_probability": 0.75
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "d352536f2e26d05898b1ffa7",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Indiana Fever @ Phoenix Mercury",
+        "player": "Valeriane Ayayi",
+        "opponent": "Indiana Fever",
+        "stat": "3PM",
+        "signal": "UNDER",
+        "line": 1.5,
+        "american_odds": -214,
+        "sportsbook": "DraftKings",
+        "edge_pct": 13.33,
+        "pred": 0.3,
+        "simulation_probability": 0.5458,
+        "ev_pct": -24.5,
+        "confidence": 40.3
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "BET": 0.03,
+          "WATCH": 0.05,
+          "LEAN": 0.14,
+          "PASS": 0.78
+        },
+        "action_confidence": 0.71,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.22,
+          "HIGH": 0.01,
+          "MEDIUM": 0.05,
+          "REJECT": 0.72
+        },
+        "trust_confidence": 0.63,
+        "anomaly_probability": 0.69,
+        "review_probability": 0.68
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "79139c8ccab3adaa8353970e",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Seattle Storm @ Atlanta Dream",
+        "player": "Flau'jae Johnson",
+        "opponent": "Atlanta Dream",
+        "stat": "AST",
+        "signal": "UNDER",
+        "line": 5.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 3.1,
+        "simulation_probability": 0,
+        "ev_pct": -20.1,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "BET": 0.01,
+          "WATCH": 0.04,
+          "LEAN": 0.01,
+          "PASS": 0.94
+        },
+        "action_confidence": 0.93,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.11,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.89
+        },
+        "trust_confidence": 0.84,
+        "anomaly_probability": 0.72,
+        "review_probability": 0.71
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "aa58640cced5086cbff27b52",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Indiana Fever @ Phoenix Mercury",
+        "player": "Lexie Hull",
+        "opponent": "Phoenix Mercury",
+        "stat": "REB",
+        "signal": "UNDER",
+        "line": 4.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 2.8,
+        "simulation_probability": 0,
+        "ev_pct": -3.5,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "PASS": 0.96,
+          "BET": 0.0,
+          "LEAN": 0.0,
+          "WATCH": 0.04
+        },
+        "action_confidence": 0.93,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.08,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.92
+        },
+        "trust_confidence": 0.89,
+        "anomaly_probability": 0.78,
+        "review_probability": 0.67
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "c9ee12266319856f77d74886",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Las Vegas Aces @ Portland Fire",
+        "player": "Sarah Ashlee Barker",
+        "opponent": "Las Vegas Aces",
+        "stat": "PA",
+        "signal": "UNDER",
+        "line": 13.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 7.6,
+        "simulation_probability": 0,
+        "ev_pct": 17.7,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "PASS": 0.92,
+          "BET": 0.01,
+          "LEAN": 0.01,
+          "WATCH": 0.06
+        },
+        "action_confidence": 0.89,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.07,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.93
+        },
+        "trust_confidence": 0.9,
+        "anomaly_probability": 0.79,
+        "review_probability": 0.74
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    },
+    {
+      "shadow_id": "a2c70538e9a1dbdb6e3aa5bc",
+      "question_version": "jev_shadow_v2",
+      "league": "WNBA",
+      "target_date": "2026-07-09",
+      "issued_at_utc": "2026-09-21T21:07:13.787632+00:00",
+      "candidate": {
+        "game": "Indiana Fever @ Phoenix Mercury",
+        "player": "Tyasha Harris",
+        "opponent": "Phoenix Mercury",
+        "stat": "AST",
+        "signal": "UNDER",
+        "line": 4.5,
+        "american_odds": 0,
+        "edge_pct": 0,
+        "pred": 2.8,
+        "simulation_probability": 0,
+        "ev_pct": -2.2,
+        "confidence": 0
+      },
+      "jev": {
+        "action": "PASS",
+        "action_probabilities": {
+          "WATCH": 0.05,
+          "PASS": 0.9299999999999999,
+          "LEAN": 0.01,
+          "BET": 0.01
+        },
+        "action_confidence": 0.91,
+        "trust": "REJECT",
+        "trust_probabilities": {
+          "LOW": 0.07,
+          "HIGH": 0.0,
+          "MEDIUM": 0.0,
+          "REJECT": 0.93
+        },
+        "trust_confidence": 0.9,
+        "anomaly_probability": 0.67,
+        "review_probability": 0.68
+      },
+      "research_only": true,
+      "production_mutation": false,
+      "outcome": "PENDING"
+    }
+  ],
+  "safety": "Shadow only. Jev judgments do not alter production predictions, Best Bets, bankroll sizing, or action labels."
+}
