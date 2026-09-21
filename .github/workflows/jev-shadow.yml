@@ -1,0 +1,73 @@
+name: Jev Shadow Decisions
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Target date (YYYY-MM-DD); blank uses active slate date'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Build request preview without calling TypeSafe'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  jev-shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Resolve target date
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            TARGET="${{ inputs.date }}"
+          else
+            TARGET=$(python active_slate_date.py)
+          fi
+          echo "TARGET=$TARGET" >> "$GITHUB_ENV"
+
+      - name: Check prediction artifact
+        id: source
+        run: |
+          SOURCE="predictions/predictions_${TARGET}.json"
+          if [ ! -f "$SOURCE" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "No prediction artifact at $SOURCE"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run Jev shadow harness
+        if: steps.source.outputs.skip != 'true'
+        run: |
+          EXTRA=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            EXTRA="--dry-run"
+          elif [ -z "$TYPESAFE_API_KEY" ]; then
+            echo "TYPESAFE_API_KEY is not configured; rerun as dry-run or add the repo secret."
+            exit 0
+          fi
+
+          python jev_shadow.py             --league nba             --date "$TARGET"             --input "predictions/predictions_${TARGET}.json"             --output "predictions/jev_shadow_${TARGET}.json"             --ledger "data/history/nba_jev_shadow.jsonl"             $EXTRA
+
+      - name: Commit shadow artifacts
+        if: steps.source.outputs.skip != 'true'
+        run: |
+          git config user.name "NBA Jev Shadow Bot"
+          git config user.email "actions@github.com"
+          git add "predictions/jev_shadow_${TARGET}.json" 2>/dev/null || true
+          git add "data/history/nba_jev_shadow.jsonl" 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Jev shadow — NBA ${TARGET}"
+          git push
