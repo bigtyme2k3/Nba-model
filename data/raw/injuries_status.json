@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "target_date": "2026-10-01",
+  "rows": 0,
+  "out": 0,
+  "questionable": 0,
+  "error": null,
+  "generated_at_utc": "2026-10-01T18:42:17.237776+00:00",
+  "sources": [
+    "espn",
+    "manual_override"
+  ],
+  "teams_checked": 30,
+  "completed_at_utc": "2026-10-01T18:42:28.473905+00:00"
+}
