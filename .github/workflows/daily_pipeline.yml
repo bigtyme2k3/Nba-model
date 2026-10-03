@@ -127,6 +127,11 @@ jobs:
         run: python results_tracker.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
+      - name: Reconcile yesterday's forward predictions
+        if: env.SKIP != 'true'
+        run: python forward_reconciler.py --date ${{ env.YESTERDAY }}
+        continue-on-error: true
+
       # ── Step 13: Line movement + CLV ─────────────────────────────────────
       - name: Compute line movement and CLV
         if: env.SKIP != 'true'
