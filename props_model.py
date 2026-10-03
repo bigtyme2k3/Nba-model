@@ -31,22 +31,45 @@ BASE_FEATURES = [
 ]
 
 def prepare_data(df):
+    """Prepare player rows for genuinely chronological validation.
+
+    build_player_features.py already shifts rolling inputs by one game, so this
+    function must not recreate target-game features. We compute bookkeeping in
+    player order, then return rows in global game-date order for TimeSeriesSplit.
+    """
+    df = df.copy()
+    df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
+    df = df[df["game_date"].notna()].copy()
     df = df.sort_values(["player","season","game_date"]).reset_index(drop=True)
-    df["game_date"] = pd.to_datetime(df["game_date"])
     df["season_game_num"] = df.groupby(["player","season"]).cumcount() + 1
-    df["month"]     = df["game_date"].dt.month
-    df["def_adj"]   = 114 - df.get("opp_drtg_pos", 114)
-    df["usage_pace"]= df.get("usage",0.20) * df.get("avg_pace",99) / 99.0
-    df["min_risk_flag"] = 0
-    return df
+    df["month"] = df["game_date"].dt.month
+    df["def_adj"] = 114 - pd.to_numeric(df.get("opp_drtg_pos", 114), errors="coerce").fillna(114)
+    df["usage_pace"] = (
+        pd.to_numeric(df.get("usage", 0.20), errors="coerce").fillna(0.20)
+        * pd.to_numeric(df.get("avg_pace", 99), errors="coerce").fillna(99)
+        / 99.0
+    )
+    df["min_risk_flag"] = (
+        pd.to_numeric(df.get("minutes_sd_l10", 0), errors="coerce").fillna(0) >= 6.0
+    ).astype(int)
+    return df.sort_values(["game_date","player"]).reset_index(drop=True)
 
 def train_prop_model(df, target):
     feats = [f for f in BASE_FEATURES + ["def_adj","usage_pace"] if f in df.columns and f != target]
     sub   = df[df["roll5_pts"].notna()].copy()
     if sub.empty or len(sub) < 20:
         return None
-    X, y  = sub[feats].fillna(0), sub[target]
-    tscv  = TimeSeriesSplit(n_splits=4)
+    sub = sub[sub[target].notna()].copy()
+    if len(sub) < 20:
+        return None
+    X = sub[feats].apply(pd.to_numeric, errors="coerce")
+    X = X.fillna(X.median(numeric_only=True)).fillna(0)
+    y = pd.to_numeric(sub[target], errors="coerce")
+    valid = y.notna()
+    X, y = X.loc[valid], y.loc[valid]
+    if len(y) < 20:
+        return None
+    tscv = TimeSeriesSplit(n_splits=4)
     models = {
         "Ridge": Pipeline([("sc", StandardScaler()), ("m", Ridge(alpha=5.0))]),
         "GBR":   Pipeline([("sc", StandardScaler()), ("m", GradientBoostingRegressor(
@@ -68,25 +91,18 @@ def train_all(data_path=DATA_PATH):
     print("\n═══ NBA PROPS MODEL — TRAINING ═══\n")
     if not os.path.exists(data_path):
         print(f"[WARN] No player logs found at {data_path}")
-        print("       Creating minimal placeholder models...")
-        # Create placeholder models so the pipeline doesn't crash
+        print("       Props are fail-closed: no synthetic placeholder predictions will be created.")
         thresholds = {"pts":2.5,"reb":1.5,"ast":1.0,"threes":0.5,"pra":3.5}
-        bundles = {}
-        for target in PROP_TARGETS:
-            X_dummy = pd.DataFrame({"roll5_pts":[24,28,18,30,22],
-                                     "usage":[0.28,0.32,0.24,0.34,0.26],
-                                     "avg_pace":[98,100,96,102,99]})
-            y_dummy = pd.Series([24,28,18,30,22] if target=="pts" else [7,8,6,9,7])
-            m = Pipeline([("sc", StandardScaler()), ("m", Ridge(alpha=5.0))])
-            m.fit(X_dummy, y_dummy)
-            bundles[target] = {"model": m, "features": list(X_dummy.columns),
-                               "best_name": "Ridge", "cv_mae": 5.0,
-                               "mean_stat": 20.0, "std_stat": 6.0, "eval": {}}
         path = os.path.join(MODEL_DIR, "props_models.pkl")
         with open(path, "wb") as f:
-            pickle.dump({"models": bundles, "thresholds": thresholds}, f)
-        print(f"✅ Placeholder models saved → {path}")
-        return bundles
+            pickle.dump({
+                "status": "insufficient_data",
+                "models": {},
+                "thresholds": thresholds,
+                "data_path": data_path,
+            }, f)
+        print(f"✅ Empty fail-closed bundle saved → {path}")
+        return {}
 
     df = pd.read_csv(data_path, parse_dates=["game_date"])
     df = prepare_data(df)
@@ -106,14 +122,26 @@ def train_all(data_path=DATA_PATH):
         print(f"  {target:<8} {b['best_name']:<8} {b['cv_mae']:>8.2f} {b['mean_stat']:>8.1f}")
 
     path = os.path.join(MODEL_DIR, "props_models.pkl")
+    trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
     with open(path, "wb") as f:
-        pickle.dump({"models": bundles, "thresholds": thresholds}, f)
+        pickle.dump({
+            "status": "trained" if bundles else "insufficient_data",
+            "models": bundles,
+            "thresholds": thresholds,
+            "trained_rows": int(len(df)),
+            "trained_through": trained_through,
+            "validation": "global_chronological_timeseries_split",
+            "feature_policy": "prior_only_shifted_inputs",
+        }, f)
     print(f"\n✅ Saved → {path}")
+    print(f"   Status: {'trained' if bundles else 'insufficient_data'} | Through: {trained_through}")
     return bundles
 
 def predict_props(player_games, model_path=os.path.join(MODEL_DIR,"props_models.pkl")):
     with open(model_path, "rb") as f:
         bundle = pickle.load(f)
+    if bundle.get("status") not in (None, "trained") or not bundle.get("models"):
+        return pd.DataFrame()
     models, thresholds = bundle["models"], bundle["thresholds"]
     rows = []
     for pg in player_games:
