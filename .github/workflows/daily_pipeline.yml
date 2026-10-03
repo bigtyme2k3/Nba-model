@@ -94,9 +94,11 @@ jobs:
         run: python merge_data.py --year all --raw data/raw --out data/processed
 
       # ── Step 8: Player / rotation features ───────────────────────────────
-      - name: Build player and rotation feature store
+      - name: Build player, rotation, and team feature stores
         if: env.SKIP != 'true'
-        run: python build_player_features.py --raw data/raw --out data/processed
+        run: |
+          python build_player_features.py --raw data/raw --out data/processed
+          python build_team_features.py --raw data/raw --out data/processed
 
       # ── Step 9: Retrain (Mondays only) ───────────────────────────────────
       - name: Retrain models (Monday only)
