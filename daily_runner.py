@@ -148,6 +148,7 @@ OPP_DEF_POS.update({
 # ── Live player/profile + market loaders ───────────────────────────────────────
 
 PLAYER_PROFILE_PATH = os.path.join(DATA_DIR, "player_profiles_latest.csv")
+TEAM_PROFILE_PATH = os.path.join(DATA_DIR, "team_profiles_latest.csv")
 
 
 def _boolish(value):
@@ -160,6 +161,43 @@ def _float(value, default):
         return default if np.isnan(v) else v
     except Exception:
         return default
+
+
+def load_team_profiles_into_context(path=TEAM_PROFILE_PATH):
+    """Overlay seed fallbacks with real rolling team profiles from completed games."""
+    global CURRENT_TEAM_STATS, TEAM_ROLLING
+    if not os.path.exists(path):
+        print("  [WARN] Real team profiles missing — seed fallback remains active")
+        return 0
+    try:
+        df = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load team profiles: {exc}")
+        return 0
+
+    loaded = 0
+    for _, r in df.iterrows():
+        team = normalize_team(str(r.get("team", "")).strip())
+        if team not in CURRENT_TEAM_STATS:
+            continue
+        CURRENT_TEAM_STATS[team] = {
+            "net_rtg": _float(r.get("net_rtg"), CURRENT_TEAM_STATS[team].get("net_rtg", 0)),
+            "ortg": _float(r.get("ortg"), CURRENT_TEAM_STATS[team].get("ortg", 114)),
+            "drtg": _float(r.get("drtg"), CURRENT_TEAM_STATS[team].get("drtg", 114)),
+            "pace": _float(r.get("pace"), CURRENT_TEAM_STATS[team].get("pace", 99)),
+            "ts_pct": _float(r.get("ts_pct"), CURRENT_TEAM_STATS[team].get("ts_pct", 0.57)),
+            "last_game_date": str(r.get("last_game_date", "")),
+            "source": str(r.get("source", "COMPLETED_TEAM_BOX_SCORES")),
+        }
+        TEAM_ROLLING[team] = {
+            "roll5": _float(r.get("roll5_net_rtg"), CURRENT_TEAM_STATS[team]["net_rtg"]),
+            "roll10": _float(r.get("roll10_net_rtg"), CURRENT_TEAM_STATS[team]["net_rtg"]),
+            "roll_pts": _float(r.get("roll5_points"), CURRENT_TEAM_STATS[team]["ortg"]),
+            "roll_allowed": _float(r.get("roll5_allowed"), CURRENT_TEAM_STATS[team]["drtg"]),
+        }
+        loaded += 1
+    print(f"  Real team profiles loaded: {loaded} teams")
+    return loaded
 
 
 def load_player_profiles(path=PLAYER_PROFILE_PATH):
@@ -514,7 +552,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
 
         opp = away if pdata["team"] == home else home
         pos = str(pdata.get("pos", "G") or "G").upper()
-        opp_def = OPP_DEF_POS.get(opp, {}).get(pos, 114)
+        opp_def = CURRENT_TEAM_STATS.get(opp, {}).get("drtg", 114)
         is_home = int(pdata["team"] == home)
         b2b = ctx["home_b2b"] if is_home else ctx["away_b2b"]
         rest = ctx["home_rest_days"] if is_home else ctx["away_rest_days"]
@@ -644,6 +682,7 @@ def collect_best_bets(games_output):
 
 def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     print(f"\n═══ NBA DAILY PIPELINE — {target_date} ═══\n")
+    load_team_profiles_into_context()
     spread_bundle, totals_bundle, props_bundle = load_models()
 
     # Load injury adjustments
