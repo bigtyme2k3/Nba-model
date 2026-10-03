@@ -1,0 +1,22 @@
+{
+  "status": "READY",
+  "rows": 111945,
+  "players": 926,
+  "seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "min_game_date": "2021-10-19",
+  "max_game_date": "2025-06-22",
+  "profile_rows": 568,
+  "rotation_rows": 568,
+  "leakage_policy": "ROLLING_FEATURES_SHIFTED_ONE_GAME",
+  "actual_minutes_separate": true,
+  "outputs": [
+    "data/processed/player_logs.csv",
+    "data/processed/player_profiles_latest.csv",
+    "data/processed/rotation_profiles_latest.csv"
+  ]
+}

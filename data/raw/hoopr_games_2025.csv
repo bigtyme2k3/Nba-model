@@ -1,0 +1,1325 @@
+game_id,game_date,home_team,away_team,home_pts,away_pts,season,actual_spread,actual_total
+401766128,2025-06-22,Oklahoma City Thunder,Indiana Pacers,103,91,2025,12,194
+401766127,2025-06-19,Indiana Pacers,Oklahoma City Thunder,108,91,2025,17,199
+401766126,2025-06-16,Oklahoma City Thunder,Indiana Pacers,120,109,2025,11,229
+401766125,2025-06-13,Indiana Pacers,Oklahoma City Thunder,104,111,2025,-7,215
+401766124,2025-06-11,Indiana Pacers,Oklahoma City Thunder,116,107,2025,9,223
+401766123,2025-06-08,Oklahoma City Thunder,Indiana Pacers,123,107,2025,16,230
+401766122,2025-06-05,Oklahoma City Thunder,Indiana Pacers,110,111,2025,-1,221
+401772994,2025-05-31,Indiana Pacers,New York Knicks,125,108,2025,17,233
+401772993,2025-05-29,New York Knicks,Indiana Pacers,111,94,2025,17,205
+401773152,2025-05-28,Oklahoma City Thunder,Minnesota Timberwolves,124,94,2025,30,218
+401772992,2025-05-27,Indiana Pacers,New York Knicks,130,121,2025,9,251
+401773151,2025-05-26,Minnesota Timberwolves,Oklahoma City Thunder,126,128,2025,-2,254
+401772991,2025-05-25,Indiana Pacers,New York Knicks,100,106,2025,-6,206
+401773150,2025-05-24,Minnesota Timberwolves,Oklahoma City Thunder,143,101,2025,42,244
+401772990,2025-05-23,New York Knicks,Indiana Pacers,109,114,2025,-5,223
+401773149,2025-05-22,Oklahoma City Thunder,Minnesota Timberwolves,118,103,2025,15,221
+401772989,2025-05-21,New York Knicks,Indiana Pacers,135,138,2025,-3,273
+401773148,2025-05-20,Oklahoma City Thunder,Minnesota Timberwolves,114,88,2025,26,202
+401769992,2025-05-18,Oklahoma City Thunder,Denver Nuggets,125,93,2025,32,218
+401769751,2025-05-16,New York Knicks,Boston Celtics,119,81,2025,38,200
+401769991,2025-05-15,Denver Nuggets,Oklahoma City Thunder,119,107,2025,12,226
+401769987,2025-05-14,Minnesota Timberwolves,Golden State Warriors,121,110,2025,11,231
+401769750,2025-05-14,Boston Celtics,New York Knicks,127,102,2025,25,229
+401769990,2025-05-13,Oklahoma City Thunder,Denver Nuggets,112,105,2025,7,217
+401769743,2025-05-13,Cleveland Cavaliers,Indiana Pacers,105,114,2025,-9,219
+401769840,2025-05-12,Golden State Warriors,Minnesota Timberwolves,110,117,2025,-7,227
+401769749,2025-05-12,New York Knicks,Boston Celtics,121,113,2025,8,234
+401769742,2025-05-11,Indiana Pacers,Cleveland Cavaliers,129,109,2025,20,238
+401769823,2025-05-11,Denver Nuggets,Oklahoma City Thunder,87,92,2025,-5,179
+401769839,2025-05-10,Golden State Warriors,Minnesota Timberwolves,97,102,2025,-5,199
+401769748,2025-05-10,New York Knicks,Boston Celtics,93,115,2025,-22,208
+401769822,2025-05-09,Denver Nuggets,Oklahoma City Thunder,113,104,2025,9,217
+401769741,2025-05-09,Indiana Pacers,Cleveland Cavaliers,104,126,2025,-22,230
+401769838,2025-05-08,Minnesota Timberwolves,Golden State Warriors,117,93,2025,24,210
+401769821,2025-05-07,Oklahoma City Thunder,Denver Nuggets,149,106,2025,43,255
+401769747,2025-05-07,Boston Celtics,New York Knicks,90,91,2025,-1,181
+401769837,2025-05-06,Minnesota Timberwolves,Golden State Warriors,88,99,2025,-11,187
+401769740,2025-05-06,Cleveland Cavaliers,Indiana Pacers,119,120,2025,-1,239
+401769820,2025-05-05,Oklahoma City Thunder,Denver Nuggets,119,121,2025,-2,240
+401769746,2025-05-05,Boston Celtics,New York Knicks,105,108,2025,-3,213
+401767914,2025-05-04,Houston Rockets,Golden State Warriors,89,103,2025,-14,192
+401769689,2025-05-04,Cleveland Cavaliers,Indiana Pacers,112,121,2025,-9,233
+401768066,2025-05-03,Denver Nuggets,LA Clippers,120,101,2025,19,221
+401767913,2025-05-02,Golden State Warriors,Houston Rockets,107,115,2025,-8,222
+401768065,2025-05-01,LA Clippers,Denver Nuggets,111,105,2025,6,216
+401768045,2025-05-01,Detroit Pistons,New York Knicks,113,116,2025,-3,229
+401768058,2025-04-30,Los Angeles Lakers,Minnesota Timberwolves,96,103,2025,-7,199
+401767912,2025-04-30,Houston Rockets,Golden State Warriors,131,116,2025,15,247
+401768064,2025-04-29,Denver Nuggets,LA Clippers,131,115,2025,16,246
+401768032,2025-04-29,Boston Celtics,Orlando Magic,120,89,2025,31,209
+401768044,2025-04-29,New York Knicks,Detroit Pistons,103,106,2025,-3,209
+401768050,2025-04-29,Indiana Pacers,Milwaukee Bucks,119,118,2025,1,237
+401767911,2025-04-28,Golden State Warriors,Houston Rockets,109,106,2025,3,215
+401768037,2025-04-28,Miami Heat,Cleveland Cavaliers,83,138,2025,-55,221
+401768049,2025-04-27,Milwaukee Bucks,Indiana Pacers,103,129,2025,-26,232
+401768031,2025-04-27,Orlando Magic,Boston Celtics,98,107,2025,-9,205
+401768057,2025-04-27,Minnesota Timberwolves,Los Angeles Lakers,116,113,2025,3,229
+401768043,2025-04-27,Detroit Pistons,New York Knicks,93,94,2025,-1,187
+401767910,2025-04-26,Golden State Warriors,Houston Rockets,104,93,2025,11,197
+401768063,2025-04-26,LA Clippers,Denver Nuggets,99,101,2025,-2,200
+401767905,2025-04-26,Memphis Grizzlies,Oklahoma City Thunder,115,117,2025,-2,232
+401768036,2025-04-26,Miami Heat,Cleveland Cavaliers,87,124,2025,-37,211
+401768056,2025-04-25,Minnesota Timberwolves,Los Angeles Lakers,116,104,2025,12,220
+401768048,2025-04-25,Milwaukee Bucks,Indiana Pacers,117,101,2025,16,218
+401768030,2025-04-25,Orlando Magic,Boston Celtics,95,93,2025,2,188
+401768062,2025-04-24,LA Clippers,Denver Nuggets,117,83,2025,34,200
+401767904,2025-04-24,Memphis Grizzlies,Oklahoma City Thunder,108,114,2025,-6,222
+401768042,2025-04-24,Detroit Pistons,New York Knicks,116,118,2025,-2,234
+401767909,2025-04-23,Houston Rockets,Golden State Warriors,109,94,2025,15,203
+401768035,2025-04-23,Cleveland Cavaliers,Miami Heat,121,112,2025,9,233
+401768029,2025-04-23,Boston Celtics,Orlando Magic,109,100,2025,9,209
+401767915,2025-04-22,Los Angeles Lakers,Minnesota Timberwolves,94,85,2025,9,179
+401767903,2025-04-22,Oklahoma City Thunder,Memphis Grizzlies,118,99,2025,19,217
+401768047,2025-04-22,Indiana Pacers,Milwaukee Bucks,123,115,2025,8,238
+401768061,2025-04-21,Denver Nuggets,LA Clippers,102,105,2025,-3,207
+401768041,2025-04-21,New York Knicks,Detroit Pistons,94,100,2025,-6,194
+401767823,2025-04-20,Houston Rockets,Golden State Warriors,85,95,2025,-10,180
+401767816,2025-04-20,Cleveland Cavaliers,Miami Heat,121,100,2025,21,221
+401767822,2025-04-20,Boston Celtics,Orlando Magic,103,86,2025,17,189
+401767818,2025-04-20,Oklahoma City Thunder,Memphis Grizzlies,131,80,2025,51,211
+401767821,2025-04-19,Los Angeles Lakers,Minnesota Timberwolves,95,117,2025,-22,212
+401767820,2025-04-19,New York Knicks,Detroit Pistons,123,112,2025,11,235
+401767819,2025-04-19,Denver Nuggets,LA Clippers,112,110,2025,2,222
+401767817,2025-04-19,Indiana Pacers,Milwaukee Bucks,117,98,2025,19,215
+401766463,2025-04-18,Memphis Grizzlies,Dallas Mavericks,120,106,2025,14,226
+401766462,2025-04-18,Atlanta Hawks,Miami Heat,114,123,2025,-9,237
+401766461,2025-04-16,Sacramento Kings,Dallas Mavericks,106,120,2025,-14,226
+401766460,2025-04-16,Chicago Bulls,Miami Heat,90,109,2025,-19,199
+401766459,2025-04-15,Golden State Warriors,Memphis Grizzlies,121,116,2025,5,237
+401766458,2025-04-15,Orlando Magic,Atlanta Hawks,120,95,2025,25,215
+401705759,2025-04-13,Houston Rockets,Denver Nuggets,111,126,2025,-15,237
+401705760,2025-04-13,Memphis Grizzlies,Dallas Mavericks,132,97,2025,35,229
+401705761,2025-04-13,Minnesota Timberwolves,Utah Jazz,116,105,2025,11,221
+401705762,2025-04-13,New Orleans Pelicans,Oklahoma City Thunder,100,115,2025,-15,215
+401705763,2025-04-13,San Antonio Spurs,Toronto Raptors,125,118,2025,7,243
+401705764,2025-04-13,Golden State Warriors,LA Clippers,119,124,2025,-5,243
+401705765,2025-04-13,Portland Trail Blazers,Los Angeles Lakers,109,81,2025,28,190
+401705766,2025-04-13,Sacramento Kings,Phoenix Suns,109,98,2025,11,207
+401705752,2025-04-13,Atlanta Hawks,Orlando Magic,117,105,2025,12,222
+401705753,2025-04-13,Boston Celtics,Charlotte Hornets,93,86,2025,7,179
+401705754,2025-04-13,Brooklyn Nets,New York Knicks,105,113,2025,-8,218
+401705755,2025-04-13,Cleveland Cavaliers,Indiana Pacers,118,126,2025,-8,244
+401705756,2025-04-13,Miami Heat,Washington Wizards,118,119,2025,-1,237
+401705757,2025-04-13,Philadelphia 76ers,Chicago Bulls,102,122,2025,-20,224
+401705758,2025-04-13,Milwaukee Bucks,Detroit Pistons,140,133,2025,7,273
+401705751,2025-04-11,Los Angeles Lakers,Houston Rockets,140,109,2025,31,249
+401705748,2025-04-11,Phoenix Suns,San Antonio Spurs,117,98,2025,19,215
+401705749,2025-04-11,Portland Trail Blazers,Golden State Warriors,86,103,2025,-17,189
+401705750,2025-04-11,Sacramento Kings,LA Clippers,100,101,2025,-1,201
+401705747,2025-04-11,Utah Jazz,Oklahoma City Thunder,111,145,2025,-34,256
+401705745,2025-04-11,Minnesota Timberwolves,Brooklyn Nets,117,91,2025,26,208
+401705746,2025-04-11,Denver Nuggets,Memphis Grizzlies,117,109,2025,8,226
+401705744,2025-04-11,Dallas Mavericks,Toronto Raptors,124,102,2025,22,226
+401705742,2025-04-11,Chicago Bulls,Washington Wizards,119,89,2025,30,208
+401705743,2025-04-11,New Orleans Pelicans,Miami Heat,104,153,2025,-49,257
+401705740,2025-04-11,Boston Celtics,Charlotte Hornets,130,94,2025,36,224
+401705741,2025-04-11,New York Knicks,Cleveland Cavaliers,102,108,2025,-6,210
+401705737,2025-04-11,Detroit Pistons,Milwaukee Bucks,119,125,2025,-6,244
+401705738,2025-04-11,Indiana Pacers,Orlando Magic,115,129,2025,-14,244
+401705739,2025-04-11,Philadelphia 76ers,Atlanta Hawks,110,124,2025,-14,234
+401705736,2025-04-10,Memphis Grizzlies,Minnesota Timberwolves,125,141,2025,-16,266
+401705727,2025-04-10,Milwaukee Bucks,New Orleans Pelicans,136,111,2025,25,247
+401705735,2025-04-10,Brooklyn Nets,Atlanta Hawks,109,133,2025,-24,242
+401705733,2025-04-10,Detroit Pistons,New York Knicks,115,106,2025,9,221
+401705734,2025-04-10,Indiana Pacers,Cleveland Cavaliers,114,112,2025,2,226
+401705732,2025-04-09,LA Clippers,Houston Rockets,134,117,2025,17,251
+401705729,2025-04-09,Golden State Warriors,San Antonio Spurs,111,114,2025,-3,225
+401705730,2025-04-09,Phoenix Suns,Oklahoma City Thunder,112,125,2025,-13,237
+401705731,2025-04-09,Sacramento Kings,Denver Nuggets,116,124,2025,-8,240
+401705728,2025-04-09,Utah Jazz,Portland Trail Blazers,133,126,2025,7,259
+401705726,2025-04-09,Chicago Bulls,Miami Heat,119,111,2025,8,230
+401705724,2025-04-09,Toronto Raptors,Charlotte Hornets,126,96,2025,30,222
+401705725,2025-04-09,Dallas Mavericks,Los Angeles Lakers,97,112,2025,-15,209
+401705722,2025-04-09,Orlando Magic,Boston Celtics,96,76,2025,20,172
+401705723,2025-04-09,Washington Wizards,Philadelphia 76ers,103,122,2025,-19,225
+401705721,2025-04-08,LA Clippers,San Antonio Spurs,122,117,2025,5,239
+401705720,2025-04-08,Phoenix Suns,Golden State Warriors,95,133,2025,-38,228
+401705718,2025-04-08,Milwaukee Bucks,Minnesota Timberwolves,110,103,2025,7,213
+401705719,2025-04-08,Oklahoma City Thunder,Los Angeles Lakers,136,120,2025,16,256
+401705716,2025-04-08,Brooklyn Nets,New Orleans Pelicans,119,114,2025,5,233
+401705717,2025-04-08,New York Knicks,Boston Celtics,117,119,2025,-2,236
+401705712,2025-04-08,Charlotte Hornets,Memphis Grizzlies,100,124,2025,-24,224
+401705713,2025-04-08,Cleveland Cavaliers,Chicago Bulls,135,113,2025,22,248
+401705714,2025-04-08,Indiana Pacers,Washington Wizards,104,98,2025,6,202
+401705715,2025-04-08,Orlando Magic,Atlanta Hawks,119,112,2025,7,231
+401705711,2025-04-07,Miami Heat,Philadelphia 76ers,117,105,2025,12,222
+401705710,2025-04-07,Detroit Pistons,Sacramento Kings,117,127,2025,-10,244
+401705709,2025-04-06,Golden State Warriors,Houston Rockets,96,106,2025,-10,202
+401754706,2025-04-06,New Orleans Pelicans,Milwaukee Bucks,107,111,2025,-4,218
+401705708,2025-04-06,Denver Nuggets,Indiana Pacers,120,125,2025,-5,245
+401705706,2025-04-06,New York Knicks,Phoenix Suns,112,98,2025,14,210
+401705702,2025-04-06,Atlanta Hawks,Utah Jazz,147,134,2025,13,281
+401705703,2025-04-06,Boston Celtics,Washington Wizards,124,90,2025,34,214
+401705704,2025-04-06,Cleveland Cavaliers,Sacramento Kings,113,120,2025,-7,233
+401705705,2025-04-06,Portland Trail Blazers,San Antonio Spurs,120,109,2025,11,229
+401705700,2025-04-06,Brooklyn Nets,Toronto Raptors,109,120,2025,-11,229
+401705701,2025-04-06,Oklahoma City Thunder,Los Angeles Lakers,99,126,2025,-27,225
+401705699,2025-04-06,Charlotte Hornets,Chicago Bulls,117,131,2025,-14,248
+401705698,2025-04-05,LA Clippers,Dallas Mavericks,135,104,2025,31,239
+401705697,2025-04-05,Miami Heat,Milwaukee Bucks,115,121,2025,-6,236
+401705695,2025-04-05,Detroit Pistons,Memphis Grizzlies,103,109,2025,-6,212
+401705696,2025-04-05,Philadelphia 76ers,Minnesota Timberwolves,109,114,2025,-5,223
+401705694,2025-04-05,Atlanta Hawks,New York Knicks,105,121,2025,-16,226
+401705692,2025-04-04,Los Angeles Lakers,New Orleans Pelicans,124,108,2025,16,232
+401705693,2025-04-04,LA Clippers,Dallas Mavericks,114,91,2025,23,205
+401705691,2025-04-04,Golden State Warriors,Denver Nuggets,118,104,2025,14,222
+401705688,2025-04-04,Chicago Bulls,Portland Trail Blazers,118,113,2025,5,231
+401705689,2025-04-04,Houston Rockets,Oklahoma City Thunder,125,111,2025,14,236
+401705690,2025-04-04,San Antonio Spurs,Cleveland Cavaliers,113,114,2025,-1,227
+401705686,2025-04-04,Boston Celtics,Phoenix Suns,123,103,2025,20,226
+401705687,2025-04-04,Toronto Raptors,Detroit Pistons,105,117,2025,-12,222
+401705684,2025-04-04,Charlotte Hornets,Sacramento Kings,102,125,2025,-23,227
+401705685,2025-04-04,Indiana Pacers,Utah Jazz,140,112,2025,28,252
+401705683,2025-04-03,Los Angeles Lakers,Golden State Warriors,116,123,2025,-7,239
+401705679,2025-04-03,Brooklyn Nets,Minnesota Timberwolves,90,105,2025,-15,195
+401705680,2025-04-03,Miami Heat,Memphis Grizzlies,108,110,2025,-2,218
+401705682,2025-04-03,Toronto Raptors,Portland Trail Blazers,103,112,2025,-9,215
+401705678,2025-04-03,Washington Wizards,Orlando Magic,97,109,2025,-12,206
+401705681,2025-04-03,Philadelphia 76ers,Milwaukee Bucks,113,126,2025,-13,239
+401705677,2025-04-02,LA Clippers,New Orleans Pelicans,114,98,2025,16,212
+401705674,2025-04-02,Oklahoma City Thunder,Detroit Pistons,119,103,2025,16,222
+401705676,2025-04-02,Denver Nuggets,San Antonio Spurs,106,113,2025,-7,219
+401705675,2025-04-02,Dallas Mavericks,Atlanta Hawks,120,118,2025,2,238
+401705673,2025-04-02,Houston Rockets,Utah Jazz,143,105,2025,38,248
+401705672,2025-04-02,Boston Celtics,Miami Heat,103,124,2025,-21,227
+401705669,2025-04-02,Cleveland Cavaliers,New York Knicks,124,105,2025,19,229
+401705670,2025-04-02,Indiana Pacers,Charlotte Hornets,119,105,2025,14,224
+401705671,2025-04-02,Washington Wizards,Sacramento Kings,116,111,2025,5,227
+401705668,2025-04-01,Denver Nuggets,Minnesota Timberwolves,139,140,2025,-1,279
+401705554,2025-04-01,San Antonio Spurs,Orlando Magic,105,116,2025,-11,221
+401705665,2025-04-01,Chicago Bulls,Toronto Raptors,137,118,2025,19,255
+401705666,2025-04-01,Memphis Grizzlies,Golden State Warriors,125,134,2025,-9,259
+401705663,2025-04-01,Atlanta Hawks,Portland Trail Blazers,113,127,2025,-14,240
+401705664,2025-04-01,New York Knicks,Philadelphia 76ers,105,91,2025,14,196
+401705667,2025-04-01,Milwaukee Bucks,Phoenix Suns,133,123,2025,10,256
+401705662,2025-03-31,Los Angeles Lakers,Houston Rockets,104,98,2025,6,202
+401705661,2025-03-31,Dallas Mavericks,Brooklyn Nets,109,113,2025,-4,222
+401705660,2025-03-31,Oklahoma City Thunder,Chicago Bulls,145,117,2025,28,262
+401705659,2025-03-31,Memphis Grizzlies,Boston Celtics,103,117,2025,-14,220
+401705655,2025-03-31,Charlotte Hornets,Utah Jazz,110,106,2025,4,216
+401705656,2025-03-31,Indiana Pacers,Sacramento Kings,111,109,2025,2,220
+401705657,2025-03-31,Orlando Magic,LA Clippers,87,96,2025,-9,183
+401705658,2025-03-31,Washington Wizards,Miami Heat,94,120,2025,-26,214
+401705654,2025-03-30,Phoenix Suns,Houston Rockets,109,148,2025,-39,257
+401705653,2025-03-30,Philadelphia 76ers,Toronto Raptors,109,127,2025,-18,236
+401705649,2025-03-30,Milwaukee Bucks,Atlanta Hawks,124,145,2025,-21,269
+401705650,2025-03-30,Minnesota Timberwolves,Detroit Pistons,123,104,2025,19,227
+401705651,2025-03-30,New Orleans Pelicans,Charlotte Hornets,98,94,2025,4,192
+401705652,2025-03-30,San Antonio Spurs,Golden State Warriors,106,148,2025,-42,254
+401705648,2025-03-30,New York Knicks,Portland Trail Blazers,110,93,2025,17,203
+401705647,2025-03-30,Cleveland Cavaliers,LA Clippers,127,122,2025,5,249
+401705643,2025-03-29,Chicago Bulls,Dallas Mavericks,119,120,2025,-1,239
+401705644,2025-03-29,Memphis Grizzlies,Los Angeles Lakers,127,134,2025,-7,261
+401705645,2025-03-29,Oklahoma City Thunder,Indiana Pacers,132,111,2025,21,243
+401705646,2025-03-29,San Antonio Spurs,Boston Celtics,111,121,2025,-10,232
+401705642,2025-03-29,Philadelphia 76ers,Miami Heat,95,118,2025,-23,213
+401705641,2025-03-29,Washington Wizards,Brooklyn Nets,112,115,2025,-3,227
+401705640,2025-03-29,Orlando Magic,Sacramento Kings,121,91,2025,30,212
+401705639,2025-03-28,Denver Nuggets,Utah Jazz,129,93,2025,36,222
+401705636,2025-03-28,Milwaukee Bucks,New York Knicks,107,116,2025,-9,223
+401705637,2025-03-28,Minnesota Timberwolves,Phoenix Suns,124,109,2025,15,233
+401705638,2025-03-28,New Orleans Pelicans,Golden State Warriors,95,111,2025,-16,206
+401705634,2025-03-28,Brooklyn Nets,LA Clippers,100,132,2025,-32,232
+401705635,2025-03-28,Toronto Raptors,Charlotte Hornets,108,97,2025,11,205
+401705633,2025-03-28,Detroit Pistons,Cleveland Cavaliers,133,122,2025,11,255
+401705632,2025-03-27,Sacramento Kings,Portland Trail Blazers,128,107,2025,21,235
+401705631,2025-03-27,Utah Jazz,Houston Rockets,110,121,2025,-11,231
+401705629,2025-03-27,Chicago Bulls,Los Angeles Lakers,119,117,2025,2,236
+401705630,2025-03-27,Oklahoma City Thunder,Memphis Grizzlies,125,104,2025,21,229
+401705628,2025-03-27,Miami Heat,Atlanta Hawks,122,112,2025,10,234
+401705625,2025-03-27,Cleveland Cavaliers,San Antonio Spurs,124,116,2025,8,240
+401705626,2025-03-27,Orlando Magic,Dallas Mavericks,92,101,2025,-9,193
+401705627,2025-03-27,Washington Wizards,Indiana Pacers,109,162,2025,-53,271
+401705624,2025-03-26,Phoenix Suns,Boston Celtics,102,132,2025,-30,234
+401705623,2025-03-26,Denver Nuggets,Milwaukee Bucks,127,117,2025,10,244
+401705620,2025-03-26,Brooklyn Nets,Toronto Raptors,86,116,2025,-30,202
+401705621,2025-03-26,Indiana Pacers,Los Angeles Lakers,119,120,2025,-1,239
+401705622,2025-03-26,New York Knicks,LA Clippers,113,126,2025,-13,239
+401705619,2025-03-26,Philadelphia 76ers,Washington Wizards,114,119,2025,-5,233
+401705617,2025-03-25,Portland Trail Blazers,Cleveland Cavaliers,111,122,2025,-11,233
+401705618,2025-03-25,Sacramento Kings,Oklahoma City Thunder,105,121,2025,-16,226
+401705616,2025-03-25,Utah Jazz,Memphis Grizzlies,103,140,2025,-37,243
+401705615,2025-03-25,Houston Rockets,Atlanta Hawks,121,114,2025,7,235
+401705613,2025-03-25,Miami Heat,Golden State Warriors,112,86,2025,26,198
+401705614,2025-03-25,New York Knicks,Dallas Mavericks,128,113,2025,15,241
+401705611,2025-03-25,Charlotte Hornets,Orlando Magic,104,111,2025,-7,215
+401705612,2025-03-25,Detroit Pistons,San Antonio Spurs,122,96,2025,26,218
+401705609,2025-03-24,Phoenix Suns,Milwaukee Bucks,108,106,2025,2,214
+401705610,2025-03-24,Sacramento Kings,Boston Celtics,95,113,2025,-18,208
+401705608,2025-03-24,Denver Nuggets,Chicago Bulls,119,129,2025,-10,248
+401705607,2025-03-24,New Orleans Pelicans,Philadelphia 76ers,112,99,2025,13,211
+401705606,2025-03-24,Brooklyn Nets,Dallas Mavericks,101,120,2025,-19,221
+401705603,2025-03-24,Indiana Pacers,Minnesota Timberwolves,119,103,2025,16,222
+401705604,2025-03-24,Orlando Magic,Los Angeles Lakers,118,106,2025,12,224
+401705605,2025-03-24,Washington Wizards,Toronto Raptors,104,112,2025,-8,216
+401705602,2025-03-23,LA Clippers,Oklahoma City Thunder,101,103,2025,-2,204
+401705601,2025-03-23,Houston Rockets,Denver Nuggets,111,116,2025,-5,227
+401705597,2025-03-23,Atlanta Hawks,Philadelphia 76ers,132,119,2025,13,251
+401705598,2025-03-23,Miami Heat,Charlotte Hornets,122,105,2025,17,227
+401705599,2025-03-23,Toronto Raptors,San Antonio Spurs,89,123,2025,-34,212
+401705600,2025-03-23,Portland Trail Blazers,Boston Celtics,116,129,2025,-13,245
+401705596,2025-03-23,Utah Jazz,Cleveland Cavaliers,91,120,2025,-29,211
+401705595,2025-03-23,Detroit Pistons,New Orleans Pelicans,136,130,2025,6,266
+401705594,2025-03-22,Los Angeles Lakers,Chicago Bulls,115,146,2025,-31,261
+401705593,2025-03-22,Sacramento Kings,Milwaukee Bucks,108,114,2025,-6,222
+401705592,2025-03-22,New York Knicks,Washington Wizards,122,103,2025,19,225
+401705591,2025-03-22,Atlanta Hawks,Golden State Warriors,124,115,2025,9,239
+401705590,2025-03-22,Indiana Pacers,Brooklyn Nets,108,103,2025,5,211
+401705589,2025-03-21,LA Clippers,Memphis Grizzlies,128,108,2025,20,236
+401705587,2025-03-21,Phoenix Suns,Cleveland Cavaliers,123,112,2025,11,235
+401705588,2025-03-21,Portland Trail Blazers,Denver Nuggets,128,109,2025,19,237
+401705586,2025-03-21,Utah Jazz,Boston Celtics,99,121,2025,-22,220
+401705585,2025-03-21,Dallas Mavericks,Detroit Pistons,123,117,2025,6,240
+401705581,2025-03-21,Miami Heat,Houston Rockets,98,102,2025,-4,200
+401705582,2025-03-21,Minnesota Timberwolves,New Orleans Pelicans,134,93,2025,41,227
+401705583,2025-03-21,Oklahoma City Thunder,Charlotte Hornets,141,106,2025,35,247
+401705584,2025-03-21,San Antonio Spurs,Philadelphia 76ers,128,120,2025,8,248
+401705580,2025-03-21,Washington Wizards,Orlando Magic,105,120,2025,-15,225
+401705562,2025-03-20,Los Angeles Lakers,Milwaukee Bucks,89,118,2025,-29,207
+401705571,2025-03-20,Golden State Warriors,Toronto Raptors,117,114,2025,3,231
+401705579,2025-03-20,Sacramento Kings,Chicago Bulls,116,128,2025,-12,244
+401705576,2025-03-20,Charlotte Hornets,New York Knicks,115,98,2025,17,213
+401705577,2025-03-20,Indiana Pacers,Brooklyn Nets,105,99,2025,6,204
+401705572,2025-03-19,Los Angeles Lakers,Denver Nuggets,120,108,2025,12,228
+401705573,2025-03-19,Phoenix Suns,Chicago Bulls,127,121,2025,6,248
+401705574,2025-03-19,Portland Trail Blazers,Memphis Grizzlies,115,99,2025,16,214
+401705575,2025-03-19,Sacramento Kings,Cleveland Cavaliers,123,119,2025,4,242
+401705193,2025-03-19,Utah Jazz,Washington Wizards,128,112,2025,16,240
+401705567,2025-03-19,Minnesota Timberwolves,New Orleans Pelicans,115,119,2025,-4,234
+401705568,2025-03-19,Oklahoma City Thunder,Philadelphia 76ers,133,100,2025,33,233
+401705569,2025-03-19,San Antonio Spurs,New York Knicks,120,105,2025,15,225
+401705566,2025-03-19,Miami Heat,Detroit Pistons,113,116,2025,-3,229
+401705564,2025-03-19,Indiana Pacers,Dallas Mavericks,135,131,2025,4,266
+401705565,2025-03-19,Orlando Magic,Houston Rockets,108,116,2025,-8,224
+401705563,2025-03-18,LA Clippers,Cleveland Cavaliers,132,119,2025,13,251
+401705578,2025-03-18,Golden State Warriors,Milwaukee Bucks,104,93,2025,11,197
+401705560,2025-03-18,Boston Celtics,Brooklyn Nets,104,96,2025,8,200
+401705559,2025-03-18,Charlotte Hornets,Atlanta Hawks,102,134,2025,-32,236
+401754705,2025-03-17,Los Angeles Lakers,San Antonio Spurs,125,109,2025,16,234
+401705556,2025-03-17,Golden State Warriors,Denver Nuggets,105,114,2025,-9,219
+401705557,2025-03-17,Phoenix Suns,Toronto Raptors,129,89,2025,40,218
+401705558,2025-03-17,Sacramento Kings,Memphis Grizzlies,132,122,2025,10,254
+401705561,2025-03-17,Portland Trail Blazers,Washington Wizards,112,97,2025,15,209
+401705555,2025-03-17,Utah Jazz,Chicago Bulls,97,111,2025,-14,208
+401705551,2025-03-17,Houston Rockets,Philadelphia 76ers,144,137,2025,7,281
+401705552,2025-03-17,Minnesota Timberwolves,Indiana Pacers,130,132,2025,-2,262
+401705553,2025-03-17,New Orleans Pelicans,Detroit Pistons,81,127,2025,-46,208
+401705550,2025-03-17,New York Knicks,Miami Heat,116,95,2025,21,211
+401705548,2025-03-16,Milwaukee Bucks,Oklahoma City Thunder,105,121,2025,-16,226
+401705547,2025-03-16,Minnesota Timberwolves,Utah Jazz,128,102,2025,26,230
+401748706,2025-03-16,LA Clippers,Charlotte Hornets,123,88,2025,35,211
+401705544,2025-03-16,Brooklyn Nets,Atlanta Hawks,122,114,2025,8,236
+401705546,2025-03-16,Portland Trail Blazers,Toronto Raptors,105,102,2025,3,207
+401705543,2025-03-16,Los Angeles Lakers,Phoenix Suns,107,96,2025,11,203
+401705542,2025-03-16,Dallas Mavericks,Philadelphia 76ers,125,130,2025,-5,255
+401705545,2025-03-16,Cleveland Cavaliers,Orlando Magic,103,108,2025,-5,211
+401705541,2025-03-15,Denver Nuggets,Washington Wizards,123,126,2025,-3,249
+401705539,2025-03-15,San Antonio Spurs,New Orleans Pelicans,119,115,2025,4,234
+401705540,2025-03-15,Golden State Warriors,New York Knicks,97,94,2025,3,191
+401705536,2025-03-15,Houston Rockets,Chicago Bulls,117,114,2025,3,231
+401705537,2025-03-15,Memphis Grizzlies,Miami Heat,125,91,2025,34,216
+401705538,2025-03-15,Milwaukee Bucks,Indiana Pacers,126,119,2025,7,245
+401705535,2025-03-15,Detroit Pistons,Oklahoma City Thunder,107,113,2025,-6,220
+401705534,2025-03-15,Brooklyn Nets,Boston Celtics,113,115,2025,-2,228
+401705533,2025-03-14,Phoenix Suns,Sacramento Kings,122,106,2025,16,228
+401705531,2025-03-14,Denver Nuggets,Los Angeles Lakers,131,126,2025,5,257
+401705532,2025-03-14,Utah Jazz,Toronto Raptors,118,126,2025,-8,244
+401705527,2025-03-14,Houston Rockets,Dallas Mavericks,133,96,2025,37,229
+401705528,2025-03-14,Memphis Grizzlies,Cleveland Cavaliers,124,133,2025,-9,257
+401705529,2025-03-14,Minnesota Timberwolves,Orlando Magic,118,111,2025,7,229
+401705530,2025-03-14,San Antonio Spurs,Charlotte Hornets,134,145,2025,-11,279
+401705526,2025-03-14,Atlanta Hawks,LA Clippers,98,121,2025,-23,219
+401705524,2025-03-14,Miami Heat,Boston Celtics,91,103,2025,-12,194
+401705525,2025-03-14,Philadelphia 76ers,Indiana Pacers,100,112,2025,-12,212
+401705523,2025-03-13,Golden State Warriors,Sacramento Kings,130,104,2025,26,234
+401705522,2025-03-13,Chicago Bulls,Brooklyn Nets,116,110,2025,6,226
+401705707,2025-03-13,New Orleans Pelicans,Orlando Magic,93,113,2025,-20,206
+401705521,2025-03-13,Milwaukee Bucks,Los Angeles Lakers,126,106,2025,20,232
+401705520,2025-03-13,Detroit Pistons,Washington Wizards,125,129,2025,-4,254
+401705518,2025-03-12,Denver Nuggets,Minnesota Timberwolves,95,115,2025,-20,210
+401705519,2025-03-12,Portland Trail Blazers,New York Knicks,113,114,2025,-1,227
+401705514,2025-03-12,Miami Heat,LA Clippers,104,119,2025,-15,223
+401705515,2025-03-12,Houston Rockets,Phoenix Suns,111,104,2025,7,215
+401705516,2025-03-12,Memphis Grizzlies,Utah Jazz,122,115,2025,7,237
+401705517,2025-03-12,San Antonio Spurs,Dallas Mavericks,126,116,2025,10,242
+401705511,2025-03-12,Atlanta Hawks,Charlotte Hornets,123,110,2025,13,233
+401705512,2025-03-12,Boston Celtics,Oklahoma City Thunder,112,118,2025,-6,230
+401705513,2025-03-12,Toronto Raptors,Philadelphia 76ers,118,105,2025,13,223
+401705509,2025-03-11,New Orleans Pelicans,LA Clippers,127,120,2025,7,247
+401705508,2025-03-11,Indiana Pacers,Milwaukee Bucks,115,114,2025,1,229
+401705506,2025-03-11,Cleveland Cavaliers,Brooklyn Nets,109,104,2025,5,213
+401705507,2025-03-11,Detroit Pistons,Washington Wizards,123,103,2025,20,226
+401705505,2025-03-10,Sacramento Kings,New York Knicks,104,133,2025,-29,237
+401705504,2025-03-10,Golden State Warriors,Portland Trail Blazers,130,120,2025,10,250
+401705503,2025-03-10,San Antonio Spurs,Dallas Mavericks,129,133,2025,-4,262
+401705499,2025-03-10,Chicago Bulls,Indiana Pacers,121,103,2025,18,224
+401705500,2025-03-10,Houston Rockets,Orlando Magic,97,84,2025,13,181
+401705501,2025-03-10,Memphis Grizzlies,Phoenix Suns,120,118,2025,2,238
+401705502,2025-03-10,Oklahoma City Thunder,Denver Nuggets,127,140,2025,-13,267
+401705494,2025-03-10,Atlanta Hawks,Philadelphia 76ers,132,123,2025,9,255
+401705495,2025-03-10,Boston Celtics,Utah Jazz,114,108,2025,6,222
+401705496,2025-03-10,Brooklyn Nets,Los Angeles Lakers,111,108,2025,3,219
+401705497,2025-03-10,Miami Heat,Charlotte Hornets,102,105,2025,-3,207
+401705498,2025-03-10,Toronto Raptors,Washington Wizards,119,104,2025,15,223
+401705493,2025-03-09,LA Clippers,Sacramento Kings,111,110,2025,1,221
+401705492,2025-03-09,Portland Trail Blazers,Detroit Pistons,112,119,2025,-7,231
+401705488,2025-03-09,Milwaukee Bucks,Cleveland Cavaliers,100,112,2025,-12,212
+401705491,2025-03-09,Minnesota Timberwolves,San Antonio Spurs,141,124,2025,17,265
+401705490,2025-03-09,Philadelphia 76ers,Utah Jazz,126,122,2025,4,248
+401705489,2025-03-09,New Orleans Pelicans,Memphis Grizzlies,104,107,2025,-3,211
+401705487,2025-03-09,Dallas Mavericks,Phoenix Suns,116,125,2025,-9,241
+401705486,2025-03-09,Oklahoma City Thunder,Denver Nuggets,127,103,2025,24,230
+401705484,2025-03-08,Boston Celtics,Los Angeles Lakers,111,101,2025,10,212
+401705485,2025-03-08,Golden State Warriors,Detroit Pistons,115,110,2025,5,225
+401705482,2025-03-08,Miami Heat,Chicago Bulls,109,114,2025,-5,223
+401705483,2025-03-08,Milwaukee Bucks,Orlando Magic,109,111,2025,-2,220
+401705480,2025-03-08,Atlanta Hawks,Indiana Pacers,120,118,2025,2,238
+401705481,2025-03-08,Toronto Raptors,Washington Wizards,117,118,2025,-1,235
+401705479,2025-03-08,Houston Rockets,New Orleans Pelicans,146,117,2025,29,263
+401705478,2025-03-08,Charlotte Hornets,Brooklyn Nets,105,102,2025,3,207
+401705477,2025-03-07,LA Clippers,New York Knicks,105,95,2025,10,200
+401705475,2025-03-07,Denver Nuggets,Phoenix Suns,149,141,2025,8,290
+401705476,2025-03-07,Sacramento Kings,San Antonio Spurs,127,109,2025,18,236
+401705473,2025-03-07,Miami Heat,Minnesota Timberwolves,104,106,2025,-2,210
+401705474,2025-03-07,Oklahoma City Thunder,Portland Trail Blazers,107,89,2025,18,196
+401705471,2025-03-07,Toronto Raptors,Utah Jazz,118,109,2025,9,227
+401705472,2025-03-07,Dallas Mavericks,Memphis Grizzlies,111,122,2025,-11,233
+401705470,2025-03-07,Charlotte Hornets,Cleveland Cavaliers,117,118,2025,-1,235
+401705469,2025-03-06,Los Angeles Lakers,New York Knicks,113,109,2025,4,222
+401705468,2025-03-06,New Orleans Pelicans,Houston Rockets,97,109,2025,-12,206
+401705465,2025-03-06,Atlanta Hawks,Indiana Pacers,124,118,2025,6,242
+401705466,2025-03-06,Boston Celtics,Philadelphia 76ers,123,105,2025,18,228
+401705467,2025-03-06,Brooklyn Nets,Golden State Warriors,119,121,2025,-2,240
+401705510,2025-03-06,Orlando Magic,Chicago Bulls,123,125,2025,-2,248
+401705464,2025-03-05,LA Clippers,Detroit Pistons,123,115,2025,8,238
+401705461,2025-03-05,Memphis Grizzlies,Oklahoma City Thunder,103,120,2025,-17,223
+401705462,2025-03-05,Denver Nuggets,Sacramento Kings,116,110,2025,6,226
+401705463,2025-03-05,Milwaukee Bucks,Dallas Mavericks,137,107,2025,30,244
+401705457,2025-03-05,Boston Celtics,Portland Trail Blazers,128,118,2025,10,246
+401705458,2025-03-05,Charlotte Hornets,Minnesota Timberwolves,110,125,2025,-15,235
+401705459,2025-03-05,Cleveland Cavaliers,Miami Heat,112,107,2025,5,219
+401705460,2025-03-05,Washington Wizards,Utah Jazz,125,122,2025,3,247
+401705456,2025-03-04,Los Angeles Lakers,New Orleans Pelicans,136,115,2025,21,251
+401705455,2025-03-04,Phoenix Suns,LA Clippers,119,117,2025,2,236
+401705454,2025-03-04,San Antonio Spurs,Brooklyn Nets,127,113,2025,14,240
+401705452,2025-03-04,Chicago Bulls,Cleveland Cavaliers,117,139,2025,-22,256
+401705453,2025-03-04,Minnesota Timberwolves,Philadelphia 76ers,126,112,2025,14,238
+401705450,2025-03-04,Atlanta Hawks,Milwaukee Bucks,121,127,2025,-6,248
+401705451,2025-03-04,New York Knicks,Golden State Warriors,102,114,2025,-12,216
+401705448,2025-03-04,Indiana Pacers,Houston Rockets,115,102,2025,13,217
+401705449,2025-03-04,Orlando Magic,Toronto Raptors,113,114,2025,-1,227
+401705447,2025-03-03,Utah Jazz,Detroit Pistons,106,134,2025,-28,240
+401705446,2025-03-03,Dallas Mavericks,Sacramento Kings,98,122,2025,-24,220
+401705444,2025-03-03,Memphis Grizzlies,Atlanta Hawks,130,132,2025,-2,262
+401705445,2025-03-03,Oklahoma City Thunder,Houston Rockets,137,128,2025,9,265
+401705443,2025-03-03,Miami Heat,Washington Wizards,106,90,2025,16,196
+401705441,2025-03-03,Charlotte Hornets,Golden State Warriors,101,119,2025,-18,220
+401705442,2025-03-03,Philadelphia 76ers,Portland Trail Blazers,102,119,2025,-17,221
+401705439,2025-03-02,Phoenix Suns,Minnesota Timberwolves,98,116,2025,-18,214
+401705440,2025-03-02,Los Angeles Lakers,LA Clippers,108,102,2025,6,210
+401705438,2025-03-02,Utah Jazz,New Orleans Pelicans,121,128,2025,-7,249
+401705437,2025-03-02,San Antonio Spurs,Oklahoma City Thunder,132,146,2025,-14,278
+401705435,2025-03-02,Miami Heat,New York Knicks,112,116,2025,-4,228
+401705436,2025-03-02,Orlando Magic,Toronto Raptors,102,104,2025,-2,206
+401705434,2025-03-02,Indiana Pacers,Chicago Bulls,127,112,2025,15,239
+401705433,2025-03-02,Cleveland Cavaliers,Portland Trail Blazers,133,129,2025,4,262
+401705432,2025-03-02,Boston Celtics,Denver Nuggets,110,103,2025,7,213
+401705430,2025-03-01,Philadelphia 76ers,Golden State Warriors,126,119,2025,7,245
+401705431,2025-03-01,Dallas Mavericks,Milwaukee Bucks,117,132,2025,-15,249
+401705428,2025-03-01,Houston Rockets,Sacramento Kings,103,113,2025,-10,216
+401705429,2025-03-01,Memphis Grizzlies,San Antonio Spurs,128,130,2025,-2,258
+401705427,2025-03-01,Detroit Pistons,Brooklyn Nets,115,94,2025,21,209
+401705426,2025-03-01,Charlotte Hornets,Washington Wizards,100,113,2025,-13,213
+401705425,2025-02-28,Los Angeles Lakers,LA Clippers,106,102,2025,4,208
+401705424,2025-02-28,Utah Jazz,Minnesota Timberwolves,117,116,2025,1,233
+401705423,2025-02-28,Phoenix Suns,New Orleans Pelicans,125,108,2025,17,233
+401705420,2025-02-28,Miami Heat,Indiana Pacers,125,120,2025,5,245
+401705421,2025-02-28,Chicago Bulls,Toronto Raptors,125,115,2025,10,240
+401705422,2025-02-28,Memphis Grizzlies,New York Knicks,113,114,2025,-1,227
+401705417,2025-02-28,Atlanta Hawks,Oklahoma City Thunder,119,135,2025,-16,254
+401705418,2025-02-28,Boston Celtics,Cleveland Cavaliers,116,123,2025,-7,239
+401705419,2025-02-28,Brooklyn Nets,Portland Trail Blazers,102,121,2025,-19,223
+401705416,2025-02-28,Detroit Pistons,Denver Nuggets,119,134,2025,-15,253
+401705415,2025-02-27,Los Angeles Lakers,Minnesota Timberwolves,111,102,2025,9,213
+401705414,2025-02-27,Phoenix Suns,New Orleans Pelicans,116,124,2025,-8,240
+401705413,2025-02-27,Dallas Mavericks,Charlotte Hornets,103,96,2025,7,199
+401705412,2025-02-27,Milwaukee Bucks,Denver Nuggets,121,112,2025,9,233
+401705411,2025-02-27,Orlando Magic,Golden State Warriors,115,121,2025,-6,236
+401705410,2025-02-26,Houston Rockets,San Antonio Spurs,118,106,2025,12,224
+401705409,2025-02-26,Utah Jazz,Sacramento Kings,101,118,2025,-17,219
+401705408,2025-02-26,Chicago Bulls,LA Clippers,117,122,2025,-5,239
+401705406,2025-02-26,Brooklyn Nets,Oklahoma City Thunder,121,129,2025,-8,250
+401705407,2025-02-26,Miami Heat,Atlanta Hawks,131,109,2025,22,240
+401705402,2025-02-26,Detroit Pistons,Boston Celtics,117,97,2025,20,214
+401705403,2025-02-26,Indiana Pacers,Toronto Raptors,111,91,2025,20,202
+401705404,2025-02-26,New York Knicks,Philadelphia 76ers,110,105,2025,5,215
+401705405,2025-02-26,Washington Wizards,Portland Trail Blazers,121,129,2025,-8,250
+401705400,2025-02-25,Golden State Warriors,Charlotte Hornets,128,92,2025,36,220
+401705401,2025-02-25,Los Angeles Lakers,Dallas Mavericks,107,99,2025,8,206
+401705397,2025-02-25,Houston Rockets,Milwaukee Bucks,100,97,2025,3,197
+401705398,2025-02-25,Memphis Grizzlies,Phoenix Suns,151,148,2025,3,299
+401705399,2025-02-25,New Orleans Pelicans,San Antonio Spurs,109,103,2025,6,212
+401705396,2025-02-25,Orlando Magic,Cleveland Cavaliers,82,122,2025,-40,204
+401705395,2025-02-25,Toronto Raptors,Boston Celtics,101,111,2025,-10,212
+401705394,2025-02-24,Sacramento Kings,Charlotte Hornets,130,88,2025,42,218
+401705393,2025-02-24,Utah Jazz,Portland Trail Blazers,112,114,2025,-2,226
+401705392,2025-02-24,Oklahoma City Thunder,Minnesota Timberwolves,128,131,2025,-3,259
+401705391,2025-02-24,Atlanta Hawks,Miami Heat,98,86,2025,12,184
+401705387,2025-02-24,Detroit Pistons,LA Clippers,106,97,2025,9,203
+401705388,2025-02-24,Indiana Pacers,Denver Nuggets,116,125,2025,-9,241
+401705389,2025-02-24,Philadelphia 76ers,Chicago Bulls,110,142,2025,-32,252
+401705390,2025-02-24,Washington Wizards,Brooklyn Nets,107,99,2025,8,206
+401705386,2025-02-23,Minnesota Timberwolves,Oklahoma City Thunder,123,130,2025,-7,253
+401705384,2025-02-23,New Orleans Pelicans,San Antonio Spurs,114,96,2025,18,210
+401705385,2025-02-23,Cleveland Cavaliers,Memphis Grizzlies,129,123,2025,6,252
+401705380,2025-02-23,Atlanta Hawks,Detroit Pistons,143,148,2025,-5,291
+401705381,2025-02-23,Orlando Magic,Washington Wizards,110,90,2025,20,200
+401705382,2025-02-23,Toronto Raptors,Phoenix Suns,127,109,2025,18,236
+401705383,2025-02-23,Milwaukee Bucks,Miami Heat,120,113,2025,7,233
+401705379,2025-02-23,Indiana Pacers,LA Clippers,129,111,2025,18,240
+401705378,2025-02-23,Golden State Warriors,Dallas Mavericks,126,102,2025,24,228
+401705377,2025-02-23,Boston Celtics,New York Knicks,118,105,2025,13,223
+401705376,2025-02-22,Portland Trail Blazers,Charlotte Hornets,141,88,2025,53,229
+401705375,2025-02-22,Utah Jazz,Houston Rockets,124,115,2025,9,239
+401705374,2025-02-22,Denver Nuggets,Los Angeles Lakers,100,123,2025,-23,223
+401705373,2025-02-22,Philadelphia 76ers,Brooklyn Nets,103,105,2025,-2,208
+401705372,2025-02-22,Chicago Bulls,Phoenix Suns,117,121,2025,-4,238
+401705371,2025-02-21,Sacramento Kings,Golden State Warriors,108,132,2025,-24,240
+401705367,2025-02-21,Houston Rockets,Minnesota Timberwolves,121,115,2025,6,236
+401705370,2025-02-21,Utah Jazz,Oklahoma City Thunder,107,130,2025,-23,237
+401705368,2025-02-21,San Antonio Spurs,Detroit Pistons,110,125,2025,-15,235
+401705369,2025-02-21,Dallas Mavericks,New Orleans Pelicans,111,103,2025,8,214
+401705366,2025-02-21,Toronto Raptors,Miami Heat,111,120,2025,-9,231
+401705363,2025-02-21,Cleveland Cavaliers,New York Knicks,142,105,2025,37,247
+401705364,2025-02-21,Orlando Magic,Memphis Grizzlies,104,105,2025,-1,209
+401705365,2025-02-21,Washington Wizards,Milwaukee Bucks,101,104,2025,-3,205
+401705362,2025-02-20,Portland Trail Blazers,Los Angeles Lakers,102,110,2025,-8,212
+401705361,2025-02-20,San Antonio Spurs,Phoenix Suns,120,109,2025,11,229
+401705360,2025-02-20,Denver Nuggets,Charlotte Hornets,129,115,2025,14,244
+401705359,2025-02-20,Milwaukee Bucks,LA Clippers,116,110,2025,6,226
+401705356,2025-02-20,Atlanta Hawks,Orlando Magic,108,114,2025,-6,222
+401705357,2025-02-20,Brooklyn Nets,Cleveland Cavaliers,97,110,2025,-13,207
+401705358,2025-02-20,New York Knicks,Chicago Bulls,113,111,2025,2,224
+401705354,2025-02-20,Indiana Pacers,Memphis Grizzlies,127,113,2025,14,240
+401705355,2025-02-20,Philadelphia 76ers,Boston Celtics,104,124,2025,-20,228
+401748704,2025-02-19,Los Angeles Lakers,Charlotte Hornets,97,100,2025,-3,197
+401752957,2025-02-16,Team Chuck,Team Shaq,25,41,2025,-16,66
+401752956,2025-02-16,Team Shaq,Team Candace,42,35,2025,7,77
+401752955,2025-02-16,Team Chuck,Team Kenny,41,32,2025,9,73
+401705570,2025-02-13,Utah Jazz,LA Clippers,116,120,2025,-4,236
+401705352,2025-02-13,Dallas Mavericks,Miami Heat,118,113,2025,5,231
+401705353,2025-02-13,Minnesota Timberwolves,Oklahoma City Thunder,116,101,2025,15,217
+401705350,2025-02-13,Houston Rockets,Golden State Warriors,98,105,2025,-7,203
+401705351,2025-02-13,New Orleans Pelicans,Sacramento Kings,140,133,2025,7,273
+401705349,2025-02-12,LA Clippers,Memphis Grizzlies,128,114,2025,14,242
+401705348,2025-02-12,Dallas Mavericks,Golden State Warriors,111,107,2025,4,218
+401705346,2025-02-12,Denver Nuggets,Portland Trail Blazers,132,121,2025,11,253
+401705347,2025-02-12,Utah Jazz,Los Angeles Lakers,131,119,2025,12,250
+401705345,2025-02-12,Houston Rockets,Phoenix Suns,119,111,2025,8,230
+401705341,2025-02-12,Chicago Bulls,Detroit Pistons,110,128,2025,-18,238
+401705342,2025-02-12,Minnesota Timberwolves,Milwaukee Bucks,101,103,2025,-2,204
+401705343,2025-02-12,New Orleans Pelicans,Sacramento Kings,111,119,2025,-8,230
+401705344,2025-02-12,Oklahoma City Thunder,Miami Heat,115,101,2025,14,216
+401705338,2025-02-12,Brooklyn Nets,Philadelphia 76ers,100,96,2025,4,196
+401705339,2025-02-12,New York Knicks,Atlanta Hawks,149,148,2025,1,297
+401705340,2025-02-12,Toronto Raptors,Cleveland Cavaliers,108,131,2025,-23,239
+401705335,2025-02-12,Boston Celtics,San Antonio Spurs,116,103,2025,13,219
+401705336,2025-02-12,Orlando Magic,Charlotte Hornets,102,86,2025,16,188
+401705337,2025-02-12,Washington Wizards,Indiana Pacers,130,134,2025,-4,264
+401705333,2025-02-11,Phoenix Suns,Memphis Grizzlies,112,119,2025,-7,231
+401705332,2025-02-11,Chicago Bulls,Detroit Pistons,92,132,2025,-40,224
+401705331,2025-02-11,Indiana Pacers,New York Knicks,115,128,2025,-13,243
+401705330,2025-02-11,Philadelphia 76ers,Toronto Raptors,103,106,2025,-3,209
+401705334,2025-02-10,Los Angeles Lakers,Utah Jazz,132,113,2025,19,245
+401705329,2025-02-10,Denver Nuggets,Portland Trail Blazers,146,117,2025,29,263
+401705328,2025-02-10,Dallas Mavericks,Sacramento Kings,128,129,2025,-1,257
+401705326,2025-02-10,Milwaukee Bucks,Golden State Warriors,111,125,2025,-14,236
+401705327,2025-02-10,Oklahoma City Thunder,New Orleans Pelicans,137,101,2025,36,238
+401705324,2025-02-10,Brooklyn Nets,Charlotte Hornets,97,89,2025,8,186
+401705325,2025-02-10,Miami Heat,Boston Celtics,85,103,2025,-18,188
+401705321,2025-02-10,Cleveland Cavaliers,Minnesota Timberwolves,128,107,2025,21,235
+401705322,2025-02-10,Orlando Magic,Atlanta Hawks,106,112,2025,-6,218
+401705323,2025-02-10,Washington Wizards,San Antonio Spurs,121,131,2025,-10,252
+401705319,2025-02-09,Houston Rockets,Toronto Raptors,94,87,2025,7,181
+401705320,2025-02-09,Milwaukee Bucks,Philadelphia 76ers,135,127,2025,8,262
+401705318,2025-02-09,Detroit Pistons,Charlotte Hornets,112,102,2025,10,214
+401705317,2025-02-08,LA Clippers,Utah Jazz,130,110,2025,20,240
+401705316,2025-02-08,Sacramento Kings,New Orleans Pelicans,123,118,2025,5,241
+401705315,2025-02-08,Phoenix Suns,Denver Nuggets,105,122,2025,-17,227
+401705314,2025-02-08,New York Knicks,Boston Celtics,104,131,2025,-27,235
+401705311,2025-02-08,Chicago Bulls,Golden State Warriors,111,132,2025,-21,243
+401705312,2025-02-08,Memphis Grizzlies,Oklahoma City Thunder,112,125,2025,-13,237
+401705313,2025-02-08,Minnesota Timberwolves,Portland Trail Blazers,114,98,2025,16,212
+401705309,2025-02-08,Orlando Magic,San Antonio Spurs,112,111,2025,1,223
+401705310,2025-02-08,Washington Wizards,Atlanta Hawks,111,125,2025,-14,236
+401705308,2025-02-08,Los Angeles Lakers,Indiana Pacers,124,117,2025,7,241
+401705307,2025-02-08,Dallas Mavericks,Houston Rockets,116,105,2025,11,221
+401705306,2025-02-07,Phoenix Suns,Utah Jazz,135,127,2025,8,262
+401705305,2025-02-07,Oklahoma City Thunder,Toronto Raptors,121,109,2025,12,230
+401705302,2025-02-07,Atlanta Hawks,Milwaukee Bucks,115,110,2025,5,225
+401705303,2025-02-07,Brooklyn Nets,Miami Heat,102,86,2025,16,188
+401705304,2025-02-07,Detroit Pistons,Philadelphia 76ers,125,112,2025,13,237
+401705300,2025-02-07,Charlotte Hornets,San Antonio Spurs,117,116,2025,1,233
+401705301,2025-02-07,Washington Wizards,Cleveland Cavaliers,124,134,2025,-10,258
+401705299,2025-02-06,LA Clippers,Indiana Pacers,112,119,2025,-7,231
+401705297,2025-02-06,Los Angeles Lakers,Golden State Warriors,120,112,2025,8,232
+401705298,2025-02-06,Portland Trail Blazers,Sacramento Kings,108,102,2025,6,210
+401705296,2025-02-06,Denver Nuggets,Orlando Magic,112,90,2025,22,202
+401705295,2025-02-06,Minnesota Timberwolves,Houston Rockets,127,114,2025,13,241
+401705294,2025-02-06,Boston Celtics,Dallas Mavericks,120,127,2025,-7,247
+401705293,2025-02-05,Sacramento Kings,Orlando Magic,111,130,2025,-19,241
+401705290,2025-02-05,Oklahoma City Thunder,Phoenix Suns,140,109,2025,31,249
+401705291,2025-02-05,Utah Jazz,Golden State Warriors,131,128,2025,3,259
+401705292,2025-02-05,Denver Nuggets,New Orleans Pelicans,144,119,2025,25,263
+401705289,2025-02-05,Minnesota Timberwolves,Chicago Bulls,127,108,2025,19,235
+401705286,2025-02-05,Brooklyn Nets,Washington Wizards,102,119,2025,-17,221
+401705287,2025-02-05,Philadelphia 76ers,Miami Heat,101,108,2025,-7,209
+401705288,2025-02-05,Toronto Raptors,Memphis Grizzlies,107,138,2025,-31,245
+401705283,2025-02-05,Charlotte Hornets,Milwaukee Bucks,102,112,2025,-10,214
+401705284,2025-02-05,Detroit Pistons,Cleveland Cavaliers,115,118,2025,-3,233
+401705285,2025-02-05,Atlanta Hawks,San Antonio Spurs,125,126,2025,-1,251
+401705281,2025-02-04,LA Clippers,Los Angeles Lakers,97,122,2025,-25,219
+401705282,2025-02-04,Portland Trail Blazers,Indiana Pacers,112,89,2025,23,201
+401705280,2025-02-04,Chicago Bulls,Miami Heat,133,124,2025,9,257
+401705276,2025-02-04,Cleveland Cavaliers,Boston Celtics,105,112,2025,-7,217
+401705277,2025-02-04,Brooklyn Nets,Houston Rockets,99,97,2025,2,196
+401705279,2025-02-04,Toronto Raptors,New York Knicks,115,121,2025,-6,236
+401705278,2025-02-04,Philadelphia 76ers,Dallas Mavericks,118,116,2025,2,234
+401705274,2025-02-03,Golden State Warriors,Orlando Magic,104,99,2025,5,203
+401705275,2025-02-03,Portland Trail Blazers,Phoenix Suns,121,119,2025,2,240
+401705272,2025-02-03,Denver Nuggets,New Orleans Pelicans,125,113,2025,12,238
+401705273,2025-02-03,Utah Jazz,Indiana Pacers,111,112,2025,-1,223
+401705269,2025-02-03,Memphis Grizzlies,San Antonio Spurs,128,109,2025,19,237
+401705270,2025-02-03,Minnesota Timberwolves,Sacramento Kings,114,116,2025,-2,230
+401705271,2025-02-03,Oklahoma City Thunder,Milwaukee Bucks,125,96,2025,29,221
+401705268,2025-02-03,New York Knicks,Houston Rockets,124,118,2025,6,242
+401705266,2025-02-03,Charlotte Hornets,Washington Wizards,114,124,2025,-10,238
+401705267,2025-02-03,Detroit Pistons,Atlanta Hawks,130,132,2025,-2,262
+401705265,2025-02-02,Milwaukee Bucks,Memphis Grizzlies,119,132,2025,-13,251
+401705264,2025-02-02,Philadelphia 76ers,Boston Celtics,110,118,2025,-8,228
+401705262,2025-02-02,Cleveland Cavaliers,Dallas Mavericks,144,101,2025,43,245
+401705263,2025-02-02,Toronto Raptors,LA Clippers,115,108,2025,7,223
+401705261,2025-02-02,Detroit Pistons,Chicago Bulls,127,119,2025,8,246
+401705260,2025-02-01,Portland Trail Blazers,Phoenix Suns,127,108,2025,19,235
+401705258,2025-02-01,New York Knicks,Los Angeles Lakers,112,128,2025,-16,240
+401705259,2025-02-01,San Antonio Spurs,Miami Heat,103,105,2025,-2,208
+401705255,2025-02-01,Houston Rockets,Brooklyn Nets,98,110,2025,-12,208
+401705256,2025-02-01,Minnesota Timberwolves,Washington Wizards,103,105,2025,-2,208
+401705257,2025-02-01,Oklahoma City Thunder,Sacramento Kings,144,110,2025,34,254
+401705254,2025-02-01,Charlotte Hornets,Denver Nuggets,104,107,2025,-3,211
+401705252,2025-02-01,Indiana Pacers,Atlanta Hawks,132,127,2025,5,259
+401705253,2025-02-01,Utah Jazz,Orlando Magic,113,99,2025,14,212
+401705251,2025-01-31,Golden State Warriors,Phoenix Suns,105,130,2025,-25,235
+401705249,2025-01-31,New Orleans Pelicans,Boston Celtics,116,118,2025,-2,234
+401705250,2025-01-31,San Antonio Spurs,Milwaukee Bucks,144,118,2025,26,262
+401705247,2025-01-31,Philadelphia 76ers,Denver Nuggets,134,137,2025,-3,271
+401705248,2025-01-31,Toronto Raptors,Chicago Bulls,106,122,2025,-16,228
+401705245,2025-01-31,Charlotte Hornets,LA Clippers,104,112,2025,-8,216
+401705246,2025-01-31,Detroit Pistons,Dallas Mavericks,117,102,2025,15,219
+401705244,2025-01-30,Portland Trail Blazers,Orlando Magic,119,90,2025,29,209
+401705242,2025-01-30,Memphis Grizzlies,Houston Rockets,120,119,2025,1,239
+401705243,2025-01-30,Utah Jazz,Minnesota Timberwolves,113,138,2025,-25,251
+401705240,2025-01-30,Washington Wizards,Los Angeles Lakers,96,134,2025,-38,230
+401705241,2025-01-30,Cleveland Cavaliers,Atlanta Hawks,137,115,2025,22,252
+401705239,2025-01-29,Golden State Warriors,Oklahoma City Thunder,116,109,2025,7,225
+401705238,2025-01-29,Phoenix Suns,Minnesota Timberwolves,113,121,2025,-8,234
+401705236,2025-01-29,New Orleans Pelicans,Dallas Mavericks,136,137,2025,-1,273
+401705237,2025-01-29,San Antonio Spurs,LA Clippers,116,128,2025,-12,244
+401705232,2025-01-29,Boston Celtics,Chicago Bulls,122,100,2025,22,222
+401705233,2025-01-29,Miami Heat,Cleveland Cavaliers,106,126,2025,-20,232
+401705234,2025-01-29,New York Knicks,Denver Nuggets,122,112,2025,10,234
+401705235,2025-01-29,Philadelphia 76ers,Sacramento Kings,117,104,2025,13,221
+401705229,2025-01-29,Charlotte Hornets,Brooklyn Nets,83,104,2025,-21,187
+401705230,2025-01-29,Indiana Pacers,Detroit Pistons,133,119,2025,14,252
+401705231,2025-01-29,Washington Wizards,Toronto Raptors,82,106,2025,-24,188
+401705227,2025-01-28,Golden State Warriors,Utah Jazz,114,103,2025,11,217
+401705228,2025-01-28,Portland Trail Blazers,Milwaukee Bucks,125,112,2025,13,237
+401705226,2025-01-28,Philadelphia 76ers,Los Angeles Lakers,118,104,2025,14,222
+401748705,2025-01-28,Atlanta Hawks,Houston Rockets,96,100,2025,-4,196
+401705225,2025-01-27,Phoenix Suns,LA Clippers,111,109,2025,2,220
+401705224,2025-01-27,Utah Jazz,Milwaukee Bucks,110,125,2025,-15,235
+401705223,2025-01-27,Dallas Mavericks,Washington Wizards,130,108,2025,22,238
+401705221,2025-01-27,Chicago Bulls,Denver Nuggets,129,121,2025,8,250
+401705222,2025-01-27,Minnesota Timberwolves,Atlanta Hawks,100,92,2025,8,192
+401705216,2025-01-27,Boston Celtics,Houston Rockets,112,114,2025,-2,226
+401705217,2025-01-27,Brooklyn Nets,Sacramento Kings,96,110,2025,-14,206
+401705218,2025-01-27,Miami Heat,Orlando Magic,125,119,2025,6,244
+401705219,2025-01-27,New York Knicks,Memphis Grizzlies,143,106,2025,37,249
+401705220,2025-01-27,Toronto Raptors,New Orleans Pelicans,113,104,2025,9,217
+401705214,2025-01-27,Charlotte Hornets,Los Angeles Lakers,107,112,2025,-5,219
+401705215,2025-01-27,Cleveland Cavaliers,Detroit Pistons,110,91,2025,19,201
+401705213,2025-01-26,Portland Trail Blazers,Oklahoma City Thunder,108,118,2025,-10,226
+401705212,2025-01-25,LA Clippers,Milwaukee Bucks,127,117,2025,10,244
+401705211,2025-01-25,Phoenix Suns,Washington Wizards,119,109,2025,10,228
+401705210,2025-01-25,Golden State Warriors,Los Angeles Lakers,108,118,2025,-10,226
+401705208,2025-01-25,Chicago Bulls,Philadelphia 76ers,97,109,2025,-12,206
+401705209,2025-01-25,Memphis Grizzlies,Utah Jazz,125,103,2025,22,228
+401705205,2025-01-25,Atlanta Hawks,Toronto Raptors,94,117,2025,-23,211
+401705206,2025-01-25,Cleveland Cavaliers,Houston Rockets,131,135,2025,-4,266
+401705207,2025-01-25,New York Knicks,Sacramento Kings,143,120,2025,23,263
+401705203,2025-01-25,Charlotte Hornets,New Orleans Pelicans,123,92,2025,31,215
+401705204,2025-01-25,Orlando Magic,Detroit Pistons,121,113,2025,8,234
+401705202,2025-01-25,Brooklyn Nets,Miami Heat,97,106,2025,-9,203
+401705201,2025-01-25,Dallas Mavericks,Boston Celtics,107,122,2025,-15,229
+401705200,2025-01-25,Minnesota Timberwolves,Denver Nuggets,133,104,2025,29,237
+401705199,2025-01-25,San Antonio Spurs,Indiana Pacers,98,136,2025,-38,234
+401705198,2025-01-24,Memphis Grizzlies,New Orleans Pelicans,139,126,2025,13,265
+401705196,2025-01-24,Charlotte Hornets,Portland Trail Blazers,97,102,2025,-5,199
+401705197,2025-01-24,Philadelphia 76ers,Cleveland Cavaliers,132,129,2025,3,261
+401705549,2025-01-23,LA Clippers,Washington Wizards,110,93,2025,17,203
+401705194,2025-01-23,Golden State Warriors,Chicago Bulls,131,106,2025,25,237
+401705195,2025-01-23,Los Angeles Lakers,Boston Celtics,117,96,2025,21,213
+401705192,2025-01-23,Denver Nuggets,Sacramento Kings,132,123,2025,9,255
+401705190,2025-01-23,Milwaukee Bucks,Miami Heat,125,96,2025,29,221
+401705191,2025-01-23,Oklahoma City Thunder,Dallas Mavericks,115,121,2025,-6,236
+401705189,2025-01-23,Atlanta Hawks,Toronto Raptors,119,122,2025,-3,241
+401705188,2025-01-23,Orlando Magic,Portland Trail Blazers,79,101,2025,-22,180
+401705187,2025-01-23,Indiana Pacers,San Antonio Spurs,110,140,2025,-30,250
+401705186,2025-01-22,LA Clippers,Boston Celtics,113,117,2025,-4,230
+401705185,2025-01-22,Sacramento Kings,Golden State Warriors,123,117,2025,6,240
+401705181,2025-01-22,Houston Rockets,Cleveland Cavaliers,109,108,2025,1,217
+401705182,2025-01-22,Memphis Grizzlies,Charlotte Hornets,132,120,2025,12,252
+401705184,2025-01-22,Oklahoma City Thunder,Utah Jazz,123,114,2025,9,237
+401705178,2025-01-22,Atlanta Hawks,Detroit Pistons,104,114,2025,-10,218
+401705179,2025-01-22,Brooklyn Nets,Phoenix Suns,84,108,2025,-24,192
+401705180,2025-01-22,Dallas Mavericks,Minnesota Timberwolves,114,115,2025,-1,229
+401705176,2025-01-21,Los Angeles Lakers,Washington Wizards,111,88,2025,23,199
+401705175,2025-01-21,Denver Nuggets,Philadelphia 76ers,144,109,2025,35,253
+401705172,2025-01-21,Brooklyn Nets,New York Knicks,95,99,2025,-4,194
+401705173,2025-01-21,Miami Heat,Portland Trail Blazers,107,116,2025,-9,223
+401705174,2025-01-21,Toronto Raptors,Orlando Magic,109,93,2025,16,202
+401705177,2025-01-20,LA Clippers,Chicago Bulls,99,112,2025,-13,211
+401705171,2025-01-20,New Orleans Pelicans,Utah Jazz,123,119,2025,4,242
+401705170,2025-01-20,Golden State Warriors,Boston Celtics,85,125,2025,-40,210
+401705169,2025-01-20,Cleveland Cavaliers,Phoenix Suns,118,92,2025,26,210
+401705168,2025-01-20,New York Knicks,Atlanta Hawks,119,110,2025,9,229
+401705167,2025-01-20,Memphis Grizzlies,Minnesota Timberwolves,108,106,2025,2,214
+401705166,2025-01-20,Houston Rockets,Detroit Pistons,96,107,2025,-11,203
+401705165,2025-01-20,Charlotte Hornets,Dallas Mavericks,110,105,2025,5,215
+401705162,2025-01-19,LA Clippers,Los Angeles Lakers,116,102,2025,14,218
+401705163,2025-01-19,Portland Trail Blazers,Chicago Bulls,113,102,2025,11,215
+401705164,2025-01-19,Sacramento Kings,Washington Wizards,123,100,2025,23,223
+401705160,2025-01-19,Milwaukee Bucks,Philadelphia 76ers,123,109,2025,14,232
+401705161,2025-01-19,Oklahoma City Thunder,Brooklyn Nets,127,101,2025,26,228
+401705159,2025-01-19,Orlando Magic,Denver Nuggets,100,113,2025,-13,213
+401705158,2025-01-19,Miami Heat,San Antonio Spurs,128,107,2025,21,235
+401705157,2025-01-18,Portland Trail Blazers,Houston Rockets,103,125,2025,-22,228
+401705156,2025-01-18,Minnesota Timberwolves,Cleveland Cavaliers,117,124,2025,-7,241
+401705155,2025-01-18,Golden State Warriors,Washington Wizards,122,114,2025,8,236
+401705153,2025-01-18,Boston Celtics,Atlanta Hawks,115,119,2025,-4,234
+401705154,2025-01-18,Indiana Pacers,Philadelphia 76ers,115,102,2025,13,217
+401705152,2025-01-18,Detroit Pistons,Phoenix Suns,121,125,2025,-4,246
+401705151,2025-01-17,Los Angeles Lakers,Brooklyn Nets,102,101,2025,1,203
+401705148,2025-01-17,San Antonio Spurs,Memphis Grizzlies,112,140,2025,-28,252
+401705149,2025-01-17,Dallas Mavericks,Oklahoma City Thunder,106,98,2025,8,204
+401705145,2025-01-17,Miami Heat,Denver Nuggets,113,133,2025,-20,246
+401705146,2025-01-17,Milwaukee Bucks,Toronto Raptors,130,112,2025,18,242
+401705147,2025-01-17,New Orleans Pelicans,Utah Jazz,136,123,2025,13,259
+401705150,2025-01-17,Chicago Bulls,Charlotte Hornets,123,125,2025,-2,248
+401705144,2025-01-17,New York Knicks,Minnesota Timberwolves,99,116,2025,-17,215
+401705143,2025-01-17,Boston Celtics,Orlando Magic,121,94,2025,27,215
+401705141,2025-01-16,Portland Trail Blazers,LA Clippers,89,118,2025,-29,207
+401705142,2025-01-16,Sacramento Kings,Houston Rockets,132,127,2025,5,259
+401705140,2025-01-16,Oklahoma City Thunder,Cleveland Cavaliers,134,114,2025,20,248
+401705138,2025-01-16,Detroit Pistons,Indiana Pacers,100,111,2025,-11,211
+401705139,2025-01-16,Washington Wizards,Phoenix Suns,123,130,2025,-7,253
+401705137,2025-01-15,LA Clippers,Brooklyn Nets,126,67,2025,59,193
+401705136,2025-01-15,Los Angeles Lakers,Miami Heat,117,108,2025,9,225
+401705131,2025-01-15,Minnesota Timberwolves,Golden State Warriors,115,116,2025,-1,231
+401705134,2025-01-15,Denver Nuggets,Houston Rockets,108,128,2025,-20,236
+401705135,2025-01-15,Utah Jazz,Charlotte Hornets,112,117,2025,-5,229
+401705129,2025-01-15,Chicago Bulls,Atlanta Hawks,94,110,2025,-16,204
+401705130,2025-01-15,Milwaukee Bucks,Orlando Magic,122,93,2025,29,215
+401705132,2025-01-15,New Orleans Pelicans,Dallas Mavericks,119,116,2025,3,235
+401705133,2025-01-15,San Antonio Spurs,Memphis Grizzlies,115,129,2025,-14,244
+401705128,2025-01-15,Toronto Raptors,Boston Celtics,110,97,2025,13,207
+401705127,2025-01-15,Philadelphia 76ers,New York Knicks,119,125,2025,-6,244
+401705126,2025-01-14,Portland Trail Blazers,Brooklyn Nets,114,132,2025,-18,246
+401705125,2025-01-14,Dallas Mavericks,Denver Nuggets,99,118,2025,-19,217
+401705123,2025-01-14,Chicago Bulls,New Orleans Pelicans,113,119,2025,-6,232
+401705124,2025-01-14,Milwaukee Bucks,Sacramento Kings,130,115,2025,15,245
+401705122,2025-01-14,Atlanta Hawks,Phoenix Suns,122,117,2025,5,239
+401705120,2025-01-14,Indiana Pacers,Cleveland Cavaliers,117,127,2025,-10,244
+401705121,2025-01-14,Philadelphia 76ers,Oklahoma City Thunder,102,118,2025,-16,220
+401705118,2025-01-13,Los Angeles Lakers,San Antonio Spurs,102,126,2025,-24,228
+401705119,2025-01-13,LA Clippers,Miami Heat,109,98,2025,11,207
+401705117,2025-01-13,Houston Rockets,Memphis Grizzlies,120,118,2025,2,238
+401705115,2025-01-13,New York Knicks,Detroit Pistons,119,124,2025,-5,243
+401705116,2025-01-13,Toronto Raptors,Golden State Warriors,104,101,2025,3,205
+401705114,2025-01-13,Washington Wizards,Minnesota Timberwolves,106,120,2025,-14,226
+401705113,2025-01-12,Phoenix Suns,Charlotte Hornets,120,113,2025,7,233
+401705112,2025-01-12,Utah Jazz,Brooklyn Nets,112,111,2025,1,223
+401705108,2025-01-12,Boston Celtics,New Orleans Pelicans,120,119,2025,1,239
+401705109,2025-01-12,Cleveland Cavaliers,Indiana Pacers,93,108,2025,-15,201
+401705110,2025-01-12,Orlando Magic,Philadelphia 76ers,104,99,2025,5,203
+401705111,2025-01-12,Washington Wizards,Oklahoma City Thunder,95,136,2025,-41,231
+401705107,2025-01-12,Chicago Bulls,Sacramento Kings,119,124,2025,-5,243
+401705105,2025-01-12,New York Knicks,Milwaukee Bucks,140,106,2025,34,246
+401705106,2025-01-12,Dallas Mavericks,Denver Nuggets,101,112,2025,-11,213
+401705102,2025-01-11,Portland Trail Blazers,Miami Heat,98,119,2025,-21,217
+401705101,2025-01-11,Minnesota Timberwolves,Memphis Grizzlies,125,127,2025,-2,252
+401705100,2025-01-11,Detroit Pistons,Toronto Raptors,123,114,2025,9,237
+401705099,2025-01-11,Phoenix Suns,Utah Jazz,114,106,2025,8,220
+401705097,2025-01-10,Denver Nuggets,Brooklyn Nets,124,105,2025,19,229
+401705096,2025-01-10,Chicago Bulls,Washington Wizards,138,105,2025,33,243
+401705094,2025-01-10,Boston Celtics,Sacramento Kings,97,114,2025,-17,211
+401705095,2025-01-10,New York Knicks,Oklahoma City Thunder,101,126,2025,-25,227
+401705091,2025-01-10,Indiana Pacers,Golden State Warriors,108,96,2025,12,204
+401705092,2025-01-10,Orlando Magic,Milwaukee Bucks,106,109,2025,-3,215
+401705093,2025-01-10,Philadelphia 76ers,New Orleans Pelicans,115,123,2025,-8,238
+401705088,2025-01-09,Phoenix Suns,Atlanta Hawks,123,115,2025,8,238
+401705089,2025-01-09,Utah Jazz,Miami Heat,92,97,2025,-5,189
+401705086,2025-01-09,Memphis Grizzlies,Houston Rockets,115,119,2025,-4,234
+401705087,2025-01-09,Dallas Mavericks,Portland Trail Blazers,117,111,2025,6,228
+401705083,2025-01-09,Cleveland Cavaliers,Toronto Raptors,132,126,2025,6,258
+401705084,2025-01-09,Detroit Pistons,Golden State Warriors,104,107,2025,-3,211
+401705085,2025-01-09,Orlando Magic,Minnesota Timberwolves,89,104,2025,-15,193
+401705082,2025-01-08,Milwaukee Bucks,San Antonio Spurs,121,105,2025,16,226
+401705081,2025-01-08,Denver Nuggets,LA Clippers,126,103,2025,23,229
+401705080,2025-01-08,New Orleans Pelicans,Portland Trail Blazers,100,119,2025,-19,219
+401705077,2025-01-08,New York Knicks,Toronto Raptors,112,98,2025,14,210
+401705079,2025-01-08,Brooklyn Nets,Detroit Pistons,98,113,2025,-15,211
+401705075,2025-01-08,Cleveland Cavaliers,Oklahoma City Thunder,129,122,2025,7,251
+401705076,2025-01-08,Indiana Pacers,Chicago Bulls,129,113,2025,16,242
+401705078,2025-01-08,Philadelphia 76ers,Washington Wizards,109,103,2025,6,212
+401705073,2025-01-07,Denver Nuggets,Boston Celtics,106,118,2025,-12,224
+401705074,2025-01-07,Golden State Warriors,Miami Heat,98,114,2025,-16,212
+401705072,2025-01-07,Utah Jazz,Atlanta Hawks,121,124,2025,-3,245
+401705071,2025-01-07,New Orleans Pelicans,Minnesota Timberwolves,97,104,2025,-7,201
+401705070,2025-01-07,Dallas Mavericks,Los Angeles Lakers,118,97,2025,21,215
+401705068,2025-01-07,Charlotte Hornets,Phoenix Suns,115,104,2025,11,219
+401705069,2025-01-07,Washington Wizards,Houston Rockets,112,135,2025,-23,247
+401705067,2025-01-06,Sacramento Kings,Miami Heat,123,118,2025,5,241
+401705064,2025-01-06,Chicago Bulls,San Antonio Spurs,114,110,2025,4,224
+401705065,2025-01-06,Memphis Grizzlies,Dallas Mavericks,119,104,2025,15,223
+401705066,2025-01-06,Minnesota Timberwolves,LA Clippers,108,106,2025,2,214
+401705061,2025-01-06,Brooklyn Nets,Indiana Pacers,99,113,2025,-14,212
+401705062,2025-01-06,New York Knicks,Orlando Magic,94,103,2025,-9,197
+401705063,2025-01-06,Toronto Raptors,Milwaukee Bucks,104,128,2025,-24,232
+401705059,2025-01-06,Detroit Pistons,Portland Trail Blazers,118,115,2025,3,233
+401705060,2025-01-06,Philadelphia 76ers,Phoenix Suns,99,109,2025,-10,208
+401705058,2025-01-05,Golden State Warriors,Sacramento Kings,99,129,2025,-30,228
+401705057,2025-01-05,Houston Rockets,Los Angeles Lakers,119,115,2025,4,234
+401705056,2025-01-05,Orlando Magic,Utah Jazz,92,105,2025,-13,197
+401705054,2025-01-05,Cleveland Cavaliers,Charlotte Hornets,115,105,2025,10,220
+401705055,2025-01-05,Washington Wizards,New Orleans Pelicans,98,110,2025,-12,208
+401705053,2025-01-05,Oklahoma City Thunder,Boston Celtics,105,92,2025,13,197
+401705052,2025-01-04,LA Clippers,Atlanta Hawks,131,105,2025,26,236
+401705051,2025-01-04,Golden State Warriors,Memphis Grizzlies,121,113,2025,8,234
+401705047,2025-01-04,Miami Heat,Utah Jazz,100,136,2025,-36,236
+401705048,2025-01-04,Chicago Bulls,New York Knicks,139,126,2025,13,265
+401705049,2025-01-04,Milwaukee Bucks,Portland Trail Blazers,102,105,2025,-3,207
+401705050,2025-01-04,San Antonio Spurs,Denver Nuggets,111,122,2025,-11,233
+401705045,2025-01-04,Detroit Pistons,Minnesota Timberwolves,119,105,2025,14,224
+401705046,2025-01-04,Indiana Pacers,Phoenix Suns,126,108,2025,18,234
+401705044,2025-01-04,Brooklyn Nets,Philadelphia 76ers,94,123,2025,-29,217
+401705043,2025-01-03,Los Angeles Lakers,Atlanta Hawks,119,102,2025,17,221
+401705042,2025-01-03,Sacramento Kings,Memphis Grizzlies,138,133,2025,5,271
+401705041,2025-01-03,Denver Nuggets,San Antonio Spurs,110,113,2025,-3,223
+401705040,2025-01-03,Dallas Mavericks,Cleveland Cavaliers,122,134,2025,-12,256
+401705037,2025-01-03,Houston Rockets,Boston Celtics,86,109,2025,-23,195
+401705038,2025-01-03,New Orleans Pelicans,Washington Wizards,132,120,2025,12,252
+401705039,2025-01-03,Oklahoma City Thunder,New York Knicks,117,107,2025,10,224
+401705036,2025-01-03,Toronto Raptors,Orlando Magic,97,106,2025,-9,203
+401705035,2025-01-03,Detroit Pistons,Charlotte Hornets,98,94,2025,4,192
+401705034,2025-01-02,Los Angeles Lakers,Portland Trail Blazers,114,106,2025,8,220
+401705033,2025-01-02,Golden State Warriors,Philadelphia 76ers,139,105,2025,34,244
+401705031,2025-01-02,Milwaukee Bucks,Brooklyn Nets,110,113,2025,-3,223
+401705032,2025-01-02,Oklahoma City Thunder,LA Clippers,116,98,2025,18,214
+401705029,2025-01-02,Miami Heat,Indiana Pacers,115,128,2025,-13,243
+401705030,2025-01-02,Minnesota Timberwolves,Boston Celtics,115,118,2025,-3,233
+401705028,2025-01-01,Sacramento Kings,Philadelphia 76ers,113,107,2025,6,220
+401705027,2025-01-01,Denver Nuggets,Atlanta Hawks,139,120,2025,19,259
+401705026,2025-01-01,Houston Rockets,Dallas Mavericks,110,99,2025,11,209
+401705023,2025-01-01,Miami Heat,New Orleans Pelicans,119,108,2025,11,227
+401705024,2025-01-01,New York Knicks,Utah Jazz,119,103,2025,16,222
+401705025,2025-01-01,Toronto Raptors,Brooklyn Nets,130,113,2025,17,243
+401705021,2025-01-01,Detroit Pistons,Orlando Magic,105,96,2025,9,201
+401705022,2025-01-01,Washington Wizards,Chicago Bulls,125,107,2025,18,232
+401705019,2024-12-31,Phoenix Suns,Memphis Grizzlies,112,117,2025,-5,229
+401705020,2024-12-31,Los Angeles Lakers,Cleveland Cavaliers,110,122,2025,-12,232
+401705018,2024-12-31,Oklahoma City Thunder,Minnesota Timberwolves,113,105,2025,8,218
+401705017,2024-12-31,San Antonio Spurs,LA Clippers,122,86,2025,36,208
+401705015,2024-12-31,Boston Celtics,Toronto Raptors,125,71,2025,54,196
+401705016,2024-12-31,Indiana Pacers,Milwaukee Bucks,112,120,2025,-8,232
+401705012,2024-12-30,Golden State Warriors,Cleveland Cavaliers,95,113,2025,-18,208
+401705013,2024-12-30,Portland Trail Blazers,Philadelphia 76ers,103,125,2025,-22,228
+401705014,2024-12-30,Sacramento Kings,Dallas Mavericks,110,100,2025,10,210
+401705011,2024-12-30,Utah Jazz,Denver Nuggets,121,132,2025,-11,253
+401705010,2024-12-30,New Orleans Pelicans,LA Clippers,113,116,2025,-3,229
+401705008,2024-12-30,Charlotte Hornets,Chicago Bulls,108,115,2025,-7,223
+401705009,2024-12-30,Washington Wizards,New York Knicks,106,126,2025,-20,232
+401705007,2024-12-29,Minnesota Timberwolves,San Antonio Spurs,112,110,2025,2,222
+401705005,2024-12-29,Houston Rockets,Miami Heat,100,104,2025,-4,204
+401705006,2024-12-29,Oklahoma City Thunder,Memphis Grizzlies,130,106,2025,24,236
+401705003,2024-12-29,Boston Celtics,Indiana Pacers,114,123,2025,-9,237
+401705004,2024-12-29,Toronto Raptors,Atlanta Hawks,107,136,2025,-29,243
+401705002,2024-12-29,Orlando Magic,Brooklyn Nets,102,101,2025,1,203
+401705001,2024-12-28,Los Angeles Lakers,Sacramento Kings,132,122,2025,10,254
+401705000,2024-12-28,Portland Trail Blazers,Dallas Mavericks,126,122,2025,4,248
+401704999,2024-12-28,Utah Jazz,Philadelphia 76ers,111,114,2025,-3,225
+401704998,2024-12-28,Denver Nuggets,Detroit Pistons,134,121,2025,13,255
+401704997,2024-12-28,Golden State Warriors,Phoenix Suns,109,105,2025,4,214
+401704996,2024-12-28,Chicago Bulls,Milwaukee Bucks,116,111,2025,5,227
+401704995,2024-12-28,Washington Wizards,New York Knicks,132,136,2025,-4,268
+401704994,2024-12-28,Charlotte Hornets,Oklahoma City Thunder,94,106,2025,-12,200
+401704993,2024-12-28,Atlanta Hawks,Miami Heat,120,110,2025,10,230
+401704992,2024-12-27,LA Clippers,Golden State Warriors,102,92,2025,10,194
+401704990,2024-12-27,Denver Nuggets,Cleveland Cavaliers,135,149,2025,-14,284
+401704991,2024-12-27,Phoenix Suns,Dallas Mavericks,89,98,2025,-9,187
+401704988,2024-12-27,Houston Rockets,Minnesota Timberwolves,112,113,2025,-1,225
+401704989,2024-12-27,New Orleans Pelicans,Memphis Grizzlies,124,132,2025,-8,256
+401704986,2024-12-27,Boston Celtics,Indiana Pacers,142,105,2025,37,247
+401704987,2024-12-27,Brooklyn Nets,San Antonio Spurs,87,96,2025,-9,183
+401704985,2024-12-27,Orlando Magic,New York Knicks,85,108,2025,-23,193
+401704983,2024-12-26,Portland Trail Blazers,Utah Jazz,122,120,2025,2,242
+401704984,2024-12-26,Sacramento Kings,Detroit Pistons,113,114,2025,-1,227
+401704980,2024-12-26,Memphis Grizzlies,Toronto Raptors,155,126,2025,29,281
+401704981,2024-12-26,Milwaukee Bucks,Brooklyn Nets,105,111,2025,-6,216
+401704982,2024-12-26,New Orleans Pelicans,Houston Rockets,111,128,2025,-17,239
+401704979,2024-12-26,Atlanta Hawks,Chicago Bulls,141,133,2025,8,274
+401704976,2024-12-26,Indiana Pacers,Oklahoma City Thunder,114,120,2025,-6,234
+401704977,2024-12-26,Orlando Magic,Miami Heat,88,89,2025,-1,177
+401704978,2024-12-26,Washington Wizards,Charlotte Hornets,113,110,2025,3,223
+401704975,2024-12-25,Phoenix Suns,Denver Nuggets,110,100,2025,10,210
+401704974,2024-12-25,Golden State Warriors,Los Angeles Lakers,113,115,2025,-2,228
+401704973,2024-12-25,Boston Celtics,Philadelphia 76ers,114,118,2025,-4,232
+401704972,2024-12-25,Dallas Mavericks,Minnesota Timberwolves,99,105,2025,-6,204
+401704971,2024-12-25,New York Knicks,San Antonio Spurs,117,114,2025,3,231
+401704970,2024-12-23,Los Angeles Lakers,Detroit Pistons,114,117,2025,-3,231
+401704968,2024-12-23,Denver Nuggets,Phoenix Suns,117,90,2025,27,207
+401704969,2024-12-23,Golden State Warriors,Indiana Pacers,105,111,2025,-6,216
+401704967,2024-12-23,Dallas Mavericks,Portland Trail Blazers,132,108,2025,24,240
+401704964,2024-12-23,Chicago Bulls,Milwaukee Bucks,91,112,2025,-21,203
+401704965,2024-12-23,Memphis Grizzlies,LA Clippers,110,114,2025,-4,224
+401704966,2024-12-23,Oklahoma City Thunder,Washington Wizards,123,105,2025,18,228
+401704961,2024-12-23,Atlanta Hawks,Minnesota Timberwolves,117,104,2025,13,221
+401704962,2024-12-23,Miami Heat,Brooklyn Nets,110,95,2025,15,205
+401704963,2024-12-23,New York Knicks,Toronto Raptors,139,125,2025,14,264
+401704957,2024-12-23,Charlotte Hornets,Houston Rockets,101,114,2025,-13,215
+401704958,2024-12-23,Cleveland Cavaliers,Utah Jazz,124,113,2025,11,237
+401704959,2024-12-23,Orlando Magic,Boston Celtics,108,104,2025,4,212
+401704960,2024-12-23,Philadelphia 76ers,San Antonio Spurs,111,106,2025,5,217
+401704956,2024-12-22,New Orleans Pelicans,Denver Nuggets,129,132,2025,-3,261
+401704954,2024-12-22,Toronto Raptors,Houston Rockets,110,114,2025,-4,224
+401704955,2024-12-22,Sacramento Kings,Indiana Pacers,95,122,2025,-27,217
+401704953,2024-12-21,Phoenix Suns,Detroit Pistons,125,133,2025,-8,258
+401704951,2024-12-21,Dallas Mavericks,LA Clippers,113,97,2025,16,210
+401704952,2024-12-21,San Antonio Spurs,Portland Trail Blazers,114,94,2025,20,208
+401704946,2024-12-21,Cleveland Cavaliers,Philadelphia 76ers,126,99,2025,27,225
+401704947,2024-12-21,Chicago Bulls,Boston Celtics,98,123,2025,-25,221
+401704948,2024-12-21,Milwaukee Bucks,Washington Wizards,112,101,2025,11,213
+401704949,2024-12-21,Minnesota Timberwolves,Golden State Warriors,103,113,2025,-10,216
+401704950,2024-12-21,New Orleans Pelicans,New York Knicks,93,104,2025,-11,197
+401704944,2024-12-21,Atlanta Hawks,Memphis Grizzlies,112,128,2025,-16,240
+401704945,2024-12-21,Brooklyn Nets,Utah Jazz,94,105,2025,-11,199
+401704943,2024-12-21,Orlando Magic,Miami Heat,121,114,2025,7,235
+401704942,2024-12-21,Sacramento Kings,Los Angeles Lakers,99,103,2025,-4,202
+401704941,2024-12-20,Miami Heat,Oklahoma City Thunder,97,104,2025,-7,201
+401704940,2024-12-20,Cleveland Cavaliers,Milwaukee Bucks,124,101,2025,23,225
+401704939,2024-12-20,Philadelphia 76ers,Charlotte Hornets,108,98,2025,10,206
+401704937,2024-12-19,Portland Trail Blazers,Denver Nuggets,126,124,2025,2,250
+401704938,2024-12-19,Sacramento Kings,Los Angeles Lakers,100,113,2025,-13,213
+401704933,2024-12-19,Minnesota Timberwolves,New York Knicks,107,133,2025,-26,240
+401704935,2024-12-19,Phoenix Suns,Indiana Pacers,111,120,2025,-9,231
+401704934,2024-12-19,Dallas Mavericks,LA Clippers,95,118,2025,-23,213
+401704931,2024-12-19,Houston Rockets,New Orleans Pelicans,133,113,2025,20,246
+401704932,2024-12-19,Memphis Grizzlies,Golden State Warriors,144,93,2025,51,237
+401704936,2024-12-19,San Antonio Spurs,Atlanta Hawks,133,126,2025,7,259
+401704929,2024-12-19,Boston Celtics,Chicago Bulls,108,117,2025,-9,225
+401704930,2024-12-19,Toronto Raptors,Brooklyn Nets,94,101,2025,-7,195
+401704926,2024-12-19,Detroit Pistons,Utah Jazz,119,126,2025,-7,245
+401704927,2024-12-19,Orlando Magic,Oklahoma City Thunder,99,105,2025,-6,204
+401704928,2024-12-19,Washington Wizards,Charlotte Hornets,123,114,2025,9,237
+401734908,2024-12-17,Oklahoma City Thunder,Milwaukee Bucks,81,97,2025,-16,178
+401736820,2024-12-16,LA Clippers,Utah Jazz,144,107,2025,37,251
+401736819,2024-12-16,Sacramento Kings,Denver Nuggets,129,130,2025,-1,259
+401736817,2024-12-16,Toronto Raptors,Chicago Bulls,121,122,2025,-1,243
+401736818,2024-12-16,Brooklyn Nets,Cleveland Cavaliers,101,130,2025,-29,231
+401736815,2024-12-16,Charlotte Hornets,Philadelphia 76ers,108,121,2025,-13,229
+401736816,2024-12-16,Detroit Pistons,Miami Heat,125,124,2025,1,249
+401736814,2024-12-15,Los Angeles Lakers,Memphis Grizzlies,116,110,2025,6,226
+401737912,2024-12-15,Golden State Warriors,Dallas Mavericks,133,143,2025,-10,276
+401736813,2024-12-15,Phoenix Suns,Portland Trail Blazers,116,109,2025,7,225
+401736812,2024-12-15,San Antonio Spurs,Minnesota Timberwolves,92,106,2025,-14,198
+401736811,2024-12-15,Washington Wizards,Boston Celtics,98,112,2025,-14,210
+401737902,2024-12-15,Orlando Magic,New York Knicks,91,100,2025,-9,191
+401736810,2024-12-15,Indiana Pacers,New Orleans Pelicans,119,104,2025,15,223
+401734907,2024-12-14,Oklahoma City Thunder,Houston Rockets,111,96,2025,15,207
+401734906,2024-12-14,Milwaukee Bucks,Atlanta Hawks,110,102,2025,8,212
+401736809,2024-12-13,Portland Trail Blazers,San Antonio Spurs,116,118,2025,-2,234
+401736808,2024-12-13,Utah Jazz,Phoenix Suns,126,134,2025,-8,260
+401736807,2024-12-13,Denver Nuggets,LA Clippers,120,98,2025,22,218
+401736804,2024-12-13,Minnesota Timberwolves,Los Angeles Lakers,97,87,2025,10,184
+401736805,2024-12-13,Memphis Grizzlies,Brooklyn Nets,135,119,2025,16,254
+401736806,2024-12-13,Chicago Bulls,Charlotte Hornets,109,95,2025,14,204
+401736802,2024-12-13,Cleveland Cavaliers,Washington Wizards,115,105,2025,10,220
+401736803,2024-12-13,Philadelphia 76ers,Indiana Pacers,107,121,2025,-14,228
+401736801,2024-12-12,New Orleans Pelicans,Sacramento Kings,109,111,2025,-2,220
+401736799,2024-12-12,Boston Celtics,Detroit Pistons,123,99,2025,24,222
+401736800,2024-12-12,Miami Heat,Toronto Raptors,114,104,2025,10,218
+401734905,2024-12-11,Houston Rockets,Golden State Warriors,91,90,2025,1,181
+401734904,2024-12-11,New York Knicks,Atlanta Hawks,100,108,2025,-8,208
+401734903,2024-12-10,Oklahoma City Thunder,Dallas Mavericks,118,104,2025,14,222
+401734902,2024-12-10,Milwaukee Bucks,Orlando Magic,114,109,2025,5,223
+401704925,2024-12-09,Toronto Raptors,New York Knicks,108,113,2025,-5,221
+401704924,2024-12-08,Los Angeles Lakers,Portland Trail Blazers,107,98,2025,9,205
+401704922,2024-12-08,LA Clippers,Houston Rockets,106,117,2025,-11,223
+401704923,2024-12-08,Sacramento Kings,Utah Jazz,141,97,2025,44,238
+401704921,2024-12-08,Golden State Warriors,Minnesota Timberwolves,114,106,2025,8,220
+401704919,2024-12-08,Washington Wizards,Memphis Grizzlies,112,140,2025,-28,252
+401704920,2024-12-08,San Antonio Spurs,New Orleans Pelicans,121,116,2025,5,237
+401704918,2024-12-08,Orlando Magic,Phoenix Suns,115,110,2025,5,225
+401704916,2024-12-08,Atlanta Hawks,Denver Nuggets,111,141,2025,-30,252
+401704917,2024-12-08,Miami Heat,Cleveland Cavaliers,122,113,2025,9,235
+401704915,2024-12-08,Indiana Pacers,Charlotte Hornets,109,113,2025,-4,222
+401704914,2024-12-08,Brooklyn Nets,Milwaukee Bucks,113,118,2025,-5,231
+401704913,2024-12-08,Chicago Bulls,Philadelphia 76ers,100,108,2025,-8,208
+401704911,2024-12-07,Boston Celtics,Memphis Grizzlies,121,127,2025,-6,248
+401704912,2024-12-07,Miami Heat,Phoenix Suns,121,111,2025,10,232
+401704909,2024-12-07,New York Knicks,Detroit Pistons,111,120,2025,-9,231
+401704910,2024-12-07,Toronto Raptors,Dallas Mavericks,118,125,2025,-7,243
+401704907,2024-12-07,Washington Wizards,Denver Nuggets,122,113,2025,9,235
+401704908,2024-12-07,New Orleans Pelicans,Oklahoma City Thunder,109,119,2025,-10,228
+401704906,2024-12-07,Charlotte Hornets,Cleveland Cavaliers,102,116,2025,-14,218
+401704904,2024-12-06,Golden State Warriors,Minnesota Timberwolves,90,107,2025,-17,197
+401704905,2024-12-06,Portland Trail Blazers,Utah Jazz,99,141,2025,-42,240
+401704902,2024-12-06,Chicago Bulls,Indiana Pacers,123,132,2025,-9,255
+401704903,2024-12-06,San Antonio Spurs,Sacramento Kings,113,140,2025,-27,253
+401704900,2024-12-06,Atlanta Hawks,Los Angeles Lakers,134,132,2025,2,266
+401704901,2024-12-06,Boston Celtics,Milwaukee Bucks,111,105,2025,6,216
+401704899,2024-12-06,Philadelphia 76ers,Orlando Magic,102,94,2025,8,196
+401704898,2024-12-05,Golden State Warriors,Houston Rockets,99,93,2025,6,192
+401704895,2024-12-05,Memphis Grizzlies,Sacramento Kings,115,110,2025,5,225
+401704896,2024-12-05,New Orleans Pelicans,Phoenix Suns,126,124,2025,2,250
+401704897,2024-12-05,San Antonio Spurs,Chicago Bulls,124,139,2025,-15,263
+401704893,2024-12-05,New York Knicks,Charlotte Hornets,125,101,2025,24,226
+401704894,2024-12-05,Toronto Raptors,Oklahoma City Thunder,92,129,2025,-37,221
+401704891,2024-12-05,Cleveland Cavaliers,Denver Nuggets,126,114,2025,12,240
+401704892,2024-12-05,Washington Wizards,Dallas Mavericks,101,137,2025,-36,238
+401704890,2024-12-04,LA Clippers,Minnesota Timberwolves,80,108,2025,-28,188
+401704889,2024-12-04,Milwaukee Bucks,Atlanta Hawks,104,119,2025,-15,223
+401704885,2024-12-04,Boston Celtics,Detroit Pistons,130,120,2025,10,250
+401704886,2024-12-04,Brooklyn Nets,Indiana Pacers,99,90,2025,9,189
+401704887,2024-12-04,Miami Heat,Los Angeles Lakers,134,93,2025,41,227
+401704888,2024-12-04,Philadelphia 76ers,Orlando Magic,102,106,2025,-4,208
+401703429,2024-12-03,LA Clippers,Portland Trail Blazers,127,105,2025,22,232
+401703427,2024-12-03,Denver Nuggets,Golden State Warriors,119,115,2025,4,234
+401703428,2024-12-03,Sacramento Kings,Houston Rockets,120,111,2025,9,231
+401703426,2024-12-03,Phoenix Suns,San Antonio Spurs,104,93,2025,11,197
+401703425,2024-12-03,Dallas Mavericks,Memphis Grizzlies,121,116,2025,5,237
+401703424,2024-12-03,Oklahoma City Thunder,Utah Jazz,133,106,2025,27,239
+401703422,2024-12-03,New York Knicks,Orlando Magic,121,106,2025,15,227
+401703423,2024-12-03,Toronto Raptors,Indiana Pacers,122,111,2025,11,233
+401703419,2024-12-03,Charlotte Hornets,Philadelphia 76ers,104,110,2025,-6,214
+401703420,2024-12-03,Cleveland Cavaliers,Washington Wizards,118,87,2025,31,205
+401703421,2024-12-03,Detroit Pistons,Milwaukee Bucks,107,128,2025,-21,235
+401704883,2024-12-02,Chicago Bulls,Brooklyn Nets,128,102,2025,26,230
+401704884,2024-12-02,Minnesota Timberwolves,Los Angeles Lakers,109,80,2025,29,189
+401704881,2024-12-02,Atlanta Hawks,New Orleans Pelicans,124,112,2025,12,236
+401704882,2024-12-02,Boston Celtics,Miami Heat,108,89,2025,19,197
+401704880,2024-12-01,LA Clippers,Denver Nuggets,126,122,2025,4,248
+401704878,2024-12-01,Portland Trail Blazers,Dallas Mavericks,131,137,2025,-6,268
+401704879,2024-12-01,Sacramento Kings,San Antonio Spurs,125,127,2025,-2,252
+401704877,2024-12-01,Utah Jazz,Los Angeles Lakers,104,105,2025,-1,209
+401704876,2024-12-01,Houston Rockets,Oklahoma City Thunder,119,116,2025,3,235
+401704873,2024-12-01,Cleveland Cavaliers,Boston Celtics,115,111,2025,4,226
+401704874,2024-12-01,New York Knicks,New Orleans Pelicans,118,85,2025,33,203
+401704875,2024-12-01,Toronto Raptors,Miami Heat,119,116,2025,3,235
+401704871,2024-12-01,Brooklyn Nets,Orlando Magic,92,100,2025,-8,192
+401704872,2024-12-01,Memphis Grizzlies,Indiana Pacers,136,121,2025,15,257
+401704870,2024-11-30,Utah Jazz,Dallas Mavericks,94,106,2025,-12,200
+401704869,2024-11-30,Phoenix Suns,Golden State Warriors,113,105,2025,8,218
+401704868,2024-11-30,Milwaukee Bucks,Washington Wizards,124,114,2025,10,238
+401704867,2024-11-30,Detroit Pistons,Philadelphia 76ers,96,111,2025,-15,207
+401704866,2024-11-30,Charlotte Hornets,Atlanta Hawks,104,107,2025,-3,211
+401703417,2024-11-29,Los Angeles Lakers,Oklahoma City Thunder,93,101,2025,-8,194
+401703418,2024-11-29,Portland Trail Blazers,Sacramento Kings,115,106,2025,9,221
+401703414,2024-11-29,Indiana Pacers,Detroit Pistons,106,130,2025,-24,236
+401703415,2024-11-29,Miami Heat,Toronto Raptors,121,111,2025,10,232
+401703416,2024-11-29,Chicago Bulls,Boston Celtics,129,138,2025,-9,267
+401703412,2024-11-29,Brooklyn Nets,Orlando Magic,100,123,2025,-23,223
+401703413,2024-11-29,Minnesota Timberwolves,LA Clippers,93,92,2025,1,185
+401703411,2024-11-29,Memphis Grizzlies,New Orleans Pelicans,120,109,2025,11,229
+401703410,2024-11-29,Atlanta Hawks,Cleveland Cavaliers,117,101,2025,16,218
+401703409,2024-11-29,Charlotte Hornets,New York Knicks,98,99,2025,-1,197
+401704865,2024-11-27,Golden State Warriors,Oklahoma City Thunder,101,105,2025,-4,206
+401704863,2024-11-27,Phoenix Suns,Brooklyn Nets,117,127,2025,-10,244
+401704864,2024-11-27,Utah Jazz,Denver Nuggets,103,122,2025,-19,225
+401704862,2024-11-27,San Antonio Spurs,Los Angeles Lakers,101,119,2025,-18,220
+401704859,2024-11-27,Memphis Grizzlies,Detroit Pistons,131,111,2025,20,242
+401704860,2024-11-27,Minnesota Timberwolves,Sacramento Kings,104,115,2025,-11,219
+401704861,2024-11-27,New Orleans Pelicans,Toronto Raptors,93,119,2025,-26,212
+401704858,2024-11-27,Dallas Mavericks,New York Knicks,129,114,2025,15,243
+401704852,2024-11-27,Charlotte Hornets,Miami Heat,94,98,2025,-4,192
+401704853,2024-11-27,Cleveland Cavaliers,Atlanta Hawks,124,135,2025,-11,259
+401704854,2024-11-27,Indiana Pacers,Portland Trail Blazers,121,114,2025,7,235
+401704855,2024-11-27,Orlando Magic,Chicago Bulls,133,119,2025,14,252
+401704856,2024-11-27,Philadelphia 76ers,Houston Rockets,115,122,2025,-7,237
+401704857,2024-11-27,Washington Wizards,LA Clippers,96,121,2025,-25,217
+401703408,2024-11-26,Phoenix Suns,Los Angeles Lakers,127,100,2025,27,227
+401703407,2024-11-26,Utah Jazz,San Antonio Spurs,115,128,2025,-13,243
+401703406,2024-11-26,Minnesota Timberwolves,Houston Rockets,111,117,2025,-6,228
+401703405,2024-11-26,Miami Heat,Milwaukee Bucks,103,106,2025,-3,209
+401703404,2024-11-26,Washington Wizards,Chicago Bulls,108,127,2025,-19,235
+401704850,2024-11-25,Golden State Warriors,Brooklyn Nets,120,128,2025,-8,248
+401704851,2024-11-25,Sacramento Kings,Oklahoma City Thunder,109,130,2025,-21,239
+401704849,2024-11-25,Denver Nuggets,New York Knicks,118,145,2025,-27,263
+401704848,2024-11-25,Memphis Grizzlies,Portland Trail Blazers,123,98,2025,25,221
+401704846,2024-11-25,Atlanta Hawks,Dallas Mavericks,119,129,2025,-10,248
+401704847,2024-11-25,Boston Celtics,LA Clippers,126,94,2025,32,220
+401704843,2024-11-25,Charlotte Hornets,Orlando Magic,84,95,2025,-11,179
+401704844,2024-11-25,Detroit Pistons,Toronto Raptors,102,100,2025,2,202
+401704845,2024-11-25,Indiana Pacers,New Orleans Pelicans,114,110,2025,4,224
+401704842,2024-11-24,Sacramento Kings,Brooklyn Nets,103,108,2025,-5,211
+401704841,2024-11-24,Cleveland Cavaliers,Toronto Raptors,122,108,2025,14,230
+401704839,2024-11-24,Miami Heat,Dallas Mavericks,123,118,2025,5,241
+401704840,2024-11-24,Philadelphia 76ers,LA Clippers,99,125,2025,-26,224
+401704838,2024-11-24,Indiana Pacers,Washington Wizards,115,103,2025,12,218
+401704837,2024-11-24,Boston Celtics,Minnesota Timberwolves,107,105,2025,2,212
+401704836,2024-11-23,Los Angeles Lakers,Denver Nuggets,102,127,2025,-25,229
+401704835,2024-11-23,San Antonio Spurs,Golden State Warriors,104,94,2025,10,198
+401704832,2024-11-23,Chicago Bulls,Memphis Grizzlies,131,142,2025,-11,273
+401704833,2024-11-23,Houston Rockets,Portland Trail Blazers,98,104,2025,-6,202
+401704834,2024-11-23,Milwaukee Bucks,Charlotte Hornets,125,119,2025,6,244
+401704831,2024-11-23,Orlando Magic,Detroit Pistons,111,100,2025,11,211
+401704830,2024-11-23,Utah Jazz,New York Knicks,121,106,2025,15,227
+401703403,2024-11-22,LA Clippers,Sacramento Kings,104,88,2025,16,192
+401703402,2024-11-22,Denver Nuggets,Dallas Mavericks,120,123,2025,-3,243
+401703398,2024-11-22,Milwaukee Bucks,Indiana Pacers,129,117,2025,12,246
+401703399,2024-11-22,Chicago Bulls,Atlanta Hawks,136,122,2025,14,258
+401703400,2024-11-22,Houston Rockets,Portland Trail Blazers,116,88,2025,28,204
+401703401,2024-11-22,New Orleans Pelicans,Golden State Warriors,108,112,2025,-4,220
+401703396,2024-11-22,Philadelphia 76ers,Brooklyn Nets,113,98,2025,15,211
+401703397,2024-11-22,Washington Wizards,Boston Celtics,96,108,2025,-12,204
+401704829,2024-11-21,Los Angeles Lakers,Orlando Magic,118,119,2025,-1,237
+401704828,2024-11-21,San Antonio Spurs,Utah Jazz,126,118,2025,8,244
+401704827,2024-11-21,Toronto Raptors,Minnesota Timberwolves,110,105,2025,5,215
+401704826,2024-11-21,Charlotte Hornets,Detroit Pistons,123,121,2025,2,244
+401704825,2024-11-20,LA Clippers,Orlando Magic,104,93,2025,11,197
+401704823,2024-11-20,Phoenix Suns,New York Knicks,122,138,2025,-16,260
+401704824,2024-11-20,Golden State Warriors,Atlanta Hawks,120,97,2025,23,217
+401704820,2024-11-20,Houston Rockets,Indiana Pacers,130,113,2025,17,243
+401704821,2024-11-20,Memphis Grizzlies,Philadelphia 76ers,117,111,2025,6,228
+401704822,2024-11-20,Oklahoma City Thunder,Portland Trail Blazers,109,99,2025,10,208
+401704818,2024-11-20,Cleveland Cavaliers,New Orleans Pelicans,128,100,2025,28,228
+401704819,2024-11-20,Milwaukee Bucks,Chicago Bulls,122,106,2025,16,228
+401703395,2024-11-19,Los Angeles Lakers,Utah Jazz,124,118,2025,6,242
+401703394,2024-11-19,San Antonio Spurs,Oklahoma City Thunder,110,104,2025,6,214
+401703393,2024-11-19,Dallas Mavericks,New Orleans Pelicans,132,91,2025,41,223
+401703392,2024-11-19,Memphis Grizzlies,Denver Nuggets,110,122,2025,-12,232
+401703391,2024-11-19,Brooklyn Nets,Charlotte Hornets,116,115,2025,1,231
+401703390,2024-11-19,Boston Celtics,Cleveland Cavaliers,120,117,2025,3,237
+401704817,2024-11-18,LA Clippers,Golden State Warriors,102,99,2025,3,201
+401704816,2024-11-18,Sacramento Kings,Atlanta Hawks,108,109,2025,-1,217
+401704815,2024-11-18,Phoenix Suns,Orlando Magic,99,109,2025,-10,208
+401704814,2024-11-18,Milwaukee Bucks,Houston Rockets,101,100,2025,1,201
+401704811,2024-11-18,Miami Heat,Philadelphia 76ers,106,89,2025,17,195
+401704812,2024-11-18,New York Knicks,Washington Wizards,134,106,2025,28,240
+401704813,2024-11-18,Toronto Raptors,Indiana Pacers,130,119,2025,11,249
+401704810,2024-11-18,Detroit Pistons,Chicago Bulls,112,122,2025,-10,234
+401704809,2024-11-17,LA Clippers,Utah Jazz,116,105,2025,11,221
+401704806,2024-11-17,New York Knicks,Brooklyn Nets,114,104,2025,10,218
+401704807,2024-11-17,Chicago Bulls,Houston Rockets,107,143,2025,-36,250
+401704808,2024-11-17,Oklahoma City Thunder,Dallas Mavericks,119,121,2025,-2,240
+401704802,2024-11-17,Cleveland Cavaliers,Charlotte Hornets,128,114,2025,14,242
+401704803,2024-11-17,Washington Wizards,Detroit Pistons,104,124,2025,-20,228
+401704804,2024-11-17,Memphis Grizzlies,Denver Nuggets,105,90,2025,15,195
+401704805,2024-11-17,Portland Trail Blazers,Atlanta Hawks,114,110,2025,4,224
+401704801,2024-11-17,Indiana Pacers,Miami Heat,119,110,2025,9,229
+401704800,2024-11-17,Minnesota Timberwolves,Phoenix Suns,120,117,2025,3,237
+401704799,2024-11-16,Sacramento Kings,Utah Jazz,121,117,2025,4,238
+401704798,2024-11-16,Dallas Mavericks,San Antonio Spurs,110,93,2025,17,203
+401704796,2024-11-16,Boston Celtics,Toronto Raptors,126,123,2025,3,249
+401704797,2024-11-16,New Orleans Pelicans,Los Angeles Lakers,99,104,2025,-5,203
+401704795,2024-11-16,Charlotte Hornets,Milwaukee Bucks,115,114,2025,1,229
+401703388,2024-11-15,Golden State Warriors,Memphis Grizzlies,123,118,2025,5,241
+401703389,2024-11-15,Sacramento Kings,Minnesota Timberwolves,126,130,2025,-4,256
+401703385,2024-11-15,Houston Rockets,LA Clippers,125,104,2025,21,229
+401703386,2024-11-15,New Orleans Pelicans,Denver Nuggets,101,94,2025,7,195
+401703387,2024-11-15,Oklahoma City Thunder,Phoenix Suns,99,83,2025,16,182
+401703381,2024-11-15,Atlanta Hawks,Washington Wizards,129,117,2025,12,246
+401703382,2024-11-15,Cleveland Cavaliers,Chicago Bulls,144,126,2025,18,270
+401703383,2024-11-15,New York Knicks,Brooklyn Nets,124,122,2025,2,246
+401703384,2024-11-15,San Antonio Spurs,Los Angeles Lakers,115,120,2025,-5,235
+401703378,2024-11-15,Indiana Pacers,Miami Heat,111,124,2025,-13,235
+401703379,2024-11-15,Orlando Magic,Philadelphia 76ers,98,86,2025,12,184
+401703380,2024-11-15,Toronto Raptors,Detroit Pistons,95,99,2025,-4,194
+401704794,2024-11-14,Utah Jazz,Dallas Mavericks,115,113,2025,2,228
+401704791,2024-11-13,Los Angeles Lakers,Memphis Grizzlies,128,123,2025,5,251
+401704792,2024-11-13,Portland Trail Blazers,Minnesota Timberwolves,106,98,2025,8,204
+401704793,2024-11-13,Sacramento Kings,Phoenix Suns,127,104,2025,23,231
+401704788,2024-11-13,Houston Rockets,LA Clippers,111,103,2025,8,214
+401704789,2024-11-13,Milwaukee Bucks,Detroit Pistons,127,120,2025,7,247
+401704790,2024-11-13,San Antonio Spurs,Washington Wizards,139,130,2025,9,269
+401704784,2024-11-13,Brooklyn Nets,Boston Celtics,114,139,2025,-25,253
+401704785,2024-11-13,New York Knicks,Chicago Bulls,123,124,2025,-1,247
+401704786,2024-11-13,Philadelphia 76ers,Cleveland Cavaliers,106,114,2025,-8,220
+401704787,2024-11-13,Oklahoma City Thunder,New Orleans Pelicans,106,88,2025,18,194
+401704783,2024-11-13,Orlando Magic,Indiana Pacers,94,90,2025,4,184
+401703376,2024-11-12,Golden State Warriors,Dallas Mavericks,120,117,2025,3,237
+401703377,2024-11-12,Portland Trail Blazers,Minnesota Timberwolves,122,108,2025,14,230
+401703375,2024-11-12,Utah Jazz,Phoenix Suns,112,120,2025,-8,232
+401703374,2024-11-12,Milwaukee Bucks,Toronto Raptors,99,85,2025,14,184
+401703373,2024-11-12,Philadelphia 76ers,New York Knicks,99,111,2025,-12,210
+401703370,2024-11-12,Boston Celtics,Atlanta Hawks,116,117,2025,-1,233
+401703371,2024-11-12,Detroit Pistons,Miami Heat,123,121,2025,2,244
+401703372,2024-11-12,Orlando Magic,Charlotte Hornets,114,89,2025,25,203
+401704778,2024-11-11,Chicago Bulls,Cleveland Cavaliers,113,119,2025,-6,232
+401704779,2024-11-11,Houston Rockets,Washington Wizards,107,92,2025,15,199
+401704780,2024-11-11,New Orleans Pelicans,Brooklyn Nets,105,107,2025,-2,212
+401704781,2024-11-11,Oklahoma City Thunder,LA Clippers,134,128,2025,6,262
+401704782,2024-11-11,San Antonio Spurs,Sacramento Kings,116,96,2025,20,212
+401704777,2024-11-10,Los Angeles Lakers,Toronto Raptors,123,103,2025,20,226
+401704776,2024-11-10,Portland Trail Blazers,Memphis Grizzlies,89,134,2025,-45,223
+401704774,2024-11-10,Denver Nuggets,Dallas Mavericks,122,120,2025,2,242
+401704775,2024-11-10,Phoenix Suns,Sacramento Kings,118,127,2025,-9,245
+401704771,2024-11-10,Philadelphia 76ers,Charlotte Hornets,107,105,2025,2,212
+401704772,2024-11-10,Minnesota Timberwolves,Miami Heat,94,95,2025,-1,189
+401704773,2024-11-10,Oklahoma City Thunder,Golden State Warriors,116,127,2025,-11,243
+401704770,2024-11-10,Orlando Magic,Washington Wizards,121,94,2025,27,215
+401704769,2024-11-10,Indiana Pacers,New York Knicks,132,121,2025,11,253
+401704768,2024-11-10,Milwaukee Bucks,Boston Celtics,107,113,2025,-6,220
+401704767,2024-11-10,Detroit Pistons,Houston Rockets,99,101,2025,-2,200
+401704766,2024-11-09,LA Clippers,Toronto Raptors,105,103,2025,2,208
+401704764,2024-11-09,Atlanta Hawks,Chicago Bulls,113,125,2025,-12,238
+401704765,2024-11-09,Cleveland Cavaliers,Brooklyn Nets,105,100,2025,5,205
+401704763,2024-11-09,San Antonio Spurs,Utah Jazz,110,111,2025,-1,221
+401704761,2024-11-08,Los Angeles Lakers,Philadelphia 76ers,116,106,2025,10,222
+401704762,2024-11-08,Sacramento Kings,LA Clippers,98,107,2025,-9,205
+401704759,2024-11-08,Minnesota Timberwolves,Portland Trail Blazers,127,102,2025,25,229
+401704760,2024-11-08,Denver Nuggets,Miami Heat,135,122,2025,13,257
+401704757,2024-11-08,Memphis Grizzlies,Washington Wizards,128,104,2025,24,232
+401704758,2024-11-08,Oklahoma City Thunder,Houston Rockets,126,107,2025,19,233
+401704753,2024-11-08,Boston Celtics,Brooklyn Nets,108,104,2025,4,212
+401704754,2024-11-08,Cleveland Cavaliers,Golden State Warriors,136,117,2025,19,253
+401704755,2024-11-08,New York Knicks,Milwaukee Bucks,116,94,2025,22,210
+401704756,2024-11-08,Dallas Mavericks,Phoenix Suns,113,114,2025,-1,227
+401704750,2024-11-08,Charlotte Hornets,Indiana Pacers,103,83,2025,20,186
+401704751,2024-11-08,Detroit Pistons,Atlanta Hawks,122,121,2025,1,243
+401704752,2024-11-08,Orlando Magic,New Orleans Pelicans,115,88,2025,27,203
+401704747,2024-11-07,Chicago Bulls,Minnesota Timberwolves,119,135,2025,-16,254
+401704748,2024-11-07,Milwaukee Bucks,Utah Jazz,123,100,2025,23,223
+401704749,2024-11-07,San Antonio Spurs,Portland Trail Blazers,118,105,2025,13,223
+401704745,2024-11-06,LA Clippers,Philadelphia 76ers,110,98,2025,12,208
+401704746,2024-11-06,Sacramento Kings,Toronto Raptors,122,107,2025,15,229
+401704743,2024-11-06,Denver Nuggets,Oklahoma City Thunder,124,122,2025,2,246
+401704744,2024-11-06,Phoenix Suns,Miami Heat,115,112,2025,3,227
+401704742,2024-11-06,Dallas Mavericks,Chicago Bulls,119,99,2025,20,218
+401704739,2024-11-06,Houston Rockets,San Antonio Spurs,127,100,2025,27,227
+401704740,2024-11-06,Memphis Grizzlies,Los Angeles Lakers,131,114,2025,17,245
+401704741,2024-11-06,New Orleans Pelicans,Cleveland Cavaliers,122,131,2025,-9,253
+401704737,2024-11-06,Atlanta Hawks,New York Knicks,121,116,2025,5,237
+401704738,2024-11-06,Boston Celtics,Golden State Warriors,112,118,2025,-6,230
+401704735,2024-11-06,Charlotte Hornets,Detroit Pistons,108,107,2025,1,215
+401704736,2024-11-06,Indiana Pacers,Orlando Magic,118,111,2025,7,229
+401704734,2024-11-04,LA Clippers,San Antonio Spurs,113,104,2025,9,217
+401704733,2024-11-04,Phoenix Suns,Philadelphia 76ers,118,116,2025,2,234
+401704732,2024-11-04,Denver Nuggets,Toronto Raptors,121,119,2025,2,240
+401704731,2024-11-04,Dallas Mavericks,Indiana Pacers,127,134,2025,-7,261
+401704730,2024-11-04,New Orleans Pelicans,Portland Trail Blazers,100,118,2025,-18,218
+401704729,2024-11-04,Oklahoma City Thunder,Orlando Magic,102,86,2025,16,188
+401704728,2024-11-04,Minnesota Timberwolves,Charlotte Hornets,114,93,2025,21,207
+401704727,2024-11-04,Houston Rockets,New York Knicks,109,97,2025,12,206
+401704726,2024-11-04,Chicago Bulls,Utah Jazz,126,135,2025,-9,261
+401704725,2024-11-04,Miami Heat,Sacramento Kings,110,111,2025,-1,221
+401704724,2024-11-04,Brooklyn Nets,Memphis Grizzlies,106,104,2025,2,210
+401704723,2024-11-04,Atlanta Hawks,Boston Celtics,93,123,2025,-30,216
+401704722,2024-11-04,Detroit Pistons,Los Angeles Lakers,115,103,2025,12,218
+401704721,2024-11-04,Washington Wizards,Golden State Warriors,112,125,2025,-13,237
+401704720,2024-11-04,Cleveland Cavaliers,Milwaukee Bucks,116,114,2025,2,230
+401704719,2024-11-03,Dallas Mavericks,Orlando Magic,108,85,2025,23,193
+401704718,2024-11-03,New Orleans Pelicans,Atlanta Hawks,111,126,2025,-15,237
+401704717,2024-11-03,Brooklyn Nets,Detroit Pistons,92,106,2025,-14,198
+401704716,2024-11-02,LA Clippers,Oklahoma City Thunder,92,105,2025,-13,197
+401704714,2024-11-02,Denver Nuggets,Utah Jazz,129,103,2025,26,232
+401704715,2024-11-02,Phoenix Suns,Portland Trail Blazers,103,97,2025,6,200
+401704713,2024-11-02,Washington Wizards,Miami Heat,98,118,2025,-20,216
+401704710,2024-11-02,Houston Rockets,Golden State Warriors,121,127,2025,-6,248
+401704711,2024-11-02,Milwaukee Bucks,Cleveland Cavaliers,113,114,2025,-1,227
+401704712,2024-11-02,San Antonio Spurs,Minnesota Timberwolves,113,103,2025,10,216
+401704708,2024-11-02,Philadelphia 76ers,Memphis Grizzlies,107,124,2025,-17,231
+401704709,2024-11-02,Toronto Raptors,Sacramento Kings,131,128,2025,3,259
+401704707,2024-11-02,Charlotte Hornets,Boston Celtics,103,113,2025,-10,216
+401704706,2024-11-01,Portland Trail Blazers,Oklahoma City Thunder,114,137,2025,-23,251
+401704705,2024-11-01,Minnesota Timberwolves,Denver Nuggets,119,116,2025,3,235
+401704704,2024-11-01,New Orleans Pelicans,Indiana Pacers,125,118,2025,7,243
+401704701,2024-11-01,Atlanta Hawks,Sacramento Kings,115,123,2025,-8,238
+401704702,2024-11-01,Brooklyn Nets,Chicago Bulls,120,112,2025,8,232
+401704703,2024-11-01,Toronto Raptors,Los Angeles Lakers,125,131,2025,-6,256
+401704698,2024-11-01,Charlotte Hornets,Boston Celtics,109,124,2025,-15,233
+401704699,2024-11-01,Cleveland Cavaliers,Orlando Magic,120,109,2025,11,229
+401704700,2024-11-01,Detroit Pistons,New York Knicks,98,128,2025,-30,226
+401704697,2024-10-31,LA Clippers,Phoenix Suns,119,125,2025,-6,244
+401704696,2024-10-31,Utah Jazz,San Antonio Spurs,88,106,2025,-18,194
+401704695,2024-10-31,Dallas Mavericks,Houston Rockets,102,108,2025,-6,210
+401704694,2024-10-31,Memphis Grizzlies,Milwaukee Bucks,122,99,2025,23,221
+401704693,2024-10-30,LA Clippers,Portland Trail Blazers,105,106,2025,-1,211
+401704692,2024-10-30,Golden State Warriors,New Orleans Pelicans,104,89,2025,15,193
+401704691,2024-10-30,Oklahoma City Thunder,San Antonio Spurs,105,93,2025,12,198
+401704689,2024-10-30,Chicago Bulls,Orlando Magic,102,99,2025,3,201
+401704690,2024-10-30,Memphis Grizzlies,Brooklyn Nets,106,119,2025,-13,225
+401704688,2024-10-30,Miami Heat,New York Knicks,107,116,2025,-9,223
+401704683,2024-10-30,Charlotte Hornets,Toronto Raptors,138,133,2025,5,271
+401704684,2024-10-30,Cleveland Cavaliers,Los Angeles Lakers,134,110,2025,24,244
+401704685,2024-10-30,Indiana Pacers,Boston Celtics,135,132,2025,3,267
+401704686,2024-10-30,Philadelphia 76ers,Detroit Pistons,95,105,2025,-10,200
+401704687,2024-10-30,Washington Wizards,Atlanta Hawks,133,120,2025,13,253
+401704682,2024-10-29,Golden State Warriors,New Orleans Pelicans,124,106,2025,18,230
+401704681,2024-10-29,Utah Jazz,Sacramento Kings,96,113,2025,-17,209
+401704679,2024-10-29,Brooklyn Nets,Denver Nuggets,139,144,2025,-5,283
+401704680,2024-10-29,Minnesota Timberwolves,Dallas Mavericks,114,120,2025,-6,234
+401704677,2024-10-28,Phoenix Suns,Los Angeles Lakers,109,105,2025,4,214
+401704678,2024-10-28,Sacramento Kings,Portland Trail Blazers,111,98,2025,13,209
+401704676,2024-10-28,Dallas Mavericks,Utah Jazz,110,102,2025,8,212
+401704674,2024-10-28,Memphis Grizzlies,Chicago Bulls,123,126,2025,-3,249
+401704675,2024-10-28,San Antonio Spurs,Houston Rockets,101,106,2025,-5,207
+401704669,2024-10-28,Atlanta Hawks,Washington Wizards,119,121,2025,-2,240
+401704670,2024-10-28,Boston Celtics,Milwaukee Bucks,119,108,2025,11,227
+401704671,2024-10-28,Miami Heat,Detroit Pistons,106,98,2025,8,204
+401704672,2024-10-28,New York Knicks,Cleveland Cavaliers,104,110,2025,-6,214
+401704673,2024-10-28,Toronto Raptors,Denver Nuggets,125,127,2025,-2,252
+401704668,2024-10-28,Orlando Magic,Indiana Pacers,119,115,2025,4,234
+401704667,2024-10-27,Golden State Warriors,LA Clippers,104,112,2025,-8,216
+401704666,2024-10-27,Oklahoma City Thunder,Atlanta Hawks,128,104,2025,24,232
+401704664,2024-10-27,Brooklyn Nets,Milwaukee Bucks,115,102,2025,13,217
+401704665,2024-10-27,Portland Trail Blazers,New Orleans Pelicans,125,103,2025,22,228
+401704663,2024-10-27,Indiana Pacers,Philadelphia 76ers,114,118,2025,-4,232
+401704662,2024-10-26,Los Angeles Lakers,Sacramento Kings,131,127,2025,4,258
+401704661,2024-10-26,Phoenix Suns,Dallas Mavericks,114,102,2025,12,216
+401704660,2024-10-26,San Antonio Spurs,Houston Rockets,109,106,2025,3,215
+401704657,2024-10-26,Chicago Bulls,Oklahoma City Thunder,95,114,2025,-19,209
+401704658,2024-10-26,Memphis Grizzlies,Orlando Magic,124,111,2025,13,235
+401704659,2024-10-26,Minnesota Timberwolves,Toronto Raptors,112,101,2025,11,213
+401704654,2024-10-26,Charlotte Hornets,Miami Heat,106,114,2025,-8,220
+401704655,2024-10-26,Detroit Pistons,Boston Celtics,118,124,2025,-6,242
+401704656,2024-10-26,Washington Wizards,Cleveland Cavaliers,116,135,2025,-19,251
+401704653,2024-10-26,Denver Nuggets,LA Clippers,104,109,2025,-5,213
+401704651,2024-10-25,Los Angeles Lakers,Phoenix Suns,123,116,2025,7,239
+401704652,2024-10-25,Portland Trail Blazers,New Orleans Pelicans,103,105,2025,-2,208
+401704650,2024-10-25,Utah Jazz,Golden State Warriors,86,127,2025,-41,213
+401704648,2024-10-25,Houston Rockets,Memphis Grizzlies,128,108,2025,20,236
+401704649,2024-10-25,Milwaukee Bucks,Chicago Bulls,122,133,2025,-11,255
+401704645,2024-10-25,Atlanta Hawks,Charlotte Hornets,125,120,2025,5,245
+401704646,2024-10-25,Cleveland Cavaliers,Detroit Pistons,113,101,2025,12,214
+401704647,2024-10-25,New York Knicks,Indiana Pacers,123,98,2025,25,221
+401704643,2024-10-25,Orlando Magic,Brooklyn Nets,116,101,2025,15,217
+401704644,2024-10-25,Toronto Raptors,Philadelphia 76ers,115,107,2025,8,222
+401704641,2024-10-24,Denver Nuggets,Oklahoma City Thunder,87,102,2025,-15,189
+401704642,2024-10-24,Sacramento Kings,Minnesota Timberwolves,115,117,2025,-2,232
+401704640,2024-10-24,Dallas Mavericks,San Antonio Spurs,120,109,2025,11,229
+401704639,2024-10-24,Washington Wizards,Boston Celtics,102,122,2025,-20,224
+401704637,2024-10-23,LA Clippers,Phoenix Suns,113,116,2025,-3,229
+401704638,2024-10-23,Portland Trail Blazers,Golden State Warriors,104,140,2025,-36,244
+401704636,2024-10-23,Utah Jazz,Memphis Grizzlies,124,126,2025,-2,250
+401704634,2024-10-23,Houston Rockets,Charlotte Hornets,105,110,2025,-5,215
+401704635,2024-10-23,New Orleans Pelicans,Chicago Bulls,123,111,2025,12,234
+401704630,2024-10-23,Atlanta Hawks,Brooklyn Nets,120,116,2025,4,236
+401704631,2024-10-23,Miami Heat,Orlando Magic,97,116,2025,-19,213
+401704632,2024-10-23,Philadelphia 76ers,Milwaukee Bucks,109,124,2025,-15,233
+401704633,2024-10-23,Toronto Raptors,Cleveland Cavaliers,106,136,2025,-30,242
+401704629,2024-10-23,Detroit Pistons,Indiana Pacers,109,115,2025,-6,224
+401704628,2024-10-22,Los Angeles Lakers,Minnesota Timberwolves,110,103,2025,7,213
+401704627,2024-10-22,Boston Celtics,New York Knicks,132,109,2025,23,241
