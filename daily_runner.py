@@ -262,6 +262,54 @@ def load_posted_props(target_date, schedule=None):
     return out
 
 
+def load_market_odds(target_date):
+    """Load The Odds API consensus game lines collected by scrape_odds.py."""
+    paths = [
+        os.path.join("data/raw", f"odds_{target_date}.csv"),
+        os.path.join("data/raw", "odds_today.csv"),
+    ]
+    path = next((p for p in paths if os.path.exists(p)), None)
+    if not path:
+        return {}
+    try:
+        df = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load market odds: {exc}")
+        return {}
+    if df.empty:
+        return {}
+
+    out = {}
+    for _, r in df.iterrows():
+        home = normalize_team(str(r.get("home_team", "")).strip())
+        away = normalize_team(str(r.get("away_team", "")).strip())
+        if not home or not away:
+            continue
+        out[f"{away}@{home}"] = {
+            "posted_spread": _float(r.get("spread_home"), None),
+            "posted_total": _float(r.get("total"), None),
+            "spread_home_juice": _float(r.get("spread_home_juice"), None),
+            "total_over_juice": _float(r.get("total_over_juice"), None),
+            "ml_home": _float(r.get("ml_home"), None),
+            "ml_away": _float(r.get("ml_away"), None),
+            "market_source": str(r.get("source", "the-odds-api")),
+            "market_scraped_at": str(r.get("scraped_at", "")),
+        }
+    print(f"  Game market feed loaded: {len(out)} matchups")
+    return out
+
+
+def attach_market_odds(schedule, market_odds):
+    for game in schedule:
+        key = f"{game.get('away','')}@{game.get('home','')}"
+        market = market_odds.get(key)
+        if market:
+            for k, v in market.items():
+                if v is not None:
+                    game[k] = v
+    return schedule
+
+
 # ── Get today's schedule from ESPN ────────────────────────────────────────────
 
 def fetch_todays_schedule(target_date: date) -> list:
@@ -569,10 +617,10 @@ def collect_best_bets(games_output):
         home, away = g["home"]["name"], g["away"]["name"]
         matchup = f"{away} @ {home}"
         sp = g["spread"]
-        if sp.get("edge"):
+        if sp.get("edge") is not None:
             conf, stars = score_confidence(sp["edge"], "spread")
             if stars >= 2:
-                bets.append({"type":"SPREAD","game":matchup,"play":sp["model_line"],
+                bets.append({"type":"SPREAD","game":matchup,"play":sp.get("play") or sp["model_line"],
                               "edge":sp["edge"],"conf":conf,"stars":stars,"tip":g["tip"]})
         tot = g["totals"]
         if tot.get("edge"):
@@ -659,12 +707,18 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         spread_pred   = run_spread(home, away, ctx, spread_bundle)
         posted_spread = game.get("posted_spread")
-        spread_edge   = round(spread_pred-(-posted_spread),1) if posted_spread else None
+        spread_edge = round(spread_pred - (-posted_spread), 1) if posted_spread is not None else None
         spread_conf, spread_stars = score_confidence(spread_edge or 0, "spread")
+        spread_play = None
+        if posted_spread is not None and spread_edge is not None:
+            if spread_edge > 0:
+                spread_play = f"{home} {posted_spread:+.1f}"
+            elif spread_edge < 0:
+                spread_play = f"{away} {-posted_spread:+.1f}"
 
         total_pred  = run_totals(home, away, ctx, totals_bundle)
         posted_total= game.get("posted_total")
-        total_edge  = round(total_pred-posted_total,1) if posted_total else None
+        total_edge  = round(total_pred-posted_total,1) if posted_total is not None else None
         total_play  = ("OVER" if total_edge and total_edge>0 else "UNDER") if total_edge else None
         total_conf, total_stars = score_confidence(total_edge or 0, "totals")
 
@@ -691,10 +745,14 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0)},
             "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0)},
             "spread": {"pred":spread_pred,"model_line":fmt_line(spread_pred,home,away),
-                       "posted_line":posted_spread,"edge":spread_edge,
+                       "posted_line":posted_spread,"edge":spread_edge,"play":spread_play,
+                       "juice":game.get("spread_home_juice"),
+                       "source":game.get("market_source"),
                        "conf":spread_conf,"stars":spread_stars},
             "totals": {"pred":total_pred,"line":posted_total,"edge":total_edge,
-                       "play":total_play,"conf":total_conf,"stars":total_stars},
+                       "play":total_play,"juice":game.get("total_over_juice"),
+                       "source":game.get("market_source"),
+                       "conf":total_conf,"stars":total_stars},
             "props": props_out, "flags": flags,
             "ctx": {k:v for k,v in ctx.items() if not isinstance(v, np.bool_)},
         })
@@ -725,6 +783,8 @@ if __name__ == "__main__":
 
     target   = datetime.strptime(args.date, "%Y-%m-%d").date()
     schedule = fetch_todays_schedule(target)
+    market_odds = load_market_odds(target)
+    schedule = attach_market_odds(schedule, market_odds)
     posted_props = load_posted_props(target, schedule)
 
     result = run_pipeline(target, schedule, posted_props=posted_props)
