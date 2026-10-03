@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       pull_historical:
-        description: 'Pull historical data (2022-23 through 2024-25 seasons)?'
+        description: 'Pull historical data (2022-23 through 2025-26 seasons)?'
         required: true
         default: 'true'
 
@@ -30,19 +30,19 @@ jobs:
         run: pip install -r requirements.txt
 
       # ── Historical data ──────────────────────────────────────────────────
-      - name: Pull historical stats (hoopR 2022-23 to 2024-25)
+      - name: Pull historical stats (hoopR 2022-23 to 2025-26)
         if: ${{ github.event.inputs.pull_historical == 'true' }}
-        run: python collect_stats.py --start 2022 --end 2024 --master --out data/raw
+        run: python collect_stats.py --start 2022 --end 2025 --master --out data/raw
         continue-on-error: true
 
       - name: Pull historical scores (ESPN 2022-23 to 2024-25)
         if: ${{ github.event.inputs.pull_historical == 'true' }}
-        run: python scrape_scores.py --historical 2022 2024 --out data/raw
+        run: python scrape_scores.py --historical 2022 2025 --out data/raw
         continue-on-error: true
 
       - name: Build historical referee database (2022-23 to 2024-25)
         if: ${{ github.event.inputs.pull_historical == 'true' }}
-        run: python scrape_refs.py --historical 2022 2024 --out data/raw
+        run: python scrape_refs.py --historical 2022 2025 --out data/raw
         continue-on-error: true
 
       # ── Current season ───────────────────────────────────────────────────
@@ -57,6 +57,10 @@ jobs:
       # ── Merge ────────────────────────────────────────────────────────────
       - name: Merge all data
         run: python merge_data.py --year all --raw data/raw --out data/processed
+
+      # ── Player / rotation feature store ─────────────────────────────────
+      - name: Build leakage-safe player features
+        run: python build_player_features.py --raw data/raw --out data/processed
 
       # ── Train models ─────────────────────────────────────────────────────
       # Historical collection is best-effort (hoopR release data + ESPN's public API,
