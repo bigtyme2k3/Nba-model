@@ -95,6 +95,7 @@ TEAM_NAMES = sorted(TEAM_ESPN_ID)
 # Alias map for normalizing scraped/CSV team fields (abbr or short name -> full name).
 TEAM_ALIASES: dict[str, str] = {abbr: full for full, abbr in TEAM_ABBR.items()}
 TEAM_ALIASES.update({full: full for full in TEAM_NAMES})
+TEAM_ALIASES.update({"Los Angeles Clippers": "LA Clippers"})
 
 
 def normalize_team(value: str) -> str:
