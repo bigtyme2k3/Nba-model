@@ -1,0 +1,92 @@
+name: NBA Foundation Bootstrap
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/foundation-trigger'
+
+jobs:
+  build-player-foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Syntax check
+        run: python -m py_compile build_player_features.py props_model.py collect_stats.py
+
+      - name: Backfill 2025-26 season
+        run: |
+          if [ ! -f data/raw/hoopr_player_box_2025.csv ]; then
+            python collect_stats.py --start 2025 --end 2025 --master --out data/raw || true
+          fi
+          if [ ! -f data/raw/hoopr_player_box_2025.csv ]; then
+            echo "Sportsdataverse 2025 release unavailable; falling back to ESPN season crawl."
+            python - <<'PY'
+          from collect_stats import fetch_current_season, build_stats_master
+          fetch_current_season(2025, "data/raw")
+          build_stats_master("data/raw")
+          PY
+          fi
+
+      - name: Pull current 2026-27 completed games
+        run: python collect_stats.py --current --out data/raw
+        continue-on-error: true
+
+      - name: Build leakage-safe player feature store
+        run: python build_player_features.py --raw data/raw --out data/processed
+
+      - name: Verify recent-season coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("data/processed/player_features_status.json")
+          if not p.exists():
+              raise SystemExit("player_features_status.json missing")
+          s = json.loads(p.read_text())
+          print(json.dumps(s, indent=2))
+          if s.get("status") != "READY":
+              raise SystemExit("player feature store not ready")
+          if 2025 not in s.get("seasons", []):
+              raise SystemExit("2025-26 season is still missing; refusing stale foundation")
+          PY
+
+      - name: Train real player prop models
+        run: python props_model.py --mode train
+
+      - name: Verify props bundle
+        run: |
+          python - <<'PY'
+          import pickle
+          p = "models/props_models.pkl"
+          b = pickle.load(open(p, "rb"))
+          print({k:v for k,v in b.items() if k != "models"})
+          print("trained markets:", sorted(b.get("models", {}).keys()))
+          if b.get("status") != "trained" or len(b.get("models", {})) < 3:
+              raise SystemExit("props model did not produce a valid trained bundle")
+          PY
+
+      - name: Commit foundation outputs
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add data/raw/hoopr_*_2025.csv data/raw/hoopr_games_master.csv data/processed/player_*.csv data/processed/rotation_profiles_latest.csv data/processed/player_features_status.json models/props_models.pkl
+          git diff --cached --quiet || git commit -m "🏀 Build NBA player and rotation foundation"
+          git pull --rebase origin main
+          git push
