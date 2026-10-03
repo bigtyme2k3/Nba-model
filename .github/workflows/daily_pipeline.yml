@@ -114,24 +114,29 @@ jobs:
             --date ${{ env.TARGET }} \
             --out predictions/predictions_${{ env.TARGET }}.json
 
-      # ── Step 11: Track results ───────────────────────────────────────────
+      # ── Step 11: Preserve first forward predictions ──────────────────────
+      - name: Append immutable forward ledger
+        if: env.SKIP != 'true'
+        run: python forward_ledger.py --date ${{ env.TARGET }}
+
+      # ── Step 12: Track results ───────────────────────────────────────────
       - name: Track yesterday's results
         if: env.SKIP != 'true'
         run: python results_tracker.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
-      # ── Step 12: Line movement + CLV ─────────────────────────────────────
+      # ── Step 13: Line movement + CLV ─────────────────────────────────────
       - name: Compute line movement and CLV
         if: env.SKIP != 'true'
         run: python line_movement.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
-      # ── Step 13: Build dashboard ─────────────────────────────────────────
+      # ── Step 14: Build dashboard ─────────────────────────────────────────
       - name: Build dashboard
         if: env.SKIP != 'true'
         run: python build_dashboard.py
 
-      # ── Step 14: Print summary ───────────────────────────────────────────
+      # ── Step 15: Print summary ───────────────────────────────────────────
       - name: Print best bets
         if: env.SKIP != 'true'
         run: |
@@ -150,7 +155,7 @@ jobs:
           print(f"\n  {len(d.get('games',[]))} games | {sum(1 for b in d.get('best_bets',[]) if b.get('stars',0)==3)} HIGH conf")
           PYEOF
 
-      # ── Step 15: Commit ──────────────────────────────────────────────────
+      # ── Step 16: Commit ──────────────────────────────────────────────────
       - name: Commit and push
         if: env.SKIP != 'true'
         run: |
