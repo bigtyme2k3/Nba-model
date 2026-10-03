@@ -31,8 +31,11 @@ jobs:
         run: |
           python - <<'PY'
           import build_player_features
+          import build_team_features
           import props_model
           import daily_runner
+          import forward_ledger
+          import forward_reconciler
           import results_tracker
           print("Core NBA modules import successfully")
           PY
