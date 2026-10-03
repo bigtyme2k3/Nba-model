@@ -658,23 +658,35 @@ def collect_best_bets(games_output):
         if sp.get("edge") is not None:
             conf, stars = score_confidence(sp["edge"], "spread")
             if stars >= 2:
-                bets.append({"type":"SPREAD","game":matchup,"play":sp.get("play") or sp["model_line"],
-                              "edge":sp["edge"],"conf":conf,"stars":stars,"tip":g["tip"]})
+                bets.append({
+                    "type":"SPREAD","game":matchup,"play":sp.get("play") or sp["model_line"],
+                    "market_line":sp.get("posted_line"),"market_odds":sp.get("juice"),
+                    "market_source":sp.get("source"),"model_projection":sp.get("pred"),
+                    "edge":sp["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
+                })
         tot = g["totals"]
         if tot.get("edge"):
             conf, stars = score_confidence(tot["edge"], "totals")
             if stars >= 2:
-                bets.append({"type":"TOTAL","game":matchup,
-                              "play":f"{tot['play']} {tot['line']}",
-                              "edge":tot["edge"],"conf":conf,"stars":stars,"tip":g["tip"]})
+                bets.append({
+                    "type":"TOTAL","game":matchup,
+                    "play":f"{tot['play']} {tot['line']}",
+                    "market_line":tot.get("line"),"market_odds":tot.get("juice"),
+                    "market_source":tot.get("source"),"model_projection":tot.get("pred"),
+                    "edge":tot["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
+                })
         for pr in g.get("props",[]):
             for pt, pd_data in pr["props"].items():
                 if pd_data["signal"] and pd_data["edge"] is not None:
                     conf, stars = score_confidence(pd_data["edge"], "props")
                     if stars >= 2:
-                        bets.append({"type":"PROP","game":matchup,
-                                     "play":f"{pr['player']} {pt.upper()} {pd_data['signal']} {pd_data['line']}",
-                                     "edge":pd_data["edge"],"conf":conf,"stars":stars,"tip":g["tip"]})
+                        bets.append({
+                            "type":"PROP","game":matchup,
+                            "play":f"{pr['player']} {pt.upper()} {pd_data['signal']} {pd_data['line']}",
+                            "market_line":pd_data.get("line"),"model_projection":pd_data.get("pred"),
+                            "player":pr["player"],"stat":pt.upper(),"side":pd_data.get("signal"),
+                            "edge":pd_data["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
+                        })
     bets.sort(key=lambda b: (-b["stars"], -abs(b["edge"])))
     for i, b in enumerate(bets): b["rank"] = i+1
     return bets[:8]
