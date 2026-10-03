@@ -766,7 +766,8 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
     return {
         "date":       str(target_date),
-        "generated":  datetime.now().isoformat(),
+        "generated":  datetime.now().astimezone().isoformat(),
+        "model_version": "NBA_V1.0",
         "games":      games_output,
         "best_bets":  best_bets,
         "model_stats":{"spread":{"algo":"Ridge / GBR","cv_mae":None,"dir_acc":None,"strong_ats":None,"n":0},
