@@ -1,0 +1,2 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-03,401902644,STATUS_SCHEDULED,False,False,Toronto Raptors,Miami Heat,0,0,0,0,,,,,,,,,,,Videotron Centre,0,2026-10-03T16:59:56.136732
