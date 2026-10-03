@@ -28,7 +28,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Syntax check
-        run: python -m py_compile build_player_features.py props_model.py collect_stats.py
+        run: python -m py_compile build_player_features.py build_team_features.py props_model.py collect_stats.py
 
       - name: Backfill 2025-26 season
         run: |
@@ -48,8 +48,10 @@ jobs:
         run: python collect_stats.py --current --out data/raw
         continue-on-error: true
 
-      - name: Build leakage-safe player feature store
-        run: python build_player_features.py --raw data/raw --out data/processed
+      - name: Build leakage-safe player and team feature stores
+        run: |
+          python build_player_features.py --raw data/raw --out data/processed
+          python build_team_features.py --raw data/raw --out data/processed
 
       - name: Verify recent-season coverage
         run: |
@@ -86,7 +88,7 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          git add data/raw/hoopr_*_2025.csv data/raw/hoopr_games_master.csv data/processed/player_*.csv data/processed/rotation_profiles_latest.csv data/processed/player_features_status.json models/props_models.pkl
+          git add data/raw/hoopr_*_2025.csv data/raw/hoopr_games_master.csv data/processed/player_*.csv data/processed/rotation_profiles_latest.csv data/processed/player_features_status.json data/processed/team_profiles_latest.csv data/processed/team_features_status.json models/props_models.pkl
           git diff --cached --quiet || git commit -m "🏀 Build NBA player and rotation foundation"
           git pull --rebase origin main
           git push
