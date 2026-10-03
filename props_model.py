@@ -9,7 +9,7 @@ import os, pickle, warnings, argparse
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import Ridge
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import TimeSeriesSplit
@@ -72,9 +72,9 @@ def train_prop_model(df, target):
     tscv = TimeSeriesSplit(n_splits=4)
     models = {
         "Ridge": Pipeline([("sc", StandardScaler()), ("m", Ridge(alpha=5.0))]),
-        "GBR":   Pipeline([("sc", StandardScaler()), ("m", GradientBoostingRegressor(
-                    n_estimators=200, learning_rate=0.05, max_depth=3,
-                    min_samples_leaf=15, random_state=42))]),
+        "HistGBR": Pipeline([("m", HistGradientBoostingRegressor(
+                    max_iter=180, learning_rate=0.05, max_leaf_nodes=15,
+                    min_samples_leaf=30, l2_regularization=1.0, random_state=42))]),
     }
     cv = {}
     for name, model in models.items():
