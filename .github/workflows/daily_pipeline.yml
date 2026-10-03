@@ -93,7 +93,12 @@ jobs:
         if: env.SKIP != 'true'
         run: python merge_data.py --year all --raw data/raw --out data/processed
 
-      # ── Step 8: Retrain (Mondays only) ───────────────────────────────────
+      # ── Step 8: Player / rotation features ───────────────────────────────
+      - name: Build player and rotation feature store
+        if: env.SKIP != 'true'
+        run: python build_player_features.py --raw data/raw --out data/processed
+
+      # ── Step 9: Retrain (Mondays only) ───────────────────────────────────
       - name: Retrain models (Monday only)
         if: env.SKIP != 'true' && github.event.schedule == '0 13 * * 1'
         run: |
@@ -101,7 +106,7 @@ jobs:
           python totals_model.py --mode train --data data/processed/master_all.csv
           python props_model.py  --mode train
 
-      # ── Step 9: Predictions ──────────────────────────────────────────────
+      # ── Step 10: Predictions ──────────────────────────────────────────────
       - name: Generate predictions
         if: env.SKIP != 'true'
         run: |
@@ -109,24 +114,24 @@ jobs:
             --date ${{ env.TARGET }} \
             --out predictions/predictions_${{ env.TARGET }}.json
 
-      # ── Step 10: Track results ───────────────────────────────────────────
+      # ── Step 11: Track results ───────────────────────────────────────────
       - name: Track yesterday's results
         if: env.SKIP != 'true'
         run: python results_tracker.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
-      # ── Step 11: Line movement + CLV ─────────────────────────────────────
+      # ── Step 12: Line movement + CLV ─────────────────────────────────────
       - name: Compute line movement and CLV
         if: env.SKIP != 'true'
         run: python line_movement.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
-      # ── Step 12: Build dashboard ─────────────────────────────────────────
+      # ── Step 13: Build dashboard ─────────────────────────────────────────
       - name: Build dashboard
         if: env.SKIP != 'true'
         run: python build_dashboard.py
 
-      # ── Step 13: Print summary ───────────────────────────────────────────
+      # ── Step 14: Print summary ───────────────────────────────────────────
       - name: Print best bets
         if: env.SKIP != 'true'
         run: |
@@ -145,7 +150,7 @@ jobs:
           print(f"\n  {len(d.get('games',[]))} games | {sum(1 for b in d.get('best_bets',[]) if b.get('stars',0)==3)} HIGH conf")
           PYEOF
 
-      # ── Step 14: Commit ──────────────────────────────────────────────────
+      # ── Step 15: Commit ──────────────────────────────────────────────────
       - name: Commit and push
         if: env.SKIP != 'true'
         run: |
