@@ -59,8 +59,10 @@ jobs:
         run: python merge_data.py --year all --raw data/raw --out data/processed
 
       # ── Player / rotation feature store ─────────────────────────────────
-      - name: Build leakage-safe player features
-        run: python build_player_features.py --raw data/raw --out data/processed
+      - name: Build leakage-safe player and team features
+        run: |
+          python build_player_features.py --raw data/raw --out data/processed
+          python build_team_features.py --raw data/raw --out data/processed
 
       # ── Train models ─────────────────────────────────────────────────────
       # Historical collection is best-effort (hoopR release data + ESPN's public API,
