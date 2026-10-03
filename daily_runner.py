@@ -24,7 +24,7 @@ os.makedirs(MODEL_DIR,  exist_ok=True)
 
 # ── Import local modules ───────────────────────────────────────────────────────
 sys.path.insert(0, ".")
-from teams import EASTERN_CONFERENCE as EAST, WESTERN_CONFERENCE as WEST, TEAM_ABBR
+from teams import EASTERN_CONFERENCE as EAST, WESTERN_CONFERENCE as WEST, TEAM_ABBR, normalize_team
 
 try:
     from totals_model import engineer_totals_features, TOTALS_FEATURES
@@ -143,6 +143,123 @@ OPP_DEF_POS.update({
     "Cleveland Cavaliers":   {"G":111,"F":111,"C":113},
     "Minnesota Timberwolves":{"G":110,"F":110,"C":112},
 })
+
+
+# ── Live player/profile + market loaders ───────────────────────────────────────
+
+PLAYER_PROFILE_PATH = os.path.join(DATA_DIR, "player_profiles_latest.csv")
+
+
+def _boolish(value):
+    return str(value).strip().lower() in {"1", "true", "yes", "y"}
+
+
+def _float(value, default):
+    try:
+        v = float(value)
+        return default if np.isnan(v) else v
+    except Exception:
+        return default
+
+
+def load_player_profiles(path=PLAYER_PROFILE_PATH):
+    """Load latest prior-game player/rotation profiles.
+
+    Team assignment may be overridden by today's live prop feed so offseason trades
+    do not force us to trust a stale final-game roster.
+    """
+    if not os.path.exists(path):
+        return {}
+    try:
+        df = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load player profiles: {exc}")
+        return {}
+
+    profiles = {}
+    for _, r in df.iterrows():
+        player = str(r.get("player", "")).strip()
+        if not player:
+            continue
+        profiles[player] = {
+            "team": normalize_team(str(r.get("team", ""))),
+            "pos": str(r.get("pos", "") or "").strip().upper() or "G",
+            "mpg": _float(r.get("mpg"), 28.0),
+            "projected_minutes": _float(r.get("projected_minutes"), _float(r.get("mpg"), 28.0)),
+            "usage": _float(r.get("usage"), 0.20),
+            "ts": _float(r.get("ts"), 0.57),
+            "roll5_pts": _float(r.get("roll5_pts"), 12.0),
+            "roll5_reb": _float(r.get("roll5_reb"), 4.0),
+            "roll5_ast": _float(r.get("roll5_ast"), 3.0),
+            "roll5_threes": _float(r.get("roll5_threes"), 1.0),
+            "roll5_pra": _float(r.get("roll5_pra"), 19.0),
+            "rotation_stability_score": _float(r.get("rotation_stability_score"), 0.0),
+            "rotation_risk_band": str(r.get("rotation_risk_band", "UNKNOWN")),
+            "projected_role": str(r.get("projected_role", "UNKNOWN")),
+            "last_game_date": str(r.get("last_game_date", "")),
+            "profile_source": str(r.get("profile_source", "PRIOR_BOX_SCORES")),
+        }
+    return profiles
+
+
+def load_posted_props(target_date, schedule=None):
+    """Read scrape_props.py wide output and key lines by canonical matchup/player."""
+    paths = [
+        os.path.join("data/raw", f"props_wide_{target_date}.csv"),
+        os.path.join("data/raw", "props_wide_today.csv"),
+    ]
+    path = next((p for p in paths if os.path.exists(p)), None)
+    if not path:
+        return {}
+    try:
+        df = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load posted props: {exc}")
+        return {}
+    if df.empty:
+        return {}
+
+    schedule = schedule or []
+    out = {}
+    stat_cols = {
+        "posted_pts": "pts", "posted_reb": "reb", "posted_ast": "ast",
+        "posted_threes": "threes", "posted_pra": "pra",
+    }
+    for _, r in df.iterrows():
+        player = str(r.get("player", "")).strip()
+        team = normalize_team(str(r.get("team", "")).strip())
+        opp = normalize_team(str(r.get("opp_team", "")).strip())
+        is_home = _boolish(r.get("is_home", False))
+
+        home = team if is_home else opp
+        away = opp if is_home else team
+        if not home or not away or home == away:
+            for g in schedule:
+                gh, ga = g.get("home", ""), g.get("away", "")
+                if team in {gh, ga}:
+                    home, away = gh, ga
+                    opp = ga if team == gh else gh
+                    is_home = team == gh
+                    break
+        if not player or not home or not away:
+            continue
+
+        key = f"{away}@{home}"
+        row = {
+            "__team": team,
+            "__opp": opp,
+            "__is_home": bool(is_home),
+            "__game_time": str(r.get("game_time", "")),
+        }
+        for col, stat in stat_cols.items():
+            val = pd.to_numeric(pd.Series([r.get(col)]), errors="coerce").iloc[0]
+            if pd.notna(val):
+                row[stat] = float(val)
+        if any(k in row for k in ("pts", "reb", "ast", "threes", "pra")):
+            out.setdefault(key, {})[player] = row
+
+    print(f"  Posted prop feed loaded: {sum(len(v) for v in out.values())} player-game rows")
+    return out
 
 
 # ── Get today's schedule from ESPN ────────────────────────────────────────────
@@ -309,65 +426,134 @@ def run_totals(home, away, ctx, bundle):
         return 224.0
 
 
-def run_props(home, away, ctx, bundle, posted_lines=None):
-    if bundle is None: return []
-    models     = bundle["models"]
-    thresholds = bundle["thresholds"]
-    posted     = posted_lines or {}
-    results    = []
-    avg_pace = (CURRENT_TEAM_STATS.get(home,{}).get("pace",99) +
-                CURRENT_TEAM_STATS.get(away,{}).get("pace",99)) / 2
+def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=None):
+    if bundle is None:
+        return []
+    models = bundle.get("models", {})
+    thresholds = bundle.get("thresholds", {})
+    if not models:
+        return []
 
-    for player, pdata in PLAYER_PROPS.items():
-        if pdata["team"] not in [home, away]:
+    posted = posted_lines or {}
+    injury_adjustments = injury_adjustments or {}
+    profiles = load_player_profiles()
+    player_pool = dict(PLAYER_PROPS)
+    player_pool.update(profiles)
+
+    # When market lines exist, they define today's actionable player universe.
+    # Live feed team metadata overrides the historical profile team after trades.
+    candidates = list(posted.keys()) if posted else [
+        p for p, pdata in player_pool.items() if pdata.get("team") in [home, away]
+    ]
+
+    results = []
+    avg_pace = (
+        CURRENT_TEAM_STATS.get(home, {}).get("pace", 99)
+        + CURRENT_TEAM_STATS.get(away, {}).get("pace", 99)
+    ) / 2
+
+    for player in candidates:
+        pdata = player_pool.get(player)
+        if not pdata:
             continue
-        opp     = away if pdata["team"] == home else home
-        opp_def = OPP_DEF_POS.get(opp,{}).get(pdata["pos"],114)
+        pdata = dict(pdata)
+        live = posted.get(player, {})
+        live_team = normalize_team(str(live.get("__team", "")))
+        if live_team in [home, away]:
+            pdata["team"] = live_team
+        if pdata.get("team") not in [home, away]:
+            continue
+
+        opp = away if pdata["team"] == home else home
+        pos = str(pdata.get("pos", "G") or "G").upper()
+        opp_def = OPP_DEF_POS.get(opp, {}).get(pos, 114)
         is_home = int(pdata["team"] == home)
-        b2b     = ctx["home_b2b"] if is_home else ctx["away_b2b"]
-        rest    = ctx["home_rest_days"] if is_home else ctx["away_rest_days"]
-        proj_min= pdata["mpg"] * (0.88 if b2b else 1.0)
+        b2b = ctx["home_b2b"] if is_home else ctx["away_b2b"]
+        rest = ctx["home_rest_days"] if is_home else ctx["away_rest_days"]
+
+        base_min = _float(pdata.get("projected_minutes"), _float(pdata.get("mpg"), 28.0))
+        proj_min = base_min * (0.95 if b2b else 1.0)
+        injury_status = "ACTIVE_OR_UNKNOWN"
+        if player in injury_adjustments:
+            proj_min = _float(injury_adjustments[player], 0.0)
+            injury_status = "OUT" if proj_min <= 0 else "INJURY_ADJUSTED"
+        if proj_min <= 0:
+            continue
+
+        usage = _float(pdata.get("usage"), 0.20)
+        ts = _float(pdata.get("ts"), 0.57)
+        roll5_pts = _float(pdata.get("roll5_pts"), 18.0)
+        roll5_reb = _float(pdata.get("roll5_reb"), 6.0)
+        roll5_ast = _float(pdata.get("roll5_ast"), 4.0)
+        roll5_threes = _float(pdata.get("roll5_threes"), 1.0)
+        roll5_pra = _float(pdata.get("roll5_pra"), roll5_pts + roll5_reb + roll5_ast)
 
         row = {
-            "minutes": proj_min, "roll5_minutes": pdata["mpg"],
-            "usage": pdata["usage"], "ts_pct": pdata["ts"],
-            "opp_drtg_pos": opp_def, "avg_pace": avg_pace,
-            "team_pace": CURRENT_TEAM_STATS.get(pdata["team"],{}).get("pace",99),
-            "rest_days": rest, "is_home": is_home,
-            "roll5_pts": pdata.get("roll5_pts",18), "roll5_reb": pdata.get("roll5_reb",6),
-            "roll5_ast": pdata.get("roll5_ast",4),  "roll5_threes": pdata.get("roll5_threes",1),
-            "roll5_pra": pdata.get("roll5_pts",18)+pdata.get("roll5_reb",6)+pdata.get("roll5_ast",4),
-            "season_game_num": ctx["season_game_num"], "month": ctx["month"],
-            "def_adj": 114-opp_def,
-            "usage_pace": pdata["usage"]*avg_pace/99.0,
+            "minutes": proj_min,
+            "roll5_minutes": _float(pdata.get("mpg"), base_min),
+            "usage": usage,
+            "ts_pct": ts,
+            "opp_drtg_pos": opp_def,
+            "avg_pace": avg_pace,
+            "team_pace": CURRENT_TEAM_STATS.get(pdata["team"], {}).get("pace", 99),
+            "rest_days": rest,
+            "is_home": is_home,
+            "roll5_pts": roll5_pts,
+            "roll5_reb": roll5_reb,
+            "roll5_ast": roll5_ast,
+            "roll5_threes": roll5_threes,
+            "roll5_pra": roll5_pra,
+            "season_game_num": ctx["season_game_num"],
+            "month": ctx["month"],
+            "def_adj": 114 - opp_def,
+            "usage_pace": usage * avg_pace / 99.0,
         }
 
-        player_result = {"player": player, "team": pdata["team"],
-                         "opp": opp, "pos": pdata["pos"],
-                         "proj_min": round(proj_min,1), "b2b": b2b, "props": {}}
+        player_result = {
+            "player": player,
+            "team": pdata["team"],
+            "opp": opp,
+            "pos": pos,
+            "proj_min": round(proj_min, 1),
+            "b2b": bool(b2b),
+            "injury_status": injury_status,
+            "rotation_stability_score": pdata.get("rotation_stability_score"),
+            "rotation_risk_band": pdata.get("rotation_risk_band", "UNKNOWN"),
+            "projected_role": pdata.get("projected_role", "UNKNOWN"),
+            "profile_source": pdata.get("profile_source", "SEED_FALLBACK"),
+            "props": {},
+        }
 
         for target in PROP_TARGETS:
-            if target not in models: continue
-            m     = models[target]
+            if target not in models:
+                continue
+            m = models[target]
             feats = [f for f in m["features"] if f in row]
             try:
-                X    = pd.DataFrame([row])[feats]
+                X = pd.DataFrame([row])[feats]
                 pred = float(m["model"].predict(X)[0])
-            except:
-                pred = m.get("mean_stat", 12.0)
+            except Exception as exc:
+                print(f"  [WARN] {player} {target} prediction failed: {exc}")
+                continue
             thresh = thresholds.get(target, 2.0)
-            line   = posted.get(player,{}).get(target)
-            edge   = round(pred-line,1) if line else None
+            line = live.get(target)
+            edge = round(pred - line, 1) if line is not None else None
             signal = None
             if edge is not None:
-                if edge > thresh:  signal = "OVER"
-                elif edge < -thresh: signal = "UNDER"
+                if edge > thresh:
+                    signal = "OVER"
+                elif edge < -thresh:
+                    signal = "UNDER"
             player_result["props"][target] = {
-                "pred": round(pred,1), "line": line, "edge": edge, "signal": signal}
+                "pred": round(pred, 1),
+                "line": line,
+                "edge": edge,
+                "signal": signal,
+            }
 
-        results.append(player_result)
+        if player_result["props"]:
+            results.append(player_result)
     return results
-
 
 def score_confidence(edge, model_type):
     t = {"spread":{"HIGH":5.0,"MED":3.0},"totals":{"HIGH":5.0,"MED":2.5},"props":{"HIGH":3.5,"MED":2.0}}.get(model_type,{"HIGH":5,"MED":3})
@@ -482,8 +668,11 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         total_play  = ("OVER" if total_edge and total_edge>0 else "UNDER") if total_edge else None
         total_conf, total_stars = score_confidence(total_edge or 0, "totals")
 
-        props_out = run_props(home, away, ctx, props_bundle,
-                              posted_props.get(f"{away}@{home}",{}))
+        props_out = run_props(
+            home, away, ctx, props_bundle,
+            posted_props.get(f"{away}@{home}", {}),
+            injury_adjustments=injury_adjustments,
+        )
 
         flags = []
         if ctx["away_b2b"]:    flags.append(f"B2B ({TEAM_ABBR.get(away, away[:3].upper())})")
@@ -536,8 +725,9 @@ if __name__ == "__main__":
 
     target   = datetime.strptime(args.date, "%Y-%m-%d").date()
     schedule = fetch_todays_schedule(target)
+    posted_props = load_posted_props(target, schedule)
 
-    result   = run_pipeline(target, schedule)
+    result = run_pipeline(target, schedule, posted_props=posted_props)
     out_path = args.out or os.path.join(OUTPUT_DIR, f"predictions_{target}.json")
 
     def convert(o):
