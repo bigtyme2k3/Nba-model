@@ -4,7 +4,8 @@ Automated daily betting model covering spreads, totals, and player props.
 Runs on GitHub Actions — no computer needed, works from any device.
 
 Built as an NBA port of [wnba-model](https://github.com/bigtyme2k3/wnba-model),
-trimmed back to the core pipeline: scrape → merge → train → predict → publish.
+using the WNBA V5 lessons as the foundation: collect → leakage-safe features →
+minutes/rotation context → model vs market → immutable forward evidence → grade/publish.
 
 ## Setup (one time)
 
@@ -24,8 +25,10 @@ Every morning at 9 AM ET, GitHub Actions:
 - Scrapes player props from PrizePicks
 - Scrapes scores from ESPN
 - Pulls injury reports and referee assignments
-- Runs all three models
-- Grades yesterday's picks and updates the dashboard
+- Rebuilds real player/rotation and team rolling profiles from completed games
+- Runs all three models against collected market lines
+- Preserves the first prediction in an immutable forward ledger
+- Grades yesterday's picks/forward evidence and updates the dashboard
 
 The workflow checks `active_slate_date.py --in-season` first and no-ops
 outside roughly Oct 1 – Jun 30, so it doesn't grind through empty
@@ -53,19 +56,31 @@ Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date
 - `active_slate_date.py` — Eastern-time slate date resolution + season guard
 - `scrape_odds.py` / `scrape_props.py` / `scrape_scores.py` / `scrape_injuries.py` / `scrape_refs.py` — data collection, each quota/network-safe (writes empty-but-valid output instead of failing the pipeline)
 - `collect_stats.py` — historical + current-season box scores (hoopR release data, ESPN fallback)
-- `merge_data.py` — joins box scores + odds into `data/processed/master_all.csv`
+- `build_player_features.py` — prior-only player feature store + minutes/rotation profiles
+- `build_team_features.py` — rolling team pace/efficiency profiles from completed games
+- `merge_data.py` — joins game box scores + odds into `data/processed/master_all.csv`
 - `spread_model.py` / `totals_model.py` / `props_model.py` — training + prediction
 - `kelly_sizing.py` / `betting_engine.py` — bet sizing, EV, decision scoring
 - `daily_runner.py` — orchestrates a full day's predictions into `predictions/predictions_YYYY-MM-DD.json`
+- `forward_ledger.py` — append-only first-observed NBA predictions, including BET/PASS
+- `forward_reconciler.py` — resolves actual outcomes without changing original prediction fields
 - `results_tracker.py` / `line_movement.py` — grading and closing-line-value tracking
 - `build_dashboard.py` — bakes the day's data into `docs/index.html` (generates it from scratch on first run)
 
-## Known limitations (by design, for a clean starting point)
+## Current model state / next upgrades
 
-- `CURRENT_TEAM_STATS` / `TEAM_ROLLING` / `PLAYER_PROPS` in `daily_runner.py` are
-  **seed placeholder values**, not live stats — replace them with real
-  season-to-date numbers pulled from `data/processed/` once you have a few
-  weeks of games collected.
-- `NBA_GAME_STD` in `kelly_sizing.py` is an approximate NBA scoring-margin
-  standard deviation — recalibrate it against your own backtest.
-- No trained models are committed — run **Bootstrap** first.
+- Real player and team profiles now overlay the old seed dictionaries whenever the
+  processed feature stores are present. The seed values remain only as fail-safe
+  fallbacks for missing data; production predictions should report real-profile coverage.
+- Player prop market lines currently come from PrizePicks. The next production data
+  upgrade is sportsbook-specific FanDuel / DraftKings / Fanatics lines and prices so
+  EV, book selection, and CLV are measured per book rather than against one prop feed.
+- Injury statuses are collected and OUT players are removed/adjusted, but full
+  opportunity redistribution (minutes + usage + assists/rebounds/touches vacated by an
+  inactive player) is still an NBA V1 priority.
+- Team defense is currently overall rolling defensive efficiency; a validated
+  position/archetype matchup layer comes after the core forward evidence is stable.
+- `NBA_GAME_STD` in `kelly_sizing.py` remains an approximate NBA scoring-margin
+  standard deviation and must be recalibrated on genuine forward evidence.
+- Model promotion should be based on the immutable forward ledger, not retrospective
+  fit alone.
