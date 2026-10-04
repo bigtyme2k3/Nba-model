@@ -73,6 +73,25 @@ TEAM_RENAME = {
 ABBR_TO_TEAM = {abbr: team for team, abbr in TEAM_ABBR.items()}
 
 
+def coalesce_team_aliases(df: pd.DataFrame) -> pd.DataFrame:
+    """Avoid duplicate canonical columns when old/new collectors emit multiple aliases."""
+    out = df.copy()
+    targets = dict.fromkeys(TEAM_RENAME.values())
+    for target in targets:
+        sources = ([target] if target in df.columns else []) + [
+            source for source, dest in TEAM_RENAME.items()
+            if dest == target and source in df.columns and source != target
+        ]
+        if not sources:
+            continue
+        merged = df[sources[0]].copy()
+        for source in sources[1:]:
+            merged = merged.combine_first(df[source])
+        out = out.drop(columns=[source for source in sources if source != target])
+        out[target] = merged
+    return out
+
+
 def season_from_path(path: str) -> int | None:
     m = re.search(r"_(20\d{2})\.csv$", str(path))
     return int(m.group(1)) if m else None
@@ -151,7 +170,7 @@ def load_team_context(raw_dir: str, games: pd.DataFrame) -> pd.DataFrame:
             continue
         if "game_id" not in df.columns:
             continue
-        df = df.rename(columns={k: v for k, v in TEAM_RENAME.items() if k in df.columns})
+        df = coalesce_team_aliases(df)
         df["game_id"] = df["game_id"].astype(str)
         if "game_date" in df.columns:
             df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
