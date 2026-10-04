@@ -3,3 +3,7 @@ __pycache__/
 .env
 .DS_Store
 *.egg-info/
+data/research/nba_market/cache/
+data/research/nba_market/cache_state/
+data/research/nba_market/warehouse.sqlite3*
+__pycache__/
