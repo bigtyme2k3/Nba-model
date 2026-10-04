@@ -5,11 +5,15 @@ on:
     branches: [main]
     paths:
       - '*.py'
+      - 'research/**'
+      - 'tests/**'
       - '.github/workflows/**'
   pull_request:
     branches: [main]
     paths:
       - '*.py'
+      - 'research/**'
+      - 'tests/**'
       - '.github/workflows/**'
   workflow_dispatch:
 
@@ -27,6 +31,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Compile Python modules
         run: python -m compileall -q .
+      - name: Run NBA V1 compatibility and historical research tests (no API requests)
+        run: python -m unittest discover -s tests -v
       - name: Import core NBA pipeline
         run: |
           python - <<'PY'

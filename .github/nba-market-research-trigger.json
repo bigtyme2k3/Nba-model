@@ -1,0 +1,9 @@
+{
+  "purpose": "Initial bounded research ingestion authorized by the repository owner",
+  "scope": ["2022-23", "2023-24", "2024-25", "2025-26"],
+  "max_new_requests": 500,
+  "max_new_credits": 15000,
+  "quota_reserve": 200,
+  "requested_at": "2026-10-04",
+  "note": "Only a change to this marker or an explicit manual workflow run starts paid ingestion; ordinary code/report commits do not."
+}

@@ -17,7 +17,7 @@ jobs:
     permissions:
       contents: write
     env:
-      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY || secrets.THE_ODDS_API_KEY || secrets.THEODDS_API_KEY }}
 
     steps:
       - uses: actions/checkout@v4

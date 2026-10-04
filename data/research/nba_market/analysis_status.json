@@ -1,0 +1,37 @@
+{
+  "api_quota": {
+    "credits_recorded": 0,
+    "network_requests_recorded": 0,
+    "remaining_last_observed": null,
+    "successful_cached_responses": 0,
+    "used_last_observed": null
+  },
+  "completion_claim": "implementation_available; historical conclusions require permitted data",
+  "config_fingerprint": "b79842a3d16e83551d0ab4425e7d51f2cce6a41e04bbf0727c0f70b9f9a5416a",
+  "early_events_with_frozen_bets": 0,
+  "events": 0,
+  "graded_events": 0,
+  "limitations": [
+    "Ingestion blocker: missing_api_key. Set repository Actions secret ODDS_API_KEY to a paid historical-access key, or export ODDS_API_KEY locally.",
+    "Historical score backfill is unavailable through the documented Odds API: /scores exposes at most the past three days. Supply genuine archived Odds API scores to grade older seasons under the strict one-source rule.",
+    "True openers are unverified; EARLY/OPEN is explicitly the earliest valid retrieved snapshot. CLOSE requires a clean snapshot within 15 minutes before scheduled tip, using a one-minute safety buffer.",
+    "Observed team-game numbering is provisional until complete played-game inventory is independently certified. NBA Cup championship dates, preseason, and dates outside regular-season boundaries are excluded.",
+    "No complete later-season comparison is available unless --full-season-reference ingestion has completed; early-season unusualness relative to the rest of the season is not established.",
+    "Exploratory groups overlap. Multiple testing and correlated games can create apparent edges. All individual-season results and negative returns are retained."
+  ],
+  "live_shadow_test_warranted": false,
+  "module_version": "1.0.0",
+  "outcome_policy": "archived_odds_api_scores_only",
+  "production_integration": false,
+  "requested_seasons": [
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "seasons_collected": [],
+  "source": "the-odds-api",
+  "sportsbook_observations": 0,
+  "status": "blocked_no_historical_data",
+  "ungraded_events_with_bets": 0
+}

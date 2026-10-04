@@ -1,0 +1,90 @@
+name: NBA Historical Market Research
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/nba-market-research-trigger.json']
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'plan spends zero; run fetches and analyzes; analyze uses cached data; capture-scores only archives recent Odds API results'
+        type: choice
+        options: [plan, run, analyze, capture-scores]
+        default: plan
+      max_requests:
+        description: 'Maximum NEW network requests this run (cached requests do not count)'
+        default: '500'
+      max_credits:
+        description: 'Maximum estimated NEW credits this run; three US historical markets cost 30/snapshot'
+        default: '15000'
+      quota_reserve:
+        description: 'Leave this many credits for NBA V1 / other sports'
+        default: '200'
+      full_season_reference:
+        description: 'Also collect Games 21+ through regular-season end for early vs later comparison'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nba-historical-market-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY || secrets.THE_ODDS_API_KEY || secrets.THEODDS_API_KEY }}
+      RESEARCH_MODE: ${{ inputs.mode || 'run' }}
+      RESEARCH_MAX_REQUESTS: ${{ inputs.max_requests || '500' }}
+      RESEARCH_MAX_CREDITS: ${{ inputs.max_credits || '15000' }}
+      RESEARCH_QUOTA_RESERVE: ${{ inputs.quota_reserve || '200' }}
+      RESEARCH_FULL_SEASON: ${{ inputs.full_season_reference || 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify pure research contracts before spending quota
+        run: python -m unittest tests.test_market_core tests.test_market_ingestion tests.test_market_streaks_risk tests.test_market_end_to_end tests.test_research_cache_storage tests.test_research_export_partitions -q
+      - name: Restore durable paid responses (no Odds API calls)
+        run: python scripts/research_cache.py restore
+      - name: Run bounded historical research
+        run: |
+          python - <<'PY'
+          import os
+          from research.nba_market.__main__ import main
+          args = [os.environ['RESEARCH_MODE'], '--max-requests', os.environ['RESEARCH_MAX_REQUESTS'],
+                  '--max-credits', os.environ['RESEARCH_MAX_CREDITS'], '--quota-reserve', os.environ['RESEARCH_QUOTA_RESERVE']]
+          if os.environ['RESEARCH_FULL_SEASON'] == 'true':
+              args.append('--full-season-reference')
+          raise SystemExit(main(args))
+          PY
+      - name: Preserve every successful paid response even after a blocker
+        if: always()
+        run: python scripts/research_cache.py persist
+      - name: Publish research reports without changing NBA V1 predictions
+        if: always()
+        run: |
+          git config user.name 'NBA Research Bot'
+          git config user.email 'actions@github.com'
+          git add data/research/nba_market/ docs/market-research/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh isolated NBA historical market research artifacts'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload research checkpoint and reports as recovery fallback
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-historical-market-research-${{ github.run_id }}
+          path: |
+            data/research/nba_market/
+            docs/market-research/
+          retention-days: 90

@@ -232,6 +232,14 @@ def inject_data_script(html: str, data_json: str) -> str:
     return block + html
 
 
+def inject_research_link(html: str) -> str:
+    """A separate artifact link; research never participates in NBA V1 bet decisions."""
+    if 'id="historical-market-research-link"' in html:
+        return html
+    link = '<aside id="historical-market-research-link" style="padding:10px 20px;text-align:right"><a href="market-research/index.html" style="color:#93c5fd">Historical market/fade research · No live recommended bets</a></aside>'
+    return re.sub(r'(<body[^>]*>)', lambda match: match.group(1) + link, html, count=1, flags=re.IGNORECASE)
+
+
 def build_html(data: Dict[str, Any]) -> bool:
     data = enrich_data(data)
     data_json = json.dumps(data, separators=(',', ':'), ensure_ascii=False)
@@ -241,6 +249,7 @@ def build_html(data: Dict[str, Any]) -> bool:
         html = inject_data_script(html, data_json)
     else:
         html = fallback_html(data_json)
+    html = inject_research_link(html)
     open(OUTPUT_HTML, 'w', encoding='utf-8').write(html)
     return True
 

@@ -1,0 +1,19 @@
+{
+  "api_requests_remaining": null,
+  "api_requests_used": null,
+  "cache_hits_this_run": 0,
+  "credential_present": false,
+  "credits_this_run": 0,
+  "max_credits": 15000,
+  "max_requests": 500,
+  "message": "Set repository Actions secret ODDS_API_KEY to a paid historical-access key, or export ODDS_API_KEY locally.",
+  "network_requests_this_run": 0,
+  "quota_reserve": 200,
+  "requested_seasons": [
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "status": "missing_api_key"
+}

@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NBA historical market research</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1rem;background:#111827;color:#e5e7eb;font:16px system-ui}a{color:#93c5fd}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,monospace}.notice{background:#312e81;padding:1rem;border-radius:8px}li{padding:.3rem}</style><h1>NBA historical market research</h1><p class="notice">Historical research only · No live recommended bets · NBA V1 remains independent</p><p><a href="../index.html">NBA V1 dashboard</a></p><ul><li><a href="events.csv">events</a></li><li><a href="historical_market_warehouse.csv">historical market warehouse</a></li><li><a href="market_consensus.csv">market consensus</a></li><li><a href="frozen_baseline_bets.csv">frozen baseline bets</a></li><li><a href="early_season_summary.csv">early season summary</a></li><li><a href="early_vs_later_summary.csv">early vs later summary</a></li><li><a href="underdog_price_bucket_summary.csv">underdog price bucket summary</a></li><li><a href="favorite_summary.csv">favorite summary</a></li><li><a href="ats_summary.csv">ats summary</a></li><li><a href="totals_summary.csv">totals summary</a></li><li><a href="totals_team_buckets.csv">totals team buckets</a></li><li><a href="streak_distribution.csv">streak distribution</a></li><li><a href="streak_runs.csv">streak runs</a></li><li><a href="next_game_mean_reversion.csv">next game mean reversion</a></li><li><a href="line_movement.csv">line movement</a></li><li><a href="open_vs_close_comparison.csv">open vs close comparison</a></li><li><a href="open_vs_close_games.csv">open vs close games</a></li><li><a href="sportsbook_disagreement_analysis.csv">sportsbook disagreement analysis</a></li><li><a href="sportsbook_disagreement_games.csv">sportsbook disagreement games</a></li><li><a href="flat_bet_simulation.csv">flat bet simulation</a></li><li><a href="progression_simulation.csv">progression simulation</a></li><li><a href="simulation_bet_ledger.csv">simulation bet ledger</a></li><li><a href="simulation_sequences.csv">simulation sequences</a></li><li><a href="maximum_risk_report.csv">maximum risk report</a></li><li><a href="season_validation.csv">season validation</a></li></ul><h2>Research report</h2><pre># NBA historical market and fade research
+
+**Historical research only. No live recommended bets. NBA V1 predictions and forward ledger remain independent.**
+
+Status: **blocked_no_historical_data**. 0 observed events; 0 bookmaker snapshots; 0 events with permitted final scores.
+
+## Data and blockers
+
+- Ingestion blocker: missing_api_key. Set repository Actions secret ODDS_API_KEY to a paid historical-access key, or export ODDS_API_KEY locally.
+- Historical score backfill is unavailable through the documented Odds API: /scores exposes at most the past three days. Supply genuine archived Odds API scores to grade older seasons under the strict one-source rule.
+- True openers are unverified; EARLY/OPEN is explicitly the earliest valid retrieved snapshot. CLOSE requires a clean snapshot within 15 minutes before scheduled tip, using a one-minute safety buffer.
+- Observed team-game numbering is provisional until complete played-game inventory is independently certified. NBA Cup championship dates, preseason, and dates outside regular-season boundaries are excluded.
+- No complete later-season comparison is available unless --full-season-reference ingestion has completed; early-season unusualness relative to the rest of the season is not established.
+- Exploratory groups overlap. Multiple testing and correlated games can create apparent edges. All individual-season results and negative returns are retained.
+
+Market source: The Odds API historical h2h/spreads/totals, US region. Scores must be archived Odds API responses; the module never reads existing ESPN/hoopR scores or betting lines.
+
+API request cost: 30 credits per all-market US historical snapshot. Successful raw responses, receipts, and normalization state are cached. No retries of successful purchases.
+
+Quota: {&quot;credits_recorded&quot;: 0, &quot;network_requests_recorded&quot;: 0, &quot;remaining_last_observed&quot;: null, &quot;successful_cached_responses&quot;: 0, &quot;used_last_observed&quot;: null}
+
+## Twelve research questions
+
+1. **Are early-season underdogs unusual?** Not estimable: no permitted graded historical data.
+2. **Which underdog price bands differ?** Not estimable: no permitted graded historical data.
+3. **Does the effect change across Games 1–5, 6–10, 11–15, and 16–20?** Not estimable: no permitted graded historical data.
+4. **How often do underdogs win consecutive qualifying games?** Not estimable: no permitted graded historical data.
+5. **What is the longest qualifying upset streak?** Not estimable: no permitted graded historical data.
+6. **How often does the market favorite fail consecutively?** Not estimable: no permitted graded historical data.
+7. **Does a market fade have positive flat-bet expectation?** Not estimable: no permitted graded historical data.
+8. **Does an apparent edge survive multiple seasons?** Not estimable: no permitted graded historical data.
+9. **Do opening and closing failures differ?** Not estimable: no permitted graded historical data.
+10. **Does sportsbook disagreement contain useful information?** Not estimable: no permitted graded historical data.
+11. **Does a progression improve expected value or increase tail risk?** Not estimable: no permitted graded historical data. The price-aware simulator is implemented, but no empirical profitability or risk conclusion is asserted.
+12. **What bankroll/exposure survives the worst observed sequence?** Not estimable: no permitted graded historical data.
+
+## Interpretation
+
+A total is a score reference, not a sportsbook Over prediction. Model D consistently uses Over as its reference side and Under as its opposite; this convention does not establish that bookmakers predicted Over.
+
+A moneyline favorite is graded identically at early and closing snapshots unless its designation flips. Price movement can change return without changing correctness. Spread/total reference grades and executable-book grades are stored separately.
+
+NBA V1 is neither retrained nor connected to these signals. No finding is promoted to production. A future shadow test requires complete, auditable market/outcome coverage, season replication, and prospectively frozen rules.
+
+Game numbering is exact within the observed catalog, but unverified as the complete played schedule. The Odds API does not guarantee that every unlisted/canceled NBA game can be reconstructed. This limitation is carried into every export.
+
+Bootstrap ruin estimates, when populated, replay paired price/outcome blocks within season and retain overlap inside each block. Blocks are serialized. These exploratory assumptions are not a prediction of future ruin. Historical survival is not a guarantee.
+
+Results preserve unsuccessful bands and strategies. Hit-rate confidence intervals and exploratory ROI intervals do not correct correlated events or multiple testing.
+
+See [methodology and run instructions](https://github.com/bigtyme2k3/Nba-model/blob/main/docs/NBA_MARKET_RESEARCH.md) and JSON/CSV files alongside this report.
+</pre></html>

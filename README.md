@@ -3,6 +3,28 @@
 Automated daily betting model covering spreads, totals, and player props.
 Runs on GitHub Actions — no computer needed, works from any device.
 
+## Historical market and fade research (isolated from NBA V1)
+
+The NBA historical research module preserves raw Odds API bookmaker observations,
+builds early/closing market baselines, grades follow/fade offers at real quoted prices,
+tests qualifying streaks and next-game mean reversion, and replays flat/capped/price-aware
+progressions with cash, drawdown, exposure and stated-bankroll risk accounting.
+It does not retrain NBA V1 or change its immutable forward predictions.
+
+- [Methodology, source limits, caching and run instructions](docs/NBA_MARKET_RESEARCH.md)
+- [Current research report and blockers](data/research/nba_market/REPORT.md)
+- [Research dashboard artifact](docs/market-research/index.html)
+
+Start with `python -m research.nba_market plan` (zero API calls), then
+`python -m research.nba_market run`. Repeating `run` resumes from cached receipts.
+The manual **NBA Historical Market Research** workflow persists paid receipts in the
+`market-research-data` branch and publishes separate JSON/CSV outputs.
+
+Historical access requires a paid `ODDS_API_KEY` Actions secret. The documented Odds
+API has no historical final-score backfill, so strict one-source historical grading
+also requires genuine archived Odds API score responses. Empty/blocked reports are
+explicitly labeled; they are not evidence that a fade or Martingale works.
+
 Built as an NBA port of [wnba-model](https://github.com/bigtyme2k3/wnba-model),
 using the WNBA V5 lessons as the foundation: collect → leakage-safe features →
 minutes/rotation context → model vs market → immutable forward evidence → grade/publish.

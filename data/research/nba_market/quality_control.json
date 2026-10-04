@@ -1,0 +1,59 @@
+{
+  "coverage": [
+    {
+      "complete_schedule_independently_certified": false,
+      "discovery_snapshots_cached": 0,
+      "discovery_snapshots_expected": 130,
+      "events_observed": 0,
+      "limitation": "Odds API inventory covers bookmaker-listed events; missing/canceled games can affect numbering",
+      "observed_game_numbering_provisional": true,
+      "season": "2022-23",
+      "teams_observed": 0,
+      "teams_with_at_least_20_observed_games": 0
+    },
+    {
+      "complete_schedule_independently_certified": false,
+      "discovery_snapshots_cached": 0,
+      "discovery_snapshots_expected": 128,
+      "events_observed": 0,
+      "limitation": "Odds API inventory covers bookmaker-listed events; missing/canceled games can affect numbering",
+      "observed_game_numbering_provisional": true,
+      "season": "2023-24",
+      "teams_observed": 0,
+      "teams_with_at_least_20_observed_games": 0
+    },
+    {
+      "complete_schedule_independently_certified": false,
+      "discovery_snapshots_cached": 0,
+      "discovery_snapshots_expected": 128,
+      "events_observed": 0,
+      "limitation": "Odds API inventory covers bookmaker-listed events; missing/canceled games can affect numbering",
+      "observed_game_numbering_provisional": true,
+      "season": "2024-25",
+      "teams_observed": 0,
+      "teams_with_at_least_20_observed_games": 0
+    },
+    {
+      "complete_schedule_independently_certified": false,
+      "discovery_snapshots_cached": 0,
+      "discovery_snapshots_expected": 128,
+      "events_observed": 0,
+      "limitation": "Odds API inventory covers bookmaker-listed events; missing/canceled games can affect numbering",
+      "observed_game_numbering_provisional": true,
+      "season": "2025-26",
+      "teams_observed": 0,
+      "teams_with_at_least_20_observed_games": 0
+    }
+  ],
+  "errors": [],
+  "event_count": 0,
+  "frozen_bets": 0,
+  "full_historical_analysis_complete": false,
+  "graded_bets": 0,
+  "independent_raw_response_spot_checks": "pending_real_responses",
+  "no_post_tip_leakage_in_available_rows": true,
+  "normalization_issues": 0,
+  "selected_consensus_views": 0,
+  "sportsbook_observations": 0,
+  "status": "no_historical_rows_to_validate"
+}

@@ -1,0 +1,359 @@
+{
+  "config": {
+    "bankrolls": [
+      25,
+      50,
+      100,
+      250,
+      500,
+      1000
+    ],
+    "book_priority": [
+      "fanduel",
+      "draftkings",
+      "fanatics"
+    ],
+    "bootstrap_block_games": 8,
+    "bootstrap_repetitions": 200,
+    "bootstrap_seed": 20261004,
+    "close_buffer_seconds": 60,
+    "close_market_max_age_minutes": 15,
+    "close_max_age_minutes": 15,
+    "discovery_days": 65,
+    "discovery_hours_et": [
+      10,
+      16
+    ],
+    "early_hours": 24,
+    "market_max_age_minutes": 120,
+    "markets": [
+      "h2h",
+      "spreads",
+      "totals"
+    ],
+    "max_progression_stake": 10000,
+    "minimum_consensus_books": 2,
+    "probability_disagreement": 0.08,
+    "probability_movement_threshold": 0.01,
+    "regions": [
+      "us"
+    ],
+    "seasons": {
+      "2022-23": {
+        "end": "2023-04-09",
+        "excluded_dates": [],
+        "start": "2022-10-18"
+      },
+      "2023-24": {
+        "end": "2024-04-14",
+        "excluded_dates": [
+          "2023-12-09"
+        ],
+        "start": "2023-10-24"
+      },
+      "2024-25": {
+        "end": "2025-04-13",
+        "excluded_dates": [
+          "2024-12-17"
+        ],
+        "start": "2024-10-22"
+      },
+      "2025-26": {
+        "end": "2026-04-12",
+        "excluded_dates": [
+          "2025-12-16"
+        ],
+        "start": "2025-10-21"
+      }
+    },
+    "small_sample_threshold": 100,
+    "spread_disagreement_points": 1.5,
+    "target_profit": 1.0,
+    "total_disagreement_points": 3.0,
+    "total_movement_threshold": 1.0,
+    "underdog_price_bands": [
+      [
+        100,
+        150
+      ],
+      [
+        150,
+        200
+      ],
+      [
+        200,
+        250
+      ],
+      [
+        250,
+        300
+      ],
+      [
+        300,
+        400
+      ],
+      [
+        400,
+        null
+      ]
+    ]
+  },
+  "export_files": {
+    "ats_summary": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "ats_summary.csv",
+        "json": "ats_summary.json",
+        "rows": 0
+      }
+    ],
+    "early_season_summary": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "early_season_summary.csv",
+        "json": "early_season_summary.json",
+        "rows": 0
+      }
+    ],
+    "early_vs_later_summary": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "early_vs_later_summary.csv",
+        "json": "early_vs_later_summary.json",
+        "rows": 0
+      }
+    ],
+    "events": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "events.csv",
+        "json": "events.json",
+        "rows": 0
+      }
+    ],
+    "favorite_summary": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "favorite_summary.csv",
+        "json": "favorite_summary.json",
+        "rows": 0
+      }
+    ],
+    "flat_bet_simulation": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "flat_bet_simulation.csv",
+        "json": "flat_bet_simulation.json",
+        "rows": 0
+      }
+    ],
+    "frozen_baseline_bets": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "frozen_baseline_bets.csv",
+        "json": "frozen_baseline_bets.json",
+        "rows": 0
+      }
+    ],
+    "historical_market_warehouse": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "historical_market_warehouse.csv",
+        "json": "historical_market_warehouse.json",
+        "rows": 0
+      }
+    ],
+    "line_movement": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "line_movement.csv",
+        "json": "line_movement.json",
+        "rows": 0
+      }
+    ],
+    "market_consensus": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "market_consensus.csv",
+        "json": "market_consensus.json",
+        "rows": 0
+      }
+    ],
+    "maximum_risk_report": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "maximum_risk_report.csv",
+        "json": "maximum_risk_report.json",
+        "rows": 0
+      }
+    ],
+    "next_game_mean_reversion": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "next_game_mean_reversion.csv",
+        "json": "next_game_mean_reversion.json",
+        "rows": 0
+      }
+    ],
+    "open_vs_close_comparison": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "open_vs_close_comparison.csv",
+        "json": "open_vs_close_comparison.json",
+        "rows": 0
+      }
+    ],
+    "open_vs_close_games": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "open_vs_close_games.csv",
+        "json": "open_vs_close_games.json",
+        "rows": 0
+      }
+    ],
+    "progression_simulation": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "progression_simulation.csv",
+        "json": "progression_simulation.json",
+        "rows": 0
+      }
+    ],
+    "season_validation": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "season_validation.csv",
+        "json": "season_validation.json",
+        "rows": 0
+      }
+    ],
+    "simulation_bet_ledger": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "simulation_bet_ledger.csv",
+        "json": "simulation_bet_ledger.json",
+        "rows": 0
+      }
+    ],
+    "simulation_sequences": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "simulation_sequences.csv",
+        "json": "simulation_sequences.json",
+        "rows": 0
+      }
+    ],
+    "sportsbook_disagreement_analysis": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "sportsbook_disagreement_analysis.csv",
+        "json": "sportsbook_disagreement_analysis.json",
+        "rows": 0
+      }
+    ],
+    "sportsbook_disagreement_games": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "sportsbook_disagreement_games.csv",
+        "json": "sportsbook_disagreement_games.json",
+        "rows": 0
+      }
+    ],
+    "streak_distribution": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "streak_distribution.csv",
+        "json": "streak_distribution.json",
+        "rows": 0
+      }
+    ],
+    "streak_runs": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "streak_runs.csv",
+        "json": "streak_runs.json",
+        "rows": 0
+      }
+    ],
+    "totals_summary": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "totals_summary.csv",
+        "json": "totals_summary.json",
+        "rows": 0
+      }
+    ],
+    "totals_team_buckets": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "totals_team_buckets.csv",
+        "json": "totals_team_buckets.json",
+        "rows": 0
+      }
+    ],
+    "underdog_price_bucket_summary": [
+      {
+        "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "csv": "underdog_price_bucket_summary.csv",
+        "json": "underdog_price_bucket_summary.json",
+        "rows": 0
+      }
+    ]
+  },
+  "module_version": "1.0.0",
+  "output_hashes": {
+    "ats_summary": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "early_season_summary": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "early_vs_later_summary": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "favorite_summary": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "flat_bet_simulation": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "frozen_baseline_bets": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "historical_market_warehouse": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "line_movement": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "market_consensus": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "maximum_risk_report": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "next_game_mean_reversion": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "open_vs_close_comparison": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "open_vs_close_games": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "progression_simulation": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "season_validation": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "simulation_bet_ledger": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "simulation_sequences": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "sportsbook_disagreement_analysis": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "sportsbook_disagreement_games": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "streak_distribution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "streak_runs": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "totals_summary": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "totals_team_buckets": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "underdog_price_bucket_summary": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "payload_hashes": [],
+  "rows": {
+    "ats_summary": 0,
+    "early_season_summary": 0,
+    "early_vs_later_summary": 0,
+    "events": 0,
+    "favorite_summary": 0,
+    "flat_bet_simulation": 0,
+    "frozen_baseline_bets": 0,
+    "historical_market_warehouse": 0,
+    "line_movement": 0,
+    "market_consensus": 0,
+    "maximum_risk_report": 0,
+    "next_game_mean_reversion": 0,
+    "open_vs_close_comparison": 0,
+    "open_vs_close_games": 0,
+    "progression_simulation": 0,
+    "season_validation": 0,
+    "simulation_bet_ledger": 0,
+    "simulation_sequences": 0,
+    "sportsbook_disagreement_analysis": 0,
+    "sportsbook_disagreement_games": 0,
+    "streak_distribution": 0,
+    "streak_runs": 0,
+    "totals_summary": 0,
+    "totals_team_buckets": 0,
+    "underdog_price_bucket_summary": 0
+  }
+}

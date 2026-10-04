@@ -1,0 +1,3614 @@
+{
+  "credits_per_snapshot": 30,
+  "estimate_excludes_undiscovered_event_specific_snapshots": true,
+  "estimated_remaining_credits": 15420,
+  "planned_requests": 514,
+  "reference_full_season": false,
+  "seasons": [
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "tasks": [
+    {
+      "cached": false,
+      "request_key": "432f46f4cb7a15ba20e6165648741177790b35538c12146b580e3610c5e3e20e",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-18T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "40d8b8fceff4d1d822623673de7b02b0f78928c3e69f93e108dbc849abfe55ed",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-18T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "38acb560f5c850c2e65721a3d8b2258b867da98859e0f45dc121575e74f5724f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-19T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "66e989d14e78c09e6417805e786cee17ad7083ab318323d66bdc195acde879ef",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-19T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "218a32692c35935815e84879e21548c594219b6dae996fd922a326ded2f11931",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-20T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b6112bfeab544edf99ae0fa487f98e2952bc02b34ec03e0a064f7ac2323e3455",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-20T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2731db97093ffa4f7e646d9727ca5731ede1b8f3cae336733996a26e504aad40",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-21T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2d9277e05df3dd0f7b496afeb82b088d6fdc079fe56f33690d4a57ee90bd6d21",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-21T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2dbd09284bc094e6d38ee156a45bcd5758fe12e35270a252f354806b8aa72472",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-22T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "864e7fde0f329c62eb2ebc9d687f7cf8851ff243e63079968de9539634f2840e",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-22T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b2a2628f286fe91846f2a53a4e5847b4e217613cae02ee33b01664991da93872",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-23T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "abfb5ce78168efe32ee2ceec5a5f5dbbd1e356eec7ceda7c0c1453c256698278",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-23T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a13df32f0b88af85c4a4f95288e3a1d8a4d1a39726d4cc624d38cdad1a562aec",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-24T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2f0973d3a749175617f15cbc796e7dde2fa691194699e9477ef8a26cb14dfe1f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-24T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "351676d021ce4cc4e168ba28ffcbd58229ab49b75005cf798d31c9ce78c1adc9",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-25T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7853b8e2d781201760a8bf1d00a7bfd929e276311b1a47838255227a5af4713a",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-25T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "524667515268eeb5a05a455e70fcc9a7aff2d0d6126a1e44303741c337d8486a",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-26T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0ac4901bb669f4e5a08ee54c2bbb79b2e36587274c39b0ddadfb67d38181c80c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-26T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "11b9ccee3be2f11a8f27f7708b53857994a6340b01802e12e541ff3426a41df7",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-27T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4ad4bdb0b4fdf62c58aceaba27572604e4f3cfbcc183d30a42eb0f72e92d9dd1",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-27T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2fbc289493d104954a2c13e25ecf7416048e1885dfa75cd73841ec62c70a7618",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-28T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2075e9f250af6ace52bcab1ef4b6cb7d39d91992dce328d201a05bcbf0604551",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-28T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3d54601df16140d324c5a419daa415aa4fd231de3796df54689cac18b5906941",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-29T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5a0384ce3f3f276e45dc80a900d5916984b91c50b39762dd3598e4f126fda468",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-29T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1db051a4028d0e1a88bd441591a86a949fb49289f2b051f326ab934d10a334cb",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-30T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9256f8cad17f66b532f602761729bc0484fdf2bbe4efee7b8f6ed90c77a0d38f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-30T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "97d3372c6a3655f1eb74cf681e78150d7734a8ede47d15249d0d4cab32fb6494",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-31T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ca7f0000ebf1b197724630b67a94461aaea328def5e9663fc5e8ba265be2a89c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-10-31T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "518fdea993b2c6888171b235565cc216314320aeb4d35ef5a3b431c977abd84c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-01T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "eca079fa5982df908425ee947324ee849658d4d85f0c7ef99d1bded4ddb001b0",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-01T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "eff4d6d859f28deb4c0047258f873e298f236d7da83a22588fa27febed5cc946",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-02T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1ae5787d5de03369a2e33ae72eb05ebecf07af2c967e965e99412da4450750d0",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-02T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9573c275ddb2ae1ef8cafcee462b1fa6d179966ce894a9dc0a734d7b9ec81f6f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-03T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d29c9f208bf1065d488c5d9dc1141b695376e0ad90c60b2cd904cf89db7dff78",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-03T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5585fa7a38630fa15a7be4f76d7cbf8529659b03998461788f62a77e0c2cd7be",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-04T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d4437aaa02a261c6db0a895a8aa64ad1432faecd8cc32dcb02ea39daee9f91d8",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-04T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "053227807a786d04846aeaa9c0a3c2203d361bf95cd55ea8776cfb95dadb14bf",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-05T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "567fcd2ebd08bee5789f1ce8a02fc4a570e0cd50831e550101ce6263df3acc65",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-05T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3db24f0d6bfaa8c41976bed44ac01955ddc7a743a87d5f61760531638a81850e",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bca16e5a409750afb53d232d5bdcb55cbeeb5af16e905185df5df358e503b8d1",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "334f751e175baae6c6be5f755d601cca5da975ed3bade6e7e4497eaa79c2dadd",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6d6542e6d3bd2ad74661ad8763c370244da58261fa9b428d98eb98ec88052eaf",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1b8ceba9b65e3fee7d92aac13f5026be8fee2d46305a89b2ea2c8c0c26847662",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "45f2a60dbd7f5bfb04745c3ccf5ba84ddbedc46017486281094aa2372e2562d2",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "cb2f97c277b9716ec6fd8fd5b875a134932fa2a8119a8869f1d429d41f4bf8fd",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-09T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9ea11c3b66299b813abf0e65770cd4d3f4152e598fb77698e6948561db638b66",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-09T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5792b72e03f46ce171cc3c9c57a511f48b54da40d7fe773c2039bf02538c7379",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d8eaf86fe838f46282d322a0b0ebe08627790550e98929570e102102b81cb6af",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f2818aee75439a0b2970a08e29472b8abd07cd037534d37d21571c541fb96160",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "53f5deb994fb3e3e40fb19edb9c374306cbfcc43f29be85f1430905fc16677a4",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8a10bfc5271b37d989f7c3a6bd3c1bc736037a22c41ae46161930a966f5e590f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "78a6b3a566a53e985d711dfbc4b27298572c0471f21dc62565ff7667f7cc46df",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "193f7837ed176c1e09e10e203958014ecabd98fe01b2aadbf8d5d0876abcbc75",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "73da347b5ff3fa9ffe3d5300a08ef3ffeca274ac58dd80c235fcc5787a5043a9",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2d9dbf5a6213f630f5a5032f8bf0b7f951538c831e93ffb87af79a979f174fef",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "af9e52c0a652c74ba7379b02f50dd3ce7a089426cd8aab84e97b0e4c32ae699a",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3faed31873971907e4f2129ed34c5a57d01a2b63ca473f53a75c72695f5716c5",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7edeb499a90284d99acb9d10317bdcbbfd374a28a33b1c362bad3fddad435d93",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a1a34a2774fa5900c41dfe66aba5f895bb8ba6f5bac5373a4950d620b0e6f46b",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-16T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "cd8539f7fbedb92e59f257b15c09c0685a3007de477b695efb28c84ea7b312ab",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-16T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4e7e3bf82b3e555c6fca3c38fd41597fa290969914529c7d594d89c5ee72566f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-17T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a5fac1196042cb35caa632fb3e1ea0df5a7cb2ad42ecbb891109290d958088ab",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-17T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f03335fc4365d108377bdae490ecc430c062ccd7a5367998ca989a3b7f980364",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0609c44f79de2a95fd65ea03b770be4a0028320bcce68058cef6fc84435bd523",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1d5d35089eaa01289fc3db71b0f2164e52d59fc66064f3658bac308850008211",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2f6795ba0b870d7132b79afa711c8e53391f6d674ea904a4c45d985c34782ed6",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4623040844782d318de3ecdffcd4dd47fe5cd8e8c25c00bafff779bd8fe26084",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3480a927effd3d896b3ff188afe3632b017ca05c485c6f742a5fb7550a9a3b42",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "818e8c83f05f6191db3a922e16f5a393829ebbcc95159c91e7989ec47078e39f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "55659b128c5e382bb2dfccc74a8bfa9a1bf16c6f27dc878a88b149cee1dd4fa3",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4f5c430292f8ce78487a8bcd9f415342143a2c6da2bebc0f45b039be9f705abc",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-22T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "12bbbf321915959ad1ae0df222c78f7343095a3a1540241a12a66890230ba481",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-22T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "67d9fd460c8ee6442ccf4ebef7273d7ece8f0f55edab8a68fbf5253d835913d5",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-23T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d58f1950d5e04b509471f62d78c4a0730b00d8c7aa85ff46dde46107c0c5830e",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-23T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "52bddc34821ed8bd6bd2994929a1ae0f9fa9e07c12e709fe24408e58c1529540",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-24T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7b7004c38b1bc9c42fe176da7ca3183b9c8baee9a5e84eed281e6feada788844",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-24T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "36cdb593e0e16c7c8acc42423e88177884a19a9dbe90f2c509393b2ffc6d3191",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-25T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4604be88b763b0ae93098a2ff33ac077d1e30c1f204113924dac2d0a4fbe004a",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-25T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1bcf5b40ef647e52c675301b841b9965e693d60df09295686a2d6c5fb4c59728",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-26T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c5b5aef33463c8ebd3e2cb1bb35cd961fa7f54c6dbd457132184506062422102",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-26T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9cd7e2ec0f414d4714613d703d94bf537ec0d59c6e911465f919d7d426b72667",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-27T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "479e3f00187ddf77303dda4399492ace7fa7d664a1b983e33cde3674ef9b2819",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-27T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d64d482f8f76b717c74985d5feedaf990f132e8d9695d74f780dbdd2e77c9bc5",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-28T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a7cee1c5d3ee5d2a78cc022433fad18f500b8c92c271219672035df99c2e8e2e",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-28T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "74bf032465f99ce53dbba3c694cf49dcd2cf2940eab66eda05d2b2571fddd672",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-29T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c1b1ef1e1a4c4d6da2e3080165b53a4b161675c0a1f31006f82b164d94758cdb",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-29T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "efaf61b8281988905b7eaa99683caad5ad06a8ec62b3a45bc622abbf9bd568d8",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-30T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "33a2026a91f46e6f19b27c92b682a880452b278f51dcfe54d4162635ff8cbed0",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-11-30T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4739960c2fe37037482fc650291daec70a39fbd5da9d749127423ae080ca529b",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-01T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2bfd5e64a911130b615021ec6aeda9aabaaaef2a51c966a57bb06c681d174114",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-01T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5271d41157ca57902400f887c15d6a8b7bb1ff66415d44320b4dd40abb10f66f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-02T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0670dd9a3679f5582f2288f50632d56a49e26414949d4b885815d5cc2c3f8497",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-02T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "53086e5263468d4c2bdf1c1622e8f48dc74f34b9aa9ef7442f649d68d738a12b",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-03T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "903b911ab5d74e61465ea8d1d88c09d735ae17724d5602997222cb1ee3a77592",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-03T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "33f2637648115b360ade7087380fb26e8de32c0b414bb4771dd5af8c1a06062a",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-04T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7b11c45c3649b5741cfe9bf71fce71acf15a2ed7c79aa652425e6c54413656cb",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-04T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "116402773f6023df403b83ca3bbb47a015e7f9ebd941b1e4fdf5c785eb55076a",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-05T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b4db081eadc515c65511ad1936f560b6f4ebfdab710b6e49b48d613a584cb33f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-05T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "95ba6d674e08934144d81d573e97bd98d0f0b5af56e45572bf13fad5d581c971",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e47ea9d6815740303452d9a538f180c2187b9c60b7ccf2a06e544c1059075990",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c35a3d807e768f78d2ec1177e70905562f51e7e7b413342fc1e9ee6fda4a690c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7db442afbb47e71f91cd3f85016f8ae0a19db462764891e5cce168364fca2dbf",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6c46612d941e119aa1a10e49e1ec306372e69565050657cd9162d91c4dc503b8",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ab4d8920d02529a2653f18a2ef98b86ab4c0cd334919591dd2d8428f8d8898b8",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e448cb8c98642e18c03b4e94f2f9111fe53d1b7b9f8de27e9a50c41c84020dea",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-09T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3a3d3283216136cc4d86280f346f710d4a31d4446e4f8351ea6c92d867990c0b",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-09T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "efc9b519d1f0a2357a92d2c7db4aecc096f90c304aea57cdc95225809dbfd3eb",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e537354319eca729f6aebaca45005f2360a47006fb0baec56b4f74c1afe15dae",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "77ac249d3f109db5428fbca78581cc0b7fce6d537c94ebe58eb38174332bea5f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "906d9865ee1d1d1220a1c666d05972b4fc68afe1bb78c17a1ae288f22951d28e",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1f8484bf4ba0edd110e9d7be768f2daa8932d8ae10b3ddb5ec4f73b66df833a1",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ec6f478f143d59cbef2c50baf6c25ba670f701ad54c63e0b5a6964d70437c20c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "dd48d5639758d1b10de19afe8a0d423edfc734aa34bba2fdade199d4c472c0b3",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "efd4582289c9ba7aabbc8e41d13e31b0b79b6e32d4d5c77e0c465ed4ab620380",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "599aeaa329561665164086d1ab8986083dbdf204030749035a0a77c715bb3d4c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "107eac6b7ed297a5c650e7a9aedb8c62c0a77448edd5d88bda2c8d26e2842de9",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7f63c7a43dad154af87e887b66bafeb643473ac1b4462d27c6eda8453311c8fa",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "410844ea04b87f112b39120069bd2d8bf6611b5b1c4459eb7aa8a71b2d9a25af",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5f18634c9882c3fd3c036ff0727c2f161f0ba8314a8ec58e23cec76b2a9f34d7",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-16T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a6b26a4f5e2fdfc1013bd3da81483dc8dce49ebd7e2097d5941f34e7c59b6da3",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-16T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c83284f536b0f54c84659aab857611e7064269c624172a9f4230ef79650f1224",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-17T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0766b653db2b1250cbc7c4153019a9c90d0a273a3ac5112cb3126049d0cc9599",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-17T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "252b941285df79d53e93bed2997531de4a643fa01bfc34f8ac1eeb87f1a0673a",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "72aecc04a776d8378647fb6f91963fd0731ec913d6bff083a3ed0e91ec37a44f",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "11a44e39540c3b63720a6d854c935950a05b114c07340d6b7e171441ddf8777c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f1e0e223cc9b64b1366d869da0044b8c6b9c2f4922e1d219c19c3913fb808fda",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0b842ee472cb12b84fa28752f740612989a3f7a70887b599deddbefa1342fefe",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3427347bfd1b9421d7eed3be7d353bd42f509dea561850e58cf85b5dd8a85eae",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "86e85bfa8f663f801a75695d74bacdb8c88c397e95ec5cc56b88c12497ceeb9c",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2bee2a4d8693e8d893532fbe0a752684f5dbe4ee0c3755f881d8137b0afc2267",
+      "season": "2022-23",
+      "stage": "DISCOVER",
+      "timestamp": "2022-12-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ebf9422cca0df940191d4bafa485ee99a24f6998de4e8ada3653b50ac0f6e7df",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-24T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "445455208ec6d5fa350eebc37c8051ce4598d8f3cc976e955ef20ae2c82170f5",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-24T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b1105c613c0fedb38d6df993797a0522f28ea22d42f4b257d3429ff4a71f67a6",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-25T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "eec381e9745453d5291007f0dd8e0ee00355b6abc71d357720f333a6680c2575",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-25T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8a566da322d385cc7cb6b032e3f2c831c4d1a747800dce06ac1084d87025ded2",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-26T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a194f2e564702fd0b13f6a9694f84fefad9ccb062ff292dd2a1fe5c0dd81ea56",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-26T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "66a7a07e48fcaabe872d2ab2f8f2e10fec806397148cad40e8b9660321f14f52",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-27T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "cff99e9cd8abd121176a02967274dbf9f5777195dced85701ebb0e3e7795a6d9",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-27T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "44c2e2ece507e375beb3e360b62c95b44362f393ee3ec5c395c3dc7ba8ebcb34",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-28T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "574a64c4feaabfd40f090eb33628bbdb31ba55961fcbf863ab979e5f85e5d76c",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-28T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ae2ab050b24084e6c6003e2c00c7e87307d9e08558742da83ae35467c04fe5b0",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-29T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "62b144f614cad4e0fda8d2b47e27bcd2f11283a41f361c47d9a32ab0099624ed",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-29T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6f26b36cbb34b77c0900b249beb3d8c4d1ce412cf27e19500af45846210986b5",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-30T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "afed6cdf171311e1b9e3ce1aa3bf6e28c15ffc22ca7900e6701b774e61dbe636",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-30T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "114b46ee8b762f877a414b2a176696bbb66075cec506551be4f34555a614ba01",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-31T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d0aae0b843ee94490fe556b5ee47cae38d632bac15126b8110451b0af2b3a838",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-10-31T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f155e733e990b779220086aadedcbbb24b9105362b01e36c32c217a9f07e788c",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-01T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c62c08ad7cb870248eb268ca5ebec6ad2418363dcad3526f29daa51982207d6d",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-01T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "84ba5427de7128d448ac742b97a879e044bfa54b1a43175327bcb1885ef9d4c2",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-02T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d9918887ebeb336f7bd16816bea82cf852704db8cd19e2d26a498b91272ef792",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-02T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d13989655df1b37c3d1b9141e06c2c97fdb6a89874773221c90334ed237bcb5f",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-03T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "27016fadd75be3f55aaf13802d327215b469b9c96e5269bba8c5b2aca28e46d3",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-03T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ea9193abe7267d447f755498caefdb671ffb254c6148cfd8c621e989ceddf24c",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-04T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9b17be86e7f9dbd9ca5b60eeae009e7e06293cbe8303ebf280baa69dd194c82e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-04T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4d1dc9ff8d9de135e6e561de5122d0fc030728bf0c8a59413640e4f73a0fd508",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-05T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "57e6af31b7b3f6cf9f1eff7ba6216ee7cfc9e22a397d4f1de5b2e596fb39dd07",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-05T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1e9e946842a84a3a1cfa45adf6cb93081fbd132b717cf48dc84313043e5009c7",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "acda3d9f8122d1b1ce31fba2b8eddc92b22661ce3bb6af709f4063a1499a3187",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e0f2148227da7ed2ed7eed623cf03589325fa64e662605472eccee7d98e8e9dc",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c2e1c48c73d9c1c82e6709fab248b26e08e57914500bea841c38dec00f475297",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "739ce61a86babf58a383129565d2a1ad388ce16f4763569912b38fb67fa746f5",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "85b64fa9fd23c5a76ba5f8088b6974ea71fc3c04b76541e179f2844a7455fb77",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ac89a0aaf12cd886f1954398bca313a470a27dce80249655fba53d8f4112b034",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-09T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "19cc8cfc9bbb6f638a10ca355e75d8e637250c4516587c2a2083362f03f2e81d",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-09T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "963e6c8ff55856eae9d3c57002463393ac77fa2cb109c4727dd44c7c574ae23e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "52e23ff79c8b1c8f1558e13fd78bed78631a544843e3a5dca14a9ae6f8a0cd82",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "49cf70516a0ca81d15c2d7ea767bcb6a36e35085edef389ce72d27273073bc47",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2668d60cb6561cbb97b351e6a142f3aca908e09828fe639c68317ccb4eb546c3",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ce8a838ee862bb361fb94167ac70091a3869f0bffad860568504a1a0fb8a5d1d",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "01165da1b4e1803621d0e2c457154f0c1cac90ec8be67a77b8ae65b930ba06be",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "927254c6cf025e38fff3a12c585cd57d9f87713fcd143668025b8462895a9ba9",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "15742fcf8c1c8f5406715e9832fcabd8232ce4e04855b7a3687c2f6988989a0a",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "aba3178bfb44651bed201efe44b6a7d163c81f57f1838589b094204323da44ab",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1f71c3adce299b276027ee575720bb863df87d61aef6a1eefeac7ff3373bc76d",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2b5fcca3c42f776bfcb9ec7e46d9bbf2fa9575b8c45763589a5005925e91fcdb",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8287817df0069b87578e38bdea24a4ec31752a627d6cd4d7022ce92835253f7b",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "57d128edf14b198076a007ff487c03c2185427c6929353363fd4fefbcc9c75f9",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-16T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ad672cf0b7f1f2fad6c13909d5eaf478aafcbf5fd16acef6b1e06b1c7aff0849",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-16T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "84845ece3060209eb6e21a9354b90c626b60ffd9b5087a44b13b73710b502c60",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-17T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e4942139c9f9f4b3e0a6059503049c782df242bf4cb611b083d7ff25c47f2d48",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-17T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2bd7dd4f83f3ef2f95276289fe77fe5c6279206b2ebd8e2051dc90dab8dffe4e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "498a362783a07deb694c90b01b4f964cd3d74707ab30f20a6ebb90df002685f7",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fa067e553b049b192b618a8ebdce4e8a2206897f386e9b9585b55cf24d3aab25",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c1c95f4171f83739660f0c929a91e7849d1c0ee4393a59f3b7fd6b627b4ac2d1",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fbd629d6af9ea5ecb4163b21b9878887603edb19a2e27031e5093e6d1d536b21",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2273f056328c6794006656b2d6b852404e7932000794f7f963eb1c6e95e50d6e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f7a61acf4a999277c87df179212613cab93556af2b1c3e3f613bd0e6ad7d42e5",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "59948b6a7993c09749f90a3a2df8d79199f92eeccf96d23c586ee506d7900344",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "172cb08c1f2321668ea9d298bb3650d37ca0312c2395f7a69b92e9f4680c6e6a",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-22T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bf4d1b7a8960f7775fbfc3302b454675d6d08f6124ce7381a6e04877e54fedb9",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-22T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2d580f1a57fedf5b95bd5a75e7f8c78131575348720eb4356707506ca4970a18",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-23T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "575dcf7e23b696c86b82bc8363e62abc1a69b9ccb4b3458f0f80ca27befbe605",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-23T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7d6c4b4060beea30a5c853a72a39d4389760cb2a6b5e8549299cdcf9d03b4903",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-24T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0a010bb45f5a63dbf31e1b6c8479ecbc6f00c244fdd2510ff84ffce790efccdf",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-24T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f9a29221731baa8fcd8f8dbf518ae33d96e08a3657842ceb94bea44878f5c8ec",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-25T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9413c826c8780c5c4a0761eea60d769c769926110e40cf7d9a4e238463c38dea",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-25T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bd520134385d0ec34eb33c8252462899a300bb242ba991636b87ce983bf426d8",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-26T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fb56783ea293b0aba863895ebd97db77104fea01947d6c9f8d1ebd508b19df72",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-26T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "30b6fbd6d1e34fa4e925e185ea33b543ce4335094bfd38b2cafce90af3b3dbbf",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-27T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "23f50d55103d5c0304aac70b74b6a35542263a650a87c0ac359b8335990c3b67",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-27T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "47db428e4cae92e169dbe5e02ba9a55865272e3c53046324e8355e29df73471c",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-28T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0e1f7b286305ac4ed817a2512d24ec84a243c1b9d18a9b2be9476727dc1ca1f1",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-28T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "840a1aee3e7bdfb38416e820af642d76e03d06f856a95844181bd108582af8e5",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-29T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2fc8fd66d9c68600a7f005025cd0f2d4dc699f5393449964b9483cac7d041ca3",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-29T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ab2dd9e62fea8b9f6c1ab4f4e7ab7c63d9866481a0f6e400e152aac53f5058cf",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-30T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ffa585ec40004e443e59d8ea166be6af3d958664ab61293cf9bb54b1c434983b",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-11-30T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b69c34ce4440000f3e4ba14506bd208b5dfc1a5fe5a7986e3b2eac68fad2009c",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-01T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a7085bf116ab1d46df8ba19a8311eaeb742e88360c916c4306af2c5fbbd15ab7",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-01T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fb4a7608695378143716931824b567278b17837b5b2e897286ea67d84c6ed0c2",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-02T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "18c66ecd26c2f5ddd266feea3fb6da4ea549ca797e47329c0dc8c8e7f1973435",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-02T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8285709587014e79d985db72e198a7aeb42ec1bea6315fe9c24b2c6800fa602d",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-03T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ad116520b1f72944dfd729f15ecb0582187802a770e3ee4640b589d7277c2e3c",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-03T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1e8053203e73bc9b1eb624d0967732723de3dcefde076129a3b0e8d1029b7243",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-04T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1ee02716e98aaa906033d14e829bf44c34b738834f80cf440c80deb34c268730",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-04T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9c3ccdbec1a91f6e0038e16a83e4cad4c0b3d1cd46cf96c0002a5d0afd651c43",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-05T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7b93311976f1b1aeacf19f8e3dc1f04f50d38049ed597458cd5cc7699292f200",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-05T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fcddd009fe69cce8a5a73e96cb6b28f45c6f45d1dbd0a73782c7fdd770381878",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "14d515772e1430761922c9eff7ffbd7e20a625620dc7d388a66c16b0a8617ec1",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "911f9ab5e339eaa2a98c5ca46483e622e123599e754c7b31e16e2706fc53f218",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a39d090f36966aa36d101bc4b1e5634707c1e2376aec12118ba21bca04ec8003",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4694833ae100e04e343d7d2b2b72e3400e6db7a893bd28c3b6eba789eb7ef190",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "23f24ec6ae655bd0c2ac36633f5220f19855f21a9794bb97f953ee584be30e91",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "703d02afcecadedf3964d66db1d8bdba40314f13b1d07bd6188d7ddf524ae13f",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b4e436c61323bf883d5c743db4842abb89de850f8763a9a486bb1b837b7327ff",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2505600c89581f2da86c1e71151137f821a7712517af82d57a573090291bdc85",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "49348e1a2d00895aed03740e6a5a2a3a4eeeb373083e5f9093b97842a1b45415",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c615657d08971c605fe4c0358a654fa0597de6cf2f3e7c62e5139af4ebe3e0ee",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5e1b20ab2c8a402b4b2c37134b241451e072d7d6aa76f8d47caf7bffe50a0e99",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "68ada23d5acc6252dd25c1a928ce09abce3c149c8c9b8e23adf4aff973c17e7e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "048b74d11ed8ac1d2f6961947d4fcf748a3d8910491cab94619ce473add3612d",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2e4981ff41a8ff9d82fb3b39eefb252317aa6b53fd85922aafaa1403fd46d100",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4c04e65169d41a83ea8e9f2dfabb0309cc801fde3a93269333b21b12bb18e67e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fc281fa5f0e1bd73dc1d06aae0398a9a0c17e30e777f786d180041ad24de6eff",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "45ce0750d7504cc63ee2997f3123d04be2e6664fb356257270f6d6cb4e694119",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "40fa130ea9f5382b681e49f28715b152992b5e74731a1c3c1d3e099d875c89e3",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-16T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d14a70902a1e27e5773b828faf1c6c1f42562e7f72032763c7645299feafb967",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-16T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "64fd24d4455c37bd5df6edb3c7cbc1bb4624bb30b58b38fe29b719e81ab4bec9",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-17T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9f9bb6b75f99717bd6bddccef96867404e9a8571cbcecd7524e76cb48de8ce08",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-17T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6d755d0c9a8e7ff4630ab42e9bf384e7f7c38f6069b3ae48f0eda57748358466",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "13beaf6dbb721e242b846fe5dfb96b266b62716cc985ddf04fff4fa565b7b13c",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d1564ffe370fa853c0f811f298bbbd9fa4cef5c322598954210a973116a7cd8a",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1c9ad689afd7b49b74be7e3b9e0bbe75bfe07a42df69e3934db39891bd20564f",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e8c2a649a48752ecf79f79bf976047137343a5632819fba01b18139f90dc49dc",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "cb90405316a348c4d12afae5161ad6d8aa4b05bd0b8ed684664137a6114bc8c7",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7cb15d4d130133e50ee61827df3520e8ef46a8ebcc244e6907349af076708362",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2b5a471443d4ae775e8bf158eae018b1520242baa3d58914cd0ee59060cce048",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "cafaad39b9c4db64693b89ba046bd49efa74ee5654b41a3debef87e8af3b960f",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-22T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "49049273a479afc42d4b08ea14c4f7e614554771646b0f2cdb3c219104e0846e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-22T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "101d7024734dead85a89316e305b04e2d05962a4dec53fbaccb8dc2a0c0e1141",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-23T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5cd08c0d0dafdc9449a9fb65b1af191c2001cef4ebe9c5e032ccbd3021612452",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-23T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "46fd9feda2a36c57732064e2dc1c4ff5e99ec88ca9d353c5126dec93e5c3c95e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-24T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0ca0094b558cf4070d498a217baab1415ebd84aba641b0959cbe9cb32a8e5e62",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-24T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8a7ab080b6c71cf1d38c9216e34f728ed777d41578613d1cc670165a5c0262a5",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-25T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4e4fde45f6d47f0826596edcd5538578d277c1b6474974b3ea58a23fb017282e",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-25T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "999df8b0f077f5132311c919c3e52fe487d301820550a9f834e37a7f0db38fbe",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-26T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "270c632683a653129e78a4835ea17d6e5b7ed51de15d904350266380a0e3a967",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-26T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d4d9c70c678ea5752899d75007c0451e7673ebb7c824074366d75c21798d46c9",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-27T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "06e7a62ad7d5868b6a14e6b4383c1927e18a42f65e3ace129b70033374cc6dce",
+      "season": "2023-24",
+      "stage": "DISCOVER",
+      "timestamp": "2023-12-27T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9482072ea79686fcf4cd28ca7a31b4d1333e0178809fd755f095221a1638c246",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-22T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f522ef63e2377b02f87439f566840ffad60008144d69abbd899e5c26ff2670fa",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-22T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e2a2e73d0e6feab0563a189cd35ec9083f65f25a532e88c6d188aa407b6ff3ad",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-23T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6999945e5c8b1d0f2527ee46db3be2b43341ccd41d170bbfa05f3dc4a4bc3cc8",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-23T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "58cfc2db7239f0fd319babcabe82605f92e13a300b26bb237e1720ff7008db80",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-24T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5cf45aab59487b58b67e2f5c940166dff0822c5d34d1807e08d8be5dead42e73",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-24T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e4b1297411f6de2447ad36e753d167d997e4d5d35564a98affad20bf28dee095",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-25T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "32458e1f690bf2b454a95ab239006b9eff606a19dae8d6f2c9308498a6120d24",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-25T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "443d69d015dc68f4b2ac72a9080265e18a536c06be20a8e4a4d3bf8eb5da9049",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-26T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "55190afa276f65ccad49b294a98b184eb3cb05bbb02333d670a8390c2b7404fc",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-26T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e7186228242b38c0ea7084d04c106cf7b02fea550b5cc5d41d34aa8317546f1b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-27T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bbc2f6164c2e83d5629004cd8575a2a0efcfc9b04414ed5d9665e3ed82ce7256",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-27T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d8f50986fba2714ec57f4e747e303834a1814fb7caba6a888c6edf67d6ffbfa4",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-28T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ef3ab86b0bee54411731ec2475326aa051d97b92ec1fc56753d9cb53efa56bd1",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-28T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "56bd20f57523063e930af762b1c83476e86e27dd42adb9d0c9edb72587ddc08a",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-29T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3e5088e8e0eed4f70f34fa6025e75ad2c2873d6e48cf31b71248ca51837992f1",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-29T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7750e636a4ea01f2f815aee6273f8d6cb673c2cc15d7473902aee1fc5d8d4eae",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-30T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9b7442a325b1ecede8e8592b3fbc46d6e88f701dae1dc4dbd97f19c9a8ee9275",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-30T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "797f854d0834b4928bb024908adf078dbfc6a4502fc8bfdd1628a546cf71ced3",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-31T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d76d8df98da9f9ed10d0a722daffc450d355825e0e7563f7c51e43e33580a59e",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-10-31T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "88a29532db3674b595da55fc42cfa3ae19bd95d19d0b5dc7cce2215474071d5a",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-01T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1b4e6df7696c0c936e604f6501ad4b2850235018b643724defdb7d90e8db14bc",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-01T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d47f47128e3712d5120ca5a1ec75959ec61933ad6becd7d75c75ac1fb694fca1",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-02T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bcd83a0ce3d9be75532f16b32baa8a3d3d7769053145ea8cc3d36881115dd9f6",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-02T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "80ba6b6af45cb99e31e0d5983c0a67d7b2754c5725b4c2f0a70d680513d62a93",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-03T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ae45c4fd89200f1777d4832c1073408460a2688088c74d160ef517773900cebc",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-03T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6f57e0525a6b8d48129d16af3fc7573acd1a4a3b7c9466078f791023dbe31ca7",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-04T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5afe650de6c4def1250c75f82ac1a10bfa448346e8641eb225b57bca121d1c10",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-04T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2deceb57bc5795b988e3290b65bca22db78f3d9a5ead73eebfbec641f5ed2381",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-05T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0678682e4845cae28a9038eb8aba38f54d82d196f06aa630595feb5be14579b6",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-05T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f98dff03999cf59d55c1c22f3a383b820db744b4e6bac0dcc784ee098cca9ad8",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "56c40e2fb53ed7cb5679b16fefcc12bd1acc2c119a4a2e4f7e9f590d911fa2c7",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "08ebf256fbd21fd50b0b8303ddf5c8bbc927dc3bdb7e49a03648857e9144e7d8",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "15625502b466f3d619297b3219a6b6f003b48608dee8c0a062a4693c8eac5c57",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "225aa38f6161e96d8e9885cc6db0468d54e8b4456b91c8771b5cd193ce66fc50",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4a9a782db15547b446418b7150ce77c3d111a42e2d767a38461ca423809fed5b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5f3c57bb192745228f0f589744e825e168afdb3af8bde8fe2810641528854499",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-09T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7a3ff25741d3bcb1fe9c42cf65120c5cebc0bc7b4b03f4ec2d11669825f26a94",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-09T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "808250331da3b30419858728b77f4c975ced5b599647dfe7de0f1075f60528e4",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "646d5ba38f361c620911d9451b42758df15cf590d779883f44ff5847986f4cd4",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8bd3b4baca274792c162c29d4c57d077e015de3c1eea723c32c57ad219a9b59d",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8773ad5d0363aa3ff2488be10860e8aa9fde95c6ac7beb3146195c3c7a4963af",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6dc18837c4bc4ba629ffd6409af74d242c06702c7a0a22ff29209e2b0d98aee0",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0aaec65b68efb2daa55b7ac7674a03f2c5f4d717faffd13017bbd0d3aa1be873",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2dbe448105f1dd753ead451c3bcc687bca84eb88439921a78102b5246f5df16b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6ab7694a7d087abcdced87d94dae8bf4f648dc8cc63aa492f3cf56b724f8dcbd",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8ffa2bf2e68ed2b96ba1d9efa410a776d147cf529387fdeb0f3cef1ab8847d04",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c091dc8302c3d3f736110c8055fca7ed937c1795f3f95612707635f8e31bc02f",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b5bb4d3f99e1dd4fe969389161068a6765482bc794b6c7ad850e861e501074e3",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "101cbaad1d8b5e4ca4e0341c66d69b415bb60e8efa6e70754a3f602580526780",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e44cc9b42e277ca2e0e37cf5a1819eb07746930db5819f2b4b67261b226df09b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-16T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "20947fe26302c9aed4f0dc52f3510bfdffbb79afb5808cd61594a1cd0b7abb86",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-16T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6c2293110a36d588bed4838345f9b9443b759caf0e77e282462c69bda88109f2",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-17T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b238bf455246d842def8b03d75f7b6363998ad63c3dabf5c481fb27a93b68f6b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-17T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b3b3d79ace2bc801092d12c482256a29a4bbe5e63b5c3a48d246d6772eff89f9",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "be734dcb1eaf0d17b6f73fb7c3abe523ce73e29b17d062471a01cf9240f5a24e",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "155a2e68c1d8ed1020d5ff8e43a52ee5efdccc857f8a39720091a6c92e2e42ed",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "60104cee097d7287b98102d09aaa2e4b3a30ffb58447ef2919d967005dda2a1d",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a2b6b542ac70bb01d3d6bfe6d30ffc63f9da5d9d3f6317bdd299350f15772cec",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "91a4a838ca16b2d881a72fdc9b64f32be39114ab1b8b05de5c923e3e7e178543",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "adabc1571ecc432c694a9f1078f78ce9918e5150d1a360ff2b59bb81581cbf95",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2180db995b81d484af2155aeed0fe02dab10a61581ccbb49abea0238e9af056f",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ef582a49c1c70ddcf5724b3d80d6b4bf9227252351e39a5ab09b5be9c4c52783",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-22T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "56383f731725590dcc5363c225b4e5ad6cb639eb19fd8443eb75e94503e68a77",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-22T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "09d1dea43afce3136b2567671e47a6f450c84bccc77a69a7467adfbbcf229247",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-23T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "50a72a93b83ee9686ef251e3d0ace9a3d42bf91db78f7bc9772f88b18d572a14",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-23T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a503e8ca29a5ff34d00d5e2d6945c8f43fd2b5d5a36a5b3c2c09fe834152951a",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-24T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "440742c31f234a69103f1adf77331b2abab7b7ef6cd2428dbab5e54a077bc8f1",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-24T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "55a24dd580cef7b908d1d50814d484e52f76d67de05e70e309f8ce84e987dfbe",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-25T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3583782c6b879a009bcd5af5d6166aa7155ea70d71dcd21ab6511db6a4fa402e",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-25T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "de9ed50571f2c0e1668d2b52be4f18130612f77630bd15d46d9f53c0997553c3",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-26T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "202299531757d66fa6ec8357b4256365cd0af20785144fdc643b9ebcdcfbaa29",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-26T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d425cf5516ba48acf8c7767f285ba74f148805e625e0fb598e3e789a1044e1b4",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-27T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5c1132f29f3504d80d69a617bdf18892bb15e9421bf32f7d727513c412524f45",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-27T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d9108bbe5e72b6c7132ca800bd2136a66dd1455f8d11b16b3dce13e8af47905b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-28T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "628616b677388ed236bba5b859b1ad2cea03db96b2de3e0570eae41cdc9edb4b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-28T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "551c70d83c35f2113ee4b0a937ef202e3bffb18db835e7b31b1c6364997e024b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-29T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d5550cd108bb21fc810f6ad4026468630e8f18e66f38046352bdde06528d8d35",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-29T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "28d3db37c693ab0409e67e53e0851ca402813d1278fd1d4ebce3d03f63d640de",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-30T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7431bcc64e6d850623d52fa67d71c1e2165f70375afc871bec17a4e78618c199",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-11-30T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "38e36b851aea0a731f9c309024ed7007ed25cec045171e7265a7ad5ca6098472",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-01T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9e03fa73d8a5e87c6e1d428f9c89d3243e98e9144045b298626036d1c18ce659",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-01T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9b09e83105c823b1558dd1b3b19320725bfd789498ce8743bcafc69b3ff65060",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-02T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "206fd4ce4f95b468bc202ff3c9d780cfefce6cc5ee4c42d480acd112eb7cc59c",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-02T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e03f0ab70e175a883851a7098b4ab68ba2c497ebb5d628114c80a3b9074c48da",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-03T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f7d4a26da3cfc3ae258a9e07a6fed80c64acd3dee5a150685abf96278065bd65",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-03T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "767cb1f9aeb788349e86cc585d7a51054e3226a12e4cdffdd97ba0cdd0930de1",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-04T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b4f247e65df09567d06b2ca75da6be443021c51e08ca5905abeeb9a979701070",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-04T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "73e58118ab9fdcb31adf6d909f82dbb97d8368eea0bfbaebbc23f49016507a06",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-05T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0b0fb8fa91315e0677536c7b7ca8685fb015e6a8fd0b970c3df7dbef210ac230",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-05T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b8f3694ed47f3b8158d2a1d581a8cb909f60a3ae4661c8591114c1be2498c183",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0461b51e5a410a7c10ea3ca8b6594ae942b3154216d1d4af24206dd3f4ddb5ed",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b663c79cd4abafb4b9790b874ed011e74f4792b2b2735d2bb39789e966ff8314",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7c2beee28fef63c30c5e09c536aa7f871db0b6d1680506ce80538cd85545826f",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "46013ac5b72e8634a09db410b60e200ea06fa1c0abf4648b4db61025ea5c6ae6",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0e1e5eb53af505769c7ac869935814fdc94856d862b0e0ac9434a2efd572c3ad",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "85645339e855fa762f640079ecf207a594f5b9457f01ee50a45ca45293338403",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-09T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "870520940f3bb0cfd42a043b3c7bf940d43b40814e94d9c7b96a6686c331f85b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-09T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "037c8cda431a4232c3f07cc57f82f825ed0f7feb28e3919324de74b2adae2e70",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2f338edccb1a71ccfc25187cb231e990a3175776248f325203564b063c3b16a6",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1a25e2226dcc370e6ff3caaa5c0a1903dde152e46d288619a2c6b511546b5cdc",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2807acd73885b944e9b23218b6d7e8169b1416b1b3762390ec55ac4e07c62b86",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5561b86b42d9bcc7f41237ec9281e24c27c510bc178325bbdd2843bbe03c0176",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e5d13958497a7efd781e29f94cc207d318c90da8f4a096bbc6d421e5b0211127",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "122c13da780198d5a2cc625ed46a05ccc4744fa97475cb9b460b7d7ebc31d162",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c092c55b7162c3fbbebd58a13874134a7917b97baa3cb0a074daebdc19f77212",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c22f7901b3dcb1c6d113adc5486264a797a0d4f3c714584f928a02ff59fb1039",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "335ca682071b2e05c796f778c064e53a7acc29086171acbe197f673d7d4b0e75",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5233851406344dae8e6f96e38026b145d938ee3b9bb5ecbc5d638710068a1b80",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "47ab56065fda74d07aa9f2fe310bb48671d54645b5f0237109891cc5ddb1153a",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c4fff6303fadea8c998ff131a65f44f043944973495d447b31d4d9e9fd2eb0e5",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-16T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c6471463ae2a3b74e032c299aec62960f616186c636f2d5f264653d4ad8234a8",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-16T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "48b577a7fa32641d4847b68344f78ac987d6ebb77708e184d87cd80d7b2b3df0",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "590730963ac168805a47320f76772387db42c521acee508110e7d9c4c5583088",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "dcccb7ec93949d6ea4c6d26a09ebd79000aea9a2a5def4a0eca8912eea99705f",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2ff8b038d3c58b902744a7e67aeddd3c005e443e692bf5d0df6d81527dbebf6e",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d7b5fa979c1df77eea71c4be8eb10050c45ec2f07bd715bddd31d0a982b01783",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "70a247f8ab7e8ef2130e2eec7054c8e3cb8f88e74eb08ab886c0aa9bbc2a024e",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "44f7b089f67d2f77dea09018606b4dcc847ea57086b6aa62616fe6226a49d57c",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6af16149bd8b94e204ac7aeacc84955882be5d6921434c99aa25ad54f26aaf1d",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b3c6af63c97a15785bcd5c19652604254bfc4f87cf741639a99e91f29d6eb898",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-22T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9153b10103a89a89c2ce18f828b0e9583396bd104976613fad6f6e8c3844d7a6",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-22T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "96845d35bff75425740810d6b92438c3f4d6674652e0d8ccdcbfee48ff4f5e52",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-23T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e377c231e893be5f5165a3fac190676ca4b1a19c6f5ed2d31e49175d55a144f5",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-23T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9d61265b80bfa323e8847d9bbea84fb1d500ed5e6d8d985008381b40af95bd53",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-24T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ac68efc2205a7c892cf1759e76b32721a8ecfc9399a057c6cc8f3967010cb210",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-24T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e6f7c488f86946b8ef3df75617f9b2775de90fbcc5bb77b42193c96e826b3bbe",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-25T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8a5e25e8f099a80e03e1a59e5f68b522085c0d45da913b74fdff7e6ebddc839b",
+      "season": "2024-25",
+      "stage": "DISCOVER",
+      "timestamp": "2024-12-25T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1315573e0395bd8736796c5c37ca0ff9f76c999b7f468b8ef4cff2dc089f8a74",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-21T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6eac56541d47be7158a36d9272d4b8a8282219f489c2d04319c16be7152b326b",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-21T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d09df9968241e73112e03cbb99d0faa2d1b3779a6b61b7c698c9038cc4571809",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-22T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "116c6af43faf304eef3194504ce1a1b6eede9173ac2135935bc81efa8f1a01f9",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-22T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2c6cdc30524bf16d8de59a5f6bb7f97204cd9818cae3e22ef4f3cbb513ecadca",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-23T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "23499b4bcc6d85d6069ed476a8c802990b8e898229721fecc4964cc8fd3e7bc2",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-23T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bf5b876086334bd634b87628a8652382f9c5fcc0c3d14b4b29a22bcac3aabb3f",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-24T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ec89257b23e4897cd173569c03289dcf91520f796f254d6a8da7dc1b1adce183",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-24T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4da35038f7e7e359c76942a0b15446ab1e6253cd47b213b7ef1d72c6d2c410b8",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-25T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6651da40b9c5420814f9b1e94dd5287e2880b4befae071293e6eeed8134fd9d2",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-25T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7344f9f28963d6a66b63c2dfb7dc5d1d56f9cf5cc87059731473849a731ea4ca",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-26T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9e98307a72bbb936c950dce9e727131111e32a1df63c043a9ea690100c5444c6",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-26T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e540ff17003f0fd820d45e0884d97fc7ab1a4ab1f6d0092c6593148a215a1342",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-27T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "45928f73f369ee58449dac1921400dadf3a752a1c45026d516001858ebe9b6fa",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-27T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ea133f54eb36e95cf0d9fef61748da3d09a410e687b113da34426867280386d6",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-28T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a8f724ed87436f565ee674976b05a7e1098552a07deaa887d71c2bbb99b5b277",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-28T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b1953ec040f4ee928a1b3736900b364dfdced5cc838e9028ffbf73549f6f628c",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-29T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "92331a13cf46c347f714c3de7a5048bff9b64bc39cad95e2ad9dad873fb3dc54",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-29T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a736d2f190e5adadc1b66ba028b46b62bba4000cf5940e3afef03ffb2ef4b112",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-30T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6773617299a792690fd559fbc1da43d823fab2b83cbe599c4b34d4fd191fbd2d",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-30T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9b3742c26bc0394825957f371563c563df9e08dbfa9cd561be65832ad17f8581",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-31T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "13191133b9f6028c9e6ec355e7fd70d9a4e18a81ecaf38fef72efdb17e4e91af",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-10-31T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b412fe43aa8d037f104a279ce73dae7f352883daf7619ca5c6d914de97cbbebe",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-01T14:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b817842815d48c0d91d1e5d6db1fca864626f76968b8400fffe57db2a7ee2c78",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-01T20:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4b90397ba53f940c1b94fa6acb176912dd263d1d9242949077d4dedcf9254a7a",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-02T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "15e05cd69b5671ad7d3848638a5eb3d78c1f6eafc7cff275887a08b9a318c488",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-02T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "68a3d0c06bc57c5857ce480a5ab12e4f215e54513706052fe859fcf80562e462",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-03T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c96f7fcb08659b5f85cf282fb5232a9bdab4d3ac856e1364e81626f2db1bb9b9",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-03T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9d96b7a348e15f587f7993bec48298783f5456d7524fdf8aebfd0dd5193f51b6",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-04T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "13d45fd67ccafa5ced968eb3bacd17a7324ff00cd68b7313279a81eba814b0cf",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-04T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "17f8d2172aaa57ad6ce2e0f4cfcac831ed9b1d98641d36b27efca46886621cc3",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-05T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1a4337b499f080fc92f9658252458e1fef0cb1092ef3d5ebd5e3dff6fb473047",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-05T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4b8092e89e8a9363afeb6c86bb1044a9f552fb53e1e578cb452aea688473d62f",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "249cd0fa709cd76a6eed73e246e5002d701166613b48ce3db5209127ee8396f2",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "62cf7e9fbafe127063fdd1c9c9d4e130eca8e0286ccd93dff0eec9d7bbdb2670",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d71d6b5ea44d46dc3118a25c32316b8c9bdda1b717f5610980423aedfab4a349",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e749fc3d49e1c5f5c845474e4efbf5d4561ef37591c0c9949a769bb0891e1977",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bc92e11eccf8343bed2890f8e3731b018ad6795a4eb30d5c6ff0c57336591ac7",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "eea3cb3a008d0a665c31452bb441a6ad77d5215be27c7d5f222710743e3df7f7",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-09T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "eb9e3ea1bec6b9d062c0a226e3b727edb7bc2fe5290e5e1f13b1bfefd7d638c1",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-09T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "143fd59056fc691e13f0e236ff92b240c58716cb37071fe572a3651583d72318",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "4d41ada03611b765c3f704101e2d97383560462ee64b9296c71abf3988ffe99e",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "96716dc0e2104bd23d5f456ebed9276b5659c43fcac301352b8523f1abc5d313",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bcc08d75adce8ae7fbaf16d95a111a85f1668a19829d113c799fe5d86656ce09",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "54eeb711f73bb84fddf2502011f28eef5fbf44c9b88517a6c4a5e993faf25ed0",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "83f2e36860ddc700bf30d7ba57630b94a82f46997a6215f1afd4882e17ce40cb",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "212d375555f8da30455707c3f4e5839e87eb56a85f93b57a4bc6e38a5f8b1c84",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0986dd77b5e3cc2ecd82d9f10c4122550efc8194ee5d5b2465fb940fef7b8a1e",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d10bd7e5225772f61bba998e9c0acbf3c92e9cf9e359eb71c004c866391f539b",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3fe1592a49a5b551dd7fa2ee89d6829caec0826caf7d753b836674ab2c48a431",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "142078b3d8c28d5c23400ef7e5c8b24aeabcf4d118731d04b834a97fd6cc530c",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8581688d0b19443ed7c28440792abbe589e208723c5282914bf4f8ae29f5de61",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fa1d6c95757cdd575e2491096c0f9a237d38b98f4dd72cd8387ee701f8a80aeb",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-16T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "347818443b58631618af463c24969f53ee485fa0124baa8bad265989cb7e6896",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-16T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "705aec6993359ef49922e51d8124aa94f376a8f436096411781dda5f46285b82",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-17T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0611cc755be2488161dc1aba2b480bcb89ce50377786268d4725f036e5ec490b",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-17T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f78d196175f294c215c36637530ccca5b6a7075f37632fd058e2d6a86a2a7e01",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2d670002eefd29886f74b7764404f57af45dc35da265fb78451ff5a846092f64",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0e9321ed450667d4be92ecf0db7eba2b1108c222ae13727b1c0650211be13816",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2d3c9830deecf6e4cea3f5a3aefe7a1bf1d90b44391fab8818dc16034b8b9033",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "93b8730b4ab89e236733db3f708dfc2f98e3a611c480fc7a962d8653c39c76ec",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f6da5e9aafe0c4639ed7ceecf016b05e35339db5ab73015602e20321483423e1",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3cd95e32e6d581bf4cd0776bcff6acaaffb56db4ab2cf7f5be9bb85f95c2f50e",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "cff8b01cfe774d4e77537f5d5d38b2bc451f85d0256edeb496b5c2e4e783a1c5",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5cc5b139d0ca2438d47ee85376807474255a88bd7682a466fcfd827a158e30ab",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-22T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6c16c9dc5053a27c971bdb66d1ba8fb3a713cca7c42c1d9f9a8c942a20472f18",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-22T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "661735311906f4575e4035dbb833abb61f9cf99381d4612335abe9d9452bafbd",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-23T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f34a3a396907eda0e2a297199ae8394291f5f1b8a6f95516621b98a5cbcd675d",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-23T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1372709b9698247a802a7a9962b18848071ec51edd153bd82ed689eb71e00108",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-24T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "851e5778417bb9002a16e062a4d7db3e63b4869bd9dfa814808e78efc75a78ed",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-24T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "60981c9106f76a7c3edf62b3e0a558912c49d3da8ed319263d90fa3c152ee8d0",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-25T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5e147cf113b46a4eeaa0fd1ad619992be323edb53b289694a95199e857588abe",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-25T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e1391deb8f5e31e354e4e45af05677ed8794dbbff807856dc4f173e5a6452d12",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-26T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e68eafbb4fd540de467281d111fa1ef2e3ad6bab9fbf4597d56fc98b41a2a893",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-26T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f1ab6d34492adff345621cc82c35a945fc763b77351414270fff201400a25f20",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-27T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "aea227ee887f4f41e644a9265e9124229b3e76ecbacbe6d10de601712df56e3f",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-27T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "eb0de59f6a07c6714c7a70307eb65a6950548a17a024d892366d2e1fd61801bd",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-28T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bad422df3b475d6180907c6fb91bbdd5f0a8ee79babb0b5c148a6cb3ebf4e20d",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-28T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1bd6de9fb23e22b7634f78850b58f3440f80f670361d54c7d8dc0be902b0e09c",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-29T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6b86bc87b527e1afe834d1658313c5e187330cae5a12fc480a7f6dbb0c98abcf",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-29T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "95a3340f8335de8fe2539c02c789a89c286c403f8cd24f99d74894e06bbcd9f8",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-30T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "be0664ee9b93dacd315fe79a2f5e05434eb1d4377794d23350355307c7929145",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-11-30T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f7bf64a2ece782d1222991eb398408850ac6bf5d29e80731fbbefc31b53cac15",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-01T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6a0d36682db8d622dad0d1d914a79c74053c37ef202779bd2b0942d79b1531cc",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-01T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "952e4ea9a1f546036e60aa67017427e21f13bea046ed9d9c9c87fc3070f9c4bc",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-02T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5b792969cfe10c00cc86d7a6f84e8f281ce51da52a635fc8b89db9f9cb3105a0",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-02T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "a0d61b257631c2e2c807ba4fe0976c861304fe5ca98d15b9bad4b7b2fa541f81",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-03T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "3dd41a8216defe5447792020d34282cfe1d37b317da70c156802c611d47cb5bf",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-03T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5535d69e6cec14b1522dfeba9780c20a4487bed6e5b2dd2f2f96b53fa32ce2dc",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-04T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "b31b2a72cdd0e028b60a083eb64367d1fc5c5e054eef224b2ea125c6f815e7fc",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-04T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "bb244939e16751d57e99d729df6be58bcf97c1f8aada0ee8c07c0d5df0655c82",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-05T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "e30c4bbed98ea6da01e6e413760199852ea496c2cba765c3ce80c47861795074",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-05T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ff063efae903fb250a94b085dabede49f22b036d15079a85bfc030c36c138a11",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-06T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "6274bdf64d39ebbbb251d803e395539068b933af8b303a05b4676f6e8d814911",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-06T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d18cfeb37a8db5e4bd636da0e053145ad1edc5063110d6da2d51e81ccde995b8",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-07T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d8d54bc46001c25405e48f7e7a2c3785c1c574823a1d4c77e053e98a1a55481d",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-07T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "885ab2f5ef05da6593a0b3a07634e83059506e186eb7c92e29acf333c118f95f",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-08T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "954ee9f071a85f5aa53080973db44667a234a0c0d6826ac370d2ad0926cb88fc",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-08T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "cd5e98c8809cb49b29638c47132d9870c0d2150afcc853ce4ae495b81e944f56",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-09T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "59d9c43dd6f1668ceedc590028448e88c91d0a3ee83b12b620d5597c6cbe26e7",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-09T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0dd7778d1b7690ab4751a769c474dd1fe359e3dd0261b3a746da72844f63bef0",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-10T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "fe0b56a517631b2585c2d36c5af6233b34818c9ce5236b8dc9e1a3b5cbc468ce",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-10T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "783ca0a6c50ba0c4ddee50d02d6f51337d7edd19efd749eee68f2350d321fb7e",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-11T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "ad5a94f56d0f31b615b5cc38cf7136c85c3f2053049b3ea211a64fde6bc05ed5",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-11T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "961f4e6405db5361ed322b9881830f054b8acdd6851a04b3f5e6a9f65ba6b947",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-12T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "8b97b5acc6223523911d25d9ee196bb6b4600f41f163c150d251bdff39d0ce46",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-12T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "2c2e898afb46a3062ee5a54e59940acb6e20a1cca253ff1c2621bb8919cbc2c3",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-13T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "d7c8553ccddcd36d135689444f7a2c7f297b82fbb06c852f380841b146f2806c",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-13T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "171ffe71bd913ef32157029a65181c2b2ffa3a5951a71b8f5e664c3266ce331d",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-14T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "04e6348d66527ce01e9f6dc7eaec6e05edea05eaa1194d10e9ecd5560c42aa5f",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-14T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "aa6a12232df3f71a5c8207c7819264f4a25f27bfcbc8c395224b0fc546c2c31f",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-15T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "abd32fd54385ffa88ce9aa254cfadc2b908437f2a5a56974e0b929989a33df11",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-15T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "672b607ba66feb2d9ebd3a5143c498e96176fc7c905d38c880fa3daa2e9c545e",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-17T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "267ef9a9f239ee621541f7abb1f498c27e8546ae35369b8c5e6e6950405bbdde",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-17T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7e0312296a9b168f9720fcd2b9ecc5cac88d73af59737d31364aecd062dfd8af",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-18T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "c7964a50615be06497f9943467bc998b7b6fa1ca41f3b40b4378637a42f37aa5",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-18T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "7f8b7e86dee68056eb097939258dd64bdc5842ffa47bd524f0591f038f6d1a3d",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-19T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f48d907a31e0aa79e06be6b8a887f85cdc93563386e3ee219e94e74a3250610f",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-19T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0efcef43fd6a0990fb62fee525e71f041225ce4611bb8234c087196e798d1c48",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-20T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "12ad75ebd382990398ad2ddfac443c73e04e636b846a27e5258e9521f55f905e",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-20T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5e90e261662236f2cb2ea2253c5ccfc200e7b4074ae084d0dda313f096c81ae2",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-21T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "f4078c06e3b52466ce2f406f89dd8d10f6dca379623771db04c3878fdb98fed5",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-21T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "1090058d894139278f2ba19cd91a0e9da0ab3d9961f60c3b2f73942764191056",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-22T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "9c8b68dfa622e2c2c7f13e47418bea2a824dfa61482b378bc7975e3c4f7f4979",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-22T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "520ecf0acfa8725b09b3d87369b753259c5dbb1ed543b7fb8cfcdfbb64102d15",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-23T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "0781628ec0c4efd5706fd2931797df808fe6eecbda56b863b776c1a078630950",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-23T21:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "803d7e3e5547d2150f4dfe072beb12f6591ead26327263ad10b8770499a89ddf",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-24T15:00:00Z"
+    },
+    {
+      "cached": false,
+      "request_key": "5f01bdcb52b0ca0fb4dfa6caa04fff1e30abf3267bc00acc07eb4206d9a19368",
+      "season": "2025-26",
+      "stage": "DISCOVER",
+      "timestamp": "2025-12-24T21:00:00Z"
+    }
+  ],
+  "uncached_requests": 514
+}
