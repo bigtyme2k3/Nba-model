@@ -4,6 +4,28 @@
     "pandas": "2.1.0",
     "scikit-learn": "1.3.2"
   },
+  "github_research_run": {
+    "credential_present": false,
+    "credits_spent": 0,
+    "head_sha": "d1f1a78311c763f1b43b6046c6177a36af9d39ad",
+    "independent_tests_passed": 112,
+    "independent_tests_run": 112,
+    "ingestion_status": "missing_api_key",
+    "job_conclusion": "failure_due_to_explicit_dependency_blocker",
+    "network_requests": 0,
+    "recovery_artifact_upload": "success",
+    "report_publication": "success",
+    "run_id": 37231822026
+  },
+  "github_validation": {
+    "conclusion": "success",
+    "core_imports": "passed",
+    "head_sha": "d1f1a78311c763f1b43b6046c6177a36af9d39ad",
+    "run_id": 37231822023,
+    "skipped": 0,
+    "tests_passed": 119,
+    "tests_run": 119
+  },
   "production_models_predictions_ledgers_raw_and_processed_data_unchanged": true,
   "real_api_response_spot_checks": "blocked: no key/real responses",
   "real_historical_market_rows": 0,
