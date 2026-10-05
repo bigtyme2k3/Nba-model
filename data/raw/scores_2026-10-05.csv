@@ -1,0 +1,6 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-05,401898388,STATUS_SCHEDULED,False,False,Atlanta Hawks,Memphis Grizzlies,0,0,0,0,,,,,,,,,ATL -3.5,232.5,State Farm Arena,0,2026-10-05T20:58:45.702629
+2026-10-05,401908947,STATUS_SCHEDULED,False,False,Detroit Pistons,Phoenix Suns,0,0,0,0,,,,,,,,,DET -2.5,216.5,Little Caesars Arena,0,2026-10-05T20:58:45.702646
+2026-10-05,401914101,STATUS_SCHEDULED,False,False,Philadelphia 76ers,New York Knicks,0,0,0,0,,,,,,,,,NY -4.5,227.5,Xfinity Mobile Arena,0,2026-10-05T20:58:45.702655
+2026-10-06,401914102,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Minnesota Timberwolves,0,0,0,0,,,,,,,,,MIN -4.5,229.5,Fiserv Forum,0,2026-10-05T20:58:45.702676
+2026-10-06,401898716,STATUS_SCHEDULED,False,False,Sacramento Kings,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -5.5,229.5,Golden 1 Center,0,2026-10-05T20:58:45.702684

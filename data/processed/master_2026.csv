@@ -1,0 +1,4 @@
+game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,actual_total,home_rest_days,home_back_to_back,home_three_in_four,away_rest_days,away_back_to_back,away_three_in_four,travel_direction,long_travel,east_to_west,west_to_east,home_rolling_5g,away_rolling_5g,rolling_diff_5g,pred_spread_rolling_5g,home_rolling_10g,away_rolling_10g,rolling_diff_10g,pred_spread_rolling_10g,season_game_num,month,is_playoff
+401902644,2026,2026-10-03,Toronto Raptors,105.0,Miami Heat,129.0,-24.0,234.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,1,10,0
+401914127,2026,2026-10-04,Denver Nuggets,97.0,Utah Jazz,109.0,-12.0,206.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,2,10,0
+401918010,2026,2026-10-04,LA Clippers,104.0,Golden State Warriors,101.0,3.0,205.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,3,10,0

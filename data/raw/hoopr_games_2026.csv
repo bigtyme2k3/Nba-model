@@ -1,0 +1,4 @@
+game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,actual_total
+401902644,2026,2026-10-03,Raptors,105.0,Heat,129.0,-24.0,234.0
+401914127,2026,2026-10-04,Nuggets,97.0,Jazz,109.0,-12.0,206.0
+401918010,2026,2026-10-04,Clippers,104.0,Warriors,101.0,3.0,205.0

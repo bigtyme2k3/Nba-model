@@ -1,15 +1,16 @@
 {
   "status": "READY",
-  "source_rows": 10566,
+  "source_rows": 10572,
   "teams": 30,
   "seasons": [
     2022,
     2023,
     2024,
-    2025
+    2025,
+    2026
   ],
   "min_game_date": "2021-10-19",
-  "max_game_date": "2025-06-22",
+  "max_game_date": "2026-10-04",
   "output": "data/processed/team_profiles_latest.csv",
   "policy": "COMPLETED_GAMES_ONLY"
 }

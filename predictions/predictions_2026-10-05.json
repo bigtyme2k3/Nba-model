@@ -1,0 +1,612 @@
+{
+  "date": "2026-10-05",
+  "generated": "2026-10-05T20:59:13.121057+00:00",
+  "model_version": "NBA_V1.0",
+  "games": [
+    {
+      "tip": "2026-10-05T23:00Z",
+      "home": {
+        "name": "Atlanta Hawks",
+        "abbr": "ATL",
+        "record": "?-?",
+        "net_rtg": -1.063
+      },
+      "away": {
+        "name": "Memphis Grizzlies",
+        "abbr": "MEM",
+        "record": "?-?",
+        "net_rtg": -3.065
+      },
+      "spread": {
+        "pred": 1.9,
+        "model_line": "Atlanta Hawks -1.9",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 126.7,
+        "line": 232.5,
+        "edge": -105.8,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [],
+      "flags": [
+        "Travel"
+      ],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": true,
+        "east_to_west": 0,
+        "west_to_east": 1,
+        "season_game_num": 20,
+        "month": 10
+      }
+    },
+    {
+      "tip": "2026-10-05T23:00Z",
+      "home": {
+        "name": "Detroit Pistons",
+        "abbr": "DET",
+        "record": "?-?",
+        "net_rtg": -2.01
+      },
+      "away": {
+        "name": "Phoenix Suns",
+        "abbr": "PHX",
+        "record": "?-?",
+        "net_rtg": -17.425
+      },
+      "spread": {
+        "pred": 6.0,
+        "model_line": "Detroit Pistons -6.0",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 122.7,
+        "line": 216.5,
+        "edge": -93.8,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [
+        {
+          "player": "Devin Booker",
+          "team": "Phoenix Suns",
+          "opp": "Detroit Pistons",
+          "pos": "G",
+          "proj_min": 35.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": null,
+          "rotation_risk_band": "UNKNOWN",
+          "projected_role": "UNKNOWN",
+          "profile_source": "SEED_FALLBACK",
+          "props": {
+            "pts": {
+              "pred": 24.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 6.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 35.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [
+        "Travel"
+      ],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": true,
+        "east_to_west": 0,
+        "west_to_east": 1,
+        "season_game_num": 20,
+        "month": 10
+      }
+    },
+    {
+      "tip": "2026-10-05T23:00Z",
+      "home": {
+        "name": "Philadelphia 76ers",
+        "abbr": "PHI",
+        "record": "?-?",
+        "net_rtg": -10.591
+      },
+      "away": {
+        "name": "New York Knicks",
+        "abbr": "NYK",
+        "record": "?-?",
+        "net_rtg": -1.447
+      },
+      "spread": {
+        "pred": -0.4,
+        "model_line": "Pick'em",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 125.3,
+        "line": 227.5,
+        "edge": -102.2,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [
+        {
+          "player": "Jalen Brunson",
+          "team": "New York Knicks",
+          "opp": "Philadelphia 76ers",
+          "pos": "G",
+          "proj_min": 35.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": null,
+          "rotation_risk_band": "UNKNOWN",
+          "projected_role": "UNKNOWN",
+          "profile_source": "SEED_FALLBACK",
+          "props": {
+            "pts": {
+              "pred": 25.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 6.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 36.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": false,
+        "east_to_west": 0,
+        "west_to_east": 0,
+        "season_game_num": 20,
+        "month": 10
+      }
+    },
+    {
+      "tip": "2026-10-06T00:00Z",
+      "home": {
+        "name": "Milwaukee Bucks",
+        "abbr": "MIL",
+        "record": "?-?",
+        "net_rtg": 0.666
+      },
+      "away": {
+        "name": "Minnesota Timberwolves",
+        "abbr": "MIN",
+        "record": "?-?",
+        "net_rtg": 0.507
+      },
+      "spread": {
+        "pred": 2.1,
+        "model_line": "Milwaukee Bucks -2.1",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 126.7,
+        "line": 229.5,
+        "edge": -102.8,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [
+        {
+          "player": "Anthony Edwards",
+          "team": "Minnesota Timberwolves",
+          "opp": "Milwaukee Bucks",
+          "pos": "G",
+          "proj_min": 36.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": null,
+          "rotation_risk_band": "UNKNOWN",
+          "projected_role": "UNKNOWN",
+          "profile_source": "SEED_FALLBACK",
+          "props": {
+            "pts": {
+              "pred": 25.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 5.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 35.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [
+        "Travel"
+      ],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": true,
+        "east_to_west": 0,
+        "west_to_east": 1,
+        "season_game_num": 20,
+        "month": 10
+      }
+    },
+    {
+      "tip": "2026-10-06T02:00Z",
+      "home": {
+        "name": "Sacramento Kings",
+        "abbr": "SAC",
+        "record": "?-?",
+        "net_rtg": -0.785
+      },
+      "away": {
+        "name": "Los Angeles Lakers",
+        "abbr": "LAL",
+        "record": "?-?",
+        "net_rtg": -1.017
+      },
+      "spread": {
+        "pred": 2.8,
+        "model_line": "Sacramento Kings -2.8",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 122.2,
+        "line": 229.5,
+        "edge": -107.3,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [
+        {
+          "player": "Luka Doncic",
+          "team": "Los Angeles Lakers",
+          "opp": "Sacramento Kings",
+          "pos": "G",
+          "proj_min": 35.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": null,
+          "rotation_risk_band": "UNKNOWN",
+          "projected_role": "UNKNOWN",
+          "profile_source": "SEED_FALLBACK",
+          "props": {
+            "pts": {
+              "pred": 28.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 8.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 8.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 46.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Domantas Sabonis",
+          "team": "Sacramento Kings",
+          "opp": "Los Angeles Lakers",
+          "pos": "C",
+          "proj_min": 34.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": null,
+          "rotation_risk_band": "UNKNOWN",
+          "projected_role": "UNKNOWN",
+          "profile_source": "SEED_FALLBACK",
+          "props": {
+            "pts": {
+              "pred": 20.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 12.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 6.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 39.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": false,
+        "east_to_west": 0,
+        "west_to_east": 0,
+        "season_game_num": 20,
+        "month": 10
+      }
+    }
+  ],
+  "best_bets": [
+    {
+      "type": "TOTAL",
+      "game": "Los Angeles Lakers @ Sacramento Kings",
+      "play": "UNDER 229.5",
+      "market_line": 229.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 122.2,
+      "edge": -107.3,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-06T02:00Z",
+      "rank": 1,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "type": "TOTAL",
+      "game": "Memphis Grizzlies @ Atlanta Hawks",
+      "play": "UNDER 232.5",
+      "market_line": 232.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 126.7,
+      "edge": -105.8,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-05T23:00Z",
+      "rank": 2,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "type": "TOTAL",
+      "game": "Minnesota Timberwolves @ Milwaukee Bucks",
+      "play": "UNDER 229.5",
+      "market_line": 229.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 126.7,
+      "edge": -102.8,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-06T00:00Z",
+      "rank": 3,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "type": "TOTAL",
+      "game": "New York Knicks @ Philadelphia 76ers",
+      "play": "UNDER 227.5",
+      "market_line": 227.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 125.3,
+      "edge": -102.2,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-05T23:00Z",
+      "rank": 4,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "type": "TOTAL",
+      "game": "Phoenix Suns @ Detroit Pistons",
+      "play": "UNDER 216.5",
+      "market_line": 216.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 122.7,
+      "edge": -93.8,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-05T23:00Z",
+      "rank": 5,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    }
+  ],
+  "model_stats": {
+    "spread": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "dir_acc": null,
+      "strong_ats": null,
+      "n": 0
+    },
+    "totals": {
+      "algo": "Ridge / RF",
+      "cv_mae": null,
+      "ou_acc": null,
+      "strong_ou": null,
+      "n": 0
+    },
+    "props": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "hit_rate": null,
+      "strong_hr": null,
+      "n": 0
+    }
+  }
+}
