@@ -1,0 +1,5 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-06,401901820,STATUS_SCHEDULED,False,False,Charlotte Hornets,Brooklyn Nets,0,0,0,0,,,,,,,,,CHA -5.5,212.5,Spectrum Center,0,2026-10-06T18:47:07.439114
+2026-10-07,401898389,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,New Orleans Pelicans,0,0,0,0,,,,,,,,,OKC -1.5,222.5,BOK Center,0,2026-10-06T18:47:07.439131
+2026-10-07,401914128,STATUS_SCHEDULED,False,False,Utah Jazz,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -1.5,230.5,Delta Center,0,2026-10-06T18:47:07.439136
+2026-10-07,401898390,STATUS_SCHEDULED,False,False,Golden State Warriors,Los Angeles Lakers,0,0,0,0,,,,,,,,,GS -4.5,220.5,Chase Center,0,2026-10-06T18:47:07.439147

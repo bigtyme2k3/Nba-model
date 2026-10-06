@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-05T20:59:14.309834+00:00",
-  "ledger_rows": 5,
+  "generated_at_utc": "2026-10-06T18:47:28.855443+00:00",
+  "ledger_rows": 9,
   "certified_rows": 0,
   "bet_rows": 0,
   "wins": 0,
@@ -9,8 +9,8 @@
   "hit_rate": null,
   "by_market": {},
   "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT_TOWARD_HIT_RATE",
-  "target_date": "2026-10-04",
+  "target_date": "2026-10-05",
   "newly_resolved": 0,
   "score_games_available": 0,
-  "player_actuals_available": 83
+  "player_actuals_available": 191
 }

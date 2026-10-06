@@ -3,5 +3,7 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-05,401898388,STATUS_SCHEDULED,False,False,Atlanta Hawks,Memphis Grizzlies,0,0,0,0,,,,,,,,,ATL -3.5,232.5,State Farm Arena,0,2026-10-05T20:58:45.702629
 2026-10-05,401908947,STATUS_SCHEDULED,False,False,Detroit Pistons,Phoenix Suns,0,0,0,0,,,,,,,,,DET -2.5,216.5,Little Caesars Arena,0,2026-10-05T20:58:45.702646
 2026-10-05,401914101,STATUS_SCHEDULED,False,False,Philadelphia 76ers,New York Knicks,0,0,0,0,,,,,,,,,NY -4.5,227.5,Xfinity Mobile Arena,0,2026-10-05T20:58:45.702655
-2026-10-06,401914102,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Minnesota Timberwolves,0,0,0,0,,,,,,,,,MIN -4.5,229.5,Fiserv Forum,0,2026-10-05T20:58:45.702676
-2026-10-06,401898716,STATUS_SCHEDULED,False,False,Sacramento Kings,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -5.5,229.5,Golden 1 Center,0,2026-10-05T20:58:45.702684
+2026-10-06,401901820,STATUS_SCHEDULED,False,False,Charlotte Hornets,Brooklyn Nets,0,0,0,0,,,,,,,,,CHA -5.5,212.5,Spectrum Center,0,2026-10-06T18:47:07.439114
+2026-10-07,401898389,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,New Orleans Pelicans,0,0,0,0,,,,,,,,,OKC -1.5,222.5,BOK Center,0,2026-10-06T18:47:07.439131
+2026-10-07,401914128,STATUS_SCHEDULED,False,False,Utah Jazz,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -1.5,230.5,Delta Center,0,2026-10-06T18:47:07.439136
+2026-10-07,401898390,STATUS_SCHEDULED,False,False,Golden State Warriors,Los Angeles Lakers,0,0,0,0,,,,,,,,,GS -4.5,220.5,Chase Center,0,2026-10-06T18:47:07.439147

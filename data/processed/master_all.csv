@@ -5480,3 +5480,8 @@ game_id,game_date,home_team,away_team,home_pts,away_pts,season,actual_spread,act
 401902644,2026-10-03,Toronto Raptors,Miami Heat,105.0,129.0,2026,-24.0,234.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,1,10,0
 401914127,2026-10-04,Denver Nuggets,Utah Jazz,97.0,109.0,2026,-12.0,206.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,2,10,0
 401918010,2026-10-04,LA Clippers,Golden State Warriors,104.0,101.0,2026,3.0,205.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,3,10,0
+401898388,2026-10-05,Atlanta Hawks,Memphis Grizzlies,123.0,132.0,2026,-9.0,255.0,,False,False,,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,4,10,0
+401908947,2026-10-05,Detroit Pistons,Phoenix Suns,109.0,107.0,2026,2.0,216.0,,False,False,,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,5,10,0
+401914101,2026-10-05,Philadelphia 76ers,New York Knicks,120.0,97.0,2026,23.0,217.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,6,10,0
+401914102,2026-10-05,Milwaukee Bucks,Minnesota Timberwolves,97.0,116.0,2026,-19.0,213.0,,False,False,,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,7,10,0
+401898716,2026-10-05,Sacramento Kings,Los Angeles Lakers,103.0,127.0,2026,-24.0,230.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,8,10,0
