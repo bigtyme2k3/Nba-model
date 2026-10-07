@@ -1,0 +1,6 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-07,401914123,STATUS_SCHEDULED,False,False,Indiana Pacers,Minnesota Timberwolves,0,0,0,0,,,,,,,,,MIN -2.5,235.5,Hilton Coliseum,0,2026-10-07T19:13:23.804342
+2026-10-08,401898391,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Orlando Magic,0,0,0,0,,,,,,,,,ORL -2.5,234.5,FedExForum,0,2026-10-07T19:13:23.804358
+2026-10-08,401908620,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Milwaukee Bucks,0,0,0,0,,,,,,,,,OKC -13.5,218.5,Paycom Center,0,2026-10-07T19:13:23.804364
+2026-10-08,401908939,STATUS_SCHEDULED,False,False,Chicago Bulls,Phoenix Suns,0,0,0,0,,,,,,,,,PHX -2.5,229.5,United Center,0,2026-10-07T19:13:23.804373
+2026-10-08,401914129,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Golden State Warriors,0,0,0,0,,,,,,,,,POR -13.5,216.5,Moda Center,0,2026-10-07T19:13:23.804377
