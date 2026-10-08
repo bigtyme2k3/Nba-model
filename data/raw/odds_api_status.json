@@ -1,8 +1,8 @@
 {
   "status": "missing_api_key",
-  "target_date": "2026-10-07",
+  "target_date": "2026-10-08",
   "source": "the-odds-api",
-  "checked_at_utc": "2026-10-07T19:13:22.644909+00:00",
+  "checked_at_utc": "2026-10-08T19:09:36.586423+00:00",
   "rows": 0,
   "http_status": null,
   "api_requests_used": null,
