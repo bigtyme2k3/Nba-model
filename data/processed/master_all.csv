@@ -5487,10 +5487,17 @@ game_id,game_date,home_team,away_team,home_pts,away_pts,season,actual_spread,act
 401898716,2026-10-05,Sacramento Kings,Los Angeles Lakers,103.0,127.0,2026,-24.0,230.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,8,10,0
 401914128,2026-10-06,Utah Jazz,Denver Nuggets,106.0,117.0,2026,-11.0,223.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,9,10,0
 401898390,2026-10-06,Golden State Warriors,Los Angeles Lakers,124.0,98.0,2026,26.0,222.0,,False,False,0.0,True,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,10,10,0
-401898389,2026-10-06,Oklahoma City Thunder,New Orleans Pelicans,110.0,116.0,2026,-6.0,226.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,11,10,0
-401901820,2026-10-06,Charlotte Hornets,Brooklyn Nets,90.0,124.0,2026,-34.0,214.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,12,10,0
-401898391,2026-10-07,Memphis Grizzlies,Orlando Magic,118.0,122.0,2026,-4.0,240.0,,False,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,13,10,0
-401908620,2026-10-07,Oklahoma City Thunder,Milwaukee Bucks,126.0,128.0,2026,-2.0,254.0,0.0,True,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,14,10,0
-401908939,2026-10-07,Chicago Bulls,Phoenix Suns,124.0,117.0,2026,7.0,241.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,15,10,0
-401914123,2026-10-07,Indiana Pacers,Minnesota Timberwolves,123.0,112.0,2026,11.0,235.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,16,10,0
+401901820,2026-10-06,Charlotte Hornets,Brooklyn Nets,90.0,124.0,2026,-34.0,214.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,11,10,0
+401898389,2026-10-06,Oklahoma City Thunder,New Orleans Pelicans,110.0,116.0,2026,-6.0,226.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,12,10,0
+401914123,2026-10-07,Indiana Pacers,Minnesota Timberwolves,123.0,112.0,2026,11.0,235.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,13,10,0
+401898391,2026-10-07,Memphis Grizzlies,Orlando Magic,118.0,122.0,2026,-4.0,240.0,,False,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,14,10,0
+401908620,2026-10-07,Oklahoma City Thunder,Milwaukee Bucks,126.0,128.0,2026,-2.0,254.0,0.0,True,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,15,10,0
+401908939,2026-10-07,Chicago Bulls,Phoenix Suns,124.0,117.0,2026,7.0,241.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,16,10,0
 401914129,2026-10-07,Portland Trail Blazers,Golden State Warriors,123.0,118.0,2026,5.0,241.0,,False,False,2.0,False,False,same_region,0,0,0,,11.5,-11.5,-5.75,,11.5,-11.5,-5.75,17,10,0
+401906508,2026-10-08,New York Knicks,Washington Wizards,109.0,111.0,2026,-2.0,220.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,18,10,0
+401898394,2026-10-08,San Antonio Spurs,Atlanta Hawks,116.0,123.0,2026,-7.0,239.0,,False,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,19,10,0
+401898717,2026-10-08,Los Angeles Lakers,Sacramento Kings,114.0,110.0,2026,4.0,224.0,,False,False,,False,False,same_region,0,0,0,-1.0,,-1.0,-0.5,-1.0,,-1.0,-0.5,20,10,0
+401898392,2026-10-08,Cleveland Cavaliers,Boston Celtics,113.0,124.0,2026,-11.0,237.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,21,10,0
+401898393,2026-10-08,Miami Heat,New Orleans Pelicans,128.0,118.0,2026,10.0,246.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,22,10,0
+401901823,2026-10-08,Brooklyn Nets,Philadelphia 76ers,114.0,108.0,2026,6.0,222.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,23,10,0
+401898395,2026-10-09,Dallas Mavericks,Houston Rockets,117.0,135.0,2026,-18.0,252.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,24,10,0

@@ -9,5 +9,5 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-08,401898393,STATUS_SCHEDULED,False,False,Miami Heat,New Orleans Pelicans,0,0,0,0,,,,,,,,,MIA -6.5,235.5,Kaseya Center,0,2026-10-08T19:09:37.971800
 2026-10-08,401901823,STATUS_SCHEDULED,False,False,Brooklyn Nets,Philadelphia 76ers,0,0,0,0,,,,,,,,,PHI -8.5,219.5,Barclays Center,0,2026-10-08T19:09:37.971809
 2026-10-08,401906508,STATUS_SCHEDULED,False,False,New York Knicks,Washington Wizards,0,0,0,0,,,,,,,,,NY -5.5,228.5,Madison Square Garden,0,2026-10-08T19:09:37.971825
-2026-10-09,401898394,STATUS_SCHEDULED,False,False,San Antonio Spurs,Atlanta Hawks,0,0,0,0,,,,,,,,,SA -8.5,226.5,Frost Bank Center,0,2026-10-08T19:09:37.971832
-2026-10-09,401898717,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Sacramento Kings,0,0,0,0,,,,,,,,,LAL -11.5,230.5,crypto.com Arena,0,2026-10-08T19:09:37.971839
+2026-10-09,401898395,STATUS_FINAL,True,False,Dallas Mavericks,Houston Rockets,117,135,-18,252,19.0,26.0,35.0,37.0,27.0,38.0,34.0,36.0,,,Venetian Arena,11564,2026-10-09T18:40:07.362911
+2026-10-10,401908940,STATUS_SCHEDULED,False,False,Chicago Bulls,Memphis Grizzlies,0,0,0,0,,,,,,,,,CHI -3.5,239.5,United Center,0,2026-10-09T18:40:07.362934
