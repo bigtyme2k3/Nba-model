@@ -1,3 +1,8 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-09,401898395,STATUS_FINAL,True,False,Dallas Mavericks,Houston Rockets,117,135,-18,252,19.0,26.0,35.0,37.0,27.0,38.0,34.0,36.0,,,Venetian Arena,11564,2026-10-09T18:40:07.362911
-2026-10-10,401908940,STATUS_SCHEDULED,False,False,Chicago Bulls,Memphis Grizzlies,0,0,0,0,,,,,,,,,CHI -3.5,239.5,United Center,0,2026-10-09T18:40:07.362934
+2026-10-10,401902645,STATUS_SCHEDULED,False,False,Toronto Raptors,LA Clippers,0,0,0,0,,,,,,,,,TOR -4.5,218.5,Rogers Arena,0,2026-10-10T17:39:52.597956
+2026-10-10,401898396,STATUS_SCHEDULED,False,False,Indiana Pacers,Atlanta Hawks,0,0,0,0,,,,,,,,,IND -2.5,236.5,Gainbridge Fieldhouse,0,2026-10-10T17:39:52.597972
+2026-10-10,401906510,STATUS_SCHEDULED,False,False,Washington Wizards,Detroit Pistons,0,0,0,0,,,,,,,,,DET -4.5,222.5,Capital One Arena,0,2026-10-10T17:39:52.597983
+2026-10-11,401898397,STATUS_SCHEDULED,False,False,Miami Heat,Minnesota Timberwolves,0,0,0,0,,,,,,,,,MIN -2.5,234.5,Kaseya Center,0,2026-10-10T17:39:52.598002
+2026-10-11,401898398,STATUS_SCHEDULED,False,False,Boston Celtics,Philadelphia 76ers,0,0,0,0,,,,,,,,,BOS -5.5,224.5,TD Garden,0,2026-10-10T17:39:52.598011
+2026-10-11,401898399,STATUS_SCHEDULED,False,False,Golden State Warriors,Sacramento Kings,0,0,0,0,,,,,,,,,GS -5.5,229.5,Chase Center,0,2026-10-10T17:39:52.598019
+2026-10-11,401898720,STATUS_SCHEDULED,False,False,Phoenix Suns,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -6.5,222.5,Mortgage Matchup Center,0,2026-10-10T17:39:52.598027
