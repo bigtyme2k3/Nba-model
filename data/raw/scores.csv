@@ -13,7 +13,7 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-10,401902645,STATUS_SCHEDULED,False,False,Toronto Raptors,LA Clippers,0,0,0,0,,,,,,,,,TOR -4.5,218.5,Rogers Arena,0,2026-10-10T17:39:52.597956
 2026-10-10,401898396,STATUS_SCHEDULED,False,False,Indiana Pacers,Atlanta Hawks,0,0,0,0,,,,,,,,,IND -2.5,236.5,Gainbridge Fieldhouse,0,2026-10-10T17:39:52.597972
 2026-10-10,401906510,STATUS_SCHEDULED,False,False,Washington Wizards,Detroit Pistons,0,0,0,0,,,,,,,,,DET -4.5,222.5,Capital One Arena,0,2026-10-10T17:39:52.597983
-2026-10-11,401898397,STATUS_SCHEDULED,False,False,Miami Heat,Minnesota Timberwolves,0,0,0,0,,,,,,,,,MIN -2.5,234.5,Kaseya Center,0,2026-10-10T17:39:52.598002
-2026-10-11,401898398,STATUS_SCHEDULED,False,False,Boston Celtics,Philadelphia 76ers,0,0,0,0,,,,,,,,,BOS -5.5,224.5,TD Garden,0,2026-10-10T17:39:52.598011
-2026-10-11,401898399,STATUS_SCHEDULED,False,False,Golden State Warriors,Sacramento Kings,0,0,0,0,,,,,,,,,GS -5.5,229.5,Chase Center,0,2026-10-10T17:39:52.598019
-2026-10-11,401898720,STATUS_SCHEDULED,False,False,Phoenix Suns,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -6.5,222.5,Mortgage Matchup Center,0,2026-10-10T17:39:52.598027
+2026-10-11,401898400,STATUS_FINAL,True,False,Houston Rockets,Dallas Mavericks,115,132,-17,247,27.0,24.0,34.0,30.0,28.0,30.0,37.0,37.0,,,Venetian Arena,11711,2026-10-11T17:54:58.690356
+2026-10-11,401898401,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Orlando Magic,0,0,0,0,,,,,,,,,CLE -5.5,228.5,Rocket Arena,0,2026-10-11T17:54:58.690368
+2026-10-11,401901821,STATUS_SCHEDULED,False,False,Charlotte Hornets,Milwaukee Bucks,0,0,0,0,,,,,,,,,CHA -4.5,221.5,Spectrum Center,0,2026-10-11T17:54:58.690373
+2026-10-12,401908941,STATUS_SCHEDULED,False,False,Denver Nuggets,Chicago Bulls,0,0,0,0,,,,,,,,,DEN -8.5,234.5,Ball Arena,0,2026-10-11T17:54:58.690384

@@ -1,0 +1,6371 @@
+{
+  "date": "2026-10-11",
+  "generated": "2026-10-11T17:55:22.481455+00:00",
+  "model_version": "NBA_V1.0",
+  "games": [
+    {
+      "tip": "2026-10-11T10:00Z",
+      "home": {
+        "name": "Houston Rockets",
+        "abbr": "HOU",
+        "record": "?-?",
+        "net_rtg": -2.14
+      },
+      "away": {
+        "name": "Dallas Mavericks",
+        "abbr": "DAL",
+        "record": "?-?",
+        "net_rtg": -9.861
+      },
+      "spread": {
+        "pred": 4.5,
+        "model_line": "Houston Rockets -4.5",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 129.1,
+        "line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "props": [
+        {
+          "player": "Kevin Durant",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "F",
+          "proj_min": 30.3,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 93.67,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 20.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 28.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Alperen Sengun",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "C",
+          "proj_min": 34.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 93.61,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 24.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 10.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 6.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 42.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Amen Thompson",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 32.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 94.33,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 19.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 7.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 29.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Bogdan Bogdanovic",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 17.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 92.28,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 9.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 13.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Bruce Thornton",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 13.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 52.33,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 9.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Caleb Martin",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 17.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 90.55,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Clint Capela",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "C",
+          "proj_min": 18.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.05,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 6.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 14.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Cooper Flagg",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 22.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.23,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 15.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 4.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 25.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Daniel Gafford",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 16.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 84.63,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "MIXED",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 13.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Dwight Powell",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 9.9,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 79.43,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Fred VanVleet",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 36.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 93.95,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 15.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 25.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Isaiah Crawford",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "F",
+          "proj_min": 6.3,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 65.0,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 5.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jabari Smith Jr.",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "F",
+          "proj_min": 20.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 88.08,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 13.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jett Howard",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "G",
+          "proj_min": 12.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 70.58,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "John Poulakidas",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "G",
+          "proj_min": 14.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Julian Phillips",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "F",
+          "proj_min": 13.7,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 72.47,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Kyrie Irving",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "G",
+          "proj_min": 28.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 78.6,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 19.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 29.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Marcus Smart",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 18.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 85.28,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Max Christie",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "G",
+          "proj_min": 24.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 86.57,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 9.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 14.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Morez Johnson Jr.",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 12.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Moussa Cisse",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "C",
+          "proj_min": 10.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 52.33,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 8.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Naji Marshall",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 27.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 89.52,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 18.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Oscar Tshiebwe",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "C",
+          "proj_min": 19.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 89.35,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 6.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 19.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "P.J. Washington",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 28.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 93.71,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 12.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 20.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Quadir Copeland",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 10.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.0,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Reed Sheppard",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 12.3,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 60.4,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Sean Pedulla",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "G",
+          "proj_min": 5.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 54.45,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 4.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Sergio de Larrea",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 23.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 62.48,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 13.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 4.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 22.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Seth Lundy",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "G",
+          "proj_min": 6.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 74.72,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 5.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Steven Adams",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "C",
+          "proj_min": 21.9,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.07,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tari Eason",
+          "team": "Houston Rockets",
+          "opp": "Dallas Mavericks",
+          "pos": "F",
+          "proj_min": 19.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 94.87,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 14.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tarik Biberovic",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 16.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 57.44,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 10.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tobi Lawal",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 12.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 55.25,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 10.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Zaccharie Risacher",
+          "team": "Dallas Mavericks",
+          "opp": "Houston Rockets",
+          "pos": "F",
+          "proj_min": 21.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 89.5,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": false,
+        "east_to_west": 0,
+        "west_to_east": 0,
+        "season_game_num": 20,
+        "month": 10
+      }
+    },
+    {
+      "tip": "2026-10-11T22:30Z",
+      "home": {
+        "name": "Cleveland Cavaliers",
+        "abbr": "CLE",
+        "record": "?-?",
+        "net_rtg": 12.213
+      },
+      "away": {
+        "name": "Orlando Magic",
+        "abbr": "ORL",
+        "record": "?-?",
+        "net_rtg": -2.44
+      },
+      "spread": {
+        "pred": 5.6,
+        "model_line": "Cleveland Cavaliers -5.6",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 123.3,
+        "line": 228.5,
+        "edge": -105.2,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [
+        {
+          "player": "Donovan Mitchell",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 29.9,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.91,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 27.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 4.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 37.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Paolo Banchero",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "F",
+          "proj_min": 34.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.8,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 25.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 6.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 5.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 37.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Alex Morales",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "G",
+          "proj_min": 24.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 8.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 16.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Colin Castleton",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "C",
+          "proj_min": 20.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 86.33,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 6.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 14.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Craig Porter Jr.",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 10.9,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 67.23,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Curtis Jones",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 1.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Desmond Bane",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "G",
+          "proj_min": 31.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.42,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 16.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 24.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Ernest Udeh Jr.",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "C",
+          "proj_min": 15.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 6.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Evan Mobley",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "C",
+          "proj_min": 30.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 92.99,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 15.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 7.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 25.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Franz Wagner",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "F",
+          "proj_min": 34.3,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.89,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 24.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 5.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 35.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Goga Bitadze",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "C",
+          "proj_min": 7.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 70.71,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 5.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "JD Davison",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "G",
+          "proj_min": 5.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 69.33,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 6.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jamal Cain",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "F",
+          "proj_min": 23.7,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 82.16,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 16.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 22.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jarrett Allen",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "C",
+          "proj_min": 27.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 92.79,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 7.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 20.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jase Richardson",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "G",
+          "proj_min": 23.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jaylon Tyson",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 10.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 61.0,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 10.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jevon Carter",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "G",
+          "proj_min": 16.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 75.45,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 11.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Kevin Knox II",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "F",
+          "proj_min": 8.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 72.02,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 8.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Malaki Branham",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "F",
+          "proj_min": 14.9,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 79.64,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Mario Hezonja",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "F",
+          "proj_min": 17.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 13.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Meleek Thomas",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 23.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Nikola Vucevic",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "C",
+          "proj_min": 26.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 87.77,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 13.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 8.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 24.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Peyton Watson",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 15.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.0,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Rashaun Agee",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "F",
+          "proj_min": 11.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Riley Minix",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "F",
+          "proj_min": 11.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 51.27,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Sam Merrill",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 18.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 82.78,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "MIXED",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Thomas Bryant",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "C",
+          "proj_min": 5.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 78.65,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 5.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tristan Enaruna",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "F",
+          "proj_min": 17.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tristan da Silva",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "F",
+          "proj_min": 14.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 64.24,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tyrese Proctor",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "G",
+          "proj_min": 21.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 10.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Wendell Carter Jr.",
+          "team": "Orlando Magic",
+          "opp": "Cleveland Cavaliers",
+          "pos": "C",
+          "proj_min": 29.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 90.74,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 8.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 21.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Zack Austin",
+          "team": "Cleveland Cavaliers",
+          "opp": "Orlando Magic",
+          "pos": "F",
+          "proj_min": 1.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": false,
+        "east_to_west": 0,
+        "west_to_east": 0,
+        "season_game_num": 20,
+        "month": 10
+      }
+    },
+    {
+      "tip": "2026-10-11T23:00Z",
+      "home": {
+        "name": "Charlotte Hornets",
+        "abbr": "CHA",
+        "record": "?-?",
+        "net_rtg": -16.338
+      },
+      "away": {
+        "name": "Milwaukee Bucks",
+        "abbr": "MIL",
+        "record": "?-?",
+        "net_rtg": -0.596
+      },
+      "spread": {
+        "pred": -1.6,
+        "model_line": "Milwaukee Bucks -1.6",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 120.1,
+        "line": 221.5,
+        "edge": -101.4,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [
+        {
+          "player": "AJ Green",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 25.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 84.07,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 13.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Bogoljub Markovic",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "F",
+          "proj_min": 6.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Brayden Burries",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 18.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.27,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 17.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Caris LeVert",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 24.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 90.64,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 12.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 19.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Cormac Ryan",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 11.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Dennis Schroder",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "G",
+          "proj_min": 25.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 89.88,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 9.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Gary Trent Jr.",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 31.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 82.35,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "MIXED",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 13.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 17.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Grayson Allen",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "G",
+          "proj_min": 22.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 79.1,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "MIXED",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 16.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Hannes Steinbach",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "F",
+          "proj_min": 14.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jaime Jaquez Jr.",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "F",
+          "proj_min": 12.3,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 62.99,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jarkel Joiner",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "G",
+          "proj_min": 14.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jericho Sims",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "C",
+          "proj_min": 14.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 90.71,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Kam Jones",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 10.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 8.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Kasparas Jakucionis",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 18.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Kel'el Ware",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "C",
+          "proj_min": 20.7,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 92.84,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 6.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 16.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Kevin Porter Jr.",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 28.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 85.47,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 13.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 4.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 20.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Kyle Kuzma",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "F",
+          "proj_min": 20.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 88.32,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Liam McNeeley",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "G",
+          "proj_min": 19.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 14.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Michael Ajayi",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "NAN",
+          "proj_min": 19.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 11.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Moussa Diabate",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "F",
+          "proj_min": 19.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 84.88,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 6.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 17.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Myles Turner",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "C",
+          "proj_min": 23.9,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 95.08,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 16.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Nate Ament",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "F",
+          "proj_min": 12.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 58.17,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 8.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Naz Reid",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "C",
+          "proj_min": 22.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.98,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 17.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Ousmane Dieng",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "F",
+          "proj_min": 6.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 65.0,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 6.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "PJ Hall",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "C",
+          "proj_min": 5.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 85.48,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Pat Connaughton",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "G",
+          "proj_min": 13.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 68.69,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Pete Nance",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "F",
+          "proj_min": 13.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 63.0,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Royce O'Neale",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "F",
+          "proj_min": 19.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 86.76,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 11.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Ryan Kalkbrenner",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "C",
+          "proj_min": 15.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 6.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Ryan Rollins",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 14.3,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 79.3,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 11.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Sion James",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "G",
+          "proj_min": 17.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 10.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tidjane Salaun",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "F",
+          "proj_min": 29.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 92.02,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 16.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tyler Herro",
+          "team": "Milwaukee Bucks",
+          "opp": "Charlotte Hornets",
+          "pos": "G",
+          "proj_min": 30.9,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 91.37,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 18.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 24.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Wyatt Fricks",
+          "team": "Charlotte Hornets",
+          "opp": "Milwaukee Bucks",
+          "pos": "F",
+          "proj_min": 13.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 6.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": false,
+        "east_to_west": 0,
+        "west_to_east": 0,
+        "season_game_num": 20,
+        "month": 10
+      }
+    },
+    {
+      "tip": "2026-10-12T01:00Z",
+      "home": {
+        "name": "Denver Nuggets",
+        "abbr": "DEN",
+        "record": "?-?",
+        "net_rtg": -5.317
+      },
+      "away": {
+        "name": "Chicago Bulls",
+        "abbr": "CHI",
+        "record": "?-?",
+        "net_rtg": 6.565
+      },
+      "spread": {
+        "pred": -2.5,
+        "model_line": "Chicago Bulls -2.5",
+        "posted_line": null,
+        "edge": null,
+        "play": null,
+        "juice": null,
+        "source": null,
+        "conf": "LOW",
+        "stars": 1
+      },
+      "totals": {
+        "pred": 125.4,
+        "line": 234.5,
+        "edge": -109.1,
+        "play": "UNDER",
+        "juice": null,
+        "source": null,
+        "conf": "HIGH",
+        "stars": 3
+      },
+      "props": [
+        {
+          "player": "Nikola Jokic",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "C",
+          "proj_min": 32.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 89.43,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 21.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 8.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 6.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 34.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Aaron Gordon",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 27.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 87.69,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 19.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Alpha Diallo",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 17.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 55.76,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 9.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 11.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Brandon Boston Jr.",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "G",
+          "proj_min": 4.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 60.11,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 2.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 3.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Bryce Hopkins",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 11.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 62.48,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 6.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Buddy Hield",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "G",
+          "proj_min": 26.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 84.43,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Caleb Wilson",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 30.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 62.28,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 18.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 24.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Cam Whitmore",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 9.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 61.0,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 6.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Cameron Johnson",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 23.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 89.66,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 18.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Christian Braun",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 30.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 88.74,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 5.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 18.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Coleman Hawkins",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 3.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 3.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "DaRon Holmes II",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 10.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 57.0,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Dailyn Swain",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "G",
+          "proj_min": 20.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 60.5,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 4.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 17.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Dane Goodwin",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 3.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.5,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 3.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "DeMar DeRozan",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 28.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 83.05,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 15.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 20.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Drew Peterson",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 7.7,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 71.56,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Emanuel Miller",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 4.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 58.88,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Isaac Okoro",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 15.7,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 84.61,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 8.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jalen Bridges",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 4.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 74.65,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 3.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 4.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jalen Smith",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 14.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 72.15,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 13.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Jamal Murray",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 36.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 92.03,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 17.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 25.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Josh Giddey",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "G",
+          "proj_min": 32.1,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 92.6,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 20.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 7.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 5.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 33.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Julian Strawther",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 15.2,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 79.26,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 12.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Leonard Miller",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 8.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 65.0,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 10.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Lonnie Walker IV",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 23.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 77.25,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Marvin Bagley III",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 13.6,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 73.83,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 7.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 4.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 11.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Matas Buzelis",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 24.8,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 89.9,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 10.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 15.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Noa Essengue",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 17.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 59.88,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Norman Powell",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "G",
+          "proj_min": 28.7,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 90.48,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "STARTER",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 13.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 3.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 2.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 19.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Patrick Williams",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 17.7,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 86.15,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 9.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Ryan Nembhard",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 16.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 62.94,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 6.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 1.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.0,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 11.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tobe Awaka",
+          "team": "Chicago Bulls",
+          "opp": "Denver Nuggets",
+          "pos": "F",
+          "proj_min": 22.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 51.67,
+          "rotation_risk_band": "VOLATILE",
+          "projected_role": "MIXED",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 11.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 8.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 1.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 20.4,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Trevon Brazile",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 18.5,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 61.16,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 5.1,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.5,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 8.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Tyus Jones",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "G",
+          "proj_min": 18.4,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 88.12,
+          "rotation_risk_band": "STABLE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 8.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.3,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 3.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 1.7,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 13.9,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        },
+        {
+          "player": "Zeke Nnaji",
+          "team": "Denver Nuggets",
+          "opp": "Chicago Bulls",
+          "pos": "F",
+          "proj_min": 9.0,
+          "b2b": false,
+          "injury_status": "ACTIVE_OR_UNKNOWN",
+          "rotation_stability_score": 79.17,
+          "rotation_risk_band": "MODERATE",
+          "projected_role": "BENCH",
+          "profile_source": "PRIOR_BOX_SCORES",
+          "props": {
+            "pts": {
+              "pred": 4.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "reb": {
+              "pred": 2.2,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "ast": {
+              "pred": 0.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "threes": {
+              "pred": 0.6,
+              "line": null,
+              "edge": null,
+              "signal": null
+            },
+            "pra": {
+              "pred": 7.8,
+              "line": null,
+              "edge": null,
+              "signal": null
+            }
+          }
+        }
+      ],
+      "flags": [
+        "Travel"
+      ],
+      "ctx": {
+        "home_rest_days": 2,
+        "away_rest_days": 2,
+        "home_b2b": false,
+        "away_b2b": false,
+        "home_3in4": false,
+        "away_3in4": false,
+        "long_travel": true,
+        "east_to_west": 1,
+        "west_to_east": 0,
+        "season_game_num": 20,
+        "month": 10
+      }
+    }
+  ],
+  "best_bets": [
+    {
+      "type": "TOTAL",
+      "game": "Chicago Bulls @ Denver Nuggets",
+      "play": "UNDER 234.5",
+      "market_line": 234.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 125.4,
+      "edge": -109.1,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-12T01:00Z",
+      "rank": 1,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "type": "TOTAL",
+      "game": "Orlando Magic @ Cleveland Cavaliers",
+      "play": "UNDER 228.5",
+      "market_line": 228.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 123.3,
+      "edge": -105.2,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-11T22:30Z",
+      "rank": 2,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "type": "TOTAL",
+      "game": "Milwaukee Bucks @ Charlotte Hornets",
+      "play": "UNDER 221.5",
+      "market_line": 221.5,
+      "market_odds": null,
+      "market_source": null,
+      "model_projection": 120.1,
+      "edge": -101.4,
+      "conf": "HIGH",
+      "stars": 3,
+      "tip": "2026-10-11T23:00Z",
+      "rank": 3,
+      "win_prob": 0.01,
+      "units": 0.0,
+      "dollar_amt": 0.0,
+      "verdict": "PASS"
+    }
+  ],
+  "model_stats": {
+    "spread": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "dir_acc": null,
+      "strong_ats": null,
+      "n": 0
+    },
+    "totals": {
+      "algo": "Ridge / RF",
+      "cv_mae": null,
+      "ou_acc": null,
+      "strong_ou": null,
+      "n": 0
+    },
+    "props": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "hit_rate": null,
+      "strong_hr": null,
+      "n": 0
+    }
+  }
+}
