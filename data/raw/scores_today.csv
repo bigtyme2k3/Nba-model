@@ -1,5 +1,6 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-11,401898400,STATUS_FINAL,True,False,Houston Rockets,Dallas Mavericks,115,132,-17,247,27.0,24.0,34.0,30.0,28.0,30.0,37.0,37.0,,,Venetian Arena,11711,2026-10-11T17:54:58.690356
-2026-10-11,401898401,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Orlando Magic,0,0,0,0,,,,,,,,,CLE -5.5,228.5,Rocket Arena,0,2026-10-11T17:54:58.690368
-2026-10-11,401901821,STATUS_SCHEDULED,False,False,Charlotte Hornets,Milwaukee Bucks,0,0,0,0,,,,,,,,,CHA -4.5,221.5,Spectrum Center,0,2026-10-11T17:54:58.690373
-2026-10-12,401908941,STATUS_SCHEDULED,False,False,Denver Nuggets,Chicago Bulls,0,0,0,0,,,,,,,,,DEN -8.5,234.5,Ball Arena,0,2026-10-11T17:54:58.690384
+2026-10-12,401914130,STATUS_IN_PROGRESS,False,True,Portland Trail Blazers,London Lions,93,38,55,131,34.0,38.0,21.0,,21.0,12.0,5.0,,,,Moda Center,5397,2026-10-12T21:34:37.220218
+2026-10-12,401898402,STATUS_SCHEDULED,False,False,Atlanta Hawks,Oklahoma City Thunder,0,0,0,0,,,,,,,,,ATL -3.5,222.5,State Farm Arena,0,2026-10-12T21:34:37.220238
+2026-10-12,401901824,STATUS_SCHEDULED,False,False,Washington Wizards,Brooklyn Nets,0,0,0,0,,,,,,,,,WSH -3.5,222.5,Capital One Arena,0,2026-10-12T21:34:37.220247
+2026-10-12,401914124,STATUS_SCHEDULED,False,False,New York Knicks,Minnesota Timberwolves,0,0,0,0,,,,,,,,,NY -1.5,227.5,Madison Square Garden,0,2026-10-12T21:34:37.220266
+2026-10-13,401898721,STATUS_SCHEDULED,False,False,Utah Jazz,San Antonio Spurs,0,0,0,0,,,,,,,,,UTAH -4.5,226.5,Delta Center,0,2026-10-12T21:34:37.220274
