@@ -1,0 +1,6 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-13,401898403,STATUS_SCHEDULED,False,False,Orlando Magic,Cleveland Cavaliers,0,0,0,0,,,,,,,,,CLE -1.5,228.5,Kia Center,0,2026-10-13T19:45:39.358454
+2026-10-13,401908944,STATUS_SCHEDULED,False,False,Toronto Raptors,New York Knicks,0,0,0,0,,,,,,,,,TOR -10.5,218.5,Scotiabank Arena,0,2026-10-13T19:45:39.358475
+2026-10-14,401908621,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Indiana Pacers,0,0,0,0,,,,,,,,,OKC -8.5,228.5,Paycom Center,0,2026-10-13T19:45:39.358483
+2026-10-14,401898718,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Golden State Warriors,0,0,0,0,,,,,,,,,LAL -1.5,228.5,T-Mobile Arena,0,2026-10-13T19:45:39.358497
+2026-10-14,401901826,STATUS_SCHEDULED,False,False,Sacramento Kings,Portland Trail Blazers,0,0,0,0,,,,,,,,,SAC -2.5,228.5,Golden 1 Center,0,2026-10-13T19:45:39.358504

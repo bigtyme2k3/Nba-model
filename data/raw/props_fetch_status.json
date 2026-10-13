@@ -1,12 +1,12 @@
 {
   "status": "error",
-  "target_date": "2026-10-12",
+  "target_date": "2026-10-13",
   "league_id": 7,
-  "checked_at_utc": "2026-10-12T21:34:36.489005+00:00",
+  "checked_at_utc": "2026-10-13T19:45:38.654480+00:00",
   "raw_projection_count": 0,
   "included_count": 0,
   "parsed_rows": 0,
   "points_rows": 0,
   "unique_players": 0,
-  "error": "PrizePicks returned HTTP 403: {\"url\":\"https://geo.captcha-delivery.com/interstitial/?initialCid=AHrlqAAAAAMAHG8hPgYjI24AMNlrcw==&cid=7nzPb09JeGpSv~Kjg2GaRa6ccB1waTHctli6Mu3DXm0A1DK0bf3qPTgSOe_xR4mGKkKchkwdJVCb93LCdMT7_a0qGzv9Kjny4yv0~cmkYuy_ifcXnG8qAggrmKDtq3Q8&referer=https%3A%2F%2Fapi.prizepicks.com%2Fprojections%3Fleague_id%3"
+  "error": "PrizePicks returned HTTP 403: {\"url\":\"https://geo.captcha-delivery.com/interstitial/?initialCid=AHrlqAAAAAMAreF1nWMF1-4AFKsnMA==&cid=UJWSaBmH6C7lbRs9CI~ctbCVxqc6lnypGnTct31xKXL5xoyH4dSqa~CpDvNNCdkBMobsGYIsHVwndCmZCyEMIo_IQBXxAjXrVuSPJevGWk3Kvh08X7s4EV~lQnHWiuwC&referer=https%3A%2F%2Fapi.prizepicks.com%2Fprojections%3Fleague_id%3"
 }
