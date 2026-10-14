@@ -22,6 +22,10 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-12,401914124,STATUS_SCHEDULED,False,False,New York Knicks,Minnesota Timberwolves,0,0,0,0,,,,,,,,,NY -1.5,227.5,Madison Square Garden,0,2026-10-12T21:34:37.220266
 2026-10-13,401898403,STATUS_SCHEDULED,False,False,Orlando Magic,Cleveland Cavaliers,0,0,0,0,,,,,,,,,CLE -1.5,228.5,Kia Center,0,2026-10-13T19:45:39.358454
 2026-10-13,401908944,STATUS_SCHEDULED,False,False,Toronto Raptors,New York Knicks,0,0,0,0,,,,,,,,,TOR -10.5,218.5,Scotiabank Arena,0,2026-10-13T19:45:39.358475
-2026-10-14,401908621,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Indiana Pacers,0,0,0,0,,,,,,,,,OKC -8.5,228.5,Paycom Center,0,2026-10-13T19:45:39.358483
-2026-10-14,401898718,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Golden State Warriors,0,0,0,0,,,,,,,,,LAL -1.5,228.5,T-Mobile Arena,0,2026-10-13T19:45:39.358497
-2026-10-14,401901826,STATUS_SCHEDULED,False,False,Sacramento Kings,Portland Trail Blazers,0,0,0,0,,,,,,,,,SAC -2.5,228.5,Golden 1 Center,0,2026-10-13T19:45:39.358504
+2026-10-14,401898404,STATUS_SCHEDULED,False,False,Miami Heat,Brooklyn Nets,0,0,0,0,,,,,,,,,MIA -6.5,232.5,Kaseya Center,0,2026-10-14T17:48:07.545919
+2026-10-14,401898405,STATUS_SCHEDULED,False,False,Boston Celtics,Charlotte Hornets,0,0,0,0,,,,,,,,,BOS -8.5,225.5,TD Garden,0,2026-10-14T17:48:07.545932
+2026-10-15,401898722,STATUS_SCHEDULED,False,False,San Antonio Spurs,Phoenix Suns,0,0,0,0,,,,,,,,,SA -8.5,222.5,Frost Bank Center,0,2026-10-14T17:48:07.545937
+2026-10-15,401901825,STATUS_SCHEDULED,False,False,Dallas Mavericks,New Orleans Pelicans,0,0,0,0,,,,,,,,,NO -1.5,231.5,American Airlines Center,0,2026-10-14T17:48:07.545946
+2026-10-15,401908942,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Chicago Bulls,0,0,0,0,,,,,,,,,CHI -1.5,231.5,Fiserv Forum,0,2026-10-14T17:48:07.545950
+2026-10-15,401914125,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Detroit Pistons,0,0,0,0,,,,,,,,,MIN -4.5,226.5,Target Center,0,2026-10-14T17:48:07.545954
+2026-10-15,401918011,STATUS_SCHEDULED,False,False,LA Clippers,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -2.5,225.5,Intuit Dome,0,2026-10-14T17:48:07.545958
