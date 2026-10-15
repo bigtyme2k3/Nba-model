@@ -7,41 +7,48 @@ game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,act
 401914101,2026,2026-10-05,Philadelphia 76ers,120.0,New York Knicks,97.0,23.0,217.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,6,10,0
 401914102,2026,2026-10-05,Milwaukee Bucks,97.0,Minnesota Timberwolves,116.0,-19.0,213.0,,False,False,,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,7,10,0
 401898716,2026,2026-10-05,Sacramento Kings,103.0,Los Angeles Lakers,127.0,-24.0,230.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,8,10,0
-401898390,2026,2026-10-06,Golden State Warriors,124.0,Los Angeles Lakers,98.0,26.0,222.0,,False,False,0.0,True,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,9,10,0
-401914128,2026,2026-10-06,Utah Jazz,106.0,Denver Nuggets,117.0,-11.0,223.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,10,10,0
-401898389,2026,2026-10-06,Oklahoma City Thunder,110.0,New Orleans Pelicans,116.0,-6.0,226.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,11,10,0
-401901820,2026,2026-10-06,Charlotte Hornets,90.0,Brooklyn Nets,124.0,-34.0,214.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,12,10,0
-401914123,2026,2026-10-07,Indiana Pacers,123.0,Minnesota Timberwolves,112.0,11.0,235.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,13,10,0
-401898391,2026,2026-10-07,Memphis Grizzlies,118.0,Orlando Magic,122.0,-4.0,240.0,,False,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,14,10,0
-401908620,2026,2026-10-07,Oklahoma City Thunder,126.0,Milwaukee Bucks,128.0,-2.0,254.0,0.0,True,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,15,10,0
-401908939,2026,2026-10-07,Chicago Bulls,124.0,Phoenix Suns,117.0,7.0,241.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,16,10,0
-401914129,2026,2026-10-07,Portland Trail Blazers,123.0,Golden State Warriors,118.0,5.0,241.0,,False,False,2.0,False,False,same_region,0,0,0,,11.5,-11.5,-5.75,,11.5,-11.5,-5.75,17,10,0
-401898394,2026,2026-10-08,San Antonio Spurs,116.0,Atlanta Hawks,123.0,-7.0,239.0,,False,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,18,10,0
-401906508,2026,2026-10-08,New York Knicks,109.0,Washington Wizards,111.0,-2.0,220.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,19,10,0
-401898717,2026,2026-10-08,Los Angeles Lakers,114.0,Sacramento Kings,110.0,4.0,224.0,,False,False,,False,False,same_region,0,0,0,-1.0,,-1.0,-0.5,-1.0,,-1.0,-0.5,20,10,0
-401898393,2026,2026-10-08,Miami Heat,128.0,New Orleans Pelicans,118.0,10.0,246.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,21,10,0
-401898392,2026,2026-10-08,Cleveland Cavaliers,113.0,Boston Celtics,124.0,-11.0,237.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,22,10,0
-401901823,2026,2026-10-08,Brooklyn Nets,114.0,Philadelphia 76ers,108.0,6.0,222.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,23,10,0
+401901820,2026,2026-10-06,Charlotte Hornets,90.0,Brooklyn Nets,124.0,-34.0,214.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,9,10,0
+401898389,2026,2026-10-06,Oklahoma City Thunder,110.0,New Orleans Pelicans,116.0,-6.0,226.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,10,10,0
+401914128,2026,2026-10-06,Utah Jazz,106.0,Denver Nuggets,117.0,-11.0,223.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,11,10,0
+401898390,2026,2026-10-06,Golden State Warriors,124.0,Los Angeles Lakers,98.0,26.0,222.0,,False,False,0.0,True,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,12,10,0
+401898391,2026,2026-10-07,Memphis Grizzlies,118.0,Orlando Magic,122.0,-4.0,240.0,,False,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,13,10,0
+401914129,2026,2026-10-07,Portland Trail Blazers,123.0,Golden State Warriors,118.0,5.0,241.0,,False,False,2.0,False,False,same_region,0,0,0,,11.5,-11.5,-5.75,,11.5,-11.5,-5.75,14,10,0
+401914123,2026,2026-10-07,Indiana Pacers,123.0,Minnesota Timberwolves,112.0,11.0,235.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,15,10,0
+401908620,2026,2026-10-07,Oklahoma City Thunder,126.0,Milwaukee Bucks,128.0,-2.0,254.0,0.0,True,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,16,10,0
+401908939,2026,2026-10-07,Chicago Bulls,124.0,Phoenix Suns,117.0,7.0,241.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,17,10,0
+401898392,2026,2026-10-08,Cleveland Cavaliers,113.0,Boston Celtics,124.0,-11.0,237.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,18,10,0
+401898393,2026,2026-10-08,Miami Heat,128.0,New Orleans Pelicans,118.0,10.0,246.0,,False,False,1.0,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,19,10,0
+401901823,2026,2026-10-08,Brooklyn Nets,114.0,Philadelphia 76ers,108.0,6.0,222.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,20,10,0
+401906508,2026,2026-10-08,New York Knicks,109.0,Washington Wizards,111.0,-2.0,220.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,21,10,0
+401898394,2026,2026-10-08,San Antonio Spurs,116.0,Atlanta Hawks,123.0,-7.0,239.0,,False,False,,False,False,east_to_west,1,1,0,,,0.0,0.0,,,0.0,0.0,22,10,0
+401898717,2026,2026-10-08,Los Angeles Lakers,114.0,Sacramento Kings,110.0,4.0,224.0,,False,False,,False,False,same_region,0,0,0,-1.0,,-1.0,-0.5,-1.0,,-1.0,-0.5,23,10,0
 401898395,2026,2026-10-09,Dallas Mavericks,117.0,Houston Rockets,135.0,-18.0,252.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,24,10,0
 401908940,2026,2026-10-09,Chicago Bulls,100.0,Memphis Grizzlies,104.0,-4.0,204.0,1.0,False,False,3.0,False,False,west_to_east,1,0,1,,2.5,-2.5,-1.25,,2.5,-2.5,-1.25,25,10,0
-401902645,2026,2026-10-10,Toronto Raptors,114.0,LA Clippers,106.0,8.0,220.0,6.0,False,False,,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,26,10,0
-401898396,2026,2026-10-10,Indiana Pacers,117.0,Atlanta Hawks,119.0,-2.0,236.0,2.0,False,False,1.0,False,False,same_region,0,0,0,,-1.0,1.0,0.5,,-1.0,1.0,0.5,27,10,0
-401906510,2026,2026-10-10,Washington Wizards,114.0,Detroit Pistons,108.0,6.0,222.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,28,10,0
-401898397,2026,2026-10-10,Miami Heat,124.0,Minnesota Timberwolves,125.0,-1.0,249.0,1.0,False,False,2.0,False,False,west_to_east,1,0,1,17.0,4.0,13.0,6.5,17.0,4.0,13.0,6.5,29,10,0
-401898398,2026,2026-10-10,Boston Celtics,144.0,Philadelphia 76ers,106.0,38.0,250.0,,False,False,1.0,False,False,same_region,0,0,0,,8.5,-8.5,-4.25,,8.5,-8.5,-4.25,30,10,0
-401898399,2026,2026-10-10,Golden State Warriors,111.0,Sacramento Kings,106.0,5.0,217.0,3.0,False,False,1.0,False,False,same_region,0,0,0,6.0,-14.0,20.0,10.0,6.0,-14.0,20.0,10.0,31,10,0
-401898720,2026,2026-10-10,Phoenix Suns,102.0,San Antonio Spurs,98.0,4.0,200.0,,False,False,,False,False,same_region,0,0,0,-4.5,,-4.5,-2.25,-4.5,,-4.5,-2.25,32,10,0
-401901821,2026,2026-10-11,Charlotte Hornets,105.0,Milwaukee Bucks,90.0,15.0,195.0,4.0,False,False,3.0,False,False,same_region,0,0,0,,-8.5,8.5,4.25,,-8.5,8.5,4.25,33,10,0
-401908941,2026,2026-10-11,Denver Nuggets,133.0,Chicago Bulls,128.0,5.0,261.0,6.0,False,False,,False,False,east_to_west,1,1,0,-0.5,1.5,-2.0,-1.0,-0.5,1.5,-2.0,-1.0,34,10,0
-401898401,2026,2026-10-11,Cleveland Cavaliers,119.0,Orlando Magic,105.0,14.0,224.0,2.0,False,False,3.0,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,35,10,0
-401898400,2026,2026-10-11,Houston Rockets,115.0,Dallas Mavericks,132.0,-17.0,247.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,36,10,0
-401914130,2026,2026-10-12,Portland Trail Blazers,119.0,Lions,66.0,53.0,185.0,4.0,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,37,10,0
+401898396,2026,2026-10-10,Indiana Pacers,117.0,Atlanta Hawks,119.0,-2.0,236.0,2.0,False,False,1.0,False,False,same_region,0,0,0,,-1.0,1.0,0.5,,-1.0,1.0,0.5,26,10,0
+401898399,2026,2026-10-10,Golden State Warriors,111.0,Sacramento Kings,106.0,5.0,217.0,3.0,False,False,1.0,False,False,same_region,0,0,0,6.0,-14.0,20.0,10.0,6.0,-14.0,20.0,10.0,27,10,0
+401898398,2026,2026-10-10,Boston Celtics,144.0,Philadelphia 76ers,106.0,38.0,250.0,,False,False,1.0,False,False,same_region,0,0,0,,8.5,-8.5,-4.25,,8.5,-8.5,-4.25,28,10,0
+401902645,2026,2026-10-10,Toronto Raptors,114.0,LA Clippers,106.0,8.0,220.0,6.0,False,False,,False,False,west_to_east,1,0,1,,,0.0,0.0,,,0.0,0.0,29,10,0
+401906510,2026,2026-10-10,Washington Wizards,114.0,Detroit Pistons,108.0,6.0,222.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,30,10,0
+401898720,2026,2026-10-10,Phoenix Suns,102.0,San Antonio Spurs,98.0,4.0,200.0,,False,False,,False,False,same_region,0,0,0,-4.5,,-4.5,-2.25,-4.5,,-4.5,-2.25,31,10,0
+401898397,2026,2026-10-10,Miami Heat,124.0,Minnesota Timberwolves,125.0,-1.0,249.0,1.0,False,False,2.0,False,False,west_to_east,1,0,1,17.0,4.0,13.0,6.5,17.0,4.0,13.0,6.5,32,10,0
+401898400,2026,2026-10-11,Houston Rockets,115.0,Dallas Mavericks,132.0,-17.0,247.0,,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,33,10,0
+401898401,2026,2026-10-11,Cleveland Cavaliers,119.0,Orlando Magic,105.0,14.0,224.0,2.0,False,False,3.0,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,34,10,0
+401901821,2026,2026-10-11,Charlotte Hornets,105.0,Milwaukee Bucks,90.0,15.0,195.0,4.0,False,False,3.0,False,False,same_region,0,0,0,,-8.5,8.5,4.25,,-8.5,8.5,4.25,35,10,0
+401908941,2026,2026-10-11,Denver Nuggets,133.0,Chicago Bulls,128.0,5.0,261.0,6.0,False,False,,False,False,east_to_west,1,1,0,-0.5,1.5,-2.0,-1.0,-0.5,1.5,-2.0,-1.0,36,10,0
+401914124,2026,2026-10-12,New York Knicks,104.0,Minnesota Timberwolves,122.0,-18.0,226.0,3.0,False,False,1.0,False,False,west_to_east,1,0,1,-12.5,3.0,-15.5,-7.75,-12.5,3.0,-15.5,-7.75,37,10,0
 401898402,2026,2026-10-12,Atlanta Hawks,113.0,Oklahoma City Thunder,110.0,3.0,223.0,6.0,False,False,,False,False,west_to_east,1,0,1,0.0,-4.0,4.0,2.0,0.0,-4.0,4.0,2.0,38,10,0
 401901824,2026,2026-10-12,Washington Wizards,122.0,Brooklyn Nets,131.0,-9.0,253.0,1.0,False,False,5.0,False,False,same_region,0,0,0,4.0,20.0,-16.0,-8.0,4.0,20.0,-16.0,-8.0,39,10,0
-401914124,2026,2026-10-12,New York Knicks,104.0,Minnesota Timberwolves,122.0,-18.0,226.0,3.0,False,False,1.0,False,False,west_to_east,1,0,1,-12.5,3.0,-15.5,-7.75,-12.5,3.0,-15.5,-7.75,40,10,0
+401914130,2026,2026-10-12,Portland Trail Blazers,119.0,Lions,66.0,53.0,185.0,4.0,False,False,,False,False,same_region,0,0,0,,,0.0,0.0,,,0.0,0.0,40,10,0
 401898721,2026,2026-10-12,Utah Jazz,119.0,San Antonio Spurs,109.0,10.0,228.0,5.0,False,False,1.0,False,False,same_region,0,0,0,0.5,-5.5,6.0,3.0,0.5,-5.5,6.0,3.0,41,10,0
-401908944,2026,2026-10-13,Toronto Raptors,148.0,New York Knicks,98.0,50.0,246.0,2.0,False,False,7.0,False,False,same_region,0,0,0,-8.0,-14.333333333333334,6.333333333333334,3.166666666666667,-8.0,-14.333333333333334,6.333333333333334,3.166666666666667,42,10,0
-401908621,2026,2026-10-13,Oklahoma City Thunder,114.0,Indiana Pacers,112.0,2.0,226.0,5.0,False,False,,False,False,east_to_west,1,1,0,-3.6666666666666665,4.5,-8.166666666666666,-4.083333333333333,-3.6666666666666665,4.5,-8.166666666666666,-4.083333333333333,43,10,0
-401898718,2026,2026-10-13,Los Angeles Lakers,89.0,Golden State Warriors,101.0,-12.0,190.0,4.0,False,False,5.0,False,False,same_region,0,0,0,0.6666666666666666,5.75,-5.083333333333333,-2.5416666666666665,0.6666666666666666,5.75,-5.083333333333333,-2.5416666666666665,44,10,0
-401898403,2026,2026-10-13,Orlando Magic,132.0,Cleveland Cavaliers,116.0,16.0,248.0,,False,False,,False,False,same_region,0,0,0,-5.0,1.5,-6.5,-3.25,-5.0,1.5,-6.5,-3.25,45,10,0
+401898403,2026,2026-10-13,Orlando Magic,132.0,Cleveland Cavaliers,116.0,16.0,248.0,,False,False,,False,False,same_region,0,0,0,-5.0,1.5,-6.5,-3.25,-5.0,1.5,-6.5,-3.25,42,10,0
+401908944,2026,2026-10-13,Toronto Raptors,148.0,New York Knicks,98.0,50.0,246.0,2.0,False,False,7.0,False,False,same_region,0,0,0,-8.0,-14.333333333333334,6.333333333333334,3.166666666666667,-8.0,-14.333333333333334,6.333333333333334,3.166666666666667,43,10,0
+401908621,2026,2026-10-13,Oklahoma City Thunder,114.0,Indiana Pacers,112.0,2.0,226.0,5.0,False,False,,False,False,east_to_west,1,1,0,-3.6666666666666665,4.5,-8.166666666666666,-4.083333333333333,-3.6666666666666665,4.5,-8.166666666666666,-4.083333333333333,44,10,0
+401898718,2026,2026-10-13,Los Angeles Lakers,89.0,Golden State Warriors,101.0,-12.0,190.0,4.0,False,False,5.0,False,False,same_region,0,0,0,0.6666666666666666,5.75,-5.083333333333333,-2.5416666666666665,0.6666666666666666,5.75,-5.083333333333333,-2.5416666666666665,45,10,0
 401901826,2026,2026-10-13,Sacramento Kings,98.0,Portland Trail Blazers,110.0,-12.0,208.0,7.0,False,False,,False,False,same_region,0,0,0,-11.0,29.0,-40.0,-20.0,-11.0,29.0,-40.0,-20.0,46,10,0
+401901825,2026,2026-10-14,Dallas Mavericks,97.0,New Orleans Pelicans,101.0,-4.0,198.0,4.0,False,False,5.0,False,False,same_region,0,0,0,-0.5,-2.0,1.5,0.75,-0.5,-2.0,1.5,0.75,47,10,0
+401908942,2026,2026-10-14,Milwaukee Bucks,104.0,Chicago Bulls,125.0,-21.0,229.0,8.0,False,False,2.0,False,False,same_region,0,0,0,-10.666666666666666,-0.6666666666666666,-10.0,-5.0,-10.666666666666666,-0.6666666666666666,-10.0,-5.0,48,10,0
+401914125,2026,2026-10-14,Minnesota Timberwolves,106.0,Detroit Pistons,128.0,-22.0,234.0,,False,False,3.0,False,False,east_to_west,1,1,0,6.75,-2.0,8.75,4.375,6.75,-2.0,8.75,4.375,49,10,0
+401898404,2026,2026-10-14,Miami Heat,144.0,Brooklyn Nets,128.0,16.0,272.0,3.0,False,False,1.0,False,False,same_region,0,0,0,11.0,16.333333333333332,-5.333333333333332,-2.666666666666666,11.0,16.333333333333332,-5.333333333333332,-2.666666666666666,50,10,0
+401898405,2026,2026-10-14,Boston Celtics,114.0,Charlotte Hornets,93.0,21.0,207.0,3.0,False,False,,False,False,same_region,0,0,0,24.5,-9.5,34.0,17.0,24.5,-9.5,34.0,17.0,51,10,0
+401898722,2026,2026-10-14,San Antonio Spurs,123.0,Phoenix Suns,103.0,20.0,226.0,5.0,False,False,6.0,False,False,same_region,0,0,0,-7.0,-1.6666666666666667,-5.333333333333333,-2.6666666666666665,-7.0,-1.6666666666666667,-5.333333333333333,-2.6666666666666665,52,10,0
+401918011,2026,2026-10-14,LA Clippers,122.0,Denver Nuggets,110.0,12.0,232.0,9.0,False,False,7.0,False,False,same_region,0,0,0,-2.5,1.3333333333333333,-3.833333333333333,-1.9166666666666665,-2.5,1.3333333333333333,-3.833333333333333,-1.9166666666666665,53,10,0
