@@ -1,0 +1,13 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-16,401898406,STATUS_SCHEDULED,False,False,Orlando Magic,Miami Heat,0,0,0,0,,,,,,,,,ORL -2.5,234.5,Kia Center,0,2026-10-16T17:11:21.291760
+2026-10-16,401898407,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Boston Celtics,0,0,0,0,,,,,,,,,PHI -4.5,225.5,Xfinity Mobile Arena,0,2026-10-16T17:11:21.291776
+2026-10-16,401908946,STATUS_SCHEDULED,False,False,Detroit Pistons,Toronto Raptors,0,0,0,0,,,,,,,,,DET -9.5,218.5,Little Caesars Arena,0,2026-10-16T17:11:21.291785
+2026-10-16,401914126,STATUS_SCHEDULED,False,False,Indiana Pacers,Milwaukee Bucks,0,0,0,0,,,,,,,,,IND -7.5,234.5,Gainbridge Fieldhouse,0,2026-10-16T17:11:21.291804
+2026-10-17,401898408,STATUS_SCHEDULED,False,False,Dallas Mavericks,Atlanta Hawks,0,0,0,0,,,,,,,,,DAL -1.5,233.5,American Airlines Center,0,2026-10-16T17:11:21.291812
+2026-10-17,401898843,STATUS_SCHEDULED,False,False,San Antonio Spurs,Sacramento Kings,0,0,0,0,,,,,,,,,SA -16.5,230.5,Frost Bank Center,0,2026-10-16T17:11:21.291819
+2026-10-17,401901822,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Charlotte Hornets,0,0,0,0,,,,,,,,,CHA -1.5,231.5,FedExForum,0,2026-10-16T17:11:21.291826
+2026-10-17,401906509,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Washington Wizards,0,0,0,0,,,,,,,,,WSH -2.5,230.5,Smoothie King Center,0,2026-10-16T17:11:21.291841
+2026-10-17,401908943,STATUS_SCHEDULED,False,False,Chicago Bulls,Minnesota Timberwolves,0,0,0,0,,,,,,,,,MIN -1.5,234.5,United Center,0,2026-10-16T17:11:21.291850
+2026-10-17,401898409,STATUS_SCHEDULED,False,False,Golden State Warriors,Portland Trail Blazers,0,0,0,0,,,,,,,,,POR -3.5,225.5,Chase Center,0,2026-10-16T17:11:21.291857
+2026-10-17,401908948,STATUS_SCHEDULED,False,False,Phoenix Suns,Utah Jazz,0,0,0,0,,,,,,,,,PHX -4.5,225.5,Mortgage Matchup Center,0,2026-10-16T17:11:21.291863
+2026-10-17,401898719,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Denver Nuggets,0,0,0,0,,,,,,,,,LAL -6.5,231.5,crypto.com Arena,0,2026-10-16T17:11:21.291870

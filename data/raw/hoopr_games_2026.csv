@@ -52,3 +52,5 @@ game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,act
 401908942,2026,2026-10-14,Bucks,104.0,Bulls,125.0,-21.0,229.0
 401914125,2026,2026-10-14,Timberwolves,106.0,Pistons,128.0,-22.0,234.0
 401918011,2026,2026-10-14,Clippers,122.0,Nuggets,110.0,12.0,232.0
+401908945,2026,2026-10-15,Knicks,122.0,Raptors,120.0,2.0,242.0
+401908622,2026,2026-10-15,Rockets,116.0,Thunder,89.0,27.0,205.0

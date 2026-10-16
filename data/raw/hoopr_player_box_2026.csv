@@ -1959,3 +1959,75 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401918011,2026,2026-10-14,Clippers,LA,LAC,home,4065778,Max Strus,G,False,True,,,,,,,,,,,,,,,espn_api
 401918011,2026,2026-10-14,Clippers,LA,LAC,home,4396818,Jordan Miller,G,False,True,,,,,,,,,,,,,,,espn_api
 401918011,2026,2026-10-14,Clippers,LA,LAC,home,4702352,Kobe Sanders,G,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,6450,Kawhi Leonard,F,True,False,23.0,6.0,1.0,1.0,2.0,1.0,1.0,,,,,,,8.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4395625,RJ Barrett,F,True,False,31.0,21.0,8.0,4.0,0.0,0.0,3.0,,,,,,,-3.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4433134,Scottie Barnes,F,True,False,28.0,23.0,3.0,4.0,0.0,4.0,1.0,,,,,,,4.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,3134908,Jakob Poeltl,C,True,False,25.0,7.0,4.0,2.0,1.0,1.0,0.0,,,,,,,-9.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4395724,Immanuel Quickley,G,True,False,28.0,18.0,5.0,7.0,1.0,0.0,2.0,,,,,,,9.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,2993874,Kyle Anderson,F,False,False,12.0,4.0,1.0,0.0,0.0,0.0,2.0,,,,,,,7.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4431893,Jamison Battle,F,False,False,14.0,10.0,3.0,0.0,0.0,0.0,0.0,,,,,,,-10.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,5093267,Collin Murray-Boyles,F,False,False,22.0,12.0,5.0,2.0,3.0,1.0,3.0,,,,,,,3.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4897696,Jamarion Sharp,C,False,False,3.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,1.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4279143,Tyreke Key,G,False,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,0.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4397784,Malachi Smith,G,False,False,3.0,8.0,0.0,0.0,0.0,0.0,0.0,,,,,,,1.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4432241,Jamal Shead,G,False,False,21.0,4.0,1.0,4.0,2.0,2.0,4.0,,,,,,,-13.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4432737,Jaden Bradley,G,False,False,5.0,3.0,1.0,0.0,0.0,0.0,1.0,,,,,,,4.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4433138,Nimari Burnett,G,False,False,6.0,0.0,4.0,2.0,0.0,0.0,0.0,,,,,,,4.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4684272,Ja'Kobe Walter,G,False,False,20.0,4.0,3.0,1.0,1.0,1.0,3.0,,,,,,,-16.0,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4431684,Trayce Jackson-Davis,F,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4898260,Tyson Degenhart,F,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,5149115,Allen Graves,F,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4432586,Nate Bittle,C,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Raptors,Toronto,TOR,away,4702656,Alijah Martin,G,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,3934719,OG Anunoby,F,True,False,31.0,6.0,5.0,3.0,3.0,0.0,3.0,,,,,,,-5.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,5289900,Mohamed Diawara,F,True,False,20.0,6.0,3.0,1.0,0.0,0.0,0.0,,,,,,,-8.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,3136195,Karl-Anthony Towns,C,True,False,29.0,13.0,15.0,9.0,0.0,0.0,3.0,,,,,,,-1.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,3147657,Mikal Bridges,G,True,False,30.0,14.0,4.0,1.0,0.0,2.0,4.0,,,,,,,-17.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,3934672,Jalen Brunson,G,True,False,29.0,20.0,3.0,7.0,0.0,0.0,3.0,,,,,,,-1.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4838721,Tyler Nickel,F,False,False,4.0,2.0,0.0,0.0,0.0,0.0,0.0,,,,,,,-2.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,5211983,Pacome Dadiet,F,False,False,11.0,6.0,1.0,1.0,0.0,0.0,2.0,,,,,,,7.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,6585,Andre Drummond,C,False,False,15.0,14.0,8.0,4.0,0.0,1.0,1.0,,,,,,,5.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4432808,James Wiseman,C,False,False,4.0,2.0,1.0,0.0,0.0,0.0,1.0,,,,,,,-2.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,2528426,Jordan Clarkson,G,False,False,11.0,2.0,0.0,0.0,2.0,0.0,0.0,,,,,,,3.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,3914044,Landry Shamet,G,False,False,24.0,13.0,2.0,3.0,2.0,0.0,0.0,,,,,,,14.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4277869,Jose Alvarado,G,False,False,14.0,9.0,0.0,3.0,1.0,0.0,2.0,,,,,,,7.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4431823,Miles McBride,G,False,False,13.0,9.0,1.0,2.0,0.0,0.0,0.0,,,,,,,14.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4433225,Tyler Kolek,G,False,False,5.0,6.0,0.0,1.0,1.0,0.0,0.0,,,,,,,-4.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4683730,Jaden Akins,G,False,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,0.0,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,3914285,Drew Eubanks,F,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,3062679,Josh Hart,G,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4065670,Bruce Brown,G,False,True,,,,,,,,,,,,,,,espn_api
+401908945,2026,2026-10-15,Knicks,New York,NY,home,4411057,Kevin McCullar Jr.,G,False,True,,,,,,,,,,,,,,,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4222252,Isaiah Hartenstein,C,True,False,19.0,6.0,8.0,1.0,0.0,0.0,0.0,,,,,,,-16.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,2991350,Alex Caruso,G,True,False,16.0,3.0,3.0,2.0,0.0,0.0,0.0,,,,,,,-7.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4278073,Shai Gilgeous-Alexander,G,True,False,26.0,17.0,1.0,3.0,0.0,1.0,1.0,,,,,,,-24.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4593803,Jalen Williams,G,True,False,25.0,18.0,7.0,0.0,0.0,1.0,0.0,,,,,,,-1.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4900671,Ajay Mitchell,G,True,False,24.0,7.0,3.0,1.0,1.0,0.0,3.0,,,,,,,-1.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4684208,Brooks Barnhizer,F,False,False,12.0,9.0,1.0,2.0,0.0,0.0,2.0,,,,,,,-17.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,5116468,Andrew Holifield,F,False,False,12.0,2.0,0.0,0.0,0.0,0.0,0.0,,,,,,,-17.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,5109790,Christoph Tilly,C,False,False,8.0,0.0,1.0,2.0,0.0,0.0,2.0,,,,,,,-11.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,5174983,Aday Mara,C,False,False,21.0,6.0,9.0,2.0,0.0,1.0,4.0,,,,,,,-9.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,3133626,Kenrich Williams,G,False,False,15.0,4.0,6.0,2.0,0.0,0.0,2.0,,,,,,,-10.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4683778,Jared McCain,G,False,False,21.0,8.0,6.0,0.0,2.0,0.0,0.0,,,,,,,8.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4897155,Anthony Pritchard,G,False,False,6.0,0.0,3.0,2.0,0.0,0.0,2.0,,,,,,,-11.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,5105800,Josh Dix,G,False,False,15.0,4.0,0.0,0.0,0.0,0.0,1.0,,,,,,,-12.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,5241364,Bennett Stirtz,G,False,False,21.0,5.0,1.0,2.0,0.0,0.0,0.0,,,,,,,-7.0,espn_api
+401908622,2026,2026-10-15,Thunder,Oklahoma City,OKC,away,4277923,Zhaire Smith,G,False,True,,,,,,,,,,,,,,,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,3202,Kevin Durant,F,True,False,16.0,11.0,0.0,1.0,0.0,0.0,0.0,,,,,,,14.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4432639,Jabari Smith Jr.,F,True,False,19.0,4.0,6.0,0.0,0.0,0.0,0.0,,,,,,,14.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4871144,Alperen Sengun,C,True,False,24.0,14.0,7.0,5.0,1.0,2.0,3.0,,,,,,,14.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,2991230,Fred VanVleet,G,True,False,29.0,7.0,6.0,8.0,2.0,1.0,0.0,,,,,,,15.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4684740,Amen Thompson,G,True,False,22.0,12.0,5.0,4.0,1.0,1.0,0.0,,,,,,,10.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,3136777,Jae'Sean Tate,F,False,False,8.0,4.0,0.0,3.0,1.0,0.0,0.0,,,,,,,10.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4432394,Cameron Matthews,F,False,False,2.0,0.0,1.0,0.0,1.0,0.0,0.0,,,,,,,4.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4433192,Tari Eason,F,False,False,17.0,12.0,3.0,1.0,0.0,0.0,0.0,,,,,,,0.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4592857,Isaiah Crawford,F,False,False,13.0,7.0,0.0,0.0,0.0,0.0,1.0,,,,,,,5.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,5105553,Julian Phillips,F,False,False,5.0,6.0,1.0,1.0,0.0,0.0,0.0,,,,,,,7.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,3102529,Clint Capela,C,False,False,11.0,2.0,3.0,1.0,0.0,1.0,0.0,,,,,,,-8.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4432827,Oscar Tshiebwe,C,False,False,10.0,2.0,3.0,2.0,1.0,0.0,0.0,,,,,,,13.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,2990992,Marcus Smart,G,False,False,12.0,0.0,2.0,2.0,1.0,0.0,2.0,,,,,,,7.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,3037789,Bogdan Bogdanovic,G,False,False,16.0,15.0,6.0,1.0,1.0,0.0,0.0,,,,,,,3.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4683860,Quadir Copeland,G,False,False,6.0,1.0,0.0,1.0,0.0,0.0,1.0,,,,,,,11.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4709131,Sean Pedulla,G,False,False,4.0,3.0,1.0,1.0,1.0,0.0,1.0,,,,,,,9.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,4711272,Reed Sheppard,G,False,False,16.0,11.0,5.0,3.0,1.0,0.0,0.0,,,,,,,-6.0,espn_api
+401908622,2026,2026-10-15,Rockets,Houston,HOU,home,5105837,Bruce Thornton,G,False,False,10.0,5.0,0.0,0.0,2.0,0.0,0.0,,,,,,,13.0,espn_api
