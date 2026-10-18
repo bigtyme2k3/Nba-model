@@ -1,8 +1,8 @@
 {
   "status": "READY",
-  "generated_at_utc": "2026-10-17T16:10:05.235174+00:00",
-  "date": "2026-10-17",
-  "prediction_file": "predictions/predictions_2026-10-17.json",
+  "generated_at_utc": "2026-10-18T16:23:15.688218+00:00",
+  "date": "2026-10-18",
+  "prediction_file": "predictions/predictions_2026-10-18.json",
   "candidate_rows": 0,
   "new_rows_appended": 0,
   "existing_rows_preserved": 61,
