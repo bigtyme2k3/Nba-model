@@ -1,11 +1,11 @@
 {
-  "status": "missing_api_key",
-  "target_date": "2026-10-19",
+  "status": "ok",
+  "target_date": "2026-10-20",
   "source": "the-odds-api",
-  "checked_at_utc": "2026-10-19T19:02:48.355207+00:00",
-  "rows": 0,
-  "http_status": null,
-  "api_requests_used": null,
-  "api_requests_remaining": null,
-  "error": "ODDS_API_KEY not set."
+  "checked_at_utc": "2026-10-20T17:47:54.658472+00:00",
+  "rows": 46,
+  "http_status": 200,
+  "api_requests_used": "10401",
+  "api_requests_remaining": "9599",
+  "error": null
 }

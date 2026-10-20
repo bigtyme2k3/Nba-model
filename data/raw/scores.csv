@@ -37,3 +37,6 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-17,401898409,STATUS_SCHEDULED,False,False,Golden State Warriors,Portland Trail Blazers,0,0,0,0,,,,,,,,,POR -3.5,225.5,Chase Center,0,2026-10-16T17:11:21.291857
 2026-10-17,401908948,STATUS_SCHEDULED,False,False,Phoenix Suns,Utah Jazz,0,0,0,0,,,,,,,,,PHX -4.5,225.5,Mortgage Matchup Center,0,2026-10-16T17:11:21.291863
 2026-10-17,401898719,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Denver Nuggets,0,0,0,0,,,,,,,,,LAL -6.5,231.5,crypto.com Arena,0,2026-10-16T17:11:21.291870
+2026-10-20,401909088,STATUS_SCHEDULED,False,False,Detroit Pistons,Boston Celtics,0,0,0,0,,,,,,,,,BOS -1.5,220.5,Little Caesars Arena,0,2026-10-20T17:47:56.023830
+2026-10-20,401909089,STATUS_SCHEDULED,False,False,New York Knicks,Philadelphia 76ers,0,0,0,0,,,,,,,,,NY -4.5,231.5,Madison Square Garden,0,2026-10-20T17:47:56.023842
+2026-10-21,401909090,STATUS_SCHEDULED,False,False,San Antonio Spurs,Oklahoma City Thunder,0,0,0,0,,,,,,,,,SA -1.5,230.5,Frost Bank Center,0,2026-10-20T17:47:56.023847
