@@ -1,4 +1,12 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-20,401909088,STATUS_SCHEDULED,False,False,Detroit Pistons,Boston Celtics,0,0,0,0,,,,,,,,,BOS -1.5,220.5,Little Caesars Arena,0,2026-10-20T17:47:56.023830
-2026-10-20,401909089,STATUS_SCHEDULED,False,False,New York Knicks,Philadelphia 76ers,0,0,0,0,,,,,,,,,NY -4.5,231.5,Madison Square Garden,0,2026-10-20T17:47:56.023842
-2026-10-21,401909090,STATUS_SCHEDULED,False,False,San Antonio Spurs,Oklahoma City Thunder,0,0,0,0,,,,,,,,,SA -1.5,230.5,Frost Bank Center,0,2026-10-20T17:47:56.023847
+2026-10-21,401909834,STATUS_SCHEDULED,False,False,Orlando Magic,Atlanta Hawks,0,0,0,0,,,,,,,,,ORL -2.5,233.5,Kia Center,0,2026-10-21T17:56:00.429190
+2026-10-21,401909835,STATUS_SCHEDULED,False,False,Washington Wizards,Milwaukee Bucks,0,0,0,0,,,,,,,,,WSH -4.5,238.5,Capital One Arena,0,2026-10-21T17:56:00.429207
+2026-10-21,401909091,STATUS_SCHEDULED,False,False,Miami Heat,Minnesota Timberwolves,0,0,0,0,,,,,,,,,MIA -1.5,240.5,Kaseya Center,0,2026-10-21T17:56:00.429216
+2026-10-21,401909836,STATUS_SCHEDULED,False,False,Brooklyn Nets,Charlotte Hornets,0,0,0,0,,,,,,,,,CHA -1.5,219.5,Barclays Center,0,2026-10-21T17:56:00.429235
+2026-10-21,401909837,STATUS_SCHEDULED,False,False,Toronto Raptors,Chicago Bulls,0,0,0,0,,,,,,,,,TOR -10.5,237.5,Scotiabank Arena,0,2026-10-21T17:56:00.429243
+2026-10-22,401909838,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Utah Jazz,0,0,0,0,,,,,,,,,MEM -1.5,242.5,FedExForum,0,2026-10-21T17:56:00.429250
+2026-10-22,401909839,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Indiana Pacers,0,0,0,0,,,,,,,,,IND -3.5,239.5,Smoothie King Center,0,2026-10-21T17:56:00.429257
+2026-10-22,401909840,STATUS_SCHEDULED,False,False,Houston Rockets,Dallas Mavericks,0,0,0,0,,,,,,,,,HOU -9.5,230.5,Toyota Center (Houston),0,2026-10-21T17:56:00.429272
+2026-10-22,401909092,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Golden State Warriors,0,0,0,0,,,,,,,,,LAL -6.5,233.5,crypto.com Arena,0,2026-10-21T17:56:00.429281
+2026-10-22,401909841,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Phoenix Suns,0,0,0,0,,,,,,,,,POR -2.5,231.5,Moda Center,0,2026-10-21T17:56:00.429288
+2026-10-22,401909842,STATUS_SCHEDULED,False,False,LA Clippers,Sacramento Kings,0,0,0,0,,,,,,,,,LAC -4.5,227.5,Intuit Dome,0,2026-10-21T17:56:00.429294

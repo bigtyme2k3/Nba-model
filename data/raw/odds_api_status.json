@@ -1,11 +1,11 @@
 {
   "status": "ok",
-  "target_date": "2026-10-20",
+  "target_date": "2026-10-21",
   "source": "the-odds-api",
-  "checked_at_utc": "2026-10-20T17:47:54.658472+00:00",
-  "rows": 46,
+  "checked_at_utc": "2026-10-21T17:55:58.778917+00:00",
+  "rows": 43,
   "http_status": 200,
-  "api_requests_used": "10401",
-  "api_requests_remaining": "9599",
+  "api_requests_used": "10935",
+  "api_requests_remaining": "9065",
   "error": null
 }
