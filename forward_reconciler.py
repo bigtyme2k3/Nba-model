@@ -3,6 +3,8 @@ forward_reconciler.py
 ---------------------
 Grades the canonical NBA forward ledger without changing any original prediction
 field. Only resolution fields (actual/outcome/graded_at_utc) may be updated.
+Rows with outcome VOID (plus a void_reason) were invalidated by a pipeline bug;
+they are never graded and never count toward performance.
 
 Sources:
   data/raw/scores_YYYY-MM-DD.csv / scores_today.csv

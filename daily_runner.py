@@ -428,14 +428,40 @@ def build_context(home, away, target_date, game):
 
 # ── Predictions ────────────────────────────────────────────────────────────────
 
-def run_spread(home, away, ctx, bundle):
-    if bundle is None: return 0.0
-    model = bundle["model"]
+# Plausible model outputs. Anything outside these is a pipeline bug, not an edge.
+SPREAD_PRED_RANGE = (-40.0, 40.0)
+TOTAL_PRED_RANGE  = (170.0, 280.0)
+
+
+def predict_row(bundle, row, label, valid_range):
+    """Predict one game, or return None when the model can't be trusted.
+
+    Every feature the trained model expects must be supplied explicitly — a silent
+    0 default for a feature like rolling points allowed (~112 in training) drags the
+    prediction by ~100 points. Out-of-range predictions are also rejected.
+    """
     feats = bundle["feature_names"]
+    missing = [f for f in feats if f not in row]
+    if missing:
+        print(f"  [ERROR] {label} model features not supplied: {missing} — no prediction")
+        return None
+    try:
+        pred = float(bundle["model"].predict(pd.DataFrame([row])[feats])[0])
+    except Exception as e:
+        print(f"  [WARN] {label} prediction error: {e}")
+        return None
+    lo, hi = valid_range
+    if not (lo <= pred <= hi):
+        print(f"  [ERROR] {label} prediction {pred:.1f} outside plausible range {valid_range} — no prediction")
+        return None
+    return round(pred, 1)
+
+
+def run_spread(home, away, ctx, bundle):
+    if bundle is None: return None
     hs, as_ = CURRENT_TEAM_STATS.get(home,{}), CURRENT_TEAM_STATS.get(away,{})
     hr, ar  = TEAM_ROLLING.get(home,{}), TEAM_ROLLING.get(away,{})
-    row = {f: 0 for f in feats}
-    row.update({
+    row = {
         "home_rolling_5g":   hr.get("roll5",0),
         "away_rolling_5g":   ar.get("roll5",0),
         "rolling_diff_5g":   hr.get("roll5",0) - ar.get("roll5",0),
@@ -465,24 +491,16 @@ def run_spread(home, away, ctx, bundle):
         "season_game_num":   ctx["season_game_num"],
         "month":             ctx["month"],
         "is_playoff":        int(ctx["month"] in (4, 5, 6)),
-    })
-    try:
-        X = pd.DataFrame([row])[feats]
-        return round(float(model.predict(X)[0]), 1)
-    except Exception as e:
-        print(f"  [WARN] Spread prediction error: {e}")
-        return 0.0
+    }
+    return predict_row(bundle, row, "Spread", SPREAD_PRED_RANGE)
 
 
 def run_totals(home, away, ctx, bundle):
-    if bundle is None: return 224.0
-    model = bundle["model"]
-    feats = bundle["feature_names"]
+    if bundle is None: return None
     hs, as_ = CURRENT_TEAM_STATS.get(home,{}), CURRENT_TEAM_STATS.get(away,{})
     hr, ar  = TEAM_ROLLING.get(home,{}), TEAM_ROLLING.get(away,{})
     avg_p = (hs.get("pace",99)+as_.get("pace",99))/2
-    row = {f: 0 for f in feats}
-    row.update({
+    row = {
         "avg_pace": avg_p, "home_pace": hs.get("pace",99), "away_pace": as_.get("pace",99),
         "pace_sum": hs.get("pace",99)+as_.get("pace",99),
         "home_ortg": hs.get("ortg",114), "away_ortg": as_.get("ortg",114),
@@ -496,6 +514,8 @@ def run_totals(home, away, ctx, bundle):
         "home_rolling_total_5g": hr.get("roll_pts",114),
         "away_rolling_total_5g": ar.get("roll_pts",114),
         "rolling_total_sum_5g": hr.get("roll_pts",114)+ar.get("roll_pts",114),
+        "home_rolling_allowed_5g": hr.get("roll_allowed",114),
+        "away_rolling_allowed_5g": ar.get("roll_allowed",114),
         "home_back_to_back": int(ctx["home_b2b"]),
         "away_back_to_back": int(ctx["away_b2b"]),
         "both_b2b": int(ctx["home_b2b"] and ctx["away_b2b"]),
@@ -503,13 +523,8 @@ def run_totals(home, away, ctx, bundle):
         "long_travel": int(ctx["long_travel"]),
         "month": ctx["month"], "is_playoff": int(ctx["month"] in (4, 5, 6)),
         "season_game_num": ctx["season_game_num"],
-    })
-    try:
-        X = pd.DataFrame([row])[feats]
-        return round(float(model.predict(X)[0]), 1)
-    except Exception as e:
-        print(f"  [WARN] Totals prediction error: {e}")
-        return 224.0
+    }
+    return predict_row(bundle, row, "Totals", TOTAL_PRED_RANGE)
 
 
 def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=None):
@@ -692,6 +707,29 @@ def collect_best_bets(games_output):
     return bets[:8]
 
 
+def attach_verdicts(games_output, best_bets):
+    """Copy the sizing verdict (BET/STRONG/PASS) onto each market in games_output.
+
+    Only best bets that went through Kelly sizing can be BET/STRONG; every other
+    market is PASS. forward_ledger.py records this verdict as the decision, so the
+    ledger and the sized best-bets list can never disagree.
+    """
+    verdicts = {}
+    for b in best_bets:
+        verdict = b.get("verdict", "PASS")
+        if b.get("type") == "PROP":
+            verdicts[(b["game"], "PROP", b.get("player"), str(b.get("stat", "")).upper())] = verdict
+        else:
+            verdicts[(b["game"], b.get("type"))] = verdict
+    for g in games_output:
+        matchup = f"{g['away']['name']} @ {g['home']['name']}"
+        g["spread"]["verdict"] = verdicts.get((matchup, "SPREAD"), "PASS")
+        g["totals"]["verdict"] = verdicts.get((matchup, "TOTAL"), "PASS")
+        for pr in g.get("props", []):
+            for stat, pd_data in pr["props"].items():
+                pd_data["verdict"] = verdicts.get((matchup, "PROP", pr["player"], stat.upper()), "PASS")
+
+
 def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     print(f"\n═══ NBA DAILY PIPELINE — {target_date} ═══\n")
     load_team_profiles_into_context()
@@ -758,7 +796,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         spread_pred   = run_spread(home, away, ctx, spread_bundle)
         posted_spread = game.get("posted_spread")
-        spread_edge = round(spread_pred - (-posted_spread), 1) if posted_spread is not None else None
+        spread_edge = round(spread_pred - (-posted_spread), 1) if posted_spread is not None and spread_pred is not None else None
         spread_conf, spread_stars = score_confidence(spread_edge or 0, "spread")
         spread_play = None
         if posted_spread is not None and spread_edge is not None:
@@ -769,7 +807,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         total_pred  = run_totals(home, away, ctx, totals_bundle)
         posted_total= game.get("posted_total")
-        total_edge  = round(total_pred-posted_total,1) if posted_total is not None else None
+        total_edge  = round(total_pred-posted_total,1) if posted_total is not None and total_pred is not None else None
         total_play  = ("OVER" if total_edge and total_edge>0 else "UNDER") if total_edge else None
         total_conf, total_stars = score_confidence(total_edge or 0, "totals")
 
@@ -785,6 +823,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         if ctx["long_travel"]: flags.append("Travel")
 
         def fmt_line(pred, h, a):
+            if pred is None: return "No prediction"
             if abs(pred) < 0.5: return "Pick'em"
             return f"{h} -{abs(pred):.1f}" if pred > 0 else f"{a} -{abs(pred):.1f}"
 
@@ -814,6 +853,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     if KELLY_AVAILABLE and best_bets:
         best_bets = size_all_bets(best_bets, bankroll=1000.0)
         print(f"  Kelly sizing applied: {sum(1 for b in best_bets if b.get('units',0)>0)} bets sized")
+    attach_verdicts(games_output, best_bets)
 
     return {
         "date":       str(target_date),

@@ -122,7 +122,9 @@ def size_bet(edge_pts: float, model_type: str = "spread",
             "verdict":    "PASS",
         }
 
-    win_prob   = edge_to_prob(edge_pts, model_type)
+    # Edge sign only says which side (home/away, over/under) the play is on; the
+    # play itself always has a positive edge.
+    win_prob   = edge_to_prob(abs(edge_pts), model_type)
     kelly_full = kelly_fraction_bet(win_prob, juice)
     kelly_frac = kelly_full * KELLY_FRACTION
     kelly_frac = min(kelly_frac, MAX_BET_PCT)

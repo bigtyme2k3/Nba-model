@@ -78,6 +78,7 @@ Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date
 - `active_slate_date.py` — Eastern-time slate date resolution + season guard
 - `scrape_odds.py` / `scrape_props.py` / `scrape_scores.py` / `scrape_injuries.py` / `scrape_refs.py` — data collection, each quota/network-safe (writes empty-but-valid output instead of failing the pipeline)
 - `collect_stats.py` — historical + current-season box scores (hoopR release data, ESPN fallback)
+  (seasons are labeled by the year they end, hoopR-style: `2026` = 2025-26, `2027` = 2026-27; preseason is skipped)
 - `build_player_features.py` — prior-only player feature store + minutes/rotation profiles
 - `build_team_features.py` — rolling team pace/efficiency profiles from completed games
 - `merge_data.py` — joins game box scores + odds into `data/processed/master_all.csv`

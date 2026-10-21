@@ -24,7 +24,7 @@ SDV_URLS = {
 # is `team_score`, and the opponent's name/score are already inlined as
 # `opponent_team_display_name` / `opponent_team_score` — no self-join needed.
 TEAM_BOX_COLS = [
-    "game_id", "season", "game_date", "game_date_time", "team_id",
+    "game_id", "season", "season_type", "game_date", "game_date_time", "team_id",
     "team_display_name", "team_location", "team_name", "team_abbreviation",
     "team_home_away", "team_score", "field_goals_made", "field_goals_attempted",
     "field_goal_pct", "three_point_field_goals_made",
@@ -77,7 +77,8 @@ def build_games_from_team_box(df: pd.DataFrame, year: int) -> pd.DataFrame:
         "opponent_team_display_name": "away_team",
         "team_score": "home_pts",
         "opponent_team_score": "away_pts",
-    })[["game_id", "game_date", "home_team", "away_team", "home_pts", "away_pts"]].copy()
+    })[["game_id", "game_date", "home_team", "away_team", "home_pts", "away_pts"]
+      + (["season_type"] if "season_type" in home.columns else [])].copy()
     games["season"] = year
     games["home_pts"] = pd.to_numeric(games["home_pts"], errors="coerce")
     games["away_pts"] = pd.to_numeric(games["away_pts"], errors="coerce")
@@ -87,7 +88,8 @@ def build_games_from_team_box(df: pd.DataFrame, year: int) -> pd.DataFrame:
 
 
 def fetch_historical_season(year: int, out_dir: str) -> None:
-    print(f"\n── Season {year}-{year+1} (Sportsdataverse / hoopR) ──")
+    """year is hoopR's season label: the year the season ENDS (2026 = 2025-26)."""
+    print(f"\n── Season {year-1}-{str(year)[-2:]} (Sportsdataverse / hoopR, label {year}) ──")
     for kind, filename in (
         ("team_box", f"hoopr_team_box_{year}.csv"),
         ("player_box", f"hoopr_player_box_{year}.csv"),
@@ -149,7 +151,7 @@ def number(value):
         return None
 
 
-def parse_espn_team_box(summary: dict, game_date: str, season: int) -> list:
+def parse_espn_team_box(summary: dict, game_date: str, season: int, season_type: int | None = None) -> list:
     competition = summary.get("header", {}).get("competitions", [{}])[0]
     game_id = str(competition.get("id", ""))
     competitors = competitor_index(summary)
@@ -164,6 +166,7 @@ def parse_espn_team_box(summary: dict, game_date: str, season: int) -> list:
         rows.append({
             "game_id": game_id,
             "season": season,
+            "season_type": season_type,
             "game_date": game_date,
             "team_id": team_id,
             "team_name": team.get("name", ""),
@@ -222,9 +225,19 @@ def parse_espn_player_box(summary: dict, game_date: str, season: int) -> list:
     return rows
 
 
+# ESPN season types: 1 preseason, 2 regular season, 3 postseason, 5 play-in.
+PRESEASON_TYPE = 1
+
+
 def fetch_current_season(season_year: int, out_dir: str) -> None:
-    """season_year is the year the season STARTS (e.g. 2025 for the 2025-26 season)."""
-    print(f"\n── Season {season_year}-{season_year+1} (ESPN API — current) ──")
+    """season_year is the year the season STARTS (e.g. 2026 for the 2026-27 season).
+
+    Files and the `season` column use hoopR's label — the year the season ENDS — so
+    the current season never overwrites last season's hoopR files. Preseason games
+    are skipped.
+    """
+    label = season_year + 1
+    print(f"\n── Season {season_year}-{str(label)[-2:]} (ESPN API — current, label {label}) ──")
     today = date.today()
     current = date(season_year, 10, 1)
     end = min(date(season_year + 1, 6, 30), today)
@@ -235,12 +248,13 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
             for event in fetch_espn_scoreboard(date_str):
                 game_id = str(event.get("id", ""))
                 status = str(event.get("status", {}).get("type", {}).get("name", ""))
-                if "FINAL" not in status.upper() or game_id in seen_games:
+                season_type = event.get("season", {}).get("type")
+                if "FINAL" not in status.upper() or game_id in seen_games or season_type == PRESEASON_TYPE:
                     continue
                 seen_games.add(game_id)
                 summary = fetch_espn_boxscore(game_id)
-                team_rows.extend(parse_espn_team_box(summary, date_str, season_year))
-                player_rows.extend(parse_espn_player_box(summary, date_str, season_year))
+                team_rows.extend(parse_espn_team_box(summary, date_str, label, season_type))
+                player_rows.extend(parse_espn_player_box(summary, date_str, label))
                 time.sleep(0.35)
         except Exception as exc:
             print(f"  [WARN] {date_str}: {exc}")
@@ -249,24 +263,24 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
     print(f"  Total: {len(seen_games)} games")
     if team_rows:
         team_df = pd.DataFrame(team_rows)
-        path = os.path.join(out_dir, f"hoopr_team_box_{season_year}.csv")
+        path = os.path.join(out_dir, f"hoopr_team_box_{label}.csv")
         team_df.to_csv(path, index=False)
         print(f"  Team box → {path} ({len(team_rows)} rows)")
 
         home = team_df[team_df["home_away"] == "home"].copy()
         away = team_df[team_df["home_away"] == "away"].copy()
-        keys = [c for c in ("game_id", "season", "game_date") if c in team_df.columns]
+        keys = [c for c in ("game_id", "season", "season_type", "game_date") if c in team_df.columns]
         games = home[keys + ["team_name", "pts"]].rename(columns={"team_name": "home_team", "pts": "home_pts"}).merge(
             away[keys + ["team_name", "pts"]].rename(columns={"team_name": "away_team", "pts": "away_pts"}),
             on=keys, how="inner")
         if not games.empty:
             games["actual_spread"] = pd.to_numeric(games["home_pts"], errors="coerce") - pd.to_numeric(games["away_pts"], errors="coerce")
             games["actual_total"] = pd.to_numeric(games["home_pts"], errors="coerce") + pd.to_numeric(games["away_pts"], errors="coerce")
-            games_path = os.path.join(out_dir, f"hoopr_games_{season_year}.csv")
+            games_path = os.path.join(out_dir, f"hoopr_games_{label}.csv")
             games.to_csv(games_path, index=False)
             print(f"  Games → {games_path} ({len(games)} games)")
     if player_rows:
-        path = os.path.join(out_dir, f"hoopr_player_box_{season_year}.csv")
+        path = os.path.join(out_dir, f"hoopr_player_box_{label}.csv")
         pd.DataFrame(player_rows).to_csv(path, index=False)
         print(f"  Player box → {path} ({len(player_rows)} rows)")
 
@@ -288,8 +302,8 @@ def build_stats_master(out_dir: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Collect NBA data via hoopR/ESPN")
-    parser.add_argument("--start", type=int, default=None, help="First season start-year, e.g. 2022")
-    parser.add_argument("--end", type=int, default=2024, help="Last season start-year")
+    parser.add_argument("--start", type=int, default=None, help="First hoopR season label (end-year), e.g. 2022 = 2021-22")
+    parser.add_argument("--end", type=int, default=2026, help="Last hoopR season label (end-year)")
     parser.add_argument("--current", action="store_true")
     parser.add_argument("--out", default=OUT_DIR)
     parser.add_argument("--master", action="store_true")
@@ -304,7 +318,7 @@ def main() -> None:
                 print(f"  [ERROR] Season {year}: {exc}")
     if args.current:
         today = date.today()
-        # NBA season labeled by its start year; before October it's still last season's playoffs tail.
+        # Season start year; before August it's still last season's playoffs tail.
         season_start_year = today.year if today.month >= 8 else today.year - 1
         fetch_current_season(season_start_year, args.out)
     if args.master or args.start or args.current:

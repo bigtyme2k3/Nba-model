@@ -14,10 +14,23 @@ import numpy as np
 import pandas as pd
 from glob import glob
 
-from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, normalize_team
+from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, TEAM_ABBR, normalize_team
 
 RAW_DIR       = "data/raw"
 PROCESSED_DIR = "data/processed"
+
+# Seasons are labeled the hoopR way: by the year they END (2026 = 2025-26).
+# ESPN/hoopR season types: 1 preseason, 2 regular season, 3 postseason, 5 play-in.
+MODEL_SEASON_TYPES = {2, 3, 5}
+
+
+def season_label(game_date: pd.Series) -> pd.Series:
+    """hoopR season label (end-year) for a date: Aug-Dec belong to next year's season."""
+    return game_date.dt.year + (game_date.dt.month >= 8).astype(int)
+
+
+def season_name(year: int) -> str:
+    return f"{year-1}-{str(year)[-2:]}"
 
 
 # ── Loaders ───────────────────────────────────────────────────────────────────
@@ -58,17 +71,60 @@ def load_game_logs(year: int) -> pd.DataFrame:
     return df
 
 
+def filter_model_games(df: pd.DataFrame) -> pd.DataFrame:
+    """Keep only real NBA regular-season / play-in / playoff games, once each.
+
+    Drops preseason, All-Star / Rising Stars exhibitions (non-NBA team names like
+    "Team Shaq"), and duplicate rows for the same game.
+    """
+    before = len(df)
+    for col in ("home_team", "away_team"):
+        df[col] = df[col].map(normalize_team)
+    df = df[df["home_team"].isin(TEAM_ABBR) & df["away_team"].isin(TEAM_ABBR)]
+    if "season_type" in df.columns:
+        st = pd.to_numeric(df["season_type"], errors="coerce")
+        # Unknown type is kept: the team filter above already removes exhibitions.
+        df = df[st.isna() | st.isin(MODEL_SEASON_TYPES)]
+    key = ["game_id"] if "game_id" in df.columns and df["game_id"].notna().all() else ["game_date", "home_team", "away_team"]
+    df = df.drop_duplicates(key, keep="last")
+    print(f"  Games kept: {len(df)} of {before} (dropped preseason/exhibitions/duplicates: {before - len(df)})")
+    return df.copy()
+
+
 def load_odds(year: int) -> pd.DataFrame:
-    for fname in [f"odds_{year}.csv", "odds_consensus.csv", "odds_historical.csv"]:
-        path = os.path.join(RAW_DIR, fname)
-        if os.path.exists(path):
-            df = pd.read_csv(path)
-            df["start_time"] = pd.to_datetime(df.get("start_time", df.get("game_date","")), errors="coerce")
-            df["game_date"]  = df["start_time"].dt.normalize()
-            if "season" in df.columns:
-                df = df[df["season"] == year].copy()
-            return df
-    return pd.DataFrame()
+    """Market lines for one season, one row per game (latest scrape = closest to close).
+
+    Sources: odds_{year}.csv, odds_consensus.csv, odds_historical.csv and the daily
+    odds_YYYY-MM-DD.csv snapshots. Their `game_date` column is the SCRAPE date, so the
+    game date is derived from commence_time in US/Eastern, matching ESPN/hoopR dates.
+    """
+    paths = [os.path.join(RAW_DIR, f) for f in (f"odds_{year}.csv", "odds_consensus.csv", "odds_historical.csv")]
+    paths += sorted(glob(os.path.join(RAW_DIR, "odds_20[0-9][0-9]-[0-9][0-9]-[0-9][0-9].csv")))
+    frames = [pd.read_csv(p) for p in paths if os.path.exists(p) and os.path.getsize(p) > 0]
+    frames = [f for f in frames if not f.empty and "home_team" in f.columns]
+    if not frames:
+        return pd.DataFrame()
+    df = pd.concat(frames, ignore_index=True)
+
+    start = pd.to_datetime(df.get("commence_time", df.get("start_time")), errors="coerce", utc=True)
+    df["start_time"] = start
+    df["game_date"]  = start.dt.tz_convert("America/New_York").dt.tz_localize(None).dt.normalize()
+    df = df[df["game_date"].notna()].copy()
+    df = df[season_label(df["game_date"]) == year]
+    for col in ("home_team", "away_team"):
+        df[col] = df[col].map(normalize_team)
+
+    if "scraped_at" in df.columns:
+        df = df.sort_values("scraped_at")
+    df = df.drop_duplicates(["game_date", "home_team", "away_team"], keep="last")
+    df = df.rename(columns={"game_id": "odds_event_id"})
+
+    # Names the model / label code expects for the consensus lines.
+    if "spread_home" in df.columns:
+        df["avg_spread_home_line"] = pd.to_numeric(df["spread_home"], errors="coerce")
+    if "total" in df.columns:
+        df["avg_total_point"] = pd.to_numeric(df["total"], errors="coerce")
+    return df
 
 
 def load_team_stats(year: int) -> pd.DataFrame:
@@ -190,7 +246,7 @@ def add_model_labels(df: pd.DataFrame) -> pd.DataFrame:
 # ── Main Merge ────────────────────────────────────────────────────────────────
 
 def process_year(year: int) -> pd.DataFrame:
-    print(f"\n── Processing season {year}-{year+1} ──")
+    print(f"\n── Processing season {season_name(year)} (label {year}) ──")
 
     game_df  = load_game_logs(year)
     odds_df  = load_odds(year)
@@ -200,9 +256,7 @@ def process_year(year: int) -> pd.DataFrame:
         print(f"  [SKIP] No game data for {year}")
         return pd.DataFrame()
 
-    for col in ("home_team", "away_team"):
-        if col in game_df.columns:
-            game_df[col] = game_df[col].map(normalize_team)
+    game_df = filter_model_games(game_df)
 
     game_df = add_rest_days(game_df)
     game_df = add_travel_flag(game_df)
@@ -215,7 +269,8 @@ def process_year(year: int) -> pd.DataFrame:
         keys = [k for k in ["game_date","home_team","away_team"] if k in odds_df.columns and k in game_df.columns]
         if keys:
             merged = game_df.merge(odds_df, on=keys, how="left")
-            print(f"  Odds merged: {merged.shape}")
+            matched = merged["avg_spread_home_line"].notna().sum() if "avg_spread_home_line" in merged else 0
+            print(f"  Odds merged: {matched} of {len(merged)} games have a market line")
         else:
             merged = game_df.copy()
     else:
@@ -241,6 +296,8 @@ def process_year(year: int) -> pd.DataFrame:
         merged["season_game_num"] = merged.groupby("season").cumcount() + 1
         merged["month"] = pd.to_datetime(merged["game_date"]).dt.month
         # NBA playoffs run April - June; regular season is Oct - April.
+        # (Approximation — season_type is available now; switching needs the
+        # prediction side to change too.)
         merged["is_playoff"] = merged["month"].isin([4, 5, 6]).astype(int)
 
     print(f"  Final shape: {merged.shape}")

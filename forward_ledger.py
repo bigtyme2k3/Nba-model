@@ -40,6 +40,12 @@ def prediction_id(ranking_key, generated):
     return hashlib.sha256(raw.encode()).hexdigest()[:24]
 
 
+def is_bet(market):
+    """BET only when Kelly sizing said BET/STRONG. Missing verdict (sizing unavailable,
+    or a prediction file from before verdicts existed) is a PASS, never a BET."""
+    return str(market.get("verdict") or "PASS").upper() in {"BET", "STRONG"}
+
+
 def read_ledger():
     rows = []
     if not LEDGER.exists():
@@ -76,7 +82,7 @@ def spread_rows(data):
                 side = "HOME"
             elif norm(play).startswith(norm(away)):
                 side = "AWAY"
-        decision = "BET" if play and sp.get("stars", 0) >= 2 else "PASS"
+        decision = "BET" if play and is_bet(sp) else "PASS"
         rk = stable_key([date, matchup, "SPREAD"])
         yield {
             "prediction_id": prediction_id(rk, generated),
@@ -118,7 +124,7 @@ def total_rows(data):
         if line is None or projection is None:
             continue
         side = str(total.get("play") or "PASS").upper()
-        decision = "BET" if side in {"OVER", "UNDER"} and total.get("stars", 0) >= 2 else "PASS"
+        decision = "BET" if side in {"OVER", "UNDER"} and is_bet(total) else "PASS"
         rk = stable_key([date, matchup, "TOTAL"])
         yield {
             "prediction_id": prediction_id(rk, generated),
@@ -162,7 +168,7 @@ def prop_rows(data):
                 if line is None or projection is None:
                     continue
                 signal = str(prop.get("signal") or "PASS").upper()
-                decision = "BET" if signal in {"OVER", "UNDER"} else "PASS"
+                decision = "BET" if signal in {"OVER", "UNDER"} and is_bet(prop) else "PASS"
                 rk = stable_key([date, matchup, "PROP", pname, stat])
                 yield {
                     "prediction_id": prediction_id(rk, generated),

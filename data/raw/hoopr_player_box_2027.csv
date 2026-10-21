@@ -1,0 +1,29 @@
+game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,player_name,position,starter,did_not_play,minutes,pts,reb,ast,stl,blk,tov,fg_made,fg_att,threes_made,threes_att,ft_made,ft_att,plus_minus,source
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4251,Paul George,F,True,False,31.0,38.0,5.0,3.0,5.0,0.0,3.0,,,,,,,9.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4065648,Jayson Tatum,F,True,False,38.0,13.0,4.0,11.0,0.0,0.0,2.0,,,,,,,-5.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4351852,Mitchell Robinson,C,True,False,18.0,4.0,3.0,1.0,1.0,2.0,2.0,,,,,,,-8.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,3078576,Derrick White,G,True,False,36.0,17.0,1.0,8.0,1.0,0.0,4.0,,,,,,,-4.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4683689,Jordan Walsh,G,True,False,13.0,0.0,6.0,1.0,1.0,1.0,0.0,,,,,,,0.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4065804,Sam Hauser,F,False,False,18.0,11.0,4.0,1.0,0.0,0.0,0.0,,,,,,,5.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4277951,Luka Garza,C,False,False,8.0,2.0,2.0,0.0,0.0,0.0,1.0,,,,,,,-9.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4397424,Neemias Queta,C,False,False,22.0,3.0,4.0,2.0,1.0,2.0,1.0,,,,,,,7.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4066354,Payton Pritchard,G,False,False,28.0,17.0,4.0,1.0,0.0,0.0,0.0,,,,,,,-10.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4593841,Baylor Scheierman,G,False,False,18.0,8.0,3.0,0.0,1.0,0.0,1.0,,,,,,,-10.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,5175647,Hugo Gonzalez,G,False,False,10.0,0.0,3.0,0.0,0.0,0.0,0.0,,,,,,,-15.0,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,5142621,Chris Cenac Jr.,F,False,True,,,,,,,,,,,,,,,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,3195,Mike Conley,G,False,True,,,,,,,,,,,,,,,espn_api
+401909088,2027,2026-10-20,Celtics,Boston,BOS,away,4397251,Ron Harper Jr.,G,False,True,,,,,,,,,,,,,,,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,3157465,Duncan Robinson,F,True,False,28.0,21.0,2.0,2.0,1.0,0.0,3.0,,,,,,,5.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,3908845,John Collins,F,True,False,25.0,6.0,5.0,1.0,1.0,1.0,0.0,,,,,,,-13.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4433621,Jalen Duren,C,True,False,28.0,22.0,9.0,1.0,1.0,1.0,1.0,,,,,,,-1.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4432166,Cade Cunningham,G,True,False,35.0,22.0,4.0,8.0,1.0,1.0,5.0,,,,,,,-1.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4684742,Ausar Thompson,G,True,False,33.0,11.0,11.0,5.0,1.0,0.0,3.0,,,,,,,12.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4278562,Paul Reed,F,False,False,17.0,6.0,6.0,2.0,1.0,0.0,2.0,,,,,,,12.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4683771,Ronald Holland II,F,False,False,3.0,0.0,1.0,1.0,0.0,1.0,1.0,,,,,,,-4.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,2596112,Javonte Green,G,False,False,18.0,19.0,4.0,0.0,0.0,0.0,0.0,,,,,,,21.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4066372,Kevin Huerter,G,False,False,18.0,3.0,3.0,2.0,0.0,0.0,0.0,,,,,,,5.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4395702,Isaiah Joe,G,False,False,19.0,8.0,2.0,2.0,1.0,1.0,1.0,,,,,,,0.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,5107199,Daniss Jenkins,G,False,False,15.0,3.0,2.0,3.0,0.0,0.0,1.0,,,,,,,4.0,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4397882,Tolu Smith,F,False,True,,,,,,,,,,,,,,,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,4700852,Chaz Lanier,G,False,True,,,,,,,,,,,,,,,espn_api
+401909088,2027,2026-10-20,Pistons,Detroit,DET,home,5258459,Ebuka Okorie,G,False,True,,,,,,,,,,,,,,,espn_api
