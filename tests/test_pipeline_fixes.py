@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import calibrate_edges
 import daily_runner
 import forward_ledger
 import kelly_sizing
@@ -46,6 +47,33 @@ class LedgerDecisionTests(unittest.TestCase):
 class KellySignTests(unittest.TestCase):
     def test_under_and_over_edges_size_the_same(self):
         self.assertEqual(kelly_sizing.size_bet(-4, "totals"), {**kelly_sizing.size_bet(4, "totals"), "edge_pts": -4})
+
+
+class CalibrationTests(unittest.TestCase):
+    def test_win_prob_is_shrunk_and_capped(self):
+        prior = kelly_sizing.EDGE_SHRINK_PRIOR
+        self.assertLess(kelly_sizing.edge_to_prob(3, "spread", shrink=prior), 0.53)
+        self.assertEqual(kelly_sizing.edge_to_prob(100, "totals", shrink=prior), kelly_sizing.MAX_WIN_PROB)
+
+    def test_fit_recovers_known_shrink_and_needs_enough_bets(self):
+        rng = np.random.default_rng(0)
+        rows = []
+        for e in rng.uniform(2, 12, 3000):
+            p = kelly_sizing.win_prob_from_shrink(e, 0.4, kelly_sizing.OUTCOME_STD["spread"], cap=0.99)
+            rows.append({"market": "SPREAD", "edge": e, "outcome": "WIN" if rng.random() < p else "LOSS"})
+        fitted = calibrate_edges.calibrate(rows)
+        self.assertEqual(fitted["spread"]["status"], "FITTED")
+        self.assertAlmostEqual(fitted["spread"]["shrink"], 0.4, delta=0.06)
+        self.assertEqual(fitted["totals"]["status"], "PRIOR")
+
+    def test_fitted_shrink_overrides_prior(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "cal.json"
+            path.write_text('{"markets": {"spread": {"status": "FITTED", "shrink": 0.5},'
+                            ' "totals": {"status": "PRIOR", "shrink": null}}}')
+            shrink = kelly_sizing.load_shrink(str(path))
+        self.assertEqual(shrink["spread"], 0.5)
+        self.assertEqual(shrink["totals"], kelly_sizing.EDGE_SHRINK_PRIOR["totals"])
 
 
 class MergeDataTests(unittest.TestCase):

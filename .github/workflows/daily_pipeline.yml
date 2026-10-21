@@ -9,6 +9,11 @@ on:
         description: 'Target date (YYYY-MM-DD), leave blank for today'
         required: false
         default: ''
+      retrain:
+        description: 'Retrain models before predicting'
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   run-pipeline:
@@ -40,6 +45,14 @@ jobs:
           echo "TARGET=$TARGET" >> $GITHUB_ENV
           echo "YESTERDAY=$(date -u -d "$TARGET -1 day" +%Y-%m-%d 2>/dev/null || date -j -v-1d -f %Y-%m-%d "$TARGET" +%Y-%m-%d)" >> $GITHUB_ENV
           echo "YEAR=$(date -u +%Y)" >> $GITHUB_ENV
+          # Retrain on scheduled Monday runs, or when requested on a manual run.
+          # (The cron fires daily, so github.event.schedule can't single out Mondays.)
+          if [ "${{ github.event.inputs.retrain }}" = "true" ] || \
+             { [ "${{ github.event_name }}" = "schedule" ] && [ "$(date -u +%u)" = "1" ]; }; then
+            echo "RETRAIN=true" >> $GITHUB_ENV
+          else
+            echo "RETRAIN=false" >> $GITHUB_ENV
+          fi
 
       - name: Skip run outside the NBA season
         run: |
@@ -100,9 +113,9 @@ jobs:
           python build_player_features.py --raw data/raw --out data/processed
           python build_team_features.py --raw data/raw --out data/processed
 
-      # ── Step 9: Retrain (Mondays only) ───────────────────────────────────
-      - name: Retrain models (Monday only)
-        if: env.SKIP != 'true' && github.event.schedule == '0 13 * * 1'
+      # ── Step 9: Retrain (Mondays, or manual run with retrain) ────────────
+      - name: Retrain models
+        if: env.SKIP != 'true' && env.RETRAIN == 'true'
         run: |
           python spread_model.py --mode train --data data/processed/master_all.csv
           python totals_model.py --mode train --data data/processed/master_all.csv
@@ -130,6 +143,11 @@ jobs:
       - name: Reconcile yesterday's forward predictions
         if: env.SKIP != 'true'
         run: python forward_reconciler.py --date ${{ env.YESTERDAY }}
+        continue-on-error: true
+
+      - name: Calibrate edge → win probability from graded forward bets
+        if: env.SKIP != 'true'
+        run: python calibrate_edges.py
         continue-on-error: true
 
       # ── Step 13: Line movement + CLV ─────────────────────────────────────

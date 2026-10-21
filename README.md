@@ -70,7 +70,8 @@ reports `null` for `cv_mae` / `hit_rate` / etc. until you've actually run
 
 ## Manual trigger
 
-Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date`).
+Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date`, and tick
+`retrain` to retrain the models first; scheduled runs retrain every Monday).
 
 ## Files
 
@@ -83,7 +84,10 @@ Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date
 - `build_team_features.py` — rolling team pace/efficiency profiles from completed games
 - `merge_data.py` — joins game box scores + odds into `data/processed/master_all.csv`
 - `spread_model.py` / `totals_model.py` / `props_model.py` — training + prediction
-- `kelly_sizing.py` / `betting_engine.py` — bet sizing, EV, decision scoring
+- `kelly_sizing.py` / `betting_engine.py` — bet sizing, EV, decision scoring. Win probability
+  is `Phi(shrink * edge / outcome_std)`, capped at 60%: only part of a model edge is assumed real
+- `calibrate_edges.py` — fits that shrink per market from graded forward bets (needs 200 per
+  market; priors until then) into `models/edge_calibration.json`
 - `daily_runner.py` — orchestrates a full day's predictions into `predictions/predictions_YYYY-MM-DD.json`
 - `forward_ledger.py` — append-only first-observed NBA predictions, including BET/PASS
 - `forward_reconciler.py` — resolves actual outcomes without changing original prediction fields
@@ -103,7 +107,7 @@ Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date
   inactive player) is still an NBA V1 priority.
 - Team defense is currently overall rolling defensive efficiency; a validated
   position/archetype matchup layer comes after the core forward evidence is stable.
-- `NBA_GAME_STD` in `kelly_sizing.py` remains an approximate NBA scoring-margin
-  standard deviation and must be recalibrated on genuine forward evidence.
+- The edge shrink priors in `kelly_sizing.py` (`EDGE_SHRINK_PRIOR`) are deliberately
+  conservative guesses; `calibrate_edges.py` replaces them once forward evidence exists.
 - Model promotion should be based on the immutable forward ledger, not retrospective
   fit alone.

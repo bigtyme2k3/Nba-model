@@ -238,8 +238,13 @@ def evaluate_vs_closing_line(preds: np.ndarray, df: pd.DataFrame) -> dict:
 
     eval_df = df.copy()
     eval_df["model_pred"]    = preds
+    # Market lines only exist for games collected since the odds feed started.
+    eval_df = eval_df[eval_df["avg_spread_home_line"].notna()]
+    results["games_with_line"] = len(eval_df)
+    if eval_df.empty:
+        print("  [SKIP] No games with a closing line yet.")
+        return {}
     eval_df["closing_line"]  = -eval_df["avg_spread_home_line"]  # Convert to home perspective
-    eval_df["actual_spread"] = df[TARGET]
 
     eval_df["model_edge"]    = eval_df["model_pred"] - eval_df["closing_line"]
     eval_df["home_covered"]  = eval_df["actual_spread"] > eval_df["closing_line"]
