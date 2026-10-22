@@ -1,15 +1,15 @@
 {
   "status": "ok",
-  "target_date": "2026-10-21",
+  "target_date": "2026-10-22",
   "rows": 0,
   "out": 0,
   "questionable": 0,
   "error": null,
-  "generated_at_utc": "2026-10-21T17:56:00.871661+00:00",
+  "generated_at_utc": "2026-10-22T17:52:38.772207+00:00",
   "sources": [
     "espn",
     "manual_override"
   ],
   "teams_checked": 30,
-  "completed_at_utc": "2026-10-21T17:56:24.158789+00:00"
+  "completed_at_utc": "2026-10-22T17:52:49.660628+00:00"
 }
