@@ -80,3 +80,5 @@ game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,act
 401909092,2026,2026-10-21,Lakers,127.0,Warriors,105.0,22.0,232.0
 401909841,2026,2026-10-21,Trail Blazers,124.0,Suns,83.0,41.0,207.0
 401909842,2026,2026-10-21,Clippers,121.0,Kings,96.0,25.0,217.0
+401909093,2026,2026-10-22,76ers,114.0,Cavaliers,106.0,8.0,220.0
+401909094,2026,2026-10-22,Thunder,96.0,Nuggets,84.0,12.0,180.0
