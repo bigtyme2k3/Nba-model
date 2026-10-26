@@ -60,4 +60,12 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-25,401909864,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Toronto Raptors,0,0,0,0,,,,,,,,,MIN -1.5,229.5,Target Center,0,2026-10-25T16:59:00.311417
 2026-10-25,401909865,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,LA Clippers,0,0,0,0,,,,,,,,,OKC -16.5,224.5,Paycom Center,0,2026-10-25T16:59:00.311423
 2026-10-25,401909866,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,227.5,Xfinity Mobile Arena,0,2026-10-25T16:59:00.311430
-2026-10-26,401909867,STATUS_SCHEDULED,False,False,Sacramento Kings,Memphis Grizzlies,0,0,0,0,,,,,,,,,MEM -3.5,234.5,Golden 1 Center,0,2026-10-25T16:59:00.311437
+2026-10-26,401909868,STATUS_SCHEDULED,False,False,Charlotte Hornets,Washington Wizards,0,0,0,0,,,,,,,,,CHA -2.5,227.5,Spectrum Center,0,2026-10-26T19:03:06.352041
+2026-10-26,401909869,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Minnesota Timberwolves,0,0,0,0,,,,,,,,,CLE -5.5,232.5,Rocket Arena,0,2026-10-26T19:03:06.352056
+2026-10-26,401909870,STATUS_SCHEDULED,False,False,Boston Celtics,Chicago Bulls,0,0,0,0,,,,,,,,,BOS -14.5,233.5,TD Garden,0,2026-10-26T19:03:06.352062
+2026-10-26,401909871,STATUS_SCHEDULED,False,False,Miami Heat,Dallas Mavericks,0,0,0,0,,,,,,,,,MIA -7.5,240.5,Kaseya Center,0,2026-10-26T19:03:06.352075
+2026-10-27,401909872,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Indiana Pacers,0,0,0,0,,,,,,,,,IND -4.5,238.5,Fiserv Forum,0,2026-10-26T19:03:06.352081
+2026-10-27,401909873,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Phoenix Suns,0,0,0,0,,,,,,,,,OKC -8.5,221.5,Paycom Center,0,2026-10-26T19:03:06.352086
+2026-10-27,401909874,STATUS_SCHEDULED,False,False,Houston Rockets,Atlanta Hawks,0,0,0,0,,,,,,,,,HOU -4.5,229.5,Toyota Center (Houston),0,2026-10-26T19:03:06.352092
+2026-10-27,401909875,STATUS_SCHEDULED,False,False,Utah Jazz,Memphis Grizzlies,0,0,0,0,,,,,,,,,MEM -1.5,237.5,Delta Center,0,2026-10-26T19:03:06.352104
+2026-10-27,401909876,STATUS_SCHEDULED,False,False,Denver Nuggets,Golden State Warriors,0,0,0,0,,,,,,,,,DEN -7.5,236.5,Ball Arena,0,2026-10-26T19:03:06.352112
