@@ -15,7 +15,7 @@ import pandas as pd
 from glob import glob
 
 from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, normalize_team
-from season_filters import filter_games
+from season_filters import filter_games_for_source, nba_season_start_year
 
 RAW_DIR       = "data/raw"
 PROCESSED_DIR = "data/processed"
@@ -24,22 +24,27 @@ PROCESSED_DIR = "data/processed"
 # ── Loaders ───────────────────────────────────────────────────────────────────
 
 def load_game_logs(year: int) -> pd.DataFrame:
-    # Preference order: a hand-provided game log, ESPN scoreboard scrape results,
-    # then collect_stats.py's hoopR-derived per-season games file (already in this
-    # same home_team/away_team/home_pts/away_pts/game_date shape).
-    path = os.path.join(RAW_DIR, f"game_logs_{year}.csv")
-    if not os.path.exists(path):
-        path = os.path.join(RAW_DIR, f"scores_{year}.csv")
-        if not os.path.exists(path):
-            path = os.path.join(RAW_DIR, f"hoopr_games_{year}.csv")
-            if not os.path.exists(path):
-                print(f"  [WARN] Missing game log: year {year}")
-                return pd.DataFrame()
+    """Load one canonical NBA season keyed by its START year.
+
+    Historical Sportsdataverse releases use ending-year filenames:
+      hoopR 2026 => 2025-26 season
+    Live ESPN files use start-year filenames:
+      espn_current 2026 => 2026-27 season
+    """
+    candidates = [
+        os.path.join(RAW_DIR, f"game_logs_{year}.csv"),
+        os.path.join(RAW_DIR, f"espn_current_games_{year}.csv"),
+        os.path.join(RAW_DIR, f"hoopr_games_{year + 1}.csv"),
+        os.path.join(RAW_DIR, f"scores_{year}.csv"),
+    ]
+    path = next((p for p in candidates if os.path.exists(p)), None)
+    if path is None:
+        print(f"  [WARN] Missing game log for canonical season {year}-{str(year+1)[-2:]}")
+        return pd.DataFrame()
 
     df = pd.read_csv(path)
     if "game_id" in df.columns:
-        df, _ = filter_games(df, RAW_DIR, year, label="game-model rows")
-    df["season"] = year
+        df, _ = filter_games_for_source(df, RAW_DIR, path, label="game-model rows")
 
     rename = {
         "date":"game_date","visitor/neutral":"away_team",
@@ -49,19 +54,28 @@ def load_game_logs(year: int) -> pd.DataFrame:
 
     if "game_date" in df.columns:
         df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
-        df = df[df["game_date"].notna()]
+        df = df[df["game_date"].notna()].copy()
+        df["season"] = df["game_date"].map(nba_season_start_year)
+        df = df[pd.to_numeric(df["season"], errors="coerce").eq(year)].copy()
+    else:
+        df["season"] = year
 
     if "game_id" in df.columns:
+        ids = df["game_id"].astype(str).str.strip()
+        nonblank = df["game_id"].notna() & ids.ne("") & ids.ne("nan")
+        if ids[nonblank].duplicated().any():
+            raise RuntimeError(f"Duplicate game_id rows in {os.path.basename(path)}")
         df = df.drop_duplicates(subset=["game_id"], keep="last").copy()
 
     if "home_pts" in df.columns and "away_pts" in df.columns:
-        df["home_pts"]      = pd.to_numeric(df["home_pts"], errors="coerce")
-        df["away_pts"]      = pd.to_numeric(df["away_pts"], errors="coerce")
+        df["home_pts"] = pd.to_numeric(df["home_pts"], errors="coerce")
+        df["away_pts"] = pd.to_numeric(df["away_pts"], errors="coerce")
         mask = df["home_pts"].notna() & df["away_pts"].notna()
         df.loc[mask, "actual_spread"] = df.loc[mask,"home_pts"] - df.loc[mask,"away_pts"]
-        df.loc[mask, "actual_total"]  = df.loc[mask,"home_pts"] + df.loc[mask,"away_pts"]
+        df.loc[mask, "actual_total"] = df.loc[mask,"home_pts"] + df.loc[mask,"away_pts"]
 
-    return df
+    print(f"  Game source: {os.path.basename(path)}")
+    return df.reset_index(drop=True)
 
 
 def load_odds(year: int) -> pd.DataFrame:
@@ -244,7 +258,7 @@ def add_model_labels(df: pd.DataFrame) -> pd.DataFrame:
 # ── Main Merge ────────────────────────────────────────────────────────────────
 
 def process_year(year: int) -> pd.DataFrame:
-    print(f"\n── Processing season {year}-{year+1} ──")
+    print(f"\n── Processing canonical season {year}-{str(year+1)[-2:]} ──")
 
     game_df  = load_game_logs(year)
     odds_df  = load_odds(year)
@@ -330,22 +344,25 @@ def main():
     os.makedirs(PROCESSED_DIR, exist_ok=True)
 
     if args.year == "all":
-        patterns = [
-            glob(os.path.join(RAW_DIR, "game_logs_*.csv")),
-            glob(os.path.join(RAW_DIR, "scores_20*.csv")),
-            glob(os.path.join(RAW_DIR, "hoopr_games_20*.csv")),
-        ]
-        files = [f for group in patterns for f in group]
-        years = sorted(set([
-            int(f.split("_")[-1].replace(".csv",""))
-            for f in files
-            if f.split("_")[-1].replace(".csv","").isdigit()
-        ]))
+        years = set()
+
+        for f in glob(os.path.join(RAW_DIR, "hoopr_games_20*.csv")):
+            token = os.path.basename(f).split("_")[-1].replace(".csv","")
+            if token.isdigit():
+                years.add(int(token) - 1)
+
+        for pattern in ["espn_current_games_20*.csv", "game_logs_20*.csv", "scores_20*.csv"]:
+            for f in glob(os.path.join(RAW_DIR, pattern)):
+                token = os.path.basename(f).split("_")[-1].replace(".csv","")
+                if token.isdigit():
+                    years.add(int(token))
+
+        years = sorted(y for y in years if y >= 2000)
         if not years:
             print("[WARN] No game log files found in data/raw/")
-            print("       Run collect_stats.py or scrape_scores.py first.")
+            print("       Run collect_stats.py first.")
             return
-        print(f"Found seasons: {years}")
+        print(f"Found canonical season-start years: {years}")
     else:
         years = [int(args.year)]
 
