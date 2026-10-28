@@ -8,7 +8,7 @@ Usage:
     python daily_runner.py --date 2026-11-05 --out predictions/today.json
 """
 
-import os, sys, json, pickle, argparse, warnings
+import os, sys, json, pickle, argparse, warnings, math
 import numpy as np
 import pandas as pd
 from datetime import date, datetime
@@ -57,6 +57,12 @@ try:
     INJURIES_AVAILABLE = True
 except ImportError:
     INJURIES_AVAILABLE = False
+
+try:
+    from opportunity_redistribution import build_opportunity_adjustments
+    OPPORTUNITY_AVAILABLE = True
+except ImportError:
+    OPPORTUNITY_AVAILABLE = False
 
 
 # ── Team metadata ──────────────────────────────────────────────────────────────
@@ -300,6 +306,139 @@ def load_posted_props(target_date, schedule=None):
     return out
 
 
+def load_sportsbook_props(target_date, schedule=None):
+    """Load FanDuel/DraftKings/Fanatics offers from The Odds API.
+
+    Structure:
+      matchup -> player -> {"__offers": {stat: [offer, ...]}}
+    """
+    paths = [
+        os.path.join("data/raw", f"sportsbook_props_{target_date}.csv"),
+        os.path.join("data/raw", "sportsbook_props_today.csv"),
+    ]
+    path = next((p for p in paths if os.path.exists(p)), None)
+    if not path:
+        return {}
+    try:
+        df = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load sportsbook props: {exc}")
+        return {}
+    if df.empty:
+        return {}
+
+    out = {}
+    for _, r in df.iterrows():
+        home = normalize_team(str(r.get("home_team", "")).strip())
+        away = normalize_team(str(r.get("away_team", "")).strip())
+        player = str(r.get("player", "")).strip()
+        stat = str(r.get("stat", "")).strip().lower()
+        side = str(r.get("side", "")).strip().upper()
+        line = pd.to_numeric(pd.Series([r.get("line")]), errors="coerce").iloc[0]
+        price = pd.to_numeric(pd.Series([r.get("price")]), errors="coerce").iloc[0]
+        if not home or not away or not player or stat not in PROP_TARGETS:
+            continue
+        if side not in {"OVER","UNDER"} or pd.isna(line) or pd.isna(price):
+            continue
+        key = f"{away}@{home}"
+        p = out.setdefault(key, {}).setdefault(player, {"__offers": {}})
+        p["__offers"].setdefault(stat, []).append({
+            "side": side,
+            "line": float(line),
+            "price": int(price),
+            "book": str(r.get("book", "")),
+            "book_key": str(r.get("book_key", "")),
+            "no_vig_probability": _float(r.get("no_vig_probability"), None),
+            "implied_probability": _float(r.get("implied_probability"), None),
+            "last_update": str(r.get("last_update", "")),
+            "source": str(r.get("source", "the-odds-api")),
+        })
+
+    print(
+        f"  Sportsbook prop feed loaded: "
+        f"{sum(len(v) for v in out.values())} player-game rows"
+    )
+    return out
+
+
+def _american_decimal(price):
+    p = _float(price, None)
+    if p is None or p == 0:
+        return None
+    return 1.0 + (p / 100.0 if p > 0 else 100.0 / abs(p))
+
+
+def _american_implied(price):
+    dec = _american_decimal(price)
+    return (1.0 / dec) if dec else None
+
+
+def _normal_over_probability(pred, line, sigma):
+    if sigma is None or sigma <= 0:
+        return None
+    z = (line - pred) / (sigma * math.sqrt(2.0))
+    return 0.5 * (1.0 - math.erf(z))
+
+
+def _best_prop_offer(pred, model_info, offers, threshold):
+    """Evaluate every book/line/side and return the highest-EV qualified offer."""
+    if not offers:
+        return None
+    cv_mae = _float(model_info.get("cv_mae"), None)
+    std_stat = _float(model_info.get("std_stat"), None)
+    sigma_from_mae = cv_mae * math.sqrt(math.pi / 2.0) if cv_mae is not None else None
+    sigma_candidates = [x for x in [sigma_from_mae, std_stat] if x is not None and x > 0]
+    sigma = min(sigma_candidates) if sigma_candidates else max(0.75, threshold * 1.5)
+    sigma = max(0.55, sigma)
+
+    evaluated = []
+    for offer in offers:
+        line = _float(offer.get("line"), None)
+        price = _float(offer.get("price"), None)
+        side = str(offer.get("side", "")).upper()
+        if line is None or price is None or side not in {"OVER","UNDER"}:
+            continue
+        p_over = _normal_over_probability(pred, line, sigma)
+        if p_over is None:
+            continue
+        model_p = p_over if side == "OVER" else 1.0 - p_over
+        implied = _american_implied(price)
+        market_p = _float(offer.get("no_vig_probability"), implied)
+        dec = _american_decimal(price)
+        if implied is None or market_p is None or dec is None:
+            continue
+        ev = model_p * dec - 1.0
+        prob_edge = model_p - market_p
+        directional_edge = pred - line if side == "OVER" else line - pred
+        evaluated.append({
+            **offer,
+            "model_probability": model_p,
+            "market_probability": market_p,
+            "probability_edge": prob_edge,
+            "ev": ev,
+            "directional_edge": directional_edge,
+            "sigma": sigma,
+        })
+
+    if not evaluated:
+        return None
+
+    # Line edge remains a guardrail; pricing can lower it to half the old threshold,
+    # but probability edge + positive EV must independently confirm the play.
+    min_line_edge = max(0.20, threshold * 0.50)
+    qualified = [
+        x for x in evaluated
+        if x["directional_edge"] >= min_line_edge
+        and x["probability_edge"] >= 0.020
+        and x["ev"] >= 0.025
+    ]
+    pool = qualified if qualified else evaluated
+    best = max(pool, key=lambda x: (x["ev"], x["probability_edge"], x["directional_edge"]))
+    best["qualified"] = bool(best in qualified)
+    best["offers_considered"] = len(evaluated)
+    return best
+
+
 def load_market_odds(target_date):
     """Load The Odds API consensus game lines collected by scrape_odds.py."""
     paths = [
@@ -512,7 +651,7 @@ def run_totals(home, away, ctx, bundle):
         return 224.0
 
 
-def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=None):
+def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustments=None):
     if bundle is None:
         return []
     models = bundle.get("models", {})
@@ -521,13 +660,13 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
         return []
 
     posted = posted_lines or {}
-    injury_adjustments = injury_adjustments or {}
+    opportunity_adjustments = opportunity_adjustments or {}
     profiles = load_player_profiles()
     player_pool = dict(PLAYER_PROPS)
     player_pool.update(profiles)
 
-    # When market lines exist, they define today's actionable player universe.
-    # Live feed team metadata overrides the historical profile team after trades.
+    # A live market defines the actionable player universe. Without a market feed
+    # we may still publish projections, but no bet signal is generated.
     candidates = list(posted.keys()) if posted else [
         p for p, pdata in player_pool.items() if pdata.get("team") in [home, away]
     ]
@@ -558,22 +697,39 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
         rest = ctx["home_rest_days"] if is_home else ctx["away_rest_days"]
 
         base_min = _float(pdata.get("projected_minutes"), _float(pdata.get("mpg"), 28.0))
-        proj_min = base_min * (0.95 if b2b else 1.0)
-        injury_status = "ACTIVE_OR_UNKNOWN"
-        if player in injury_adjustments:
-            proj_min = _float(injury_adjustments[player], 0.0)
-            injury_status = "OUT" if proj_min <= 0 else "INJURY_ADJUSTED"
-        if proj_min <= 0:
-            continue
-
+        proj_min = base_min
         usage = _float(pdata.get("usage"), 0.20)
-        ts = _float(pdata.get("ts"), 0.57)
         roll5_pts = _float(pdata.get("roll5_pts"), 18.0)
         roll5_reb = _float(pdata.get("roll5_reb"), 6.0)
         roll5_ast = _float(pdata.get("roll5_ast"), 4.0)
         roll5_threes = _float(pdata.get("roll5_threes"), 1.0)
         roll5_pra = _float(pdata.get("roll5_pra"), roll5_pts + roll5_reb + roll5_ast)
 
+        opp_adj = opportunity_adjustments.get(player)
+        injury_status = "ACTIVE_OR_UNKNOWN"
+        opportunity_direction = "UNCHANGED"
+        if opp_adj:
+            proj_min = _float(opp_adj.get("adjusted_minutes"), proj_min)
+            usage = _float(opp_adj.get("adjusted_usage"), usage)
+            roll5_pts *= _float(opp_adj.get("pts_multiplier"), 1.0)
+            roll5_reb *= _float(opp_adj.get("reb_multiplier"), 1.0)
+            roll5_ast *= _float(opp_adj.get("ast_multiplier"), 1.0)
+            roll5_threes *= _float(opp_adj.get("threes_multiplier"), 1.0)
+            roll5_pra *= _float(opp_adj.get("pra_multiplier"), 1.0)
+            sev = str(opp_adj.get("injury_severity") or "").upper()
+            delta = _float(opp_adj.get("minutes_delta"), 0.0)
+            if sev:
+                injury_status = sev
+            elif delta > 0:
+                injury_status = "OPPORTUNITY_UP"
+            opportunity_direction = "UP" if delta > 0.05 else ("DOWN" if delta < -0.05 else "UNCHANGED")
+
+        # Schedule fatigue is applied after injury/opportunity redistribution.
+        proj_min *= (0.95 if b2b else 1.0)
+        if proj_min <= 0:
+            continue
+
+        ts = _float(pdata.get("ts"), 0.57)
         row = {
             "minutes": proj_min,
             "roll5_minutes": _float(pdata.get("mpg"), base_min),
@@ -601,8 +757,14 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
             "opp": opp,
             "pos": pos,
             "proj_min": round(proj_min, 1),
+            "base_proj_min": round(base_min, 1),
             "b2b": bool(b2b),
             "injury_status": injury_status,
+            "opportunity_direction": opportunity_direction,
+            "opportunity_minutes_delta": (
+                round(_float(opp_adj.get("minutes_delta"), 0.0), 2) if opp_adj else 0.0
+            ),
+            "vacancy_sources": opp_adj.get("vacancy_sources", "") if opp_adj else "",
             "rotation_stability_score": pdata.get("rotation_stability_score"),
             "rotation_risk_band": pdata.get("rotation_risk_band", "UNKNOWN"),
             "projected_role": pdata.get("projected_role", "UNKNOWN"),
@@ -610,6 +772,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
             "props": {},
         }
 
+        offers_by_stat = live.get("__offers", {})
         for target in PROP_TARGETS:
             if target not in models:
                 continue
@@ -621,9 +784,35 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
             except Exception as exc:
                 print(f"  [WARN] {player} {target} prediction failed: {exc}")
                 continue
+
             thresh = thresholds.get(target, 2.0)
+            offers = offers_by_stat.get(target, [])
+            best = _best_prop_offer(pred, m, offers, thresh) if offers else None
+
+            if best:
+                side = best["side"]
+                signed_edge = pred - best["line"]
+                player_result["props"][target] = {
+                    "pred": round(pred, 2),
+                    "line": best["line"],
+                    "edge": round(signed_edge, 2),
+                    "signal": side if best["qualified"] else None,
+                    "book": best.get("book"),
+                    "book_key": best.get("book_key"),
+                    "odds": int(best["price"]),
+                    "model_probability": round(best["model_probability"], 4),
+                    "market_probability": round(best["market_probability"], 4),
+                    "probability_edge": round(best["probability_edge"], 4),
+                    "ev": round(best["ev"], 4),
+                    "sigma": round(best["sigma"], 4),
+                    "offers_considered": best["offers_considered"],
+                    "market_source": best.get("source", "the-odds-api"),
+                }
+                continue
+
+            # PrizePicks / single-line fallback: projection-only edge, no priced EV.
             line = live.get(target)
-            edge = round(pred - line, 1) if line is not None else None
+            edge = round(pred - line, 2) if line is not None else None
             signal = None
             if edge is not None:
                 if edge > thresh:
@@ -631,10 +820,12 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
                 elif edge < -thresh:
                     signal = "UNDER"
             player_result["props"][target] = {
-                "pred": round(pred, 1),
-                "line": line,
-                "edge": edge,
-                "signal": signal,
+                "pred": round(pred, 2), "line": line, "edge": edge, "signal": signal,
+                "book": None, "book_key": None, "odds": None,
+                "model_probability": None, "market_probability": None,
+                "probability_edge": None, "ev": None,
+                "offers_considered": 0,
+                "market_source": "prizepicks" if line is not None else None,
             }
 
         if player_result["props"]:
@@ -679,13 +870,27 @@ def collect_best_bets(games_output):
             for pt, pd_data in pr["props"].items():
                 if pd_data["signal"] and pd_data["edge"] is not None:
                     conf, stars = score_confidence(pd_data["edge"], "props")
+                    ev = _float(pd_data.get("ev"), None)
+                    p_edge = _float(pd_data.get("probability_edge"), None)
+                    if ev is not None:
+                        if ev >= 0.08 and (p_edge or 0) >= 0.04:
+                            conf, stars = "HIGH", max(stars, 3)
+                        elif ev >= 0.04 and (p_edge or 0) >= 0.025:
+                            conf, stars = "MED", max(stars, 2)
                     if stars >= 2:
                         bets.append({
                             "type":"PROP","game":matchup,
                             "play":f"{pr['player']} {pt.upper()} {pd_data['signal']} {pd_data['line']}",
-                            "market_line":pd_data.get("line"),"model_projection":pd_data.get("pred"),
+                            "market_line":pd_data.get("line"),"market_odds":pd_data.get("odds"),
+                            "market_source":pd_data.get("market_source"),"book":pd_data.get("book"),
+                            "book_key":pd_data.get("book_key"),"model_projection":pd_data.get("pred"),
+                            "model_probability":pd_data.get("model_probability"),
+                            "market_probability":pd_data.get("market_probability"),
+                            "probability_edge":pd_data.get("probability_edge"),"ev":pd_data.get("ev"),
                             "player":pr["player"],"stat":pt.upper(),"side":pd_data.get("signal"),
-                            "edge":pd_data["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
+                            "edge":pd_data["edge"],"conf":conf,"stars":stars,"tip":g["tip"],
+                            "proj_min":pr.get("proj_min"),"opportunity_direction":pr.get("opportunity_direction"),
+                            "vacancy_sources":pr.get("vacancy_sources"),
                         })
     bets.sort(key=lambda b: (-b["stars"], -abs(b["edge"])))
     for i, b in enumerate(bets): b["rank"] = i+1
@@ -697,16 +902,22 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     load_team_profiles_into_context()
     spread_bundle, totals_bundle, props_bundle = load_models()
 
-    # Load injury adjustments
-    injury_adjustments = {}
+    # Build transparent injury-driven minutes/usage opportunity adjustments.
+    opportunity_adjustments = {}
     injuries_path = "data/raw/injuries_today.csv"
-    if INJURIES_AVAILABLE and os.path.exists(injuries_path):
-        import pandas as pd
-        inj_df = pd.read_csv(injuries_path)
-        from scrape_injuries import reallocate_minutes
-        injury_adjustments = reallocate_minutes(inj_df, schedule)
-        out_count = len(inj_df[inj_df["is_out"]]) if "is_out" in inj_df.columns else 0
-        print(f"  Injuries loaded: {out_count} OUT players")
+    if os.path.exists(injuries_path):
+        try:
+            inj_df = pd.read_csv(injuries_path)
+            out_count = int(inj_df["is_out"].sum()) if "is_out" in inj_df.columns and not inj_df.empty else 0
+            print(f"  Injuries loaded: {out_count} OUT/DOUBTFUL flags")
+        except Exception:
+            inj_df = pd.DataFrame()
+    if OPPORTUNITY_AVAILABLE:
+        try:
+            opportunity_adjustments = build_opportunity_adjustments(str(target_date))
+            print(f"  Opportunity adjustments: {len(opportunity_adjustments)} players")
+        except Exception as exc:
+            print(f"  [WARN] Opportunity redistribution failed: {exc}")
 
     # Load referee stats
     ref_stats_df = None
@@ -776,7 +987,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         props_out = run_props(
             home, away, ctx, props_bundle,
             posted_props.get(f"{away}@{home}", {}),
-            injury_adjustments=injury_adjustments,
+            opportunity_adjustments=opportunity_adjustments,
         )
 
         flags = []
@@ -823,7 +1034,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         "best_bets":  best_bets,
         "model_stats":{"spread":{"algo":"Ridge / GBR","cv_mae":None,"dir_acc":None,"strong_ats":None,"n":0},
                        "totals":{"algo":"Ridge / RF","cv_mae":None,"ou_acc":None,"strong_ou":None,"n":0},
-                       "props": {"algo":"Ridge / GBR","cv_mae":None,"hit_rate":None,"strong_hr":None,"n":0}},
+                       "props": {"algo":"Ridge / HistGBR","cv_mae":None,"hit_rate":None,"strong_hr":None,"n":0}},
     }
 
 
@@ -837,7 +1048,10 @@ if __name__ == "__main__":
     schedule = fetch_todays_schedule(target)
     market_odds = load_market_odds(target)
     schedule = attach_market_odds(schedule, market_odds)
-    posted_props = load_posted_props(target, schedule)
+    posted_props = load_sportsbook_props(target, schedule)
+    if not posted_props:
+        print("  [WARN] Sportsbook prop feed unavailable — trying PrizePicks fallback")
+        posted_props = load_posted_props(target, schedule)
 
     result = run_pipeline(target, schedule, posted_props=posted_props)
     out_path = args.out or os.path.join(OUTPUT_DIR, f"predictions_{target}.json")
