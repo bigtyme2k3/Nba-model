@@ -125,6 +125,11 @@ jobs:
             --date ${{ env.TARGET }} \
             --predictions predictions/pretip_${{ env.TARGET }}.json
 
+      - name: Compare first forecast with near-tip execution
+        if: env.ELIGIBLE == 'true'
+        run: python execution_reconciler.py --date ${{ env.TARGET }}
+        continue-on-error: true
+
       - name: Preserve first-observed forward evidence
         if: env.ELIGIBLE == 'true'
         run: |
@@ -154,7 +159,10 @@ jobs:
             data/history/nba_forward_predictions.jsonl \
             data/history/nba_pretip_execution_snapshots.jsonl \
             data/tracking/forward_ledger_status.json \
-            data/tracking/execution_ledger_status.json
+            data/tracking/execution_ledger_status.json \
+            data/tracking/nba_execution_performance.json \
+            data/tracking/nba_execution_certified.csv \
+            data/tracking/nba_forecast_vs_execution.csv
           git diff --cached --quiet || git commit -m "⏱️ NBA pre-tip refresh — ${{ env.TARGET }}"
           git reset --hard HEAD
           git clean -fd
