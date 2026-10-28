@@ -87,33 +87,32 @@ def load_team_stats(year: int) -> pd.DataFrame:
 # ── Feature Engineering ───────────────────────────────────────────────────────
 
 def add_rest_days(df: pd.DataFrame) -> pd.DataFrame:
-    """Compute rest days with correct index alignment."""
-    df = df.sort_values("game_date").reset_index(drop=True)
+    """Compute true rest/fatigue from every prior team game, regardless of venue."""
+    df = df.sort_values("game_date").reset_index(drop=True).copy()
+    df["_row_id"] = np.arange(len(df))
 
-    for side in ["home_team", "away_team"]:
-        prefix   = side.split("_")[0]
-        rest_col = f"{prefix}_rest_days"
-        b2b_col  = f"{prefix}_back_to_back"
-        t4_col   = f"{prefix}_three_in_four"
+    home = df[["_row_id","game_date","home_team"]].rename(columns={"home_team":"team"})
+    home["side"] = "home"
+    away = df[["_row_id","game_date","away_team"]].rename(columns={"away_team":"team"})
+    away["side"] = "away"
+    sched = pd.concat([home, away], ignore_index=True)
+    sched = sched.sort_values(["team","game_date","_row_id"]).reset_index(drop=True)
 
-        df[rest_col] = np.nan
-        df[b2b_col]  = False
-        df[t4_col]   = False
+    prev1 = sched.groupby("team")["game_date"].shift(1)
+    prev2 = sched.groupby("team")["game_date"].shift(2)
+    sched["rest_days"] = (sched["game_date"] - prev1).dt.days - 1
+    sched["back_to_back"] = sched["rest_days"].eq(0)
+    sched["three_in_four"] = (
+        (sched["game_date"] - prev2).dt.days.le(3) & prev2.notna()
+    )
 
-        for team in df[side].dropna().unique():
-            idx = df.index[df[side] == team].tolist()
-            dates = df.loc[idx, "game_date"]
+    for side in ("home","away"):
+        part = sched[sched["side"].eq(side)].set_index("_row_id")
+        df[f"{side}_rest_days"] = df["_row_id"].map(part["rest_days"])
+        df[f"{side}_back_to_back"] = df["_row_id"].map(part["back_to_back"]).fillna(False).astype(bool)
+        df[f"{side}_three_in_four"] = df["_row_id"].map(part["three_in_four"]).fillna(False).astype(bool)
 
-            prev1 = dates.shift(1)
-            rest  = (dates.values - prev1.values) / np.timedelta64(1,"D") - 1
-            df.loc[idx, rest_col] = rest
-            df.loc[idx, b2b_col]  = rest == 0
-
-            prev2  = dates.shift(2)
-            span2  = (dates.values - prev2.values) / np.timedelta64(1,"D")
-            df.loc[idx, t4_col] = span2 <= 3
-
-    return df
+    return df.drop(columns=["_row_id"])
 
 
 def add_travel_flag(df: pd.DataFrame) -> pd.DataFrame:
