@@ -94,10 +94,14 @@ def target_events(target_date: str, out_dir: str):
         if not event_id or not commence:
             continue
         try:
-            dt = datetime.fromisoformat(commence.replace("Z", "+00:00")).astimezone(ET)
+            tip_utc = datetime.fromisoformat(commence.replace("Z", "+00:00")).astimezone(timezone.utc)
+            dt = tip_utc.astimezone(ET)
         except Exception:
             continue
         if dt.date().isoformat() != target_date:
+            continue
+        # Pregame model only: The Odds API also serves in-play events/markets.
+        if tip_utc <= datetime.now(timezone.utc):
             continue
         rows.append({
             "event_id": event_id,
