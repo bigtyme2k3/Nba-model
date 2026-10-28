@@ -23,6 +23,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from forward_ledger import EVIDENCE_EPOCH
+
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 RAW = Path("data/raw")
 TRACKING = Path("data/tracking")
@@ -49,7 +51,9 @@ def read_ledger():
         if not line.strip():
             continue
         try:
-            rows.append(json.loads(line))
+            row=json.loads(line)
+            if row.get("evidence_epoch")==EVIDENCE_EPOCH:
+                rows.append(row)
         except Exception:
             pass
     return rows
