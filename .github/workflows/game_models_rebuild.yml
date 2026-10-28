@@ -114,6 +114,7 @@ jobs:
           git config user.email "actions@github.com"
           git add \
             data/raw/hoopr_games_2026.csv \
+            data/raw/hoopr_schedule_2026.csv \
             data/raw/hoopr_games_master.csv \
             data/raw/hoopr_team_box_2026.csv \
             data/processed/master_*.csv \
