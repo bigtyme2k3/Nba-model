@@ -87,6 +87,7 @@ jobs:
           git config user.email "actions@github.com"
           git add \
             data/raw/hoopr_games_2026.csv \
+            data/raw/hoopr_games_master.csv \
             data/raw/hoopr_player_box_2026.csv \
             data/raw/hoopr_team_box_2026.csv \
             data/processed/player_logs.csv \
@@ -110,6 +111,10 @@ jobs:
             predictions/v1_smoke_${{ env.TARGET }}.json \
             models/props_models.pkl
           git diff --cached --quiet || git commit -m "🧪 NBA V1 live sportsbook/opportunity smoke — ${{ env.TARGET }}"
+          # Discard generated files intentionally excluded from the evidence commit
+          # so rebase cannot be blocked by an unstaged working tree.
+          git reset --hard HEAD
+          git clean -fd
           git fetch origin main
           git rebase -X theirs origin/main
           git push || {
