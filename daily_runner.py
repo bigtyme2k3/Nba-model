@@ -503,6 +503,63 @@ def attach_market_odds(schedule, market_odds):
     return schedule
 
 
+def attach_schedule_fatigue(schedule, target_date, path="data/raw/hoopr_games_master.csv"):
+    """Attach true rest/B2B/3-in-4 context from all prior completed games."""
+    if not schedule or not os.path.exists(path):
+        return schedule
+    try:
+        hist = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load schedule history: {exc}")
+        return schedule
+    if hist.empty or "game_date" not in hist.columns:
+        return schedule
+
+    hist["game_date"] = pd.to_datetime(hist["game_date"], errors="coerce")
+    hist = hist[hist["game_date"].notna()].copy()
+    target_ts = pd.Timestamp(target_date)
+    hist = hist[hist["game_date"] < target_ts].copy()
+
+    season_start = target_date.year if target_date.month >= 7 else target_date.year - 1
+    if "season" in hist.columns:
+        season_vals = pd.to_numeric(hist["season"], errors="coerce")
+        season_hist = hist[season_vals.eq(season_start)].copy()
+        if not season_hist.empty:
+            hist = season_hist
+
+    team_dates = {}
+    for _, r in hist.iterrows():
+        gd = r["game_date"].normalize()
+        for col in ("home_team","away_team"):
+            team = normalize_team(str(r.get(col, "")).strip())
+            if team:
+                team_dates.setdefault(team, set()).add(gd)
+
+    for game in schedule:
+        for side in ("home","away"):
+            team = game.get(side, "")
+            dates = sorted(team_dates.get(team, set()))
+            if dates:
+                last = dates[-1]
+                rest = max(0, min(7, int((target_ts - last).days - 1)))
+                recent3 = sum(d >= target_ts - pd.Timedelta(days=3) for d in dates)
+                game[f"{side}_rest"] = rest
+                game[f"{side}_b2b"] = rest == 0
+                game[f"{side}_3in4"] = recent3 >= 2
+                game[f"{side}_game_num"] = len(dates) + 1
+            else:
+                game[f"{side}_rest"] = 2
+                game[f"{side}_b2b"] = False
+                game[f"{side}_3in4"] = False
+                game[f"{side}_game_num"] = 1
+
+        game["game_num"] = max(
+            int(game.get("home_game_num", 1)),
+            int(game.get("away_game_num", 1)),
+        )
+    return schedule
+
+
 # ── Get today's schedule from ESPN ────────────────────────────────────────────
 
 def fetch_todays_schedule(target_date: date) -> list:
@@ -610,8 +667,8 @@ def build_context(home, away, target_date, game):
         "away_rest_days":  game.get("away_rest", 2),
         "home_b2b":        game.get("home_b2b", False),
         "away_b2b":        game.get("away_b2b", False),
-        "home_3in4":       False,
-        "away_3in4":       False,
+        "home_3in4":       game.get("home_3in4", False),
+        "away_3in4":       game.get("away_3in4", False),
         "long_travel":     long_travel,
         "east_to_west":    int(away in EAST and home in WEST),
         "west_to_east":    int(away in WEST and home in EAST),
@@ -1152,6 +1209,7 @@ if __name__ == "__main__":
     if skipped_started:
         print(f"  Pregame/window gate: skipped {skipped_started} games outside requested window")
     schedule = pre_tip
+    schedule = attach_schedule_fatigue(schedule, target)
     market_odds = load_market_odds(target)
     schedule = attach_market_odds(schedule, market_odds)
     posted_props = load_sportsbook_props(target, schedule)
