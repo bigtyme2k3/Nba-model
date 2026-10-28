@@ -49,6 +49,7 @@ jobs:
             data/tracking/nba_forward_performance.json \
             data/tracking/nba_forward_certified.csv \
             data/tracking/evidence_epoch_reset_status.json \
+            data/tracking/forward_ledger_status.json \
             data/tracking/nba_v1_readiness.json
           git diff --cached --quiet || git commit -m "🧹 Reset NBA V1 clean forward evidence epoch"
           git reset --hard HEAD
