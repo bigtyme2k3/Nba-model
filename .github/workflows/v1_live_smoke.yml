@@ -1,5 +1,9 @@
 name: NBA V1 Live Smoke
 
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
 on:
   push:
     branches: [main]
