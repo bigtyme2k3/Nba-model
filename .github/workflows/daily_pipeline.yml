@@ -147,8 +147,8 @@ jobs:
         run: python forward_reconciler.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
-      # ── Step 13: Line movement + CLV ─────────────────────────────────────
-      - name: Compute line movement and CLV
+      # ── Step 13: Consensus game line movement ─────────────────────────────
+      - name: Compute consensus game line movement
         if: env.SKIP != 'true'
         run: python line_movement.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
