@@ -239,10 +239,10 @@ def add_no_vig(df: pd.DataFrame):
     return df
 
 
-def save(df, target_date, out_dir):
+def save(df, target_date, out_dir, prefix="sportsbook_props"):
     Path(out_dir).mkdir(parents=True, exist_ok=True)
-    dated = Path(out_dir) / f"sportsbook_props_{target_date}.csv"
-    today = Path(out_dir) / "sportsbook_props_today.csv"
+    dated = Path(out_dir) / f"{prefix}_{target_date}.csv"
+    today = Path(out_dir) / f"{prefix}_today.csv"
     df.to_csv(dated, index=False)
     df.to_csv(today, index=False)
     return dated, today
@@ -254,6 +254,7 @@ def main():
     parser.add_argument("--out", default="data/raw")
     parser.add_argument("--min-minutes-to-tip", type=float, default=None)
     parser.add_argument("--max-minutes-to-tip", type=float, default=None)
+    parser.add_argument("--output-prefix", default="sportsbook_props")
     args = parser.parse_args()
 
     status = {
@@ -274,6 +275,7 @@ def main():
         "api_requests_remaining": None,
         "api_requests_last": None,
         "error": None,
+        "output_prefix": args.output_prefix,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -310,8 +312,13 @@ def main():
     if "df" not in locals():
         df = add_no_vig(empty_df())
 
-    save(df, args.date, args.out)
-    Path(args.out, "sportsbook_props_status.json").write_text(json.dumps(status, indent=2) + "\n")
+    save(df, args.date, args.out, args.output_prefix)
+    status_name = (
+        "sportsbook_props_status.json"
+        if args.output_prefix == "sportsbook_props"
+        else f"{args.output_prefix}_status.json"
+    )
+    Path(args.out, status_name).write_text(json.dumps(status, indent=2) + "\n")
     print(json.dumps(status, indent=2))
     if not df.empty:
         sample = df.sort_values(["player","stat","book_key","line","side"]).head(30)
