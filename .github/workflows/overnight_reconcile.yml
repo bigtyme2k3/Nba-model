@@ -1,0 +1,119 @@
+name: NBA V1 Overnight Evidence Reconcile
+
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
+on:
+  schedule:
+    # 08:15 UTC = 4:15 AM EDT / 3:15 AM EST. Late West games should be final.
+    - cron: '15 8 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Eastern slate date (YYYY-MM-DD); blank=yesterday ET'
+        required: false
+        default: ''
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set target Eastern slate date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            TARGET="${{ github.event.inputs.date }}"
+          else
+            TARGET=$(python - <<'PY'
+          from datetime import datetime,timedelta
+          from zoneinfo import ZoneInfo
+          now=datetime.now(ZoneInfo("America/New_York"))
+          print((now.date()-timedelta(days=1)).isoformat())
+          PY
+          )
+          fi
+          echo "TARGET=$TARGET" >> $GITHUB_ENV
+          echo "Reconciling $TARGET"
+
+      - name: Fetch final game scores
+        run: python scrape_scores.py --date ${{ env.TARGET }} --out data/raw
+
+      - name: Fetch lightweight final player boxes
+        run: python collect_result_box.py --date ${{ env.TARGET }} --out data/raw
+
+      - name: Reconcile first-observed forward evidence
+        run: python forward_reconciler.py --date ${{ env.TARGET }}
+
+      - name: Reconcile closest near-tip execution evidence
+        run: python execution_reconciler.py --date ${{ env.TARGET }}
+        continue-on-error: true
+
+      - name: Reconcile exact-book CLV
+        run: python clv_reconciler.py
+        continue-on-error: true
+
+      - name: Refresh readiness
+        run: python nba_v1_readiness.py
+
+      - name: Print evidence summary
+        run: |
+          python - <<'PY'
+          import json
+          for p in [
+              "data/tracking/nba_forward_performance.json",
+              "data/tracking/nba_execution_performance.json",
+              "data/tracking/nba_prop_clv_report.json",
+              "data/tracking/nba_v1_readiness.json",
+          ]:
+              print("\n==",p,"==")
+              try:
+                  print(json.dumps(json.load(open(p)),indent=2))
+              except Exception as exc:
+                  print("unavailable:",exc)
+          PY
+
+      - name: Publish graded evidence
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add \
+            data/raw/scores_today.csv \
+            data/raw/scores_${{ env.TARGET }}.csv \
+            data/raw/scores_historical.csv \
+            data/raw/result_player_box_${{ env.TARGET }}.csv \
+            data/raw/result_box_status_${{ env.TARGET }}.json \
+            data/history/nba_forward_predictions.jsonl \
+            data/tracking/nba_forward_performance.json \
+            data/tracking/nba_forward_certified.csv \
+            data/tracking/nba_execution_performance.json \
+            data/tracking/nba_execution_certified.csv \
+            data/tracking/nba_forecast_vs_execution.csv \
+            data/tracking/nba_prop_clv.csv \
+            data/tracking/nba_prop_clv_report.json \
+            data/tracking/nba_v1_readiness.json
+          git diff --cached --quiet || git commit -m "✅ NBA overnight evidence reconcile — ${{ env.TARGET }}"
+          git reset --hard HEAD
+          git clean -fd
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push || {
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push
+          }
