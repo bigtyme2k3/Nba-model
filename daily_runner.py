@@ -262,6 +262,10 @@ def load_posted_props(target_date, schedule=None):
         return {}
     if df.empty:
         return {}
+    if "game_date" in df.columns:
+        df = df[df["game_date"].astype(str).eq(str(target_date))].copy()
+    if df.empty:
+        return {}
 
     schedule = schedule or []
     out = {}
@@ -324,6 +328,10 @@ def load_sportsbook_props(target_date, schedule=None):
     except Exception as exc:
         print(f"  [WARN] Could not load sportsbook props: {exc}")
         return {}
+    if df.empty:
+        return {}
+    if "game_date" in df.columns:
+        df = df[df["game_date"].astype(str).eq(str(target_date))].copy()
     if df.empty:
         return {}
 
