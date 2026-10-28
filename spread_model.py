@@ -402,17 +402,23 @@ def train_mode(data_path: str):
         print(f"\n  Saved → {fi_path}")
 
     model_path = os.path.join(MODEL_DIR, "spread_model.pkl")
+    trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
     with open(model_path, "wb") as f:
         pickle.dump({
+            "status":        "trained",
             "model":         final_model,
             "feature_names": feature_names,
             "model_name":    best_name,
             "trained_on":    datetime.now().isoformat(),
+            "trained_rows":  int(len(df)),
+            "trained_through": trained_through,
+            "validation":    "global_chronological_timeseries_split",
             "cv_results":    cv_results,
             "clv_results":   clv_results,
         }, f)
 
     print(f"\n✅ Model saved → {model_path}")
+    print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
 
     print("\n═══ TRAINING SUMMARY ═══")
     print(f"  Model type:        {best_name}")
