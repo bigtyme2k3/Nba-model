@@ -74,11 +74,25 @@ jobs:
               raise SystemExit(f"team context coverage too low: {coverage:.2%}")
           PY
 
+      - name: Snapshot committed champion bundles
+        run: |
+          cp models/spread_model.pkl /tmp/champion_spread_model.pkl
+          cp models/totals_model.pkl /tmp/champion_totals_model.pkl
+
       - name: Train spread model
         run: python spread_model.py --mode train --data data/processed/master_all.csv
 
       - name: Train totals model
         run: python totals_model.py --mode train --data data/processed/master_all.csv
+
+      - name: Champion challenger promotion gate
+        run: |
+          python game_model_promotion.py \
+            --champion-spread /tmp/champion_spread_model.pkl \
+            --champion-totals /tmp/champion_totals_model.pkl \
+            --candidate-spread models/spread_model.pkl \
+            --candidate-totals models/totals_model.pkl \
+            --out data/tracking/game_model_promotion.json
 
       - name: Verify game-model freshness
         run: |
@@ -156,6 +170,8 @@ jobs:
             data/processed/team_features_status.json \
             models/spread_model.pkl \
             models/totals_model.pkl \
+            data/tracking/game_model_promotion.json \
+            data/tracking/game_context_challenger_decision.json \
             predictions/game_model_smoke_${{ env.TARGET }}.json
           git diff --cached --quiet || git commit -m "🏀 Rebuild NBA V1 spread and totals models — ${{ env.TARGET }}"
           git reset --hard HEAD
