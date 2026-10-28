@@ -424,6 +424,7 @@ def train_mode(data_path: str):
             "trained_through": trained_through,
             "validation":    "global_chronological_timeseries_split",
             "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+            "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
             "feature_names_count": int(len(feature_names)),
             "cv_results":    cv_results,
             "clv_results":   clv_results,
