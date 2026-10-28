@@ -1,5 +1,2 @@
 game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
-2026-10-27,9ad8cc650802c0c5c3c23a1f32c3e0f6,2026-10-27T23:41:00Z,Boston Celtics,Brooklyn Nets,-2.83,-117.67,231.83,-122.0,-174.67,133.67,3,the-odds-api-fd-dk-fanatics,2026-10-28T01:06:10.375120+00:00
-2026-10-27,bde272846214fd6cf197e14c278c12f2,2026-10-28T00:13:00Z,New York Knicks,Detroit Pistons,-0.5,-117.0,214.17,-113.0,-116.67,-112.0,3,the-odds-api-fd-dk-fanatics,2026-10-28T01:06:10.375150+00:00
-2026-10-27,7a640609d2c74cbbfd05008d0875455b,2026-10-28T00:15:00Z,San Antonio Spurs,Sacramento Kings,-26.83,-112.0,252.17,-115.67,-20000.0,4500.0,3,the-odds-api-fd-dk-fanatics,2026-10-28T01:06:10.375169+00:00
-2026-10-27,82afe4e028b0fbbd9f6cf92697bec6fc,2026-10-28T03:10:00Z,Los Angeles Lakers,Portland Trail Blazers,-1.67,-113.33,233.33,-108.0,-125.33,106.0,3,the-odds-api-fd-dk-fanatics,2026-10-28T01:06:10.375186+00:00
+2026-10-27,82afe4e028b0fbbd9f6cf92697bec6fc,2026-10-28T03:10:00Z,Los Angeles Lakers,Portland Trail Blazers,-1.67,-113.33,233.5,-108.0,-125.33,106.0,3,the-odds-api-fd-dk-fanatics,2026-10-28T01:36:01.640870+00:00
