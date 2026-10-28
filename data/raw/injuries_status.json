@@ -5,7 +5,7 @@
   "out": 74,
   "questionable": 21,
   "error": null,
-  "generated_at_utc": "2026-10-28T01:41:52.892483+00:00",
+  "generated_at_utc": "2026-10-28T02:05:26.017039+00:00",
   "sources": [
     "espn_league",
     "espn_team_fallback",
@@ -13,5 +13,5 @@
   ],
   "teams_checked": 30,
   "empty_feed_warning": false,
-  "completed_at_utc": "2026-10-28T01:41:53.122188+00:00"
+  "completed_at_utc": "2026-10-28T02:05:26.162179+00:00"
 }

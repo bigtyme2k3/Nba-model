@@ -15,8 +15,8 @@
   ],
   "events_found": 1,
   "events_queried": 1,
-  "min_minutes_to_tip": null,
-  "max_minutes_to_tip": null,
+  "min_minutes_to_tip": 35.0,
+  "max_minutes_to_tip": 70.0,
   "rows": 230,
   "unique_players": 16,
   "books_returned": [
@@ -32,9 +32,10 @@
     "player_threes"
   ],
   "http_calls": 1,
-  "api_requests_used": "15174",
-  "api_requests_remaining": "4826",
+  "api_requests_used": "15281",
+  "api_requests_remaining": "4719",
   "api_requests_last": "5",
   "error": null,
-  "generated_at_utc": "2026-10-28T01:41:52.335935+00:00"
+  "output_prefix": "sportsbook_props",
+  "generated_at_utc": "2026-10-28T02:05:25.260003+00:00"
 }
