@@ -24,6 +24,7 @@ import numpy as np
 import pandas as pd
 
 from teams import TEAM_ABBR, normalize_team
+from season_filters import filter_games
 
 RAW_DIR = "data/raw"
 OUT_DIR = "data/processed"
@@ -66,6 +67,8 @@ def load_team_boxes(raw_dir):
         if df.empty or "game_id" not in df.columns:
             continue
         season = season_from_path(path)
+        if season is not None:
+            df, _ = filter_games(df, raw_dir, season, label="team-box rows")
         if "season" not in df.columns and season is not None:
             df["season"] = season
         df["game_id"] = df["game_id"].astype(str)
