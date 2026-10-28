@@ -1,0 +1,25 @@
+{
+  "status": "READY",
+  "target_date": "2026-10-27",
+  "generated_at_utc": "2026-10-28T01:06:31.763677+00:00",
+  "injury_feed_status": "ok",
+  "injury_rows": 95,
+  "slate_teams": [
+    "Boston Celtics",
+    "Brooklyn Nets",
+    "Detroit Pistons",
+    "Los Angeles Lakers",
+    "New York Knicks",
+    "Portland Trail Blazers",
+    "Sacramento Kings",
+    "San Antonio Spurs"
+  ],
+  "teams_affected": 3,
+  "absences_modeled": 4,
+  "recipient_rows": 30,
+  "unallocated_minutes": 0.0,
+  "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
+  "coach_intent_inferred": false,
+  "tracking_opportunity_data_used": false,
+  "adjustment_rows": 36
+}

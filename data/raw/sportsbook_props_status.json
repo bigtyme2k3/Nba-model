@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "target_date": "2026-10-27",
+  "bookmakers_requested": [
+    "fanduel",
+    "draftkings",
+    "fanatics"
+  ],
+  "markets_requested": [
+    "player_points",
+    "player_rebounds",
+    "player_assists",
+    "player_threes",
+    "player_points_rebounds_assists"
+  ],
+  "events_found": 1,
+  "events_queried": 1,
+  "rows": 230,
+  "unique_players": 16,
+  "books_returned": [
+    "draftkings",
+    "fanatics",
+    "fanduel"
+  ],
+  "markets_returned": [
+    "player_assists",
+    "player_points",
+    "player_points_rebounds_assists",
+    "player_rebounds",
+    "player_threes"
+  ],
+  "http_calls": 1,
+  "api_requests_used": "15126",
+  "api_requests_remaining": "4874",
+  "api_requests_last": "5",
+  "error": null,
+  "generated_at_utc": "2026-10-28T01:06:10.782943+00:00"
+}

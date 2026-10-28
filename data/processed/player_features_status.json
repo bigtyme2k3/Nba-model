@@ -1,7 +1,7 @@
 {
   "status": "READY",
-  "rows": 115110,
-  "players": 1133,
+  "rows": 113122,
+  "players": 1018,
   "seasons": [
     2022,
     2023,
@@ -11,8 +11,8 @@
   ],
   "min_game_date": "2021-10-19",
   "max_game_date": "2026-10-26",
-  "profile_rows": 600,
-  "rotation_rows": 600,
+  "profile_rows": 408,
+  "rotation_rows": 408,
   "leakage_policy": "ROLLING_FEATURES_SHIFTED_ONE_GAME",
   "actual_minutes_separate": true,
   "outputs": [
