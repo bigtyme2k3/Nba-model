@@ -65,11 +65,13 @@ def add_rolling_scoring(df, window=5):
     base_len = len(df)
 
     if "game_id" in df.columns:
-        dupes = df["game_id"].astype(str).duplicated(keep=False)
+        ids = df["game_id"].astype(str).str.strip()
+        nonblank = df["game_id"].notna() & ids.ne("") & ids.ne("nan")
+        dupes = nonblank & ids.duplicated(keep=False)
         if dupes.any():
-            sample = df.loc[dupes, "game_id"].astype(str).head(10).tolist()
+            sample = ids[dupes].head(10).tolist()
             raise RuntimeError(
-                f"Totals feature input contains duplicate game_id rows: "
+                f"Totals feature input contains duplicate nonblank game_id rows: "
                 f"{int(dupes.sum())} duplicate rows; sample={sample}"
             )
 
@@ -143,8 +145,14 @@ def train_totals_model(data_path):
     df = pd.read_csv(data_path, parse_dates=["game_date"])
     df = df.sort_values(["season","game_date"]).reset_index(drop=True)
     raw_rows = len(df)
-    if "game_id" in df.columns and df["game_id"].astype(str).duplicated().any():
-        raise RuntimeError("Totals training master contains duplicate game_id rows")
+    if "game_id" in df.columns:
+        ids = df["game_id"].astype(str).str.strip()
+        nonblank = df["game_id"].notna() & ids.ne("") & ids.ne("nan")
+        if ids[nonblank].duplicated().any():
+            sample = ids[nonblank][ids[nonblank].duplicated(keep=False)].head(10).tolist()
+            raise RuntimeError(
+                f"Totals training master contains duplicate nonblank game_id rows: {sample}"
+            )
     df = engineer_totals_features(df)
     if len(df) != raw_rows:
         raise RuntimeError(
