@@ -1,0 +1,36 @@
+{
+  "status": "APPROVED_FOR_NEXT_REBUILD",
+  "generated_at_utc": "2026-10-28T02:12:27Z",
+  "policy": "PAIRED_IDENTICAL_TIME_SERIES_FOLDS_RESEARCH_ONLY",
+  "publish_state": "DEFERRED_UNTIL_CURRENT_EVIDENCE_WINDOW_COMPLETE",
+  "data": {
+    "master_games": 6627,
+    "context_complete_games": 6611,
+    "context_coverage": 0.9976
+  },
+  "spread": {
+    "baseline_mean_mae": 11.3655333085,
+    "full_context_mean_mae": 11.3177288659,
+    "mae_improvement": 0.0478044426,
+    "folds_improved": 4,
+    "folds_worsened": 0,
+    "challenger_cv_mae": 11.3199,
+    "challenger_directional_accuracy": 0.636,
+    "decision": "KEEP_CONTEXT"
+  },
+  "totals": {
+    "baseline_mean_mae": 15.2441798957,
+    "full_context_mean_mae": 15.0171609541,
+    "mae_improvement": 0.2270189416,
+    "folds_improved": 4,
+    "folds_worsened": 0,
+    "challenger_cv_mae": 15.0172,
+    "decision": "KEEP_CONTEXT"
+  },
+  "guardrails": [
+    "historical context uses shift(1) prior games only",
+    "one row per game cardinality preserved",
+    "both teams require complete prior context for training",
+    "challenger models were not published from research workflow"
+  ]
+}
