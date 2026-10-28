@@ -28,6 +28,7 @@ SPREAD_DIRECTIONAL_TOLERANCE = 0.005
 ABS_SPREAD_MAE_MAX = 12.5
 ABS_TOTALS_MAE_MAX = 17.0
 EXPECTED_CONTEXT_POLICY = "BOTH_TEAMS_PRIOR_ONLY_REQUIRED"
+EXPECTED_SEMANTICS_VERSION = "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT"
 
 
 def load_bundle(path):
@@ -69,6 +70,7 @@ def bundle_summary(bundle, model_type):
         "trained_rows":bundle.get("trained_rows"),
         "validation":bundle.get("validation"),
         "team_context_policy":bundle.get("team_context_policy"),
+        "feature_semantics_version":bundle.get("feature_semantics_version"),
         "feature_names_count":bundle.get("feature_names_count") or len(bundle.get("feature_names") or []),
         "mae":metric(bundle,model_type,"mae"),
         "directional_accuracy":metric(bundle,model_type,"directional") if model_type=="spread" else None,
@@ -83,6 +85,9 @@ def evaluate_model(model_type, champion, candidate):
     checks["candidate_present"]=bool(candidate)
     checks["candidate_trained"]=cand.get("status")=="trained"
     checks["prior_context_policy"]=cand.get("team_context_policy")==EXPECTED_CONTEXT_POLICY
+    checks["feature_semantics_version"]=(
+        cand.get("feature_semantics_version")==EXPECTED_SEMANTICS_VERSION
+    )
 
     c_mae=cand.get("mae")
     h_mae=champ.get("mae")
