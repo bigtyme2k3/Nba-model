@@ -1,96 +1,96 @@
 game_date,team,player,player_id,position,status,severity,injury_type,detail,return_date,is_out,source,scraped_at
-2026-10-27,,Aaron Wiggins,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Bruise,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Mouhamed Gueye,,F,Out,OUT,INJURY_STATUS_OUT,Fracture,2026-11-20,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Henri Veesaar,,C,Out,OUT,INJURY_STATUS_OUT,"Veesaar suffered the injury during a workout on Sept. 15, and an MRI confirmed the diagnosis. The No. 52 overall pick in the 2026 NBA Draft, Veesaar was expected to spend a lot of time with Atlanta's G League affiliate this season.",2027-07-01,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Devin Carter,,G,Out,OUT,INJURY_STATUS_OUT,Carter missed Boston's final three preseason games with the illness and is now expected to miss time to begin the regular season. He can be considered week-to-week until Boston provides an update on his progress. The 2024 first-rounder signed a two-way pact with the Celtics on Saturday and will provide backcourt depth for the club.,2026-11-08,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Egor Demin,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Bruise,2026-10-30,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Tyler Bilodeau,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Coby White,,G,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Kon Knueppel,,G,Out,OUT,INJURY_STATUS_OUT,"Knueppel has yet to take the floor this season while on the mend from a left hamstring strain, and at this point in time, the team isn't ready to commit to a return date. Coach Charles Lee stated before Monday's game against Washington that he could have more clarity on the plan for Knueppel following the two-game road trip, which wraps up Friday in Washington.",2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Grant Williams,,F,Out,OUT,INJURY_STATUS_OUT,Williams' earliest possible return date now looks to be Saturday at home against the 76ers. Royce O'Neale should continue to play meaning minutes off the bench for the Hornets in the interim.,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Kylan Boswell,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Patrick Williams,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Tobe Awaka,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,The rookie big man is battling an ankle sprain. Zach Collins could pick up a few extra minutes off the bench if Awaka is out Wednesday.,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Nic Claxton,,C,Out,OUT,INJURY_STATUS_OUT,"The Bulls reported one week ago that the big man would be re-evaluated in two weeks, so he appears to be right on track with his recovery from a hamstring injury. He'll presumably need to take part in 5-on-5 drills before getting the green light to return to game action.",2026-11-04,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Santi Aldama,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Tarik Biberovic,,F,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Sergio de Larrea,,F,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Caleb Martin,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Naji Marshall,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Marshall is looking to return from an illness Wednesday. Zaccharie Risacher would likely play a larger role off the bench if Marshall remains sidelined.,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Kyrie Irving,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"Irving could receive a maintenance day Wednesday. If the star guard is sidelined, Marcus Sasser would likely handle an expanded role at point guard while Cooper Flagg takes on more usage.",2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Dereck Lively II,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Spencer Jones,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Cameron Johnson,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Sprain,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Alpha Diallo,,F,Out,OUT,INJURY_STATUS_OUT,Diallo appears to have moved past a wrist injury but is now attending to a personal matter. His next chance to rejoin the Nuggets comes Friday in Phoenix.,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Julian Strawther,,G,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-11-29,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Isaiah Joe,,G,Out,OUT,INJURY_STATUS_OUT,Bruise,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jalen Duren,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-09,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Yaxel Lendeborg,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"The rookie standout is in danger of missing his first game of the season Wednesday with foot soreness. With the Warriors already short on forward options, Georges Niang could be thrust into a starting role if Lendeborg cannot play.",2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Kristaps Porzingis,,C,Out,OUT,INJURY_STATUS_OUT,"Charania also notes Golden State has started exploring trade routes for Porzingis, who is already considered out indefinitely to begin the 2026-27 season. Fantasy managers shouldn't expect the big man to get back on the floor anytime soon, whether it be for the Warriors or perhaps another team, and it sounds like stepping away from the game is on the table for Porzingis at this point.",2026-12-01,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Moses Moody,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-12-01,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jimmy Butler III,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-01-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Marcus Smart,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Strain,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Alperen Sengun,,C,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Steven Adams,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Andrew Nembhard,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Tyrese Haliburton,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Obi Toppin,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Sprain,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Aaron Nesmith,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Strain,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,T.J. McConnell,,G,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Ivica Zubac,,C,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Ben Sheppard,,G,Out,OUT,INJURY_STATUS_OUT,"Sheppard was diagnosed with a torn left meniscus Friday, and the team has since determined that he'll require surgery. A timetable for the guard's return should start to come into focus after the procedure.",2026-12-01,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Johnny Furphy,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-01-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Rui Hachimura,,F,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Bradley Beal,,G,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-11-08,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Max Strus,,G,Out,OUT,INJURY_STATUS_OUT,Plantar Fasciitis,2026-11-08,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Yanic Konan Niederhauser,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-08,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Brandon Ingram,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-08,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jordan Miller,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-03-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Cameron Carr,,G,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Adou Thiero,,F,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Pelle Larsson,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Sprain,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Simone Fontecchio,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Fontecchio is unlikely to be available off the bench for the first time this season. His expected absence should have little impact on the Miami rotation.,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Anthony Edwards,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-12-21,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Donte DiVincenzo,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-04-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jordan Poole,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"Poole is under the weather but appears likely to suit up in the front end of this back-to-back set. Through three regular-season games, the veteran guard is averaging 7.3 points, 4.0 assists, 2.3 rebounds and 1.3 steals in 18.7 minutes per contest.",2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Yves Missi,,C,Out,OUT,INJURY_STATUS_OUT,Bruise,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jose Alvarado,,G,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Thomas Sorber,,C,Out,OUT,INJURY_STATUS_OUT,Sorber is still without a firm timetable for a return to game action. He can be considered week-to-week until the Thunder provide an update on his progress.,2026-11-04,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Chet Holmgren,,C,Out,OUT,INJURY_STATUS_OUT,"Holmgren will miss a second consecutive contest due to right knee patellar tendinitis. With the big man and several other key pieces on the inactive list, Kenrich Williams, Jaylin Williams and Brooks Barnhizer are candidates for increased minutes in the frontcourt.",2026-10-31,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Nikola Topic,,G,Out,OUT,INJURY_STATUS_OUT,"Topic has yet to play this season, and per standard Thunder protocol, Oklahoma City has not released any updates on where he is in his rehab. He should be viewed as week-to-week moving forward.",2026-11-04,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Ajay Mitchell,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"Mitchell came away with an ankle sprain in the aftermath of Monday's win over the Suns. With Alex Caruso (ankle) already ruled out for Wednesday, Jared McCain would be streaming shallow fantasy leagues and Bennett Stirtz in deeper formats if Mitchell is sidelined.",2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Alex Caruso,,G,Out,OUT,INJURY_STATUS_OUT,Kenrich Williams and Bennett Stirtz should see a boost with Caruso on the inactive list for Wednesday's game. Caruso's next chance to play will come Saturday in Houston.,2026-10-31,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jalen Williams,,G,Out,OUT,INJURY_STATUS_OUT,Fracture,2027-03-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Cason Wallace,,G,Out,OUT,INJURY_STATUS_OUT,"Although Wallace's return timetable has yet to be determined, Charania notes the guard is expected miss most of, if not all, of the rest of the season. It's been a brutal day for the Thunder, who also lost Jalen Williams (ankle) on Monday and will need Ajay Mitchell, Jared McCain and Alex Caruso each to step up for the remainder of the year.",2027-03-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Otega Oweh,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-07-01,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jonathan Isaac,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jalen Suggs,,G,Out,OUT,INJURY_STATUS_OUT,"Suggs suffered the injury during Sunday's win over the Knicks when his right knee buckled following a layup attempt. Fortunately, further testing revealed no major structural damage, though the 25-year-old will miss at least two weeks before being re-evaluated. Anthony Black and Jase Richardson could see increased opportunities in Orlando's backcourt during Suggs' absence.",2026-11-10,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Paolo Banchero,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-11-22,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Noah Penda,,F,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-18,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Izaiyah Nelson,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-18,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Tacko Fall,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-04,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jabari Walker,,F,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Dominick Barlow,,F,Out,OUT,INJURY_STATUS_OUT,Fracture,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Ariel Hukporti,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-10-01,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Oso Ighodaro,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Strain,2026-10-30,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Mark Williams,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-02-03,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Chris Youngblood,,G,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-29,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Scoot Henderson,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-27,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Shaedon Sharpe,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-03-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Dylan Cardwell,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-06,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Maxime Raynaud,,C,Out,OUT,INJURY_STATUS_OUT,Dislocated,2026-11-10,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Keegan Murray,,F,Out,OUT,INJURY_STATUS_OUT,"Murray has officially been diagnosed with left ankle capsulitis, and he's set to miss at least the next 10 days. Precious Achiuwa has been starting in Murray's absence, and he should continue to see opportunities along with De'Andre Hunter and Daeqwon Plowden.",2026-11-06,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Ben Simmons,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-10-01,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Tobias Harris,,F,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jayden Quaintance,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-12-03,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Nate Bittle,,C,Out,OUT,INJURY_STATUS_OUT,Fracture,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Kawhi Leonard,,F,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-11-23,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jaxson Hayes,,C,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Lauri Markkanen,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Not Specified,2026-10-28,False,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jaren Jackson Jr.,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-12-14,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Trey Alexander,,G,Out,OUT,INJURY_STATUS_OUT,Bruise,2026-11-06,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jusuf Nurkic,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-04,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Justin Champagnie,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-10-30,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,AJ Dybantsa,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-28,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Tristan Vukcevic,,F,Out,OUT,INJURY_STATUS_OUT,Pinched Nerve,2026-11-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
-2026-10-27,,Jamir Watkins,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-04-02,True,espn_league,2026-10-28T01:39:57.178264+00:00
+2026-10-27,,Aaron Wiggins,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Bruise,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Mouhamed Gueye,,F,Out,OUT,INJURY_STATUS_OUT,Fracture,2026-11-20,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Henri Veesaar,,C,Out,OUT,INJURY_STATUS_OUT,"Veesaar suffered the injury during a workout on Sept. 15, and an MRI confirmed the diagnosis. The No. 52 overall pick in the 2026 NBA Draft, Veesaar was expected to spend a lot of time with Atlanta's G League affiliate this season.",2027-07-01,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Devin Carter,,G,Out,OUT,INJURY_STATUS_OUT,Carter missed Boston's final three preseason games with the illness and is now expected to miss time to begin the regular season. He can be considered week-to-week until Boston provides an update on his progress. The 2024 first-rounder signed a two-way pact with the Celtics on Saturday and will provide backcourt depth for the club.,2026-11-08,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Egor Demin,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Bruise,2026-10-30,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Tyler Bilodeau,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Coby White,,G,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Kon Knueppel,,G,Out,OUT,INJURY_STATUS_OUT,"Knueppel has yet to take the floor this season while on the mend from a left hamstring strain, and at this point in time, the team isn't ready to commit to a return date. Coach Charles Lee stated before Monday's game against Washington that he could have more clarity on the plan for Knueppel following the two-game road trip, which wraps up Friday in Washington.",2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Grant Williams,,F,Out,OUT,INJURY_STATUS_OUT,Williams' earliest possible return date now looks to be Saturday at home against the 76ers. Royce O'Neale should continue to play meaning minutes off the bench for the Hornets in the interim.,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Kylan Boswell,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Patrick Williams,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Tobe Awaka,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,The rookie big man is battling an ankle sprain. Zach Collins could pick up a few extra minutes off the bench if Awaka is out Wednesday.,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Nic Claxton,,C,Out,OUT,INJURY_STATUS_OUT,"The Bulls reported one week ago that the big man would be re-evaluated in two weeks, so he appears to be right on track with his recovery from a hamstring injury. He'll presumably need to take part in 5-on-5 drills before getting the green light to return to game action.",2026-11-04,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Santi Aldama,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Tarik Biberovic,,F,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Sergio de Larrea,,F,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Caleb Martin,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Naji Marshall,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Marshall is looking to return from an illness Wednesday. Zaccharie Risacher would likely play a larger role off the bench if Marshall remains sidelined.,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Kyrie Irving,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"Irving could receive a maintenance day Wednesday. If the star guard is sidelined, Marcus Sasser would likely handle an expanded role at point guard while Cooper Flagg takes on more usage.",2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Dereck Lively II,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Spencer Jones,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Cameron Johnson,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Sprain,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Alpha Diallo,,F,Out,OUT,INJURY_STATUS_OUT,Diallo appears to have moved past a wrist injury but is now attending to a personal matter. His next chance to rejoin the Nuggets comes Friday in Phoenix.,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Julian Strawther,,G,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-11-29,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Isaiah Joe,,G,Out,OUT,INJURY_STATUS_OUT,Bruise,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jalen Duren,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-09,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Yaxel Lendeborg,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"The rookie standout is in danger of missing his first game of the season Wednesday with foot soreness. With the Warriors already short on forward options, Georges Niang could be thrust into a starting role if Lendeborg cannot play.",2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Kristaps Porzingis,,C,Out,OUT,INJURY_STATUS_OUT,"Charania also notes Golden State has started exploring trade routes for Porzingis, who is already considered out indefinitely to begin the 2026-27 season. Fantasy managers shouldn't expect the big man to get back on the floor anytime soon, whether it be for the Warriors or perhaps another team, and it sounds like stepping away from the game is on the table for Porzingis at this point.",2026-12-01,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Moses Moody,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-12-01,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jimmy Butler III,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-01-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Marcus Smart,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Strain,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Alperen Sengun,,C,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Steven Adams,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Andrew Nembhard,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Tyrese Haliburton,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Obi Toppin,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Sprain,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Aaron Nesmith,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Strain,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,T.J. McConnell,,G,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Ivica Zubac,,C,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Ben Sheppard,,G,Out,OUT,INJURY_STATUS_OUT,"Sheppard was diagnosed with a torn left meniscus Friday, and the team has since determined that he'll require surgery. A timetable for the guard's return should start to come into focus after the procedure.",2026-12-01,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Johnny Furphy,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-01-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Rui Hachimura,,F,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Bradley Beal,,G,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-11-08,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Max Strus,,G,Out,OUT,INJURY_STATUS_OUT,Plantar Fasciitis,2026-11-08,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Yanic Konan Niederhauser,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-08,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Brandon Ingram,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-08,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jordan Miller,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-03-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Cameron Carr,,G,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Adou Thiero,,F,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Pelle Larsson,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Sprain,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Simone Fontecchio,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Fontecchio is unlikely to be available off the bench for the first time this season. His expected absence should have little impact on the Miami rotation.,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Anthony Edwards,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-12-21,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Donte DiVincenzo,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-04-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jordan Poole,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"Poole is under the weather but appears likely to suit up in the front end of this back-to-back set. Through three regular-season games, the veteran guard is averaging 7.3 points, 4.0 assists, 2.3 rebounds and 1.3 steals in 18.7 minutes per contest.",2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Yves Missi,,C,Out,OUT,INJURY_STATUS_OUT,Bruise,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jose Alvarado,,G,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Thomas Sorber,,C,Out,OUT,INJURY_STATUS_OUT,Sorber is still without a firm timetable for a return to game action. He can be considered week-to-week until the Thunder provide an update on his progress.,2026-11-04,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Chet Holmgren,,C,Out,OUT,INJURY_STATUS_OUT,"Holmgren will miss a second consecutive contest due to right knee patellar tendinitis. With the big man and several other key pieces on the inactive list, Kenrich Williams, Jaylin Williams and Brooks Barnhizer are candidates for increased minutes in the frontcourt.",2026-10-31,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Nikola Topic,,G,Out,OUT,INJURY_STATUS_OUT,"Topic has yet to play this season, and per standard Thunder protocol, Oklahoma City has not released any updates on where he is in his rehab. He should be viewed as week-to-week moving forward.",2026-11-04,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Ajay Mitchell,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,"Mitchell came away with an ankle sprain in the aftermath of Monday's win over the Suns. With Alex Caruso (ankle) already ruled out for Wednesday, Jared McCain would be streaming shallow fantasy leagues and Bennett Stirtz in deeper formats if Mitchell is sidelined.",2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Alex Caruso,,G,Out,OUT,INJURY_STATUS_OUT,Kenrich Williams and Bennett Stirtz should see a boost with Caruso on the inactive list for Wednesday's game. Caruso's next chance to play will come Saturday in Houston.,2026-10-31,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jalen Williams,,G,Out,OUT,INJURY_STATUS_OUT,Fracture,2027-03-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Cason Wallace,,G,Out,OUT,INJURY_STATUS_OUT,"Although Wallace's return timetable has yet to be determined, Charania notes the guard is expected miss most of, if not all, of the rest of the season. It's been a brutal day for the Thunder, who also lost Jalen Williams (ankle) on Monday and will need Ajay Mitchell, Jared McCain and Alex Caruso each to step up for the remainder of the year.",2027-03-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Otega Oweh,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-07-01,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jonathan Isaac,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jalen Suggs,,G,Out,OUT,INJURY_STATUS_OUT,"Suggs suffered the injury during Sunday's win over the Knicks when his right knee buckled following a layup attempt. Fortunately, further testing revealed no major structural damage, though the 25-year-old will miss at least two weeks before being re-evaluated. Anthony Black and Jase Richardson could see increased opportunities in Orlando's backcourt during Suggs' absence.",2026-11-10,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Paolo Banchero,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-11-22,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Noah Penda,,F,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-18,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Izaiyah Nelson,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-11-18,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Tacko Fall,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-04,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jabari Walker,,F,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Dominick Barlow,,F,Out,OUT,INJURY_STATUS_OUT,Fracture,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Ariel Hukporti,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-10-01,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Oso Ighodaro,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Strain,2026-10-30,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Mark Williams,,C,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-02-03,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Chris Youngblood,,G,Out,OUT,INJURY_STATUS_OUT,Soreness,2026-10-29,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Scoot Henderson,,G,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-27,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Shaedon Sharpe,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-03-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Dylan Cardwell,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-06,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Maxime Raynaud,,C,Out,OUT,INJURY_STATUS_OUT,Dislocated,2026-11-10,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Keegan Murray,,F,Out,OUT,INJURY_STATUS_OUT,"Murray has officially been diagnosed with left ankle capsulitis, and he's set to miss at least the next 10 days. Precious Achiuwa has been starting in Murray's absence, and he should continue to see opportunities along with De'Andre Hunter and Daeqwon Plowden.",2026-11-06,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Ben Simmons,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-10-01,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Tobias Harris,,F,Out,OUT,INJURY_STATUS_OUT,Strain,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jayden Quaintance,,F,Out,OUT,INJURY_STATUS_OUT,Surgery,2026-12-03,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Nate Bittle,,C,Out,OUT,INJURY_STATUS_OUT,Fracture,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Kawhi Leonard,,F,Out,OUT,INJURY_STATUS_OUT,Inflammation,2026-11-23,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jaxson Hayes,,C,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Soreness,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Lauri Markkanen,,F,Day-To-Day,QUESTIONABLE,INJURY_STATUS_DAYTODAY,Not Specified,2026-10-28,False,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jaren Jackson Jr.,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-12-14,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Trey Alexander,,G,Out,OUT,INJURY_STATUS_OUT,Bruise,2026-11-06,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jusuf Nurkic,,C,Out,OUT,INJURY_STATUS_OUT,Strain,2026-11-04,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Justin Champagnie,,F,Out,OUT,INJURY_STATUS_OUT,Not Specified,2026-10-30,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,AJ Dybantsa,,F,Out,OUT,INJURY_STATUS_OUT,Sprain,2026-10-28,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Tristan Vukcevic,,F,Out,OUT,INJURY_STATUS_OUT,Pinched Nerve,2026-11-02,True,espn_league,2026-10-28T01:41:53.114693+00:00
+2026-10-27,,Jamir Watkins,,G,Out,OUT,INJURY_STATUS_OUT,Surgery,2027-04-02,True,espn_league,2026-10-28T01:41:53.114693+00:00

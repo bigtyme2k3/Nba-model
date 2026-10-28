@@ -1,0 +1,101 @@
+{
+  "version": "NBA_V1.0",
+  "generated_at_utc": "2026-10-28T01:41:54.898203Z",
+  "data_model_healthy": true,
+  "ready_for_forward_testing": true,
+  "production_ready": false,
+  "status": "READY_FOR_FORWARD_TESTING",
+  "checks": {
+    "player_features_ready": true,
+    "team_features_ready": true,
+    "all_30_teams_profiled": true,
+    "all_models_trained": true,
+    "all_models_fresh": true,
+    "all_prop_markets_trained": true
+  },
+  "models": {
+    "spread": {
+      "name": "spread",
+      "status": "trained",
+      "trained_through": "2026-10-26",
+      "trained_rows": 6627,
+      "validation": "global_chronological_timeseries_split",
+      "markets": null,
+      "model_name": "Ridge (Baseline)",
+      "lag_days": 0
+    },
+    "totals": {
+      "name": "totals",
+      "status": "trained",
+      "trained_through": "2026-10-26",
+      "trained_rows": 6627,
+      "validation": "global_chronological_timeseries_split",
+      "markets": null,
+      "model_name": "Ridge",
+      "lag_days": 0
+    },
+    "props": {
+      "name": "props",
+      "status": "trained",
+      "trained_through": "2026-10-26",
+      "trained_rows": 140986,
+      "validation": "global_chronological_timeseries_split",
+      "markets": [
+        "ast",
+        "pra",
+        "pts",
+        "reb",
+        "threes"
+      ],
+      "model_name": null,
+      "lag_days": 0
+    }
+  },
+  "feature_stores": {
+    "player": {
+      "status": "READY",
+      "max_game_date": "2026-10-26",
+      "rows": 140986,
+      "seasons": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    "team": {
+      "status": "READY",
+      "max_game_date": "2026-10-26",
+      "teams": 30,
+      "seasons": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    }
+  },
+  "forward_evidence": {
+    "bet_rows": 0,
+    "prop_bets": 0,
+    "roi": null,
+    "brier": null,
+    "evidence_checks": {
+      "forward_bets_at_least_200": false,
+      "prop_forward_bets_at_least_100": false,
+      "positive_price_aware_roi": false,
+      "acceptable_brier": false
+    }
+  },
+  "promotion_policy": {
+    "min_forward_bets": 200,
+    "min_prop_forward_bets": 100,
+    "min_price_aware_roi": 0.01,
+    "max_brier": 0.245,
+    "note": "Thresholds are governance gates, not proof of future profitability. Promotion still requires review of CLV, calibration stability, market/book splits, and drawdowns."
+  }
+}
