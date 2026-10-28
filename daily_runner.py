@@ -823,11 +823,13 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
             if best:
                 side = best["side"]
                 signed_edge = pred - best["line"]
+                availability_block = injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"}
                 player_result["props"][target] = {
                     "pred": round(pred, 2),
                     "line": best["line"],
                     "edge": round(signed_edge, 2),
-                    "signal": side if best["qualified"] else None,
+                    "signal": side if best["qualified"] and not availability_block else None,
+                    "availability_block": availability_block,
                     "book": best.get("book"),
                     "book_key": best.get("book_key"),
                     "odds": int(best["price"]),
@@ -850,8 +852,11 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     signal = "OVER"
                 elif edge < -thresh:
                     signal = "UNDER"
+            if injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"}:
+                signal = None
             player_result["props"][target] = {
                 "pred": round(pred, 2), "line": line, "edge": edge, "signal": signal,
+                "availability_block": injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"},
                 "book": None, "book_key": None, "odds": None,
                 "model_probability": None, "market_probability": None,
                 "probability_edge": None, "ev": None,
