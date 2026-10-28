@@ -21,6 +21,7 @@ import requests
 API_KEY  = os.getenv("ODDS_API_KEY")
 SPORT    = "basketball_nba"
 REGIONS  = "us"
+BOOKMAKERS = "fanduel,draftkings,fanatics"
 MARKETS  = "h2h,spreads,totals"
 ODDS_FMT = "american"
 BASE_URL = "https://api.the-odds-api.com/v4/sports"
@@ -62,6 +63,7 @@ def fetch_odds(status: dict):
     params = {
         "apiKey":     API_KEY,
         "regions":    REGIONS,
+        "bookmakers": BOOKMAKERS,
         "markets":    MARKETS,
         "oddsFormat": ODDS_FMT,
     }
@@ -151,7 +153,7 @@ def parse_games(games: list, target_date: str) -> pd.DataFrame:
             "ml_home":          avg(ml_home_prices),
             "ml_away":          avg(ml_away_prices),
             "num_books":        len(g.get("bookmakers", [])),
-            "source":           "the-odds-api",
+            "source":           "the-odds-api-fd-dk-fanatics",
             "scraped_at":       datetime.now(timezone.utc).isoformat(),
         })
 
@@ -192,7 +194,8 @@ def main():
     status = {
         "status": "unknown",
         "target_date": target,
-        "source": "the-odds-api",
+        "source": "the-odds-api-fd-dk-fanatics",
+        "bookmakers": BOOKMAKERS.split(","),
         "checked_at_utc": datetime.now(timezone.utc).isoformat(),
         "rows": 0,
         "http_status": None,
