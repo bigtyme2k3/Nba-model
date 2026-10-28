@@ -308,6 +308,7 @@ def performance(rows):
     denom = wins + losses
     return {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "evidence_epoch": EVIDENCE_EPOCH,
         "ledger_rows": len(rows),
         "certified_rows": len(certified),
         "bet_rows": len(bets),
