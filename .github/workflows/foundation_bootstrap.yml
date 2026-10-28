@@ -80,7 +80,7 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          git add data/raw/hoopr_*_2026.csv data/raw/espn_current_*_2026.csv data/raw/hoopr_games_master.csv data/processed/player_*.csv data/processed/rotation_profiles_latest.csv data/processed/player_features_status.json data/processed/team_profiles_latest.csv data/processed/team_features_status.json models/props_models.pkl
+          git add data/raw/hoopr_*_2026.csv data/raw/espn_current_*_2026.csv data/raw/hoopr_games_master.csv data/processed/player_*.csv data/processed/rotation_profiles_latest.csv data/processed/player_features_status.json data/processed/team_profiles_latest.csv data/processed/team_game_context.csv data/processed/team_features_status.json models/props_models.pkl
           git diff --cached --quiet || git commit -m "🏀 Build NBA player and rotation foundation"
           git pull --rebase origin main
           git push
