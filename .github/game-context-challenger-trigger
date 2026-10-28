@@ -3,3 +3,4 @@ Retry after game_id normalization
 Retry after challenger metric parser fix
 Run paired prior-context ablation before any promotion
 Retry paired ablation with repository import path
+Rerun after train-live semantic alignment for rolling form and season game number
