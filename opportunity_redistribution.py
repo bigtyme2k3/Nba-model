@@ -38,9 +38,8 @@ OUT_DIR = Path("data/raw")
 
 STATUS_VACANCY = {
     "OUT": 1.00,
-    "DOUBTFUL": 0.80,
-    # Questionable/probable create uncertainty, not assumed missing minutes.
-    # They remain in the output so downstream confidence can be reduced.
+    # Unconfirmed availability is uncertainty, not an assumed vacancy.
+    "DOUBTFUL": 0.00,
     "QUESTIONABLE": 0.00,
     "PROBABLE": 0.00,
 }
@@ -95,13 +94,19 @@ def load_inputs(profile_path=PROFILE_PATH, injury_path=INJURY_PATH):
     return profiles, injuries
 
 
-def recent_recipient(row, target_date):
+def days_since_last_game(row, target_date):
     last = pd.to_datetime(row.get("last_game_date"), errors="coerce")
     target = pd.to_datetime(target_date, errors="coerce")
     if pd.isna(last) or pd.isna(target):
-        return True
-    # Early-season roster signal: allow players seen in preseason/current season.
-    return (target - last).days <= 60
+        return None
+    return int((target - last).days)
+
+
+def recent_recipient(row, target_date):
+    days = days_since_last_game(row, target_date)
+    # Expected minute recipients should look like the current rotation, not everyone
+    # who appeared during camp or months earlier.
+    return days is not None and 0 <= days <= 14
 
 
 def allocation_weight(out_row, rec_row):
@@ -277,13 +282,33 @@ def build_opportunity_adjustments(
             team = profile_team
         if not team or (slate_teams and team not in slate_teams):
             continue
+        base_min = f(out_row.get("projected_minutes"), f(out_row.get("mpg"), 0.0))
+        last_days = days_since_last_game(out_row, target_date)
+
+        # An OUT player creates a NEW vacancy only if he was part of the recent
+        # rotation. Otherwise the recent baseline already reflects his absence.
+        vacancy_eligible = (
+            severity == "OUT"
+            and last_days is not None
+            and 0 <= last_days <= 10
+            and base_min >= 6.0
+        )
+        vacated = base_min * vacancy_factor if vacancy_eligible else 0.0
+
+        # Never project unavailable players into a market even when their old minutes
+        # are not redistributed because the baseline has already adapted.
+        if severity == "OUT":
+            own_reduction[key] = own_reduction.get(key, 0.0) + base_min
+            current_minutes[key] = 0.0
+        else:
+            own_reduction[key] = own_reduction.get(key, 0.0)
+            current_minutes[key] = current_minutes.get(key, base_min)
+
+        if vacated <= 0:
+            continue
+
         teams_affected.add(team)
         modeled += 1
-
-        base_min = f(out_row.get("projected_minutes"), f(out_row.get("mpg"), 0.0))
-        vacated = base_min * vacancy_factor
-        own_reduction[key] = own_reduction.get(key, 0.0) + vacated
-        current_minutes[key] = max(0.0, current_minutes.get(key, base_min) - vacated)
 
         team_rows = profiles[
             profiles["team"].astype(str).eq(team)
@@ -294,12 +319,18 @@ def build_opportunity_adjustments(
                 team_rows.apply(lambda r: recent_recipient(r, target_date), axis=1)
             ]
             team_rows = team_rows[
-                team_rows["projected_minutes"].fillna(team_rows["mpg"]).fillna(0).ge(5.0)
+                team_rows["projected_minutes"].fillna(team_rows["mpg"]).fillna(0).ge(8.0)
             ]
-            # Do not redistribute into another OUT/DOUBTFUL player.
+            # Do not redistribute into another unavailable/uncertain player.
             team_rows = team_rows[
-                ~team_rows["_key"].map(lambda k: injury_by_key.get(k) in {"OUT", "DOUBTFUL"})
+                ~team_rows["_key"].map(
+                    lambda k: injury_by_key.get(k) in {"OUT","DOUBTFUL","QUESTIONABLE"}
+                )
             ]
+            team_rows["_rotation_minutes"] = pd.to_numeric(
+                team_rows["projected_minutes"], errors="coerce"
+            ).fillna(pd.to_numeric(team_rows["mpg"], errors="coerce")).fillna(0)
+            team_rows = team_rows.sort_values("_rotation_minutes", ascending=False).head(10)
 
         if team_rows.empty:
             unallocated_total += vacated
