@@ -24,11 +24,17 @@ import numpy as np
 import pandas as pd
 
 from teams import TEAM_ABBR, normalize_team
-from season_filters import filter_games
+from season_filters import filter_games_for_source, nba_season_start_year
 
 RAW_DIR = "data/raw"
 OUT_DIR = "data/processed"
 ABBR_TO_TEAM = {abbr: team for team, abbr in TEAM_ABBR.items()}
+
+def source_files(raw_dir: str):
+    files = set(glob(os.path.join(raw_dir, "hoopr_team_box_20*.csv")))
+    files.update(glob(os.path.join(raw_dir, "espn_current_team_box_20*.csv")))
+    return sorted(files)
+
 
 
 def season_from_path(path):
@@ -59,20 +65,17 @@ def num(df, candidates):
 
 def load_team_boxes(raw_dir):
     frames = []
-    for path in sorted(glob(os.path.join(raw_dir, "hoopr_team_box_20*.csv"))):
+    for path in source_files(raw_dir):
         try:
             df = pd.read_csv(path, low_memory=False)
         except Exception:
             continue
         if df.empty or "game_id" not in df.columns:
             continue
-        season = season_from_path(path)
-        if season is not None:
-            df, _ = filter_games(df, raw_dir, season, label="team-box rows")
-        if "season" not in df.columns and season is not None:
-            df["season"] = season
+        df, _ = filter_games_for_source(df, raw_dir, path, label="team-box rows")
         df["game_id"] = df["game_id"].astype(str)
         df["game_date"] = pd.to_datetime(df.get("game_date"), errors="coerce")
+        df["season"] = df["game_date"].map(nba_season_start_year)
         df["team"] = df.apply(canonical_team, axis=1)
         df["points"] = num(df, ["team_score", "points", "pts"])
         df["opp_points"] = num(df, ["opponent_team_score", "opp_points"])
