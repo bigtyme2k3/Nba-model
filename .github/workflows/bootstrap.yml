@@ -54,15 +54,15 @@ jobs:
         run: python scrape_refs.py --out data/raw
         continue-on-error: true
 
-      # ── Merge ────────────────────────────────────────────────────────────
-      - name: Merge all data
-        run: python merge_data.py --year all --raw data/raw --out data/processed
-
-      # ── Player / rotation feature store ─────────────────────────────────
+      # ── Leakage-safe feature stores ──────────────────────────────────────
       - name: Build leakage-safe player and team features
         run: |
           python build_player_features.py --raw data/raw --out data/processed
           python build_team_features.py --raw data/raw --out data/processed
+
+      # ── Merge ────────────────────────────────────────────────────────────
+      - name: Merge all data with prior-only team context
+        run: python merge_data.py --year all --raw data/raw --out data/processed
 
       # ── Train models ─────────────────────────────────────────────────────
       # Historical collection is best-effort (hoopR release data + ESPN's public API,
