@@ -337,17 +337,25 @@ def enrich_context(players: pd.DataFrame, games: pd.DataFrame, raw_dir: str) -> 
             team_ctx[["game_id", "team", "team_pace", "team_ortg_prior", "team_drtg_prior"]],
             on=["game_id", "team"], how="left"
         )
-        opp_ctx = team_ctx[["game_id", "team", "team_drtg_prior"]].rename(
-            columns={"team": "opp_team", "team_drtg_prior": "opp_drtg_pos"}
+        opp_ctx = team_ctx[["game_id", "team", "team_drtg_prior", "team_pace"]].rename(
+            columns={
+                "team": "opp_team",
+                "team_drtg_prior": "opp_drtg_pos",
+                "team_pace": "opp_team_pace",
+            }
         )
         players = players.merge(opp_ctx, on=["game_id", "opp_team"], how="left")
     else:
         players["team_pace"] = np.nan
+        players["opp_team_pace"] = np.nan
         players["opp_drtg_pos"] = np.nan
 
     players["team_pace"] = pd.to_numeric(players.get("team_pace"), errors="coerce").fillna(99.0)
+    players["opp_team_pace"] = pd.to_numeric(players.get("opp_team_pace"), errors="coerce").fillna(
+        players["team_pace"]
+    )
     players["opp_drtg_pos"] = pd.to_numeric(players.get("opp_drtg_pos"), errors="coerce").fillna(114.0)
-    players["avg_pace"] = players["team_pace"]
+    players["avg_pace"] = (players["team_pace"] + players["opp_team_pace"]) / 2.0
     players["rest_days"] = pd.to_numeric(players.get("rest_days"), errors="coerce").fillna(2).clip(0, 7)
     players["is_home"] = pd.to_numeric(players.get("is_home"), errors="coerce").fillna(0).astype(int)
     players["season_game_num"] = players.groupby(["player", "season"]).cumcount() + 1
