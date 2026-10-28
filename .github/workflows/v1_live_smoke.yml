@@ -95,6 +95,10 @@ jobs:
             data/raw/hoopr_games_master.csv \
             data/raw/hoopr_player_box_2026.csv \
             data/raw/hoopr_team_box_2026.csv \
+            data/raw/espn_current_games_2026.csv \
+            data/raw/espn_current_schedule_2026.csv \
+            data/raw/espn_current_player_box_2026.csv \
+            data/raw/espn_current_team_box_2026.csv \
             data/processed/player_logs.csv \
             data/processed/player_profiles_latest.csv \
             data/processed/rotation_profiles_latest.csv \
