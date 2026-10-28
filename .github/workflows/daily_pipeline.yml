@@ -153,6 +153,11 @@ jobs:
         run: python line_movement.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
+      - name: Evaluate NBA V1 readiness
+        if: env.SKIP != 'true'
+        run: python nba_v1_readiness.py
+        continue-on-error: true
+
       # ── Step 14: Build dashboard ─────────────────────────────────────────
       - name: Build dashboard
         if: env.SKIP != 'true'
