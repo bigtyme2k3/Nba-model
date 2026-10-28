@@ -235,6 +235,11 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
             for event in fetch_espn_scoreboard(date_str):
                 game_id = str(event.get("id", ""))
                 status = str(event.get("status", {}).get("type", {}).get("name", ""))
+                season_type = event.get("season", {}).get("type")
+                # ESPN: 1=preseason, 2=regular season, 3=postseason.
+                # Preseason rotations/minutes contaminate early-season NBA prop profiles.
+                if season_type not in (2, 3):
+                    continue
                 if "FINAL" not in status.upper() or game_id in seen_games:
                     continue
                 seen_games.add(game_id)
