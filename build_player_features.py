@@ -140,6 +140,10 @@ def load_games(raw_dir: str) -> pd.DataFrame:
         for col in ("home_team", "away_team"):
             if col in df.columns:
                 df[col] = df[col].map(normalize_team)
+        if {"home_team","away_team"}.issubset(df.columns):
+            df = df[
+                df["home_team"].isin(TEAM_ABBR) & df["away_team"].isin(TEAM_ABBR)
+            ].copy()
         frames.append(df[[c for c in [
             "game_id", "season", "game_date", "home_team", "away_team",
             "home_pts", "away_pts"
@@ -252,6 +256,7 @@ def load_players(raw_dir: str) -> pd.DataFrame:
         df["player_id"] = df.get("player_id", pd.Series("", index=df.index)).astype(str)
         df["position"] = df.get("position", pd.Series("", index=df.index)).astype(str).str.upper().str.strip()
         df["team"] = df.apply(team_name_from_row, axis=1)
+        df = df[df["team"].isin(TEAM_ABBR)].copy()
         df["starter"] = df.get("starter", pd.Series(False, index=df.index)).astype(str).str.lower().isin({"true", "1", "yes"})
         df["did_not_play"] = df.get("did_not_play", pd.Series(False, index=df.index)).astype(str).str.lower().isin({"true", "1", "yes"})
 
