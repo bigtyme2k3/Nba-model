@@ -147,6 +147,11 @@ jobs:
         run: python forward_reconciler.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
+      - name: Reconcile yesterday's near-tip execution snapshots
+        if: env.SKIP != 'true'
+        run: python execution_reconciler.py --date ${{ env.YESTERDAY }}
+        continue-on-error: true
+
       # ── Step 13: Consensus game line movement ─────────────────────────────
       - name: Compute consensus game line movement
         if: env.SKIP != 'true'
