@@ -1,0 +1,102 @@
+name: NBA V1 Prediction-Only Smoke
+
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/v1-prediction-refresh-trigger'
+  workflow_dispatch:
+
+jobs:
+  prediction-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set Eastern slate date
+        run: |
+          TARGET=$(python active_slate_date.py)
+          echo "TARGET=$TARGET" >> $GITHUB_ENV
+
+      - name: Refresh pregame FD DK Fanatics markets
+        run: |
+          python scrape_odds.py --date ${{ env.TARGET }} --out data/raw
+          python scrape_sportsbook_props.py --date ${{ env.TARGET }} --out data/raw
+
+      - name: Refresh injuries and opportunity
+        run: |
+          python scrape_injuries.py --date ${{ env.TARGET }} --out data/raw || true
+          python opportunity_redistribution.py --date ${{ env.TARGET }} --out data/raw || true
+
+      - name: Generate research-only predictions
+        run: |
+          python daily_runner.py \
+            --date ${{ env.TARGET }} \
+            --out predictions/v1_research_${{ env.TARGET }}.json
+
+      - name: Evaluate readiness
+        run: python nba_v1_readiness.py
+
+      - name: Verify research controls
+        run: |
+          python - <<'PY'
+          import json, os
+          p=f"predictions/v1_research_{os.environ['TARGET']}.json"
+          d=json.load(open(p))
+          assert d.get("research_only") is True
+          assert d.get("production_ready") is False
+          for b in d.get("best_bets",[]):
+              if float(b.get("units") or 0) > 1.0001:
+                  raise SystemExit(f"research sizing cap violated: {b}")
+          print("Research controls verified.")
+          print("Best bets:", len(d.get("best_bets",[])))
+          for b in d.get("best_bets",[])[:8]:
+              print(b.get("play"), b.get("book"), b.get("market_odds"),
+                    "EV", b.get("ev"), "units", b.get("units"))
+          PY
+
+      - name: Publish research evidence
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add \
+            data/raw/odds_today.csv \
+            data/raw/odds_${{ env.TARGET }}.csv \
+            data/raw/odds_api_status.json \
+            data/raw/sportsbook_props_today.csv \
+            data/raw/sportsbook_props_${{ env.TARGET }}.csv \
+            data/raw/sportsbook_props_status.json \
+            data/raw/injuries_today.csv \
+            data/raw/injuries_${{ env.TARGET }}.csv \
+            data/raw/injuries_status.json \
+            data/raw/opportunity_adjustments_today.csv \
+            data/raw/opportunity_adjustments_${{ env.TARGET }}.csv \
+            data/raw/opportunity_redistribution_status.json \
+            predictions/v1_research_${{ env.TARGET }}.json \
+            data/tracking/nba_v1_readiness.json
+          git diff --cached --quiet || git commit -m "🧪 NBA V1 research prediction smoke — ${{ env.TARGET }}"
+          git reset --hard HEAD
+          git clean -fd
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push
