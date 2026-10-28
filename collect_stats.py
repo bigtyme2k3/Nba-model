@@ -320,6 +320,19 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
 
     player_df = pd.DataFrame(player_rows) if player_rows else pd.DataFrame()
 
+    if not player_df.empty:
+        active = player_df[pd.to_numeric(player_df.get("minutes"), errors="coerce").fillna(0).gt(0)].copy()
+        if not active.empty:
+            fga = pd.to_numeric(active.get("fg_att"), errors="coerce")
+            usable = fga.notna() & fga.gt(0)
+            shooting_coverage = float(usable.mean())
+            print(f"  ESPN shooting-attempt coverage: {shooting_coverage:.1%}")
+            if shooting_coverage < 0.85:
+                raise RuntimeError(
+                    f"ESPN player shooting parse coverage too low: {shooting_coverage:.1%}. "
+                    "Refusing to publish contaminated current-season player/team features."
+                )
+
     if team_rows:
         team_df = pd.DataFrame(team_rows)
 
