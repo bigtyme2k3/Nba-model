@@ -64,10 +64,10 @@ jobs:
           python line_movement.py --opening --date ${{ env.TARGET }}
         continue-on-error: true
 
-      # ── Step 3: Props ────────────────────────────────────────────────────
-      - name: Scrape PrizePicks props
+      # ── Step 3: Sportsbook player props ──────────────────────────────────
+      - name: Scrape FanDuel DraftKings Fanatics props
         if: env.SKIP != 'true'
-        run: python scrape_props.py --date ${{ env.TARGET }} --out data/raw
+        run: python scrape_sportsbook_props.py --date ${{ env.TARGET }} --out data/raw
         continue-on-error: true
 
       # ── Step 4: Scores ───────────────────────────────────────────────────
@@ -101,12 +101,23 @@ jobs:
           python build_team_features.py --raw data/raw --out data/processed
 
       # ── Step 9: Retrain (Mondays only) ───────────────────────────────────
-      - name: Retrain models (Monday only)
-        if: env.SKIP != 'true' && github.event.schedule == '0 13 * * 1'
+      - name: Retrain models when target date is Monday
+        if: env.SKIP != 'true'
         run: |
-          python spread_model.py --mode train --data data/processed/master_all.csv
-          python totals_model.py --mode train --data data/processed/master_all.csv
-          python props_model.py  --mode train
+          DOW=$(python - <<'PY'
+          from datetime import datetime
+          import os
+          print(datetime.strptime(os.environ["TARGET"], "%Y-%m-%d").weekday())
+          PY
+          )
+          if [ "$DOW" = "0" ]; then
+            echo "Monday target — retraining all models."
+            python spread_model.py --mode train --data data/processed/master_all.csv
+            python totals_model.py --mode train --data data/processed/master_all.csv
+            python props_model.py  --mode train
+          else
+            echo "Target is not Monday — keeping current trained bundles."
+          fi
 
       # ── Step 10: Predictions ──────────────────────────────────────────────
       - name: Generate predictions
