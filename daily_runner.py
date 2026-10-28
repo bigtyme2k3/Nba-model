@@ -957,7 +957,6 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     ref_stats_df = None
     ref_path = "data/raw/ref_stats.csv"
     if REFS_AVAILABLE and os.path.exists(ref_path):
-        import pandas as pd
         ref_stats_df = pd.read_csv(ref_path)
         print(f"  Ref stats loaded: {len(ref_stats_df)} officials")
 
@@ -965,7 +964,6 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     ref_assignments = {}
     ref_assign_path = "data/raw/ref_assignments_today.csv"
     if os.path.exists(ref_assign_path):
-        import pandas as pd
         ra = pd.read_csv(ref_assign_path)
         if "refs" in ra.columns and "home_team" in ra.columns:
             for _, row in ra.iterrows():
