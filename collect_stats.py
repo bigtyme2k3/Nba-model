@@ -10,7 +10,7 @@ from datetime import date, timedelta
 import pandas as pd
 import requests
 
-from season_filters import filter_games, season_from_path
+from season_filters import filter_games_for_source, nba_season_start_year
 
 OUT_DIR = "data/raw"
 HEADERS = {"User-Agent": "Mozilla/5.0 (research project)"}
@@ -291,7 +291,7 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
     print(f"  Total regular/postseason finals: {len(seen_games)} games")
     if schedule_rows:
         sched = pd.DataFrame(schedule_rows).drop_duplicates("game_id", keep="last")
-        sched_path = os.path.join(out_dir, f"hoopr_schedule_{season_year}.csv")
+        sched_path = os.path.join(out_dir, f"espn_current_schedule_{season_year}.csv")
         sched.to_csv(sched_path, index=False)
         print(f"  Schedule manifest → {sched_path} ({len(sched)} games)")
 
@@ -357,7 +357,7 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
                 ] if c in team_df.columns]
             )
 
-        path = os.path.join(out_dir, f"hoopr_team_box_{season_year}.csv")
+        path = os.path.join(out_dir, f"espn_current_team_box_{season_year}.csv")
         team_df.to_csv(path, index=False)
         print(f"  Team box → {path} ({len(team_df)} rows)")
 
@@ -381,12 +381,12 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
                 pd.to_numeric(games["home_pts"], errors="coerce")
                 + pd.to_numeric(games["away_pts"], errors="coerce")
             )
-            games_path = os.path.join(out_dir, f"hoopr_games_{season_year}.csv")
+            games_path = os.path.join(out_dir, f"espn_current_games_{season_year}.csv")
             games.to_csv(games_path, index=False)
             print(f"  Games → {games_path} ({len(games)} games)")
 
     if not player_df.empty:
-        path = os.path.join(out_dir, f"hoopr_player_box_{season_year}.csv")
+        path = os.path.join(out_dir, f"espn_current_player_box_{season_year}.csv")
         player_df.to_csv(path, index=False)
         print(f"  Player box → {path} ({len(player_df)} rows)")
 
@@ -396,18 +396,30 @@ def build_stats_master(out_dir: str) -> None:
     written by fetch_historical_season/fetch_current_season) into a single reference file.
     merge_data.py reads the per-season files directly and doesn't need this master file —
     it's just a convenience for eyeballing everything collected so far."""
-    files = sorted(f for f in os.listdir(out_dir) if f.startswith("hoopr_games_") and f.endswith(".csv") and f != "hoopr_games_master.csv")
+    files = sorted(
+        f for f in os.listdir(out_dir)
+        if f.endswith(".csv")
+        and (
+            (f.startswith("hoopr_games_") and f != "hoopr_games_master.csv")
+            or f.startswith("espn_current_games_")
+        )
+    )
     if not files:
         print("  No hoopr_games_*.csv files found.")
         return
     frames = []
     for fname in files:
-        frame = pd.read_csv(os.path.join(out_dir, fname))
-        season = season_from_path(fname)
-        if season is not None:
-            frame, _ = filter_games(frame, out_dir, season, label="master-game rows")
+        source_path = os.path.join(out_dir, fname)
+        frame = pd.read_csv(source_path)
+        frame, _ = filter_games_for_source(
+            frame, out_dir, source_path, label="master-game rows"
+        )
+        if "game_date" in frame.columns:
+            frame["season"] = frame["game_date"].map(nba_season_start_year)
         frames.append(frame)
     games = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+    if not games.empty and "game_id" in games.columns:
+        games = games.drop_duplicates("game_id", keep="last")
     path = os.path.join(out_dir, "hoopr_games_master.csv")
     games.to_csv(path, index=False)
     print(f"  Master game file → {path} ({len(games)} games)")
