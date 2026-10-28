@@ -540,7 +540,7 @@ def fetch_todays_schedule(target_date: date) -> list:
 
 # ── Loaders ───────────────────────────────────────────────────────────────────
 
-def load_models():
+def load_models(target_date=None):
     models = {}
     for key, fname in [("spread","spread_model.pkl"),
                         ("totals","totals_model.pkl"),
@@ -553,6 +553,32 @@ def load_models():
         else:
             print(f"  [WARN] {fname} not found — skipping {key} predictions")
             models[key] = None
+
+    # Props fail closed when the trained bundle materially lags the player feature store.
+    props = models.get("props")
+    status_path = os.path.join(DATA_DIR, "player_features_status.json")
+    if props and os.path.exists(status_path):
+        try:
+            status = json.load(open(status_path))
+            feature_max = datetime.strptime(str(status.get("max_game_date")), "%Y-%m-%d").date()
+            trained_raw = props.get("trained_through")
+            trained = datetime.strptime(str(trained_raw), "%Y-%m-%d").date() if trained_raw else None
+            if trained is None:
+                print("  [WARN] Props bundle has no trained_through stamp — fail closed")
+                props = None
+            else:
+                lag = (feature_max - trained).days
+                print(f"  Props training lag vs feature store: {lag} days")
+                if lag > 14:
+                    print(
+                        f"  [WARN] Props model stale: trained through {trained}, "
+                        f"features through {feature_max}. Prop bets disabled until retrain."
+                    )
+                    props = None
+        except Exception as exc:
+            print(f"  [WARN] Could not verify props model freshness: {exc}")
+            props = None
+    models["props"] = props
     return models.get("spread"), models.get("totals"), models.get("props")
 
 
@@ -908,7 +934,7 @@ def collect_best_bets(games_output):
 def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     print(f"\n═══ NBA DAILY PIPELINE — {target_date} ═══\n")
     load_team_profiles_into_context()
-    spread_bundle, totals_bundle, props_bundle = load_models()
+    spread_bundle, totals_bundle, props_bundle = load_models(target_date)
 
     # Build transparent injury-driven minutes/usage opportunity adjustments.
     opportunity_adjustments = {}
