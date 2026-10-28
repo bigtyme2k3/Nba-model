@@ -30,19 +30,11 @@ jobs:
       - name: Syntax check
         run: python -m py_compile build_player_features.py build_team_features.py props_model.py collect_stats.py
 
-      - name: Backfill 2025-26 season
+      - name: Backfill true 2025-26 historical season
         run: |
-          if [ ! -f data/raw/hoopr_player_box_2025.csv ]; then
-            python collect_stats.py --start 2025 --end 2025 --master --out data/raw || true
-          fi
-          if [ ! -f data/raw/hoopr_player_box_2025.csv ]; then
-            echo "Sportsdataverse 2025 release unavailable; falling back to ESPN season crawl."
-            python - <<'PY'
-          from collect_stats import fetch_current_season, build_stats_master
-          fetch_current_season(2025, "data/raw")
-          build_stats_master("data/raw")
-          PY
-          fi
+          # Sportsdataverse NBA release keys are ENDING years:
+          # release 2026 == 2025-26 season.
+          python collect_stats.py --start 2026 --end 2026 --master --out data/raw
 
       - name: Pull current 2026-27 completed games
         run: python collect_stats.py --current --out data/raw
@@ -88,7 +80,7 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          git add data/raw/hoopr_*_2025.csv data/raw/hoopr_games_master.csv data/processed/player_*.csv data/processed/rotation_profiles_latest.csv data/processed/player_features_status.json data/processed/team_profiles_latest.csv data/processed/team_features_status.json models/props_models.pkl
+          git add data/raw/hoopr_*_2026.csv data/raw/espn_current_*_2026.csv data/raw/hoopr_games_master.csv data/processed/player_*.csv data/processed/rotation_profiles_latest.csv data/processed/player_features_status.json data/processed/team_profiles_latest.csv data/processed/team_features_status.json models/props_models.pkl
           git diff --cached --quiet || git commit -m "🏀 Build NBA player and rotation foundation"
           git pull --rebase origin main
           git push
