@@ -1,0 +1,99 @@
+name: NBA Game Context Challenger
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/game-context-challenger-trigger'
+  workflow_dispatch:
+
+jobs:
+  challenger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Rebuild leakage-safe team context
+        run: python build_team_features.py --raw data/raw --out data/processed
+
+      - name: Rebuild isolated game master
+        run: python merge_data.py --year all --raw data/raw --out data/processed
+
+      - name: Verify historical context coverage
+        run: |
+          python - <<'PY'
+          import json, pandas as pd
+          s=json.load(open("data/processed/team_features_status.json"))
+          d=pd.read_csv("data/processed/master_all.csv",low_memory=False)
+          complete=pd.to_numeric(d["team_context_complete"],errors="coerce").fillna(0)
+          cols=[
+              "home_pace","away_pace","home_ortg","away_ortg",
+              "home_drtg","away_drtg","home_net_rtg","away_net_rtg",
+              "home_ts_pct","away_ts_pct",
+          ]
+          print("context status:",json.dumps(s,indent=2))
+          print("master rows:",len(d))
+          print("complete context:",f"{complete.mean():.2%}")
+          print("feature non-null coverage:")
+          for col in cols:
+              print(" ",col, f"{d[col].notna().mean():.2%}")
+          if complete.mean() < 0.95:
+              raise SystemExit("historical team context coverage below 95%")
+          PY
+
+      - name: Train spread challenger
+        run: python spread_model.py --mode train --data data/processed/master_all.csv
+
+      - name: Train totals challenger
+        run: python totals_model.py --mode train --data data/processed/master_all.csv
+
+      - name: Compare challenger to current baseline
+        run: |
+          python - <<'PY'
+          import pickle, json
+
+          baseline={
+              "spread_mae":11.35,
+              "totals_mae":15.27,
+          }
+          s=pickle.load(open("models/spread_model.pkl","rb"))
+          t=pickle.load(open("models/totals_model.pkl","rb"))
+          s_name=s["model_name"]
+          t_name=t["model_name"]
+          s_mae=float(s["cv_results"][s_name]["mae"])
+          t_mae=float(t["cv_results"][t_name]["mae"])
+
+          report={
+              "baseline":baseline,
+              "challenger":{
+                  "spread_model":s_name,
+                  "spread_mae":round(s_mae,4),
+                  "spread_features":s.get("feature_names"),
+                  "totals_model":t_name,
+                  "totals_mae":round(t_mae,4),
+                  "totals_features":t.get("feature_names"),
+              },
+              "delta":{
+                  "spread_mae":round(s_mae-baseline["spread_mae"],4),
+                  "totals_mae":round(t_mae-baseline["totals_mae"],4),
+              },
+              "promotion_candidate":{
+                  "spread":s_mae < baseline["spread_mae"],
+                  "totals":t_mae < baseline["totals_mae"],
+              },
+              "policy":"RESEARCH_ONLY_NO_PUBLISH",
+          }
+          print(json.dumps(report,indent=2))
+          PY
