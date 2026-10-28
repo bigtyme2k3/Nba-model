@@ -25,6 +25,7 @@ from pathlib import Path
 PRED_DIR = Path("predictions")
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 STATUS = Path("data/tracking/forward_ledger_status.json")
+EVIDENCE_EPOCH = "NBA_V1_CLEAN_2026-10-27"
 
 
 def norm(value):
@@ -81,6 +82,7 @@ def spread_rows(data):
         yield {
             "prediction_id": prediction_id(rk, generated),
             "ranking_key": rk,
+            "evidence_epoch": EVIDENCE_EPOCH,
             "prediction_generated_at_utc": generated,
             "date": date,
             "game": matchup,
@@ -123,6 +125,7 @@ def total_rows(data):
         yield {
             "prediction_id": prediction_id(rk, generated),
             "ranking_key": rk,
+            "evidence_epoch": EVIDENCE_EPOCH,
             "prediction_generated_at_utc": generated,
             "date": date,
             "game": matchup,
@@ -241,7 +244,8 @@ def main():
         "existing_rows_preserved": len(existing),
         "total_rows": len(existing) + len(new_rows),
         "first_prediction_immutable": True,
-        "policy": "FIRST_OBSERVED_RANKING_KEY_ONLY",
+        "evidence_epoch": EVIDENCE_EPOCH,
+        "policy": "FIRST_OBSERVED_RANKING_KEY_ONLY_WITHIN_CURRENT_EVIDENCE_EPOCH",
         "model_version": data.get("model_version", "NBA_V1.0"),
     }
     STATUS.parent.mkdir(parents=True, exist_ok=True)
