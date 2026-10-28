@@ -129,7 +129,7 @@ def build_game_context(df):
     for source, out_name in metric_map.items():
         values = pd.to_numeric(work[source], errors="coerce")
         work[out_name] = (
-            values.groupby([work["season"], work["team"]])
+            values.groupby(work["team"])
             .transform(lambda x: x.shift(1).rolling(10, min_periods=1).mean())
         )
 
@@ -140,11 +140,11 @@ def build_game_context(df):
     ]:
         values = pd.to_numeric(work[source], errors="coerce")
         work[f"roll5_{label}"] = (
-            values.groupby([work["season"], work["team"]])
+            values.groupby(work["team"])
             .transform(lambda x: x.shift(1).rolling(5, min_periods=1).mean())
         )
         work[f"roll10_{label}"] = (
-            values.groupby([work["season"], work["team"]])
+            values.groupby(work["team"])
             .transform(lambda x: x.shift(1).rolling(10, min_periods=1).mean())
         )
 
@@ -227,7 +227,7 @@ def main():
         "game_context_output": str(context_out),
         "game_context_rows": int(len(game_context)),
         "pregame_context_rows_with_prior": prior_rows,
-        "policy": "COMPLETED_GAMES_ONLY; HISTORICAL_CONTEXT_SHIFT_1_PRIOR_ONLY",
+        "policy": "COMPLETED_GAMES_ONLY; HISTORICAL_CONTEXT_SHIFT_1_PRIOR_ONLY; ROLLING_CONTEXT_CONTINUES_ACROSS_SEASONS",
     }
     Path(args.out, "team_features_status.json").write_text(json.dumps(status, indent=2) + "\n")
     print(json.dumps(status, indent=2))
