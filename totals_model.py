@@ -47,7 +47,17 @@ def engineer_totals_features(df):
         (df.get("away_back_to_back", pd.Series(0, index=df.index)).astype(int) == 1)
     ).astype(int)
 
-    df = add_rolling_scoring(df)
+    rolling_cols = [
+        "home_rolling_total_5g","away_rolling_total_5g",
+        "home_rolling_allowed_5g","away_rolling_allowed_5g",
+    ]
+    if not all(col in df.columns for col in rolling_cols):
+        df = add_rolling_scoring(df)
+    else:
+        df["rolling_total_sum_5g"] = (
+            pd.to_numeric(df["home_rolling_total_5g"], errors="coerce")
+            + pd.to_numeric(df["away_rolling_total_5g"], errors="coerce")
+        )
 
     for col in ["home_back_to_back","away_back_to_back","long_travel"]:
         if col in df.columns:
