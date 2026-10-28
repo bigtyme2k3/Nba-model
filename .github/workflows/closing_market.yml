@@ -7,6 +7,10 @@ concurrency:
 on:
   schedule:
     - cron: '7,22,37,52 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/closing-trigger'
   workflow_dispatch:
     inputs:
       date:
