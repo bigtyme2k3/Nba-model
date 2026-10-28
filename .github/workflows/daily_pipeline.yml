@@ -1,5 +1,9 @@
 name: NBA Daily Pipeline
 
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
 on:
   schedule:
     - cron: '0 13 * * *'   # 9 AM ET
