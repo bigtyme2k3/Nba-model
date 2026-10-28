@@ -28,6 +28,8 @@ MIN_FORWARD_BETS=200
 MIN_PROP_FORWARD_BETS=100
 MIN_ROI=0.01
 MAX_BRIER=0.245
+MIN_CLV_MATCHED=100
+MIN_BEAT_CLOSE_RATE=0.50
 MAX_MODEL_LAG_DAYS=14
 
 
@@ -71,6 +73,7 @@ def main():
     player=load_json(DATA/"player_features_status.json")
     team=load_json(DATA/"team_features_status.json")
     perf=load_json(TRACK/"nba_forward_performance.json")
+    clv=load_json(TRACK/"nba_prop_clv_report.json")
 
     models={name:model_meta(name) for name in ("spread","totals","props")}
     models["spread"]["lag_days"]=lag_days(models["spread"].get("trained_through"),team.get("max_game_date"))
@@ -98,12 +101,24 @@ def main():
     roi=perf.get("roi")
     calibration=perf.get("probability_calibration") or {}
     brier=calibration.get("brier")
+    clv_matched=int(clv.get("matched_closes") or 0)
+    beat_close_rate=clv.get("beat_close_rate")
+    avg_line_clv=clv.get("avg_line_clv")
+    avg_price_clv=clv.get("avg_same_line_price_clv_probability")
 
     evidence_checks={
         "forward_bets_at_least_200": forward_bets >= MIN_FORWARD_BETS,
         "prop_forward_bets_at_least_100": prop_bets >= MIN_PROP_FORWARD_BETS,
         "positive_price_aware_roi": roi is not None and float(roi) >= MIN_ROI,
         "acceptable_brier": brier is not None and float(brier) <= MAX_BRIER,
+        "clv_rows_at_least_100": clv_matched >= MIN_CLV_MATCHED,
+        "beat_close_rate_at_least_50pct": (
+            beat_close_rate is not None and float(beat_close_rate) >= MIN_BEAT_CLOSE_RATE
+        ),
+        "nonnegative_clv_signal": (
+            (avg_line_clv is not None and float(avg_line_clv) >= 0.0)
+            or (avg_price_clv is not None and float(avg_price_clv) >= 0.0)
+        ),
     }
 
     production_ready=ready_for_forward_testing and all(evidence_checks.values())
@@ -130,6 +145,14 @@ def main():
             "prop_bets":prop_bets,
             "roi":roi,
             "brier":brier,
+            "clv_matched":clv_matched,
+            "beat_close_rate":beat_close_rate,
+            "avg_line_clv":avg_line_clv,
+            "avg_same_line_price_clv_probability":avg_price_clv,
+            "by_sportsbook":perf.get("by_sportsbook",{}),
+            "by_prop_stat":perf.get("by_prop_stat",{}),
+            "clv_by_sportsbook":clv.get("by_sportsbook",{}),
+            "clv_by_stat":clv.get("by_stat",{}),
             "evidence_checks":evidence_checks,
         },
         "promotion_policy":{
@@ -137,7 +160,9 @@ def main():
             "min_prop_forward_bets":MIN_PROP_FORWARD_BETS,
             "min_price_aware_roi":MIN_ROI,
             "max_brier":MAX_BRIER,
-            "note":"Thresholds are governance gates, not proof of future profitability. Promotion still requires review of CLV, calibration stability, market/book splits, and drawdowns.",
+            "min_matched_closes":MIN_CLV_MATCHED,
+            "min_beat_close_rate":MIN_BEAT_CLOSE_RATE,
+            "note":"Thresholds are governance gates, not proof of future profitability. Promotion still requires review of calibration stability, book/market splits, CLV distribution and drawdowns.",
         },
     }
     OUT.parent.mkdir(parents=True,exist_ok=True)
