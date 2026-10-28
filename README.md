@@ -121,7 +121,9 @@ Current validated baseline performance on the corrected 6,627-game master:
 Prop prices are compared per sportsbook using recorded American odds and
 no-vig probabilities. Because model probabilities are not yet forward-calibrated,
 the research engine shrinks probability edges 55% toward the no-vig market and
-caps probability tails before EV/Kelly sizing.
+caps probability tails before EV/Kelly sizing. Final research cards also enforce
+**one bankroll-bearing prop per player**; additional same-player signals remain
+visible for research but cannot stack correlated minutes/usage exposure.
 
 ### Forward-testing policy
 
