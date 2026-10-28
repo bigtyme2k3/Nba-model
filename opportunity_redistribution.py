@@ -26,6 +26,7 @@ import json
 import math
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
@@ -153,15 +154,44 @@ def distribute_minutes(vacated, out_row, recipients, current_minutes):
     return received, remaining
 
 
+def infer_slate_teams(target_date: str, raw_dir: Path = OUT_DIR):
+    """Infer today's teams from Odds API commence times, not scrape-date labels."""
+    paths = [raw_dir / f"odds_{target_date}.csv", raw_dir / "odds_today.csv"]
+    path = next((p for p in paths if p.exists()), None)
+    if path is None:
+        return set()
+    try:
+        df = pd.read_csv(path)
+    except Exception:
+        return set()
+    et = ZoneInfo("America/New_York")
+    teams = set()
+    for _, r in df.iterrows():
+        commence = str(r.get("commence_time", "") or "")
+        try:
+            dt = datetime.fromisoformat(commence.replace("Z", "+00:00")).astimezone(et)
+        except Exception:
+            continue
+        if dt.date().isoformat() != target_date:
+            continue
+        for col in ("home_team", "away_team"):
+            team = str(r.get(col, "") or "").strip()
+            if team and team.lower() != "nan":
+                teams.add(team)
+    return teams
+
+
 def build_opportunity_adjustments(
     target_date: str,
     profile_path: Path = PROFILE_PATH,
     injury_path: Path = INJURY_PATH,
     out_dir: Path = OUT_DIR,
+    slate_teams: set[str] | None = None,
 ):
     profiles, injuries = load_inputs(profile_path, injury_path)
     injury_status = load_json(INJURY_STATUS_PATH, {})
     out_dir.mkdir(parents=True, exist_ok=True)
+    slate_teams = set(slate_teams or infer_slate_teams(target_date, out_dir))
 
     status = {
         "status": "unknown",
@@ -169,6 +199,7 @@ def build_opportunity_adjustments(
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "injury_feed_status": injury_status.get("status"),
         "injury_rows": int(len(injuries)),
+        "slate_teams": sorted(slate_teams),
         "teams_affected": 0,
         "absences_modeled": 0,
         "recipient_rows": 0,
@@ -200,6 +231,12 @@ def build_opportunity_adjustments(
     injuries["severity"] = injuries.get("severity", "").astype(str).str.upper()
     injuries["_key"] = injuries.get("player", "").map(norm)
     actionable = injuries[injuries["severity"].isin(STATUS_VACANCY)].copy()
+    if slate_teams:
+        actionable = actionable[
+            actionable["_key"].map(
+                lambda k: str(pmap.get(k, {}).get("team", "")) in slate_teams if k in pmap else False
+            )
+        ].copy()
     if actionable.empty:
         status["status"] = "NO_ACTIONABLE_INJURIES"
         _write([], status, target_date, out_dir)
@@ -231,8 +268,12 @@ def build_opportunity_adjustments(
         if out_row is None:
             continue
 
-        team = str(inj.get("team") or out_row.get("team") or "").strip()
-        if not team:
+        team_raw = inj.get("team")
+        team = "" if pd.isna(team_raw) else str(team_raw or "").strip()
+        profile_team = str(out_row.get("team") or "").strip()
+        if not team or team.lower() == "nan" or (slate_teams and team not in slate_teams):
+            team = profile_team
+        if not team or (slate_teams and team not in slate_teams):
             continue
         teams_affected.add(team)
         modeled += 1
