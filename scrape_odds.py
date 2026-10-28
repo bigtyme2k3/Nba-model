@@ -14,6 +14,7 @@ import argparse
 import json
 import os
 from datetime import date, datetime, timezone
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 import requests
@@ -103,11 +104,18 @@ def fetch_odds(status: dict):
 
 def parse_games(games: list, target_date: str) -> pd.DataFrame:
     rows = []
+    et = ZoneInfo("America/New_York")
     for g in games:
         home = g.get("home_team","")
         away = g.get("away_team","")
         start= g.get("commence_time","")
         gid  = g.get("id","")
+        try:
+            local_date = datetime.fromisoformat(str(start).replace("Z","+00:00")).astimezone(et).date().isoformat()
+        except Exception:
+            local_date = None
+        if local_date != target_date:
+            continue
 
         spread_home_lines, spread_home_prices = [], []
         total_points, total_over_prices       = [], []
