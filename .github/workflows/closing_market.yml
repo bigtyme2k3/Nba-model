@@ -1,0 +1,151 @@
+name: NBA V1 Closing Market Capture
+
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Target Eastern slate date (YYYY-MM-DD); blank=today'
+        required: false
+        default: ''
+
+jobs:
+  closing-capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      MIN_TO_TIP: '8'
+      MAX_TO_TIP: '25'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set Eastern slate date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            TARGET="${{ github.event.inputs.date }}"
+          else
+            TARGET=$(python active_slate_date.py)
+          fi
+          echo "TARGET=$TARGET" >> $GITHUB_ENV
+
+      - name: Check for games near closing window
+        run: |
+          python - <<'PY' >> "$GITHUB_ENV"
+          import os, requests
+          from datetime import datetime, timezone
+
+          target=os.environ["TARGET"]
+          r=requests.get(
+              "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard",
+              params={"dates": target.replace("-",""), "limit": 30},
+              timeout=15,
+          )
+          r.raise_for_status()
+          now=datetime.now(timezone.utc)
+          lo=float(os.environ["MIN_TO_TIP"])
+          hi=float(os.environ["MAX_TO_TIP"])
+          eligible=[]
+          for event in r.json().get("events",[]):
+              try:
+                  tip=datetime.fromisoformat(
+                      str(event.get("date")).replace("Z","+00:00")
+                  ).astimezone(timezone.utc)
+              except Exception:
+                  continue
+              mins=(tip-now).total_seconds()/60.0
+              if lo <= mins <= hi:
+                  eligible.append((event.get("name"),round(mins,1)))
+          print("ELIGIBLE=" + ("true" if eligible else "false"))
+          print("ELIGIBLE_COUNT=" + str(len(eligible)))
+          print("ELIGIBLE_GAMES=" + "|".join(f"{n}:{m}m" for n,m in eligible))
+          PY
+
+      - name: No closing-window games
+        if: env.ELIGIBLE != 'true'
+        run: echo "No NBA games 8–25 minutes from tip; no Odds API credits used."
+
+      - name: Refresh event IDs and pregame game market
+        if: env.ELIGIBLE == 'true'
+        run: python scrape_odds.py --date ${{ env.TARGET }} --out data/raw
+
+      - name: Fetch isolated closing prop market
+        if: env.ELIGIBLE == 'true'
+        run: |
+          python scrape_sportsbook_props.py \
+            --date ${{ env.TARGET }} \
+            --out data/raw \
+            --min-minutes-to-tip ${{ env.MIN_TO_TIP }} \
+            --max-minutes-to-tip ${{ env.MAX_TO_TIP }} \
+            --output-prefix sportsbook_props_closing
+
+      - name: Append exact-book closing snapshots
+        if: env.ELIGIBLE == 'true'
+        run: |
+          python closing_market.py \
+            --date ${{ env.TARGET }} \
+            --input data/raw/sportsbook_props_closing_today.csv
+
+      - name: Reconcile forward entries against close
+        if: env.ELIGIBLE == 'true'
+        run: python clv_reconciler.py
+
+      - name: Refresh readiness gate
+        if: env.ELIGIBLE == 'true'
+        run: python nba_v1_readiness.py
+
+      - name: Print closing evidence
+        if: env.ELIGIBLE == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          for p in [
+              "data/tracking/closing_market_status.json",
+              "data/tracking/nba_prop_clv_report.json",
+              "data/tracking/nba_v1_readiness.json",
+          ]:
+              print("\n==",p,"==")
+              try:
+                  print(json.dumps(json.load(open(p)),indent=2))
+              except Exception as exc:
+                  print("unavailable:",exc)
+          PY
+
+      - name: Publish closing evidence
+        if: env.ELIGIBLE == 'true'
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add \
+            data/raw/sportsbook_props_closing_today.csv \
+            data/raw/sportsbook_props_closing_${{ env.TARGET }}.csv \
+            data/raw/sportsbook_props_closing_status.json \
+            data/history/nba_prop_closing_snapshots.jsonl \
+            data/tracking/closing_market_status.json \
+            data/tracking/nba_prop_clv.csv \
+            data/tracking/nba_prop_clv_report.json \
+            data/tracking/nba_v1_readiness.json
+          git diff --cached --quiet || git commit -m "📉 NBA exact-book closing market — ${{ env.TARGET }}"
+          git reset --hard HEAD
+          git clean -fd
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push
