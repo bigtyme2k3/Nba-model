@@ -72,7 +72,7 @@ def american_implied(price):
     return None
 
 
-def target_events(target_date: str, out_dir: str):
+def target_events(target_date: str, out_dir: str, min_minutes_to_tip=None, max_minutes_to_tip=None):
     paths = [
         Path(out_dir) / f"odds_{target_date}.csv",
         Path(out_dir) / "odds_today.csv",
@@ -101,13 +101,20 @@ def target_events(target_date: str, out_dir: str):
         if dt.date().isoformat() != target_date:
             continue
         # Pregame model only: The Odds API also serves in-play events/markets.
-        if tip_utc <= datetime.now(timezone.utc):
+        now_utc = datetime.now(timezone.utc)
+        minutes_to_tip = (tip_utc - now_utc).total_seconds() / 60.0
+        if minutes_to_tip <= 0:
+            continue
+        if min_minutes_to_tip is not None and minutes_to_tip < float(min_minutes_to_tip):
+            continue
+        if max_minutes_to_tip is not None and minutes_to_tip > float(max_minutes_to_tip):
             continue
         rows.append({
             "event_id": event_id,
             "commence_time": commence,
             "home_team": str(r.get("home_team", "") or "").strip(),
             "away_team": str(r.get("away_team", "") or "").strip(),
+            "minutes_to_tip": round(minutes_to_tip, 2),
         })
     # One event id per actual game.
     seen = set()
@@ -245,6 +252,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", required=True)
     parser.add_argument("--out", default="data/raw")
+    parser.add_argument("--min-minutes-to-tip", type=float, default=None)
+    parser.add_argument("--max-minutes-to-tip", type=float, default=None)
     args = parser.parse_args()
 
     status = {
@@ -254,6 +263,8 @@ def main():
         "markets_requested": MARKETS,
         "events_found": 0,
         "events_queried": 0,
+        "min_minutes_to_tip": args.min_minutes_to_tip,
+        "max_minutes_to_tip": args.max_minutes_to_tip,
         "rows": 0,
         "unique_players": 0,
         "books_returned": [],
@@ -266,7 +277,11 @@ def main():
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
     }
 
-    events = target_events(args.date, args.out)
+    events = target_events(
+        args.date, args.out,
+        min_minutes_to_tip=args.min_minutes_to_tip,
+        max_minutes_to_tip=args.max_minutes_to_tip,
+    )
     status["events_found"] = len(events)
     rows = []
 
