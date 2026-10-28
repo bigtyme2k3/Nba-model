@@ -35,6 +35,7 @@ import numpy as np
 import pandas as pd
 
 from teams import TEAM_ABBR, normalize_team
+from season_filters import filter_games
 
 RAW_DIR = "data/raw"
 OUT_DIR = "data/processed"
@@ -126,12 +127,14 @@ def load_games(raw_dir: str) -> pd.DataFrame:
             continue
         if "game_id" not in df.columns or "game_date" not in df.columns:
             continue
+        season = season_from_path(path)
+        if season is not None:
+            df, _ = filter_games(df, raw_dir, season, label="game rows")
         df["game_id"] = df["game_id"].astype(str)
         df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
         for col in ("home_team", "away_team"):
             if col in df.columns:
                 df[col] = df[col].map(normalize_team)
-        season = season_from_path(path)
         if "season" not in df.columns and season is not None:
             df["season"] = season
         frames.append(df[[c for c in [
@@ -170,6 +173,9 @@ def load_team_context(raw_dir: str, games: pd.DataFrame) -> pd.DataFrame:
             continue
         if "game_id" not in df.columns:
             continue
+        season = season_from_path(path)
+        if season is not None:
+            df, _ = filter_games(df, raw_dir, season, label="team-box rows")
         df = coalesce_team_aliases(df)
         df["game_id"] = df["game_id"].astype(str)
         if "game_date" in df.columns:
@@ -233,8 +239,10 @@ def load_players(raw_dir: str) -> pd.DataFrame:
             continue
         if df.empty or "game_id" not in df.columns:
             continue
-        df = df.rename(columns={k: v for k, v in PLAYER_RENAME.items() if k in df.columns})
         season = season_from_path(path)
+        if season is not None:
+            df, _ = filter_games(df, raw_dir, season, label="player-box rows")
+        df = df.rename(columns={k: v for k, v in PLAYER_RENAME.items() if k in df.columns})
         if "season" not in df.columns and season is not None:
             df["season"] = season
         df["game_id"] = df["game_id"].astype(str)
