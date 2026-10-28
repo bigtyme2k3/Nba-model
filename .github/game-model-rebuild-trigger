@@ -1,3 +1,4 @@
 NBA V1 game model rebuild trigger — 2026-10-27
 Corrected rest + phase manifest + HistGBR totals rebuild
 Final unique-game totals rebuild after cardinality guard
+Rebuild after rolling-margin cardinality fix
