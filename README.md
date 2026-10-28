@@ -139,12 +139,17 @@ bets), positive price-aware ROI, acceptable Brier calibration, at least 100
 matched exact-book closes, a 50%+ beat-close rate, a nonnegative aggregate CLV
 signal, plus review of book/market splits and drawdowns.
 
-### Remaining V1 work
+### Current development queue
 
-- Build leakage-safe historical team pace/efficiency features directly into the
-  spread/total training master; current game models are valid baselines, not champions.
+- Leakage-safe historical pace/ORTG/DRTG/net-rating/TS context is now implemented
+  with 99.76% complete-game coverage. A paired time-series ablation improved both
+  spread and totals in all four folds after train/live feature semantics were aligned.
+  The corrected challengers are approved for a champion-gated rebuild after the
+  current live evidence window; they are not yet published champions.
 - Accumulate forward sportsbook evidence and use it to calibrate prop probabilities.
 - Accumulate exact-book closing-line evidence and compare CLV stability by sportsbook/market.
+- A lightweight overnight reconciler now grades completed slates without rebuilding
+  the entire current season or consuming Odds API credits.
 - Add richer opportunity data (potential assists, rebound chances, touches/shot
   attempts vacated) only when a trustworthy historical/live source is available.
 - Keep injury/rotation uncertainty fail-closed: questionable/doubtful players do
