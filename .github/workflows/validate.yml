@@ -36,6 +36,7 @@ jobs:
       - name: Import core NBA pipeline
         run: |
           python - <<'PY'
+          import season_filters
           import build_player_features
           import build_team_features
           import scrape_sportsbook_props
@@ -43,6 +44,7 @@ jobs:
           import props_model
           import daily_runner
           import forward_ledger
+          import execution_ledger
           import forward_reconciler
           import results_tracker
           print("Core NBA modules import successfully")
