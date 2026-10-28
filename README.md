@@ -126,17 +126,23 @@ caps probability tails before EV/Kelly sizing.
 ### Forward-testing policy
 
 Morning/first-observed forecasts and near-tip execution snapshots are stored in
-separate append-only ledgers. Production promotion is blocked until there is a
-meaningful certified forward sample (currently configured as at least 200 total
-priced bets and 100 prop bets), positive price-aware ROI, acceptable Brier
-calibration, plus manual review of CLV, book/market splits and drawdowns.
+separate append-only ledgers. A third append-only ledger captures the exact
+FanDuel / DraftKings / Fanatics prop market 8–25 minutes before scheduled tip.
+CLV is matched back to the **same sportsbook, player, stat and side**; positive
+line CLV always means the entry beat the closing number.
+
+Production promotion is blocked until there is a meaningful certified forward
+sample (currently configured as at least 200 total priced bets and 100 prop
+bets), positive price-aware ROI, acceptable Brier calibration, at least 100
+matched exact-book closes, a 50%+ beat-close rate, a nonnegative aggregate CLV
+signal, plus review of book/market splits and drawdowns.
 
 ### Remaining V1 work
 
 - Build leakage-safe historical team pace/efficiency features directly into the
   spread/total training master; current game models are valid baselines, not champions.
 - Accumulate forward sportsbook evidence and use it to calibrate prop probabilities.
-- Add explicit sportsbook closing-line capture and CLV by book/market.
+- Accumulate exact-book closing-line evidence and compare CLV stability by sportsbook/market.
 - Add richer opportunity data (potential assists, rebound chances, touches/shot
   attempts vacated) only when a trustworthy historical/live source is available.
 - Keep injury/rotation uncertainty fail-closed: questionable/doubtful players do
