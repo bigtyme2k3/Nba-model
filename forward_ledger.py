@@ -153,6 +153,21 @@ def prop_rows(data):
     date = data.get("date")
     generated = data.get("generated")
     version = data.get("model_version", "NBA_V1.0")
+
+    # Only plays that survive the final card/risk filter count as forward BETs.
+    # All other priced model signals are preserved as PASS/watch evidence.
+    best_meta = {}
+    for bet in data.get("best_bets", []) or []:
+        if str(bet.get("type", "")).upper() != "PROP":
+            continue
+        game = str(bet.get("game", ""))
+        player = str(bet.get("player", ""))
+        stat = str(bet.get("stat", "")).lower()
+        if not game or not player or not stat:
+            continue
+        rk = stable_key([date, game, "PROP", player, stat])
+        best_meta[rk] = bet
+
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
         away = game.get("away", {}).get("name", "")
@@ -165,11 +180,13 @@ def prop_rows(data):
                 if line is None or projection is None:
                     continue
                 signal = str(prop.get("signal") or "PASS").upper()
-                decision = "BET" if signal in {"OVER", "UNDER"} else "PASS"
                 rk = stable_key([date, matchup, "PROP", pname, stat])
+                meta = best_meta.get(rk)
+                decision = "BET" if meta is not None else "PASS"
                 yield {
                     "prediction_id": prediction_id(rk, generated),
                     "ranking_key": rk,
+                    "evidence_epoch": EVIDENCE_EPOCH,
                     "prediction_generated_at_utc": generated,
                     "date": date,
                     "game": matchup,
@@ -199,8 +216,10 @@ def prop_rows(data):
                     "probability_edge": prop.get("probability_edge"),
                     "ev": prop.get("ev"),
                     "decision": decision,
-                    "confidence": None,
-                    "stars": None,
+                    "confidence": meta.get("conf") if meta else None,
+                    "stars": meta.get("stars") if meta else None,
+                    "recommended_units": meta.get("units") if meta else 0,
+                    "recommended_dollar_amt": meta.get("dollar_amt") if meta else 0,
                     "model_version": version,
                     "actual": None,
                     "outcome": "PENDING",
