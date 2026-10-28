@@ -213,31 +213,39 @@ def load_team_stats(year: int) -> pd.DataFrame:
 # ── Feature Engineering ───────────────────────────────────────────────────────
 
 def add_rest_days(df: pd.DataFrame) -> pd.DataFrame:
-    """Compute true rest/fatigue from every prior team game, regardless of venue."""
-    df = df.sort_values("game_date").reset_index(drop=True).copy()
+    """Compute true team rest/fatigue and season game number from every prior game."""
+    df = df.sort_values(["season","game_date"]).reset_index(drop=True).copy()
     df["_row_id"] = np.arange(len(df))
 
-    home = df[["_row_id","game_date","home_team"]].rename(columns={"home_team":"team"})
+    home = df[["_row_id","season","game_date","home_team"]].rename(columns={"home_team":"team"})
     home["side"] = "home"
-    away = df[["_row_id","game_date","away_team"]].rename(columns={"away_team":"team"})
+    away = df[["_row_id","season","game_date","away_team"]].rename(columns={"away_team":"team"})
     away["side"] = "away"
     sched = pd.concat([home, away], ignore_index=True)
-    sched = sched.sort_values(["team","game_date","_row_id"]).reset_index(drop=True)
+    sched = sched.sort_values(["season","team","game_date","_row_id"]).reset_index(drop=True)
 
-    prev1 = sched.groupby("team")["game_date"].shift(1)
-    prev2 = sched.groupby("team")["game_date"].shift(2)
+    groups = sched.groupby(["season","team"], sort=False)
+    prev1 = groups["game_date"].shift(1)
+    prev2 = groups["game_date"].shift(2)
     sched["rest_days"] = (sched["game_date"] - prev1).dt.days - 1
     sched["back_to_back"] = sched["rest_days"].eq(0)
     sched["three_in_four"] = (
         (sched["game_date"] - prev2).dt.days.le(3) & prev2.notna()
     )
+    sched["season_team_game_num"] = groups.cumcount() + 1
 
     for side in ("home","away"):
         part = sched[sched["side"].eq(side)].set_index("_row_id")
         df[f"{side}_rest_days"] = df["_row_id"].map(part["rest_days"])
         df[f"{side}_back_to_back"] = df["_row_id"].map(part["back_to_back"]).fillna(False).astype(bool)
         df[f"{side}_three_in_four"] = df["_row_id"].map(part["three_in_four"]).fillna(False).astype(bool)
+        df[f"{side}_season_game_num"] = (
+            df["_row_id"].map(part["season_team_game_num"]).fillna(1).astype(int)
+        )
 
+    df["season_game_num"] = df[
+        ["home_season_game_num","away_season_game_num"]
+    ].max(axis=1).astype(int)
     return df.drop(columns=["_row_id"])
 
 
@@ -366,7 +374,28 @@ def process_year(year: int) -> pd.DataFrame:
     game_df = add_travel_flag(game_df)
     game_df = attach_team_game_context(game_df, team_context_df)
 
-    if "actual_spread" in game_df.columns:
+    if not team_context_df.empty:
+        # Match daily_runner live semantics exactly.
+        game_df["home_rolling_5g"] = game_df.get("home_roll5_net_rtg")
+        game_df["away_rolling_5g"] = game_df.get("away_roll5_net_rtg")
+        game_df["home_rolling_10g"] = game_df.get("home_roll10_net_rtg")
+        game_df["away_rolling_10g"] = game_df.get("away_roll10_net_rtg")
+        game_df["rolling_diff_5g"] = (
+            game_df["home_rolling_5g"] - game_df["away_rolling_5g"]
+        )
+        game_df["rolling_diff_10g"] = (
+            game_df["home_rolling_10g"] - game_df["away_rolling_10g"]
+        )
+
+        game_df["home_rolling_total_5g"] = game_df.get("home_roll5_points")
+        game_df["away_rolling_total_5g"] = game_df.get("away_roll5_points")
+        game_df["home_rolling_allowed_5g"] = game_df.get("home_roll5_allowed")
+        game_df["away_rolling_allowed_5g"] = game_df.get("away_roll5_allowed")
+        game_df["rolling_total_sum_5g"] = (
+            game_df["home_rolling_total_5g"] + game_df["away_rolling_total_5g"]
+        )
+    elif "actual_spread" in game_df.columns:
+        # Legacy fallback only when the prior-context store is unavailable.
         game_df = add_rolling_efficiency(game_df, window=5)
         game_df = add_rolling_efficiency(game_df, window=10)
 
@@ -402,7 +431,8 @@ def process_year(year: int) -> pd.DataFrame:
 
     if "game_date" in merged.columns and "season" in merged.columns:
         merged = merged.sort_values(["season","game_date"]).reset_index(drop=True)
-        merged["season_game_num"] = merged.groupby("season").cumcount() + 1
+        if "season_game_num" not in merged.columns:
+            merged["season_game_num"] = 1
         merged["month"] = pd.to_datetime(merged["game_date"]).dt.month
         # NBA playoffs run April - June; regular season is Oct - April.
         merged["is_playoff"] = merged["month"].isin([4, 5, 6]).astype(int)
