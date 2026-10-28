@@ -3,3 +3,4 @@ Corrected rest + phase manifest + HistGBR totals rebuild
 Final unique-game totals rebuild after cardinality guard
 Rebuild after rolling-margin cardinality fix
 True 2025-26 historical backfill + live source namespace rebuild
+Exclude All-Star exhibitions and rebuild canonical seasons
