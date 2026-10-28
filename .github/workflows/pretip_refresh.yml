@@ -7,6 +7,10 @@ concurrency:
 on:
   schedule:
     - cron: '5,35 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/pretip-trigger'
   workflow_dispatch:
     inputs:
       date:
