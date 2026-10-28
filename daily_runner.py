@@ -743,13 +743,10 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
         injury_status = "ACTIVE_OR_UNKNOWN"
         opportunity_direction = "UNCHANGED"
         if opp_adj:
+            # Adjust forward-looking minutes/usage only. Rolling box-score features
+            # remain historical evidence; scaling them too would double-count the vacancy.
             proj_min = _float(opp_adj.get("adjusted_minutes"), proj_min)
             usage = _float(opp_adj.get("adjusted_usage"), usage)
-            roll5_pts *= _float(opp_adj.get("pts_multiplier"), 1.0)
-            roll5_reb *= _float(opp_adj.get("reb_multiplier"), 1.0)
-            roll5_ast *= _float(opp_adj.get("ast_multiplier"), 1.0)
-            roll5_threes *= _float(opp_adj.get("threes_multiplier"), 1.0)
-            roll5_pra *= _float(opp_adj.get("pra_multiplier"), 1.0)
             sev = str(opp_adj.get("injury_severity") or "").upper()
             delta = _float(opp_adj.get("minutes_delta"), 0.0)
             if sev:
