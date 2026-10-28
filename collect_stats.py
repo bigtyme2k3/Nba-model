@@ -113,11 +113,14 @@ def fetch_historical_season(year: int, out_dir: str) -> None:
         time.sleep(1)
 
 
-def fetch_espn_scoreboard(target_date: str) -> list:
+def fetch_espn_scoreboard(target_date: str, season_type: int | None = None) -> list:
+    params={"dates": target_date.replace("-", ""), "limit": 20}
+    if season_type is not None:
+        params["seasontype"] = int(season_type)
     response = requests.get(
         f"{ESPN_BASE}/scoreboard",
         headers=HEADERS,
-        params={"dates": target_date.replace("-", ""), "limit": 20},
+        params=params,
         timeout=20,
     )
     response.raise_for_status()
@@ -223,23 +226,52 @@ def parse_espn_player_box(summary: dict, game_date: str, season: int) -> list:
 
 
 def fetch_current_season(season_year: int, out_dir: str) -> None:
-    """season_year is the year the season STARTS (e.g. 2025 for the 2025-26 season)."""
+    """Collect only regular-season/postseason NBA games from ESPN."""
     print(f"\n── Season {season_year}-{season_year+1} (ESPN API — current) ──")
     today = date.today()
     current = date(season_year, 10, 1)
     end = min(date(season_year + 1, 6, 30), today)
-    team_rows, player_rows, seen_games = [], [], set()
+    team_rows, player_rows, schedule_rows, seen_games = [], [], [], set()
+
     while current <= end:
         date_str = current.isoformat()
         try:
-            for event in fetch_espn_scoreboard(date_str):
+            season_types = [2]
+            if current.month in (4, 5, 6):
+                season_types.append(3)
+
+            events = []
+            for requested_type in season_types:
+                for event in fetch_espn_scoreboard(date_str, season_type=requested_type):
+                    eid = str(event.get("id", ""))
+                    if not eid:
+                        continue
+                    raw_season = event.get("season", {}) or {}
+                    raw_type = raw_season.get("type")
+                    raw_slug = str(raw_season.get("slug", "") or "")
+                    # The explicit seasontype query is authoritative, while a raw
+                    # preseason marker can still veto a misclassified response.
+                    if raw_type == 1 or "preseason" in raw_slug.lower():
+                        continue
+                    events.append((event, requested_type))
+
+            for event, requested_type in events:
                 game_id = str(event.get("id", ""))
                 status = str(event.get("status", {}).get("type", {}).get("name", ""))
-                season_type = event.get("season", {}).get("type")
-                # ESPN: 1=preseason, 2=regular season, 3=postseason.
-                # Preseason rotations/minutes contaminate early-season NBA prop profiles.
-                if season_type not in (2, 3):
-                    continue
+                raw_season = event.get("season", {}) or {}
+                effective_type = raw_season.get("type")
+                if effective_type not in (2, 3):
+                    effective_type = requested_type
+                schedule_rows.append({
+                    "game_id": game_id,
+                    "season": season_year,
+                    "game_date": date_str,
+                    "season_type": effective_type,
+                    "season_slug": raw_season.get("slug") or (
+                        "regular-season" if effective_type == 2 else "post-season"
+                    ),
+                    "status": status,
+                })
                 if "FINAL" not in status.upper() or game_id in seen_games:
                     continue
                 seen_games.add(game_id)
@@ -251,7 +283,14 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
             print(f"  [WARN] {date_str}: {exc}")
         current += timedelta(days=1)
         time.sleep(0.15)
-    print(f"  Total: {len(seen_games)} games")
+
+    print(f"  Total regular/postseason finals: {len(seen_games)} games")
+    if schedule_rows:
+        sched = pd.DataFrame(schedule_rows).drop_duplicates("game_id", keep="last")
+        sched_path = os.path.join(out_dir, f"hoopr_schedule_{season_year}.csv")
+        sched.to_csv(sched_path, index=False)
+        print(f"  Schedule manifest → {sched_path} ({len(sched)} games)")
+
     if team_rows:
         team_df = pd.DataFrame(team_rows)
         path = os.path.join(out_dir, f"hoopr_team_box_{season_year}.csv")
@@ -261,15 +300,27 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
         home = team_df[team_df["home_away"] == "home"].copy()
         away = team_df[team_df["home_away"] == "away"].copy()
         keys = [c for c in ("game_id", "season", "game_date") if c in team_df.columns]
-        games = home[keys + ["team_name", "pts"]].rename(columns={"team_name": "home_team", "pts": "home_pts"}).merge(
-            away[keys + ["team_name", "pts"]].rename(columns={"team_name": "away_team", "pts": "away_pts"}),
-            on=keys, how="inner")
+        games = home[keys + ["team_name", "pts"]].rename(
+            columns={"team_name": "home_team", "pts": "home_pts"}
+        ).merge(
+            away[keys + ["team_name", "pts"]].rename(
+                columns={"team_name": "away_team", "pts": "away_pts"}
+            ),
+            on=keys, how="inner"
+        )
         if not games.empty:
-            games["actual_spread"] = pd.to_numeric(games["home_pts"], errors="coerce") - pd.to_numeric(games["away_pts"], errors="coerce")
-            games["actual_total"] = pd.to_numeric(games["home_pts"], errors="coerce") + pd.to_numeric(games["away_pts"], errors="coerce")
+            games["actual_spread"] = (
+                pd.to_numeric(games["home_pts"], errors="coerce")
+                - pd.to_numeric(games["away_pts"], errors="coerce")
+            )
+            games["actual_total"] = (
+                pd.to_numeric(games["home_pts"], errors="coerce")
+                + pd.to_numeric(games["away_pts"], errors="coerce")
+            )
             games_path = os.path.join(out_dir, f"hoopr_games_{season_year}.csv")
             games.to_csv(games_path, index=False)
             print(f"  Games → {games_path} ({len(games)} games)")
+
     if player_rows:
         path = os.path.join(out_dir, f"hoopr_player_box_{season_year}.csv")
         pd.DataFrame(player_rows).to_csv(path, index=False)
