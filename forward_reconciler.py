@@ -243,6 +243,35 @@ def probability_calibration(rows):
     return {"rows":len(scored),"brier":round(brier,5),"bins":bins}
 
 
+def grouped_bet_stats(rows, field):
+    groups={}
+    keys=sorted({str(r.get(field) or "UNKNOWN") for r in rows if r.get("decision")=="BET"})
+    for key in keys:
+        subset=[
+            r for r in rows
+            if r.get("decision")=="BET" and str(r.get(field) or "UNKNOWN")==key
+        ]
+        resolved=[r for r in subset if r.get("outcome") in {"WIN","LOSS","PUSH"}]
+        wins=sum(r.get("outcome")=="WIN" for r in resolved)
+        losses=sum(r.get("outcome")=="LOSS" for r in resolved)
+        pushes=sum(r.get("outcome")=="PUSH" for r in resolved)
+        profits=[profit_units(r) for r in resolved]
+        profits=[x for x in profits if x is not None]
+        risked=wins+losses
+        groups[key]={
+            "bets":len(subset),
+            "resolved":len(resolved),
+            "wins":wins,
+            "losses":losses,
+            "pushes":pushes,
+            "hit_rate":round(wins/risked,4) if risked else None,
+            "profit_units":round(sum(profits),4) if profits else 0.0,
+            "roi":round(sum(profits)/risked,4) if risked else None,
+            "probability_calibration":probability_calibration(resolved),
+        }
+    return groups
+
+
 def performance(rows):
     certified = [r for r in rows if r.get("outcome") in {"WIN", "LOSS", "PUSH"}]
     bets = [r for r in certified if r.get("decision") == "BET"]
@@ -282,9 +311,18 @@ def performance(rows):
         "roi": round(sum(profits)/risked,4) if risked else None,
         "probability_calibration": probability_calibration(bets),
         "by_market": by_market,
+        "by_sportsbook": grouped_bet_stats(
+            [r for r in bets if str(r.get("market","")).upper()=="PROP"],
+            "sportsbook_key",
+        ),
+        "by_prop_stat": grouped_bet_stats(
+            [r for r in bets if str(r.get("market","")).upper()=="PROP"],
+            "stat",
+        ),
         "policy": (
             "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT; ROI_USES_RECORDED_BOOK_PRICE; "
-            "PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY"
+            "PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY; "
+            "PROP_PERFORMANCE_IS_SPLIT_BY_EXACT_SPORTSBOOK_AND_STAT"
         ),
     }
 
