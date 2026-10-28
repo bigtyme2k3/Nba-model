@@ -38,6 +38,8 @@ jobs:
           python - <<'PY'
           import build_player_features
           import build_team_features
+          import scrape_sportsbook_props
+          import opportunity_redistribution
           import props_model
           import daily_runner
           import forward_ledger
