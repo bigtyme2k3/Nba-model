@@ -8,7 +8,7 @@ import os, pickle, warnings, argparse
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import Ridge
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import TimeSeriesSplit
@@ -111,8 +111,9 @@ def train_totals_model(data_path):
     tscv = TimeSeriesSplit(n_splits=4)
     models = {
         "Ridge":  Pipeline([("sc", StandardScaler()), ("m", Ridge(alpha=10.0))]),
-        "RF":     Pipeline([("m", RandomForestRegressor(n_estimators=200, max_depth=5,
-                                                         min_samples_leaf=8, random_state=42))]),
+        "HistGBR": Pipeline([("m", HistGradientBoostingRegressor(
+                    max_iter=180, learning_rate=0.05, max_leaf_nodes=15,
+                    min_samples_leaf=20, l2_regularization=1.0, random_state=42))]),
     }
 
     cv_results = {}
