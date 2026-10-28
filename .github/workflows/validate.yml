@@ -47,5 +47,6 @@ jobs:
           import execution_ledger
           import forward_reconciler
           import results_tracker
+          import nba_v1_readiness
           print("Core NBA modules import successfully")
           PY
