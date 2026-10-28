@@ -1116,6 +1116,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=str(date.today()))
     parser.add_argument("--out",  default=None)
+    parser.add_argument("--min-minutes-to-tip", type=float, default=None)
+    parser.add_argument("--max-minutes-to-tip", type=float, default=None)
     args = parser.parse_args()
 
     target   = datetime.strptime(args.date, "%Y-%m-%d").date()
@@ -1126,13 +1128,29 @@ if __name__ == "__main__":
         tip = str(game.get("tip", "") or "")
         try:
             tip_dt = datetime.fromisoformat(tip.replace("Z", "+00:00")).astimezone(timezone.utc)
+            minutes_to_tip = (tip_dt - now_utc).total_seconds() / 60.0
         except Exception:
             tip_dt = None
-        if tip_dt is None or tip_dt > now_utc:
-            pre_tip.append(game)
+            minutes_to_tip = None
+        if tip_dt is not None and minutes_to_tip <= 0:
+            continue
+        if (
+            args.min_minutes_to_tip is not None
+            and minutes_to_tip is not None
+            and minutes_to_tip < args.min_minutes_to_tip
+        ):
+            continue
+        if (
+            args.max_minutes_to_tip is not None
+            and minutes_to_tip is not None
+            and minutes_to_tip > args.max_minutes_to_tip
+        ):
+            continue
+        game["minutes_to_tip"] = round(minutes_to_tip, 2) if minutes_to_tip is not None else None
+        pre_tip.append(game)
     skipped_started = len(schedule) - len(pre_tip)
     if skipped_started:
-        print(f"  Pregame gate: skipped {skipped_started} already-started games")
+        print(f"  Pregame/window gate: skipped {skipped_started} games outside requested window")
     schedule = pre_tip
     market_odds = load_market_odds(target)
     schedule = attach_market_odds(schedule, market_odds)
