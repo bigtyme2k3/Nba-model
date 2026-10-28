@@ -1,5 +1,5 @@
 game_date,player,team,position,injury_severity,base_minutes,adjusted_minutes,minutes_delta,base_usage,adjusted_usage,usage_delta,minutes_received,minutes_reduced,pts_multiplier,reb_multiplier,ast_multiplier,threes_multiplier,pra_multiplier,vacancy_sources,basis
 2026-10-27,Adou Thiero,Los Angeles Lakers,F,OUT,6.135,0.0,-6.135,0.14082,0.0,-0.14082,0.0,6.135,0.0,0.0,0.0,0.0,0.0,,INJURY_STATUS_PLUS_PRIOR_ROTATION_PROFILE
 2026-10-27,Chris Youngblood,Portland Trail Blazers,G,OUT,7.5,0.0,-7.5,0.19397,0.0,-0.19397,0.0,7.5,0.0,0.0,0.0,0.0,0.0,,INJURY_STATUS_PLUS_PRIOR_ROTATION_PROFILE
-2026-10-27,Scoot Henderson,Portland Trail Blazers,G,QUESTIONABLE,25.435,25.435,0.0,0.22364,0.22364,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,,INJURY_STATUS_PLUS_PRIOR_ROTATION_PROFILE
+2026-10-27,Scoot Henderson,Portland Trail Blazers,G,QUESTIONABLE,25.435,25.435,0.0,0.21768,0.21768,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,,INJURY_STATUS_PLUS_PRIOR_ROTATION_PROFILE
 2026-10-27,Shaedon Sharpe,Portland Trail Blazers,G,OUT,15.035,0.0,-15.035,0.25596,0.0,-0.25596,0.0,15.035,0.0,0.0,0.0,0.0,0.0,,INJURY_STATUS_PLUS_PRIOR_ROTATION_PROFILE
