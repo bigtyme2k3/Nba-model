@@ -90,6 +90,39 @@ def kelly_fraction_bet(win_prob: float, juice: int = JUICE_110) -> float:
     return max(0.0, kelly)
 
 
+def size_probability_bet(win_prob: float, juice: int = JUICE_110,
+                         bankroll: float = 1000.0) -> dict:
+    """Kelly sizing when the model already supplies a calibrated win probability."""
+    try:
+        win_prob = float(win_prob)
+        juice = int(float(juice))
+    except Exception:
+        return {
+            "win_prob": 0.5, "kelly_full": 0.0, "kelly_frac": 0.0,
+            "units": 0.0, "dollar_amt": 0.0, "juice": juice, "verdict": "PASS",
+        }
+    win_prob = float(np.clip(win_prob, 0.01, 0.99))
+    kelly_full = kelly_fraction_bet(win_prob, juice)
+    kelly_frac = min(kelly_full * KELLY_FRACTION, MAX_BET_PCT)
+    dollar_amt = round(kelly_frac * bankroll, 2)
+    units = round(kelly_frac * 100, 2)
+    if kelly_frac >= 0.03:
+        verdict = "STRONG"
+    elif kelly_frac >= 0.01:
+        verdict = "BET"
+    else:
+        verdict = "PASS"
+    return {
+        "win_prob": round(win_prob, 4),
+        "kelly_full": round(kelly_full, 4),
+        "kelly_frac": round(kelly_frac, 4),
+        "units": units,
+        "dollar_amt": dollar_amt,
+        "juice": juice,
+        "verdict": verdict,
+    }
+
+
 def size_bet(edge_pts: float, model_type: str = "spread",
              juice: int = JUICE_110, bankroll: float = 1000.0,
              min_edge: float = None) -> dict:
@@ -165,9 +198,16 @@ def size_all_bets(best_bets: list, bankroll: float = 1000.0) -> list:
     sized = []
 
     for bet in best_bets:
-        edge     = bet.get("edge", 0) or 0
+        edge = bet.get("edge", 0) or 0
         bet_type = TYPE_MAP.get(bet.get("type","SPREAD"), "spread")
-        result   = size_bet(edge, bet_type, bankroll=bankroll)
+        model_prob = bet.get("model_probability")
+        market_odds = bet.get("market_odds")
+        if model_prob is not None and market_odds is not None:
+            result = size_probability_bet(model_prob, market_odds, bankroll=bankroll)
+            sizing_source = "MODEL_PROBABILITY_AND_BOOK_PRICE"
+        else:
+            result = size_bet(edge, bet_type, bankroll=bankroll)
+            sizing_source = "EDGE_TO_PROBABILITY_FALLBACK"
 
         sized.append({
             **bet,
@@ -175,6 +215,7 @@ def size_all_bets(best_bets: list, bankroll: float = 1000.0) -> list:
             "units":      result["units"],
             "dollar_amt": result["dollar_amt"],
             "verdict":    result["verdict"],
+            "kelly_sizing_source": sizing_source,
         })
 
     sized.sort(key=lambda b: (-b["units"], -abs(b.get("edge",0))))
