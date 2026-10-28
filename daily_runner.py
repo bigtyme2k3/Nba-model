@@ -1135,6 +1135,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         games_output.append({
             "tip": tip,
+            "minutes_to_tip": game.get("minutes_to_tip"),
             "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0)},
             "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0)},
             "spread": {"pred":spread_pred,"model_line":fmt_line(spread_pred,home,away),
