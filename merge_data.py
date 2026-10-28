@@ -15,6 +15,7 @@ import pandas as pd
 from glob import glob
 
 from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, normalize_team
+from season_filters import filter_games
 
 RAW_DIR       = "data/raw"
 PROCESSED_DIR = "data/processed"
@@ -36,6 +37,8 @@ def load_game_logs(year: int) -> pd.DataFrame:
                 return pd.DataFrame()
 
     df = pd.read_csv(path)
+    if "game_id" in df.columns:
+        df, _ = filter_games(df, RAW_DIR, year, label="game-model rows")
     df["season"] = year
 
     rename = {
