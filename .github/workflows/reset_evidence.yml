@@ -51,6 +51,12 @@ jobs:
             data/tracking/evidence_epoch_reset_status.json \
             data/tracking/nba_v1_readiness.json
           git diff --cached --quiet || git commit -m "🧹 Reset NBA V1 clean forward evidence epoch"
+          git reset --hard HEAD
+          git clean -fd
           git fetch origin main
           git rebase -X theirs origin/main
-          git push
+          git push || {
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push
+          }
