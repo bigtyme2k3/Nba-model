@@ -35,6 +35,12 @@ jobs:
           echo "TARGET=$TARGET" >> $GITHUB_ENV
           echo "Testing NBA V1 live inputs for $TARGET"
 
+      - name: Rebuild current regular-season feature stores
+        run: |
+          python collect_stats.py --current --out data/raw
+          python build_player_features.py --raw data/raw --out data/processed
+          python build_team_features.py --raw data/raw --out data/processed
+
       - name: Refresh FD DK Fanatics game odds
         run: python scrape_odds.py --date ${{ env.TARGET }} --out data/raw
 
@@ -79,7 +85,36 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          git add             data/raw/odds_today.csv             data/raw/odds_${{ env.TARGET }}.csv             data/raw/odds_api_status.json             data/raw/sportsbook_props_today.csv             data/raw/sportsbook_props_${{ env.TARGET }}.csv             data/raw/sportsbook_props_status.json             data/raw/injuries_today.csv             data/raw/injuries_${{ env.TARGET }}.csv             data/raw/injuries_status.json             data/raw/opportunity_adjustments_today.csv             data/raw/opportunity_adjustments_${{ env.TARGET }}.csv             data/raw/opportunity_redistribution_status.json             predictions/v1_smoke_${{ env.TARGET }}.json             models/props_models.pkl
+          git add \
+            data/raw/hoopr_games_2026.csv \
+            data/raw/hoopr_player_box_2026.csv \
+            data/raw/hoopr_team_box_2026.csv \
+            data/processed/player_logs.csv \
+            data/processed/player_profiles_latest.csv \
+            data/processed/rotation_profiles_latest.csv \
+            data/processed/player_features_status.json \
+            data/processed/team_profiles_latest.csv \
+            data/processed/team_features_status.json \
+            data/raw/odds_today.csv \
+            data/raw/odds_${{ env.TARGET }}.csv \
+            data/raw/odds_api_status.json \
+            data/raw/sportsbook_props_today.csv \
+            data/raw/sportsbook_props_${{ env.TARGET }}.csv \
+            data/raw/sportsbook_props_status.json \
+            data/raw/injuries_today.csv \
+            data/raw/injuries_${{ env.TARGET }}.csv \
+            data/raw/injuries_status.json \
+            data/raw/opportunity_adjustments_today.csv \
+            data/raw/opportunity_adjustments_${{ env.TARGET }}.csv \
+            data/raw/opportunity_redistribution_status.json \
+            predictions/v1_smoke_${{ env.TARGET }}.json \
+            models/props_models.pkl
           git diff --cached --quiet || git commit -m "🧪 NBA V1 live sportsbook/opportunity smoke — ${{ env.TARGET }}"
-          git pull --rebase origin main
-          git push
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push || {
+            echo "Push raced with another workflow; rebasing generated evidence and retrying."
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push
+          }
