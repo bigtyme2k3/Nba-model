@@ -92,17 +92,17 @@ jobs:
         run: python scrape_refs.py --out data/raw
         continue-on-error: true
 
-      # ── Step 7: Merge ────────────────────────────────────────────────────
-      - name: Merge data
-        if: env.SKIP != 'true'
-        run: python merge_data.py --year all --raw data/raw --out data/processed
-
-      # ── Step 8: Player / rotation features ───────────────────────────────
+      # ── Step 7: Leakage-safe feature stores ──────────────────────────────
       - name: Build player, rotation, and team feature stores
         if: env.SKIP != 'true'
         run: |
           python build_player_features.py --raw data/raw --out data/processed
           python build_team_features.py --raw data/raw --out data/processed
+
+      # ── Step 8: Merge model master with prior-only team context ───────────
+      - name: Merge data
+        if: env.SKIP != 'true'
+        run: python merge_data.py --year all --raw data/raw --out data/processed
 
       # ── Step 9: Retrain (Mondays only) ───────────────────────────────────
       - name: Retrain models when target date is Monday
