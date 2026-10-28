@@ -218,10 +218,12 @@ def parse_espn_player_box(summary: dict, game_date: str, season: int) -> list:
                     "minutes": number(values.get("MIN")), "pts": number(values.get("PTS")),
                     "reb": number(values.get("REB")), "ast": number(values.get("AST")),
                     "stl": number(values.get("STL")), "blk": number(values.get("BLK")),
-                    "tov": number(values.get("TO")), "fg_made": number(values.get("FGM")),
-                    "fg_att": number(values.get("FGA")), "threes_made": number(values.get("3PM")),
-                    "threes_att": number(values.get("3PA")), "ft_made": number(values.get("FTM")),
-                    "ft_att": number(values.get("FTA")), "plus_minus": number(values.get("+/-")),
+                    "tov": number(values.get("TO")), "oreb": number(values.get("OREB")),
+                    "dreb": number(values.get("DREB")),
+                    "fg_made": number(values.get("FGM")), "fg_att": number(values.get("FGA")),
+                    "threes_made": number(values.get("3PM")), "threes_att": number(values.get("3PA")),
+                    "ft_made": number(values.get("FTM")), "ft_att": number(values.get("FTA")),
+                    "plus_minus": number(values.get("+/-")),
                     "source": "espn_api",
                 })
     return rows
@@ -293,11 +295,71 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
         sched.to_csv(sched_path, index=False)
         print(f"  Schedule manifest → {sched_path} ({len(sched)} games)")
 
+    player_df = pd.DataFrame(player_rows) if player_rows else pd.DataFrame()
+
     if team_rows:
         team_df = pd.DataFrame(team_rows)
+
+        # ESPN's team-stat summary can omit made/attempted shot counts. Reconstruct
+        # them from the same game's player box so current-season pace/efficiency is
+        # comparable to historical hoopR team boxes.
+        if not player_df.empty:
+            for col in ["fg_made","fg_att","threes_made","threes_att",
+                        "ft_made","ft_att","oreb","dreb","reb","ast","tov"]:
+                if col not in player_df.columns:
+                    player_df[col] = 0.0
+                player_df[col] = pd.to_numeric(player_df[col], errors="coerce").fillna(0.0)
+
+            team_agg = (
+                player_df.groupby(["game_id","team_abbr"], as_index=False)
+                .agg({
+                    "fg_made":"sum","fg_att":"sum",
+                    "threes_made":"sum","threes_att":"sum",
+                    "ft_made":"sum","ft_att":"sum",
+                    "oreb":"sum","dreb":"sum","reb":"sum",
+                    "ast":"sum","tov":"sum",
+                })
+                .rename(columns={
+                    "team_abbr":"team_abbreviation",
+                    "fg_made":"field_goals_made",
+                    "fg_att":"field_goals_attempted",
+                    "threes_made":"three_point_field_goals_made",
+                    "threes_att":"three_point_field_goals_attempted",
+                    "ft_made":"free_throws_made",
+                    "ft_att":"free_throws_attempted",
+                    "oreb":"player_sum_offensive_rebounds",
+                    "dreb":"defensive_rebounds",
+                    "reb":"player_sum_rebounds",
+                    "ast":"player_sum_assists",
+                    "tov":"player_sum_turnovers",
+                })
+            )
+            team_df = team_df.merge(
+                team_agg,
+                on=["game_id","team_abbreviation"],
+                how="left",
+                validate="one_to_one",
+            )
+            # Prefer existing ESPN team totals when present; otherwise use player sums.
+            for target, source in [
+                ("offensive_rebounds","player_sum_offensive_rebounds"),
+                ("rebounds","player_sum_rebounds"),
+                ("assists","player_sum_assists"),
+                ("turnovers","player_sum_turnovers"),
+            ]:
+                team_df[target] = pd.to_numeric(team_df.get(target), errors="coerce").fillna(
+                    pd.to_numeric(team_df.get(source), errors="coerce")
+                )
+            team_df = team_df.drop(
+                columns=[c for c in [
+                    "player_sum_offensive_rebounds","player_sum_rebounds",
+                    "player_sum_assists","player_sum_turnovers"
+                ] if c in team_df.columns]
+            )
+
         path = os.path.join(out_dir, f"hoopr_team_box_{season_year}.csv")
         team_df.to_csv(path, index=False)
-        print(f"  Team box → {path} ({len(team_rows)} rows)")
+        print(f"  Team box → {path} ({len(team_df)} rows)")
 
         home = team_df[team_df["home_away"] == "home"].copy()
         away = team_df[team_df["home_away"] == "away"].copy()
@@ -308,7 +370,7 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
             away[keys + ["team_name", "pts"]].rename(
                 columns={"team_name": "away_team", "pts": "away_pts"}
             ),
-            on=keys, how="inner"
+            on=keys, how="inner", validate="one_to_one"
         )
         if not games.empty:
             games["actual_spread"] = (
@@ -323,10 +385,10 @@ def fetch_current_season(season_year: int, out_dir: str) -> None:
             games.to_csv(games_path, index=False)
             print(f"  Games → {games_path} ({len(games)} games)")
 
-    if player_rows:
+    if not player_df.empty:
         path = os.path.join(out_dir, f"hoopr_player_box_{season_year}.csv")
-        pd.DataFrame(player_rows).to_csv(path, index=False)
-        print(f"  Player box → {path} ({len(player_rows)} rows)")
+        player_df.to_csv(path, index=False)
+        print(f"  Player box → {path} ({len(player_df)} rows)")
 
 
 def build_stats_master(out_dir: str) -> None:
