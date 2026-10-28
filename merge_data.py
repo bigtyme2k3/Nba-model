@@ -170,8 +170,9 @@ def add_travel_flag(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def add_rolling_efficiency(df: pd.DataFrame, window: int = 5) -> pd.DataFrame:
-    """Rolling margin with shift(1) to prevent data leakage."""
-    df = df.sort_values("game_date").reset_index(drop=True)
+    """Rolling margin with shift(1), preserving exactly one row per game."""
+    df = df.sort_values("game_date").reset_index(drop=True).copy()
+    base_len = len(df)
 
     if "actual_spread" not in df.columns:
         return df
@@ -183,28 +184,45 @@ def add_rolling_efficiency(df: pd.DataFrame, window: int = 5) -> pd.DataFrame:
     away_rec["actual_spread"] = -away_rec["actual_spread"]
     away_rec.columns = ["game_date","team","margin"]
 
-    all_rec = pd.concat([home_rec, away_rec]).sort_values(["team","game_date"]).reset_index(drop=True)
-    all_rec = all_rec[all_rec["margin"].notna()]
+    all_rec = pd.concat([home_rec, away_rec], ignore_index=True)
+    all_rec = all_rec[all_rec["margin"].notna()].copy()
+    all_rec = all_rec.sort_values(["team","game_date"]).reset_index(drop=True)
+
+    key_cols = ["game_date","team"]
+    dupes = all_rec.duplicated(key_cols, keep=False)
+    if dupes.any():
+        sample = all_rec.loc[dupes, key_cols].head(10).to_dict("records")
+        raise RuntimeError(
+            f"Rolling efficiency history is not unique by team/date: "
+            f"{int(dupes.sum())} duplicate rows; sample={sample}"
+        )
 
     all_rec[f"rolling_{window}g"] = (
         all_rec.groupby("team")["margin"]
         .transform(lambda x: x.shift(1).rolling(window, min_periods=2).mean())
     )
 
-    home_m = all_rec[["game_date","team",f"rolling_{window}g"]].copy()
-    home_m.columns = ["game_date","home_team",f"home_rolling_{window}g"]
-    away_m = all_rec[["game_date","team",f"rolling_{window}g"]].copy()
-    away_m.columns = ["game_date","away_team",f"away_rolling_{window}g"]
-
-    df = df.merge(home_m, on=["game_date","home_team"], how="left")
-    df = df.merge(away_m, on=["game_date","away_team"], how="left")
+    for side, prefix in [("home_team","home"), ("away_team","away")]:
+        lookup = all_rec[["game_date","team",f"rolling_{window}g"]].copy()
+        lookup.columns = ["game_date",side,f"{prefix}_rolling_{window}g"]
+        lookup = lookup.drop_duplicates(["game_date",side], keep="last")
+        df = df.merge(
+            lookup,
+            on=["game_date",side],
+            how="left",
+            validate="many_to_one",
+        )
+        if len(df) != base_len:
+            raise RuntimeError(
+                f"Rolling efficiency merge changed cardinality after {side}: "
+                f"{base_len} -> {len(df)}"
+            )
 
     df[f"rolling_diff_{window}g"] = (
         df.get(f"home_rolling_{window}g", 0).fillna(0) -
         df.get(f"away_rolling_{window}g", 0).fillna(0)
     )
     df[f"pred_spread_rolling_{window}g"] = df[f"rolling_diff_{window}g"] * 0.5
-
     return df
 
 
@@ -235,6 +253,12 @@ def process_year(year: int) -> pd.DataFrame:
     if game_df.empty:
         print(f"  [SKIP] No game data for {year}")
         return pd.DataFrame()
+
+    print(f"  Source game rows: {len(game_df)}")
+    if "game_id" in game_df.columns:
+        nonblank = game_df["game_id"].notna() & game_df["game_id"].astype(str).str.strip().ne("")
+        if game_df.loc[nonblank, "game_id"].astype(str).duplicated().any():
+            raise RuntimeError(f"Duplicate nonblank game_id rows detected for source {year}")
 
     for col in ("home_team", "away_team"):
         if col in game_df.columns:
@@ -284,6 +308,10 @@ def process_year(year: int) -> pd.DataFrame:
         # NBA playoffs run April - June; regular season is Oct - April.
         merged["is_playoff"] = merged["month"].isin([4, 5, 6]).astype(int)
 
+    if len(merged) != len(game_df):
+        raise RuntimeError(
+            f"process_year changed game cardinality: source={len(game_df)} final={len(merged)}"
+        )
     print(f"  Final shape: {merged.shape}")
     return merged
 
