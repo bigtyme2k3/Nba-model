@@ -152,11 +152,21 @@ def train_totals_model(data_path):
                               "line_mae":  float(mean_absolute_error(y.values[valid], line[valid]))}
 
     path = os.path.join(MODEL_DIR, "totals_model.pkl")
+    trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
     with open(path, "wb") as f:
-        pickle.dump({"model": final, "feature_names": available,
-                     "model_name": best_name, "cv_results": cv_results,
-                     "ou_results": ou_results}, f)
+        pickle.dump({
+            "status": "trained",
+            "model": final,
+            "feature_names": available,
+            "model_name": best_name,
+            "cv_results": cv_results,
+            "ou_results": ou_results,
+            "trained_rows": int(len(df)),
+            "trained_through": trained_through,
+            "validation": "global_chronological_timeseries_split",
+        }, f)
     print(f"\n✅ Saved → {path}")
+    print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
     print(f"\n═══ SUMMARY ═══")
     print(f"  Model: {best_name} | CV MAE: {cv_results[best_name]['mae']:.2f} pts")
     if ou_results:
