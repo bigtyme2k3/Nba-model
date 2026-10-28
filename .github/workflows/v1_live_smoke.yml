@@ -50,6 +50,9 @@ jobs:
         run: python opportunity_redistribution.py --date ${{ env.TARGET }} --out data/raw
         continue-on-error: true
 
+      - name: Retrain props on latest player feature store
+        run: python props_model.py --mode train
+
       - name: Generate isolated smoke predictions
         run: |
           python daily_runner.py             --date ${{ env.TARGET }}             --out predictions/v1_smoke_${{ env.TARGET }}.json
@@ -76,7 +79,7 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          git add             data/raw/odds_today.csv             data/raw/odds_${{ env.TARGET }}.csv             data/raw/odds_api_status.json             data/raw/sportsbook_props_today.csv             data/raw/sportsbook_props_${{ env.TARGET }}.csv             data/raw/sportsbook_props_status.json             data/raw/injuries_today.csv             data/raw/injuries_${{ env.TARGET }}.csv             data/raw/injuries_status.json             data/raw/opportunity_adjustments_today.csv             data/raw/opportunity_adjustments_${{ env.TARGET }}.csv             data/raw/opportunity_redistribution_status.json             predictions/v1_smoke_${{ env.TARGET }}.json
+          git add             data/raw/odds_today.csv             data/raw/odds_${{ env.TARGET }}.csv             data/raw/odds_api_status.json             data/raw/sportsbook_props_today.csv             data/raw/sportsbook_props_${{ env.TARGET }}.csv             data/raw/sportsbook_props_status.json             data/raw/injuries_today.csv             data/raw/injuries_${{ env.TARGET }}.csv             data/raw/injuries_status.json             data/raw/opportunity_adjustments_today.csv             data/raw/opportunity_adjustments_${{ env.TARGET }}.csv             data/raw/opportunity_redistribution_status.json             predictions/v1_smoke_${{ env.TARGET }}.json             models/props_models.pkl
           git diff --cached --quiet || git commit -m "🧪 NBA V1 live sportsbook/opportunity smoke — ${{ env.TARGET }}"
           git pull --rebase origin main
           git push
