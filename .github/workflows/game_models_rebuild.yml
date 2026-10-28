@@ -49,6 +49,31 @@ jobs:
           python build_team_features.py --raw data/raw --out data/processed
           python merge_data.py --year all --raw data/raw --out data/processed
 
+      - name: Verify prior-only team context coverage
+        run: |
+          python - <<'PY'
+          import json, pandas as pd
+          s=json.load(open("data/processed/team_features_status.json"))
+          rows=int(s.get("game_context_rows") or 0)
+          prior=int(s.get("pregame_context_rows_with_prior") or 0)
+          if rows <= 0:
+              raise SystemExit("team_game_context.csv not built")
+          raw=pd.read_csv("data/processed/master_all.csv", low_memory=False)
+          complete=pd.to_numeric(raw.get("team_context_complete"),errors="coerce").fillna(0)
+          coverage=float(complete.mean()) if len(raw) else 0.0
+          print("team context rows:",rows,"prior pace rows:",prior)
+          print("master complete-context coverage:",f"{coverage:.2%}")
+          for col in [
+              "home_pace","away_pace","home_ortg","away_ortg",
+              "home_drtg","away_drtg","home_net_rtg","away_net_rtg",
+              "home_ts_pct","away_ts_pct",
+          ]:
+              if col not in raw.columns:
+                  raise SystemExit(f"missing historical team feature: {col}")
+          if coverage < 0.95:
+              raise SystemExit(f"team context coverage too low: {coverage:.2%}")
+          PY
+
       - name: Train spread model
         run: python spread_model.py --mode train --data data/processed/master_all.csv
 
@@ -127,6 +152,7 @@ jobs:
             data/raw/espn_current_player_box_2026.csv \
             data/processed/master_*.csv \
             data/processed/team_profiles_latest.csv \
+            data/processed/team_game_context.csv \
             data/processed/team_features_status.json \
             models/spread_model.pkl \
             models/totals_model.pkl \
