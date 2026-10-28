@@ -547,40 +547,53 @@ def load_models(target_date=None):
                         ("props", "props_models.pkl")]:
         path = os.path.join(MODEL_DIR, fname)
         if os.path.exists(path):
-            with open(path,"rb") as f:
-                models[key] = pickle.load(f)
-            print(f"  ✅ {fname} loaded")
+            try:
+                with open(path,"rb") as f:
+                    models[key] = pickle.load(f)
+                print(f"  ✅ {fname} loaded")
+            except Exception as exc:
+                print(f"  [WARN] {fname} unreadable — skipping {key}: {exc}")
+                models[key] = None
         else:
             print(f"  [WARN] {fname} not found — skipping {key} predictions")
             models[key] = None
 
-    # Props fail closed when the trained bundle materially lags the player feature store.
-    props = models.get("props")
-    status_path = os.path.join(DATA_DIR, "player_features_status.json")
-    if props and os.path.exists(status_path):
+    def verify_fresh(bundle, label, status_path, max_lag_days=14):
+        if not bundle:
+            return None
+        if bundle.get("status") not in (None, "trained"):
+            print(f"  [WARN] {label} bundle status={bundle.get('status')} — fail closed")
+            return None
+        if not os.path.exists(status_path):
+            print(f"  [WARN] {label} freshness source missing — fail closed")
+            return None
         try:
             status = json.load(open(status_path))
             feature_max = datetime.strptime(str(status.get("max_game_date")), "%Y-%m-%d").date()
-            trained_raw = props.get("trained_through")
+            trained_raw = bundle.get("trained_through")
             trained = datetime.strptime(str(trained_raw), "%Y-%m-%d").date() if trained_raw else None
             if trained is None:
-                print("  [WARN] Props bundle has no trained_through stamp — fail closed")
-                props = None
-            else:
-                lag = (feature_max - trained).days
-                print(f"  Props training lag vs feature store: {lag} days")
-                if lag > 14:
-                    print(
-                        f"  [WARN] Props model stale: trained through {trained}, "
-                        f"features through {feature_max}. Prop bets disabled until retrain."
-                    )
-                    props = None
+                print(f"  [WARN] {label} bundle has no trained_through stamp — fail closed")
+                return None
+            lag = (feature_max - trained).days
+            print(f"  {label} training lag vs feature store: {lag} days")
+            if lag > max_lag_days:
+                print(
+                    f"  [WARN] {label} model stale: trained through {trained}, "
+                    f"features through {feature_max}. {label} bets disabled until retrain."
+                )
+                return None
+            return bundle
         except Exception as exc:
-            print(f"  [WARN] Could not verify props model freshness: {exc}")
-            props = None
-    models["props"] = props
-    return models.get("spread"), models.get("totals"), models.get("props")
+            print(f"  [WARN] Could not verify {label} freshness: {exc}")
+            return None
 
+    team_status = os.path.join(DATA_DIR, "team_features_status.json")
+    player_status = os.path.join(DATA_DIR, "player_features_status.json")
+    models["spread"] = verify_fresh(models.get("spread"), "Spread", team_status)
+    models["totals"] = verify_fresh(models.get("totals"), "Totals", team_status)
+    models["props"] = verify_fresh(models.get("props"), "Props", player_status)
+    return models.get("spread"), models.get("totals"), models.get("props")
 
 def build_context(home, away, target_date, game):
     long_travel = (home in WEST and away in EAST) or (home in EAST and away in WEST)
@@ -602,7 +615,8 @@ def build_context(home, away, target_date, game):
 # ── Predictions ────────────────────────────────────────────────────────────────
 
 def run_spread(home, away, ctx, bundle):
-    if bundle is None: return 0.0
+    if bundle is None:
+        return None
     model = bundle["model"]
     feats = bundle["feature_names"]
     hs, as_ = CURRENT_TEAM_STATS.get(home,{}), CURRENT_TEAM_STATS.get(away,{})
@@ -644,11 +658,12 @@ def run_spread(home, away, ctx, bundle):
         return round(float(model.predict(X)[0]), 1)
     except Exception as e:
         print(f"  [WARN] Spread prediction error: {e}")
-        return 0.0
+        return None
 
 
 def run_totals(home, away, ctx, bundle):
-    if bundle is None: return 224.0
+    if bundle is None:
+        return None
     model = bundle["model"]
     feats = bundle["feature_names"]
     hs, as_ = CURRENT_TEAM_STATS.get(home,{}), CURRENT_TEAM_STATS.get(away,{})
@@ -898,7 +913,7 @@ def collect_best_bets(games_output):
                     "edge":sp["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
                 })
         tot = g["totals"]
-        if tot.get("edge"):
+        if tot.get("edge") is not None:
             conf, stars = score_confidence(tot["edge"], "totals")
             if stars >= 2:
                 bets.append({
@@ -1007,9 +1022,12 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
                 "crew_refs":      refs_str,
             })
 
-        spread_pred   = run_spread(home, away, ctx, spread_bundle)
+        spread_pred = run_spread(home, away, ctx, spread_bundle)
         posted_spread = game.get("posted_spread")
-        spread_edge = round(spread_pred - (-posted_spread), 1) if posted_spread is not None else None
+        spread_edge = (
+            round(spread_pred - (-posted_spread), 1)
+            if spread_pred is not None and posted_spread is not None else None
+        )
         spread_conf, spread_stars = score_confidence(spread_edge or 0, "spread")
         spread_play = None
         if posted_spread is not None and spread_edge is not None:
@@ -1039,7 +1057,10 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         if ctx["long_travel"]: flags.append("Travel")
 
         def fmt_line(pred, h, a):
-            if abs(pred) < 0.5: return "Pick'em"
+            if pred is None:
+                return None
+            if abs(pred) < 0.5:
+                return "Pick'em"
             return f"{h} -{abs(pred):.1f}" if pred > 0 else f"{a} -{abs(pred):.1f}"
 
         hs  = CURRENT_TEAM_STATS.get(home,{})
