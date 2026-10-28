@@ -1,0 +1,130 @@
+name: NBA V1 Game Model Rebuild
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/game-model-rebuild-trigger'
+  workflow_dispatch:
+
+jobs:
+  rebuild-game-models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set Eastern slate date
+        run: |
+          TARGET=$(python active_slate_date.py)
+          echo "TARGET=$TARGET" >> $GITHUB_ENV
+
+      - name: Refresh current completed regular-season games
+        run: python collect_stats.py --current --out data/raw
+
+      - name: Rebuild team and game feature stores
+        run: |
+          python build_team_features.py --raw data/raw --out data/processed
+          python merge_data.py --year all --raw data/raw --out data/processed
+
+      - name: Train spread model
+        run: python spread_model.py --mode train --data data/processed/master_all.csv
+
+      - name: Train totals model
+        run: python totals_model.py --mode train --data data/processed/master_all.csv
+
+      - name: Verify game-model freshness
+        run: |
+          python - <<'PY'
+          import json, pickle
+          from pathlib import Path
+
+          team = json.loads(Path("data/processed/team_features_status.json").read_text())
+          feature_date = team["max_game_date"]
+          print("team features through:", feature_date)
+
+          for name in ("spread", "totals"):
+              path = Path("models") / f"{name}_model.pkl"
+              bundle = pickle.load(path.open("rb"))
+              meta = {k:v for k,v in bundle.items() if k not in {"model","cv_results","clv_results","ou_results"}}
+              print(name, meta)
+              if bundle.get("status") != "trained":
+                  raise SystemExit(f"{name} bundle not trained")
+              if bundle.get("trained_through") != feature_date:
+                  raise SystemExit(
+                      f"{name} freshness mismatch: {bundle.get('trained_through')} vs {feature_date}"
+                  )
+          PY
+
+      - name: Refresh pre-tip FD DK Fanatics game odds
+        run: python scrape_odds.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
+      - name: Refresh pre-tip FD DK Fanatics props
+        run: python scrape_sportsbook_props.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
+      - name: Refresh injuries and opportunity
+        run: |
+          python scrape_injuries.py --date ${{ env.TARGET }} --out data/raw || true
+          python opportunity_redistribution.py --date ${{ env.TARGET }} --out data/raw || true
+
+      - name: Generate game-model smoke predictions
+        run: |
+          python daily_runner.py \
+            --date ${{ env.TARGET }} \
+            --out predictions/game_model_smoke_${{ env.TARGET }}.json
+
+      - name: Verify total sanity
+        run: |
+          python - <<'PY'
+          import json, os
+          p=f"predictions/game_model_smoke_{os.environ['TARGET']}.json"
+          d=json.load(open(p))
+          for g in d.get("games",[]):
+              t=g.get("totals",{})
+              if t.get("pred") is not None and not (180 <= float(t["pred"]) <= 280):
+                  raise SystemExit(f"implausible total remains: {t}")
+              print(g["away"]["name"], "@", g["home"]["name"],
+                    "spread", g.get("spread"), "total", g.get("totals"))
+          PY
+
+      - name: Commit rebuilt game models and evidence
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add \
+            data/raw/hoopr_games_2026.csv \
+            data/raw/hoopr_games_master.csv \
+            data/raw/hoopr_team_box_2026.csv \
+            data/processed/master_*.csv \
+            data/processed/team_profiles_latest.csv \
+            data/processed/team_features_status.json \
+            models/spread_model.pkl \
+            models/totals_model.pkl \
+            predictions/game_model_smoke_${{ env.TARGET }}.json
+          git diff --cached --quiet || git commit -m "🏀 Rebuild NBA V1 spread and totals models — ${{ env.TARGET }}"
+          git reset --hard HEAD
+          git clean -fd
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push || {
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push
+          }
