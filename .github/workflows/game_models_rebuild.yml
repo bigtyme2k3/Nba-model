@@ -38,7 +38,10 @@ jobs:
           TARGET=$(python active_slate_date.py)
           echo "TARGET=$TARGET" >> $GITHUB_ENV
 
-      - name: Refresh current completed regular-season games
+      - name: Backfill complete 2025-26 historical release
+        run: python collect_stats.py --start 2026 --end 2026 --master --out data/raw
+
+      - name: Refresh current completed 2026-27 regular-season games
         run: python collect_stats.py --current --out data/raw
 
       - name: Rebuild team and game feature stores
@@ -117,6 +120,11 @@ jobs:
             data/raw/hoopr_schedule_2026.csv \
             data/raw/hoopr_games_master.csv \
             data/raw/hoopr_team_box_2026.csv \
+            data/raw/hoopr_player_box_2026.csv \
+            data/raw/espn_current_games_2026.csv \
+            data/raw/espn_current_schedule_2026.csv \
+            data/raw/espn_current_team_box_2026.csv \
+            data/raw/espn_current_player_box_2026.csv \
             data/processed/master_*.csv \
             data/processed/team_profiles_latest.csv \
             data/processed/team_features_status.json \
