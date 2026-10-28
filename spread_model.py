@@ -150,7 +150,8 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
 
     if "game_date" in df.columns and "season" in df.columns:
         df = df.sort_values(["season", "game_date"])
-        df["season_game_num"] = df.groupby("season").cumcount() + 1
+        if "season_game_num" not in df.columns:
+            df["season_game_num"] = 1
 
     if "game_date" in df.columns:
         df["month"] = df["game_date"].dt.month
