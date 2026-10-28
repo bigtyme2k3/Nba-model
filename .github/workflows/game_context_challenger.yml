@@ -59,6 +59,12 @@ jobs:
       - name: Train totals challenger
         run: python totals_model.py --mode train --data data/processed/master_all.csv
 
+      - name: Run paired game-context ablation
+        run: |
+          python research/game_context_ablation.py \
+            --data data/processed/master_all.csv \
+            --out data/tracking/game_context_ablation.json
+
       - name: Compare challenger to current baseline
         run: |
           python - <<'PY'
@@ -99,3 +105,13 @@ jobs:
           }
           print(json.dumps(report,indent=2))
           PY
+
+      - name: Upload challenger research artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-game-context-challenger
+          path: |
+            data/tracking/game_context_ablation.json
+            data/processed/team_features_status.json
+          if-no-files-found: error
+
