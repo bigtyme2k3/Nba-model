@@ -59,6 +59,11 @@ def spread_rows(data):
     date = data.get("date")
     generated = data.get("generated")
     version = data.get("model_version", "NBA_V1.0")
+    final_games = {
+        str(b.get("game",""))
+        for b in (data.get("best_bets") or [])
+        if str(b.get("type","")).upper()=="SPREAD"
+    }
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
         away = game.get("away", {}).get("name", "")
@@ -77,7 +82,7 @@ def spread_rows(data):
                 side = "HOME"
             elif norm(play).startswith(norm(away)):
                 side = "AWAY"
-        decision = "BET" if play and sp.get("stars", 0) >= 2 else "PASS"
+        decision = "BET" if matchup in final_games else "PASS"
         rk = stable_key([date, matchup, "SPREAD"])
         yield {
             "prediction_id": prediction_id(rk, generated),
@@ -110,6 +115,11 @@ def total_rows(data):
     date = data.get("date")
     generated = data.get("generated")
     version = data.get("model_version", "NBA_V1.0")
+    final_games = {
+        str(b.get("game",""))
+        for b in (data.get("best_bets") or [])
+        if str(b.get("type","")).upper()=="TOTAL"
+    }
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
         away = game.get("away", {}).get("name", "")
@@ -120,7 +130,7 @@ def total_rows(data):
         if line is None or projection is None:
             continue
         side = str(total.get("play") or "PASS").upper()
-        decision = "BET" if side in {"OVER", "UNDER"} and total.get("stars", 0) >= 2 else "PASS"
+        decision = "BET" if matchup in final_games else "PASS"
         rk = stable_key([date, matchup, "TOTAL"])
         yield {
             "prediction_id": prediction_id(rk, generated),
