@@ -150,12 +150,17 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
     h['high_bets'] = sum(1 for b in data.get('best_bets', []) if b.get('stars', 0) >= 3)
     h['odds'] = 'loaded' if (spread_rows or total_rows) else h.get('odds', 'missing')
 
-    tracking = data.get('tracking') or data.get('model_tracking') or load_tracking()
-    data['tracking'] = tracking
-    data['model_tracking'] = tracking
+    legacy_tracking = data.get('tracking') or data.get('model_tracking') or load_tracking()
 
     readiness = load_json(READINESS_JSON, {})
     forward_perf = load_json(FORWARD_PERF_JSON, {})
+    same_epoch = (
+        bool(readiness.get('evidence_epoch'))
+        and readiness.get('evidence_epoch') == forward_perf.get('evidence_epoch')
+    )
+    tracking = forward_perf if same_epoch else legacy_tracking
+    data['tracking'] = tracking
+    data['model_tracking'] = tracking
     execution_perf = load_json(EXECUTION_PERF_JSON, {})
     clv_report = load_json(CLV_REPORT_JSON, {})
     data['readiness'] = readiness
