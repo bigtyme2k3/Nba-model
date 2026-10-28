@@ -1,0 +1,56 @@
+name: NBA V1 Reset Clean Evidence Epoch
+
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/reset-evidence-trigger'
+  workflow_dispatch:
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Reset canonical forward evidence epoch
+        run: |
+          python reset_forward_evidence.py \
+            --predictions predictions/v1_research_2026-10-27.json
+
+      - name: Rebuild readiness from clean epoch
+        run: python nba_v1_readiness.py
+
+      - name: Publish clean evidence epoch
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add \
+            data/history/nba_forward_predictions.jsonl \
+            data/history/nba_forward_predictions_legacy_pre_clean_v1.jsonl \
+            data/tracking/nba_forward_performance.json \
+            data/tracking/nba_forward_certified.csv \
+            data/tracking/evidence_epoch_reset_status.json \
+            data/tracking/nba_v1_readiness.json
+          git diff --cached --quiet || git commit -m "🧹 Reset NBA V1 clean forward evidence epoch"
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push
