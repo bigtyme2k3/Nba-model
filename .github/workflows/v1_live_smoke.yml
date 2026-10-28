@@ -1,0 +1,82 @@
+name: NBA V1 Live Smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/v1-live-smoke-trigger'
+  workflow_dispatch:
+
+jobs:
+  live-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set Eastern slate date
+        run: |
+          TARGET=$(python active_slate_date.py)
+          echo "TARGET=$TARGET" >> $GITHUB_ENV
+          echo "Testing NBA V1 live inputs for $TARGET"
+
+      - name: Refresh FD DK Fanatics game odds
+        run: python scrape_odds.py --date ${{ env.TARGET }} --out data/raw
+
+      - name: Refresh FD DK Fanatics player props
+        run: python scrape_sportsbook_props.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
+      - name: Refresh league injury report
+        run: python scrape_injuries.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
+      - name: Build opportunity redistribution
+        run: python opportunity_redistribution.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
+      - name: Generate isolated smoke predictions
+        run: |
+          python daily_runner.py             --date ${{ env.TARGET }}             --out predictions/v1_smoke_${{ env.TARGET }}.json
+
+      - name: Print V1 live status
+        run: |
+          python - <<'PY'
+          import json, os
+          files = [
+              "data/raw/odds_api_status.json",
+              "data/raw/sportsbook_props_status.json",
+              "data/raw/injuries_status.json",
+              "data/raw/opportunity_redistribution_status.json",
+          ]
+          for p in files:
+              print("\n==", p, "==")
+              if os.path.exists(p):
+                  print(json.dumps(json.load(open(p)), indent=2))
+              else:
+                  print("MISSING")
+          PY
+
+      - name: Commit smoke evidence
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add             data/raw/odds_today.csv             data/raw/odds_${{ env.TARGET }}.csv             data/raw/odds_api_status.json             data/raw/sportsbook_props_today.csv             data/raw/sportsbook_props_${{ env.TARGET }}.csv             data/raw/sportsbook_props_status.json             data/raw/injuries_today.csv             data/raw/injuries_${{ env.TARGET }}.csv             data/raw/injuries_status.json             data/raw/opportunity_adjustments_today.csv             data/raw/opportunity_adjustments_${{ env.TARGET }}.csv             data/raw/opportunity_redistribution_status.json             predictions/v1_smoke_${{ env.TARGET }}.json
+          git diff --cached --quiet || git commit -m "🧪 NBA V1 live sportsbook/opportunity smoke — ${{ env.TARGET }}"
+          git pull --rebase origin main
+          git push
