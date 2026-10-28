@@ -72,8 +72,10 @@ jobs:
           t=pickle.load(open("models/totals_model.pkl","rb"))
           s_name=s["model_name"]
           t_name=t["model_name"]
-          s_mae=float(s["cv_results"][s_name]["mae"])
-          t_mae=float(t["cv_results"][t_name]["mae"])
+          s_result=s["cv_results"][s_name]
+          t_result=t["cv_results"][t_name]
+          s_mae=float(s_result.get("mae",s_result.get("mae_mean")))
+          t_mae=float(t_result.get("mae",t_result.get("mae_mean")))
 
           report={
               "baseline":baseline,
