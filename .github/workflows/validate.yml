@@ -45,6 +45,8 @@ jobs:
           import daily_runner
           import forward_ledger
           import execution_ledger
+          import closing_market
+          import clv_reconciler
           import forward_reconciler
           import results_tracker
           import nba_v1_readiness
