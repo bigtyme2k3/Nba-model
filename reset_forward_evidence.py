@@ -23,7 +23,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from forward_ledger import LEDGER, EVIDENCE_EPOCH, flatten
+from forward_ledger import LEDGER, STATUS as FORWARD_STATUS, EVIDENCE_EPOCH, flatten
 
 ARCHIVE = Path("data/history/nba_forward_predictions_legacy_pre_clean_v1.jsonl")
 PERF = Path("data/tracking/nba_forward_performance.json")
@@ -57,6 +57,22 @@ def main():
     with LEDGER.open("w",encoding="utf-8") as fh:
         for row in rows:
             fh.write(json.dumps(row,allow_nan=False)+"\n")
+
+    FORWARD_STATUS.parent.mkdir(parents=True,exist_ok=True)
+    FORWARD_STATUS.write_text(json.dumps({
+        "status":"READY",
+        "generated_at_utc":datetime.now(timezone.utc).isoformat(),
+        "date":data.get("date"),
+        "prediction_file":str(pred_path),
+        "candidate_rows":len(rows),
+        "new_rows_appended":len(rows),
+        "existing_rows_preserved":0,
+        "total_rows":len(rows),
+        "first_prediction_immutable":True,
+        "evidence_epoch":EVIDENCE_EPOCH,
+        "policy":"CLEAN_EVIDENCE_EPOCH_RESET_FROM_CORRECTED_FIRST_OBSERVATION",
+        "model_version":data.get("model_version","NBA_V1.0"),
+    },indent=2)+"\n",encoding="utf-8")
 
     PERF.parent.mkdir(parents=True,exist_ok=True)
     PERF.write_text(json.dumps({
