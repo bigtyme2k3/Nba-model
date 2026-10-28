@@ -93,6 +93,7 @@ def load_player_actuals(target):
     rows = {}
     paths=set(glob(str(RAW / "hoopr_player_box_20*.csv")))
     paths.update(glob(str(RAW / "espn_current_player_box_20*.csv")))
+    paths.update(glob(str(RAW / "result_player_box_20*.csv")))
     for path in sorted(paths):
         try:
             df = pd.read_csv(path, low_memory=False)
