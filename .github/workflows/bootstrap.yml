@@ -30,9 +30,9 @@ jobs:
         run: pip install -r requirements.txt
 
       # ── Historical data ──────────────────────────────────────────────────
-      - name: Pull historical stats (hoopR 2022-23 to 2025-26)
+      - name: Pull historical stats (hoopR ending-year releases through 2026)
         if: ${{ github.event.inputs.pull_historical == 'true' }}
-        run: python collect_stats.py --start 2022 --end 2025 --master --out data/raw
+        run: python collect_stats.py --start 2022 --end 2026 --master --out data/raw
         continue-on-error: true
 
       - name: Pull historical scores (ESPN 2022-23 to 2024-25)
@@ -86,10 +86,10 @@ jobs:
           echo "::warning::No data/processed/master_all.csv was produced — historical collection"
           echo "::warning::(hoopR release data / ESPN API) likely got rate-limited or blocked from"
           echo "::warning::this runner's IP. Re-run this workflow (a fresh runner often gets a"
-          echo "::warning::different IP), or run 'python collect_stats.py --start 2022 --end 2024"
+          echo "::warning::different IP), or run 'python collect_stats.py --start 2022 --end 2026"
           echo "::warning::--master' and 'python merge_data.py --year all' locally and push the"
           echo "::warning::results, then re-run Bootstrap to train on them."
-          echo "Placeholder props_model.py will still build a placeholder props_models.pkl below."
+          echo "Props fail closed when real player history is unavailable; no synthetic betting model is created."
           python props_model.py --mode train
 
       # ── First predictions ────────────────────────────────────────────────
