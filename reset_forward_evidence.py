@@ -46,6 +46,10 @@ def main():
         ARCHIVE.parent.mkdir(parents=True,exist_ok=True)
         if not ARCHIVE.exists():
             shutil.copy2(LEDGER,ARCHIVE)
+    archive_rows=(
+        sum(1 for line in ARCHIVE.read_text(encoding="utf-8").splitlines() if line.strip())
+        if ARCHIVE.exists() else 0
+    )
 
     data=json.loads(pred_path.read_text(encoding="utf-8"))
     rows=flatten(data)
@@ -102,7 +106,8 @@ def main():
         "evidence_epoch":EVIDENCE_EPOCH,
         "source_prediction":str(pred_path),
         "source_prediction_generated_at_utc":data.get("generated"),
-        "legacy_rows_archived":old_rows,
+        "pre_reset_canonical_rows":old_rows,
+        "legacy_rows_archived":archive_rows,
         "legacy_archive":str(ARCHIVE),
         "clean_rows_written":len(rows),
         "clean_bet_rows":bets,
