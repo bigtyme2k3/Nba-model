@@ -154,6 +154,12 @@ def attach_team_game_context(game_df: pd.DataFrame, context_df: pd.DataFrame) ->
         print("  [WARN] Team context missing game_id key — skipping efficiency attachment")
         return base
 
+    # Historical CSV readers infer game_id differently by season. Normalize the
+    # join key explicitly so pandas cannot silently treat one source as int64.
+    base["game_id"] = base["game_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+    context_df = context_df.copy()
+    context_df["game_id"] = context_df["game_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+
     metrics = [
         "games_prior","pace","ortg","drtg","net_rtg","ts_pct",
         "roll5_net_rtg","roll10_net_rtg",
