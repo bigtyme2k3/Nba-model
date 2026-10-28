@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 from glob import glob
 
-from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, normalize_team
+from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, TEAM_NAMES, normalize_team
 from season_filters import filter_games_for_source, nba_season_start_year
 
 RAW_DIR       = "data/raw"
@@ -277,6 +277,14 @@ def process_year(year: int) -> pd.DataFrame:
     for col in ("home_team", "away_team"):
         if col in game_df.columns:
             game_df[col] = game_df[col].map(normalize_team)
+
+    before_franchise_filter = len(game_df)
+    game_df = game_df[
+        game_df["home_team"].isin(TEAM_NAMES) & game_df["away_team"].isin(TEAM_NAMES)
+    ].copy()
+    excluded_exhibitions = before_franchise_filter - len(game_df)
+    if excluded_exhibitions:
+        print(f"  Excluded non-franchise/exhibition games: {excluded_exhibitions}")
 
     game_df = add_rest_days(game_df)
     game_df = add_travel_flag(game_df)
