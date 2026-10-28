@@ -51,6 +51,10 @@ game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,act
 401909874,2026,2026-10-26,Rockets,120.0,Hawks,110.0,10.0,230.0
 401909875,2026,2026-10-26,Jazz,105.0,Grizzlies,110.0,-5.0,215.0
 401909876,2026,2026-10-26,Nuggets,114.0,Warriors,134.0,-20.0,248.0
+401909877,2026,2026-10-27,Celtics,125.0,Nets,124.0,1.0,249.0
+401909878,2026,2026-10-27,Knicks,111.0,Pistons,97.0,14.0,208.0
+401909879,2026,2026-10-27,Spurs,130.0,Kings,103.0,27.0,233.0
+401909880,2026,2026-10-27,Lakers,129.0,Trail Blazers,136.0,-7.0,265.0
 401442535,2021,2022-06-16,Boston Celtics,90.0,Golden State Warriors,103.0,-13.0,193.0
 401442534,2021,2022-06-13,Golden State Warriors,104.0,Boston Celtics,94.0,10.0,198.0
 401442533,2021,2022-06-10,Boston Celtics,97.0,Golden State Warriors,107.0,-10.0,204.0

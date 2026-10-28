@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-10-28T01:55:52.662135Z",
+  "generated_at_utc": "2026-10-28T18:41:12.136218Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -23,7 +23,7 @@
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 0
+      "lag_days": 1
     },
     "totals": {
       "name": "totals",
@@ -33,7 +33,7 @@
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge",
-      "lag_days": 0
+      "lag_days": 1
     },
     "props": {
       "name": "props",
@@ -49,14 +49,14 @@
         "threes"
       ],
       "model_name": null,
-      "lag_days": 0
+      "lag_days": 1
     }
   },
   "feature_stores": {
     "player": {
       "status": "READY",
-      "max_game_date": "2026-10-26",
-      "rows": 140986,
+      "max_game_date": "2026-10-27",
+      "rows": 141079,
       "seasons": [
         2021,
         2022,
@@ -68,7 +68,7 @@
     },
     "team": {
       "status": "READY",
-      "max_game_date": "2026-10-26",
+      "max_game_date": "2026-10-27",
       "teams": 30,
       "seasons": [
         2021,
@@ -81,16 +81,148 @@
     }
   },
   "forward_evidence": {
-    "bet_rows": 0,
-    "prop_bets": 0,
-    "roi": null,
-    "brier": null,
+    "bet_rows": 8,
+    "prop_bets": 8,
+    "roi": -0.0616,
+    "brier": 0.26351,
     "clv_matched": 0,
     "beat_close_rate": null,
     "avg_line_clv": null,
     "avg_same_line_price_clv_probability": null,
-    "by_sportsbook": {},
-    "by_prop_stat": {},
+    "by_sportsbook": {
+      "draftkings": {
+        "bets": 4,
+        "resolved": 4,
+        "wins": 2,
+        "losses": 2,
+        "pushes": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.2321,
+        "roi": -0.058,
+        "probability_calibration": {
+          "rows": 4,
+          "brier": 0.29156,
+          "bins": [
+            {
+              "range": "0.60-0.65",
+              "n": 1,
+              "avg_predicted": 0.6464,
+              "actual_hit_rate": 1.0
+            },
+            {
+              "range": "0.65-0.70",
+              "n": 2,
+              "avg_predicted": 0.6721,
+              "actual_hit_rate": 0.5
+            },
+            {
+              "range": "0.70-1.00",
+              "n": 1,
+              "avg_predicted": 0.7097,
+              "actual_hit_rate": 0.0
+            }
+          ]
+        }
+      },
+      "fanduel": {
+        "bets": 4,
+        "resolved": 4,
+        "wins": 2,
+        "losses": 2,
+        "pushes": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.2609,
+        "roi": -0.0652,
+        "probability_calibration": {
+          "rows": 4,
+          "brier": 0.23545,
+          "bins": [
+            {
+              "range": "0.55-0.60",
+              "n": 1,
+              "avg_predicted": 0.5955,
+              "actual_hit_rate": 0.0
+            },
+            {
+              "range": "0.60-0.65",
+              "n": 1,
+              "avg_predicted": 0.6207,
+              "actual_hit_rate": 0.0
+            },
+            {
+              "range": "0.65-0.70",
+              "n": 2,
+              "avg_predicted": 0.6825,
+              "actual_hit_rate": 1.0
+            }
+          ]
+        }
+      }
+    },
+    "by_prop_stat": {
+      "PRA": {
+        "bets": 4,
+        "resolved": 4,
+        "wins": 2,
+        "losses": 2,
+        "pushes": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.2609,
+        "roi": -0.0652,
+        "probability_calibration": {
+          "rows": 4,
+          "brier": 0.2484,
+          "bins": [
+            {
+              "range": "0.55-0.60",
+              "n": 1,
+              "avg_predicted": 0.5955,
+              "actual_hit_rate": 0.0
+            },
+            {
+              "range": "0.65-0.70",
+              "n": 3,
+              "avg_predicted": 0.6753,
+              "actual_hit_rate": 0.6667
+            }
+          ]
+        }
+      },
+      "PTS": {
+        "bets": 4,
+        "resolved": 4,
+        "wins": 2,
+        "losses": 2,
+        "pushes": 0,
+        "hit_rate": 0.5,
+        "profit_units": -0.2321,
+        "roi": -0.058,
+        "probability_calibration": {
+          "rows": 4,
+          "brier": 0.27862,
+          "bins": [
+            {
+              "range": "0.60-0.65",
+              "n": 2,
+              "avg_predicted": 0.6336,
+              "actual_hit_rate": 0.5
+            },
+            {
+              "range": "0.65-0.70",
+              "n": 1,
+              "avg_predicted": 0.683,
+              "actual_hit_rate": 1.0
+            },
+            {
+              "range": "0.70-1.00",
+              "n": 1,
+              "avg_predicted": 0.7097,
+              "actual_hit_rate": 0.0
+            }
+          ]
+        }
+      }
+    },
     "clv_by_sportsbook": {},
     "clv_by_stat": {},
     "evidence_checks": {
