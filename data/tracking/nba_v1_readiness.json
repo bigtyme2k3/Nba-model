@@ -1,39 +1,54 @@
 {
   "version": "NBA_V1.0",
-  "generated_at_utc": "2026-10-28T01:49:57.111935Z",
-  "data_model_healthy": false,
-  "ready_for_forward_testing": false,
+  "generated_at_utc": "2026-10-28T01:51:51.557600Z",
+  "data_model_healthy": true,
+  "ready_for_forward_testing": true,
   "production_ready": false,
-  "status": "FOUNDATION_NOT_READY",
+  "status": "READY_FOR_FORWARD_TESTING",
   "checks": {
     "player_features_ready": true,
     "team_features_ready": true,
     "all_30_teams_profiled": true,
-    "all_models_trained": false,
-    "all_models_fresh": false,
-    "all_prop_markets_trained": false
+    "all_models_trained": true,
+    "all_models_fresh": true,
+    "all_prop_markets_trained": true
   },
   "models": {
     "spread": {
       "name": "spread",
-      "status": "unreadable",
-      "error": "No module named 'sklearn'",
-      "path": "models/spread_model.pkl",
-      "lag_days": null
+      "status": "trained",
+      "trained_through": "2026-10-26",
+      "trained_rows": 6627,
+      "validation": "global_chronological_timeseries_split",
+      "markets": null,
+      "model_name": "Ridge (Baseline)",
+      "lag_days": 0
     },
     "totals": {
       "name": "totals",
-      "status": "unreadable",
-      "error": "No module named 'sklearn'",
-      "path": "models/totals_model.pkl",
-      "lag_days": null
+      "status": "trained",
+      "trained_through": "2026-10-26",
+      "trained_rows": 6627,
+      "validation": "global_chronological_timeseries_split",
+      "markets": null,
+      "model_name": "Ridge",
+      "lag_days": 0
     },
     "props": {
       "name": "props",
-      "status": "unreadable",
-      "error": "No module named 'sklearn'",
-      "path": "models/props_models.pkl",
-      "lag_days": null
+      "status": "trained",
+      "trained_through": "2026-10-26",
+      "trained_rows": 140986,
+      "validation": "global_chronological_timeseries_split",
+      "markets": [
+        "ast",
+        "pra",
+        "pts",
+        "reb",
+        "threes"
+      ],
+      "model_name": null,
+      "lag_days": 0
     }
   },
   "feature_stores": {

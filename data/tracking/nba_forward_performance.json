@@ -1,16 +1,22 @@
 {
-  "generated_at_utc": "2026-10-27T18:35:49.267114+00:00",
-  "ledger_rows": 173,
+  "generated_at_utc": "2026-10-28T01:51:50.785179+00:00",
+  "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
+  "ledger_rows": 58,
   "certified_rows": 0,
   "bet_rows": 0,
   "wins": 0,
   "losses": 0,
   "pushes": 0,
   "hit_rate": null,
+  "profit_units": 0.0,
+  "roi": null,
+  "probability_calibration": {
+    "rows": 0,
+    "brier": null,
+    "bins": []
+  },
   "by_market": {},
-  "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT_TOWARD_HIT_RATE",
-  "target_date": "2026-10-26",
-  "newly_resolved": 0,
-  "score_games_available": 0,
-  "player_actuals_available": 251
+  "by_sportsbook": {},
+  "by_prop_stat": {},
+  "policy": "CLEAN_EVIDENCE_EPOCH_RESET; NO_LEGACY_ROWS_COUNT"
 }
