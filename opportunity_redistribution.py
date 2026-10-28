@@ -38,9 +38,11 @@ OUT_DIR = Path("data/raw")
 
 STATUS_VACANCY = {
     "OUT": 1.00,
-    "DOUBTFUL": 0.85,
-    "QUESTIONABLE": 0.40,
-    "PROBABLE": 0.10,
+    "DOUBTFUL": 0.80,
+    # Questionable/probable create uncertainty, not assumed missing minutes.
+    # They remain in the output so downstream confidence can be reduced.
+    "QUESTIONABLE": 0.00,
+    "PROBABLE": 0.00,
 }
 ROLE_WEIGHT = {"BENCH": 1.25, "MIXED": 1.10, "STARTER": 0.90, "UNKNOWN": 1.0}
 POSITION_AFFINITY = {
