@@ -111,10 +111,16 @@ def parse_games(games: list, target_date: str) -> pd.DataFrame:
         start= g.get("commence_time","")
         gid  = g.get("id","")
         try:
-            local_date = datetime.fromisoformat(str(start).replace("Z","+00:00")).astimezone(et).date().isoformat()
+            tip_utc = datetime.fromisoformat(str(start).replace("Z","+00:00")).astimezone(timezone.utc)
+            local_date = tip_utc.astimezone(et).date().isoformat()
         except Exception:
+            tip_utc = None
             local_date = None
         if local_date != target_date:
+            continue
+        # This model is strictly pregame. Never let in-play spread/total movement
+        # masquerade as a pregame market line.
+        if tip_utc is not None and tip_utc <= datetime.now(timezone.utc):
             continue
 
         spread_home_lines, spread_home_prices = [], []
