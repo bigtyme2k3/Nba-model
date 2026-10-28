@@ -19,6 +19,8 @@ import pickle
 from datetime import date, datetime
 from pathlib import Path
 
+from forward_ledger import EVIDENCE_EPOCH
+
 DATA=Path("data/processed")
 MODELS=Path("models")
 TRACK=Path("data/tracking")
@@ -74,6 +76,10 @@ def main():
     team=load_json(DATA/"team_features_status.json")
     perf=load_json(TRACK/"nba_forward_performance.json")
     clv=load_json(TRACK/"nba_prop_clv_report.json")
+    if perf.get("evidence_epoch") != EVIDENCE_EPOCH:
+        perf={}
+    if clv and clv.get("evidence_epoch") != EVIDENCE_EPOCH:
+        clv={}
 
     models={name:model_meta(name) for name in ("spread","totals","props")}
     models["spread"]["lag_days"]=lag_days(models["spread"].get("trained_through"),team.get("max_game_date"))
@@ -125,6 +131,7 @@ def main():
 
     report={
         "version":"NBA_V1.0",
+        "evidence_epoch":EVIDENCE_EPOCH,
         "generated_at_utc":datetime.utcnow().isoformat()+"Z",
         "data_model_healthy":data_model_healthy,
         "ready_for_forward_testing":ready_for_forward_testing,
