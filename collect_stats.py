@@ -10,6 +10,8 @@ from datetime import date, timedelta
 import pandas as pd
 import requests
 
+from season_filters import filter_games, season_from_path
+
 OUT_DIR = "data/raw"
 HEADERS = {"User-Agent": "Mozilla/5.0 (research project)"}
 SDV_BASE = "https://github.com/sportsdataverse/sportsdataverse-data/releases/download"
@@ -336,7 +338,14 @@ def build_stats_master(out_dir: str) -> None:
     if not files:
         print("  No hoopr_games_*.csv files found.")
         return
-    games = pd.concat([pd.read_csv(os.path.join(out_dir, f)) for f in files], ignore_index=True)
+    frames = []
+    for fname in files:
+        frame = pd.read_csv(os.path.join(out_dir, fname))
+        season = season_from_path(fname)
+        if season is not None:
+            frame, _ = filter_games(frame, out_dir, season, label="master-game rows")
+        frames.append(frame)
+    games = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
     path = os.path.join(out_dir, "hoopr_games_master.csv")
     games.to_csv(path, index=False)
     print(f"  Master game file → {path} ({len(games)} games)")
