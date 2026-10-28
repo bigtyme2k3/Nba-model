@@ -17,6 +17,10 @@ PREDICTIONS_DIR = 'predictions'
 RAW_DIR = 'data/raw'
 DASH_DIR = 'data/dashboard'
 TRACKING_JSON = 'data/tracking/model_tracking.json'
+READINESS_JSON = 'data/tracking/nba_v1_readiness.json'
+FORWARD_PERF_JSON = 'data/tracking/nba_forward_performance.json'
+EXECUTION_PERF_JSON = 'data/tracking/nba_execution_performance.json'
+CLV_REPORT_JSON = 'data/tracking/nba_prop_clv_report.json'
 OUTPUT_HTML = 'docs/index.html'
 
 
@@ -43,6 +47,8 @@ def empty_dashboard_data() -> Dict[str, Any]:
     return {'date': today, 'generated': None, 'games': [], 'best_bets': [], 'props': [],
             'player_points': [], 'props_board': [], 'line_shopping': [],
             'tracking': empty_tracking(), 'model_tracking': empty_tracking(),
+            'readiness': {}, 'forward_performance': {}, 'execution_performance': {},
+            'clv_report': {}, 'evidence': {},
             'data_health': {'odds': 'missing', 'props': 'missing', 'line_shopping': 'missing',
                              'player_points': 'missing', 'spreads_found': 0, 'totals_found': 0,
                              'props_found': 0, 'player_points_found': 0, 'line_shopping_rows': 0,
@@ -147,6 +153,27 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
     tracking = data.get('tracking') or data.get('model_tracking') or load_tracking()
     data['tracking'] = tracking
     data['model_tracking'] = tracking
+
+    readiness = load_json(READINESS_JSON, {})
+    forward_perf = load_json(FORWARD_PERF_JSON, {})
+    execution_perf = load_json(EXECUTION_PERF_JSON, {})
+    clv_report = load_json(CLV_REPORT_JSON, {})
+    data['readiness'] = readiness
+    data['forward_performance'] = forward_perf
+    data['execution_performance'] = execution_perf
+    data['clv_report'] = clv_report
+    data['evidence'] = {
+        'status': readiness.get('status', 'FOUNDATION_NOT_READY'),
+        'evidence_epoch': readiness.get('evidence_epoch'),
+        'production_ready': bool(readiness.get('production_ready', False)),
+        'forward_bets': (readiness.get('forward_evidence') or {}).get('bet_rows', 0),
+        'forward_roi': (readiness.get('forward_evidence') or {}).get('roi'),
+        'brier': (readiness.get('forward_evidence') or {}).get('brier'),
+        'matched_closes': (readiness.get('forward_evidence') or {}).get('clv_matched', 0),
+        'beat_close_rate': (readiness.get('forward_evidence') or {}).get('beat_close_rate'),
+        'avg_line_clv': (readiness.get('forward_evidence') or {}).get('avg_line_clv'),
+        'execution_bets': execution_perf.get('bet_rows', 0),
+    }
     return data
 
 
