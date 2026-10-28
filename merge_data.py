@@ -51,6 +51,9 @@ def load_game_logs(year: int) -> pd.DataFrame:
         df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
         df = df[df["game_date"].notna()]
 
+    if "game_id" in df.columns:
+        df = df.drop_duplicates(subset=["game_id"], keep="last").copy()
+
     if "home_pts" in df.columns and "away_pts" in df.columns:
         df["home_pts"]      = pd.to_numeric(df["home_pts"], errors="coerce")
         df["away_pts"]      = pd.to_numeric(df["away_pts"], errors="coerce")
@@ -62,15 +65,46 @@ def load_game_logs(year: int) -> pd.DataFrame:
 
 
 def load_odds(year: int) -> pd.DataFrame:
+    """Load one canonical odds snapshot per game for the requested NBA season."""
     for fname in [f"odds_{year}.csv", "odds_consensus.csv", "odds_historical.csv"]:
         path = os.path.join(RAW_DIR, fname)
-        if os.path.exists(path):
-            df = pd.read_csv(path)
-            df["start_time"] = pd.to_datetime(df.get("start_time", df.get("game_date","")), errors="coerce")
-            df["game_date"]  = df["start_time"].dt.normalize()
-            if "season" in df.columns:
-                df = df[df["season"] == year].copy()
+        if not os.path.exists(path):
+            continue
+
+        df = pd.read_csv(path)
+        if df.empty:
             return df
+
+        # Prefer the explicit Eastern slate date written by scrape_odds.py.
+        if "game_date" in df.columns:
+            df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce").dt.normalize()
+        else:
+            starts = pd.to_datetime(df.get("start_time", df.get("commence_time","")), errors="coerce", utc=True)
+            try:
+                df["game_date"] = starts.dt.tz_convert("America/New_York").dt.tz_localize(None).dt.normalize()
+            except Exception:
+                df["game_date"] = starts.dt.tz_localize(None).dt.normalize()
+
+        if "season" in df.columns:
+            df = df[pd.to_numeric(df["season"], errors="coerce").eq(year)].copy()
+        else:
+            season_start = pd.Timestamp(year=year, month=9, day=1)
+            season_end = pd.Timestamp(year=year + 1, month=7, day=15)
+            df = df[df["game_date"].between(season_start, season_end, inclusive="both")].copy()
+
+        for col in ("home_team","away_team"):
+            if col in df.columns:
+                df[col] = df[col].map(normalize_team)
+
+        keys = [k for k in ["game_date","home_team","away_team"] if k in df.columns]
+        if keys:
+            if "scraped_at" in df.columns:
+                df["_scraped"] = pd.to_datetime(df["scraped_at"], errors="coerce", utc=True)
+                df = df.sort_values("_scraped").drop_duplicates(keys, keep="last").drop(columns=["_scraped"])
+            else:
+                df = df.drop_duplicates(keys, keep="last")
+
+        return df.reset_index(drop=True)
     return pd.DataFrame()
 
 
@@ -216,7 +250,12 @@ def process_year(year: int) -> pd.DataFrame:
     if not odds_df.empty:
         keys = [k for k in ["game_date","home_team","away_team"] if k in odds_df.columns and k in game_df.columns]
         if keys:
-            merged = game_df.merge(odds_df, on=keys, how="left")
+            before = len(game_df)
+            merged = game_df.merge(odds_df, on=keys, how="left", validate="many_to_one")
+            if len(merged) != before:
+                raise RuntimeError(
+                    f"Odds merge changed game cardinality: {before} -> {len(merged)}"
+                )
             print(f"  Odds merged: {merged.shape}")
         else:
             merged = game_df.copy()
