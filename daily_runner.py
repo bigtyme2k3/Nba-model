@@ -409,17 +409,25 @@ def _best_prop_offer(pred, model_info, offers, threshold):
         p_over = _normal_over_probability(pred, line, sigma)
         if p_over is None:
             continue
-        model_p = p_over if side == "OVER" else 1.0 - p_over
+        raw_model_p = p_over if side == "OVER" else 1.0 - p_over
         implied = _american_implied(price)
         market_p = _float(offer.get("no_vig_probability"), implied)
         dec = _american_decimal(price)
         if implied is None or market_p is None or dec is None:
             continue
+
+        # Research-mode calibration guard. The Normal-from-residual approximation
+        # is not yet forward-calibrated, so shrink it toward the book's no-vig
+        # probability and cap tails before EV/Kelly can act on it.
+        shrink = 0.55
+        model_p = market_p + shrink * (raw_model_p - market_p)
+        model_p = max(0.25, min(0.75, model_p))
         ev = model_p * dec - 1.0
         prob_edge = model_p - market_p
         directional_edge = pred - line if side == "OVER" else line - pred
         evaluated.append({
             **offer,
+            "raw_model_probability": raw_model_p,
             "model_probability": model_p,
             "market_probability": market_p,
             "probability_edge": prob_edge,
@@ -854,8 +862,10 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     "book": best.get("book"),
                     "book_key": best.get("book_key"),
                     "odds": int(best["price"]),
+                    "raw_model_probability": round(best["raw_model_probability"], 4),
                     "model_probability": round(best["model_probability"], 4),
                     "market_probability": round(best["market_probability"], 4),
+                    "probability_calibration": "55pct_model_edge_vs_no_vig_cap_25_75",
                     "probability_edge": round(best["probability_edge"], 4),
                     "ev": round(best["ev"], 4),
                     "sigma": round(best["sigma"], 4),
