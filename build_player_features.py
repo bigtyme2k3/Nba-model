@@ -35,7 +35,7 @@ import numpy as np
 import pandas as pd
 
 from teams import TEAM_ABBR, normalize_team
-from season_filters import filter_games
+from season_filters import filter_games_for_source, nba_season_start_year
 
 RAW_DIR = "data/raw"
 OUT_DIR = "data/processed"
@@ -72,6 +72,12 @@ TEAM_RENAME = {
 }
 
 ABBR_TO_TEAM = {abbr: team for team, abbr in TEAM_ABBR.items()}
+
+def source_files(raw_dir: str, historical_prefix: str, current_prefix: str):
+    files = set(glob(os.path.join(raw_dir, historical_prefix + "20*.csv")))
+    files.update(glob(os.path.join(raw_dir, current_prefix + "20*.csv")))
+    return sorted(files)
+
 
 
 def coalesce_team_aliases(df: pd.DataFrame) -> pd.DataFrame:
@@ -120,23 +126,20 @@ def team_name_from_row(row) -> str:
 
 def load_games(raw_dir: str) -> pd.DataFrame:
     frames = []
-    for path in sorted(glob(os.path.join(raw_dir, "hoopr_games_20*.csv"))):
+    for path in source_files(raw_dir, "hoopr_games_", "espn_current_games_"):
         try:
             df = pd.read_csv(path)
         except Exception:
             continue
         if "game_id" not in df.columns or "game_date" not in df.columns:
             continue
-        season = season_from_path(path)
-        if season is not None:
-            df, _ = filter_games(df, raw_dir, season, label="game rows")
+        df, _ = filter_games_for_source(df, raw_dir, path, label="game rows")
         df["game_id"] = df["game_id"].astype(str)
         df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
+        df["season"] = df["game_date"].map(nba_season_start_year)
         for col in ("home_team", "away_team"):
             if col in df.columns:
                 df[col] = df[col].map(normalize_team)
-        if "season" not in df.columns and season is not None:
-            df["season"] = season
         frames.append(df[[c for c in [
             "game_id", "season", "game_date", "home_team", "away_team",
             "home_pts", "away_pts"
@@ -166,20 +169,19 @@ def build_team_schedule(games: pd.DataFrame) -> pd.DataFrame:
 def load_team_context(raw_dir: str, games: pd.DataFrame) -> pd.DataFrame:
     frames = []
     game_map = games.set_index("game_id") if not games.empty else pd.DataFrame()
-    for path in sorted(glob(os.path.join(raw_dir, "hoopr_team_box_20*.csv"))):
+    for path in source_files(raw_dir, "hoopr_team_box_", "espn_current_team_box_"):
         try:
             df = pd.read_csv(path)
         except Exception:
             continue
         if "game_id" not in df.columns:
             continue
-        season = season_from_path(path)
-        if season is not None:
-            df, _ = filter_games(df, raw_dir, season, label="team-box rows")
+        df, _ = filter_games_for_source(df, raw_dir, path, label="team-box rows")
         df = coalesce_team_aliases(df)
         df["game_id"] = df["game_id"].astype(str)
         if "game_date" in df.columns:
             df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
+            df["season"] = df["game_date"].map(nba_season_start_year)
         else:
             date_map = game_map["game_date"].to_dict() if not game_map.empty and "game_date" in game_map else {}
             df["game_date"] = df["game_id"].map(date_map)
@@ -232,21 +234,18 @@ def load_team_context(raw_dir: str, games: pd.DataFrame) -> pd.DataFrame:
 
 def load_players(raw_dir: str) -> pd.DataFrame:
     frames = []
-    for path in sorted(glob(os.path.join(raw_dir, "hoopr_player_box_20*.csv"))):
+    for path in source_files(raw_dir, "hoopr_player_box_", "espn_current_player_box_"):
         try:
             df = pd.read_csv(path, low_memory=False)
         except Exception:
             continue
         if df.empty or "game_id" not in df.columns:
             continue
-        season = season_from_path(path)
-        if season is not None:
-            df, _ = filter_games(df, raw_dir, season, label="player-box rows")
+        df, _ = filter_games_for_source(df, raw_dir, path, label="player-box rows")
         df = df.rename(columns={k: v for k, v in PLAYER_RENAME.items() if k in df.columns})
-        if "season" not in df.columns and season is not None:
-            df["season"] = season
         df["game_id"] = df["game_id"].astype(str)
         df["game_date"] = pd.to_datetime(df.get("game_date"), errors="coerce")
+        df["season"] = df["game_date"].map(nba_season_start_year)
         if "player" not in df.columns:
             continue
         df["player"] = df["player"].astype(str).str.strip()
@@ -461,7 +460,7 @@ def main():
     if players.empty:
         status = {
             "status": "WAITING_FOR_PLAYER_BOX_SCORES",
-            "player_box_files": len(glob(os.path.join(args.raw, "hoopr_player_box_20*.csv"))),
+            "player_box_files": len(source_files(args.raw, "hoopr_player_box_", "espn_current_player_box_")),
             "rows": 0,
         }
         Path(args.out, "player_features_status.json").write_text(json.dumps(status, indent=2) + "\n")
