@@ -60,7 +60,19 @@ def engineer_totals_features(df):
     return df
 
 def add_rolling_scoring(df, window=5):
-    df = df.sort_values(["season","game_date"]).reset_index(drop=True)
+    """Add strictly prior rolling scoring features without changing game cardinality."""
+    df = df.sort_values(["season","game_date"]).reset_index(drop=True).copy()
+    base_len = len(df)
+
+    if "game_id" in df.columns:
+        dupes = df["game_id"].astype(str).duplicated(keep=False)
+        if dupes.any():
+            sample = df.loc[dupes, "game_id"].astype(str).head(10).tolist()
+            raise RuntimeError(
+                f"Totals feature input contains duplicate game_id rows: "
+                f"{int(dupes.sum())} duplicate rows; sample={sample}"
+            )
+
     if "home_pts" not in df.columns or "away_pts" not in df.columns:
         for col in [f"home_rolling_total_{window}g", f"away_rolling_total_{window}g",
                     f"home_rolling_allowed_{window}g", f"away_rolling_allowed_{window}g",
@@ -72,8 +84,21 @@ def add_rolling_scoring(df, window=5):
     home_rec.columns = ["game_date","season","team","pts_scored","pts_allowed"]
     away_rec = df[["game_date","season","away_team","away_pts","home_pts"]].copy()
     away_rec.columns = ["game_date","season","team","pts_scored","pts_allowed"]
-    all_rec = pd.concat([home_rec, away_rec]).sort_values(["team","season","game_date"])
+
+    all_rec = pd.concat([home_rec, away_rec], ignore_index=True)
     all_rec = all_rec[all_rec["pts_scored"].notna()].copy()
+    all_rec = all_rec.sort_values(["team","season","game_date"]).reset_index(drop=True)
+
+    # One team should appear at most once on a given NBA date. If source duplication
+    # survives the game-level guards, fail loudly instead of creating a Cartesian join.
+    key_cols = ["game_date","season","team"]
+    dupes = all_rec.duplicated(key_cols, keep=False)
+    if dupes.any():
+        sample = all_rec.loc[dupes, key_cols].head(10).to_dict("records")
+        raise RuntimeError(
+            f"Rolling scoring history is not unique by team/date: "
+            f"{int(dupes.sum())} duplicate rows; sample={sample}"
+        )
 
     for col in ["pts_scored","pts_allowed"]:
         all_rec[f"rolling_{window}g_{col}"] = (
@@ -82,13 +107,30 @@ def add_rolling_scoring(df, window=5):
         )
 
     for side, prefix in [("home_team","home"), ("away_team","away")]:
-        merge = all_rec[["game_date","season","team",
-                          f"rolling_{window}g_pts_scored",
-                          f"rolling_{window}g_pts_allowed"]].copy()
-        merge.columns = ["game_date","season",side,
-                         f"{prefix}_rolling_total_{window}g",
-                         f"{prefix}_rolling_allowed_{window}g"]
-        df = df.merge(merge, on=["game_date","season",side], how="left")
+        lookup = all_rec[
+            ["game_date","season","team",
+             f"rolling_{window}g_pts_scored",
+             f"rolling_{window}g_pts_allowed"]
+        ].copy()
+        lookup.columns = [
+            "game_date","season",side,
+            f"{prefix}_rolling_total_{window}g",
+            f"{prefix}_rolling_allowed_{window}g",
+        ]
+        lookup = lookup.drop_duplicates(
+            subset=["game_date","season",side], keep="last"
+        )
+        df = df.merge(
+            lookup,
+            on=["game_date","season",side],
+            how="left",
+            validate="many_to_one",
+        )
+        if len(df) != base_len:
+            raise RuntimeError(
+                f"Totals rolling merge changed game cardinality after {side}: "
+                f"{base_len} -> {len(df)}"
+            )
 
     df[f"rolling_total_sum_{window}g"] = (
         df.get(f"home_rolling_total_{window}g", pd.Series(114, index=df.index)).fillna(114) +
@@ -100,7 +142,14 @@ def train_totals_model(data_path):
     print("\n═══ NBA TOTALS MODEL — TRAINING ═══\n")
     df = pd.read_csv(data_path, parse_dates=["game_date"])
     df = df.sort_values(["season","game_date"]).reset_index(drop=True)
+    raw_rows = len(df)
+    if "game_id" in df.columns and df["game_id"].astype(str).duplicated().any():
+        raise RuntimeError("Totals training master contains duplicate game_id rows")
     df = engineer_totals_features(df)
+    if len(df) != raw_rows:
+        raise RuntimeError(
+            f"Totals feature engineering changed row count: {raw_rows} -> {len(df)}"
+        )
     df = df[df[TARGET].notna()].copy()
 
     available = [f for f in TOTALS_FEATURES if f in df.columns]
