@@ -1,12 +1,12 @@
 {
   "status": "READY",
-  "generated_at_utc": "2026-10-27T18:35:48.229986+00:00",
+  "generated_at_utc": "2026-10-28T01:49:57.047985+00:00",
   "date": "2026-10-27",
-  "prediction_file": "predictions/predictions_2026-10-27.json",
-  "candidate_rows": 8,
-  "new_rows_appended": 8,
-  "existing_rows_preserved": 165,
-  "total_rows": 173,
+  "prediction_file": "predictions/v1_research_2026-10-27.json",
+  "candidate_rows": 58,
+  "new_rows_appended": 56,
+  "existing_rows_preserved": 173,
+  "total_rows": 229,
   "first_prediction_immutable": true,
   "policy": "FIRST_OBSERVED_RANKING_KEY_ONLY",
   "model_version": "NBA_V1.0"

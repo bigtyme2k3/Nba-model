@@ -1,54 +1,39 @@
 {
   "version": "NBA_V1.0",
-  "generated_at_utc": "2026-10-28T01:41:54.898203Z",
-  "data_model_healthy": true,
-  "ready_for_forward_testing": true,
+  "generated_at_utc": "2026-10-28T01:49:57.111935Z",
+  "data_model_healthy": false,
+  "ready_for_forward_testing": false,
   "production_ready": false,
-  "status": "READY_FOR_FORWARD_TESTING",
+  "status": "FOUNDATION_NOT_READY",
   "checks": {
     "player_features_ready": true,
     "team_features_ready": true,
     "all_30_teams_profiled": true,
-    "all_models_trained": true,
-    "all_models_fresh": true,
-    "all_prop_markets_trained": true
+    "all_models_trained": false,
+    "all_models_fresh": false,
+    "all_prop_markets_trained": false
   },
   "models": {
     "spread": {
       "name": "spread",
-      "status": "trained",
-      "trained_through": "2026-10-26",
-      "trained_rows": 6627,
-      "validation": "global_chronological_timeseries_split",
-      "markets": null,
-      "model_name": "Ridge (Baseline)",
-      "lag_days": 0
+      "status": "unreadable",
+      "error": "No module named 'sklearn'",
+      "path": "models/spread_model.pkl",
+      "lag_days": null
     },
     "totals": {
       "name": "totals",
-      "status": "trained",
-      "trained_through": "2026-10-26",
-      "trained_rows": 6627,
-      "validation": "global_chronological_timeseries_split",
-      "markets": null,
-      "model_name": "Ridge",
-      "lag_days": 0
+      "status": "unreadable",
+      "error": "No module named 'sklearn'",
+      "path": "models/totals_model.pkl",
+      "lag_days": null
     },
     "props": {
       "name": "props",
-      "status": "trained",
-      "trained_through": "2026-10-26",
-      "trained_rows": 140986,
-      "validation": "global_chronological_timeseries_split",
-      "markets": [
-        "ast",
-        "pra",
-        "pts",
-        "reb",
-        "threes"
-      ],
-      "model_name": null,
-      "lag_days": 0
+      "status": "unreadable",
+      "error": "No module named 'sklearn'",
+      "path": "models/props_models.pkl",
+      "lag_days": null
     }
   },
   "feature_stores": {
@@ -84,11 +69,22 @@
     "prop_bets": 0,
     "roi": null,
     "brier": null,
+    "clv_matched": 0,
+    "beat_close_rate": null,
+    "avg_line_clv": null,
+    "avg_same_line_price_clv_probability": null,
+    "by_sportsbook": {},
+    "by_prop_stat": {},
+    "clv_by_sportsbook": {},
+    "clv_by_stat": {},
     "evidence_checks": {
       "forward_bets_at_least_200": false,
       "prop_forward_bets_at_least_100": false,
       "positive_price_aware_roi": false,
-      "acceptable_brier": false
+      "acceptable_brier": false,
+      "clv_rows_at_least_100": false,
+      "beat_close_rate_at_least_50pct": false,
+      "nonnegative_clv_signal": false
     }
   },
   "promotion_policy": {
@@ -96,6 +92,8 @@
     "min_prop_forward_bets": 100,
     "min_price_aware_roi": 0.01,
     "max_brier": 0.245,
-    "note": "Thresholds are governance gates, not proof of future profitability. Promotion still requires review of CLV, calibration stability, market/book splits, and drawdowns."
+    "min_matched_closes": 100,
+    "min_beat_close_rate": 0.5,
+    "note": "Thresholds are governance gates, not proof of future profitability. Promotion still requires review of calibration stability, book/market splits, CLV distribution and drawdowns."
   }
 }
