@@ -11,7 +11,7 @@ Usage:
 import os, sys, json, pickle, argparse, warnings, math
 import numpy as np
 import pandas as pd
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 warnings.filterwarnings("ignore")
 
 # ── Paths (relative — works on GitHub Actions and any machine) ─────────────────
@@ -1075,6 +1075,20 @@ if __name__ == "__main__":
 
     target   = datetime.strptime(args.date, "%Y-%m-%d").date()
     schedule = fetch_todays_schedule(target)
+    now_utc = datetime.now(timezone.utc)
+    pre_tip = []
+    for game in schedule:
+        tip = str(game.get("tip", "") or "")
+        try:
+            tip_dt = datetime.fromisoformat(tip.replace("Z", "+00:00")).astimezone(timezone.utc)
+        except Exception:
+            tip_dt = None
+        if tip_dt is None or tip_dt > now_utc:
+            pre_tip.append(game)
+    skipped_started = len(schedule) - len(pre_tip)
+    if skipped_started:
+        print(f"  Pregame gate: skipped {skipped_started} already-started games")
+    schedule = pre_tip
     market_odds = load_market_odds(target)
     schedule = attach_market_odds(schedule, market_odds)
     posted_props = load_sportsbook_props(target, schedule)
