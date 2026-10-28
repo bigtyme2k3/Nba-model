@@ -114,6 +114,13 @@ jobs:
             --max-minutes-to-tip ${{ env.MAX_TO_TIP }} \
             --out predictions/pretip_${{ env.TARGET }}.json
 
+      - name: Append near-tip execution snapshot
+        if: env.ELIGIBLE == 'true'
+        run: |
+          python execution_ledger.py \
+            --date ${{ env.TARGET }} \
+            --predictions predictions/pretip_${{ env.TARGET }}.json
+
       - name: Preserve first-observed forward evidence
         if: env.ELIGIBLE == 'true'
         run: |
@@ -141,7 +148,9 @@ jobs:
             data/raw/opportunity_redistribution_status.json \
             predictions/pretip_${{ env.TARGET }}.json \
             data/history/nba_forward_predictions.jsonl \
-            data/tracking/forward_ledger_status.json
+            data/history/nba_pretip_execution_snapshots.jsonl \
+            data/tracking/forward_ledger_status.json \
+            data/tracking/execution_ledger_status.json
           git diff --cached --quiet || git commit -m "⏱️ NBA pre-tip refresh — ${{ env.TARGET }}"
           git reset --hard HEAD
           git clean -fd
