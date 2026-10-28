@@ -18,6 +18,7 @@ Usage:
     from kelly_sizing import size_bet, edge_to_prob, kelly_units
 """
 
+import os
 import numpy as np
 import pandas as pd
 
@@ -30,6 +31,8 @@ KELLY_FRACTION = 0.25
 
 # Max bet as % of bankroll
 MAX_BET_PCT = 0.05
+RESEARCH_MAX_BET_PCT = 0.01
+PRODUCTION_MODE = os.getenv("NBA_PRODUCTION_MODE", "false").strip().lower() in {"1","true","yes"}
 
 # NBA game margin standard deviation (pts) — ~12 pts is the commonly cited figure;
 # recalibrate against your own backtest once you have a season of real results.
@@ -103,7 +106,8 @@ def size_probability_bet(win_prob: float, juice: int = JUICE_110,
         }
     win_prob = float(np.clip(win_prob, 0.01, 0.99))
     kelly_full = kelly_fraction_bet(win_prob, juice)
-    kelly_frac = min(kelly_full * KELLY_FRACTION, MAX_BET_PCT)
+    active_cap = MAX_BET_PCT if PRODUCTION_MODE else RESEARCH_MAX_BET_PCT
+    kelly_frac = min(kelly_full * KELLY_FRACTION, active_cap)
     dollar_amt = round(kelly_frac * bankroll, 2)
     units = round(kelly_frac * 100, 2)
     if kelly_frac >= 0.03:
@@ -120,6 +124,8 @@ def size_probability_bet(win_prob: float, juice: int = JUICE_110,
         "dollar_amt": dollar_amt,
         "juice": juice,
         "verdict": verdict,
+        "production_mode": PRODUCTION_MODE,
+        "active_max_bet_pct": active_cap,
     }
 
 
@@ -157,8 +163,9 @@ def size_bet(edge_pts: float, model_type: str = "spread",
 
     win_prob   = edge_to_prob(edge_pts, model_type)
     kelly_full = kelly_fraction_bet(win_prob, juice)
+    active_cap = MAX_BET_PCT if PRODUCTION_MODE else RESEARCH_MAX_BET_PCT
     kelly_frac = kelly_full * KELLY_FRACTION
-    kelly_frac = min(kelly_frac, MAX_BET_PCT)
+    kelly_frac = min(kelly_frac, active_cap)
 
     dollar_amt = round(kelly_frac * bankroll, 2)
     units      = round(kelly_frac * 100, 2)  # 1 unit = 1% bankroll
@@ -179,6 +186,8 @@ def size_bet(edge_pts: float, model_type: str = "spread",
         "edge_pts":   edge_pts,
         "juice":      juice,
         "verdict":    verdict,
+        "production_mode": PRODUCTION_MODE,
+        "active_max_bet_pct": active_cap,
     }
 
 
