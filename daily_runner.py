@@ -503,7 +503,7 @@ def attach_market_odds(schedule, market_odds):
     return schedule
 
 
-def attach_schedule_fatigue(schedule, target_date, path="data/raw/hoopr_games_master.csv"):
+def attach_schedule_fatigue(schedule, target_date, path="data/processed/master_all.csv"):
     """Attach true rest/B2B/3-in-4 context from all prior completed games."""
     if not schedule or not os.path.exists(path):
         return schedule
