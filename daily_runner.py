@@ -668,6 +668,8 @@ def run_totals(home, away, ctx, bundle):
         "def_mismatch": abs((hs.get("ortg",114)-as_.get("drtg",114))-(as_.get("ortg",114)-hs.get("drtg",114))),
         "home_rolling_total_5g": hr.get("roll_pts",114),
         "away_rolling_total_5g": ar.get("roll_pts",114),
+        "home_rolling_allowed_5g": hr.get("roll_allowed",114),
+        "away_rolling_allowed_5g": ar.get("roll_allowed",114),
         "rolling_total_sum_5g": hr.get("roll_pts",114)+ar.get("roll_pts",114),
         "home_back_to_back": int(ctx["home_b2b"]),
         "away_back_to_back": int(ctx["away_b2b"]),
@@ -679,10 +681,14 @@ def run_totals(home, away, ctx, bundle):
     })
     try:
         X = pd.DataFrame([row])[feats]
-        return round(float(model.predict(X)[0]), 1)
+        pred = round(float(model.predict(X)[0]), 1)
+        if not (180.0 <= pred <= 280.0):
+            print(f"  [WARN] Totals prediction failed sanity gate: {pred}")
+            return None
+        return pred
     except Exception as e:
         print(f"  [WARN] Totals prediction error: {e}")
-        return 224.0
+        return None
 
 
 def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustments=None):
@@ -1012,10 +1018,13 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             elif spread_edge < 0:
                 spread_play = f"{away} {-posted_spread:+.1f}"
 
-        total_pred  = run_totals(home, away, ctx, totals_bundle)
-        posted_total= game.get("posted_total")
-        total_edge  = round(total_pred-posted_total,1) if posted_total is not None else None
-        total_play  = ("OVER" if total_edge and total_edge>0 else "UNDER") if total_edge else None
+        total_pred = run_totals(home, away, ctx, totals_bundle)
+        posted_total = game.get("posted_total")
+        total_edge = (
+            round(total_pred-posted_total,1)
+            if total_pred is not None and posted_total is not None else None
+        )
+        total_play = ("OVER" if total_edge > 0 else "UNDER") if total_edge is not None else None
         total_conf, total_stars = score_confidence(total_edge or 0, "totals")
 
         props_out = run_props(
