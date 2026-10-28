@@ -103,6 +103,15 @@ def load_and_prepare(path: str) -> pd.DataFrame:
     df = df[df[TARGET].notna()].copy()
     print(f"  Rows with results: {len(df)}")
 
+    if "team_context_complete" in df.columns:
+        before = len(df)
+        df = df[pd.to_numeric(df["team_context_complete"], errors="coerce").fillna(0).eq(1)].copy()
+        print(f"  Rows with complete prior team context: {len(df)} / {before}")
+        if len(df) < max(500, int(before * 0.90)):
+            raise RuntimeError(
+                f"Prior team context coverage too low for spread training: {len(df)}/{before}"
+            )
+
     df = engineer_features(df)
 
     feature_cols = [f for f in SPREAD_FEATURES if f in df.columns]
@@ -413,6 +422,8 @@ def train_mode(data_path: str):
             "trained_rows":  int(len(df)),
             "trained_through": trained_through,
             "validation":    "global_chronological_timeseries_split",
+            "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+            "feature_names_count": int(len(feature_names)),
             "cv_results":    cv_results,
             "clv_results":   clv_results,
         }, f)
