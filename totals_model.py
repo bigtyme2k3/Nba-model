@@ -144,6 +144,16 @@ def train_totals_model(data_path):
     print("\n═══ NBA TOTALS MODEL — TRAINING ═══\n")
     df = pd.read_csv(data_path, parse_dates=["game_date"])
     df = df.sort_values(["season","game_date"]).reset_index(drop=True)
+
+    if "team_context_complete" in df.columns:
+        before_context = len(df)
+        df = df[pd.to_numeric(df["team_context_complete"], errors="coerce").fillna(0).eq(1)].copy()
+        print(f"Rows with complete prior team context: {len(df)} / {before_context}")
+        if len(df) < max(500, int(before_context * 0.90)):
+            raise RuntimeError(
+                f"Prior team context coverage too low for totals training: {len(df)}/{before_context}"
+            )
+
     raw_rows = len(df)
     if "game_id" in df.columns:
         ids = df["game_id"].astype(str).str.strip()
@@ -222,6 +232,8 @@ def train_totals_model(data_path):
             "trained_rows": int(len(df)),
             "trained_through": trained_through,
             "validation": "global_chronological_timeseries_split",
+            "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+            "feature_names_count": int(len(available)),
         }, f)
     print(f"\n✅ Saved → {path}")
     print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
