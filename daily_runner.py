@@ -965,7 +965,7 @@ def score_confidence(edge, model_type):
 
 
 def collect_best_bets(games_output):
-    bets = []
+    candidates = []
     for g in games_output:
         home, away = g["home"]["name"], g["away"]["name"]
         matchup = f"{away} @ {home}"
@@ -973,7 +973,7 @@ def collect_best_bets(games_output):
         if sp.get("edge") is not None:
             conf, stars = score_confidence(sp["edge"], "spread")
             if stars >= 2:
-                bets.append({
+                candidates.append({
                     "type":"SPREAD","game":matchup,"play":sp.get("play") or sp["model_line"],
                     "market_line":sp.get("posted_line"),"market_odds":sp.get("juice"),
                     "market_source":sp.get("source"),"model_projection":sp.get("pred"),
@@ -983,7 +983,7 @@ def collect_best_bets(games_output):
         if tot.get("edge") is not None:
             conf, stars = score_confidence(tot["edge"], "totals")
             if stars >= 2:
-                bets.append({
+                candidates.append({
                     "type":"TOTAL","game":matchup,
                     "play":f"{tot['play']} {tot['line']}",
                     "market_line":tot.get("line"),"market_odds":tot.get("juice"),
@@ -1002,7 +1002,7 @@ def collect_best_bets(games_output):
                         elif ev >= 0.04 and (p_edge or 0) >= 0.025:
                             conf, stars = "MED", max(stars, 2)
                     if stars >= 2:
-                        bets.append({
+                        candidates.append({
                             "type":"PROP","game":matchup,
                             "play":f"{pr['player']} {pt.upper()} {pd_data['signal']} {pd_data['line']}",
                             "market_line":pd_data.get("line"),"market_odds":pd_data.get("odds"),
@@ -1016,9 +1016,39 @@ def collect_best_bets(games_output):
                             "proj_min":pr.get("proj_min"),"opportunity_direction":pr.get("opportunity_direction"),
                             "vacancy_sources":pr.get("vacancy_sources"),
                         })
-    bets.sort(key=lambda b: (-b["stars"], -abs(b["edge"])))
-    for i, b in enumerate(bets): b["rank"] = i+1
-    return bets[:8]
+
+    def ranking_score(b):
+        # Stars remain primary. Among equally-rated props, use priced EV and
+        # probability edge before raw stat-unit edge so cross-stat magnitudes
+        # (e.g. PRA vs threes) are not treated as directly comparable.
+        return (
+            -int(b.get("stars",0)),
+            -float(b.get("ev") or -999 if b.get("type")=="PROP" else 0),
+            -float(b.get("probability_edge") or 0),
+            -abs(float(b.get("edge") or 0)),
+        )
+
+    candidates.sort(key=ranking_score)
+
+    # Portfolio guard: same-player prop bets share minutes/usage/game-state risk.
+    # Preserve all candidate signals in game output, but allow only one final
+    # bankroll-bearing prop per player.
+    selected = []
+    prop_players = set()
+    for bet in candidates:
+        if bet.get("type") == "PROP":
+            key = str(bet.get("player","")).strip().lower()
+            if key in prop_players:
+                continue
+            prop_players.add(key)
+            bet["portfolio_guard"] = "ONE_PROP_PER_PLAYER"
+        selected.append(bet)
+        if len(selected) >= 8:
+            break
+
+    for i, b in enumerate(selected):
+        b["rank"] = i + 1
+    return selected
 
 
 def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
@@ -1165,6 +1195,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         "model_state": "RESEARCH_FORWARD_TESTING",
         "research_only": True,
         "production_ready": False,
+        "portfolio_policy": "ONE_FINAL_PROP_PER_PLAYER",
         "games":      games_output,
         "best_bets":  best_bets,
         "model_stats":{"spread":{"algo":"Ridge / GBR","cv_mae":None,"dir_acc":None,"strong_ats":None,"n":0},
