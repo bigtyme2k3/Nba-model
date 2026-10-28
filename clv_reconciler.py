@@ -31,6 +31,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from forward_ledger import EVIDENCE_EPOCH
+
 FORWARD = Path("data/history/nba_forward_predictions.jsonl")
 CLOSES = Path("data/history/nba_prop_closing_snapshots.jsonl")
 OUT_CSV = Path("data/tracking/nba_prop_clv.csv")
@@ -145,7 +147,8 @@ def main():
 
     entries=[
         r for r in read_jsonl(FORWARD)
-        if str(r.get("market","")).upper()=="PROP"
+        if r.get("evidence_epoch")==EVIDENCE_EPOCH
+        and str(r.get("market","")).upper()=="PROP"
         and r.get("decision")=="BET"
         and norm(r.get("sportsbook_key"))
     ]
@@ -244,6 +247,7 @@ def main():
         "status":"READY" if entries else "NO_FORWARD_PROP_BETS",
         "generated_at_utc":datetime.now(timezone.utc).isoformat(),
         "date_filter":args.date,
+        "evidence_epoch":EVIDENCE_EPOCH,
         "forward_prop_bets":len(entries),
         "matched_closes":len(matched),
         "match_rate":round(len(matched)/len(entries),4) if entries else None,
