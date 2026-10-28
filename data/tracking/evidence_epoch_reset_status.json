@@ -1,10 +1,11 @@
 {
   "status": "READY",
-  "generated_at_utc": "2026-10-28T01:54:39.488816+00:00",
+  "generated_at_utc": "2026-10-28T01:55:51.612613+00:00",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "source_prediction": "predictions/v1_research_2026-10-27.json",
   "source_prediction_generated_at_utc": "2026-10-28T01:41:54.421364+00:00",
-  "legacy_rows_archived": 58,
+  "pre_reset_canonical_rows": 58,
+  "legacy_rows_archived": 229,
   "legacy_archive": "data/history/nba_forward_predictions_legacy_pre_clean_v1.jsonl",
   "clean_rows_written": 58,
   "clean_bet_rows": 8,

@@ -1,13 +1,14 @@
 {
   "status": "READY",
-  "generated_at_utc": "2026-10-28T01:49:57.047985+00:00",
+  "generated_at_utc": "2026-10-28T01:55:51.610038+00:00",
   "date": "2026-10-27",
   "prediction_file": "predictions/v1_research_2026-10-27.json",
   "candidate_rows": 58,
-  "new_rows_appended": 56,
-  "existing_rows_preserved": 173,
-  "total_rows": 229,
+  "new_rows_appended": 58,
+  "existing_rows_preserved": 0,
+  "total_rows": 58,
   "first_prediction_immutable": true,
-  "policy": "FIRST_OBSERVED_RANKING_KEY_ONLY",
+  "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
+  "policy": "CLEAN_EVIDENCE_EPOCH_RESET_FROM_CORRECTED_FIRST_OBSERVATION",
   "model_version": "NBA_V1.0"
 }
