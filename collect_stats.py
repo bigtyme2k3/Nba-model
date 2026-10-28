@@ -154,6 +154,18 @@ def number(value):
         return None
 
 
+def made_attempted(value):
+    """Parse ESPN shooting display values such as '8-17' into made/attempted."""
+    s=str(value or "").strip()
+    if "-" not in s:
+        return None,None
+    left,right=s.split("-",1)
+    try:
+        return float(left),float(right)
+    except (TypeError,ValueError):
+        return None,None
+
+
 def parse_espn_team_box(summary: dict, game_date: str, season: int) -> list:
     competition = summary.get("header", {}).get("competitions", [{}])[0]
     game_id = str(competition.get("id", ""))
@@ -205,6 +217,17 @@ def parse_espn_player_box(summary: dict, game_date: str, season: int) -> list:
             for athlete in group.get("athletes", []):
                 player = athlete.get("athlete", {})
                 values = dict(zip(labels, athlete.get("stats", [])))
+
+                fg_made,fg_att=made_attempted(values.get("FG"))
+                three_made,three_att=made_attempted(values.get("3PT"))
+                ft_made,ft_att=made_attempted(values.get("FT"))
+                fg_made = number(values.get("FGM")) if number(values.get("FGM")) is not None else fg_made
+                fg_att = number(values.get("FGA")) if number(values.get("FGA")) is not None else fg_att
+                three_made = number(values.get("3PM")) if number(values.get("3PM")) is not None else three_made
+                three_att = number(values.get("3PA")) if number(values.get("3PA")) is not None else three_att
+                ft_made = number(values.get("FTM")) if number(values.get("FTM")) is not None else ft_made
+                ft_att = number(values.get("FTA")) if number(values.get("FTA")) is not None else ft_att
+
                 rows.append({
                     "game_id": game_id, "season": season, "game_date": game_date,
                     "team_name": team.get("name", ""),
@@ -220,9 +243,9 @@ def parse_espn_player_box(summary: dict, game_date: str, season: int) -> list:
                     "stl": number(values.get("STL")), "blk": number(values.get("BLK")),
                     "tov": number(values.get("TO")), "oreb": number(values.get("OREB")),
                     "dreb": number(values.get("DREB")),
-                    "fg_made": number(values.get("FGM")), "fg_att": number(values.get("FGA")),
-                    "threes_made": number(values.get("3PM")), "threes_att": number(values.get("3PA")),
-                    "ft_made": number(values.get("FTM")), "ft_att": number(values.get("FTA")),
+                    "fg_made": fg_made, "fg_att": fg_att,
+                    "threes_made": three_made, "threes_att": three_att,
+                    "ft_made": ft_made, "ft_att": ft_att,
                     "plus_minus": number(values.get("+/-")),
                     "source": "espn_api",
                 })
