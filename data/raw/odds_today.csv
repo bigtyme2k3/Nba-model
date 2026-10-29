@@ -1,8 +1,4 @@
 game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
-2026-10-28,7b9e02686c886a54c9a91dd3f3879326,2026-10-29T00:10:00Z,Chicago Bulls,New York Knicks,7.17,-112.67,232.67,-110.0,223.33,-276.0,3,the-odds-api-fd-dk-fanatics,2026-10-28T23:55:00.721302+00:00
-2026-10-28,782d6ce7f65b592ad1c43d2f4e53cc82,2026-10-29T00:10:00Z,New Orleans Pelicans,Denver Nuggets,4.5,-111.67,240.5,-110.67,148.33,-177.67,3,the-odds-api-fd-dk-fanatics,2026-10-28T23:55:00.721323+00:00
-2026-10-28,c6d62b9457cbd8517860e222f1d4f953,2026-10-29T00:10:00Z,Minnesota Timberwolves,Golden State Warriors,-3.67,-114.33,227.5,-110.0,-169.33,141.33,3,the-odds-api-fd-dk-fanatics,2026-10-28T23:55:00.721337+00:00
-2026-10-28,83ca338f605b5664b7b1da34c19a0222,2026-10-29T00:10:00Z,Milwaukee Bucks,Houston Rockets,8.5,-115.0,226.67,-111.67,273.33,-343.33,3,the-odds-api-fd-dk-fanatics,2026-10-28T23:55:00.721349+00:00
-2026-10-28,e74d54621abaed183e569394f935c362,2026-10-29T01:10:00Z,Utah Jazz,San Antonio Spurs,14.0,-111.67,233.67,-110.0,490.0,-683.33,3,the-odds-api-fd-dk-fanatics,2026-10-28T23:55:00.721360+00:00
-2026-10-28,1e3ca91e27ded6e4b4bb35aabb67b505,2026-10-29T01:40:00Z,Dallas Mavericks,Oklahoma City Thunder,5.0,-111.67,228.33,-107.0,155.67,-187.33,3,the-odds-api-fd-dk-fanatics,2026-10-28T23:55:00.721372+00:00
-2026-10-28,6e8a41f3aeff105b0e10766515517d5e,2026-10-29T02:40:00Z,Los Angeles Clippers,Los Angeles Lakers,-1.33,-104.33,224.5,-109.33,-111.33,-107.33,3,the-odds-api-fd-dk-fanatics,2026-10-28T23:55:00.721384+00:00
+2026-10-29,b123d92eb8046e43fabf95a33a676634,2026-10-30T00:10:00Z,Atlanta Hawks,Cleveland Cavaliers,-1.5,-36.67,237.83,-107.67,-111.0,-107.67,3,the-odds-api-fd-dk-fanatics,2026-10-29T18:48:51.009924+00:00
+2026-10-29,f91d27cc050b1b85073d745372c73833,2026-10-30T00:10:00Z,New Orleans Pelicans,Sacramento Kings,-5.83,-114.33,236.0,-111.67,-242.67,198.33,3,the-odds-api-fd-dk-fanatics,2026-10-29T18:48:51.009952+00:00
+2026-10-29,ba667ca1b0b042f0661cb9d9af56c165,2026-10-30T02:10:00Z,Portland Trail Blazers,Memphis Grizzlies,-7.5,-110.0,232.5,-108.33,-292.67,236.67,3,the-odds-api-fd-dk-fanatics,2026-10-29T18:48:51.009972+00:00

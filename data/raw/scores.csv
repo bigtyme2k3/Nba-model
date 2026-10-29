@@ -77,3 +77,6 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-29,401909890,STATUS_SCHEDULED,False,False,Utah Jazz,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -13.5,233.5,Delta Center,0,2026-10-28T18:40:45.085916
 2026-10-29,401909891,STATUS_SCHEDULED,False,False,Dallas Mavericks,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -5.5,228.5,American Airlines Center,0,2026-10-28T18:40:45.085925
 2026-10-29,401909892,STATUS_SCHEDULED,False,False,LA Clippers,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -4.5,229.5,Intuit Dome,0,2026-10-28T18:40:45.085932
+2026-10-30,401909893,STATUS_SCHEDULED,False,False,Atlanta Hawks,Cleveland Cavaliers,0,0,0,0,,,,,,,,,ATL -1.5,237.5,State Farm Arena,0,2026-10-29T18:48:52.997767
+2026-10-30,401909894,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Sacramento Kings,0,0,0,0,,,,,,,,,NO -5.5,235.5,Smoothie King Center,0,2026-10-29T18:48:52.997786
+2026-10-30,401909895,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Memphis Grizzlies,0,0,0,0,,,,,,,,,POR -7.5,232.5,Moda Center,0,2026-10-29T18:48:52.997795
