@@ -67,3 +67,6 @@ game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,act
 401909890,2026,2026-10-28,Jazz,111.0,Spurs,117.0,-6.0,228.0
 401909891,2026,2026-10-28,Mavericks,120.0,Thunder,96.0,24.0,216.0
 401909892,2026,2026-10-28,Clippers,87.0,Lakers,103.0,-16.0,190.0
+401909893,2026,2026-10-29,Hawks,114.0,Cavaliers,111.0,3.0,225.0
+401909894,2026,2026-10-29,Pelicans,132.0,Kings,120.0,12.0,252.0
+401909895,2026,2026-10-29,Trail Blazers,103.0,Grizzlies,124.0,-21.0,227.0

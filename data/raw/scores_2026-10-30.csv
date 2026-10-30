@@ -1,0 +1,11 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-30,401909277,STATUS_SCHEDULED,False,False,Washington Wizards,Charlotte Hornets,0,0,0,0,,,,,,,,,CHA -1.5,218.5,Capital One Arena,0,2026-10-30T18:26:25.633161
+2026-10-30,401909278,STATUS_SCHEDULED,False,False,Boston Celtics,Chicago Bulls,0,0,0,0,,,,,,,,,BOS -14.5,235.5,TD Garden,0,2026-10-30T18:26:25.633178
+2026-10-30,401909279,STATUS_SCHEDULED,False,False,Brooklyn Nets,Detroit Pistons,0,0,0,0,,,,,,,,,DET -8.5,222.5,Barclays Center,0,2026-10-30T18:26:25.633187
+2026-10-30,401909280,STATUS_SCHEDULED,False,False,Philadelphia 76ers,New York Knicks,0,0,0,0,,,,,,,,,NY -1.5,226.5,Xfinity Mobile Arena,0,2026-10-30T18:26:25.633206
+2026-10-30,401909281,STATUS_SCHEDULED,False,False,Toronto Raptors,Orlando Magic,0,0,0,0,,,,,,,,,TOR -5.5,227.5,Scotiabank Arena,0,2026-10-30T18:26:25.633213
+2026-10-31,401909282,STATUS_SCHEDULED,False,False,Miami Heat,Indiana Pacers,0,0,0,0,,,,,,,,,MIA -8.5,237.5,Kaseya Center,0,2026-10-30T18:26:25.633221
+2026-10-31,401909283,STATUS_SCHEDULED,False,False,Dallas Mavericks,Houston Rockets,0,0,0,0,,,,,,,,,HOU -6.5,223.5,American Airlines Center,0,2026-10-30T18:26:25.633228
+2026-10-31,401909284,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,LA Clippers,0,0,0,0,,,,,,,,,MIN -7.5,223.5,Target Center,0,2026-10-30T18:26:25.633243
+2026-10-31,401909285,STATUS_SCHEDULED,False,False,Golden State Warriors,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -3.5,234.5,Chase Center,0,2026-10-30T18:26:25.633251
+2026-10-31,401909286,STATUS_SCHEDULED,False,False,Phoenix Suns,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -4.5,231.5,Mortgage Matchup Center,0,2026-10-30T18:26:25.633259

@@ -1,3 +1,1 @@
-ranking_key,date,game,market,player,stat,execution_minutes_to_tip,forward_decision,execution_decision,decision_changed,forward_side,execution_side,side_changed,forward_line,execution_line,line_delta,forward_odds,execution_odds,forward_projection,execution_projection,projection_delta,forward_model_probability,execution_model_probability,forward_ev,execution_ev,forward_outcome,execution_outcome,actual
-2026-10-28|san antonio spurs @ utah jazz|spread,2026-10-28,San Antonio Spurs @ Utah Jazz,SPREAD,,,64.93,PASS,BET,True,HOME,HOME,False,13.5,14.0,0.5,-112.33,-111.67,-2.6,-2.6,0.0,,,,,PENDING,PENDING,
-2026-10-28|san antonio spurs @ utah jazz|total,2026-10-28,San Antonio Spurs @ Utah Jazz,TOTAL,,,64.93,PASS,BET,True,UNDER,UNDER,False,234.17,233.67,-0.5,-107.67,-110.0,225.4,225.4,0.0,,,,,PENDING,PENDING,
+
