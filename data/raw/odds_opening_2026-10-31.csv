@@ -1,0 +1,8 @@
+game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
+2026-10-31,d47417c3b1a2cd427cce74c9d00f1046,2026-10-31T19:10:00Z,Utah Jazz,Portland Trail Blazers,8.17,-111.0,231.67,-112.33,261.67,-326.67,3,the-odds-api-fd-dk-fanatics,2026-10-31T17:31:44.632101+00:00
+2026-10-31,067d97a124c10ea2d206546384500c5e,2026-10-31T22:10:00Z,Charlotte Hornets,Philadelphia 76ers,-1.33,-103.67,214.17,-110.0,-110.0,-108.67,3,the-odds-api-fd-dk-fanatics,2026-10-31T17:31:44.632130+00:00
+2026-10-31,77270837bc694d198c10f42937690d75,2026-10-31T23:10:00Z,New Orleans Pelicans,Atlanta Hawks,4.5,-115.0,240.5,-109.33,149.33,-178.67,3,the-odds-api-fd-dk-fanatics,2026-10-31T17:31:44.632150+00:00
+2026-10-31,6d7e1e0af6d568f4435d35a1763a3622,2026-11-01T00:10:00Z,Milwaukee Bucks,Cleveland Cavaliers,9.5,-108.0,235.5,-110.67,305.0,-388.33,3,the-odds-api-fd-dk-fanatics,2026-10-31T17:31:44.632169+00:00
+2026-10-31,863ae1092be42c6b563b2c4f099a3eb3,2026-11-01T00:10:00Z,Memphis Grizzlies,Sacramento Kings,-8.83,-107.67,230.83,-106.67,-373.33,293.33,3,the-odds-api-fd-dk-fanatics,2026-10-31T17:31:44.632186+00:00
+2026-10-31,06a03fb0ce0f81a970c6000fb71fdc6d,2026-11-01T00:10:00Z,San Antonio Spurs,Minnesota Timberwolves,-12.17,-108.33,225.33,-109.33,-600.0,441.67,3,the-odds-api-fd-dk-fanatics,2026-10-31T17:31:44.632204+00:00
+2026-10-31,c30d3bdf126e98ced5b9389db8617926,2026-11-01T00:40:00Z,Houston Rockets,Oklahoma City Thunder,-2.67,-111.67,219.0,-110.0,-148.67,125.0,3,the-odds-api-fd-dk-fanatics,2026-10-31T17:31:44.632221+00:00

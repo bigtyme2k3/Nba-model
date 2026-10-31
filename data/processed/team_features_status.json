@@ -1,6 +1,6 @@
 {
   "status": "READY",
-  "source_rows": 13292,
+  "source_rows": 13312,
   "teams": 30,
   "seasons": [
     2021,
@@ -11,10 +11,10 @@
     2026
   ],
   "min_game_date": "2021-10-19",
-  "max_game_date": "2026-10-29",
+  "max_game_date": "2026-10-30",
   "output": "data/processed/team_profiles_latest.csv",
   "game_context_output": "data/processed/team_game_context.csv",
-  "game_context_rows": 13292,
-  "pregame_context_rows_with_prior": 13262,
+  "game_context_rows": 13312,
+  "pregame_context_rows_with_prior": 13282,
   "policy": "COMPLETED_GAMES_ONLY; HISTORICAL_CONTEXT_SHIFT_1_PRIOR_ONLY; ROLLING_CONTEXT_CONTINUES_ACROSS_SEASONS"
 }
