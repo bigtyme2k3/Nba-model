@@ -1,0 +1,5 @@
+game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
+2026-11-01,e8559eaac12af915cfe6597644620c13,2026-11-01T20:40:00Z,Orlando Magic,Boston Celtics,7.5,-115.0,222.17,-108.0,225.0,-277.67,3,the-odds-api-fd-dk-fanatics,2026-11-01T18:17:23.035454+00:00
+2026-11-01,fc3e945a5be88d3f933456bc512c956d,2026-11-01T22:10:00Z,Indiana Pacers,Brooklyn Nets,-3.5,-114.0,229.83,-112.33,-166.33,139.0,3,the-odds-api-fd-dk-fanatics,2026-11-01T18:17:23.035486+00:00
+2026-11-01,094b083ace229ca31ff360a80e35a1a8,2026-11-02T01:40:00Z,Golden State Warriors,Los Angeles Clippers,-2.33,-105.33,221.5,-109.33,-130.0,110.0,3,the-odds-api-fd-dk-fanatics,2026-11-01T18:17:23.035508+00:00
+2026-11-01,31fc89cbf3846e545e8e41a543a71d24,2026-11-02T02:10:00Z,Los Angeles Lakers,Toronto Raptors,-3.0,-41.67,224.83,-110.33,-147.33,123.67,3,the-odds-api-fd-dk-fanatics,2026-11-01T18:17:23.035528+00:00
