@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-01T18:17:53.441415Z",
+  "generated_at_utc": "2026-11-02T22:12:02.061469Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -18,28 +18,28 @@
     "spread": {
       "name": "spread",
       "status": "trained",
-      "trained_through": "2026-10-26",
-      "trained_rows": 6627,
+      "trained_through": "2026-11-01",
+      "trained_rows": 6651,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 5
+      "lag_days": 0
     },
     "totals": {
       "name": "totals",
       "status": "trained",
-      "trained_through": "2026-10-26",
-      "trained_rows": 6627,
+      "trained_through": "2026-11-01",
+      "trained_rows": 6651,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge",
-      "lag_days": 5
+      "lag_days": 0
     },
     "props": {
       "name": "props",
       "status": "trained",
-      "trained_through": "2026-10-26",
-      "trained_rows": 140986,
+      "trained_through": "2026-11-01",
+      "trained_rows": 141881,
       "validation": "global_chronological_timeseries_split",
       "markets": [
         "ast",
@@ -49,14 +49,14 @@
         "threes"
       ],
       "model_name": null,
-      "lag_days": 5
+      "lag_days": 0
     }
   },
   "feature_stores": {
     "player": {
       "status": "READY",
-      "max_game_date": "2026-10-31",
-      "rows": 141792,
+      "max_game_date": "2026-11-01",
+      "rows": 141881,
       "seasons": [
         2021,
         2022,
@@ -68,7 +68,7 @@
     },
     "team": {
       "status": "READY",
-      "max_game_date": "2026-10-31",
+      "max_game_date": "2026-11-01",
       "teams": 30,
       "seasons": [
         2021,
@@ -81,28 +81,34 @@
     }
   },
   "forward_evidence": {
-    "bet_rows": 40,
-    "prop_bets": 40,
-    "roi": 0.2151,
-    "brier": 0.24977,
+    "bet_rows": 48,
+    "prop_bets": 48,
+    "roi": 0.2249,
+    "brier": 0.25318,
     "clv_matched": 0,
     "beat_close_rate": null,
     "avg_line_clv": null,
     "avg_same_line_price_clv_probability": null,
     "by_sportsbook": {
       "draftkings": {
-        "bets": 18,
-        "resolved": 18,
-        "wins": 12,
-        "losses": 6,
+        "bets": 20,
+        "resolved": 20,
+        "wins": 13,
+        "losses": 7,
         "pushes": 0,
-        "hit_rate": 0.6667,
-        "profit_units": 6.9118,
-        "roi": 0.384,
+        "hit_rate": 0.65,
+        "profit_units": 7.3018,
+        "roi": 0.3651,
         "probability_calibration": {
-          "rows": 18,
-          "brier": 0.2343,
+          "rows": 20,
+          "brier": 0.24854,
           "bins": [
+            {
+              "range": "0.50-0.55",
+              "n": 1,
+              "avg_predicted": 0.5228,
+              "actual_hit_rate": 1.0
+            },
             {
               "range": "0.55-0.60",
               "n": 4,
@@ -123,9 +129,9 @@
             },
             {
               "range": "0.70-1.00",
-              "n": 3,
-              "avg_predicted": 0.7272,
-              "actual_hit_rate": 0.3333
+              "n": 4,
+              "avg_predicted": 0.7267,
+              "actual_hit_rate": 0.25
             }
           ]
         }
@@ -159,29 +165,29 @@
         }
       },
       "fanduel": {
-        "bets": 20,
-        "resolved": 20,
-        "wins": 10,
-        "losses": 10,
+        "bets": 26,
+        "resolved": 26,
+        "wins": 14,
+        "losses": 12,
         "pushes": 0,
-        "hit_rate": 0.5,
-        "profit_units": 1.5416,
-        "roi": 0.0771,
+        "hit_rate": 0.5385,
+        "profit_units": 3.3415,
+        "roi": 0.1285,
         "probability_calibration": {
-          "rows": 20,
-          "brier": 0.2608,
+          "rows": 26,
+          "brier": 0.25478,
           "bins": [
             {
               "range": "0.50-0.55",
-              "n": 3,
-              "avg_predicted": 0.544,
-              "actual_hit_rate": 0.3333
+              "n": 4,
+              "avg_predicted": 0.5442,
+              "actual_hit_rate": 0.5
             },
             {
               "range": "0.55-0.60",
-              "n": 3,
-              "avg_predicted": 0.5878,
-              "actual_hit_rate": 0.6667
+              "n": 5,
+              "avg_predicted": 0.591,
+              "actual_hit_rate": 0.6
             },
             {
               "range": "0.60-0.65",
@@ -197,9 +203,9 @@
             },
             {
               "range": "0.70-1.00",
-              "n": 1,
-              "avg_predicted": 0.7258,
-              "actual_hit_rate": 0.0
+              "n": 4,
+              "avg_predicted": 0.7141,
+              "actual_hit_rate": 0.5
             }
           ]
         }
@@ -207,28 +213,28 @@
     },
     "by_prop_stat": {
       "AST": {
-        "bets": 9,
-        "resolved": 9,
-        "wins": 5,
-        "losses": 4,
+        "bets": 13,
+        "resolved": 13,
+        "wins": 8,
+        "losses": 5,
         "pushes": 0,
-        "hit_rate": 0.5556,
-        "profit_units": 1.5229,
-        "roi": 0.1692,
+        "hit_rate": 0.6154,
+        "profit_units": 3.5982,
+        "roi": 0.2768,
         "probability_calibration": {
-          "rows": 9,
-          "brier": 0.23431,
+          "rows": 13,
+          "brier": 0.23618,
           "bins": [
             {
               "range": "0.50-0.55",
-              "n": 1,
-              "avg_predicted": 0.5452,
-              "actual_hit_rate": 0.0
+              "n": 2,
+              "avg_predicted": 0.5449,
+              "actual_hit_rate": 0.5
             },
             {
               "range": "0.55-0.60",
-              "n": 2,
-              "avg_predicted": 0.5914,
+              "n": 3,
+              "avg_predicted": 0.5918,
               "actual_hit_rate": 1.0
             },
             {
@@ -241,6 +247,12 @@
               "range": "0.65-0.70",
               "n": 4,
               "avg_predicted": 0.6723,
+              "actual_hit_rate": 0.5
+            },
+            {
+              "range": "0.70-1.00",
+              "n": 2,
+              "avg_predicted": 0.7135,
               "actual_hit_rate": 0.5
             }
           ]
@@ -309,23 +321,23 @@
         }
       },
       "REB": {
-        "bets": 9,
-        "resolved": 9,
-        "wins": 6,
-        "losses": 3,
+        "bets": 12,
+        "resolved": 12,
+        "wins": 7,
+        "losses": 5,
         "pushes": 0,
-        "hit_rate": 0.6667,
-        "profit_units": 3.6601,
-        "roi": 0.4067,
+        "hit_rate": 0.5833,
+        "profit_units": 2.3847,
+        "roi": 0.1987,
         "probability_calibration": {
-          "rows": 9,
-          "brier": 0.22836,
+          "rows": 12,
+          "brier": 0.25231,
           "bins": [
             {
               "range": "0.55-0.60",
-              "n": 1,
-              "avg_predicted": 0.5797,
-              "actual_hit_rate": 1.0
+              "n": 2,
+              "avg_predicted": 0.5895,
+              "actual_hit_rate": 0.5
             },
             {
               "range": "0.60-0.65",
@@ -341,31 +353,31 @@
             },
             {
               "range": "0.70-1.00",
-              "n": 2,
-              "avg_predicted": 0.7276,
+              "n": 4,
+              "avg_predicted": 0.721,
               "actual_hit_rate": 0.5
             }
           ]
         }
       },
       "THREES": {
-        "bets": 8,
-        "resolved": 8,
-        "wins": 5,
+        "bets": 9,
+        "resolved": 9,
+        "wins": 6,
         "losses": 3,
         "pushes": 0,
-        "hit_rate": 0.625,
-        "profit_units": 4.25,
-        "roi": 0.5312,
+        "hit_rate": 0.6667,
+        "profit_units": 5.64,
+        "roi": 0.6267,
         "probability_calibration": {
-          "rows": 8,
-          "brier": 0.24304,
+          "rows": 9,
+          "brier": 0.24134,
           "bins": [
             {
               "range": "0.50-0.55",
-              "n": 2,
-              "avg_predicted": 0.5434,
-              "actual_hit_rate": 0.5
+              "n": 3,
+              "avg_predicted": 0.5365,
+              "actual_hit_rate": 0.6667
             },
             {
               "range": "0.55-0.60",
