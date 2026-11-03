@@ -1,16 +1,16 @@
 {
   "status": "ok",
-  "target_date": "2026-11-02",
+  "target_date": "2026-11-03",
   "source": "the-odds-api-fd-dk-fanatics",
   "bookmakers": [
     "fanduel",
     "draftkings",
     "fanatics"
   ],
-  "checked_at_utc": "2026-11-02T22:10:37.069238+00:00",
-  "rows": 15,
+  "checked_at_utc": "2026-11-03T19:59:06.193570+00:00",
+  "rows": 0,
   "http_status": 200,
-  "api_requests_used": "535",
-  "api_requests_remaining": "19465",
+  "api_requests_used": "845",
+  "api_requests_remaining": "19155",
   "error": null
 }

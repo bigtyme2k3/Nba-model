@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-03",
+  "generated": "2026-11-03T19:59:30.125903+00:00",
+  "model_version": "NBA_V1.0",
+  "model_state": "RESEARCH_FORWARD_TESTING",
+  "research_only": true,
+  "production_ready": false,
+  "portfolio_policy": "ONE_FINAL_PROP_PER_PLAYER",
+  "games": [],
+  "best_bets": [],
+  "model_stats": {
+    "spread": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "dir_acc": null,
+      "strong_ats": null,
+      "n": 0
+    },
+    "totals": {
+      "algo": "Ridge / RF",
+      "cv_mae": null,
+      "ou_acc": null,
+      "strong_ou": null,
+      "n": 0
+    },
+    "props": {
+      "algo": "Ridge / HistGBR",
+      "cv_mae": null,
+      "hit_rate": null,
+      "strong_hr": null,
+      "n": 0
+    }
+  }
+}
