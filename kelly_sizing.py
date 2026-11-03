@@ -11,14 +11,22 @@ Kelly formula: f = (bp - q) / b
 
 We use 25% Kelly (conservative) capped at 5% of bankroll.
 
-Also converts spread margin predictions to win probabilities
-using a logistic model calibrated to NBA game variance.
+Win probabilities only credit part of the model's opinion, because the market is
+sharper than an unproven model:
+  - priced props: P = no_vig + shrink * (raw_model_p - no_vig), capped 25-75%
+  - edge-only bets (spreads/totals): P = Phi(shrink * edge / outcome_std), capped 40-60%
+The shrinks are fitted from graded forward rows by calibrate_edges.py once a market
+has enough of them; the priors below apply until then.
 
 Usage:
     from kelly_sizing import size_bet, edge_to_prob, kelly_units
 """
 
+import json
+import math
 import os
+from functools import lru_cache
+
 import numpy as np
 import pandas as pd
 
@@ -34,9 +42,20 @@ MAX_BET_PCT = 0.05
 RESEARCH_MAX_BET_PCT = 0.01
 PRODUCTION_MODE = os.getenv("NBA_PRODUCTION_MODE", "false").strip().lower() in {"1","true","yes"}
 
-# NBA game margin standard deviation (pts) — ~12 pts is the commonly cited figure;
-# recalibrate against your own backtest once you have a season of real results.
+# NBA game margin standard deviation (pts) — ~12 pts is the commonly cited figure.
 NBA_GAME_STD = 12.0
+
+# How far results land from a correct line (std dev, in the market's units).
+OUTCOME_STD = {"spread": NBA_GAME_STD, "totals": 18.0, "props": 6.0}
+PROP_OUTCOME_STD = {"PTS": 6.5, "REB": 3.0, "AST": 2.3, "THREES": 1.3, "PRA": 8.0}
+
+# Fraction of the model's view credited over the market, until fitted.
+EDGE_SHRINK_PRIOR = {"spread": 0.25, "totals": 0.20, "props": 0.25}
+PROP_PRICE_SHRINK_PRIOR = 0.55
+PROP_PROB_CAP = (0.25, 0.75)
+MAX_EDGE_WIN_PROB = 0.60
+
+CALIBRATION_PATH = os.path.join("models", "edge_calibration.json")
 
 # Minimum edge required to place a bet
 MIN_EDGE_SPREAD = 2.0   # pts
@@ -60,26 +79,65 @@ def implied_to_decimal(juice: int) -> float:
         return 1 + (juice / 100)
 
 
-def edge_to_prob(edge_pts: float, model_type: str = "spread") -> float:
-    """
-    Convert a model edge in points to a win probability.
+@lru_cache(maxsize=None)
+def load_calibration(path: str = CALIBRATION_PATH) -> dict:
+    """Shrinks in effect: fitted ones from calibrate_edges.py, else the priors.
 
-    Uses logistic function calibrated to NBA variance.
-    At 0 edge: 50% win probability
-    At +3 pts edge: ~59% win probability
-    At +6 pts edge: ~67% win probability
-    At +10 pts edge: ~77% win probability
+    Returns {"edge": {market: shrink}, "prop_price": shrink, "sources": {...}}.
     """
-    scales = {
-        "spread": NBA_GAME_STD,
-        "totals": NBA_GAME_STD * 1.2,  # Totals have higher variance
-        "props":  NBA_GAME_STD * 0.6,  # Props have lower variance
-    }
-    scale = scales.get(model_type, NBA_GAME_STD)
+    edge = dict(EDGE_SHRINK_PRIOR)
+    prop_price = PROP_PRICE_SHRINK_PRIOR
+    sources = {m: "PRIOR" for m in [*edge, "prop_price"]}
+    try:
+        with open(path) as f:
+            fitted = json.load(f).get("markets", {})
+    except (OSError, ValueError):
+        fitted = {}
+    for market, info in fitted.items():
+        if info.get("status") != "FITTED" or info.get("shrink") is None:
+            continue
+        if market == "prop_price":
+            prop_price = float(info["shrink"])
+        elif market in edge:
+            edge[market] = float(info["shrink"])
+        else:
+            continue
+        sources[market] = "FITTED"
+    return {"edge": edge, "prop_price": prop_price, "sources": sources}
 
-    k = np.pi / (np.sqrt(3) * scale)
-    prob = 1 / (1 + np.exp(-k * edge_pts))
-    return float(np.clip(prob, 0.01, 0.99))
+
+def outcome_std(model_type: str, stat: str = None) -> float:
+    if model_type == "props" and stat:
+        return PROP_OUTCOME_STD.get(str(stat).upper(), OUTCOME_STD["props"])
+    return OUTCOME_STD.get(model_type, NBA_GAME_STD)
+
+
+def win_prob_from_shrink(edge_pts: float, shrink: float, std: float,
+                         cap: float = MAX_EDGE_WIN_PROB) -> float:
+    """P(win) = Phi(shrink * edge / std), clipped to [1 - cap, cap]."""
+    z = shrink * edge_pts / std
+    prob = 0.5 * (1 + math.erf(z / math.sqrt(2)))
+    return float(np.clip(prob, 1 - cap, cap))
+
+
+def prop_model_probability(raw_model_p: float, market_p: float,
+                           shrink: float = None, cap: tuple = PROP_PROB_CAP) -> float:
+    """Move the market's no-vig probability `shrink` of the way toward the model's."""
+    if shrink is None:
+        shrink = load_calibration()["prop_price"]
+    p = market_p + shrink * (raw_model_p - market_p)
+    return float(min(cap[1], max(cap[0], p)))
+
+
+def edge_to_prob(edge_pts: float, model_type: str = "spread", stat: str = None) -> float:
+    """
+    Convert a model edge (in the market's units) to a win probability, for bets
+    without a priced model probability. With the priors, at -110 (52.4% break-even):
+      spread  +3 pts → ~52.5%    +6 pts → ~55%
+      totals  +5 pts → ~52%     +15 pts → ~56.5%
+    """
+    shrink = load_calibration()["edge"].get(model_type, 0.25)
+    return win_prob_from_shrink(edge_pts, shrink, outcome_std(model_type, stat))
 
 
 def kelly_fraction_bet(win_prob: float, juice: int = JUICE_110) -> float:
@@ -131,7 +189,7 @@ def size_probability_bet(win_prob: float, juice: int = JUICE_110,
 
 def size_bet(edge_pts: float, model_type: str = "spread",
              juice: int = JUICE_110, bankroll: float = 1000.0,
-             min_edge: float = None) -> dict:
+             min_edge: float = None, stat: str = None) -> dict:
     """
     Full bet sizing calculation.
 
@@ -161,7 +219,8 @@ def size_bet(edge_pts: float, model_type: str = "spread",
             "verdict":    "PASS",
         }
 
-    win_prob   = edge_to_prob(edge_pts, model_type)
+    # The sign only says which side the play is on; the play's own edge is positive.
+    win_prob   = edge_to_prob(abs(edge_pts), model_type, stat=stat)
     kelly_full = kelly_fraction_bet(win_prob, juice)
     active_cap = MAX_BET_PCT if PRODUCTION_MODE else RESEARCH_MAX_BET_PCT
     kelly_frac = kelly_full * KELLY_FRACTION
@@ -215,7 +274,7 @@ def size_all_bets(best_bets: list, bankroll: float = 1000.0) -> list:
             result = size_probability_bet(model_prob, market_odds, bankroll=bankroll)
             sizing_source = "MODEL_PROBABILITY_AND_BOOK_PRICE"
         else:
-            result = size_bet(edge, bet_type, bankroll=bankroll)
+            result = size_bet(edge, bet_type, bankroll=bankroll, stat=bet.get("stat"))
             sizing_source = "EDGE_TO_PROBABILITY_FALLBACK"
 
         sized.append({

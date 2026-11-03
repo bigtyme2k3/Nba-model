@@ -46,6 +46,13 @@ except ImportError:
     print("[WARN] kelly_sizing.py not found — no unit sizing")
     KELLY_AVAILABLE = False
 
+from kelly_sizing import load_calibration, prop_model_probability
+
+_PROP_CAL = load_calibration()
+# Recorded on each prop so the ledger shows which shrink produced model_probability.
+PROP_CALIBRATION_LABEL = (f"{_PROP_CAL['prop_price']:.2f}_model_edge_vs_no_vig_cap_25_75"
+                          f"_{_PROP_CAL['sources']['prop_price'].lower()}")
+
 try:
     from scrape_refs import get_crew_stats
     REFS_AVAILABLE = True
@@ -416,12 +423,10 @@ def _best_prop_offer(pred, model_info, offers, threshold):
         if implied is None or market_p is None or dec is None:
             continue
 
-        # Research-mode calibration guard. The Normal-from-residual approximation
-        # is not yet forward-calibrated, so shrink it toward the book's no-vig
-        # probability and cap tails before EV/Kelly can act on it.
-        shrink = 0.55
-        model_p = market_p + shrink * (raw_model_p - market_p)
-        model_p = max(0.25, min(0.75, model_p))
+        # The Normal-from-residual approximation is not trusted at face value: shrink
+        # it toward the book's no-vig probability (fitted by calibrate_edges.py once
+        # enough props are graded) and cap tails before EV/Kelly can act on it.
+        model_p = prop_model_probability(raw_model_p, market_p)
         ev = model_p * dec - 1.0
         prob_edge = model_p - market_p
         directional_edge = pred - line if side == "OVER" else line - pred
@@ -922,7 +927,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     "raw_model_probability": round(best["raw_model_probability"], 4),
                     "model_probability": round(best["model_probability"], 4),
                     "market_probability": round(best["market_probability"], 4),
-                    "probability_calibration": "55pct_model_edge_vs_no_vig_cap_25_75",
+                    "probability_calibration": PROP_CALIBRATION_LABEL,
                     "probability_edge": round(best["probability_edge"], 4),
                     "ev": round(best["ev"], 4),
                     "sigma": round(best["sigma"], 4),

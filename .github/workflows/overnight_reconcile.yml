@@ -68,6 +68,10 @@ jobs:
         run: python clv_reconciler.py
         continue-on-error: true
 
+      - name: Calibrate model shrink over the market from graded rows
+        run: python calibrate_edges.py
+        continue-on-error: true
+
       - name: Refresh readiness
         run: python nba_v1_readiness.py
 
@@ -92,10 +96,11 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          git add \
+          # Add only outputs that exist: a single missing path (e.g. a file a
+          # step didn't write tonight) makes `git add` fail and loses the night.
+          for f in \
             data/raw/scores_today.csv \
             data/raw/scores_${{ env.TARGET }}.csv \
-            data/raw/scores_historical.csv \
             data/raw/result_player_box_${{ env.TARGET }}.csv \
             data/raw/result_box_status_${{ env.TARGET }}.json \
             data/history/nba_forward_predictions.jsonl \
@@ -106,7 +111,10 @@ jobs:
             data/tracking/nba_forecast_vs_execution.csv \
             data/tracking/nba_prop_clv.csv \
             data/tracking/nba_prop_clv_report.json \
-            data/tracking/nba_v1_readiness.json
+            data/tracking/nba_v1_readiness.json \
+            models/edge_calibration.json; do
+            if [ -e "$f" ]; then git add "$f"; else echo "skip missing $f"; fi
+          done
           git diff --cached --quiet || git commit -m "✅ NBA overnight evidence reconcile — ${{ env.TARGET }}"
           git reset --hard HEAD
           git clean -fd
