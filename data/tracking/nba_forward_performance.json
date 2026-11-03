@@ -1,16 +1,377 @@
 {
-  "generated_at_utc": "2026-10-20T17:48:19.753948+00:00",
-  "ledger_rows": 67,
-  "certified_rows": 0,
-  "bet_rows": 0,
-  "wins": 0,
-  "losses": 0,
+  "generated_at_utc": "2026-11-03T19:59:31.586824+00:00",
+  "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
+  "ledger_rows": 2742,
+  "certified_rows": 1133,
+  "bet_rows": 56,
+  "wins": 34,
+  "losses": 22,
   "pushes": 0,
-  "hit_rate": null,
-  "by_market": {},
-  "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT_TOWARD_HIT_RATE",
-  "target_date": "2026-10-19",
-  "newly_resolved": 0,
+  "hit_rate": 0.6071,
+  "profit_units": 15.3743,
+  "roi": 0.2745,
+  "probability_calibration": {
+    "rows": 56,
+    "brier": 0.24064,
+    "bins": [
+      {
+        "range": "0.50-0.55",
+        "n": 6,
+        "avg_predicted": 0.5355,
+        "actual_hit_rate": 0.5
+      },
+      {
+        "range": "0.55-0.60",
+        "n": 11,
+        "avg_predicted": 0.5835,
+        "actual_hit_rate": 0.7273
+      },
+      {
+        "range": "0.60-0.65",
+        "n": 7,
+        "avg_predicted": 0.6289,
+        "actual_hit_rate": 0.5714
+      },
+      {
+        "range": "0.65-0.70",
+        "n": 20,
+        "avg_predicted": 0.6776,
+        "actual_hit_rate": 0.7
+      },
+      {
+        "range": "0.70-1.00",
+        "n": 9,
+        "avg_predicted": 0.7203,
+        "actual_hit_rate": 0.4444
+      }
+    ]
+  },
+  "by_market": {
+    "PROP": {
+      "bets": 56,
+      "wins": 34,
+      "losses": 22,
+      "pushes": 0,
+      "hit_rate": 0.6071,
+      "profit_units": 15.3743,
+      "roi": 0.2745
+    }
+  },
+  "by_sportsbook": {
+    "draftkings": {
+      "bets": 25,
+      "resolved": 25,
+      "wins": 17,
+      "losses": 8,
+      "pushes": 0,
+      "hit_rate": 0.68,
+      "profit_units": 10.7819,
+      "roi": 0.4313,
+      "probability_calibration": {
+        "rows": 25,
+        "brier": 0.22993,
+        "bins": [
+          {
+            "range": "0.50-0.55",
+            "n": 2,
+            "avg_predicted": 0.5183,
+            "actual_hit_rate": 0.5
+          },
+          {
+            "range": "0.55-0.60",
+            "n": 5,
+            "avg_predicted": 0.577,
+            "actual_hit_rate": 1.0
+          },
+          {
+            "range": "0.60-0.65",
+            "n": 2,
+            "avg_predicted": 0.6389,
+            "actual_hit_rate": 1.0
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 11,
+            "avg_predicted": 0.6725,
+            "actual_hit_rate": 0.7273
+          },
+          {
+            "range": "0.70-1.00",
+            "n": 4,
+            "avg_predicted": 0.7267,
+            "actual_hit_rate": 0.25
+          }
+        ]
+      }
+    },
+    "fanatics": {
+      "bets": 2,
+      "resolved": 2,
+      "wins": 1,
+      "losses": 1,
+      "pushes": 0,
+      "hit_rate": 0.5,
+      "profit_units": 0.15,
+      "roi": 0.075,
+      "probability_calibration": {
+        "rows": 2,
+        "brier": 0.27872,
+        "bins": [
+          {
+            "range": "0.60-0.65",
+            "n": 1,
+            "avg_predicted": 0.6446,
+            "actual_hit_rate": 1.0
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 1,
+            "avg_predicted": 0.6566,
+            "actual_hit_rate": 0.0
+          }
+        ]
+      }
+    },
+    "fanduel": {
+      "bets": 29,
+      "resolved": 29,
+      "wins": 16,
+      "losses": 13,
+      "pushes": 0,
+      "hit_rate": 0.5517,
+      "profit_units": 4.4424,
+      "roi": 0.1532,
+      "probability_calibration": {
+        "rows": 29,
+        "brier": 0.24724,
+        "bins": [
+          {
+            "range": "0.50-0.55",
+            "n": 4,
+            "avg_predicted": 0.5442,
+            "actual_hit_rate": 0.5
+          },
+          {
+            "range": "0.55-0.60",
+            "n": 6,
+            "avg_predicted": 0.589,
+            "actual_hit_rate": 0.5
+          },
+          {
+            "range": "0.60-0.65",
+            "n": 4,
+            "avg_predicted": 0.62,
+            "actual_hit_rate": 0.25
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 8,
+            "avg_predicted": 0.6872,
+            "actual_hit_rate": 0.75
+          },
+          {
+            "range": "0.70-1.00",
+            "n": 5,
+            "avg_predicted": 0.7152,
+            "actual_hit_rate": 0.6
+          }
+        ]
+      }
+    }
+  },
+  "by_prop_stat": {
+    "AST": {
+      "bets": 16,
+      "resolved": 16,
+      "wins": 11,
+      "losses": 5,
+      "pushes": 0,
+      "hit_rate": 0.6875,
+      "profit_units": 6.9191,
+      "roi": 0.4324,
+      "probability_calibration": {
+        "rows": 16,
+        "brier": 0.21526,
+        "bins": [
+          {
+            "range": "0.50-0.55",
+            "n": 2,
+            "avg_predicted": 0.5449,
+            "actual_hit_rate": 0.5
+          },
+          {
+            "range": "0.55-0.60",
+            "n": 4,
+            "avg_predicted": 0.5893,
+            "actual_hit_rate": 1.0
+          },
+          {
+            "range": "0.60-0.65",
+            "n": 1,
+            "avg_predicted": 0.6314,
+            "actual_hit_rate": 1.0
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 5,
+            "avg_predicted": 0.6684,
+            "actual_hit_rate": 0.6
+          },
+          {
+            "range": "0.70-1.00",
+            "n": 3,
+            "avg_predicted": 0.7155,
+            "actual_hit_rate": 0.6667
+          }
+        ]
+      }
+    },
+    "PRA": {
+      "bets": 4,
+      "resolved": 4,
+      "wins": 2,
+      "losses": 2,
+      "pushes": 0,
+      "hit_rate": 0.5,
+      "profit_units": -0.2609,
+      "roi": -0.0652,
+      "probability_calibration": {
+        "rows": 4,
+        "brier": 0.2484,
+        "bins": [
+          {
+            "range": "0.55-0.60",
+            "n": 1,
+            "avg_predicted": 0.5955,
+            "actual_hit_rate": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 3,
+            "avg_predicted": 0.6753,
+            "actual_hit_rate": 0.6667
+          }
+        ]
+      }
+    },
+    "PTS": {
+      "bets": 10,
+      "resolved": 10,
+      "wins": 5,
+      "losses": 5,
+      "pushes": 0,
+      "hit_rate": 0.5,
+      "profit_units": -0.5688,
+      "roi": -0.0569,
+      "probability_calibration": {
+        "rows": 10,
+        "brier": 0.28889,
+        "bins": [
+          {
+            "range": "0.60-0.65",
+            "n": 2,
+            "avg_predicted": 0.6336,
+            "actual_hit_rate": 0.5
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 6,
+            "avg_predicted": 0.6841,
+            "actual_hit_rate": 0.6667
+          },
+          {
+            "range": "0.70-1.00",
+            "n": 2,
+            "avg_predicted": 0.7262,
+            "actual_hit_rate": 0.0
+          }
+        ]
+      }
+    },
+    "REB": {
+      "bets": 14,
+      "resolved": 14,
+      "wins": 9,
+      "losses": 5,
+      "pushes": 0,
+      "hit_rate": 0.6429,
+      "profit_units": 4.5748,
+      "roi": 0.3268,
+      "probability_calibration": {
+        "rows": 14,
+        "brier": 0.23283,
+        "bins": [
+          {
+            "range": "0.55-0.60",
+            "n": 2,
+            "avg_predicted": 0.5895,
+            "actual_hit_rate": 0.5
+          },
+          {
+            "range": "0.60-0.65",
+            "n": 3,
+            "avg_predicted": 0.6322,
+            "actual_hit_rate": 0.6667
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 5,
+            "avg_predicted": 0.6847,
+            "actual_hit_rate": 0.8
+          },
+          {
+            "range": "0.70-1.00",
+            "n": 4,
+            "avg_predicted": 0.721,
+            "actual_hit_rate": 0.5
+          }
+        ]
+      }
+    },
+    "THREES": {
+      "bets": 12,
+      "resolved": 12,
+      "wins": 7,
+      "losses": 5,
+      "pushes": 0,
+      "hit_rate": 0.5833,
+      "profit_units": 4.71,
+      "roi": 0.3925,
+      "probability_calibration": {
+        "rows": 12,
+        "brier": 0.24079,
+        "bins": [
+          {
+            "range": "0.50-0.55",
+            "n": 4,
+            "avg_predicted": 0.5309,
+            "actual_hit_rate": 0.5
+          },
+          {
+            "range": "0.55-0.60",
+            "n": 4,
+            "avg_predicted": 0.5717,
+            "actual_hit_rate": 0.75
+          },
+          {
+            "range": "0.60-0.65",
+            "n": 1,
+            "avg_predicted": 0.6073,
+            "actual_hit_rate": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "n": 1,
+            "avg_predicted": 0.656,
+            "actual_hit_rate": 1.0
+          }
+        ]
+      }
+    }
+  },
+  "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT; ROI_USES_RECORDED_BOOK_PRICE; PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY; PROP_PERFORMANCE_IS_SPLIT_BY_EXACT_SPORTSBOOK_AND_STAT",
+  "target_date": "2026-11-02",
+  "newly_resolved": 765,
   "score_games_available": 0,
-  "player_actuals_available": 0
+  "player_actuals_available": 394
 }

@@ -103,6 +103,15 @@ def load_and_prepare(path: str) -> pd.DataFrame:
     df = df[df[TARGET].notna()].copy()
     print(f"  Rows with results: {len(df)}")
 
+    if "team_context_complete" in df.columns:
+        before = len(df)
+        df = df[pd.to_numeric(df["team_context_complete"], errors="coerce").fillna(0).eq(1)].copy()
+        print(f"  Rows with complete prior team context: {len(df)} / {before}")
+        if len(df) < max(500, int(before * 0.90)):
+            raise RuntimeError(
+                f"Prior team context coverage too low for spread training: {len(df)}/{before}"
+            )
+
     df = engineer_features(df)
 
     feature_cols = [f for f in SPREAD_FEATURES if f in df.columns]
@@ -141,7 +150,8 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
 
     if "game_date" in df.columns and "season" in df.columns:
         df = df.sort_values(["season", "game_date"])
-        df["season_game_num"] = df.groupby("season").cumcount() + 1
+        if "season_game_num" not in df.columns:
+            df["season_game_num"] = 1
 
     if "game_date" in df.columns:
         df["month"] = df["game_date"].dt.month
@@ -238,13 +248,8 @@ def evaluate_vs_closing_line(preds: np.ndarray, df: pd.DataFrame) -> dict:
 
     eval_df = df.copy()
     eval_df["model_pred"]    = preds
-    # Market lines only exist for games collected since the odds feed started.
-    eval_df = eval_df[eval_df["avg_spread_home_line"].notna()]
-    results["games_with_line"] = len(eval_df)
-    if eval_df.empty:
-        print("  [SKIP] No games with a closing line yet.")
-        return {}
     eval_df["closing_line"]  = -eval_df["avg_spread_home_line"]  # Convert to home perspective
+    eval_df["actual_spread"] = df[TARGET]
 
     eval_df["model_edge"]    = eval_df["model_pred"] - eval_df["closing_line"]
     eval_df["home_covered"]  = eval_df["actual_spread"] > eval_df["closing_line"]
@@ -407,17 +412,26 @@ def train_mode(data_path: str):
         print(f"\n  Saved → {fi_path}")
 
     model_path = os.path.join(MODEL_DIR, "spread_model.pkl")
+    trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
     with open(model_path, "wb") as f:
         pickle.dump({
+            "status":        "trained",
             "model":         final_model,
             "feature_names": feature_names,
             "model_name":    best_name,
             "trained_on":    datetime.now().isoformat(),
+            "trained_rows":  int(len(df)),
+            "trained_through": trained_through,
+            "validation":    "global_chronological_timeseries_split",
+            "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+            "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+            "feature_names_count": int(len(feature_names)),
             "cv_results":    cv_results,
             "clv_results":   clv_results,
         }, f)
 
     print(f"\n✅ Model saved → {model_path}")
+    print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
 
     print("\n═══ TRAINING SUMMARY ═══")
     print(f"  Model type:        {best_name}")

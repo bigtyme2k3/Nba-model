@@ -25,6 +25,7 @@ from pathlib import Path
 PRED_DIR = Path("predictions")
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 STATUS = Path("data/tracking/forward_ledger_status.json")
+EVIDENCE_EPOCH = "NBA_V1_CLEAN_2026-10-27"
 
 
 def norm(value):
@@ -38,12 +39,6 @@ def stable_key(parts):
 def prediction_id(ranking_key, generated):
     raw = f"{ranking_key}|{generated}"
     return hashlib.sha256(raw.encode()).hexdigest()[:24]
-
-
-def is_bet(market):
-    """BET only when Kelly sizing said BET/STRONG. Missing verdict (sizing unavailable,
-    or a prediction file from before verdicts existed) is a PASS, never a BET."""
-    return str(market.get("verdict") or "PASS").upper() in {"BET", "STRONG"}
 
 
 def read_ledger():
@@ -64,6 +59,11 @@ def spread_rows(data):
     date = data.get("date")
     generated = data.get("generated")
     version = data.get("model_version", "NBA_V1.0")
+    final_games = {
+        str(b.get("game",""))
+        for b in (data.get("best_bets") or [])
+        if str(b.get("type","")).upper()=="SPREAD"
+    }
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
         away = game.get("away", {}).get("name", "")
@@ -82,11 +82,12 @@ def spread_rows(data):
                 side = "HOME"
             elif norm(play).startswith(norm(away)):
                 side = "AWAY"
-        decision = "BET" if play and is_bet(sp) else "PASS"
+        decision = "BET" if matchup in final_games else "PASS"
         rk = stable_key([date, matchup, "SPREAD"])
         yield {
             "prediction_id": prediction_id(rk, generated),
             "ranking_key": rk,
+            "evidence_epoch": EVIDENCE_EPOCH,
             "prediction_generated_at_utc": generated,
             "date": date,
             "game": matchup,
@@ -114,6 +115,11 @@ def total_rows(data):
     date = data.get("date")
     generated = data.get("generated")
     version = data.get("model_version", "NBA_V1.0")
+    final_games = {
+        str(b.get("game",""))
+        for b in (data.get("best_bets") or [])
+        if str(b.get("type","")).upper()=="TOTAL"
+    }
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
         away = game.get("away", {}).get("name", "")
@@ -124,11 +130,12 @@ def total_rows(data):
         if line is None or projection is None:
             continue
         side = str(total.get("play") or "PASS").upper()
-        decision = "BET" if side in {"OVER", "UNDER"} and is_bet(total) else "PASS"
+        decision = "BET" if matchup in final_games else "PASS"
         rk = stable_key([date, matchup, "TOTAL"])
         yield {
             "prediction_id": prediction_id(rk, generated),
             "ranking_key": rk,
+            "evidence_epoch": EVIDENCE_EPOCH,
             "prediction_generated_at_utc": generated,
             "date": date,
             "game": matchup,
@@ -156,6 +163,21 @@ def prop_rows(data):
     date = data.get("date")
     generated = data.get("generated")
     version = data.get("model_version", "NBA_V1.0")
+
+    # Only plays that survive the final card/risk filter count as forward BETs.
+    # All other priced model signals are preserved as PASS/watch evidence.
+    best_meta = {}
+    for bet in data.get("best_bets", []) or []:
+        if str(bet.get("type", "")).upper() != "PROP":
+            continue
+        game = str(bet.get("game", ""))
+        player = str(bet.get("player", ""))
+        stat = str(bet.get("stat", "")).lower()
+        if not game or not player or not stat:
+            continue
+        rk = stable_key([date, game, "PROP", player, stat])
+        best_meta[rk] = bet
+
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
         away = game.get("away", {}).get("name", "")
@@ -168,11 +190,13 @@ def prop_rows(data):
                 if line is None or projection is None:
                     continue
                 signal = str(prop.get("signal") or "PASS").upper()
-                decision = "BET" if signal in {"OVER", "UNDER"} and is_bet(prop) else "PASS"
                 rk = stable_key([date, matchup, "PROP", pname, stat])
+                meta = best_meta.get(rk)
+                decision = "BET" if meta is not None else "PASS"
                 yield {
                     "prediction_id": prediction_id(rk, generated),
                     "ranking_key": rk,
+                    "evidence_epoch": EVIDENCE_EPOCH,
                     "prediction_generated_at_utc": generated,
                     "date": date,
                     "game": matchup,
@@ -181,18 +205,31 @@ def prop_rows(data):
                     "stat": stat.upper(),
                     "side": signal,
                     "line": line,
-                    "odds": None,
-                    "sportsbook": "PrizePicks" if prop.get("line") is not None else None,
-                    "market_source": "prizepicks",
+                    "odds": prop.get("odds"),
+                    "sportsbook": prop.get("book"),
+                    "sportsbook_key": prop.get("book_key"),
+                    "market_source": prop.get("market_source"),
                     "projection": projection,
                     "projected_minutes": player.get("proj_min"),
+                    "base_projected_minutes": player.get("base_proj_min"),
+                    "opportunity_direction": player.get("opportunity_direction"),
+                    "opportunity_minutes_delta": player.get("opportunity_minutes_delta"),
+                    "vacancy_sources": player.get("vacancy_sources"),
                     "rotation_risk_band": player.get("rotation_risk_band"),
                     "rotation_stability_score": player.get("rotation_stability_score"),
                     "projected_role": player.get("projected_role"),
                     "edge": prop.get("edge"),
+                    "raw_model_probability": prop.get("raw_model_probability"),
+                    "model_probability": prop.get("model_probability"),
+                    "market_probability": prop.get("market_probability"),
+                    "probability_calibration": prop.get("probability_calibration"),
+                    "probability_edge": prop.get("probability_edge"),
+                    "ev": prop.get("ev"),
                     "decision": decision,
-                    "confidence": None,
-                    "stars": None,
+                    "confidence": meta.get("conf") if meta else None,
+                    "stars": meta.get("stars") if meta else None,
+                    "recommended_units": meta.get("units") if meta else 0,
+                    "recommended_dollar_amt": meta.get("dollar_amt") if meta else 0,
                     "model_version": version,
                     "actual": None,
                     "outcome": "PENDING",
@@ -236,7 +273,8 @@ def main():
         "existing_rows_preserved": len(existing),
         "total_rows": len(existing) + len(new_rows),
         "first_prediction_immutable": True,
-        "policy": "FIRST_OBSERVED_RANKING_KEY_ONLY",
+        "evidence_epoch": EVIDENCE_EPOCH,
+        "policy": "FIRST_OBSERVED_RANKING_KEY_ONLY_WITHIN_CURRENT_EVIDENCE_EPOCH",
         "model_version": data.get("model_version", "NBA_V1.0"),
     }
     STATUS.parent.mkdir(parents=True, exist_ok=True)

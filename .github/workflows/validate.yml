@@ -36,12 +36,22 @@ jobs:
       - name: Import core NBA pipeline
         run: |
           python - <<'PY'
+          import season_filters
           import build_player_features
           import build_team_features
+          import scrape_sportsbook_props
+          import collect_result_box
+          import opportunity_redistribution
           import props_model
           import daily_runner
           import forward_ledger
+          import execution_ledger
+          import execution_reconciler
+          import closing_market
+          import clv_reconciler
           import forward_reconciler
           import results_tracker
+          import nba_v1_readiness
+          import game_model_promotion
           print("Core NBA modules import successfully")
           PY

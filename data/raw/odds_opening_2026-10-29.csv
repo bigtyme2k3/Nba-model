@@ -1,0 +1,4 @@
+game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
+2026-10-29,b123d92eb8046e43fabf95a33a676634,2026-10-30T00:10:00Z,Atlanta Hawks,Cleveland Cavaliers,-1.5,-36.67,237.83,-107.67,-111.0,-107.67,3,the-odds-api-fd-dk-fanatics,2026-10-29T18:48:51.009924+00:00
+2026-10-29,f91d27cc050b1b85073d745372c73833,2026-10-30T00:10:00Z,New Orleans Pelicans,Sacramento Kings,-5.83,-114.33,236.0,-111.67,-242.67,198.33,3,the-odds-api-fd-dk-fanatics,2026-10-29T18:48:51.009952+00:00
+2026-10-29,ba667ca1b0b042f0661cb9d9af56c165,2026-10-30T02:10:00Z,Portland Trail Blazers,Memphis Grizzlies,-7.5,-110.0,232.5,-108.33,-292.67,236.67,3,the-odds-api-fd-dk-fanatics,2026-10-29T18:48:51.009972+00:00

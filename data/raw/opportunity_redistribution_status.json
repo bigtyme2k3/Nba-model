@@ -1,0 +1,16 @@
+{
+  "status": "READY",
+  "target_date": "2026-11-03",
+  "generated_at_utc": "2026-11-03T19:59:29.762095+00:00",
+  "injury_feed_status": "ok",
+  "injury_rows": 93,
+  "slate_teams": [],
+  "teams_affected": 11,
+  "absences_modeled": 17,
+  "recipient_rows": 104,
+  "unallocated_minutes": 0.0,
+  "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
+  "coach_intent_inferred": false,
+  "tracking_opportunity_data_used": false,
+  "adjustment_rows": 182
+}

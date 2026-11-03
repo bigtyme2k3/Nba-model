@@ -1,0 +1,16 @@
+game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
+2026-11-02,0a12a55607db0bd7eeafee050c45988e,2026-11-03T00:10:00Z,Cleveland Cavaliers,Oklahoma City Thunder,-4.33,-106.33,229.5,-110.0,-173.67,145.0,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275086+00:00
+2026-11-02,53ad3f78c949e79381b5e90a70293ac6,2026-11-03T00:40:00Z,Indiana Pacers,Atlanta Hawks,10.33,-112.0,229.17,-112.67,328.67,-422.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275108+00:00
+2026-11-02,4f6688e4d1818bd8bb3e65352c7a0406,2026-11-03T00:40:00Z,New York Knicks,Brooklyn Nets,-14.5,-115.67,218.5,-111.0,-1046.67,676.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275123+00:00
+2026-11-02,fdf913d713fd5851d418c59872bdf265,2026-11-03T00:40:00Z,Charlotte Hornets,Detroit Pistons,5.5,-104.67,210.0,-109.33,189.33,-229.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275137+00:00
+2026-11-02,0a808d8f7afab3c0e249ca284c470806,2026-11-03T00:40:00Z,Philadelphia 76ers,Chicago Bulls,-10.0,-111.33,238.67,-111.33,-509.0,388.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275148+00:00
+2026-11-02,6acd74a2d987fa101c79eaf378fd5891,2026-11-03T00:40:00Z,Orlando Magic,Washington Wizards,-3.17,-109.0,225.5,-106.67,-155.33,131.0,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275164+00:00
+2026-11-02,df7f8fce0b1c11db5140d60e1e126eb3,2026-11-03T01:10:00Z,Dallas Mavericks,Sacramento Kings,-8.5,-109.33,231.83,-108.33,-331.33,263.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275175+00:00
+2026-11-02,6579d9162df09172d12f48eecc5220fb,2026-11-03T01:10:00Z,Memphis Grizzlies,New Orleans Pelicans,-5.5,-109.33,232.33,-108.0,-200.33,166.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275186+00:00
+2026-11-02,6907851d65a9d0046d4c6c2f4ffb5e80,2026-11-03T01:10:00Z,Minnesota Timberwolves,Milwaukee Bucks,-10.5,-110.0,230.5,-110.0,-422.67,328.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275199+00:00
+2026-11-02,d6cb49b0ae478270e74d0e7ce7082e57,2026-11-03T01:40:00Z,Houston Rockets,Boston Celtics,-5.0,-110.0,215.5,-109.33,-193.33,160.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275210+00:00
+2026-11-02,fe9664deb3e21a28b10a3de39adfb82a,2026-11-03T01:40:00Z,San Antonio Spurs,Utah Jazz,-16.33,-107.67,228.83,-106.67,-1093.33,700.0,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275220+00:00
+2026-11-02,1dd700c1205f0c7287e5df99c7a17822,2026-11-03T02:10:00Z,Denver Nuggets,Portland Trail Blazers,-4.33,-106.33,231.17,-110.67,-171.67,143.67,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275231+00:00
+2026-11-02,27c333f22603d4eda3b9b6a3888476dc,2026-11-03T03:10:00Z,Golden State Warriors,Phoenix Suns,-2.83,-111.0,227.0,-110.33,-141.67,119.33,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275242+00:00
+2026-11-02,afde8462706839f30115ea9d5f761066,2026-11-03T03:10:00Z,Los Angeles Clippers,Toronto Raptors,4.17,-41.67,219.5,-109.33,151.0,-180.0,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275253+00:00
+2026-11-02,f4e4165c2b9e53531629f6d0ab982b13,2026-11-03T03:10:00Z,Los Angeles Lakers,Miami Heat,-2.33,-106.67,236.83,-108.33,-135.0,113.0,3,the-odds-api-fd-dk-fanatics,2026-11-02T22:10:37.275263+00:00

@@ -1,0 +1,11 @@
+game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
+2026-10-30,45ebc54751ef3e435192eaeb0470acfb,2026-10-30T23:10:00Z,Washington Wizards,Charlotte Hornets,0.33,-40.67,219.17,-111.33,-106.0,-112.67,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658108+00:00
+2026-10-30,036a93ca33d6261c21d4bfa6e0d02568,2026-10-30T23:40:00Z,Boston Celtics,Chicago Bulls,-15.0,-109.67,235.17,-113.33,-883.33,595.0,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658136+00:00
+2026-10-30,64df299b882ea19ad5f8cb0ed5516a6f,2026-10-30T23:40:00Z,Brooklyn Nets,Detroit Pistons,8.5,-113.33,221.67,-109.33,258.33,-325.0,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658157+00:00
+2026-10-30,96a166bbd49782dbd9a61c2fb9069787,2026-10-30T23:40:00Z,Philadelphia 76ers,New York Knicks,1.67,-106.67,227.0,-110.67,106.67,-126.67,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658175+00:00
+2026-10-30,a0f5d89a4fc51e52edd0e70d1e4cbaf2,2026-10-30T23:40:00Z,Toronto Raptors,Orlando Magic,-5.5,-111.67,227.0,-111.0,-216.0,178.67,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658193+00:00
+2026-10-30,b9778d0e3a26167eb49901dcae7eeb98,2026-10-31T00:10:00Z,Dallas Mavericks,Houston Rockets,6.5,-110.0,224.0,-108.33,191.67,-234.33,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658210+00:00
+2026-10-30,c3a424e24d426af94a693e06a33e3037,2026-10-31T00:10:00Z,Miami Heat,Indiana Pacers,-8.17,-117.33,237.5,-108.33,-315.0,251.67,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658228+00:00
+2026-10-30,cac1461f5983a88fac612685395aa897,2026-10-31T00:10:00Z,Minnesota Timberwolves,Los Angeles Clippers,-7.33,-105.67,223.17,-112.33,-271.0,220.0,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658245+00:00
+2026-10-30,9ae108f7a23e86e8102237053dd9e58d,2026-10-31T02:10:00Z,Phoenix Suns,Denver Nuggets,4.33,-112.33,231.5,-108.67,149.0,-178.33,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658261+00:00
+2026-10-30,761c15cdefb5a94e34f234e11d6e57ad,2026-10-31T02:10:00Z,Golden State Warriors,Los Angeles Lakers,3.17,-111.33,234.33,-107.67,124.33,-148.0,3,the-odds-api-fd-dk-fanatics,2026-10-30T18:26:21.658278+00:00

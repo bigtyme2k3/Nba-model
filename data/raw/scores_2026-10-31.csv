@@ -1,0 +1,8 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-31,401909896,STATUS_SCHEDULED,False,False,Utah Jazz,Portland Trail Blazers,0,0,0,0,,,,,,,,,POR -7.5,231.5,Delta Center,0,2026-10-31T17:31:48.000048
+2026-10-31,401909897,STATUS_SCHEDULED,False,False,Charlotte Hornets,Philadelphia 76ers,0,0,0,0,,,,,,,,,CHA -1.5,214.5,Spectrum Center,0,2026-10-31T17:31:48.000065
+2026-10-31,401909898,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Atlanta Hawks,0,0,0,0,,,,,,,,,ATL -4.5,240.5,Smoothie King Center,0,2026-10-31T17:31:48.000075
+2026-11-01,401909899,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Sacramento Kings,0,0,0,0,,,,,,,,,MEM -8.5,230.5,FedExForum,0,2026-10-31T17:31:48.000094
+2026-11-01,401909900,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Cleveland Cavaliers,0,0,0,0,,,,,,,,,CLE -9.5,235.5,Fiserv Forum,0,2026-10-31T17:31:48.000102
+2026-11-01,401909901,STATUS_SCHEDULED,False,False,San Antonio Spurs,Minnesota Timberwolves,0,0,0,0,,,,,,,,,SA -12.5,225.5,Frost Bank Center,0,2026-10-31T17:31:48.000110
+2026-11-01,401909902,STATUS_SCHEDULED,False,False,Houston Rockets,Oklahoma City Thunder,0,0,0,0,,,,,,,,,HOU -2.5,219.5,Toyota Center (Houston),0,2026-10-31T17:31:48.000119

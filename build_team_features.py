@@ -24,10 +24,17 @@ import numpy as np
 import pandas as pd
 
 from teams import TEAM_ABBR, normalize_team
+from season_filters import filter_games_for_source, nba_season_start_year
 
 RAW_DIR = "data/raw"
 OUT_DIR = "data/processed"
 ABBR_TO_TEAM = {abbr: team for team, abbr in TEAM_ABBR.items()}
+
+def source_files(raw_dir: str):
+    files = set(glob(os.path.join(raw_dir, "hoopr_team_box_20*.csv")))
+    files.update(glob(os.path.join(raw_dir, "espn_current_team_box_20*.csv")))
+    return sorted(files)
+
 
 
 def season_from_path(path):
@@ -58,18 +65,17 @@ def num(df, candidates):
 
 def load_team_boxes(raw_dir):
     frames = []
-    for path in sorted(glob(os.path.join(raw_dir, "hoopr_team_box_20*.csv"))):
+    for path in source_files(raw_dir):
         try:
             df = pd.read_csv(path, low_memory=False)
         except Exception:
             continue
         if df.empty or "game_id" not in df.columns:
             continue
-        season = season_from_path(path)
-        if "season" not in df.columns and season is not None:
-            df["season"] = season
+        df, _ = filter_games_for_source(df, raw_dir, path, label="team-box rows")
         df["game_id"] = df["game_id"].astype(str)
         df["game_date"] = pd.to_datetime(df.get("game_date"), errors="coerce")
+        df["season"] = df["game_date"].map(nba_season_start_year)
         df["team"] = df.apply(canonical_team, axis=1)
         df["points"] = num(df, ["team_score", "points", "pts"])
         df["opp_points"] = num(df, ["opponent_team_score", "opp_points"])
@@ -99,6 +105,64 @@ def load_team_boxes(raw_dir):
 def avg(frame, col):
     s = pd.to_numeric(frame[col], errors="coerce").dropna()
     return float(s.mean()) if not s.empty else np.nan
+
+
+def build_game_context(df):
+    """Build leakage-safe pregame team context for every historical team-game row.
+
+    Every value is calculated from games completed strictly BEFORE the target game.
+    These columns intentionally match daily_runner.py live team-profile semantics.
+    """
+    if df.empty:
+        return pd.DataFrame()
+
+    work = df.sort_values(["season","team","game_date","game_id"]).copy()
+    work["games_prior"] = work.groupby(["season","team"]).cumcount()
+
+    metric_map = {
+        "poss": "pace",
+        "ortg": "ortg",
+        "drtg": "drtg",
+        "net_rtg": "net_rtg",
+        "ts_pct": "ts_pct",
+    }
+    for source, out_name in metric_map.items():
+        values = pd.to_numeric(work[source], errors="coerce")
+        work[out_name] = (
+            values.groupby(work["team"])
+            .transform(lambda x: x.shift(1).rolling(10, min_periods=1).mean())
+        )
+
+    for source, label in [
+        ("net_rtg", "net_rtg"),
+        ("points", "points"),
+        ("opp_points", "allowed"),
+    ]:
+        values = pd.to_numeric(work[source], errors="coerce")
+        work[f"roll5_{label}"] = (
+            values.groupby(work["team"])
+            .transform(lambda x: x.shift(1).rolling(5, min_periods=1).mean())
+        )
+        work[f"roll10_{label}"] = (
+            values.groupby(work["team"])
+            .transform(lambda x: x.shift(1).rolling(10, min_periods=1).mean())
+        )
+
+    keep = [
+        "game_id","season","game_date","team","games_prior",
+        "pace","ortg","drtg","net_rtg","ts_pct",
+        "roll5_net_rtg","roll10_net_rtg",
+        "roll5_points","roll10_points",
+        "roll5_allowed","roll10_allowed",
+    ]
+    out = work[keep].copy()
+
+    # Guard against target leakage/cardinality mistakes.
+    if out.duplicated(["game_id","team"]).any():
+        raise RuntimeError("Team game context is not unique by game_id/team")
+
+    # The first game of a season has no same-season prior data by design.
+    return out
 
 
 def build_profiles(df):
@@ -145,7 +209,13 @@ def main():
     profiles = build_profiles(boxes)
     out = Path(args.out, "team_profiles_latest.csv")
     profiles.to_csv(out, index=False)
+
+    game_context = build_game_context(boxes)
+    context_out = Path(args.out, "team_game_context.csv")
+    game_context.to_csv(context_out, index=False)
+
     seasons = sorted(int(x) for x in pd.to_numeric(boxes["season"], errors="coerce").dropna().unique())
+    prior_rows = int(game_context["pace"].notna().sum()) if not game_context.empty else 0
     status = {
         "status": "READY",
         "source_rows": int(len(boxes)),
@@ -154,7 +224,10 @@ def main():
         "min_game_date": boxes["game_date"].min().date().isoformat(),
         "max_game_date": boxes["game_date"].max().date().isoformat(),
         "output": str(out),
-        "policy": "COMPLETED_GAMES_ONLY",
+        "game_context_output": str(context_out),
+        "game_context_rows": int(len(game_context)),
+        "pregame_context_rows_with_prior": prior_rows,
+        "policy": "COMPLETED_GAMES_ONLY; HISTORICAL_CONTEXT_SHIFT_1_PRIOR_ONLY; ROLLING_CONTEXT_CONTINUES_ACROSS_SEASONS",
     }
     Path(args.out, "team_features_status.json").write_text(json.dumps(status, indent=2) + "\n")
     print(json.dumps(status, indent=2))

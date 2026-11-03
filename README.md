@@ -44,7 +44,7 @@ minutes/rotation context → model vs market → immutable forward evidence → 
 Every morning at 9 AM ET, GitHub Actions:
 - Collects team/player box scores (hoopR release data + ESPN API)
 - Scrapes lines from The Odds API
-- Scrapes player props from PrizePicks
+- Pulls FanDuel / DraftKings / Fanatics player props and prices from The Odds API
 - Scrapes scores from ESPN
 - Pulls injury reports and referee assignments
 - Rebuilds real player/rotation and team rolling profiles from completed games
@@ -70,44 +70,87 @@ reports `null` for `cv_mae` / `hit_rate` / etc. until you've actually run
 
 ## Manual trigger
 
-Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date`, and tick
-`retrain` to retrain the models first; scheduled runs retrain every Monday).
+Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date`).
 
 ## Files
 
 - `teams.py` — canonical team names, ESPN ids, conferences, timezones (single source of truth)
 - `active_slate_date.py` — Eastern-time slate date resolution + season guard
-- `scrape_odds.py` / `scrape_props.py` / `scrape_scores.py` / `scrape_injuries.py` / `scrape_refs.py` — data collection, each quota/network-safe (writes empty-but-valid output instead of failing the pipeline)
+- `scrape_odds.py` — pregame FanDuel / DraftKings / Fanatics spreads, totals and moneylines
+- `scrape_sportsbook_props.py` — priced player props for points, rebounds, assists, threes and PRA
+- `scrape_scores.py` / `scrape_injuries.py` / `scrape_refs.py` — scores, league-wide injury status and referee context
+- `opportunity_redistribution.py` — conservative confirmed-OUT minutes/usage redistribution with rotation safeguards
 - `collect_stats.py` — historical + current-season box scores (hoopR release data, ESPN fallback)
-  (seasons are labeled by the year they end, hoopR-style: `2026` = 2025-26, `2027` = 2026-27; preseason is skipped)
 - `build_player_features.py` — prior-only player feature store + minutes/rotation profiles
 - `build_team_features.py` — rolling team pace/efficiency profiles from completed games
 - `merge_data.py` — joins game box scores + odds into `data/processed/master_all.csv`
 - `spread_model.py` / `totals_model.py` / `props_model.py` — training + prediction
-- `kelly_sizing.py` / `betting_engine.py` — bet sizing, EV, decision scoring. Win probability
-  is `Phi(shrink * edge / outcome_std)`, capped at 60%: only part of a model edge is assumed real
-- `calibrate_edges.py` — fits that shrink per market from graded forward bets (needs 200 per
-  market; priors until then) into `models/edge_calibration.json`
+- `kelly_sizing.py` / `betting_engine.py` — bet sizing, EV, decision scoring
 - `daily_runner.py` — orchestrates a full day's predictions into `predictions/predictions_YYYY-MM-DD.json`
-- `forward_ledger.py` — append-only first-observed NBA predictions, including BET/PASS
-- `forward_reconciler.py` — resolves actual outcomes without changing original prediction fields
+- `forward_ledger.py` — immutable first-observed NBA forecasts, including BET/PASS
+- `execution_ledger.py` — separate append-only near-tip execution snapshots
+- `forward_reconciler.py` — resolves actual outcomes and publishes price-aware ROI + probability calibration
+- `nba_v1_readiness.py` — governance gate separating healthy pipeline, forward-testing readiness and production readiness
 - `results_tracker.py` / `line_movement.py` — grading and closing-line-value tracking
 - `build_dashboard.py` — bakes the day's data into `docs/index.html` (generates it from scratch on first run)
 
-## Current model state / next upgrades
+## NBA V1 current state
 
-- Real player and team profiles now overlay the old seed dictionaries whenever the
-  processed feature stores are present. The seed values remain only as fail-safe
-  fallbacks for missing data; production predictions should report real-profile coverage.
-- Player prop market lines currently come from PrizePicks. The next production data
-  upgrade is sportsbook-specific FanDuel / DraftKings / Fanatics lines and prices so
-  EV, book selection, and CLV are measured per book rather than against one prop feed.
-- Injury statuses are collected and OUT players are removed/adjusted, but full
-  opportunity redistribution (minutes + usage + assists/rebounds/touches vacated by an
-  inactive player) is still an NBA V1 priority.
-- Team defense is currently overall rolling defensive efficiency; a validated
-  position/archetype matchup layer comes after the core forward evidence is stable.
-- The edge shrink priors in `kelly_sizing.py` (`EDGE_SHRINK_PRIOR`) are deliberately
-  conservative guesses; `calibrate_edges.py` replaces them once forward evidence exists.
-- Model promotion should be based on the immutable forward ledger, not retrospective
-  fit alone.
+NBA V1 is **research / forward-testing only**. Prediction artifacts are stamped
+`research_only=true` and default Kelly sizing is capped at **1% of bankroll**.
+The larger 5% production cap requires an explicit future production-mode switch.
+
+The canonical data contract now separates Sportsdataverse historical releases
+(ending-year keys, e.g. `hoopr_*_2026` = 2025-26) from live ESPN current-season
+files (`espn_current_*_2026` = 2026-27). Internally every row uses a season-start
+year derived from its game date. Preseason and All-Star exhibition rows are
+excluded before feature/model training.
+
+Current validated baseline performance on the corrected 6,627-game master:
+
+| Model | Selected algorithm | Walk-forward MAE | Notes |
+|---|---|---:|---|
+| Spread | Ridge | 11.35 | 63.4% directional accuracy; baseline challenger |
+| Total | Ridge | 15.27 | Cardinality-safe 6,627-game training set |
+| Points prop | HistGBR | 4.68 | trained through 2026-10-26 |
+| Rebounds prop | HistGBR | 1.97 | trained through 2026-10-26 |
+| Assists prop | HistGBR | 1.37 | trained through 2026-10-26 |
+| Threes prop | HistGBR | 0.91 | trained through 2026-10-26 |
+| PRA prop | HistGBR | 6.19 | trained through 2026-10-26 |
+
+Prop prices are compared per sportsbook using recorded American odds and
+no-vig probabilities. Because model probabilities are not yet forward-calibrated,
+the research engine shrinks probability edges 55% toward the no-vig market and
+caps probability tails before EV/Kelly sizing. Final research cards also enforce
+**one bankroll-bearing prop per player**; additional same-player signals remain
+visible for research but cannot stack correlated minutes/usage exposure.
+
+### Forward-testing policy
+
+Morning/first-observed forecasts and near-tip execution snapshots are stored in
+separate append-only ledgers. A third append-only ledger captures the exact
+FanDuel / DraftKings / Fanatics prop market 8–25 minutes before scheduled tip.
+CLV is matched back to the **same sportsbook, player, stat and side**; positive
+line CLV always means the entry beat the closing number.
+
+Production promotion is blocked until there is a meaningful certified forward
+sample (currently configured as at least 200 total priced bets and 100 prop
+bets), positive price-aware ROI, acceptable Brier calibration, at least 100
+matched exact-book closes, a 50%+ beat-close rate, a nonnegative aggregate CLV
+signal, plus review of book/market splits and drawdowns.
+
+### Current development queue
+
+- Leakage-safe historical pace/ORTG/DRTG/net-rating/TS context is now implemented
+  with 99.76% complete-game coverage. A paired time-series ablation improved both
+  spread and totals in all four folds after train/live feature semantics were aligned.
+  The corrected challengers are approved for a champion-gated rebuild after the
+  current live evidence window; they are not yet published champions.
+- Accumulate forward sportsbook evidence and use it to calibrate prop probabilities.
+- Accumulate exact-book closing-line evidence and compare CLV stability by sportsbook/market.
+- A lightweight overnight reconciler now grades completed slates without rebuilding
+  the entire current season or consuming Odds API credits.
+- Add richer opportunity data (potential assists, rebound chances, touches/shot
+  attempts vacated) only when a trustworthy historical/live source is available.
+- Keep injury/rotation uncertainty fail-closed: questionable/doubtful players do
+  not donate speculative minutes, and their own prop signals are blocked.

@@ -8,7 +8,7 @@ import os, pickle, warnings, argparse
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import Ridge
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import TimeSeriesSplit
@@ -47,7 +47,17 @@ def engineer_totals_features(df):
         (df.get("away_back_to_back", pd.Series(0, index=df.index)).astype(int) == 1)
     ).astype(int)
 
-    df = add_rolling_scoring(df)
+    rolling_cols = [
+        "home_rolling_total_5g","away_rolling_total_5g",
+        "home_rolling_allowed_5g","away_rolling_allowed_5g",
+    ]
+    if not all(col in df.columns for col in rolling_cols):
+        df = add_rolling_scoring(df)
+    else:
+        df["rolling_total_sum_5g"] = (
+            pd.to_numeric(df["home_rolling_total_5g"], errors="coerce")
+            + pd.to_numeric(df["away_rolling_total_5g"], errors="coerce")
+        )
 
     for col in ["home_back_to_back","away_back_to_back","long_travel"]:
         if col in df.columns:
@@ -60,7 +70,21 @@ def engineer_totals_features(df):
     return df
 
 def add_rolling_scoring(df, window=5):
-    df = df.sort_values(["season","game_date"]).reset_index(drop=True)
+    """Add strictly prior rolling scoring features without changing game cardinality."""
+    df = df.sort_values(["season","game_date"]).reset_index(drop=True).copy()
+    base_len = len(df)
+
+    if "game_id" in df.columns:
+        ids = df["game_id"].astype(str).str.strip()
+        nonblank = df["game_id"].notna() & ids.ne("") & ids.ne("nan")
+        dupes = nonblank & ids.duplicated(keep=False)
+        if dupes.any():
+            sample = ids[dupes].head(10).tolist()
+            raise RuntimeError(
+                f"Totals feature input contains duplicate nonblank game_id rows: "
+                f"{int(dupes.sum())} duplicate rows; sample={sample}"
+            )
+
     if "home_pts" not in df.columns or "away_pts" not in df.columns:
         for col in [f"home_rolling_total_{window}g", f"away_rolling_total_{window}g",
                     f"home_rolling_allowed_{window}g", f"away_rolling_allowed_{window}g",
@@ -72,8 +96,21 @@ def add_rolling_scoring(df, window=5):
     home_rec.columns = ["game_date","season","team","pts_scored","pts_allowed"]
     away_rec = df[["game_date","season","away_team","away_pts","home_pts"]].copy()
     away_rec.columns = ["game_date","season","team","pts_scored","pts_allowed"]
-    all_rec = pd.concat([home_rec, away_rec]).sort_values(["team","season","game_date"])
+
+    all_rec = pd.concat([home_rec, away_rec], ignore_index=True)
     all_rec = all_rec[all_rec["pts_scored"].notna()].copy()
+    all_rec = all_rec.sort_values(["team","season","game_date"]).reset_index(drop=True)
+
+    # One team should appear at most once on a given NBA date. If source duplication
+    # survives the game-level guards, fail loudly instead of creating a Cartesian join.
+    key_cols = ["game_date","season","team"]
+    dupes = all_rec.duplicated(key_cols, keep=False)
+    if dupes.any():
+        sample = all_rec.loc[dupes, key_cols].head(10).to_dict("records")
+        raise RuntimeError(
+            f"Rolling scoring history is not unique by team/date: "
+            f"{int(dupes.sum())} duplicate rows; sample={sample}"
+        )
 
     for col in ["pts_scored","pts_allowed"]:
         all_rec[f"rolling_{window}g_{col}"] = (
@@ -82,13 +119,30 @@ def add_rolling_scoring(df, window=5):
         )
 
     for side, prefix in [("home_team","home"), ("away_team","away")]:
-        merge = all_rec[["game_date","season","team",
-                          f"rolling_{window}g_pts_scored",
-                          f"rolling_{window}g_pts_allowed"]].copy()
-        merge.columns = ["game_date","season",side,
-                         f"{prefix}_rolling_total_{window}g",
-                         f"{prefix}_rolling_allowed_{window}g"]
-        df = df.merge(merge, on=["game_date","season",side], how="left")
+        lookup = all_rec[
+            ["game_date","season","team",
+             f"rolling_{window}g_pts_scored",
+             f"rolling_{window}g_pts_allowed"]
+        ].copy()
+        lookup.columns = [
+            "game_date","season",side,
+            f"{prefix}_rolling_total_{window}g",
+            f"{prefix}_rolling_allowed_{window}g",
+        ]
+        lookup = lookup.drop_duplicates(
+            subset=["game_date","season",side], keep="last"
+        )
+        df = df.merge(
+            lookup,
+            on=["game_date","season",side],
+            how="left",
+            validate="many_to_one",
+        )
+        if len(df) != base_len:
+            raise RuntimeError(
+                f"Totals rolling merge changed game cardinality after {side}: "
+                f"{base_len} -> {len(df)}"
+            )
 
     df[f"rolling_total_sum_{window}g"] = (
         df.get(f"home_rolling_total_{window}g", pd.Series(114, index=df.index)).fillna(114) +
@@ -100,7 +154,30 @@ def train_totals_model(data_path):
     print("\n═══ NBA TOTALS MODEL — TRAINING ═══\n")
     df = pd.read_csv(data_path, parse_dates=["game_date"])
     df = df.sort_values(["season","game_date"]).reset_index(drop=True)
+
+    if "team_context_complete" in df.columns:
+        before_context = len(df)
+        df = df[pd.to_numeric(df["team_context_complete"], errors="coerce").fillna(0).eq(1)].copy()
+        print(f"Rows with complete prior team context: {len(df)} / {before_context}")
+        if len(df) < max(500, int(before_context * 0.90)):
+            raise RuntimeError(
+                f"Prior team context coverage too low for totals training: {len(df)}/{before_context}"
+            )
+
+    raw_rows = len(df)
+    if "game_id" in df.columns:
+        ids = df["game_id"].astype(str).str.strip()
+        nonblank = df["game_id"].notna() & ids.ne("") & ids.ne("nan")
+        if ids[nonblank].duplicated().any():
+            sample = ids[nonblank][ids[nonblank].duplicated(keep=False)].head(10).tolist()
+            raise RuntimeError(
+                f"Totals training master contains duplicate nonblank game_id rows: {sample}"
+            )
     df = engineer_totals_features(df)
+    if len(df) != raw_rows:
+        raise RuntimeError(
+            f"Totals feature engineering changed row count: {raw_rows} -> {len(df)}"
+        )
     df = df[df[TARGET].notna()].copy()
 
     available = [f for f in TOTALS_FEATURES if f in df.columns]
@@ -111,8 +188,9 @@ def train_totals_model(data_path):
     tscv = TimeSeriesSplit(n_splits=4)
     models = {
         "Ridge":  Pipeline([("sc", StandardScaler()), ("m", Ridge(alpha=10.0))]),
-        "RF":     Pipeline([("m", RandomForestRegressor(n_estimators=200, max_depth=5,
-                                                         min_samples_leaf=8, random_state=42))]),
+        "HistGBR": Pipeline([("m", HistGradientBoostingRegressor(
+                    max_iter=180, learning_rate=0.05, max_leaf_nodes=15,
+                    min_samples_leaf=20, l2_regularization=1.0, random_state=42))]),
     }
 
     cv_results = {}
@@ -152,11 +230,24 @@ def train_totals_model(data_path):
                               "line_mae":  float(mean_absolute_error(y.values[valid], line[valid]))}
 
     path = os.path.join(MODEL_DIR, "totals_model.pkl")
+    trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
     with open(path, "wb") as f:
-        pickle.dump({"model": final, "feature_names": available,
-                     "model_name": best_name, "cv_results": cv_results,
-                     "ou_results": ou_results}, f)
+        pickle.dump({
+            "status": "trained",
+            "model": final,
+            "feature_names": available,
+            "model_name": best_name,
+            "cv_results": cv_results,
+            "ou_results": ou_results,
+            "trained_rows": int(len(df)),
+            "trained_through": trained_through,
+            "validation": "global_chronological_timeseries_split",
+            "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+            "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+            "feature_names_count": int(len(available)),
+        }, f)
     print(f"\n✅ Saved → {path}")
+    print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
     print(f"\n═══ SUMMARY ═══")
     print(f"  Model: {best_name} | CV MAE: {cv_results[best_name]['mae']:.2f} pts")
     if ou_results:

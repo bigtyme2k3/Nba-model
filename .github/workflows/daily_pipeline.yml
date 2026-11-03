@@ -1,5 +1,9 @@
 name: NBA Daily Pipeline
 
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
 on:
   schedule:
     - cron: '0 13 * * *'   # 9 AM ET
@@ -9,11 +13,6 @@ on:
         description: 'Target date (YYYY-MM-DD), leave blank for today'
         required: false
         default: ''
-      retrain:
-        description: 'Retrain models before predicting'
-        type: boolean
-        required: false
-        default: false
 
 jobs:
   run-pipeline:
@@ -45,14 +44,6 @@ jobs:
           echo "TARGET=$TARGET" >> $GITHUB_ENV
           echo "YESTERDAY=$(date -u -d "$TARGET -1 day" +%Y-%m-%d 2>/dev/null || date -j -v-1d -f %Y-%m-%d "$TARGET" +%Y-%m-%d)" >> $GITHUB_ENV
           echo "YEAR=$(date -u +%Y)" >> $GITHUB_ENV
-          # Retrain on scheduled Monday runs, or when requested on a manual run.
-          # (The cron fires daily, so github.event.schedule can't single out Mondays.)
-          if [ "${{ github.event.inputs.retrain }}" = "true" ] || \
-             { [ "${{ github.event_name }}" = "schedule" ] && [ "$(date -u +%u)" = "1" ]; }; then
-            echo "RETRAIN=true" >> $GITHUB_ENV
-          else
-            echo "RETRAIN=false" >> $GITHUB_ENV
-          fi
 
       - name: Skip run outside the NBA season
         run: |
@@ -77,10 +68,10 @@ jobs:
           python line_movement.py --opening --date ${{ env.TARGET }}
         continue-on-error: true
 
-      # ── Step 3: Props ────────────────────────────────────────────────────
-      - name: Scrape PrizePicks props
+      # ── Step 3: Sportsbook player props ──────────────────────────────────
+      - name: Scrape FanDuel DraftKings Fanatics props
         if: env.SKIP != 'true'
-        run: python scrape_props.py --date ${{ env.TARGET }} --out data/raw
+        run: python scrape_sportsbook_props.py --date ${{ env.TARGET }} --out data/raw
         continue-on-error: true
 
       # ── Step 4: Scores ───────────────────────────────────────────────────
@@ -101,25 +92,36 @@ jobs:
         run: python scrape_refs.py --out data/raw
         continue-on-error: true
 
-      # ── Step 7: Merge ────────────────────────────────────────────────────
-      - name: Merge data
-        if: env.SKIP != 'true'
-        run: python merge_data.py --year all --raw data/raw --out data/processed
-
-      # ── Step 8: Player / rotation features ───────────────────────────────
+      # ── Step 7: Leakage-safe feature stores ──────────────────────────────
       - name: Build player, rotation, and team feature stores
         if: env.SKIP != 'true'
         run: |
           python build_player_features.py --raw data/raw --out data/processed
           python build_team_features.py --raw data/raw --out data/processed
 
-      # ── Step 9: Retrain (Mondays, or manual run with retrain) ────────────
-      - name: Retrain models
-        if: env.SKIP != 'true' && env.RETRAIN == 'true'
+      # ── Step 8: Merge model master with prior-only team context ───────────
+      - name: Merge data
+        if: env.SKIP != 'true'
+        run: python merge_data.py --year all --raw data/raw --out data/processed
+
+      # ── Step 9: Retrain (Mondays only) ───────────────────────────────────
+      - name: Retrain models when target date is Monday
+        if: env.SKIP != 'true'
         run: |
-          python spread_model.py --mode train --data data/processed/master_all.csv
-          python totals_model.py --mode train --data data/processed/master_all.csv
-          python props_model.py  --mode train
+          DOW=$(python - <<'PY'
+          from datetime import datetime
+          import os
+          print(datetime.strptime(os.environ["TARGET"], "%Y-%m-%d").weekday())
+          PY
+          )
+          if [ "$DOW" = "0" ]; then
+            echo "Monday target — retraining all models."
+            python spread_model.py --mode train --data data/processed/master_all.csv
+            python totals_model.py --mode train --data data/processed/master_all.csv
+            python props_model.py  --mode train
+          else
+            echo "Target is not Monday — keeping current trained bundles."
+          fi
 
       # ── Step 10: Predictions ──────────────────────────────────────────────
       - name: Generate predictions
@@ -145,15 +147,20 @@ jobs:
         run: python forward_reconciler.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
-      - name: Calibrate edge → win probability from graded forward bets
+      - name: Reconcile yesterday's near-tip execution snapshots
         if: env.SKIP != 'true'
-        run: python calibrate_edges.py
+        run: python execution_reconciler.py --date ${{ env.YESTERDAY }}
         continue-on-error: true
 
-      # ── Step 13: Line movement + CLV ─────────────────────────────────────
-      - name: Compute line movement and CLV
+      # ── Step 13: Consensus game line movement ─────────────────────────────
+      - name: Compute consensus game line movement
         if: env.SKIP != 'true'
         run: python line_movement.py --date ${{ env.YESTERDAY }}
+        continue-on-error: true
+
+      - name: Evaluate NBA V1 readiness
+        if: env.SKIP != 'true'
+        run: python nba_v1_readiness.py
         continue-on-error: true
 
       # ── Step 14: Build dashboard ─────────────────────────────────────────

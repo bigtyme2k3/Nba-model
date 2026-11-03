@@ -1,0 +1,10 @@
+game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
+2026-10-27,9ad8cc650802c0c5c3c23a1f32c3e0f6,2026-10-27T23:40:00Z,Boston Celtics,Brooklyn Nets,-12.5,-109.55,222.5,-110.36,-639.73,459.09,11,the-odds-api,2026-10-27T18:35:15.266981+00:00
+2026-10-27,bde272846214fd6cf197e14c278c12f2,2026-10-28T00:10:00Z,New York Knicks,Detroit Pistons,-4.27,-107.18,219.27,-109.82,-168.09,141.45,11,the-odds-api,2026-10-27T18:35:15.267023+00:00
+2026-10-27,7a640609d2c74cbbfd05008d0875455b,2026-10-28T00:10:00Z,San Antonio Spurs,Sacramento Kings,-18.41,-110.64,232.45,-108.91,-1800.0,960.36,11,the-odds-api,2026-10-27T18:35:15.267056+00:00
+2026-10-27,82afe4e028b0fbbd9f6cf92697bec6fc,2026-10-28T03:10:00Z,Los Angeles Lakers,Portland Trail Blazers,-2.09,-107.91,233.64,-109.27,-126.36,106.18,11,the-odds-api,2026-10-27T18:35:15.267087+00:00
+2026-10-27,5997ee5c9fbdc53f9c86732b02f58158,2026-10-28T23:10:00Z,Indiana Pacers,Philadelphia 76ers,2.75,-111.0,239.0,-110.5,123.0,-144.75,4,the-odds-api,2026-10-27T18:35:15.267103+00:00
+2026-10-27,a6555e8b7252dfb32f1817fc8c59ad83,2026-12-25T17:10:00Z,New York Knicks,San Antonio Spurs,-0.2,-108.4,227.1,-110.4,-110.0,-110.0,5,the-odds-api,2026-10-27T18:35:15.267119+00:00
+2026-10-27,d60e7fc0690e4dff121a086395e24de4,2026-12-25T19:40:00Z,Boston Celtics,Miami Heat,-5.5,-110.2,230.1,-109.8,-199.33,164.33,5,the-odds-api,2026-10-27T18:35:15.267135+00:00
+2026-10-27,dfd908bad3a3bfcae9e08bf128273b18,2026-12-25T22:10:00Z,Los Angeles Lakers,Philadelphia 76ers,-1.4,-109.2,235.5,-109.8,-113.33,-106.67,5,the-odds-api,2026-10-27T18:35:15.267154+00:00
+2026-10-27,85a2379bc49135f2759709e55af0c4c6,2026-12-26T03:40:00Z,Golden State Warriors,Denver Nuggets,3.62,-113.25,238.0,-109.75,117.5,-141.0,4,the-odds-api,2026-10-27T18:35:15.267169+00:00

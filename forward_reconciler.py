@@ -3,8 +3,6 @@ forward_reconciler.py
 ---------------------
 Grades the canonical NBA forward ledger without changing any original prediction
 field. Only resolution fields (actual/outcome/graded_at_utc) may be updated.
-Rows with outcome VOID (plus a void_reason) were invalidated by a pipeline bug;
-they are never graded and never count toward performance.
 
 Sources:
   data/raw/scores_YYYY-MM-DD.csv / scores_today.csv
@@ -24,6 +22,8 @@ from glob import glob
 from pathlib import Path
 
 import pandas as pd
+
+from forward_ledger import EVIDENCE_EPOCH
 
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 RAW = Path("data/raw")
@@ -51,7 +51,9 @@ def read_ledger():
         if not line.strip():
             continue
         try:
-            rows.append(json.loads(line))
+            row=json.loads(line)
+            if row.get("evidence_epoch")==EVIDENCE_EPOCH:
+                rows.append(row)
         except Exception:
             pass
     return rows
@@ -89,7 +91,10 @@ def load_scores(target):
 
 def load_player_actuals(target):
     rows = {}
-    for path in sorted(glob(str(RAW / "hoopr_player_box_20*.csv"))):
+    paths=set(glob(str(RAW / "hoopr_player_box_20*.csv")))
+    paths.update(glob(str(RAW / "espn_current_player_box_20*.csv")))
+    paths.update(glob(str(RAW / "result_player_box_20*.csv")))
+    for path in sorted(paths):
         try:
             df = pd.read_csv(path, low_memory=False)
         except Exception:
@@ -202,6 +207,78 @@ def resolve_row(row, scores, players, target, now):
     return True
 
 
+def profit_units(row):
+    outcome = row.get("outcome")
+    if outcome == "LOSS":
+        return -1.0
+    if outcome == "PUSH":
+        return 0.0
+    if outcome != "WIN":
+        return None
+    odds = f(row.get("odds"))
+    if odds is None or odds == 0:
+        return 0.9091
+    return odds / 100.0 if odds > 0 else 100.0 / abs(odds)
+
+
+def probability_calibration(rows):
+    scored = []
+    for r in rows:
+        if r.get("decision") != "BET" or r.get("outcome") not in {"WIN","LOSS"}:
+            continue
+        p = f(r.get("model_probability"))
+        if p is None:
+            continue
+        scored.append((max(0.0,min(1.0,p)), 1.0 if r.get("outcome")=="WIN" else 0.0))
+
+    if not scored:
+        return {"rows":0,"brier":None,"bins":[]}
+
+    brier = sum((p-y)**2 for p,y in scored)/len(scored)
+    bins=[]
+    for lo in [0.50,0.55,0.60,0.65,0.70]:
+        hi = lo + 0.05 if lo < 0.70 else 1.01
+        vals=[(p,y) for p,y in scored if lo <= p < hi]
+        if not vals:
+            continue
+        bins.append({
+            "range": f"{lo:.2f}-{min(hi,1.0):.2f}",
+            "n": len(vals),
+            "avg_predicted": round(sum(p for p,_ in vals)/len(vals),4),
+            "actual_hit_rate": round(sum(y for _,y in vals)/len(vals),4),
+        })
+    return {"rows":len(scored),"brier":round(brier,5),"bins":bins}
+
+
+def grouped_bet_stats(rows, field):
+    groups={}
+    keys=sorted({str(r.get(field) or "UNKNOWN") for r in rows if r.get("decision")=="BET"})
+    for key in keys:
+        subset=[
+            r for r in rows
+            if r.get("decision")=="BET" and str(r.get(field) or "UNKNOWN")==key
+        ]
+        resolved=[r for r in subset if r.get("outcome") in {"WIN","LOSS","PUSH"}]
+        wins=sum(r.get("outcome")=="WIN" for r in resolved)
+        losses=sum(r.get("outcome")=="LOSS" for r in resolved)
+        pushes=sum(r.get("outcome")=="PUSH" for r in resolved)
+        profits=[profit_units(r) for r in resolved]
+        profits=[x for x in profits if x is not None]
+        risked=wins+losses
+        groups[key]={
+            "bets":len(subset),
+            "resolved":len(resolved),
+            "wins":wins,
+            "losses":losses,
+            "pushes":pushes,
+            "hit_rate":round(wins/risked,4) if risked else None,
+            "profit_units":round(sum(profits),4) if profits else 0.0,
+            "roi":round(sum(profits)/risked,4) if risked else None,
+            "probability_calibration":probability_calibration(resolved),
+        }
+    return groups
+
+
 def performance(rows):
     certified = [r for r in rows if r.get("outcome") in {"WIN", "LOSS", "PUSH"}]
     bets = [r for r in certified if r.get("decision") == "BET"]
@@ -216,21 +293,45 @@ def performance(rows):
         l = sum(r.get("outcome") == "LOSS" for r in subset)
         p = sum(r.get("outcome") == "PUSH" for r in subset)
         denom = w + l
+        profits = [profit_units(r) for r in subset]
+        profits = [x for x in profits if x is not None]
+        risked = sum(1 for r in subset if r.get("outcome") in {"WIN","LOSS"})
         by_market[market] = {
             "bets": len(subset), "wins": w, "losses": l, "pushes": p,
             "hit_rate": round(w / denom, 4) if denom else None,
+            "profit_units": round(sum(profits),4) if profits else 0.0,
+            "roi": round(sum(profits)/risked,4) if risked else None,
         }
 
+    profits = [profit_units(r) for r in bets]
+    profits = [x for x in profits if x is not None]
+    risked = wins + losses
     denom = wins + losses
     return {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "evidence_epoch": EVIDENCE_EPOCH,
         "ledger_rows": len(rows),
         "certified_rows": len(certified),
         "bet_rows": len(bets),
         "wins": wins, "losses": losses, "pushes": pushes,
         "hit_rate": round(wins / denom, 4) if denom else None,
+        "profit_units": round(sum(profits),4) if profits else 0.0,
+        "roi": round(sum(profits)/risked,4) if risked else None,
+        "probability_calibration": probability_calibration(bets),
         "by_market": by_market,
-        "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT_TOWARD_HIT_RATE",
+        "by_sportsbook": grouped_bet_stats(
+            [r for r in bets if str(r.get("market","")).upper()=="PROP"],
+            "sportsbook_key",
+        ),
+        "by_prop_stat": grouped_bet_stats(
+            [r for r in bets if str(r.get("market","")).upper()=="PROP"],
+            "stat",
+        ),
+        "policy": (
+            "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT; ROI_USES_RECORDED_BOOK_PRICE; "
+            "PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY; "
+            "PROP_PERFORMANCE_IS_SPLIT_BY_EXACT_SPORTSBOOK_AND_STAT"
+        ),
     }
 
 

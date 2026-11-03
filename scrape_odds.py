@@ -14,6 +14,7 @@ import argparse
 import json
 import os
 from datetime import date, datetime, timezone
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 import requests
@@ -21,6 +22,7 @@ import requests
 API_KEY  = os.getenv("ODDS_API_KEY")
 SPORT    = "basketball_nba"
 REGIONS  = "us"
+BOOKMAKERS = "fanduel,draftkings,fanatics"
 MARKETS  = "h2h,spreads,totals"
 ODDS_FMT = "american"
 BASE_URL = "https://api.the-odds-api.com/v4/sports"
@@ -62,6 +64,7 @@ def fetch_odds(status: dict):
     params = {
         "apiKey":     API_KEY,
         "regions":    REGIONS,
+        "bookmakers": BOOKMAKERS,
         "markets":    MARKETS,
         "oddsFormat": ODDS_FMT,
     }
@@ -101,11 +104,24 @@ def fetch_odds(status: dict):
 
 def parse_games(games: list, target_date: str) -> pd.DataFrame:
     rows = []
+    et = ZoneInfo("America/New_York")
     for g in games:
         home = g.get("home_team","")
         away = g.get("away_team","")
         start= g.get("commence_time","")
         gid  = g.get("id","")
+        try:
+            tip_utc = datetime.fromisoformat(str(start).replace("Z","+00:00")).astimezone(timezone.utc)
+            local_date = tip_utc.astimezone(et).date().isoformat()
+        except Exception:
+            tip_utc = None
+            local_date = None
+        if local_date != target_date:
+            continue
+        # This model is strictly pregame. Never let in-play spread/total movement
+        # masquerade as a pregame market line.
+        if tip_utc is not None and tip_utc <= datetime.now(timezone.utc):
+            continue
 
         spread_home_lines, spread_home_prices = [], []
         total_points, total_over_prices       = [], []
@@ -151,7 +167,7 @@ def parse_games(games: list, target_date: str) -> pd.DataFrame:
             "ml_home":          avg(ml_home_prices),
             "ml_away":          avg(ml_away_prices),
             "num_books":        len(g.get("bookmakers", [])),
-            "source":           "the-odds-api",
+            "source":           "the-odds-api-fd-dk-fanatics",
             "scraped_at":       datetime.now(timezone.utc).isoformat(),
         })
 
@@ -192,7 +208,8 @@ def main():
     status = {
         "status": "unknown",
         "target_date": target,
-        "source": "the-odds-api",
+        "source": "the-odds-api-fd-dk-fanatics",
+        "bookmakers": BOOKMAKERS.split(","),
         "checked_at_utc": datetime.now(timezone.utc).isoformat(),
         "rows": 0,
         "http_status": None,

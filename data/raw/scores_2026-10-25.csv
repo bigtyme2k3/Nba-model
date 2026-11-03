@@ -1,0 +1,8 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-10-25,401909861,STATUS_SCHEDULED,False,False,Utah Jazz,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -6.5,236.5,Delta Center,0,2026-10-25T16:59:00.311373
+2026-10-25,401909862,STATUS_SCHEDULED,False,False,Brooklyn Nets,Indiana Pacers,0,0,0,0,,,,,,,,,IND -6.5,232.5,Barclays Center,0,2026-10-25T16:59:00.311395
+2026-10-25,401909863,STATUS_SCHEDULED,False,False,New York Knicks,Orlando Magic,0,0,0,0,,,,,,,,,NY -7.5,224.5,Madison Square Garden,0,2026-10-25T16:59:00.311403
+2026-10-25,401909864,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Toronto Raptors,0,0,0,0,,,,,,,,,MIN -1.5,229.5,Target Center,0,2026-10-25T16:59:00.311417
+2026-10-25,401909865,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,LA Clippers,0,0,0,0,,,,,,,,,OKC -16.5,224.5,Paycom Center,0,2026-10-25T16:59:00.311423
+2026-10-25,401909866,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,227.5,Xfinity Mobile Arena,0,2026-10-25T16:59:00.311430
+2026-10-26,401909867,STATUS_SCHEDULED,False,False,Sacramento Kings,Memphis Grizzlies,0,0,0,0,,,,,,,,,MEM -3.5,234.5,Golden 1 Center,0,2026-10-25T16:59:00.311437

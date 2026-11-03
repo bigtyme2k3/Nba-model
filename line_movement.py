@@ -1,8 +1,10 @@
 """
 line_movement.py
 ----------------
-Tracks opening vs closing line movement to detect sharp money.
-High CLV (closing line value) = model predicted correctly before market adjusted.
+Tracks consensus game spread/total movement only.
+
+NOTE: sportsbook-specific prop CLV is handled by closing_market.py +
+clv_reconciler.py. This module is NOT an evidence source for NBA V1 promotion.
 
 Logic:
   - Save odds when first scraped (opening line)
@@ -228,12 +230,7 @@ def daily_movement_report(target_date: str):
         else:
             print("  No significant line movement today.")
 
-    pred_path = os.path.join(PRED_DIR, f"predictions_{target_date}.json")
-    if os.path.exists(pred_path):
-        with open(pred_path) as f:
-            preds = json.load(f)
-        clv_rows = compute_clv(preds, closing)
-        update_clv_log(clv_rows)
+    print("  Exact-book prop CLV is reconciled separately by clv_reconciler.py.")
 
 
 def main():

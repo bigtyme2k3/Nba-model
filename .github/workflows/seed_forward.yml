@@ -1,0 +1,50 @@
+name: NBA V1 Seed First Forward Evidence
+
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/seed-forward-trigger'
+  workflow_dispatch:
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Preserve committed research prediction as first observation
+        run: |
+          python forward_ledger.py \
+            --date 2026-10-27 \
+            --predictions predictions/v1_research_2026-10-27.json
+
+      - name: Refresh readiness
+        run: python nba_v1_readiness.py
+
+      - name: Publish immutable evidence
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add \
+            data/history/nba_forward_predictions.jsonl \
+            data/tracking/forward_ledger_status.json \
+            data/tracking/nba_v1_readiness.json
+          git diff --cached --quiet || git commit -m "📌 Seed NBA V1 forward evidence — 2026-10-27"
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push

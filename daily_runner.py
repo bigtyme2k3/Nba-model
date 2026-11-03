@@ -8,10 +8,10 @@ Usage:
     python daily_runner.py --date 2026-11-05 --out predictions/today.json
 """
 
-import os, sys, json, pickle, argparse, warnings
+import os, sys, json, pickle, argparse, warnings, math
 import numpy as np
 import pandas as pd
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 warnings.filterwarnings("ignore")
 
 # ── Paths (relative — works on GitHub Actions and any machine) ─────────────────
@@ -46,6 +46,13 @@ except ImportError:
     print("[WARN] kelly_sizing.py not found — no unit sizing")
     KELLY_AVAILABLE = False
 
+from kelly_sizing import load_calibration, prop_model_probability
+
+_PROP_CAL = load_calibration()
+# Recorded on each prop so the ledger shows which shrink produced model_probability.
+PROP_CALIBRATION_LABEL = (f"{_PROP_CAL['prop_price']:.2f}_model_edge_vs_no_vig_cap_25_75"
+                          f"_{_PROP_CAL['sources']['prop_price'].lower()}")
+
 try:
     from scrape_refs import get_crew_stats
     REFS_AVAILABLE = True
@@ -57,6 +64,12 @@ try:
     INJURIES_AVAILABLE = True
 except ImportError:
     INJURIES_AVAILABLE = False
+
+try:
+    from opportunity_redistribution import build_opportunity_adjustments
+    OPPORTUNITY_AVAILABLE = True
+except ImportError:
+    OPPORTUNITY_AVAILABLE = False
 
 
 # ── Team metadata ──────────────────────────────────────────────────────────────
@@ -256,6 +269,10 @@ def load_posted_props(target_date, schedule=None):
         return {}
     if df.empty:
         return {}
+    if "game_date" in df.columns:
+        df = df[df["game_date"].astype(str).eq(str(target_date))].copy()
+    if df.empty:
+        return {}
 
     schedule = schedule or []
     out = {}
@@ -298,6 +315,149 @@ def load_posted_props(target_date, schedule=None):
 
     print(f"  Posted prop feed loaded: {sum(len(v) for v in out.values())} player-game rows")
     return out
+
+
+def load_sportsbook_props(target_date, schedule=None):
+    """Load FanDuel/DraftKings/Fanatics offers from The Odds API.
+
+    Structure:
+      matchup -> player -> {"__offers": {stat: [offer, ...]}}
+    """
+    paths = [
+        os.path.join("data/raw", f"sportsbook_props_{target_date}.csv"),
+        os.path.join("data/raw", "sportsbook_props_today.csv"),
+    ]
+    path = next((p for p in paths if os.path.exists(p)), None)
+    if not path:
+        return {}
+    try:
+        df = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load sportsbook props: {exc}")
+        return {}
+    if df.empty:
+        return {}
+    if "game_date" in df.columns:
+        df = df[df["game_date"].astype(str).eq(str(target_date))].copy()
+    if df.empty:
+        return {}
+
+    out = {}
+    for _, r in df.iterrows():
+        home = normalize_team(str(r.get("home_team", "")).strip())
+        away = normalize_team(str(r.get("away_team", "")).strip())
+        player = str(r.get("player", "")).strip()
+        stat = str(r.get("stat", "")).strip().lower()
+        side = str(r.get("side", "")).strip().upper()
+        line = pd.to_numeric(pd.Series([r.get("line")]), errors="coerce").iloc[0]
+        price = pd.to_numeric(pd.Series([r.get("price")]), errors="coerce").iloc[0]
+        if not home or not away or not player or stat not in PROP_TARGETS:
+            continue
+        if side not in {"OVER","UNDER"} or pd.isna(line) or pd.isna(price):
+            continue
+        key = f"{away}@{home}"
+        p = out.setdefault(key, {}).setdefault(player, {"__offers": {}})
+        p["__offers"].setdefault(stat, []).append({
+            "side": side,
+            "line": float(line),
+            "price": int(price),
+            "book": str(r.get("book", "")),
+            "book_key": str(r.get("book_key", "")),
+            "no_vig_probability": _float(r.get("no_vig_probability"), None),
+            "implied_probability": _float(r.get("implied_probability"), None),
+            "last_update": str(r.get("last_update", "")),
+            "source": str(r.get("source", "the-odds-api")),
+        })
+
+    print(
+        f"  Sportsbook prop feed loaded: "
+        f"{sum(len(v) for v in out.values())} player-game rows"
+    )
+    return out
+
+
+def _american_decimal(price):
+    p = _float(price, None)
+    if p is None or p == 0:
+        return None
+    return 1.0 + (p / 100.0 if p > 0 else 100.0 / abs(p))
+
+
+def _american_implied(price):
+    dec = _american_decimal(price)
+    return (1.0 / dec) if dec else None
+
+
+def _normal_over_probability(pred, line, sigma):
+    if sigma is None or sigma <= 0:
+        return None
+    z = (line - pred) / (sigma * math.sqrt(2.0))
+    return 0.5 * (1.0 - math.erf(z))
+
+
+def _best_prop_offer(pred, model_info, offers, threshold):
+    """Evaluate every book/line/side and return the highest-EV qualified offer."""
+    if not offers:
+        return None
+    cv_mae = _float(model_info.get("cv_mae"), None)
+    std_stat = _float(model_info.get("std_stat"), None)
+    sigma_from_mae = cv_mae * math.sqrt(math.pi / 2.0) if cv_mae is not None else None
+    sigma_candidates = [x for x in [sigma_from_mae, std_stat] if x is not None and x > 0]
+    sigma = min(sigma_candidates) if sigma_candidates else max(0.75, threshold * 1.5)
+    sigma = max(0.55, sigma)
+
+    evaluated = []
+    for offer in offers:
+        line = _float(offer.get("line"), None)
+        price = _float(offer.get("price"), None)
+        side = str(offer.get("side", "")).upper()
+        if line is None or price is None or side not in {"OVER","UNDER"}:
+            continue
+        p_over = _normal_over_probability(pred, line, sigma)
+        if p_over is None:
+            continue
+        raw_model_p = p_over if side == "OVER" else 1.0 - p_over
+        implied = _american_implied(price)
+        market_p = _float(offer.get("no_vig_probability"), implied)
+        dec = _american_decimal(price)
+        if implied is None or market_p is None or dec is None:
+            continue
+
+        # The Normal-from-residual approximation is not trusted at face value: shrink
+        # it toward the book's no-vig probability (fitted by calibrate_edges.py once
+        # enough props are graded) and cap tails before EV/Kelly can act on it.
+        model_p = prop_model_probability(raw_model_p, market_p)
+        ev = model_p * dec - 1.0
+        prob_edge = model_p - market_p
+        directional_edge = pred - line if side == "OVER" else line - pred
+        evaluated.append({
+            **offer,
+            "raw_model_probability": raw_model_p,
+            "model_probability": model_p,
+            "market_probability": market_p,
+            "probability_edge": prob_edge,
+            "ev": ev,
+            "directional_edge": directional_edge,
+            "sigma": sigma,
+        })
+
+    if not evaluated:
+        return None
+
+    # Line edge remains a guardrail; pricing can lower it to half the old threshold,
+    # but probability edge + positive EV must independently confirm the play.
+    min_line_edge = max(0.20, threshold * 0.50)
+    qualified = [
+        x for x in evaluated
+        if x["directional_edge"] >= min_line_edge
+        and x["probability_edge"] >= 0.020
+        and x["ev"] >= 0.025
+    ]
+    pool = qualified if qualified else evaluated
+    best = max(pool, key=lambda x: (x["ev"], x["probability_edge"], x["directional_edge"]))
+    best["qualified"] = bool(best in qualified)
+    best["offers_considered"] = len(evaluated)
+    return best
 
 
 def load_market_odds(target_date):
@@ -348,6 +508,63 @@ def attach_market_odds(schedule, market_odds):
     return schedule
 
 
+def attach_schedule_fatigue(schedule, target_date, path="data/processed/master_all.csv"):
+    """Attach true rest/B2B/3-in-4 context from all prior completed games."""
+    if not schedule or not os.path.exists(path):
+        return schedule
+    try:
+        hist = pd.read_csv(path)
+    except Exception as exc:
+        print(f"  [WARN] Could not load schedule history: {exc}")
+        return schedule
+    if hist.empty or "game_date" not in hist.columns:
+        return schedule
+
+    hist["game_date"] = pd.to_datetime(hist["game_date"], errors="coerce")
+    hist = hist[hist["game_date"].notna()].copy()
+    target_ts = pd.Timestamp(target_date)
+    hist = hist[hist["game_date"] < target_ts].copy()
+
+    season_start = target_date.year if target_date.month >= 7 else target_date.year - 1
+    if "season" in hist.columns:
+        season_vals = pd.to_numeric(hist["season"], errors="coerce")
+        season_hist = hist[season_vals.eq(season_start)].copy()
+        if not season_hist.empty:
+            hist = season_hist
+
+    team_dates = {}
+    for _, r in hist.iterrows():
+        gd = r["game_date"].normalize()
+        for col in ("home_team","away_team"):
+            team = normalize_team(str(r.get(col, "")).strip())
+            if team:
+                team_dates.setdefault(team, set()).add(gd)
+
+    for game in schedule:
+        for side in ("home","away"):
+            team = game.get(side, "")
+            dates = sorted(team_dates.get(team, set()))
+            if dates:
+                last = dates[-1]
+                rest = max(0, min(7, int((target_ts - last).days - 1)))
+                recent3 = sum(d >= target_ts - pd.Timedelta(days=3) for d in dates)
+                game[f"{side}_rest"] = rest
+                game[f"{side}_b2b"] = rest == 0
+                game[f"{side}_3in4"] = recent3 >= 2
+                game[f"{side}_game_num"] = len(dates) + 1
+            else:
+                game[f"{side}_rest"] = 2
+                game[f"{side}_b2b"] = False
+                game[f"{side}_3in4"] = False
+                game[f"{side}_game_num"] = 1
+
+        game["game_num"] = max(
+            int(game.get("home_game_num", 1)),
+            int(game.get("away_game_num", 1)),
+        )
+    return schedule
+
+
 # ── Get today's schedule from ESPN ────────────────────────────────────────────
 
 def fetch_todays_schedule(target_date: date) -> list:
@@ -393,21 +610,60 @@ def fetch_todays_schedule(target_date: date) -> list:
 
 # ── Loaders ───────────────────────────────────────────────────────────────────
 
-def load_models():
+def load_models(target_date=None):
     models = {}
     for key, fname in [("spread","spread_model.pkl"),
                         ("totals","totals_model.pkl"),
                         ("props", "props_models.pkl")]:
         path = os.path.join(MODEL_DIR, fname)
         if os.path.exists(path):
-            with open(path,"rb") as f:
-                models[key] = pickle.load(f)
-            print(f"  ✅ {fname} loaded")
+            try:
+                with open(path,"rb") as f:
+                    models[key] = pickle.load(f)
+                print(f"  ✅ {fname} loaded")
+            except Exception as exc:
+                print(f"  [WARN] {fname} unreadable — skipping {key}: {exc}")
+                models[key] = None
         else:
             print(f"  [WARN] {fname} not found — skipping {key} predictions")
             models[key] = None
-    return models.get("spread"), models.get("totals"), models.get("props")
 
+    def verify_fresh(bundle, label, status_path, max_lag_days=14):
+        if not bundle:
+            return None
+        if bundle.get("status") not in (None, "trained"):
+            print(f"  [WARN] {label} bundle status={bundle.get('status')} — fail closed")
+            return None
+        if not os.path.exists(status_path):
+            print(f"  [WARN] {label} freshness source missing — fail closed")
+            return None
+        try:
+            status = json.load(open(status_path))
+            feature_max = datetime.strptime(str(status.get("max_game_date")), "%Y-%m-%d").date()
+            trained_raw = bundle.get("trained_through")
+            trained = datetime.strptime(str(trained_raw), "%Y-%m-%d").date() if trained_raw else None
+            if trained is None:
+                print(f"  [WARN] {label} bundle has no trained_through stamp — fail closed")
+                return None
+            lag = (feature_max - trained).days
+            print(f"  {label} training lag vs feature store: {lag} days")
+            if lag > max_lag_days:
+                print(
+                    f"  [WARN] {label} model stale: trained through {trained}, "
+                    f"features through {feature_max}. {label} bets disabled until retrain."
+                )
+                return None
+            return bundle
+        except Exception as exc:
+            print(f"  [WARN] Could not verify {label} freshness: {exc}")
+            return None
+
+    team_status = os.path.join(DATA_DIR, "team_features_status.json")
+    player_status = os.path.join(DATA_DIR, "player_features_status.json")
+    models["spread"] = verify_fresh(models.get("spread"), "Spread", team_status)
+    models["totals"] = verify_fresh(models.get("totals"), "Totals", team_status)
+    models["props"] = verify_fresh(models.get("props"), "Props", player_status)
+    return models.get("spread"), models.get("totals"), models.get("props")
 
 def build_context(home, away, target_date, game):
     long_travel = (home in WEST and away in EAST) or (home in EAST and away in WEST)
@@ -416,8 +672,8 @@ def build_context(home, away, target_date, game):
         "away_rest_days":  game.get("away_rest", 2),
         "home_b2b":        game.get("home_b2b", False),
         "away_b2b":        game.get("away_b2b", False),
-        "home_3in4":       False,
-        "away_3in4":       False,
+        "home_3in4":       game.get("home_3in4", False),
+        "away_3in4":       game.get("away_3in4", False),
         "long_travel":     long_travel,
         "east_to_west":    int(away in EAST and home in WEST),
         "west_to_east":    int(away in WEST and home in EAST),
@@ -428,40 +684,15 @@ def build_context(home, away, target_date, game):
 
 # ── Predictions ────────────────────────────────────────────────────────────────
 
-# Plausible model outputs. Anything outside these is a pipeline bug, not an edge.
-SPREAD_PRED_RANGE = (-40.0, 40.0)
-TOTAL_PRED_RANGE  = (170.0, 280.0)
-
-
-def predict_row(bundle, row, label, valid_range):
-    """Predict one game, or return None when the model can't be trusted.
-
-    Every feature the trained model expects must be supplied explicitly — a silent
-    0 default for a feature like rolling points allowed (~112 in training) drags the
-    prediction by ~100 points. Out-of-range predictions are also rejected.
-    """
-    feats = bundle["feature_names"]
-    missing = [f for f in feats if f not in row]
-    if missing:
-        print(f"  [ERROR] {label} model features not supplied: {missing} — no prediction")
-        return None
-    try:
-        pred = float(bundle["model"].predict(pd.DataFrame([row])[feats])[0])
-    except Exception as e:
-        print(f"  [WARN] {label} prediction error: {e}")
-        return None
-    lo, hi = valid_range
-    if not (lo <= pred <= hi):
-        print(f"  [ERROR] {label} prediction {pred:.1f} outside plausible range {valid_range} — no prediction")
-        return None
-    return round(pred, 1)
-
-
 def run_spread(home, away, ctx, bundle):
-    if bundle is None: return None
+    if bundle is None:
+        return None
+    model = bundle["model"]
+    feats = bundle["feature_names"]
     hs, as_ = CURRENT_TEAM_STATS.get(home,{}), CURRENT_TEAM_STATS.get(away,{})
     hr, ar  = TEAM_ROLLING.get(home,{}), TEAM_ROLLING.get(away,{})
-    row = {
+    row = {f: 0 for f in feats}
+    row.update({
         "home_rolling_5g":   hr.get("roll5",0),
         "away_rolling_5g":   ar.get("roll5",0),
         "rolling_diff_5g":   hr.get("roll5",0) - ar.get("roll5",0),
@@ -491,16 +722,25 @@ def run_spread(home, away, ctx, bundle):
         "season_game_num":   ctx["season_game_num"],
         "month":             ctx["month"],
         "is_playoff":        int(ctx["month"] in (4, 5, 6)),
-    }
-    return predict_row(bundle, row, "Spread", SPREAD_PRED_RANGE)
+    })
+    try:
+        X = pd.DataFrame([row])[feats]
+        return round(float(model.predict(X)[0]), 1)
+    except Exception as e:
+        print(f"  [WARN] Spread prediction error: {e}")
+        return None
 
 
 def run_totals(home, away, ctx, bundle):
-    if bundle is None: return None
+    if bundle is None:
+        return None
+    model = bundle["model"]
+    feats = bundle["feature_names"]
     hs, as_ = CURRENT_TEAM_STATS.get(home,{}), CURRENT_TEAM_STATS.get(away,{})
     hr, ar  = TEAM_ROLLING.get(home,{}), TEAM_ROLLING.get(away,{})
     avg_p = (hs.get("pace",99)+as_.get("pace",99))/2
-    row = {
+    row = {f: 0 for f in feats}
+    row.update({
         "avg_pace": avg_p, "home_pace": hs.get("pace",99), "away_pace": as_.get("pace",99),
         "pace_sum": hs.get("pace",99)+as_.get("pace",99),
         "home_ortg": hs.get("ortg",114), "away_ortg": as_.get("ortg",114),
@@ -513,9 +753,9 @@ def run_totals(home, away, ctx, bundle):
         "def_mismatch": abs((hs.get("ortg",114)-as_.get("drtg",114))-(as_.get("ortg",114)-hs.get("drtg",114))),
         "home_rolling_total_5g": hr.get("roll_pts",114),
         "away_rolling_total_5g": ar.get("roll_pts",114),
-        "rolling_total_sum_5g": hr.get("roll_pts",114)+ar.get("roll_pts",114),
         "home_rolling_allowed_5g": hr.get("roll_allowed",114),
         "away_rolling_allowed_5g": ar.get("roll_allowed",114),
+        "rolling_total_sum_5g": hr.get("roll_pts",114)+ar.get("roll_pts",114),
         "home_back_to_back": int(ctx["home_b2b"]),
         "away_back_to_back": int(ctx["away_b2b"]),
         "both_b2b": int(ctx["home_b2b"] and ctx["away_b2b"]),
@@ -523,11 +763,20 @@ def run_totals(home, away, ctx, bundle):
         "long_travel": int(ctx["long_travel"]),
         "month": ctx["month"], "is_playoff": int(ctx["month"] in (4, 5, 6)),
         "season_game_num": ctx["season_game_num"],
-    }
-    return predict_row(bundle, row, "Totals", TOTAL_PRED_RANGE)
+    })
+    try:
+        X = pd.DataFrame([row])[feats]
+        pred = round(float(model.predict(X)[0]), 1)
+        if not (180.0 <= pred <= 280.0):
+            print(f"  [WARN] Totals prediction failed sanity gate: {pred}")
+            return None
+        return pred
+    except Exception as e:
+        print(f"  [WARN] Totals prediction error: {e}")
+        return None
 
 
-def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=None):
+def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustments=None):
     if bundle is None:
         return []
     models = bundle.get("models", {})
@@ -536,13 +785,13 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
         return []
 
     posted = posted_lines or {}
-    injury_adjustments = injury_adjustments or {}
+    opportunity_adjustments = opportunity_adjustments or {}
     profiles = load_player_profiles()
     player_pool = dict(PLAYER_PROPS)
     player_pool.update(profiles)
 
-    # When market lines exist, they define today's actionable player universe.
-    # Live feed team metadata overrides the historical profile team after trades.
+    # A live market defines the actionable player universe. Without a market feed
+    # we may still publish projections, but no bet signal is generated.
     candidates = list(posted.keys()) if posted else [
         p for p, pdata in player_pool.items() if pdata.get("team") in [home, away]
     ]
@@ -573,22 +822,36 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
         rest = ctx["home_rest_days"] if is_home else ctx["away_rest_days"]
 
         base_min = _float(pdata.get("projected_minutes"), _float(pdata.get("mpg"), 28.0))
-        proj_min = base_min * (0.95 if b2b else 1.0)
-        injury_status = "ACTIVE_OR_UNKNOWN"
-        if player in injury_adjustments:
-            proj_min = _float(injury_adjustments[player], 0.0)
-            injury_status = "OUT" if proj_min <= 0 else "INJURY_ADJUSTED"
-        if proj_min <= 0:
-            continue
-
+        proj_min = base_min
         usage = _float(pdata.get("usage"), 0.20)
-        ts = _float(pdata.get("ts"), 0.57)
         roll5_pts = _float(pdata.get("roll5_pts"), 18.0)
         roll5_reb = _float(pdata.get("roll5_reb"), 6.0)
         roll5_ast = _float(pdata.get("roll5_ast"), 4.0)
         roll5_threes = _float(pdata.get("roll5_threes"), 1.0)
         roll5_pra = _float(pdata.get("roll5_pra"), roll5_pts + roll5_reb + roll5_ast)
 
+        opp_adj = opportunity_adjustments.get(player)
+        injury_status = "ACTIVE_OR_UNKNOWN"
+        opportunity_direction = "UNCHANGED"
+        if opp_adj:
+            # Adjust forward-looking minutes/usage only. Rolling box-score features
+            # remain historical evidence; scaling them too would double-count the vacancy.
+            proj_min = _float(opp_adj.get("adjusted_minutes"), proj_min)
+            usage = _float(opp_adj.get("adjusted_usage"), usage)
+            sev = str(opp_adj.get("injury_severity") or "").upper()
+            delta = _float(opp_adj.get("minutes_delta"), 0.0)
+            if sev:
+                injury_status = sev
+            elif delta > 0:
+                injury_status = "OPPORTUNITY_UP"
+            opportunity_direction = "UP" if delta > 0.05 else ("DOWN" if delta < -0.05 else "UNCHANGED")
+
+        # Schedule fatigue is applied after injury/opportunity redistribution.
+        proj_min *= (0.95 if b2b else 1.0)
+        if proj_min <= 0:
+            continue
+
+        ts = _float(pdata.get("ts"), 0.57)
         row = {
             "minutes": proj_min,
             "roll5_minutes": _float(pdata.get("mpg"), base_min),
@@ -616,8 +879,14 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
             "opp": opp,
             "pos": pos,
             "proj_min": round(proj_min, 1),
+            "base_proj_min": round(base_min, 1),
             "b2b": bool(b2b),
             "injury_status": injury_status,
+            "opportunity_direction": opportunity_direction,
+            "opportunity_minutes_delta": (
+                round(_float(opp_adj.get("minutes_delta"), 0.0), 2) if opp_adj else 0.0
+            ),
+            "vacancy_sources": opp_adj.get("vacancy_sources", "") if opp_adj else "",
             "rotation_stability_score": pdata.get("rotation_stability_score"),
             "rotation_risk_band": pdata.get("rotation_risk_band", "UNKNOWN"),
             "projected_role": pdata.get("projected_role", "UNKNOWN"),
@@ -625,6 +894,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
             "props": {},
         }
 
+        offers_by_stat = live.get("__offers", {})
         for target in PROP_TARGETS:
             if target not in models:
                 continue
@@ -636,20 +906,55 @@ def run_props(home, away, ctx, bundle, posted_lines=None, injury_adjustments=Non
             except Exception as exc:
                 print(f"  [WARN] {player} {target} prediction failed: {exc}")
                 continue
+
             thresh = thresholds.get(target, 2.0)
+            offers = offers_by_stat.get(target, [])
+            best = _best_prop_offer(pred, m, offers, thresh) if offers else None
+
+            if best:
+                side = best["side"]
+                signed_edge = pred - best["line"]
+                availability_block = injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"}
+                player_result["props"][target] = {
+                    "pred": round(pred, 2),
+                    "line": best["line"],
+                    "edge": round(signed_edge, 2),
+                    "signal": side if best["qualified"] and not availability_block else None,
+                    "availability_block": availability_block,
+                    "book": best.get("book"),
+                    "book_key": best.get("book_key"),
+                    "odds": int(best["price"]),
+                    "raw_model_probability": round(best["raw_model_probability"], 4),
+                    "model_probability": round(best["model_probability"], 4),
+                    "market_probability": round(best["market_probability"], 4),
+                    "probability_calibration": PROP_CALIBRATION_LABEL,
+                    "probability_edge": round(best["probability_edge"], 4),
+                    "ev": round(best["ev"], 4),
+                    "sigma": round(best["sigma"], 4),
+                    "offers_considered": best["offers_considered"],
+                    "market_source": best.get("source", "the-odds-api"),
+                }
+                continue
+
+            # PrizePicks / single-line fallback: projection-only edge, no priced EV.
             line = live.get(target)
-            edge = round(pred - line, 1) if line is not None else None
+            edge = round(pred - line, 2) if line is not None else None
             signal = None
             if edge is not None:
                 if edge > thresh:
                     signal = "OVER"
                 elif edge < -thresh:
                     signal = "UNDER"
+            if injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"}:
+                signal = None
             player_result["props"][target] = {
-                "pred": round(pred, 1),
-                "line": line,
-                "edge": edge,
-                "signal": signal,
+                "pred": round(pred, 2), "line": line, "edge": edge, "signal": signal,
+                "availability_block": injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"},
+                "book": None, "book_key": None, "odds": None,
+                "model_probability": None, "market_probability": None,
+                "probability_edge": None, "ev": None,
+                "offers_considered": 0,
+                "market_source": "prizepicks" if line is not None else None,
             }
 
         if player_result["props"]:
@@ -665,7 +970,7 @@ def score_confidence(edge, model_type):
 
 
 def collect_best_bets(games_output):
-    bets = []
+    candidates = []
     for g in games_output:
         home, away = g["home"]["name"], g["away"]["name"]
         matchup = f"{away} @ {home}"
@@ -673,17 +978,17 @@ def collect_best_bets(games_output):
         if sp.get("edge") is not None:
             conf, stars = score_confidence(sp["edge"], "spread")
             if stars >= 2:
-                bets.append({
+                candidates.append({
                     "type":"SPREAD","game":matchup,"play":sp.get("play") or sp["model_line"],
                     "market_line":sp.get("posted_line"),"market_odds":sp.get("juice"),
                     "market_source":sp.get("source"),"model_projection":sp.get("pred"),
                     "edge":sp["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
                 })
         tot = g["totals"]
-        if tot.get("edge"):
+        if tot.get("edge") is not None:
             conf, stars = score_confidence(tot["edge"], "totals")
             if stars >= 2:
-                bets.append({
+                candidates.append({
                     "type":"TOTAL","game":matchup,
                     "play":f"{tot['play']} {tot['line']}",
                     "market_line":tot.get("line"),"market_odds":tot.get("juice"),
@@ -694,63 +999,89 @@ def collect_best_bets(games_output):
             for pt, pd_data in pr["props"].items():
                 if pd_data["signal"] and pd_data["edge"] is not None:
                     conf, stars = score_confidence(pd_data["edge"], "props")
+                    ev = _float(pd_data.get("ev"), None)
+                    p_edge = _float(pd_data.get("probability_edge"), None)
+                    if ev is not None:
+                        if ev >= 0.08 and (p_edge or 0) >= 0.04:
+                            conf, stars = "HIGH", max(stars, 3)
+                        elif ev >= 0.04 and (p_edge or 0) >= 0.025:
+                            conf, stars = "MED", max(stars, 2)
                     if stars >= 2:
-                        bets.append({
+                        candidates.append({
                             "type":"PROP","game":matchup,
                             "play":f"{pr['player']} {pt.upper()} {pd_data['signal']} {pd_data['line']}",
-                            "market_line":pd_data.get("line"),"model_projection":pd_data.get("pred"),
+                            "market_line":pd_data.get("line"),"market_odds":pd_data.get("odds"),
+                            "market_source":pd_data.get("market_source"),"book":pd_data.get("book"),
+                            "book_key":pd_data.get("book_key"),"model_projection":pd_data.get("pred"),
+                            "model_probability":pd_data.get("model_probability"),
+                            "market_probability":pd_data.get("market_probability"),
+                            "probability_edge":pd_data.get("probability_edge"),"ev":pd_data.get("ev"),
                             "player":pr["player"],"stat":pt.upper(),"side":pd_data.get("signal"),
-                            "edge":pd_data["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
+                            "edge":pd_data["edge"],"conf":conf,"stars":stars,"tip":g["tip"],
+                            "proj_min":pr.get("proj_min"),"opportunity_direction":pr.get("opportunity_direction"),
+                            "vacancy_sources":pr.get("vacancy_sources"),
                         })
-    bets.sort(key=lambda b: (-b["stars"], -abs(b["edge"])))
-    for i, b in enumerate(bets): b["rank"] = i+1
-    return bets[:8]
 
+    def ranking_score(b):
+        # Stars remain primary. Among equally-rated props, use priced EV and
+        # probability edge before raw stat-unit edge so cross-stat magnitudes
+        # (e.g. PRA vs threes) are not treated as directly comparable.
+        return (
+            -int(b.get("stars",0)),
+            -float(b.get("ev") or -999 if b.get("type")=="PROP" else 0),
+            -float(b.get("probability_edge") or 0),
+            -abs(float(b.get("edge") or 0)),
+        )
 
-def attach_verdicts(games_output, best_bets):
-    """Copy the sizing verdict (BET/STRONG/PASS) onto each market in games_output.
+    candidates.sort(key=ranking_score)
 
-    Only best bets that went through Kelly sizing can be BET/STRONG; every other
-    market is PASS. forward_ledger.py records this verdict as the decision, so the
-    ledger and the sized best-bets list can never disagree.
-    """
-    verdicts = {}
-    for b in best_bets:
-        verdict = b.get("verdict", "PASS")
-        if b.get("type") == "PROP":
-            verdicts[(b["game"], "PROP", b.get("player"), str(b.get("stat", "")).upper())] = verdict
-        else:
-            verdicts[(b["game"], b.get("type"))] = verdict
-    for g in games_output:
-        matchup = f"{g['away']['name']} @ {g['home']['name']}"
-        g["spread"]["verdict"] = verdicts.get((matchup, "SPREAD"), "PASS")
-        g["totals"]["verdict"] = verdicts.get((matchup, "TOTAL"), "PASS")
-        for pr in g.get("props", []):
-            for stat, pd_data in pr["props"].items():
-                pd_data["verdict"] = verdicts.get((matchup, "PROP", pr["player"], stat.upper()), "PASS")
+    # Portfolio guard: same-player prop bets share minutes/usage/game-state risk.
+    # Preserve all candidate signals in game output, but allow only one final
+    # bankroll-bearing prop per player.
+    selected = []
+    prop_players = set()
+    for bet in candidates:
+        if bet.get("type") == "PROP":
+            key = str(bet.get("player","")).strip().lower()
+            if key in prop_players:
+                continue
+            prop_players.add(key)
+            bet["portfolio_guard"] = "ONE_PROP_PER_PLAYER"
+        selected.append(bet)
+        if len(selected) >= 8:
+            break
+
+    for i, b in enumerate(selected):
+        b["rank"] = i + 1
+    return selected
 
 
 def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     print(f"\n═══ NBA DAILY PIPELINE — {target_date} ═══\n")
     load_team_profiles_into_context()
-    spread_bundle, totals_bundle, props_bundle = load_models()
+    spread_bundle, totals_bundle, props_bundle = load_models(target_date)
 
-    # Load injury adjustments
-    injury_adjustments = {}
+    # Build transparent injury-driven minutes/usage opportunity adjustments.
+    opportunity_adjustments = {}
     injuries_path = "data/raw/injuries_today.csv"
-    if INJURIES_AVAILABLE and os.path.exists(injuries_path):
-        import pandas as pd
-        inj_df = pd.read_csv(injuries_path)
-        from scrape_injuries import reallocate_minutes
-        injury_adjustments = reallocate_minutes(inj_df, schedule)
-        out_count = len(inj_df[inj_df["is_out"]]) if "is_out" in inj_df.columns else 0
-        print(f"  Injuries loaded: {out_count} OUT players")
+    if os.path.exists(injuries_path):
+        try:
+            inj_df = pd.read_csv(injuries_path)
+            out_count = int(inj_df["is_out"].sum()) if "is_out" in inj_df.columns and not inj_df.empty else 0
+            print(f"  Injuries loaded: {out_count} OUT/DOUBTFUL flags")
+        except Exception:
+            inj_df = pd.DataFrame()
+    if OPPORTUNITY_AVAILABLE:
+        try:
+            opportunity_adjustments = build_opportunity_adjustments(str(target_date))
+            print(f"  Opportunity adjustments: {len(opportunity_adjustments)} players")
+        except Exception as exc:
+            print(f"  [WARN] Opportunity redistribution failed: {exc}")
 
     # Load referee stats
     ref_stats_df = None
     ref_path = "data/raw/ref_stats.csv"
     if REFS_AVAILABLE and os.path.exists(ref_path):
-        import pandas as pd
         ref_stats_df = pd.read_csv(ref_path)
         print(f"  Ref stats loaded: {len(ref_stats_df)} officials")
 
@@ -758,7 +1089,6 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     ref_assignments = {}
     ref_assign_path = "data/raw/ref_assignments_today.csv"
     if os.path.exists(ref_assign_path):
-        import pandas as pd
         ra = pd.read_csv(ref_assign_path)
         if "refs" in ra.columns and "home_team" in ra.columns:
             for _, row in ra.iterrows():
@@ -794,9 +1124,12 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
                 "crew_refs":      refs_str,
             })
 
-        spread_pred   = run_spread(home, away, ctx, spread_bundle)
+        spread_pred = run_spread(home, away, ctx, spread_bundle)
         posted_spread = game.get("posted_spread")
-        spread_edge = round(spread_pred - (-posted_spread), 1) if posted_spread is not None and spread_pred is not None else None
+        spread_edge = (
+            round(spread_pred - (-posted_spread), 1)
+            if spread_pred is not None and posted_spread is not None else None
+        )
         spread_conf, spread_stars = score_confidence(spread_edge or 0, "spread")
         spread_play = None
         if posted_spread is not None and spread_edge is not None:
@@ -805,16 +1138,19 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             elif spread_edge < 0:
                 spread_play = f"{away} {-posted_spread:+.1f}"
 
-        total_pred  = run_totals(home, away, ctx, totals_bundle)
-        posted_total= game.get("posted_total")
-        total_edge  = round(total_pred-posted_total,1) if posted_total is not None and total_pred is not None else None
-        total_play  = ("OVER" if total_edge and total_edge>0 else "UNDER") if total_edge else None
+        total_pred = run_totals(home, away, ctx, totals_bundle)
+        posted_total = game.get("posted_total")
+        total_edge = (
+            round(total_pred-posted_total,1)
+            if total_pred is not None and posted_total is not None else None
+        )
+        total_play = ("OVER" if total_edge > 0 else "UNDER") if total_edge is not None else None
         total_conf, total_stars = score_confidence(total_edge or 0, "totals")
 
         props_out = run_props(
             home, away, ctx, props_bundle,
             posted_props.get(f"{away}@{home}", {}),
-            injury_adjustments=injury_adjustments,
+            opportunity_adjustments=opportunity_adjustments,
         )
 
         flags = []
@@ -823,8 +1159,10 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         if ctx["long_travel"]: flags.append("Travel")
 
         def fmt_line(pred, h, a):
-            if pred is None: return "No prediction"
-            if abs(pred) < 0.5: return "Pick'em"
+            if pred is None:
+                return None
+            if abs(pred) < 0.5:
+                return "Pick'em"
             return f"{h} -{abs(pred):.1f}" if pred > 0 else f"{a} -{abs(pred):.1f}"
 
         hs  = CURRENT_TEAM_STATS.get(home,{})
@@ -832,6 +1170,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         games_output.append({
             "tip": tip,
+            "minutes_to_tip": game.get("minutes_to_tip"),
             "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0)},
             "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0)},
             "spread": {"pred":spread_pred,"model_line":fmt_line(spread_pred,home,away),
@@ -853,17 +1192,20 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     if KELLY_AVAILABLE and best_bets:
         best_bets = size_all_bets(best_bets, bankroll=1000.0)
         print(f"  Kelly sizing applied: {sum(1 for b in best_bets if b.get('units',0)>0)} bets sized")
-    attach_verdicts(games_output, best_bets)
 
     return {
         "date":       str(target_date),
         "generated":  datetime.now().astimezone().isoformat(),
         "model_version": "NBA_V1.0",
+        "model_state": "RESEARCH_FORWARD_TESTING",
+        "research_only": True,
+        "production_ready": False,
+        "portfolio_policy": "ONE_FINAL_PROP_PER_PLAYER",
         "games":      games_output,
         "best_bets":  best_bets,
         "model_stats":{"spread":{"algo":"Ridge / GBR","cv_mae":None,"dir_acc":None,"strong_ats":None,"n":0},
                        "totals":{"algo":"Ridge / RF","cv_mae":None,"ou_acc":None,"strong_ou":None,"n":0},
-                       "props": {"algo":"Ridge / GBR","cv_mae":None,"hit_rate":None,"strong_hr":None,"n":0}},
+                       "props": {"algo":"Ridge / HistGBR","cv_mae":None,"hit_rate":None,"strong_hr":None,"n":0}},
     }
 
 
@@ -871,13 +1213,49 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=str(date.today()))
     parser.add_argument("--out",  default=None)
+    parser.add_argument("--min-minutes-to-tip", type=float, default=None)
+    parser.add_argument("--max-minutes-to-tip", type=float, default=None)
     args = parser.parse_args()
 
     target   = datetime.strptime(args.date, "%Y-%m-%d").date()
     schedule = fetch_todays_schedule(target)
+    now_utc = datetime.now(timezone.utc)
+    pre_tip = []
+    for game in schedule:
+        tip = str(game.get("tip", "") or "")
+        try:
+            tip_dt = datetime.fromisoformat(tip.replace("Z", "+00:00")).astimezone(timezone.utc)
+            minutes_to_tip = (tip_dt - now_utc).total_seconds() / 60.0
+        except Exception:
+            tip_dt = None
+            minutes_to_tip = None
+        if tip_dt is not None and minutes_to_tip <= 0:
+            continue
+        if (
+            args.min_minutes_to_tip is not None
+            and minutes_to_tip is not None
+            and minutes_to_tip < args.min_minutes_to_tip
+        ):
+            continue
+        if (
+            args.max_minutes_to_tip is not None
+            and minutes_to_tip is not None
+            and minutes_to_tip > args.max_minutes_to_tip
+        ):
+            continue
+        game["minutes_to_tip"] = round(minutes_to_tip, 2) if minutes_to_tip is not None else None
+        pre_tip.append(game)
+    skipped_started = len(schedule) - len(pre_tip)
+    if skipped_started:
+        print(f"  Pregame/window gate: skipped {skipped_started} games outside requested window")
+    schedule = pre_tip
+    schedule = attach_schedule_fatigue(schedule, target)
     market_odds = load_market_odds(target)
     schedule = attach_market_odds(schedule, market_odds)
-    posted_props = load_posted_props(target, schedule)
+    posted_props = load_sportsbook_props(target, schedule)
+    if not posted_props:
+        print("  [WARN] Sportsbook prop feed unavailable — trying PrizePicks fallback")
+        posted_props = load_posted_props(target, schedule)
 
     result = run_pipeline(target, schedule, posted_props=posted_props)
     out_path = args.out or os.path.join(OUTPUT_DIR, f"predictions_{target}.json")
