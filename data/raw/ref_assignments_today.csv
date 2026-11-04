@@ -1,16 +1,15 @@
-time,matchup,crew_chief,umpire_1,umpire_2,crew_betting_trends,network,scraped_from,game_date
-04:00 PM PT,Thunder @ Cavaliers,Marc Davis,Sean Corbin,Dedric Taylor,Over %  50%  Neutral  Home Cover %  53%  Neutral  Home Win %  56%  Home Edge Lean,,refmetrics,2026-11-02
-04:30 PM PT,Pistons @ Hornets,Gediminas Petraitis,Pat Fraher,JD Ralls,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
-04:30 PM PT,Hawks @ Pacers,Zach Zarba,Marat Kogut,Jenna Schroeder,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
-04:30 PM PT,Nets @ Knicks,James Capers,CJ Washington,Rodney Mott,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,DAZN (YES),refmetrics,2026-11-02
-04:30 PM PT,Wizards @ Magic,James Williams,Ashley Moyer-Gleich,Suyash Mehta,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
-04:30 PM PT,Bulls @ 76ers,Mitchell Ervin,Eric Lewis,Leon Wood,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
-05:00 PM PT,Kings @ Mavericks,Scott Foster,Ray Acosta,Evan Scott,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
-05:00 PM PT,Pelicans @ Grizzlies,Tony Brothers,Ed Malloy,Italo Araujo,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,GCSEN Pelicans.com,refmetrics,2026-11-02
-05:00 PM PT,Bucks @ Timberwolves,Kevin Scott,John Butler,Brett Nansel,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,MyMi Bucks App,refmetrics,2026-11-02
-05:30 PM PT,Celtics @ Rockets,Courtney Kirkland,Eric Dalen,Matt Kallio,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
-05:30 PM PT,Jazz @ Spurs,Mark Lindsay,Aaron Smith,Sha'Rae Mitchell,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,KJZZ-TV Jazz+,refmetrics,2026-11-02
-06:00 PM PT,Trail Blazers @ Nuggets,John Goble,Brent Barnaky,Intae Hwang,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,KUNP 16,refmetrics,2026-11-02
-07:00 PM PT,Suns @ Warriors,Sean Wright,Kevin Cutler,JT Orr,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,Suns Live,refmetrics,2026-11-02
-07:00 PM PT,Raptors @ Clippers,Josh Tiven,Jason Goldenberg,Chelisa Painter,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
-07:00 PM PT,Heat @ Lakers,Nick Buchert,Jacyn Goble,Jenna Reneau,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-02
+game_date,game_id,home_team,away_team,refs,scraped_from
+2026-11-04,401909922,Detroit Pistons,Philadelphia 76ers,,espn
+2026-11-04,401909923,Washington Wizards,Atlanta Hawks,,espn
+2026-11-04,401909924,Boston Celtics,Milwaukee Bucks,,espn
+2026-11-04,401909925,Brooklyn Nets,Charlotte Hornets,,espn
+2026-11-04,401909926,New York Knicks,Chicago Bulls,,espn
+2026-11-04,401909927,Memphis Grizzlies,Indiana Pacers,,espn
+2026-11-04,401909928,New Orleans Pelicans,Utah Jazz,,espn
+2026-11-04,401909929,Oklahoma City Thunder,Cleveland Cavaliers,,espn
+2026-11-04,401909930,Houston Rockets,Minnesota Timberwolves,,espn
+2026-11-04,401909931,Denver Nuggets,Toronto Raptors,,espn
+2026-11-04,401909932,Phoenix Suns,Portland Trail Blazers,,espn
+2026-11-04,401909933,San Antonio Spurs,Dallas Mavericks,,espn
+2026-11-04,401909934,Sacramento Kings,Los Angeles Lakers,,espn
+2026-11-04,401909935,LA Clippers,Miami Heat,,espn
