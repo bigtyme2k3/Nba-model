@@ -79,6 +79,13 @@ def load_team_boxes(raw_dir):
         df["team"] = df.apply(canonical_team, axis=1)
         df["points"] = num(df, ["team_score", "points", "pts"])
         df["opp_points"] = num(df, ["opponent_team_score", "opp_points"])
+        # The ESPN current-season box has no opponent score column: take it from
+        # the other team's row of the same game. Without this, current-season
+        # drtg/net_rtg are NaN and the rolling profiles fall back to whatever
+        # games from last season are left in the window.
+        game_pts = df.groupby("game_id")["points"]
+        opp_from_pair = (game_pts.transform("sum") - df["points"]).where(game_pts.transform("count") == 2)
+        df["opp_points"] = df["opp_points"].fillna(opp_from_pair)
         df["fga"] = num(df, ["field_goals_attempted", "fga", "fg_att"])
         df["fta"] = num(df, ["free_throws_attempted", "fta", "ft_att"])
         df["oreb"] = num(df, ["offensive_rebounds", "oreb"])
