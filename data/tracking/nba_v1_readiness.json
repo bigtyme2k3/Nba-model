@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-04T00:07:53.887996Z",
+  "generated_at_utc": "2026-11-04T16:21:58.891550Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -401,8 +401,98 @@
         }
       }
     },
-    "clv_by_sportsbook": {},
-    "clv_by_stat": {},
+    "clv_by_sportsbook": {
+      "draftkings": {
+        "entries": 25,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      },
+      "fanatics": {
+        "entries": 2,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      },
+      "fanduel": {
+        "entries": 29,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      }
+    },
+    "clv_by_stat": {
+      "AST": {
+        "entries": 16,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      },
+      "PRA": {
+        "entries": 4,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      },
+      "PTS": {
+        "entries": 10,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      },
+      "REB": {
+        "entries": 14,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      },
+      "THREES": {
+        "entries": 12,
+        "matched_closes": 0,
+        "match_rate": 0.0,
+        "avg_line_clv": null,
+        "positive_line_clv_rate": null,
+        "same_line_price_rows": 0,
+        "avg_same_line_price_clv_probability": null,
+        "beat_close_rows": 0,
+        "beat_close_rate": null
+      }
+    },
     "evidence_checks": {
       "forward_bets_at_least_200": false,
       "prop_forward_bets_at_least_100": false,

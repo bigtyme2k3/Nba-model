@@ -1,0 +1,109 @@
+{
+  "status": "READY",
+  "generated_at_utc": "2026-11-04T16:21:58.132978+00:00",
+  "date_filter": null,
+  "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
+  "forward_prop_bets": 56,
+  "matched_closes": 0,
+  "match_rate": 0.0,
+  "avg_line_clv": null,
+  "positive_line_clv_rate": null,
+  "same_line_price_rows": 0,
+  "avg_same_line_price_clv_probability": null,
+  "beat_close_rows": 0,
+  "beat_close_rate": null,
+  "by_sportsbook": {
+    "draftkings": {
+      "entries": 25,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
+    "fanatics": {
+      "entries": 2,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
+    "fanduel": {
+      "entries": 29,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    }
+  },
+  "by_stat": {
+    "AST": {
+      "entries": 16,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
+    "PRA": {
+      "entries": 4,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
+    "PTS": {
+      "entries": 10,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
+    "REB": {
+      "entries": 14,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
+    "THREES": {
+      "entries": 12,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    }
+  },
+  "output_csv": "data/tracking/nba_prop_clv.csv",
+  "policy": "EXACT_SPORTSBOOK_MATCH_ONLY; CLOSEST_PRETIP_SNAPSHOT; POSITIVE_LINE_CLV_MEANS_ENTRY_BEAT_CLOSE; SAME_LINE_PRICE_CLV_USES_NO_VIG_PROBABILITY_MOVE"
+}
