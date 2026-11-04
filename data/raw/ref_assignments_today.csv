@@ -1,15 +1,15 @@
-game_date,game_id,home_team,away_team,refs,scraped_from
-2026-11-04,401909922,Detroit Pistons,Philadelphia 76ers,,espn
-2026-11-04,401909923,Washington Wizards,Atlanta Hawks,,espn
-2026-11-04,401909924,Boston Celtics,Milwaukee Bucks,,espn
-2026-11-04,401909925,Brooklyn Nets,Charlotte Hornets,,espn
-2026-11-04,401909926,New York Knicks,Chicago Bulls,,espn
-2026-11-04,401909927,Memphis Grizzlies,Indiana Pacers,,espn
-2026-11-04,401909928,New Orleans Pelicans,Utah Jazz,,espn
-2026-11-04,401909929,Oklahoma City Thunder,Cleveland Cavaliers,,espn
-2026-11-04,401909930,Houston Rockets,Minnesota Timberwolves,,espn
-2026-11-04,401909931,Denver Nuggets,Toronto Raptors,,espn
-2026-11-04,401909932,Phoenix Suns,Portland Trail Blazers,,espn
-2026-11-04,401909933,San Antonio Spurs,Dallas Mavericks,,espn
-2026-11-04,401909934,Sacramento Kings,Los Angeles Lakers,,espn
-2026-11-04,401909935,LA Clippers,Miami Heat,,espn
+time,matchup,crew_chief,umpire_1,umpire_2,crew_betting_trends,network,scraped_from,game_date
+04:00 PM PT,76ers @ Pistons,Marc Davis,Natalie Sago,Nate Green,Over %  48%  Neutral  Home Cover %  54%  Home Edge Lean  Home Win %  54%  Home Edge Lean,,refmetrics,2026-11-04
+04:00 PM PT,Hawks @ Wizards,Gediminas Petraitis,Andy Nagy,Brandon Adair,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-04
+04:30 PM PT,Bucks @ Celtics,James Capers,Dedric Taylor,Julian Scott,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,MyMi Bucks App,refmetrics,2026-11-04
+04:30 PM PT,Hornets @ Nets,Zach Zarba,Eric Lewis,Klajdi Mulla,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,DAZN (YES),refmetrics,2026-11-04
+04:30 PM PT,Bulls @ Knicks,Brian Forte,Ray Acosta,Brent Haskill,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,-,refmetrics,2026-11-04
+05:00 PM PT,Pacers @ Grizzlies,Ben Taylor,Mousa Dagher,Agon Abazi,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,DAZN MEM,refmetrics,2026-11-04
+05:00 PM PT,Jazz @ Pelicans,Courtney Kirkland,JB DeRosa,Intae Hwang,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,GCSEN Pelicans.com,refmetrics,2026-11-04
+05:00 PM PT,Cavaliers @ Thunder,John Goble,John Butler,Jonathan Sterling,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,KSBI Thunder App,refmetrics,2026-11-04
+05:30 PM PT,Timberwolves @ Rockets,Tyler Ford,Justin Van Duyne,Gina Catanzariti,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,DAZN MIN,refmetrics,2026-11-04
+06:00 PM PT,Raptors @ Nuggets,Karl Lane,Kevin Cutler,Dannica Baroody,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,-,refmetrics,2026-11-04
+06:00 PM PT,Trail Blazers @ Suns,Nick Buchert,Jacyn Goble,Robert Hussey,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,KUNP 16,refmetrics,2026-11-04
+06:30 PM PT,Mavericks @ Spurs,Curtis Blair,Brent Barnaky,Simone Jelks,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-04
+07:00 PM PT,Lakers @ Kings,Ed Malloy,Jason Goldenberg,Chelisa Painter,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-04
+07:30 PM PT,Heat @ Clippers,Sean Wright,Sha'Rae Mitchell,Matt Kallio,Over % XX Subscription required to view trend signal Home Cover % XX Subscription required to view trend signal Home Win % XX Subscription required to view trend signal,,refmetrics,2026-11-04
