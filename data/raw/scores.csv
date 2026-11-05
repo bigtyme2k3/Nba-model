@@ -118,3 +118,5 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-05,401909933,STATUS_SCHEDULED,False,False,San Antonio Spurs,Dallas Mavericks,0,0,0,0,,,,,,,,,SA -11.5,226.5,Frost Bank Center,0,2026-11-04T20:18:00.188649
 2026-11-05,401909934,STATUS_SCHEDULED,False,False,Sacramento Kings,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -12.5,233.5,Golden 1 Center,0,2026-11-04T20:18:00.188655
 2026-11-05,401909935,STATUS_SCHEDULED,False,False,LA Clippers,Miami Heat,0,0,0,0,,,,,,,,,MIA -5.5,233.5,Intuit Dome,0,2026-11-04T20:18:00.188662
+2026-11-06,401909936,STATUS_SCHEDULED,False,False,Phoenix Suns,Orlando Magic,0,0,0,0,,,,,,,,,PHX -1.5,221.5,Mortgage Matchup Center,0,2026-11-05T20:29:52.211051
+2026-11-06,401909937,STATUS_SCHEDULED,False,False,Golden State Warriors,Miami Heat,0,0,0,0,,,,,,,,,GS -6.5,232.5,Chase Center,0,2026-11-05T20:29:52.211071

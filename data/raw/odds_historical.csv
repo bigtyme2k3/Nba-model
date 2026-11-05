@@ -259,3 +259,5 @@ game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juic
 2026-11-04,6b25f3932db93d4c5ad7658def2645bf,2026-11-05T02:30:00Z,San Antonio Spurs,Dallas Mavericks,-12.0,-109.67,226.83,-108.33,-588.33,429.67,3,the-odds-api-fd-dk-fanatics,2026-11-04T20:17:54.930704+00:00
 2026-11-04,29988f1011d7738962e13e0a0beb693f,2026-11-05T03:10:00Z,Sacramento Kings,Los Angeles Lakers,12.33,-113.33,233.5,-110.0,441.33,-603.33,3,the-odds-api-fd-dk-fanatics,2026-11-04T20:17:54.930719+00:00
 2026-11-04,72c786e70ad9360fdc41e4c2a50fa788,2026-11-05T03:40:00Z,Los Angeles Clippers,Miami Heat,5.5,-106.67,233.33,-109.33,181.33,-218.67,3,the-odds-api-fd-dk-fanatics,2026-11-04T20:17:54.930734+00:00
+2026-11-05,2a76b31e02d1416de069a995589515fc,2026-11-06T02:10:00Z,Phoenix Suns,Orlando Magic,-1.33,-106.33,221.5,-108.0,-112.33,-105.67,3,the-odds-api-fd-dk-fanatics,2026-11-05T20:29:50.850813+00:00
+2026-11-05,ac38449dd3dfbe1c9b48164b6a41aa83,2026-11-06T03:10:00Z,Golden State Warriors,Miami Heat,-6.67,-115.33,233.0,-109.33,-266.67,217.67,3,the-odds-api-fd-dk-fanatics,2026-11-05T20:29:50.850834+00:00

@@ -1,0 +1,5 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Denver Nuggets,Toronto Raptors,-4.5,231.0,-5.0,231.5,-0.5,0.5,True,True
+Phoenix Suns,Portland Trail Blazers,3.5,227.67,3.0,227.5,-0.5,-0.1699999999999875,True,False
+San Antonio Spurs,Dallas Mavericks,-11.5,227.83,-12.5,226.5,-1.0,-1.3300000000000125,True,True
+Sacramento Kings,Los Angeles Lakers,11.5,237.5,12.5,233.5,1.0,-4.0,True,True
