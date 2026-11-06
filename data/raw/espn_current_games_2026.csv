@@ -120,3 +120,5 @@ game_id,season,game_date,home_team,home_pts,away_team,away_pts,actual_spread,act
 401909933,2026,2026-11-04,Spurs,112.0,Mavericks,111.0,1.0,223.0
 401909934,2026,2026-11-04,Kings,103.0,Lakers,116.0,-13.0,219.0
 401909935,2026,2026-11-04,Clippers,116.0,Heat,117.0,-1.0,233.0
+401909936,2026,2026-11-05,Suns,117.0,Magic,104.0,13.0,221.0
+401909937,2026,2026-11-05,Warriors,120.0,Heat,100.0,20.0,220.0

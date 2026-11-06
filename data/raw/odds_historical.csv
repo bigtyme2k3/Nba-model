@@ -261,3 +261,12 @@ game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juic
 2026-11-04,72c786e70ad9360fdc41e4c2a50fa788,2026-11-05T03:40:00Z,Los Angeles Clippers,Miami Heat,5.5,-106.67,233.33,-109.33,181.33,-218.67,3,the-odds-api-fd-dk-fanatics,2026-11-04T20:17:54.930734+00:00
 2026-11-05,2a76b31e02d1416de069a995589515fc,2026-11-06T02:10:00Z,Phoenix Suns,Orlando Magic,-1.33,-106.33,221.5,-108.0,-112.33,-105.67,3,the-odds-api-fd-dk-fanatics,2026-11-05T20:29:50.850813+00:00
 2026-11-05,ac38449dd3dfbe1c9b48164b6a41aa83,2026-11-06T03:10:00Z,Golden State Warriors,Miami Heat,-6.67,-115.33,233.0,-109.33,-266.67,217.67,3,the-odds-api-fd-dk-fanatics,2026-11-05T20:29:50.850834+00:00
+2026-11-06,9246c91f746732472c13e94bd8e7be85,2026-11-07T00:10:00Z,Atlanta Hawks,Washington Wizards,-8.17,-108.33,228.5,-111.33,-316.33,252.67,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.370917+00:00
+2026-11-06,49daf3d42e20ce4bc70f8a68cf70ce4c,2026-11-07T00:10:00Z,Charlotte Hornets,Boston Celtics,9.5,-106.0,207.67,-110.0,300.0,-381.0,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.370945+00:00
+2026-11-06,85869b2fdc16ef10d3e2582bf05ead95,2026-11-07T00:40:00Z,Cleveland Cavaliers,Philadelphia 76ers,2.5,-109.0,231.5,-110.0,123.33,-146.67,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.370966+00:00
+2026-11-06,62a92e31b546d31ba57caf792815bf65,2026-11-07T01:10:00Z,Dallas Mavericks,Utah Jazz,-6.83,-110.0,225.83,-111.0,-264.67,215.67,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.370984+00:00
+2026-11-06,86684f64a8ec8385537a36c3b3768935,2026-11-07T01:10:00Z,Memphis Grizzlies,Oklahoma City Thunder,4.5,-113.67,223.5,-109.33,147.67,-176.33,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.371000+00:00
+2026-11-06,1c60a090180de530cfe273a5d6a381e6,2026-11-07T01:10:00Z,Milwaukee Bucks,Toronto Raptors,4.5,-108.33,229.33,-108.33,155.67,-187.33,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.371016+00:00
+2026-11-06,5e4708fadda49a3c06fd7ac50414020e,2026-11-07T01:10:00Z,New Orleans Pelicans,Minnesota Timberwolves,3.5,-111.33,230.5,-110.67,135.0,-161.67,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.371033+00:00
+2026-11-06,83d77fe350d56a036fd7a3404e78249a,2026-11-07T03:10:00Z,Los Angeles Lakers,Portland Trail Blazers,-3.17,-107.67,231.5,-110.67,-151.67,128.0,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.371052+00:00
+2026-11-06,d24eb5492983d6e28be3b96df396fa12,2026-11-07T03:10:00Z,Sacramento Kings,San Antonio Spurs,17.5,-112.67,231.5,-110.0,826.67,-1380.0,3,the-odds-api-fd-dk-fanatics,2026-11-06T19:52:33.371068+00:00
