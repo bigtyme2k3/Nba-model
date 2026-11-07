@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-06T19:53:05.268962Z",
+  "generated_at_utc": "2026-11-07T14:56:05.008038Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -81,10 +81,10 @@
     }
   },
   "forward_evidence": {
-    "bet_rows": 64,
-    "prop_bets": 56,
-    "roi": 0.2338,
-    "brier": 0.24064,
+    "bet_rows": 72,
+    "prop_bets": 57,
+    "roi": 0.2088,
+    "brier": 0.24158,
     "clv_matched": 0,
     "beat_close_rate": null,
     "avg_line_clv": null,
@@ -165,17 +165,17 @@
         }
       },
       "fanduel": {
-        "bets": 29,
-        "resolved": 29,
-        "wins": 16,
+        "bets": 30,
+        "resolved": 30,
+        "wins": 17,
         "losses": 13,
         "pushes": 0,
-        "hit_rate": 0.5517,
-        "profit_units": 4.4424,
-        "roi": 0.1532,
+        "hit_rate": 0.5667,
+        "profit_units": 5.7824,
+        "roi": 0.1927,
         "probability_calibration": {
-          "rows": 29,
-          "brier": 0.24724,
+          "rows": 30,
+          "brier": 0.24881,
           "bins": [
             {
               "range": "0.50-0.55",
@@ -213,17 +213,17 @@
     },
     "by_prop_stat": {
       "AST": {
-        "bets": 16,
-        "resolved": 16,
-        "wins": 11,
+        "bets": 17,
+        "resolved": 17,
+        "wins": 12,
         "losses": 5,
         "pushes": 0,
-        "hit_rate": 0.6875,
-        "profit_units": 6.9191,
-        "roi": 0.4324,
+        "hit_rate": 0.7059,
+        "profit_units": 8.2591,
+        "roi": 0.4858,
         "probability_calibration": {
-          "rows": 16,
-          "brier": 0.21526,
+          "rows": 17,
+          "brier": 0.2199,
           "bins": [
             {
               "range": "0.50-0.55",
@@ -425,7 +425,7 @@
         "beat_close_rate": null
       },
       "fanduel": {
-        "entries": 29,
+        "entries": 30,
         "matched_closes": 0,
         "match_rate": 0.0,
         "avg_line_clv": null,
@@ -438,7 +438,7 @@
     },
     "clv_by_stat": {
       "AST": {
-        "entries": 16,
+        "entries": 17,
         "matched_closes": 0,
         "match_rate": 0.0,
         "avg_line_clv": null,
