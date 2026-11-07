@@ -7,3 +7,10 @@ date,type,game,play,conf,stars,edge,ev,grade,result,profit_units,clv,graded_at_u
 2026-11-04,SPREAD,Milwaukee Bucks @ Boston Celtics,Milwaukee Bucks +11.2,HIGH,3,-7.1,,,WIN,0.91,,2026-11-05T20:30:07.683147+00:00
 2026-11-04,TOTAL,Chicago Bulls @ New York Knicks,UNDER 234.0,HIGH,3,-6.9,,,LOSS,-1.0,,2026-11-05T20:30:07.683150+00:00
 2026-11-04,TOTAL,Indiana Pacers @ Memphis Grizzlies,OVER 228.5,HIGH,3,5.8,,,LOSS,-1.0,,2026-11-05T20:30:07.683156+00:00
+2026-11-06,SPREAD,San Antonio Spurs @ Sacramento Kings,Sacramento Kings +17.5,HIGH,3,11.3,,,WIN,0.91,,2026-11-07T17:58:36.302335+00:00
+2026-11-06,SPREAD,Boston Celtics @ Charlotte Hornets,Charlotte Hornets +9.5,HIGH,3,8.1,,,LOSS,-1.0,,2026-11-07T17:58:36.302351+00:00
+2026-11-06,SPREAD,Washington Wizards @ Atlanta Hawks,Washington Wizards +8.2,HIGH,3,-6.2,,,WIN,0.91,,2026-11-07T17:58:36.302360+00:00
+2026-11-06,TOTAL,Minnesota Timberwolves @ New Orleans Pelicans,OVER 230.5,HIGH,3,7.2,,,LOSS,-1.0,,2026-11-07T17:58:36.302365+00:00
+2026-11-06,TOTAL,Boston Celtics @ Charlotte Hornets,OVER 207.67,HIGH,3,6.7,,,LOSS,-1.0,,2026-11-07T17:58:36.302369+00:00
+2026-11-06,TOTAL,Utah Jazz @ Dallas Mavericks,OVER 225.83,HIGH,3,5.7,,,LOSS,-1.0,,2026-11-07T17:58:36.302372+00:00
+2026-11-06,TOTAL,Oklahoma City Thunder @ Memphis Grizzlies,OVER 223.5,MED,2,3.8,,,WIN,0.91,,2026-11-07T17:58:36.302377+00:00

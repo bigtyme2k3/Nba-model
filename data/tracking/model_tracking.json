@@ -1,107 +1,37 @@
 {
-  "overall": "4-4-0",
-  "wins": 4,
-  "losses": 4,
+  "overall": "7-8-0",
+  "wins": 7,
+  "losses": 8,
   "pushes": 0,
-  "win_pct": 0.5,
-  "roi": -0.045,
-  "profit_units": -0.36,
+  "win_pct": 0.467,
+  "roi": -0.109,
+  "profit_units": -1.63,
   "clv_avg": 0.0,
   "by_type": {
     "SPREAD": {
-      "record": "3-2",
-      "win_pct": 0.6,
-      "bets": 5
+      "record": "5-3",
+      "win_pct": 0.625,
+      "bets": 8
     },
     "TOTAL": {
-      "record": "1-2",
-      "win_pct": 0.333,
-      "bets": 3
+      "record": "2-5",
+      "win_pct": 0.286,
+      "bets": 7
     }
   },
   "by_conf": {
     "HIGH": {
-      "record": "4-4",
-      "win_pct": 0.5,
-      "bets": 8
+      "record": "6-8",
+      "win_pct": 0.429,
+      "bets": 14
+    },
+    "MED": {
+      "record": "1-0",
+      "win_pct": 1.0,
+      "bets": 1
     }
   },
   "recent_10": [
-    {
-      "date": "2026-11-04",
-      "type": "TOTAL",
-      "game": "Utah Jazz @ New Orleans Pelicans",
-      "play": "OVER 232.0",
-      "conf": "HIGH",
-      "stars": 3,
-      "edge": 11.5,
-      "ev": NaN,
-      "grade": NaN,
-      "result": "WIN",
-      "profit_units": 0.91,
-      "clv": NaN,
-      "graded_at_utc": "2026-11-05T20:30:07.683101+00:00"
-    },
-    {
-      "date": "2026-11-04",
-      "type": "SPREAD",
-      "game": "Dallas Mavericks @ San Antonio Spurs",
-      "play": "Dallas Mavericks +12.0",
-      "conf": "HIGH",
-      "stars": 3,
-      "edge": -10.4,
-      "ev": NaN,
-      "grade": NaN,
-      "result": "WIN",
-      "profit_units": 0.91,
-      "clv": NaN,
-      "graded_at_utc": "2026-11-05T20:30:07.683133+00:00"
-    },
-    {
-      "date": "2026-11-04",
-      "type": "SPREAD",
-      "game": "Toronto Raptors @ Denver Nuggets",
-      "play": "Toronto Raptors +4.7",
-      "conf": "HIGH",
-      "stars": 3,
-      "edge": -9.0,
-      "ev": NaN,
-      "grade": NaN,
-      "result": "LOSS",
-      "profit_units": -1.0,
-      "clv": NaN,
-      "graded_at_utc": "2026-11-05T20:30:07.683137+00:00"
-    },
-    {
-      "date": "2026-11-04",
-      "type": "SPREAD",
-      "game": "Indiana Pacers @ Memphis Grizzlies",
-      "play": "Indiana Pacers +6.2",
-      "conf": "HIGH",
-      "stars": 3,
-      "edge": -7.7,
-      "ev": NaN,
-      "grade": NaN,
-      "result": "WIN",
-      "profit_units": 0.91,
-      "clv": NaN,
-      "graded_at_utc": "2026-11-05T20:30:07.683141+00:00"
-    },
-    {
-      "date": "2026-11-04",
-      "type": "SPREAD",
-      "game": "Los Angeles Lakers @ Sacramento Kings",
-      "play": "Sacramento Kings +12.3",
-      "conf": "HIGH",
-      "stars": 3,
-      "edge": 7.2,
-      "ev": NaN,
-      "grade": NaN,
-      "result": "LOSS",
-      "profit_units": -1.0,
-      "clv": NaN,
-      "graded_at_utc": "2026-11-05T20:30:07.683144+00:00"
-    },
     {
       "date": "2026-11-04",
       "type": "SPREAD",
@@ -146,7 +76,112 @@
       "profit_units": -1.0,
       "clv": NaN,
       "graded_at_utc": "2026-11-05T20:30:07.683156+00:00"
+    },
+    {
+      "date": "2026-11-06",
+      "type": "SPREAD",
+      "game": "San Antonio Spurs @ Sacramento Kings",
+      "play": "Sacramento Kings +17.5",
+      "conf": "HIGH",
+      "stars": 3,
+      "edge": 11.3,
+      "ev": NaN,
+      "grade": NaN,
+      "result": "WIN",
+      "profit_units": 0.91,
+      "clv": NaN,
+      "graded_at_utc": "2026-11-07T17:58:36.302335+00:00"
+    },
+    {
+      "date": "2026-11-06",
+      "type": "SPREAD",
+      "game": "Boston Celtics @ Charlotte Hornets",
+      "play": "Charlotte Hornets +9.5",
+      "conf": "HIGH",
+      "stars": 3,
+      "edge": 8.1,
+      "ev": NaN,
+      "grade": NaN,
+      "result": "LOSS",
+      "profit_units": -1.0,
+      "clv": NaN,
+      "graded_at_utc": "2026-11-07T17:58:36.302351+00:00"
+    },
+    {
+      "date": "2026-11-06",
+      "type": "SPREAD",
+      "game": "Washington Wizards @ Atlanta Hawks",
+      "play": "Washington Wizards +8.2",
+      "conf": "HIGH",
+      "stars": 3,
+      "edge": -6.2,
+      "ev": NaN,
+      "grade": NaN,
+      "result": "WIN",
+      "profit_units": 0.91,
+      "clv": NaN,
+      "graded_at_utc": "2026-11-07T17:58:36.302360+00:00"
+    },
+    {
+      "date": "2026-11-06",
+      "type": "TOTAL",
+      "game": "Minnesota Timberwolves @ New Orleans Pelicans",
+      "play": "OVER 230.5",
+      "conf": "HIGH",
+      "stars": 3,
+      "edge": 7.2,
+      "ev": NaN,
+      "grade": NaN,
+      "result": "LOSS",
+      "profit_units": -1.0,
+      "clv": NaN,
+      "graded_at_utc": "2026-11-07T17:58:36.302365+00:00"
+    },
+    {
+      "date": "2026-11-06",
+      "type": "TOTAL",
+      "game": "Boston Celtics @ Charlotte Hornets",
+      "play": "OVER 207.67",
+      "conf": "HIGH",
+      "stars": 3,
+      "edge": 6.7,
+      "ev": NaN,
+      "grade": NaN,
+      "result": "LOSS",
+      "profit_units": -1.0,
+      "clv": NaN,
+      "graded_at_utc": "2026-11-07T17:58:36.302369+00:00"
+    },
+    {
+      "date": "2026-11-06",
+      "type": "TOTAL",
+      "game": "Utah Jazz @ Dallas Mavericks",
+      "play": "OVER 225.83",
+      "conf": "HIGH",
+      "stars": 3,
+      "edge": 5.7,
+      "ev": NaN,
+      "grade": NaN,
+      "result": "LOSS",
+      "profit_units": -1.0,
+      "clv": NaN,
+      "graded_at_utc": "2026-11-07T17:58:36.302372+00:00"
+    },
+    {
+      "date": "2026-11-06",
+      "type": "TOTAL",
+      "game": "Oklahoma City Thunder @ Memphis Grizzlies",
+      "play": "OVER 223.5",
+      "conf": "MED",
+      "stars": 2,
+      "edge": 3.8,
+      "ev": NaN,
+      "grade": NaN,
+      "result": "WIN",
+      "profit_units": 0.91,
+      "clv": NaN,
+      "graded_at_utc": "2026-11-07T17:58:36.302377+00:00"
     }
   ],
-  "last_updated_utc": "2026-11-06T19:53:02.502558+00:00"
+  "last_updated_utc": "2026-11-07T17:58:36.306702+00:00"
 }
