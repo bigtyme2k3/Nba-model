@@ -1,17 +1,15 @@
 {
   "status": "READY",
   "target_date": "2026-11-07",
-  "generated_at_utc": "2026-11-07T17:58:34.447413+00:00",
+  "generated_at_utc": "2026-11-07T23:49:08.486729+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 92,
+  "injury_rows": 91,
   "slate_teams": [
     "Atlanta Hawks",
     "Brooklyn Nets",
     "Cleveland Cavaliers",
-    "Denver Nuggets",
     "Golden State Warriors",
     "Houston Rockets",
-    "Indiana Pacers",
     "New York Knicks",
     "Oklahoma City Thunder",
     "Orlando Magic",
@@ -20,12 +18,12 @@
     "San Antonio Spurs",
     "Washington Wizards"
   ],
-  "teams_affected": 5,
-  "absences_modeled": 7,
-  "recipient_rows": 50,
+  "teams_affected": 8,
+  "absences_modeled": 13,
+  "recipient_rows": 79,
   "unallocated_minutes": -0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 97
+  "adjustment_rows": 119
 }

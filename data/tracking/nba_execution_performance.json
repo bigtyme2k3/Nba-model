@@ -1,46 +1,27 @@
 {
-  "generated_at_utc": "2026-11-07T17:58:37.884426+00:00",
+  "generated_at_utc": "2026-11-07T23:49:09.803957+00:00",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "ledger_rows": 118,
-  "certified_rows": 6,
-  "bet_rows": 4,
-  "wins": 2,
-  "losses": 2,
+  "ledger_rows": 49,
+  "certified_rows": 0,
+  "bet_rows": 0,
+  "wins": 0,
+  "losses": 0,
   "pushes": 0,
-  "hit_rate": 0.5,
-  "profit_units": -0.1647,
-  "roi": -0.0412,
+  "hit_rate": null,
+  "profit_units": 0.0,
+  "roi": null,
   "probability_calibration": {
     "rows": 0,
     "brier": null,
     "bins": []
   },
-  "by_market": {
-    "SPREAD": {
-      "bets": 2,
-      "wins": 1,
-      "losses": 1,
-      "pushes": 0,
-      "hit_rate": 0.5,
-      "profit_units": -0.0683,
-      "roi": -0.0341
-    },
-    "TOTAL": {
-      "bets": 2,
-      "wins": 1,
-      "losses": 1,
-      "pushes": 0,
-      "hit_rate": 0.5,
-      "profit_units": -0.0964,
-      "roi": -0.0482
-    }
-  },
+  "by_market": {},
   "by_sportsbook": {},
   "by_prop_stat": {},
   "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT; ROI_USES_RECORDED_BOOK_PRICE; PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY; PROP_PERFORMANCE_IS_SPLIT_BY_EXACT_SPORTSBOOK_AND_STAT",
   "status": "READY",
-  "target_date": "2026-11-06",
-  "selected_execution_rows": 118,
+  "target_date": "2026-11-07",
+  "selected_execution_rows": 49,
   "selection_policy": "CLOSEST_POSITIVE_MINUTES_TO_TIP_PER_RANKING_KEY",
   "promotion_evidence": false
 }

@@ -13,12 +13,12 @@
     "player_threes",
     "player_points_rebounds_assists"
   ],
-  "events_found": 7,
-  "events_queried": 7,
-  "min_minutes_to_tip": null,
-  "max_minutes_to_tip": null,
-  "rows": 1548,
-  "unique_players": 86,
+  "events_found": 1,
+  "events_queried": 1,
+  "min_minutes_to_tip": 35.0,
+  "max_minutes_to_tip": 70.0,
+  "rows": 232,
+  "unique_players": 13,
   "books_returned": [
     "draftkings",
     "fanatics",
@@ -31,11 +31,11 @@
     "player_rebounds",
     "player_threes"
   ],
-  "http_calls": 7,
-  "api_requests_used": "2719",
-  "api_requests_remaining": "17281",
+  "http_calls": 1,
+  "api_requests_used": "2914",
+  "api_requests_remaining": "17086",
   "api_requests_last": "5",
   "error": null,
   "output_prefix": "sportsbook_props",
-  "generated_at_utc": "2026-11-07T17:58:13.829337+00:00"
+  "generated_at_utc": "2026-11-07T23:49:05.866203+00:00"
 }
