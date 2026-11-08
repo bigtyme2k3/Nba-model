@@ -1,8 +1,8 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-07,401909938,STATUS_SCHEDULED,False,False,Indiana Pacers,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -7.5,229.5,Arena CDMX,0,2026-11-07T17:58:16.415681
-2026-11-08,401909939,STATUS_SCHEDULED,False,False,Atlanta Hawks,Brooklyn Nets,0,0,0,0,,,,,,,,,ATL -7.5,226.5,State Farm Arena,0,2026-11-07T17:58:16.415699
-2026-11-08,401909940,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,New York Knicks,0,0,0,0,,,,,,,,,NY -5.5,222.5,Rocket Arena,0,2026-11-07T17:58:16.415705
-2026-11-08,401909941,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Washington Wizards,0,0,0,0,,,,,,,,,OKC -12.5,222.5,Paycom Center,0,2026-11-07T17:58:16.415717
-2026-11-08,401909942,STATUS_SCHEDULED,False,False,Golden State Warriors,Orlando Magic,0,0,0,0,,,,,,,,,GS -5.5,222.5,Chase Center,0,2026-11-07T17:58:16.415723
-2026-11-08,401909943,STATUS_SCHEDULED,False,False,Phoenix Suns,Houston Rockets,0,0,0,0,,,,,,,,,HOU -6.5,223.5,Mortgage Matchup Center,0,2026-11-07T17:58:16.415729
-2026-11-08,401909944,STATUS_SCHEDULED,False,False,Portland Trail Blazers,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -5.5,225.5,Moda Center,0,2026-11-07T17:58:16.415734
+2026-11-07,401909938,STATUS_FINAL,True,False,Indiana Pacers,Denver Nuggets,102,114,-12,216,19.0,22.0,37.0,24.0,27.0,37.0,26.0,24.0,,,Arena CDMX,20191,2026-11-08T15:17:17.590820
+2026-11-08,401909939,STATUS_FINAL,True,False,Atlanta Hawks,Brooklyn Nets,124,121,3,245,27.0,39.0,22.0,36.0,37.0,33.0,25.0,26.0,,,State Farm Arena,16117,2026-11-08T15:17:17.590839
+2026-11-08,401909940,STATUS_FINAL,True,False,Cleveland Cavaliers,New York Knicks,97,109,-12,206,27.0,26.0,17.0,27.0,26.0,37.0,25.0,21.0,,,Rocket Arena,19432,2026-11-08T15:17:17.590850
+2026-11-08,401909941,STATUS_FINAL,True,False,Oklahoma City Thunder,Washington Wizards,114,75,39,189,25.0,32.0,33.0,24.0,19.0,17.0,23.0,16.0,,,Paycom Center,18203,2026-11-08T15:17:17.590883
+2026-11-08,401909942,STATUS_FINAL,True,False,Golden State Warriors,Orlando Magic,126,119,7,245,31.0,26.0,20.0,33.0,19.0,22.0,37.0,32.0,,,Chase Center,18064,2026-11-08T15:17:17.590908
+2026-11-08,401909943,STATUS_FINAL,True,False,Phoenix Suns,Houston Rockets,102,99,3,201,35.0,12.0,29.0,26.0,23.0,24.0,28.0,24.0,,,Mortgage Matchup Center,17071,2026-11-08T15:17:17.590917
+2026-11-08,401909944,STATUS_FINAL,True,False,Portland Trail Blazers,San Antonio Spurs,103,125,-22,228,20.0,29.0,27.0,27.0,22.0,42.0,45.0,16.0,,,Moda Center,19916,2026-11-08T15:17:17.590926

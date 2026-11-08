@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-07T23:49:09.803957+00:00",
+  "generated_at_utc": "2026-11-08T15:17:20.953608+00:00",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "ledger_rows": 49,
-  "certified_rows": 0,
+  "certified_rows": 2,
   "bet_rows": 0,
   "wins": 0,
   "losses": 0,
