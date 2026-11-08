@@ -121,9 +121,10 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-06,401909936,STATUS_SCHEDULED,False,False,Phoenix Suns,Orlando Magic,0,0,0,0,,,,,,,,,PHX -1.5,221.5,Mortgage Matchup Center,0,2026-11-05T20:29:52.211051
 2026-11-06,401909937,STATUS_SCHEDULED,False,False,Golden State Warriors,Miami Heat,0,0,0,0,,,,,,,,,GS -6.5,232.5,Chase Center,0,2026-11-05T20:29:52.211071
 2026-11-07,401909938,STATUS_SCHEDULED,False,False,Indiana Pacers,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -7.5,229.5,Arena CDMX,0,2026-11-07T17:58:16.415681
-2026-11-08,401909939,STATUS_SCHEDULED,False,False,Atlanta Hawks,Brooklyn Nets,0,0,0,0,,,,,,,,,ATL -7.5,226.5,State Farm Arena,0,2026-11-07T17:58:16.415699
-2026-11-08,401909940,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,New York Knicks,0,0,0,0,,,,,,,,,NY -5.5,222.5,Rocket Arena,0,2026-11-07T17:58:16.415705
-2026-11-08,401909941,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Washington Wizards,0,0,0,0,,,,,,,,,OKC -12.5,222.5,Paycom Center,0,2026-11-07T17:58:16.415717
-2026-11-08,401909942,STATUS_SCHEDULED,False,False,Golden State Warriors,Orlando Magic,0,0,0,0,,,,,,,,,GS -5.5,222.5,Chase Center,0,2026-11-07T17:58:16.415723
-2026-11-08,401909943,STATUS_SCHEDULED,False,False,Phoenix Suns,Houston Rockets,0,0,0,0,,,,,,,,,HOU -6.5,223.5,Mortgage Matchup Center,0,2026-11-07T17:58:16.415729
-2026-11-08,401909944,STATUS_SCHEDULED,False,False,Portland Trail Blazers,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -5.5,225.5,Moda Center,0,2026-11-07T17:58:16.415734
+2026-11-08,401909945,STATUS_SCHEDULED,False,False,Chicago Bulls,Philadelphia 76ers,0,0,0,0,,,,,,,,,PHI -9.5,238.5,United Center,0,2026-11-08T18:15:16.579749
+2026-11-08,401909946,STATUS_SCHEDULED,False,False,Detroit Pistons,Los Angeles Lakers,0,0,0,0,,,,,,,,,DET -5.5,220.5,Little Caesars Arena,0,2026-11-08T18:15:16.579766
+2026-11-09,401909947,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Utah Jazz,0,0,0,0,,,,,,,,,MIN -12.5,221.5,Target Center,0,2026-11-08T18:15:16.579773
+2026-11-09,401909948,STATUS_SCHEDULED,False,False,Dallas Mavericks,Brooklyn Nets,0,0,0,0,,,,,,,,,DAL -7.5,222.5,American Airlines Center,0,2026-11-08T18:15:16.579786
+2026-11-09,401909949,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Boston Celtics,0,0,0,0,,,,,,,,,BOS -13.5,221.5,Fiserv Forum,0,2026-11-08T18:15:16.579791
+2026-11-09,401909950,STATUS_SCHEDULED,False,False,LA Clippers,New Orleans Pelicans,0,0,0,0,,,,,,,,,NO -1.5,226.5,Intuit Dome,0,2026-11-08T18:15:16.579797
+2026-11-09,401909951,STATUS_SCHEDULED,False,False,Sacramento Kings,Miami Heat,0,0,0,0,,,,,,,,,MIA -10.5,237.5,Golden 1 Center,0,2026-11-08T18:15:16.579820
