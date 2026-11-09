@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-09T18:51:19.927438Z",
+  "generated_at_utc": "2026-11-09T22:55:42.401879Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -18,28 +18,28 @@
     "spread": {
       "name": "spread",
       "status": "trained",
-      "trained_through": "2026-11-01",
-      "trained_rows": 6651,
+      "trained_through": "2026-11-08",
+      "trained_rows": 6705,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 6
+      "lag_days": 0
     },
     "totals": {
       "name": "totals",
       "status": "trained",
-      "trained_through": "2026-11-01",
-      "trained_rows": 6651,
+      "trained_through": "2026-11-08",
+      "trained_rows": 6705,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge",
-      "lag_days": 6
+      "lag_days": 0
     },
     "props": {
       "name": "props",
       "status": "trained",
-      "trained_through": "2026-11-01",
-      "trained_rows": 141881,
+      "trained_through": "2026-11-08",
+      "trained_rows": 143092,
       "validation": "global_chronological_timeseries_split",
       "markets": [
         "ast",
@@ -49,14 +49,14 @@
         "threes"
       ],
       "model_name": null,
-      "lag_days": 6
+      "lag_days": 0
     }
   },
   "feature_stores": {
     "player": {
       "status": "READY",
-      "max_game_date": "2026-11-07",
-      "rows": 142931,
+      "max_game_date": "2026-11-08",
+      "rows": 143092,
       "seasons": [
         2021,
         2022,
@@ -68,7 +68,7 @@
     },
     "team": {
       "status": "READY",
-      "max_game_date": "2026-11-07",
+      "max_game_date": "2026-11-08",
       "teams": 30,
       "seasons": [
         2021,
