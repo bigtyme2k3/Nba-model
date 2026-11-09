@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-08T22:48:32.133670Z",
+  "generated_at_utc": "2026-11-09T18:51:19.927438Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -81,9 +81,9 @@
     }
   },
   "forward_evidence": {
-    "bet_rows": 77,
+    "bet_rows": 85,
     "prop_bets": 57,
-    "roi": 0.1303,
+    "roi": 0.1815,
     "brier": 0.24158,
     "clv_matched": 0,
     "beat_close_rate": null,
