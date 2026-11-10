@@ -1,4 +1,7 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-29,401909893,STATUS_FINAL,True,False,Atlanta Hawks,Cleveland Cavaliers,114,111,3,225,16.0,30.0,43.0,25.0,28.0,16.0,38.0,29.0,,,State Farm Arena,15025,2026-11-10T14:46:52.521496
-2026-10-29,401909894,STATUS_FINAL,True,False,New Orleans Pelicans,Sacramento Kings,132,120,12,252,24.0,39.0,39.0,30.0,30.0,31.0,27.0,32.0,,,Smoothie King Center,15442,2026-11-10T14:46:52.521518
-2026-10-29,401909895,STATUS_FINAL,True,False,Portland Trail Blazers,Memphis Grizzlies,103,124,-21,227,25.0,33.0,25.0,20.0,25.0,33.0,33.0,33.0,,,Moda Center,19367,2026-11-10T14:46:52.521533
+2026-11-10,401909960,STATUS_SCHEDULED,False,False,New York Knicks,Milwaukee Bucks,0,0,0,0,,,,,,,,,NY -15.5,220.5,Madison Square Garden,0,2026-11-10T14:49:54.975019
+2026-11-10,401909961,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Boston Celtics,0,0,0,0,,,,,,,,,BOS -1.5,217.5,Xfinity Mobile Arena,0,2026-11-10T14:49:54.975043
+2026-11-10,401909962,STATUS_SCHEDULED,False,False,Phoenix Suns,LA Clippers,0,0,0,0,,,,,,,,,PHX -3.5,224.5,Mortgage Matchup Center,0,2026-11-10T14:49:54.975050
+2026-11-10,401909963,STATUS_SCHEDULED,False,False,Utah Jazz,Miami Heat,0,0,0,0,,,,,,,,,MIA -8.5,227.5,Delta Center,0,2026-11-10T14:49:54.975057
+2026-11-10,401909964,STATUS_SCHEDULED,False,False,Sacramento Kings,Orlando Magic,0,0,0,0,,,,,,,,,ORL -6.5,222.5,Golden 1 Center,0,2026-11-10T14:49:54.975062
+2026-11-10,401909965,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -1.5,224.5,Moda Center,0,2026-11-10T14:49:54.975068

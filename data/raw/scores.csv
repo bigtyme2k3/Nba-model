@@ -110,14 +110,6 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-07,401909938,STATUS_SCHEDULED,False,False,Indiana Pacers,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -7.5,229.5,Arena CDMX,0,2026-11-07T17:58:16.415681
 2026-11-08,401909945,STATUS_SCHEDULED,False,False,Chicago Bulls,Philadelphia 76ers,0,0,0,0,,,,,,,,,PHI -9.5,238.5,United Center,0,2026-11-08T18:15:16.579749
 2026-11-08,401909946,STATUS_SCHEDULED,False,False,Detroit Pistons,Los Angeles Lakers,0,0,0,0,,,,,,,,,DET -5.5,220.5,Little Caesars Arena,0,2026-11-08T18:15:16.579766
-2026-11-10,401909952,STATUS_SCHEDULED,False,False,Atlanta Hawks,Los Angeles Lakers,0,0,0,0,,,,,,,,,ATL -2.5,233.5,State Farm Arena,0,2026-11-09T22:54:22.612149
-2026-11-10,401909953,STATUS_SCHEDULED,False,False,Charlotte Hornets,Cleveland Cavaliers,0,0,0,0,,,,,,,,,CLE -8.5,215.5,Spectrum Center,0,2026-11-09T22:54:22.612168
-2026-11-10,401909954,STATUS_SCHEDULED,False,False,Detroit Pistons,Washington Wizards,0,0,0,0,,,,,,,,,DET -10.5,219.5,Little Caesars Arena,0,2026-11-09T22:54:22.612175
-2026-11-10,401909955,STATUS_SCHEDULED,False,False,Toronto Raptors,Memphis Grizzlies,0,0,0,0,,,,,,,,,TOR -2.5,228.5,Scotiabank Arena,0,2026-11-09T22:54:22.612187
-2026-11-10,401909956,STATUS_SCHEDULED,False,False,Dallas Mavericks,Indiana Pacers,0,0,0,0,,,,,,,,,DAL -4.5,226.5,American Airlines Center,0,2026-11-09T22:54:22.612192
-2026-11-10,401909957,STATUS_SCHEDULED,False,False,Houston Rockets,Denver Nuggets,0,0,0,0,,,,,,,,,HOU -4.5,223.5,Toyota Center (Houston),0,2026-11-09T22:54:22.612198
-2026-11-10,401909958,STATUS_SCHEDULED,False,False,Phoenix Suns,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -8.5,226.5,Mortgage Matchup Center,0,2026-11-09T22:54:22.612203
-2026-11-10,401909959,STATUS_SCHEDULED,False,False,Golden State Warriors,New Orleans Pelicans,0,0,0,0,,,,,,,,,GS -11.5,229.5,Chase Center,0,2026-11-09T22:54:22.612216
 2026-11-09,401909952,STATUS_FINAL,True,False,Atlanta Hawks,Los Angeles Lakers,114,124,-10,238,22.0,35.0,33.0,24.0,31.0,37.0,27.0,29.0,,,State Farm Arena,15561,2026-11-10T14:46:39.329751
 2026-11-09,401909953,STATUS_FINAL,True,False,Charlotte Hornets,Cleveland Cavaliers,124,112,12,236,29.0,40.0,38.0,17.0,28.0,25.0,27.0,32.0,,,Spectrum Center,17471,2026-11-10T14:46:39.329773
 2026-11-09,401909954,STATUS_FINAL,True,False,Detroit Pistons,Washington Wizards,122,111,11,233,31.0,37.0,35.0,19.0,32.0,26.0,29.0,24.0,,,Little Caesars Arena,18982,2026-11-10T14:46:39.329785
@@ -145,3 +137,9 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-29,401909893,STATUS_FINAL,True,False,Atlanta Hawks,Cleveland Cavaliers,114,111,3,225,16.0,30.0,43.0,25.0,28.0,16.0,38.0,29.0,,,State Farm Arena,15025,2026-11-10T14:46:52.521496
 2026-10-29,401909894,STATUS_FINAL,True,False,New Orleans Pelicans,Sacramento Kings,132,120,12,252,24.0,39.0,39.0,30.0,30.0,31.0,27.0,32.0,,,Smoothie King Center,15442,2026-11-10T14:46:52.521518
 2026-10-29,401909895,STATUS_FINAL,True,False,Portland Trail Blazers,Memphis Grizzlies,103,124,-21,227,25.0,33.0,25.0,20.0,25.0,33.0,33.0,33.0,,,Moda Center,19367,2026-11-10T14:46:52.521533
+2026-11-10,401909960,STATUS_SCHEDULED,False,False,New York Knicks,Milwaukee Bucks,0,0,0,0,,,,,,,,,NY -15.5,220.5,Madison Square Garden,0,2026-11-10T14:49:54.975019
+2026-11-10,401909961,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Boston Celtics,0,0,0,0,,,,,,,,,BOS -1.5,217.5,Xfinity Mobile Arena,0,2026-11-10T14:49:54.975043
+2026-11-10,401909962,STATUS_SCHEDULED,False,False,Phoenix Suns,LA Clippers,0,0,0,0,,,,,,,,,PHX -3.5,224.5,Mortgage Matchup Center,0,2026-11-10T14:49:54.975050
+2026-11-10,401909963,STATUS_SCHEDULED,False,False,Utah Jazz,Miami Heat,0,0,0,0,,,,,,,,,MIA -8.5,227.5,Delta Center,0,2026-11-10T14:49:54.975057
+2026-11-10,401909964,STATUS_SCHEDULED,False,False,Sacramento Kings,Orlando Magic,0,0,0,0,,,,,,,,,ORL -6.5,222.5,Golden 1 Center,0,2026-11-10T14:49:54.975062
+2026-11-10,401909965,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -1.5,224.5,Moda Center,0,2026-11-10T14:49:54.975068
