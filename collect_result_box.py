@@ -88,8 +88,10 @@ def main():
     if not df.empty:
         active=df[pd.to_numeric(df["minutes"],errors="coerce").fillna(0).gt(0)].copy()
         if not active.empty:
+            # A player who logged minutes without a shot has fg_att == 0, which is a
+            # parsed value; only a missing value is a parse failure.
             fga=pd.to_numeric(active["fg_att"],errors="coerce")
-            coverage=float((fga.notna() & fga.gt(0)).mean())
+            coverage=float(fga.notna().mean())
             status["shooting_attempt_coverage"]=round(coverage,4)
             if coverage < 0.85:
                 raise RuntimeError(

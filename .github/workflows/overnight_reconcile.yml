@@ -56,6 +56,9 @@ jobs:
 
       - name: Fetch lightweight final player boxes
         run: python collect_result_box.py --date ${{ env.TARGET }} --out data/raw
+        # A box-parse failure writes no box file, so props stay PENDING; spreads and
+        # totals only need final scores and must still be graded.
+        continue-on-error: true
 
       - name: Reconcile first-observed forward evidence
         run: python forward_reconciler.py --date ${{ env.TARGET }}
