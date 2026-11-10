@@ -189,6 +189,7 @@ def fallback_html(data_json: str) -> str:
     source = Path(__file__).resolve().parent / "dashboard"
     html = (source / "index.html").read_text(encoding="utf-8")
     return (html.replace("__DASHBOARD_CSS__", (source / "style.css").read_text(encoding="utf-8"))
+            .replace("__LINEMATE_REVIEW_JS__", (source / "linemate_review.js").read_text(encoding="utf-8"))
             .replace("__DASHBOARD_JS__", (source / "app.js").read_text(encoding="utf-8"))
             .replace("__DASHBOARD_DATA__", data_json))
 

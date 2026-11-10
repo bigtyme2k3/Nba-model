@@ -107,6 +107,31 @@ Results separates the historical priced forward-test record from current-model
 validation progress. It includes a flat-one-unit profit chart and date/book/outcome
 filters, and excludes consensus-priced game entries from priced performance.
 
+### Linemate research workspace
+
+Every game has a **Linemate review** section with matchup/trends links and a private
+observation notebook. It is also available from the More menu. Player-prop details
+link to the corresponding Linemate matchup for recent form, home/away, opponent and
+teammate-absence research. Some source views require the user's Linemate+ login.
+
+The notebook deliberately distinguishes **ATS against each game's own spread** from
+**historical hit rate against one selected line**. ATS entries require wins, losses,
+pushes and an identified sportsbook/line-timing basis. Selected-line entries require
+the exact line, side, market, split and sample. Injury/lineup notes are a third type.
+Each entry is dated, scoped to its slate/matchup and labeled as a manual observation;
+the user can flag it as supporting, conflicting with, or unclear relative to the model.
+
+Notes are saved only in that browser's local storage, persist across daily dashboard
+builds, and do not sync between devices or enter the public repository, models,
+calibration, qualifying decisions or Results. Download a JSON backup from the review
+section before clearing browser data. Removing a note affects only that browser.
+No Linemate credentials, background requests, scraping or automatic feed are included.
+An authorized API/export and historical validation would be required for automated
+model ingestion. The provider's published terms restrict systematic collection:
+https://linemate.io/terms. The notebook does not mirror Linemate datasets publicly.
+
+Check the review adapter using `node tests/test_linemate_review.cjs` (no API requests).
+
 Rebuild using `TARGET=YYYY-MM-DD python build_dashboard.py`. Check display data with
 `python -m unittest tests.test_dashboard_data` and filters with
 `node tests/test_dashboard_client.cjs`; neither command makes API requests.
