@@ -1,5 +1,5 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-01,401909903,STATUS_SCHEDULED,False,False,Orlando Magic,Boston Celtics,0,0,0,0,,,,,,,,,BOS -7.5,221.5,Kia Center,0,2026-11-01T18:17:25.625392
-2026-11-01,401909904,STATUS_SCHEDULED,False,False,Indiana Pacers,Brooklyn Nets,0,0,0,0,,,,,,,,,IND -3.5,230.5,Gainbridge Fieldhouse,0,2026-11-01T18:17:25.625414
-2026-11-02,401909905,STATUS_SCHEDULED,False,False,Golden State Warriors,LA Clippers,0,0,0,0,,,,,,,,,GS -2.5,221.5,Chase Center,0,2026-11-01T18:17:25.625425
-2026-11-02,401909906,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Toronto Raptors,0,0,0,0,,,,,,,,,LAL -2.5,226.5,crypto.com Arena,0,2026-11-01T18:17:25.625446
+2026-11-01,401909903,STATUS_FINAL,True,False,Orlando Magic,Boston Celtics,97,108,-11,205,23.0,27.0,24.0,23.0,24.0,31.0,22.0,31.0,,,Kia Center,18236,2026-11-10T01:01:26.366636
+2026-11-01,401909904,STATUS_FINAL,True,False,Indiana Pacers,Brooklyn Nets,90,98,-8,188,19.0,21.0,22.0,28.0,20.0,23.0,28.0,27.0,,,Gainbridge Fieldhouse,17274,2026-11-10T01:01:26.366655
+2026-11-02,401909905,STATUS_FINAL,True,False,Golden State Warriors,LA Clippers,124,112,12,236,29.0,34.0,29.0,32.0,37.0,20.0,28.0,27.0,,,Chase Center,18064,2026-11-10T01:01:26.366666
+2026-11-02,401909906,STATUS_FINAL,True,False,Los Angeles Lakers,Toronto Raptors,131,125,6,256,36.0,30.0,38.0,27.0,23.0,31.0,28.0,43.0,,,crypto.com Arena,19057,2026-11-10T01:01:26.366675

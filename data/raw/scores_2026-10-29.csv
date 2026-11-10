@@ -1,4 +1,4 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-30,401909893,STATUS_SCHEDULED,False,False,Atlanta Hawks,Cleveland Cavaliers,0,0,0,0,,,,,,,,,ATL -1.5,237.5,State Farm Arena,0,2026-10-29T18:48:52.997767
-2026-10-30,401909894,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Sacramento Kings,0,0,0,0,,,,,,,,,NO -5.5,235.5,Smoothie King Center,0,2026-10-29T18:48:52.997786
-2026-10-30,401909895,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Memphis Grizzlies,0,0,0,0,,,,,,,,,POR -7.5,232.5,Moda Center,0,2026-10-29T18:48:52.997795
+2026-10-30,401909893,STATUS_FINAL,True,False,Atlanta Hawks,Cleveland Cavaliers,114,111,3,225,16.0,30.0,43.0,25.0,28.0,16.0,38.0,29.0,,,State Farm Arena,15025,2026-11-10T00:48:06.730641
+2026-10-30,401909894,STATUS_FINAL,True,False,New Orleans Pelicans,Sacramento Kings,132,120,12,252,24.0,39.0,39.0,30.0,30.0,31.0,27.0,32.0,,,Smoothie King Center,15442,2026-11-10T00:48:06.730654
+2026-10-30,401909895,STATUS_FINAL,True,False,Portland Trail Blazers,Memphis Grizzlies,103,124,-21,227,25.0,33.0,25.0,20.0,25.0,33.0,33.0,33.0,,,Moda Center,19367,2026-11-10T00:48:06.730660
