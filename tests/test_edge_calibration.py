@@ -2,6 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
 
@@ -16,7 +17,9 @@ class EdgeProbabilityTests(unittest.TestCase):
                          kelly_sizing.MAX_EDGE_WIN_PROB)
 
     def test_under_and_over_edges_size_the_same(self):
-        under, over = kelly_sizing.size_bet(-8, "totals"), kelly_sizing.size_bet(8, "totals")
+        # Exercise sizing symmetry independently of today's market-only gate.
+        with patch.object(kelly_sizing, 'load_calibration', return_value={'edge': dict(kelly_sizing.EDGE_SHRINK_PRIOR)}):
+            under, over = kelly_sizing.size_bet(-8, "totals"), kelly_sizing.size_bet(8, "totals")
         self.assertEqual(under["win_prob"], over["win_prob"])
         self.assertGreater(under["win_prob"], 0.5)
 
