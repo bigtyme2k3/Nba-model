@@ -36,7 +36,9 @@ jobs:
       - name: Validate dashboard JavaScript and exact quote filters
         run: |
           node --check dashboard/app.js
+          node --check dashboard/linemate_review.js
           node tests/test_dashboard_client.cjs
+          node tests/test_linemate_review.cjs
       - name: Run NBA V1 compatibility and historical research tests (no API requests)
         run: python -m unittest discover -s tests -v
       - name: Import core NBA pipeline
