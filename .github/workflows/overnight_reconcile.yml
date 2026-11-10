@@ -5,6 +5,10 @@ concurrency:
   cancel-in-progress: false
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/reconcile-refresh-trigger'
   schedule:
     # 08:15 UTC = 4:15 AM EDT / 3:15 AM EST. Late West games should be final.
     - cron: '15 8,11 * * *'
