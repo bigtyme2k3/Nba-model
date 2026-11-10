@@ -1,0 +1,10 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Atlanta Hawks,Washington Wizards,-8.17,228.5,-8.33,228.17,-0.16000000000000014,-0.3300000000000125,False,False
+Charlotte Hornets,Boston Celtics,9.5,207.67,10.5,208.33,1.0,0.660000000000025,True,True
+Cleveland Cavaliers,Philadelphia 76ers,2.5,231.5,2.5,231.5,0.0,0.0,False,False
+Dallas Mavericks,Utah Jazz,-6.83,225.83,-6.83,225.83,0.0,0.0,False,False
+Memphis Grizzlies,Oklahoma City Thunder,4.5,223.5,4.5,223.67,0.0,0.1699999999999875,False,False
+Milwaukee Bucks,Toronto Raptors,4.5,229.33,4.5,229.0,0.0,-0.3300000000000125,False,False
+New Orleans Pelicans,Minnesota Timberwolves,3.5,230.5,3.5,230.67,0.0,0.1699999999999875,False,False
+Los Angeles Lakers,Portland Trail Blazers,-3.17,231.5,-3.5,231.5,-0.33000000000000007,0.0,False,False
+Sacramento Kings,San Antonio Spurs,17.5,231.5,17.5,231.5,0.0,0.0,False,False

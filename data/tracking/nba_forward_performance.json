@@ -1,18 +1,18 @@
 {
-  "generated_at_utc": "2026-11-03T19:59:31.586824+00:00",
+  "generated_at_utc": "2026-11-09T22:55:40.878019+00:00",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "ledger_rows": 2742,
-  "certified_rows": 1133,
-  "bet_rows": 56,
-  "wins": 34,
-  "losses": 22,
+  "ledger_rows": 5266,
+  "certified_rows": 1217,
+  "bet_rows": 85,
+  "wins": 49,
+  "losses": 36,
   "pushes": 0,
-  "hit_rate": 0.6071,
-  "profit_units": 15.3743,
-  "roi": 0.2745,
+  "hit_rate": 0.5765,
+  "profit_units": 15.4237,
+  "roi": 0.1815,
   "probability_calibration": {
-    "rows": 56,
-    "brier": 0.24064,
+    "rows": 57,
+    "brier": 0.24158,
     "bins": [
       {
         "range": "0.50-0.55",
@@ -48,13 +48,31 @@
   },
   "by_market": {
     "PROP": {
-      "bets": 56,
-      "wins": 34,
+      "bets": 57,
+      "wins": 35,
       "losses": 22,
       "pushes": 0,
-      "hit_rate": 0.6071,
-      "profit_units": 15.3743,
-      "roi": 0.2745
+      "hit_rate": 0.614,
+      "profit_units": 16.7143,
+      "roi": 0.2932
+    },
+    "SPREAD": {
+      "bets": 18,
+      "wins": 10,
+      "losses": 8,
+      "pushes": 0,
+      "hit_rate": 0.5556,
+      "profit_units": 1.0697,
+      "roi": 0.0594
+    },
+    "TOTAL": {
+      "bets": 10,
+      "wins": 4,
+      "losses": 6,
+      "pushes": 0,
+      "hit_rate": 0.4,
+      "profit_units": -2.3602,
+      "roi": -0.236
     }
   },
   "by_sportsbook": {
@@ -133,17 +151,17 @@
       }
     },
     "fanduel": {
-      "bets": 29,
-      "resolved": 29,
-      "wins": 16,
+      "bets": 30,
+      "resolved": 30,
+      "wins": 17,
       "losses": 13,
       "pushes": 0,
-      "hit_rate": 0.5517,
-      "profit_units": 4.4424,
-      "roi": 0.1532,
+      "hit_rate": 0.5667,
+      "profit_units": 5.7824,
+      "roi": 0.1927,
       "probability_calibration": {
-        "rows": 29,
-        "brier": 0.24724,
+        "rows": 30,
+        "brier": 0.24881,
         "bins": [
           {
             "range": "0.50-0.55",
@@ -181,17 +199,17 @@
   },
   "by_prop_stat": {
     "AST": {
-      "bets": 16,
-      "resolved": 16,
-      "wins": 11,
+      "bets": 17,
+      "resolved": 17,
+      "wins": 12,
       "losses": 5,
       "pushes": 0,
-      "hit_rate": 0.6875,
-      "profit_units": 6.9191,
-      "roi": 0.4324,
+      "hit_rate": 0.7059,
+      "profit_units": 8.2591,
+      "roi": 0.4858,
       "probability_calibration": {
-        "rows": 16,
-        "brier": 0.21526,
+        "rows": 17,
+        "brier": 0.2199,
         "bins": [
           {
             "range": "0.50-0.55",
@@ -370,8 +388,8 @@
     }
   },
   "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT; ROI_USES_RECORDED_BOOK_PRICE; PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY; PROP_PERFORMANCE_IS_SPLIT_BY_EXACT_SPORTSBOOK_AND_STAT",
-  "target_date": "2026-11-02",
-  "newly_resolved": 765,
-  "score_games_available": 0,
-  "player_actuals_available": 394
+  "target_date": "2026-11-08",
+  "newly_resolved": 0,
+  "score_games_available": 7,
+  "player_actuals_available": 187
 }

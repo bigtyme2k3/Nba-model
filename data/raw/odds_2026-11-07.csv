@@ -1,0 +1,7 @@
+game_date,game_id,commence_time,home_team,away_team,spread_home,spread_home_juice,total,total_over_juice,ml_home,ml_away,num_books,source,scraped_at
+2026-11-07,ee45341df802cfb42dd48f1ad60c8b81,2026-11-08T00:40:00Z,Atlanta Hawks,Brooklyn Nets,-6.83,-109.0,226.83,-109.33,-271.67,220.67,3,the-odds-api-fd-dk-fanatics,2026-11-07T23:49:05.464146+00:00
+2026-11-07,fdf3b77f50b2fad3988193af5ef4b00e,2026-11-08T01:10:00Z,Cleveland Cavaliers,New York Knicks,4.67,-107.67,223.33,-110.0,165.67,-199.0,3,the-odds-api-fd-dk-fanatics,2026-11-07T23:49:05.464169+00:00
+2026-11-07,6faeaee3bdf2a167eb67f93c44d3ef37,2026-11-08T01:10:00Z,Oklahoma City Thunder,Washington Wizards,-12.5,-109.67,223.5,-111.0,-639.33,464.33,3,the-odds-api-fd-dk-fanatics,2026-11-07T23:49:05.464183+00:00
+2026-11-07,39099dc03208d0771daaab5f7993478a,2026-11-08T01:40:00Z,Golden State Warriors,Orlando Magic,-7.5,-105.67,219.83,-109.33,-286.33,232.0,3,the-odds-api-fd-dk-fanatics,2026-11-07T23:49:05.464195+00:00
+2026-11-07,af8d920f175d73f12933c64ae296573f,2026-11-08T02:10:00Z,Phoenix Suns,Houston Rockets,6.5,-110.0,224.0,-108.33,215.67,-264.67,3,the-odds-api-fd-dk-fanatics,2026-11-07T23:49:05.464210+00:00
+2026-11-07,08d47dd5e50e83839e395e49870d6a0d,2026-11-08T03:00:00Z,Portland Trail Blazers,San Antonio Spurs,5.5,-110.67,229.33,-109.67,175.67,-212.33,3,the-odds-api-fd-dk-fanatics,2026-11-07T23:49:05.464222+00:00

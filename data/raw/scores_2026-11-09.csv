@@ -1,0 +1,9 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-10,401909952,STATUS_SCHEDULED,False,False,Atlanta Hawks,Los Angeles Lakers,0,0,0,0,,,,,,,,,ATL -2.5,233.5,State Farm Arena,0,2026-11-09T22:54:22.612149
+2026-11-10,401909953,STATUS_SCHEDULED,False,False,Charlotte Hornets,Cleveland Cavaliers,0,0,0,0,,,,,,,,,CLE -8.5,215.5,Spectrum Center,0,2026-11-09T22:54:22.612168
+2026-11-10,401909954,STATUS_SCHEDULED,False,False,Detroit Pistons,Washington Wizards,0,0,0,0,,,,,,,,,DET -10.5,219.5,Little Caesars Arena,0,2026-11-09T22:54:22.612175
+2026-11-10,401909955,STATUS_SCHEDULED,False,False,Toronto Raptors,Memphis Grizzlies,0,0,0,0,,,,,,,,,TOR -2.5,228.5,Scotiabank Arena,0,2026-11-09T22:54:22.612187
+2026-11-10,401909956,STATUS_SCHEDULED,False,False,Dallas Mavericks,Indiana Pacers,0,0,0,0,,,,,,,,,DAL -4.5,226.5,American Airlines Center,0,2026-11-09T22:54:22.612192
+2026-11-10,401909957,STATUS_SCHEDULED,False,False,Houston Rockets,Denver Nuggets,0,0,0,0,,,,,,,,,HOU -4.5,223.5,Toyota Center (Houston),0,2026-11-09T22:54:22.612198
+2026-11-10,401909958,STATUS_SCHEDULED,False,False,Phoenix Suns,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -8.5,226.5,Mortgage Matchup Center,0,2026-11-09T22:54:22.612203
+2026-11-10,401909959,STATUS_SCHEDULED,False,False,Golden State Warriors,New Orleans Pelicans,0,0,0,0,,,,,,,,,GS -11.5,229.5,Chase Center,0,2026-11-09T22:54:22.612216

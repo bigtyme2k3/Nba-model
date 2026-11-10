@@ -1,0 +1,11 @@
+{
+  "status": "READY",
+  "target_date": "2026-11-08",
+  "season": 2026,
+  "final_games": 7,
+  "player_rows": 187,
+  "shooting_attempt_coverage": 0.9317,
+  "generated_at_utc": "2026-11-09T18:51:16.289093+00:00",
+  "source": "espn_final_box_only",
+  "output": "data/raw/result_player_box_2026-11-08.csv"
+}
