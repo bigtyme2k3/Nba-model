@@ -9,7 +9,10 @@ be committed before the first pipeline run.
 """
 from __future__ import annotations
 import glob, json, os, re
+from html import escape
+from pathlib import Path
 from datetime import date
+from active_slate_date import resolve_target_date
 from typing import Any, Dict, List
 import pandas as pd
 
@@ -25,13 +28,14 @@ OUTPUT_HTML = 'docs/index.html'
 
 
 def target_today() -> str:
-    return os.environ.get('TARGET') or os.environ.get('NBA_TARGET_DATE') or str(date.today())
+    return os.environ.get('TARGET') or os.environ.get('NBA_TARGET_DATE') or resolve_target_date()
 
 
 def load_json(path: str, default: Any):
     try:
         if os.path.exists(path):
-            return json.load(open(path, encoding='utf-8'))
+            with open(path, encoding='utf-8') as handle:
+                return json.load(handle)
     except Exception as exc:
         print(f'  [WARN] Could not read {path}: {exc}')
     return default
@@ -60,19 +64,22 @@ def empty_dashboard_data() -> Dict[str, Any]:
 
 def find_predictions() -> Dict[str, Any]:
     target = target_today()
-    candidates = [os.path.join(PREDICTIONS_DIR, f'predictions_{target}.json')] + \
-        sorted(glob.glob(os.path.join(PREDICTIONS_DIR, 'predictions_*.json')), reverse=True)
-    seen = set()
-    for path in candidates:
-        if path in seen:
-            continue
-        seen.add(path)
-        if os.path.exists(path):
-            data = json.load(open(path, encoding='utf-8'))
-            print(f"  Loaded: {path} ({len(data.get('games', []))} games)")
-            return data
-    print('  [WARN] No predictions file found — using empty data')
-    return empty_dashboard_data()
+    paths = sorted(glob.glob(os.path.join(PREDICTIONS_DIR, 'predictions_*.json')), reverse=True)
+    path = os.path.join(PREDICTIONS_DIR, f'predictions_{target}.json')
+    data = load_json(path, {})
+    if data.get('date') == target:
+        data['slate_status'] = 'CURRENT'
+        return data
+    empty = empty_dashboard_data()
+    empty['slate_status'] = 'AWAITING_PREDICTIONS'
+    for previous in paths:
+        old = load_json(previous, {})
+        if old.get('generated') and str(old.get('date', '')) < target:
+            empty['last_successful_prediction_at'] = old['generated']
+            empty['last_successful_slate_date'] = old.get('date')
+            break
+    print(f'  [WARN] Awaiting predictions for {target}')
+    return empty
 
 
 def csv_value(value: Any) -> Any:
@@ -84,11 +91,16 @@ def csv_value(value: Any) -> Any:
     return value
 
 
-def load_csv_records(paths: List[str]) -> List[Dict[str, Any]]:
+def load_csv_records(paths: List[str], target_date=None) -> List[Dict[str, Any]]:
     for path in paths:
         if os.path.exists(path):
             try:
                 df = pd.read_csv(path)
+                if target_date:
+                    date_col = next((c for c in ('game_date', 'date', 'target_date') if c in df.columns), None)
+                    if not date_col:
+                        continue
+                    df = df[df[date_col].astype(str).eq(str(target_date))]
                 if len(df) > 0:
                     print(f'  Loaded CSV: {path} ({len(df)} rows)')
                     return [{k: csv_value(v) for k, v in row.to_dict().items()} for _, row in df.iterrows()]
@@ -100,14 +112,14 @@ def load_csv_records(paths: List[str]) -> List[Dict[str, Any]]:
 
 def load_player_points_for_date(target_date: str) -> List[Dict[str, Any]]:
     return load_csv_records([os.path.join(RAW_DIR, f'player_points_{target_date}.csv'),
-                              os.path.join(RAW_DIR, 'player_points_today.csv')])
+                              os.path.join(RAW_DIR, 'player_points_today.csv')], target_date)
 
 
 def load_line_shopping_for_date(target_date: str) -> List[Dict[str, Any]]:
     return load_csv_records([os.path.join(RAW_DIR, f'line_shopping_best_{target_date}.csv'),
                               os.path.join(RAW_DIR, f'line_shopping_{target_date}.csv'),
                               os.path.join(RAW_DIR, 'line_shopping_best_today.csv'),
-                              os.path.join(RAW_DIR, 'line_shopping_today.csv')])
+                              os.path.join(RAW_DIR, 'line_shopping_today.csv')], target_date)
 
 
 def load_tracking() -> Dict[str, Any]:
@@ -116,7 +128,9 @@ def load_tracking() -> Dict[str, Any]:
 
 def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
     target_date = target_today()
-    data['date'] = target_date
+    if data.get('date') != target_date:
+        data = empty_dashboard_data()
+        data['slate_status'] = 'AWAITING_PREDICTIONS'
 
     points = data.get('props') or data.get('player_points') or load_player_points_for_date(target_date)
     if points:
@@ -163,6 +177,8 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
     data['model_tracking'] = tracking
     execution_perf = load_json(EXECUTION_PERF_JSON, {})
     clv_report = load_json(CLV_REPORT_JSON, {})
+    data['reconciliation'] = load_json('data/tracking/reconciliation_status.json', {})
+    h['grading'] = data['reconciliation'].get('status', 'UNKNOWN')
     data['readiness'] = readiness
     data['forward_performance'] = forward_perf
     data['execution_performance'] = execution_perf
@@ -277,12 +293,19 @@ def build_html(data: Dict[str, Any]) -> bool:
     data_json = json.dumps(data, separators=(',', ':'), ensure_ascii=False)
     os.makedirs(os.path.dirname(OUTPUT_HTML), exist_ok=True)
     if os.path.exists(OUTPUT_HTML):
-        html = open(OUTPUT_HTML, encoding='utf-8').read()
+        html = Path(OUTPUT_HTML).read_text(encoding='utf-8')
         html = inject_data_script(html, data_json)
     else:
         html = fallback_html(data_json)
     html = inject_research_link(html)
-    open(OUTPUT_HTML, 'w', encoding='utf-8').write(html)
+    html = re.sub(r'<aside id="slate-freshness"[^>]*>.*?</aside>', '', html, flags=re.DOTALL)
+    message = ('Awaiting today’s predictions' if data.get('slate_status') == 'AWAITING_PREDICTIONS'
+               else 'Predictions for ' + str(data.get('date', '')))
+    stamp = data.get('generated') or data.get('last_successful_prediction_at') or 'unavailable'
+    banner = '<aside id="slate-freshness" style="padding:12px 20px;color:#fbbf24" role="status">' + escape(
+        message + ' · Last successful prediction refresh: ' + str(stamp)) + '</aside>'
+    html = re.sub(r'(<body[^>]*>)', lambda m: m.group(1) + banner, html, count=1, flags=re.IGNORECASE)
+    Path(OUTPUT_HTML).write_text(html, encoding='utf-8')
     return True
 
 

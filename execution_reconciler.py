@@ -141,7 +141,19 @@ def main():
         resolve_row(item,scores,players,args.date,now)
         graded.append(item)
 
-    perf=performance(graded)
+    comparison=compare(forward,graded)
+    daily_dir = TRACKING / "execution_daily"
+    daily_dir.mkdir(parents=True, exist_ok=True)
+    (daily_dir / f"{args.date}.json").write_text(json.dumps({
+        "evidence_epoch": EVIDENCE_EPOCH, "rows": graded, "comparison": comparison,
+    }, indent=2) + "\n")
+    archive_rows, archive_comparisons = [], []
+    for path in sorted(daily_dir.glob("*.json")):
+        snapshot = json.loads(path.read_text())
+        if snapshot.get("evidence_epoch") == EVIDENCE_EPOCH:
+            archive_rows.extend(snapshot["rows"])
+            archive_comparisons.extend(snapshot["comparison"])
+    perf=performance(archive_rows)
     perf.update({
         "status":"READY" if graded else "NO_EXECUTION_SNAPSHOTS",
         "evidence_epoch":EVIDENCE_EPOCH,
@@ -155,12 +167,11 @@ def main():
     (TRACKING/"nba_execution_performance.json").write_text(
         json.dumps(perf,indent=2)+"\n",encoding="utf-8"
     )
-    pd.DataFrame(graded).to_csv(
+    pd.DataFrame(archive_rows).to_csv(
         TRACKING/"nba_execution_certified.csv",index=False
     )
 
-    comparison=compare(forward,graded)
-    pd.DataFrame(comparison).to_csv(
+    pd.DataFrame(archive_comparisons).to_csv(
         TRACKING/"nba_forecast_vs_execution.csv",index=False
     )
 

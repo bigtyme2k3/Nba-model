@@ -162,7 +162,8 @@ jobs:
             data/tracking/execution_ledger_status.json \
             data/tracking/nba_execution_performance.json \
             data/tracking/nba_execution_certified.csv \
-            data/tracking/nba_forecast_vs_execution.csv
+            data/tracking/nba_forecast_vs_execution.csv \
+            data/tracking/execution_daily
           git diff --cached --quiet || git commit -m "⏱️ NBA pre-tip refresh — ${{ env.TARGET }}"
           git reset --hard HEAD
           git clean -fd

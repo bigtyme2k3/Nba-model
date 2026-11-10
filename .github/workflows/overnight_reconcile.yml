@@ -7,7 +7,7 @@ concurrency:
 on:
   schedule:
     # 08:15 UTC = 4:15 AM EDT / 3:15 AM EST. Late West games should be final.
-    - cron: '15 8 * * *'
+    - cron: '15 8,11 * * *'
   workflow_dispatch:
     inputs:
       date:
@@ -51,29 +51,8 @@ jobs:
           echo "TARGET=$TARGET" >> $GITHUB_ENV
           echo "Reconciling $TARGET"
 
-      - name: Fetch final game scores
-        run: python scrape_scores.py --date ${{ env.TARGET }} --out data/raw
-
-      - name: Fetch lightweight final player boxes
-        run: python collect_result_box.py --date ${{ env.TARGET }} --out data/raw
-
-      - name: Reconcile first-observed forward evidence
-        run: python forward_reconciler.py --date ${{ env.TARGET }}
-
-      - name: Reconcile closest near-tip execution evidence
-        run: python execution_reconciler.py --date ${{ env.TARGET }}
-        continue-on-error: true
-
-      - name: Reconcile exact-book CLV
-        run: python clv_reconciler.py
-        continue-on-error: true
-
-      - name: Calibrate model shrink over the market from graded rows
-        run: python calibrate_edges.py
-        continue-on-error: true
-
-      - name: Refresh readiness
-        run: python nba_v1_readiness.py
+      - name: Reconcile slate and retry pending dates independently
+        run: python reconcile_pending.py --date ${{ env.TARGET }} --max-backlog 3
 
       - name: Print evidence summary
         run: |
@@ -96,24 +75,8 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          # Add only outputs that exist: a single missing path (e.g. a file a
-          # step didn't write tonight) makes `git add` fail and loses the night.
-          for f in \
-            data/raw/scores_today.csv \
-            data/raw/scores_${{ env.TARGET }}.csv \
-            data/raw/result_player_box_${{ env.TARGET }}.csv \
-            data/raw/result_box_status_${{ env.TARGET }}.json \
-            data/history/nba_forward_predictions.jsonl \
-            data/tracking/nba_forward_performance.json \
-            data/tracking/nba_forward_certified.csv \
-            data/tracking/nba_execution_performance.json \
-            data/tracking/nba_execution_certified.csv \
-            data/tracking/nba_forecast_vs_execution.csv \
-            data/tracking/nba_prop_clv.csv \
-            data/tracking/nba_prop_clv_report.json \
-            data/tracking/nba_v1_readiness.json \
-            models/edge_calibration.json; do
-            if [ -e "$f" ]; then git add "$f"; else echo "skip missing $f"; fi
+          for f in data/raw/scores*.csv data/raw/result*.csv data/tracking data/history/nba_forward_predictions.jsonl models/edge_calibration.json docs/index.html; do
+            if [ -e "$f" ]; then git add "$f"; fi
           done
           git diff --cached --quiet || git commit -m "✅ NBA overnight evidence reconcile — ${{ env.TARGET }}"
           git reset --hard HEAD

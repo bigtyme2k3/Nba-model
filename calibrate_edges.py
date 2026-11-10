@@ -27,6 +27,9 @@ import json
 import math
 from datetime import datetime, timezone
 from pathlib import Path
+from forward_ledger import EVIDENCE_EPOCH
+from game_markets import priced_evidence
+from model_publication import model_family_id
 
 from kelly_sizing import (CALIBRATION_PATH, EDGE_SHRINK_PRIOR, PROP_PRICE_SHRINK_PRIOR,
                           outcome_std, win_prob_from_shrink)
@@ -48,7 +51,8 @@ def read_graded(path=LEDGER):
             row = json.loads(line)
         except ValueError:
             continue
-        if row.get("outcome") in {"WIN", "LOSS"}:
+        if (row.get("outcome") in {"WIN", "LOSS"} and row.get("evidence_epoch") == EVIDENCE_EPOCH
+                and priced_evidence(row)):
             rows.append(row)
     return rows
 
@@ -107,6 +111,47 @@ def calibrate(rows, min_graded=MIN_GRADED):
     return markets
 
 
+def temporal_calibration(rows, min_graded=MIN_GRADED, active_ids=None):
+    """Fit earlier whole dates; validate later dates against the market alone.
+
+    Active family IDs prevent pooling different algorithms or feature semantics.
+    Market-only is the fallback until the held-out comparison passes.
+    """
+    active_ids = active_ids or {}
+    out = {}
+    for name, market in [("prop_price", "PROP"), ("spread", "SPREAD"), ("totals", "TOTAL")]:
+        subset = [r for r in rows if r.get("market") == market and r.get("model_family_id")
+                  and r.get("model_family_id") == active_ids.get(market) and r.get("date")
+                  and has_price_probs(r)]
+        info = {"status": "MARKET_ONLY", "shrink": 0.0, "graded": len(subset),
+                "model_family_id": active_ids.get(market), "validation": "INSUFFICIENT_DATED_EVIDENCE"}
+        dates = sorted({r["date"] for r in subset})
+        if len(dates) >= 5:
+            cut = max(1, int(len(dates) * .8))
+            training = [r for r in subset if r["date"] < dates[cut]]
+            holdout = [r for r in subset if r["date"] >= dates[cut]]
+            info.update(training_rows=len(training), holdout_rows=len(holdout),
+                        train_through=dates[cut-1], holdout_from=dates[cut])
+            if len(training) >= min_graded and len(holdout) >= 50:
+                fitted = fit_prop_price_shrink(training)
+                def probability(row, shrink):
+                    value = _num(row["market_probability"]) + shrink * (_num(row["raw_model_probability"]) - _num(row["market_probability"]))
+                    return min(.75 if name == "prop_price" else .60, max(.01, value))
+                def scores(shrink):
+                    probs = [(max(.01, min(.99, probability(r, shrink))), r["outcome"] == "WIN") for r in holdout]
+                    return {"brier": sum((p-y)**2 for p,y in probs)/len(probs),
+                            "log_loss": -sum(math.log(p if y else 1-p) for p,y in probs)/len(probs)}
+                candidate, baseline = scores(fitted), scores(0)
+                passed = candidate["brier"] <= baseline["brier"] and candidate["log_loss"] <= baseline["log_loss"]
+                info.update(validation="PASSED" if passed else "REJECTED_HOLDOUT", candidate_shrink=fitted,
+                            candidate_scores=candidate, market_scores=baseline)
+                if passed:
+                    info.update(status="VALIDATED", shrink=fitted)
+        out[name] = info
+    out["props"] = {"status": "MARKET_ONLY", "shrink": 0.0, "graded": 0}
+    return out
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--ledger", default=str(LEDGER))
@@ -116,9 +161,14 @@ def main():
 
     result = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "method": "MLE shrink of model view over the market; see calibrate_edges.py",
+        "method": "earlier-date MLE fit; later-date Brier and log-loss nonregression versus market",
+        "evidence_epoch": EVIDENCE_EPOCH,
         "min_graded": args.min_graded,
-        "markets": calibrate(read_graded(args.ledger), args.min_graded),
+        "markets": temporal_calibration(read_graded(args.ledger), args.min_graded, {
+            "PROP": model_family_id("models/props_models.pkl"),
+            "SPREAD": model_family_id("models/spread_model.pkl"),
+            "TOTAL": model_family_id("models/totals_model.pkl"),
+        }),
     }
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")

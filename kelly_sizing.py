@@ -13,7 +13,7 @@ We use 25% Kelly (conservative) capped at 5% of bankroll.
 
 Win probabilities only credit part of the model's opinion, because the market is
 sharper than an unproven model:
-  - priced props: P = no_vig + shrink * (raw_model_p - no_vig), capped 25-75%
+  - priced props: P = no_vig + shrink * (raw_model_p - no_vig), capped 1-75%
   - edge-only bets (spreads/totals): P = Phi(shrink * edge / outcome_std), capped 40-60%
 The shrinks are fitted from graded forward rows by calibrate_edges.py once a market
 has enough of them; the priors below apply until then.
@@ -52,7 +52,7 @@ PROP_OUTCOME_STD = {"PTS": 6.5, "REB": 3.0, "AST": 2.3, "THREES": 1.3, "PRA": 8.
 # Fraction of the model's view credited over the market, until fitted.
 EDGE_SHRINK_PRIOR = {"spread": 0.25, "totals": 0.20, "props": 0.25}
 PROP_PRICE_SHRINK_PRIOR = 0.55
-PROP_PROB_CAP = (0.25, 0.75)
+PROP_PROB_CAP = (0.01, 0.75)
 MAX_EDGE_WIN_PROB = 0.60
 
 CALIBRATION_PATH = os.path.join("models", "edge_calibration.json")
@@ -94,15 +94,22 @@ def load_calibration(path: str = CALIBRATION_PATH) -> dict:
     except (OSError, ValueError):
         fitted = {}
     for market, info in fitted.items():
-        if info.get("status") != "FITTED" or info.get("shrink") is None:
+        if info.get("status") not in {"FITTED", "VALIDATED", "MARKET_ONLY"} or info.get("shrink") is None:
             continue
+        expected_model = info.get("model_family_id")
+        if expected_model:
+            from model_publication import model_family_id
+            filename = {"prop_price": "props_models.pkl", "spread": "spread_model.pkl",
+                        "totals": "totals_model.pkl", "props": "props_models.pkl"}.get(market)
+            if filename and expected_model != model_family_id(os.path.join("models", filename)):
+                info = {**info, "shrink": 0.0, "status": "MARKET_ONLY"}
         if market == "prop_price":
             prop_price = float(info["shrink"])
         elif market in edge:
             edge[market] = float(info["shrink"])
         else:
             continue
-        sources[market] = "FITTED"
+        sources[market] = info["status"]
     return {"edge": edge, "prop_price": prop_price, "sources": sources}
 
 
@@ -126,7 +133,8 @@ def prop_model_probability(raw_model_p: float, market_p: float,
     if shrink is None:
         shrink = load_calibration()["prop_price"]
     p = market_p + shrink * (raw_model_p - market_p)
-    return float(min(cap[1], max(cap[0], p)))
+    # A lower confidence floor must never invent an edge at long underdog prices.
+    return float(min(cap[1], max(0.01, p)))
 
 
 def edge_to_prob(edge_pts: float, model_type: str = "spread", stat: str = None) -> float:

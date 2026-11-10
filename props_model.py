@@ -5,6 +5,8 @@ Usage:
     python props_model.py --mode train
     python props_model.py --mode predict
 """
+
+from model_publication import publish_model_bundle
 import os, pickle, warnings, argparse
 import numpy as np
 import pandas as pd
@@ -14,6 +16,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import mean_absolute_error
+from sklearn.impute import SimpleImputer
+from prop_features import BASE_FEATURES, VERSION as FEATURE_VERSION, build_features
 warnings.filterwarnings("ignore")
 
 MODEL_DIR  = "models"
@@ -21,14 +25,6 @@ DATA_PATH  = "data/processed/player_logs.csv"
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 PROP_TARGETS = ["pts","reb","ast","threes","pra"]
-
-BASE_FEATURES = [
-    "minutes","roll5_minutes","usage","ts_pct",
-    "opp_drtg_pos","avg_pace","team_pace",
-    "rest_days","is_home",
-    "roll5_pts","roll5_reb","roll5_ast","roll5_threes","roll5_pra",
-    "season_game_num","month",
-]
 
 def prepare_data(df):
     """Prepare player rows for genuinely chronological validation.
@@ -41,17 +37,10 @@ def prepare_data(df):
     df["game_date"] = pd.to_datetime(df["game_date"], errors="coerce")
     df = df[df["game_date"].notna()].copy()
     df = df.sort_values(["player","season","game_date"]).reset_index(drop=True)
-    df["season_game_num"] = df.groupby(["player","season"]).cumcount() + 1
     df["month"] = df["game_date"].dt.month
-    df["def_adj"] = 114 - pd.to_numeric(df.get("opp_drtg_pos", 114), errors="coerce").fillna(114)
-    df["usage_pace"] = (
-        pd.to_numeric(df.get("usage", 0.20), errors="coerce").fillna(0.20)
-        * pd.to_numeric(df.get("avg_pace", 99), errors="coerce").fillna(99)
-        / 99.0
-    )
-    df["min_risk_flag"] = (
-        pd.to_numeric(df.get("minutes_sd_l10", 0), errors="coerce").fillna(0) >= 6.0
-    ).astype(int)
+    features = pd.DataFrame([build_features(row) for row in df.to_dict("records")], index=df.index)
+    for name in features.columns:
+        df[name] = features[name]
     return df.sort_values(["game_date","player"]).reset_index(drop=True)
 
 def train_prop_model(df, target):
@@ -63,29 +52,42 @@ def train_prop_model(df, target):
     if len(sub) < 20:
         return None
     X = sub[feats].apply(pd.to_numeric, errors="coerce")
-    X = X.fillna(X.median(numeric_only=True)).fillna(0)
     y = pd.to_numeric(sub[target], errors="coerce")
     valid = y.notna()
     X, y = X.loc[valid], y.loc[valid]
     if len(y) < 20:
         return None
     tscv = TimeSeriesSplit(n_splits=4)
+    dates = sub.loc[valid, "game_date"]
+    unique_dates = sorted(dates.unique())
+    if len(unique_dates) < 5:
+        return None
+    folds = [(np.flatnonzero(dates.isin(np.array(unique_dates)[tr])),
+              np.flatnonzero(dates.isin(np.array(unique_dates)[te])))
+             for tr, te in tscv.split(unique_dates)]
     models = {
-        "Ridge": Pipeline([("sc", StandardScaler()), ("m", Ridge(alpha=5.0))]),
-        "HistGBR": Pipeline([("m", HistGradientBoostingRegressor(
+        "Ridge": Pipeline([("impute", SimpleImputer(keep_empty_features=True)), ("sc", StandardScaler()), ("m", Ridge(alpha=5.0))]),
+        "HistGBR": Pipeline([("impute", SimpleImputer(keep_empty_features=True)), ("m", HistGradientBoostingRegressor(
                     max_iter=180, learning_rate=0.05, max_leaf_nodes=15,
                     min_samples_leaf=30, l2_regularization=1.0, random_state=42))]),
     }
-    cv = {}
+    cv, residuals = {}, {}
     for name, model in models.items():
-        maes = [mean_absolute_error(y.iloc[te], model.fit(X.iloc[tr], y.iloc[tr]).predict(X.iloc[te]))
-                for tr, te in tscv.split(X)]
+        maes, residual = [], []
+        for tr, te in folds:
+            predicted = model.fit(X.iloc[tr], y.iloc[tr]).predict(X.iloc[te])
+            maes.append(mean_absolute_error(y.iloc[te], predicted))
+            residual.extend(y.iloc[te].to_numpy() - predicted)
         cv[name] = np.mean(maes)
+        residuals[name] = float(np.std(residual, ddof=1))
     best_name  = min(cv, key=cv.get)
     best_model = models[best_name]
     best_model.fit(X, y)
     return {"model": best_model, "features": feats, "best_name": best_name,
-            "cv_mae": cv[best_name], "mean_stat": float(y.mean()), "std_stat": float(y.std())}
+            "cv_mae": cv[best_name], "mean_stat": float(y.mean()), "std_stat": float(y.std()),
+            "residual_std": residuals[best_name], "date_folds": [
+                {"train_through": str(dates.iloc[tr].max().date()), "test_from": str(dates.iloc[te].min().date())}
+                for tr, te in folds]}
 
 def train_all(data_path=DATA_PATH):
     print("\n═══ NBA PROPS MODEL — TRAINING ═══\n")
@@ -94,14 +96,14 @@ def train_all(data_path=DATA_PATH):
         print("       Props are fail-closed: no synthetic placeholder predictions will be created.")
         thresholds = {"pts":2.5,"reb":1.5,"ast":1.0,"threes":0.5,"pra":3.5}
         path = os.path.join(MODEL_DIR, "props_models.pkl")
-        with open(path, "wb") as f:
-            pickle.dump({
+        candidate_bundle = {
                 "status": "insufficient_data",
                 "models": {},
                 "thresholds": thresholds,
                 "data_path": data_path,
-            }, f)
-        print(f"✅ Empty fail-closed bundle saved → {path}")
+            }
+        publish_model_bundle(candidate_bundle, path, "props")
+        print(f"No valid training data; existing champion is retained: {path}")
         return {}
 
     df = pd.read_csv(data_path, parse_dates=["game_date"])
@@ -123,17 +125,18 @@ def train_all(data_path=DATA_PATH):
 
     path = os.path.join(MODEL_DIR, "props_models.pkl")
     trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
-    with open(path, "wb") as f:
-        pickle.dump({
+    candidate_bundle = {
             "status": "trained" if bundles else "insufficient_data",
             "models": bundles,
             "thresholds": thresholds,
             "trained_rows": int(len(df)),
             "trained_through": trained_through,
-            "validation": "global_chronological_timeseries_split",
+            "validation": "expanding_date_groups_fold_imputation",
+            "feature_semantics_version": FEATURE_VERSION,
             "feature_policy": "prior_only_shifted_inputs",
-        }, f)
-    print(f"\n✅ Saved → {path}")
+        }
+    publish_model_bundle(candidate_bundle, path, "props")
+    print(f"\nActive model → {path} (see publication report)")
     print(f"   Status: {'trained' if bundles else 'insufficient_data'} | Through: {trained_through}")
     return bundles
 
@@ -159,6 +162,9 @@ def predict_props(player_games, model_path=os.path.join(MODEL_DIR,"props_models.
         }
         result = {"player": pg["player"], "team": pg.get("team",""),
                   "opp": pg.get("opp_team",""), "props": {}}
+        if bundle.get("feature_semantics_version") == FEATURE_VERSION:
+            row["roll10_minutes"] = pg.get("roll10_minutes", row["roll5_minutes"])
+            row = build_features(row, projected_minutes=pg.get("proj_minutes"), projected_usage=pg.get("usage"))
         for target in PROP_TARGETS:
             if target not in models: continue
             m     = models[target]

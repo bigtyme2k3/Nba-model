@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import requests
+from game_markets import offers_from_event
 
 API_KEY  = os.getenv("ODDS_API_KEY")
 SPORT    = "basketball_nba"
@@ -30,7 +31,7 @@ BASE_URL = "https://api.the-odds-api.com/v4/sports"
 COLUMNS = [
     "game_date", "game_id", "commence_time", "home_team", "away_team",
     "spread_home", "spread_home_juice", "total", "total_over_juice",
-    "ml_home", "ml_away", "num_books", "source", "scraped_at"
+    "ml_home", "ml_away", "num_books", "source", "scraped_at", "game_offers"
 ]
 
 
@@ -154,6 +155,7 @@ def parse_games(games: list, target_date: str) -> pd.DataFrame:
 
         def avg(lst): return round(sum(lst)/len(lst), 2) if lst else None
 
+        captured = datetime.now(timezone.utc).isoformat()
         rows.append({
             "game_date":        target_date,
             "game_id":          gid,
@@ -167,8 +169,9 @@ def parse_games(games: list, target_date: str) -> pd.DataFrame:
             "ml_home":          avg(ml_home_prices),
             "ml_away":          avg(ml_away_prices),
             "num_books":        len(g.get("bookmakers", [])),
-            "source":           "the-odds-api-fd-dk-fanatics",
-            "scraped_at":       datetime.now(timezone.utc).isoformat(),
+            "source":           "the-odds-api-consensus-display-only",
+            "scraped_at":       captured,
+            "game_offers":      json.dumps(offers_from_event(g, captured)),
         })
 
     return pd.DataFrame(rows, columns=COLUMNS)
