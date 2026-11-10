@@ -26,6 +26,8 @@ class TestForwardCardDecisionPolicy(unittest.TestCase):
                 "totals":{
                     "pred":225.0,"line":230.5,"edge":-5.5,
                     "play":"UNDER","stars":3,"juice":-110,
+                    "selected_quote":{"book":"FanDuel","book_key":"fanduel","side":"UNDER",
+                                      "line":230.5,"price":-110,"quote_policy":"EXACT_BOOK_SIDE_V1"},
                 },
                 "props":[{
                     "player":"Player A","proj_min":34,

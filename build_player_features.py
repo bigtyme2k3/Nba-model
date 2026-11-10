@@ -167,6 +167,8 @@ def build_team_schedule(games: pd.DataFrame) -> pd.DataFrame:
     sched = sched.sort_values(["team", "game_date", "game_id"]).reset_index(drop=True)
     prev = sched.groupby("team")["game_date"].shift(1)
     sched["rest_days"] = ((sched["game_date"] - prev).dt.days - 1).clip(lower=0, upper=7)
+    sched["season"] = sched["game_date"].map(nba_season_start_year)
+    sched["team_game_num"] = sched.groupby(["team", "season"]).cumcount() + 1
     return sched
 
 
@@ -327,7 +329,7 @@ def enrich_context(players: pd.DataFrame, games: pd.DataFrame, raw_dir: str) -> 
     sched = build_team_schedule(games)
     if not sched.empty:
         players = players.merge(
-            sched[["game_id", "team", "opp_team", "is_home", "rest_days"]],
+            sched[["game_id", "team", "opp_team", "is_home", "rest_days", "team_game_num"]],
             on=["game_id", "team"], how="left"
         )
     else:
@@ -362,7 +364,7 @@ def enrich_context(players: pd.DataFrame, games: pd.DataFrame, raw_dir: str) -> 
     players["avg_pace"] = (players["team_pace"] + players["opp_team_pace"]) / 2.0
     players["rest_days"] = pd.to_numeric(players.get("rest_days"), errors="coerce").fillna(2).clip(0, 7)
     players["is_home"] = pd.to_numeric(players.get("is_home"), errors="coerce").fillna(0).astype(int)
-    players["season_game_num"] = players.groupby(["player", "season"]).cumcount() + 1
+    players["season_game_num"] = players.get("team_game_num", pd.Series(float("nan"), index=players.index))
     players["month"] = players["game_date"].dt.month
     return players
 
@@ -419,6 +421,7 @@ def build_profiles(actual: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
             "games_history": int(len(g)),
             "projected_minutes": round(projected_minutes, 3) if pd.notna(projected_minutes) else np.nan,
             "mpg": round(avg10, 3) if pd.notna(avg10) else np.nan,
+            "roll5_minutes": round(avg5, 3) if pd.notna(avg5) else np.nan,
             "usage": round(mean_col(l10, "usage_actual"), 5),
             "ts": round(mean_col(l10, "ts_pct_actual"), 5),
             "roll5_pts": round(mean_col(l5, "pts"), 3),
