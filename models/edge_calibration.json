@@ -1,38 +1,34 @@
 {
-  "generated_at_utc": "2026-11-10T01:07:34.284935+00:00",
-  "method": "MLE shrink of model view over the market; see calibrate_edges.py",
+  "generated_at_utc": "2026-11-10T14:46:56.735069+00:00",
+  "method": "earlier-date MLE fit; later-date Brier and log-loss nonregression versus market",
+  "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "min_graded": 200,
   "markets": {
     "prop_price": {
-      "graded": 1143,
-      "wins": 589,
-      "prior": 0.55,
-      "status": "FITTED",
-      "shrink": 0.11
+      "status": "MARKET_ONLY",
+      "shrink": 0.0,
+      "graded": 0,
+      "model_family_id": "44a02904e16bdb2b2bec420936232360a07b584bb488672f2ea0281dfc0c7741",
+      "validation": "INSUFFICIENT_DATED_EVIDENCE"
     },
     "spread": {
-      "graded": 89,
-      "wins": 36,
-      "prior": 0.25,
-      "status": "PRIOR",
-      "shrink": null,
-      "note": "needs 200 graded rows to fit"
+      "status": "MARKET_ONLY",
+      "shrink": 0.0,
+      "graded": 0,
+      "model_family_id": "558fb77332dbdddae1824e89803c1e8e975dbaf9979d3ac2088bfa8db2b50cdf",
+      "validation": "INSUFFICIENT_DATED_EVIDENCE"
     },
     "totals": {
-      "graded": 89,
-      "wins": 39,
-      "prior": 0.2,
-      "status": "PRIOR",
-      "shrink": null,
-      "note": "needs 200 graded rows to fit"
+      "status": "MARKET_ONLY",
+      "shrink": 0.0,
+      "graded": 0,
+      "model_family_id": "5d01c28c64a385615b36fb1d57f3cf255da596bef9679a0ccdbd6a719378a5e8",
+      "validation": "INSUFFICIENT_DATED_EVIDENCE"
     },
     "props": {
-      "graded": 0,
-      "wins": 0,
-      "prior": 0.25,
-      "status": "PRIOR",
-      "shrink": null,
-      "note": "needs 200 graded rows to fit"
+      "status": "MARKET_ONLY",
+      "shrink": 0.0,
+      "graded": 0
     }
   }
 }

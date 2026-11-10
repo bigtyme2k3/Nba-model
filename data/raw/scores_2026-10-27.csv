@@ -1,5 +1,5 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-27,401909877,STATUS_FINAL,True,False,Boston Celtics,Brooklyn Nets,125,124,1,249,26.0,30.0,30.0,31.0,31.0,30.0,21.0,35.0,,,TD Garden,19156,2026-11-10T00:41:24.974278
-2026-10-28,401909878,STATUS_FINAL,True,False,New York Knicks,Detroit Pistons,111,97,14,208,25.0,26.0,37.0,23.0,38.0,12.0,13.0,34.0,,,Madison Square Garden,19812,2026-11-10T00:41:24.974322
-2026-10-28,401909879,STATUS_FINAL,True,False,San Antonio Spurs,Sacramento Kings,130,103,27,233,39.0,41.0,27.0,23.0,29.0,25.0,26.0,23.0,,,Frost Bank Center,18354,2026-11-10T00:41:24.974334
-2026-10-28,401909880,STATUS_FINAL,True,False,Los Angeles Lakers,Portland Trail Blazers,129,136,-7,265,38.0,35.0,30.0,26.0,32.0,36.0,34.0,34.0,,,crypto.com Arena,19067,2026-11-10T00:41:24.974344
+2026-10-27,401909877,STATUS_FINAL,True,False,Boston Celtics,Brooklyn Nets,125,124,1,249,26.0,30.0,30.0,31.0,31.0,30.0,21.0,35.0,,,TD Garden,19156,2026-11-10T14:46:43.648499
+2026-10-27,401909878,STATUS_FINAL,True,False,New York Knicks,Detroit Pistons,111,97,14,208,25.0,26.0,37.0,23.0,38.0,12.0,13.0,34.0,,,Madison Square Garden,19812,2026-11-10T14:46:43.648533
+2026-10-27,401909879,STATUS_FINAL,True,False,San Antonio Spurs,Sacramento Kings,130,103,27,233,39.0,41.0,27.0,23.0,29.0,25.0,26.0,23.0,,,Frost Bank Center,18354,2026-11-10T14:46:43.648553
+2026-10-27,401909880,STATUS_FINAL,True,False,Los Angeles Lakers,Portland Trail Blazers,129,136,-7,265,38.0,35.0,30.0,26.0,32.0,36.0,34.0,34.0,,,crypto.com Arena,19067,2026-11-10T14:46:43.648572

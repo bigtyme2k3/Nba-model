@@ -106,6 +106,31 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909884,2026,2026-10-28,Pacers,Indiana,IND,home,5105854,Braden Smith,G,False,False,5.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-2.0,espn_api
 401909884,2026,2026-10-28,Pacers,Indiana,IND,home,4017837,Ivica Zubac,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401909884,2026,2026-10-28,Pacers,Indiana,IND,home,4431752,Kobe Brown,G,False,True,,,,,,,,,,,,,,,,,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4566434,Franz Wagner,F,True,False,34.0,15.0,4.0,5.0,2.0,0.0,7.0,0.0,4.0,4.0,11.0,0.0,3.0,7.0,8.0,-15.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4277847,Wendell Carter Jr.,C,True,False,26.0,3.0,10.0,3.0,1.0,0.0,2.0,4.0,6.0,1.0,4.0,0.0,2.0,1.0,2.0,-9.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4066320,Desmond Bane,G,True,False,34.0,13.0,5.0,4.0,1.0,2.0,0.0,1.0,4.0,3.0,14.0,2.0,8.0,5.0,5.0,-12.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4712849,Anthony Black,G,True,False,22.0,8.0,2.0,1.0,1.0,1.0,4.0,0.0,2.0,4.0,9.0,0.0,3.0,0.0,0.0,-25.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,5239561,Jase Richardson,G,True,False,14.0,10.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,4.0,8.0,2.0,3.0,0.0,0.0,-5.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4278572,Jamal Cain,F,False,False,16.0,9.0,1.0,0.0,2.0,0.0,1.0,1.0,0.0,2.0,7.0,0.0,2.0,5.0,5.0,-22.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4702382,Tristan da Silva,F,False,False,31.0,20.0,3.0,1.0,0.0,0.0,0.0,0.0,3.0,8.0,10.0,4.0,5.0,0.0,3.0,-16.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,6478,Nikola Vucevic,C,False,False,16.0,5.0,4.0,2.0,0.0,1.0,1.0,1.0,3.0,2.0,5.0,0.0,2.0,1.0,2.0,-19.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4348700,Goga Bitadze,C,False,False,11.0,6.0,0.0,1.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,4.0,4.0,-9.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4397204,Colin Castleton,C,False,False,7.0,2.0,2.0,0.0,0.0,1.0,1.0,2.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,-4.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,3133635,Jevon Carter,G,False,False,22.0,6.0,0.0,3.0,0.0,0.0,1.0,0.0,0.0,2.0,6.0,2.0,6.0,0.0,0.0,-10.0,espn_api
+401909885,2026,2026-10-28,Magic,Orlando,ORL,away,4593034,Alex Morales,G,False,False,7.0,2.0,2.0,1.0,0.0,0.0,2.0,0.0,2.0,1.0,2.0,0.0,1.0,0.0,0.0,-4.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4395625,RJ Barrett,F,True,False,32.0,25.0,9.0,6.0,1.0,0.0,0.0,2.0,7.0,9.0,18.0,3.0,7.0,4.0,5.0,15.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4433134,Scottie Barnes,F,True,False,31.0,28.0,6.0,4.0,3.0,2.0,2.0,1.0,5.0,11.0,17.0,0.0,2.0,6.0,6.0,30.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,3134908,Jakob Poeltl,C,True,False,10.0,2.0,2.0,0.0,0.0,0.0,1.0,0.0,2.0,1.0,1.0,0.0,0.0,0.0,2.0,11.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4395724,Immanuel Quickley,G,True,False,29.0,16.0,3.0,7.0,2.0,0.0,1.0,0.0,3.0,5.0,15.0,4.0,8.0,2.0,2.0,26.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4684272,Ja'Kobe Walter,G,True,False,28.0,14.0,5.0,2.0,1.0,0.0,0.0,1.0,4.0,5.0,9.0,3.0,7.0,1.0,1.0,13.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,2993874,Kyle Anderson,F,False,False,5.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4431684,Trayce Jackson-Davis,F,False,False,20.0,6.0,11.0,2.0,0.0,2.0,0.0,2.0,9.0,3.0,5.0,0.0,0.0,0.0,0.0,10.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4431893,Jamison Battle,F,False,False,20.0,7.0,0.0,1.0,2.0,0.0,1.0,0.0,0.0,1.0,4.0,1.0,3.0,4.0,5.0,15.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,5093267,Collin Murray-Boyles,F,False,False,15.0,10.0,2.0,1.0,0.0,0.0,3.0,0.0,2.0,3.0,5.0,2.0,3.0,2.0,2.0,3.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,5149115,Allen Graves,F,False,False,18.0,3.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,3.0,0.0,1.0,3.0,4.0,11.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4432241,Jamal Shead,G,False,False,23.0,13.0,4.0,7.0,2.0,0.0,4.0,1.0,3.0,4.0,7.0,1.0,2.0,4.0,4.0,8.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4432737,Jaden Bradley,G,False,False,5.0,0.0,1.0,1.0,2.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,4.0,espn_api
+401909885,2026,2026-10-28,Raptors,Toronto,TOR,home,4702656,Alijah Martin,G,False,False,5.0,5.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,2.0,3.0,1.0,2.0,0.0,0.0,3.0,espn_api
 401909886,2026,2026-10-28,Knicks,New York,NY,away,3934719,OG Anunoby,F,True,False,31.0,23.0,6.0,1.0,0.0,0.0,1.0,0.0,6.0,7.0,16.0,2.0,6.0,7.0,8.0,-10.0,espn_api
 401909886,2026,2026-10-28,Knicks,New York,NY,away,3136195,Karl-Anthony Towns,C,True,False,28.0,19.0,13.0,5.0,1.0,0.0,4.0,3.0,10.0,7.0,14.0,3.0,6.0,2.0,2.0,5.0,espn_api
 401909886,2026,2026-10-28,Knicks,New York,NY,away,3062679,Josh Hart,G,True,False,36.0,2.0,8.0,3.0,0.0,1.0,2.0,3.0,5.0,1.0,6.0,0.0,3.0,0.0,0.0,-2.0,espn_api

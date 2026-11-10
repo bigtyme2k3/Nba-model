@@ -1,6 +1,182 @@
 {
-  "status": "READY",
-  "generated_at_utc": "2026-11-10T02:47:43.049142+00:00",
+  "status": "NO_MATCHED_CLOSES",
+  "coverage_by_slate": {
+    "2026-10-27": {
+      "observed_games": 1,
+      "captured_games": 0,
+      "missing_games": [
+        "portland trail blazers @ los angeles lakers"
+      ]
+    },
+    "2026-10-28": {
+      "observed_games": 12,
+      "captured_games": 0,
+      "missing_games": [
+        "charlotte hornets @ detroit pistons",
+        "denver nuggets @ new orleans pelicans",
+        "golden state warriors @ minnesota timberwolves",
+        "houston rockets @ milwaukee bucks",
+        "los angeles lakers @ la clippers",
+        "miami heat @ atlanta hawks",
+        "new york knicks @ chicago bulls",
+        "oklahoma city thunder @ dallas mavericks",
+        "orlando magic @ toronto raptors",
+        "philadelphia 76ers @ indiana pacers",
+        "san antonio spurs @ utah jazz",
+        "washington wizards @ cleveland cavaliers"
+      ]
+    },
+    "2026-10-29": {
+      "observed_games": 3,
+      "captured_games": 0,
+      "missing_games": [
+        "cleveland cavaliers @ atlanta hawks",
+        "memphis grizzlies @ portland trail blazers",
+        "sacramento kings @ new orleans pelicans"
+      ]
+    },
+    "2026-10-30": {
+      "observed_games": 10,
+      "captured_games": 0,
+      "missing_games": [
+        "charlotte hornets @ washington wizards",
+        "chicago bulls @ boston celtics",
+        "denver nuggets @ phoenix suns",
+        "detroit pistons @ brooklyn nets",
+        "houston rockets @ dallas mavericks",
+        "indiana pacers @ miami heat",
+        "la clippers @ minnesota timberwolves",
+        "los angeles lakers @ golden state warriors",
+        "new york knicks @ philadelphia 76ers",
+        "orlando magic @ toronto raptors"
+      ]
+    },
+    "2026-10-31": {
+      "observed_games": 7,
+      "captured_games": 0,
+      "missing_games": [
+        "atlanta hawks @ new orleans pelicans",
+        "cleveland cavaliers @ milwaukee bucks",
+        "minnesota timberwolves @ san antonio spurs",
+        "oklahoma city thunder @ houston rockets",
+        "philadelphia 76ers @ charlotte hornets",
+        "portland trail blazers @ utah jazz",
+        "sacramento kings @ memphis grizzlies"
+      ]
+    },
+    "2026-11-01": {
+      "observed_games": 4,
+      "captured_games": 0,
+      "missing_games": [
+        "boston celtics @ orlando magic",
+        "brooklyn nets @ indiana pacers",
+        "la clippers @ golden state warriors",
+        "toronto raptors @ los angeles lakers"
+      ]
+    },
+    "2026-11-02": {
+      "observed_games": 15,
+      "captured_games": 0,
+      "missing_games": [
+        "atlanta hawks @ indiana pacers",
+        "boston celtics @ houston rockets",
+        "brooklyn nets @ new york knicks",
+        "chicago bulls @ philadelphia 76ers",
+        "detroit pistons @ charlotte hornets",
+        "miami heat @ los angeles lakers",
+        "milwaukee bucks @ minnesota timberwolves",
+        "new orleans pelicans @ memphis grizzlies",
+        "oklahoma city thunder @ cleveland cavaliers",
+        "phoenix suns @ golden state warriors",
+        "portland trail blazers @ denver nuggets",
+        "sacramento kings @ dallas mavericks",
+        "toronto raptors @ la clippers",
+        "utah jazz @ san antonio spurs",
+        "washington wizards @ orlando magic"
+      ]
+    },
+    "2026-11-04": {
+      "observed_games": 14,
+      "captured_games": 0,
+      "missing_games": [
+        "atlanta hawks @ washington wizards",
+        "charlotte hornets @ brooklyn nets",
+        "chicago bulls @ new york knicks",
+        "cleveland cavaliers @ oklahoma city thunder",
+        "dallas mavericks @ san antonio spurs",
+        "indiana pacers @ memphis grizzlies",
+        "los angeles lakers @ sacramento kings",
+        "miami heat @ la clippers",
+        "milwaukee bucks @ boston celtics",
+        "minnesota timberwolves @ houston rockets",
+        "philadelphia 76ers @ detroit pistons",
+        "portland trail blazers @ phoenix suns",
+        "toronto raptors @ denver nuggets",
+        "utah jazz @ new orleans pelicans"
+      ]
+    },
+    "2026-11-05": {
+      "observed_games": 2,
+      "captured_games": 0,
+      "missing_games": [
+        "miami heat @ golden state warriors",
+        "orlando magic @ phoenix suns"
+      ]
+    },
+    "2026-11-06": {
+      "observed_games": 9,
+      "captured_games": 0,
+      "missing_games": [
+        "boston celtics @ charlotte hornets",
+        "minnesota timberwolves @ new orleans pelicans",
+        "oklahoma city thunder @ memphis grizzlies",
+        "philadelphia 76ers @ cleveland cavaliers",
+        "portland trail blazers @ los angeles lakers",
+        "san antonio spurs @ sacramento kings",
+        "toronto raptors @ milwaukee bucks",
+        "utah jazz @ dallas mavericks",
+        "washington wizards @ atlanta hawks"
+      ]
+    },
+    "2026-11-07": {
+      "observed_games": 7,
+      "captured_games": 1,
+      "missing_games": [
+        "brooklyn nets @ atlanta hawks",
+        "denver nuggets @ indiana pacers",
+        "houston rockets @ phoenix suns",
+        "new york knicks @ cleveland cavaliers",
+        "san antonio spurs @ portland trail blazers",
+        "washington wizards @ oklahoma city thunder"
+      ]
+    },
+    "2026-11-08": {
+      "observed_games": 7,
+      "captured_games": 1,
+      "missing_games": [
+        "boston celtics @ milwaukee bucks",
+        "brooklyn nets @ dallas mavericks",
+        "miami heat @ sacramento kings",
+        "new orleans pelicans @ la clippers",
+        "philadelphia 76ers @ chicago bulls",
+        "utah jazz @ minnesota timberwolves"
+      ]
+    },
+    "2026-11-09": {
+      "observed_games": 8,
+      "captured_games": 1,
+      "missing_games": [
+        "cleveland cavaliers @ charlotte hornets",
+        "denver nuggets @ houston rockets",
+        "indiana pacers @ dallas mavericks",
+        "los angeles lakers @ atlanta hawks",
+        "memphis grizzlies @ toronto raptors",
+        "san antonio spurs @ phoenix suns",
+        "washington wizards @ detroit pistons"
+      ]
+    }
+  },
+  "generated_at_utc": "2026-11-10T14:46:56.367753+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "forward_prop_bets": 57,
@@ -94,6 +270,32 @@
     },
     "THREES": {
       "entries": 12,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    }
+  },
+  "by_model_artifact": {
+    "UNKNOWN": {
+      "entries": 57,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    }
+  },
+  "by_model_family": {
+    "UNKNOWN": {
+      "entries": 57,
       "matched_closes": 0,
       "match_rate": 0.0,
       "avg_line_clv": null,
