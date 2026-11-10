@@ -1,9 +1,5 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-10,401909952,STATUS_SCHEDULED,False,False,Atlanta Hawks,Los Angeles Lakers,0,0,0,0,,,,,,,,,ATL -2.5,233.5,State Farm Arena,0,2026-11-09T22:54:22.612149
-2026-11-10,401909953,STATUS_SCHEDULED,False,False,Charlotte Hornets,Cleveland Cavaliers,0,0,0,0,,,,,,,,,CLE -8.5,215.5,Spectrum Center,0,2026-11-09T22:54:22.612168
-2026-11-10,401909954,STATUS_SCHEDULED,False,False,Detroit Pistons,Washington Wizards,0,0,0,0,,,,,,,,,DET -10.5,219.5,Little Caesars Arena,0,2026-11-09T22:54:22.612175
-2026-11-10,401909955,STATUS_SCHEDULED,False,False,Toronto Raptors,Memphis Grizzlies,0,0,0,0,,,,,,,,,TOR -2.5,228.5,Scotiabank Arena,0,2026-11-09T22:54:22.612187
-2026-11-10,401909956,STATUS_SCHEDULED,False,False,Dallas Mavericks,Indiana Pacers,0,0,0,0,,,,,,,,,DAL -4.5,226.5,American Airlines Center,0,2026-11-09T22:54:22.612192
-2026-11-10,401909957,STATUS_SCHEDULED,False,False,Houston Rockets,Denver Nuggets,0,0,0,0,,,,,,,,,HOU -4.5,223.5,Toyota Center (Houston),0,2026-11-09T22:54:22.612198
-2026-11-10,401909958,STATUS_SCHEDULED,False,False,Phoenix Suns,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -8.5,226.5,Mortgage Matchup Center,0,2026-11-09T22:54:22.612203
-2026-11-10,401909959,STATUS_SCHEDULED,False,False,Golden State Warriors,New Orleans Pelicans,0,0,0,0,,,,,,,,,GS -11.5,229.5,Chase Center,0,2026-11-09T22:54:22.612216
+2026-10-27,401909877,STATUS_FINAL,True,False,Boston Celtics,Brooklyn Nets,125,124,1,249,26.0,30.0,30.0,31.0,31.0,30.0,21.0,35.0,,,TD Garden,19156,2026-11-10T00:41:24.974278
+2026-10-28,401909878,STATUS_FINAL,True,False,New York Knicks,Detroit Pistons,111,97,14,208,25.0,26.0,37.0,23.0,38.0,12.0,13.0,34.0,,,Madison Square Garden,19812,2026-11-10T00:41:24.974322
+2026-10-28,401909879,STATUS_FINAL,True,False,San Antonio Spurs,Sacramento Kings,130,103,27,233,39.0,41.0,27.0,23.0,29.0,25.0,26.0,23.0,,,Frost Bank Center,18354,2026-11-10T00:41:24.974334
+2026-10-28,401909880,STATUS_FINAL,True,False,Los Angeles Lakers,Portland Trail Blazers,129,136,-7,265,38.0,35.0,30.0,26.0,32.0,36.0,34.0,34.0,,,crypto.com Arena,19067,2026-11-10T00:41:24.974344
