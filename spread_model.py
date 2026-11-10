@@ -83,6 +83,14 @@ SPREAD_FEATURES = [
     "east_to_west",             # East team traveling west (0/1)
     "west_to_east",             # West team traveling east (0/1)
 
+    # Availability: rotation regulars missing (box scores in training, OUT on the
+    # injury report live). See team_availability.py.
+    "home_vac_value",           # Absent regulars' rolling box value, home
+    "away_vac_value",           # Absent regulars' rolling box value, away
+    "vac_value_diff",           # home - away
+    "home_vac_minutes",         # Absent regulars' rolling minutes, home
+    "away_vac_minutes",         # Absent regulars' rolling minutes, away
+
     # Season context
     "season_game_num",          # Game number in season (fatigue accumulates over an 82-game slate)
     "month",                    # Month (Oct-Jun regular season + playoffs)
@@ -425,6 +433,7 @@ def train_mode(data_path: str):
             "validation":    "global_chronological_timeseries_split",
             "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
             "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+            "availability_features": "ROTATION_ABSENCES_V1",
             "feature_names_count": int(len(feature_names)),
             "cv_results":    cv_results,
             "clv_results":   clv_results,

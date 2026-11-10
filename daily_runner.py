@@ -47,6 +47,7 @@ except ImportError:
     KELLY_AVAILABLE = False
 
 from kelly_sizing import load_calibration, prop_model_probability
+import team_availability
 
 _PROP_CAL = load_calibration()
 # Recorded on each prop so the ledger shows which shrink produced model_probability.
@@ -722,6 +723,11 @@ def run_spread(home, away, ctx, bundle):
         "season_game_num":   ctx["season_game_num"],
         "month":             ctx["month"],
         "is_playoff":        int(ctx["month"] in (4, 5, 6)),
+        "home_vac_value":    ctx.get("home_vac_value", 0.0),
+        "away_vac_value":    ctx.get("away_vac_value", 0.0),
+        "vac_value_diff":    ctx.get("home_vac_value", 0.0) - ctx.get("away_vac_value", 0.0),
+        "home_vac_minutes":  ctx.get("home_vac_minutes", 0.0),
+        "away_vac_minutes":  ctx.get("away_vac_minutes", 0.0),
     })
     try:
         X = pd.DataFrame([row])[feats]
@@ -1063,6 +1069,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
     # Build transparent injury-driven minutes/usage opportunity adjustments.
     opportunity_adjustments = {}
+    inj_df = pd.DataFrame()
     injuries_path = "data/raw/injuries_today.csv"
     if os.path.exists(injuries_path):
         try:
@@ -1071,6 +1078,18 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             print(f"  Injuries loaded: {out_count} OUT/DOUBTFUL flags")
         except Exception:
             inj_df = pd.DataFrame()
+    # Rotation regulars listed OUT, measured exactly as the spread model's training
+    # absences (team_availability.py).
+    slate_teams = {t for g in schedule for t in (g.get("home"), g.get("away")) if t}
+    try:
+        availability = team_availability.live_availability(
+            team_availability.load_player_logs(), inj_df, slate_teams)
+        missing = {t: v["players"] for t, v in availability.items() if v["players"]}
+        print(f"  Rotation absences (OUT): {sum(len(v) for v in missing.values())} players on {len(missing)} teams")
+    except Exception as exc:
+        print(f"  [WARN] Team availability failed: {exc}")
+        availability = {}
+
     if OPPORTUNITY_AVAILABLE:
         try:
             opportunity_adjustments = build_opportunity_adjustments(str(target_date))
@@ -1110,6 +1129,11 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         print(f"  Processing: {away} @ {home}")
         ctx = build_context(home, away, target_date, game)
+        for side, team in (("home", home), ("away", away)):
+            a = availability.get(team, {})
+            ctx[f"{side}_vac_value"] = a.get("vac_value", 0.0)
+            ctx[f"{side}_vac_minutes"] = a.get("vac_minutes", 0.0)
+            ctx[f"{side}_out"] = a.get("players", [])
 
         # Add referee crew stats to context
         game_key_ref = f"{away}@{home}"
