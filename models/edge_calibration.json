@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-10T00:49:42.295990+00:00",
+  "generated_at_utc": "2026-11-10T00:52:57.719230+00:00",
   "method": "MLE shrink of model view over the market; see calibrate_edges.py",
   "min_graded": 200,
   "markets": {
@@ -11,16 +11,16 @@
       "shrink": 0.11
     },
     "spread": {
-      "graded": 63,
-      "wins": 28,
+      "graded": 70,
+      "wins": 30,
       "prior": 0.25,
       "status": "PRIOR",
       "shrink": null,
       "note": "needs 200 graded rows to fit"
     },
     "totals": {
-      "graded": 63,
-      "wins": 23,
+      "graded": 70,
+      "wins": 27,
       "prior": 0.2,
       "status": "PRIOR",
       "shrink": null,
