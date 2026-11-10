@@ -51,6 +51,11 @@ def event():
 
 class ExactQuoteTests(unittest.TestCase):
     def setUp(self):
+        # Quote-selection tests use fixed calibration, not the changing live artifact.
+        calibration = patch('kelly_sizing.load_calibration', return_value={
+            'edge': {'spread': .25, 'totals': .25, 'props': .25}, 'prop_price': .45})
+        calibration.start()
+        self.addCleanup(calibration.stop)
         self.now = datetime(2026, 11, 10, 23, 1, tzinfo=timezone.utc)
         self.quotes = offers_from_event(event(), "2026-11-10T23:00:00Z")
 
@@ -116,7 +121,7 @@ class ExactQuoteTests(unittest.TestCase):
                 patch.object(daily_runner, "run_totals", return_value=200), \
                 patch.object(daily_runner, "run_props", return_value=[]), \
                 patch.object(daily_runner, "OPPORTUNITY_AVAILABLE", False), \
-                patch.object(daily_runner, "select_offer", side_effect=lambda p,m,o: select_offer(p,m,o,self.now)), \
+                patch.object(daily_runner, "select_offer", side_effect=lambda p,m,o,**kw: select_offer(p,m,o,self.now,**kw)), \
                 contextlib.redirect_stdout(io.StringIO()):
             result = daily_runner.run_pipeline(self.now.date(), schedule, {})
         self.assertEqual(len(result["best_bets"]), 2)

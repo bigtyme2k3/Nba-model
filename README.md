@@ -92,7 +92,24 @@ Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date
 - `forward_reconciler.py` — resolves actual outcomes and publishes price-aware ROI + probability calibration
 - `nba_v1_readiness.py` — governance gate separating healthy pipeline, forward-testing readiness and production readiness
 - `results_tracker.py` / `line_movement.py` — grading and closing-line-value tracking
-- `build_dashboard.py` — bakes the day's data into `docs/index.html` (generates it from scratch on first run)
+- `build_dashboard.py` / `dashboard_data.py` — prepare dated display records and rebuild `docs/index.html` from the maintained `dashboard/` HTML, CSS and JavaScript on every publication
+
+## Dashboard
+
+The phone-friendly dashboard has Today, Games, Props and Results views. All tip and
+refresh times use Eastern time. Props can be searched by player/team and filtered by
+game, stat, sportsbook, model lean and qualification status. Expand a player for
+projected minutes, prior-game averages, availability and exact book/line/side prices.
+Projection gaps are research observations unless the final card explicitly qualified
+the play. Prices shown beside a lean always belong to that same side and line.
+
+Results separates the historical priced forward-test record from current-model
+validation progress. It includes a flat-one-unit profit chart and date/book/outcome
+filters, and excludes consensus-priced game entries from priced performance.
+
+Rebuild using `TARGET=YYYY-MM-DD python build_dashboard.py`. Check display data with
+`python -m unittest tests.test_dashboard_data` and filters with
+`node tests/test_dashboard_client.cjs`; neither command makes API requests.
 
 ## NBA V1 current state
 
