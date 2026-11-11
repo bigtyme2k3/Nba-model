@@ -4,6 +4,8 @@ Usage:
     python totals_model.py --mode train --data data/processed/master_all.csv
     python totals_model.py --mode predict
 """
+
+from model_publication import publish_model_bundle
 import os, pickle, warnings, argparse
 import numpy as np
 import pandas as pd
@@ -231,8 +233,7 @@ def train_totals_model(data_path):
 
     path = os.path.join(MODEL_DIR, "totals_model.pkl")
     trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
-    with open(path, "wb") as f:
-        pickle.dump({
+    candidate_bundle = {
             "status": "trained",
             "model": final,
             "feature_names": available,
@@ -245,8 +246,9 @@ def train_totals_model(data_path):
             "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
             "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
             "feature_names_count": int(len(available)),
-        }, f)
-    print(f"\n✅ Saved → {path}")
+        }
+    publish_model_bundle(candidate_bundle, path, "totals")
+    print(f"\nActive model → {path} (see publication report)")
     print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
     print(f"\n═══ SUMMARY ═══")
     print(f"  Model: {best_name} | CV MAE: {cv_results[best_name]['mae']:.2f} pts")

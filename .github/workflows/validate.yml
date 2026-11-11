@@ -7,6 +7,7 @@ on:
       - '*.py'
       - 'research/**'
       - 'tests/**'
+      - 'dashboard/**'
       - '.github/workflows/**'
   pull_request:
     branches: [main]
@@ -14,6 +15,7 @@ on:
       - '*.py'
       - 'research/**'
       - 'tests/**'
+      - 'dashboard/**'
       - '.github/workflows/**'
   workflow_dispatch:
 
@@ -31,6 +33,12 @@ jobs:
         run: pip install -r requirements.txt
       - name: Compile Python modules
         run: python -m compileall -q .
+      - name: Validate dashboard JavaScript and exact quote filters
+        run: |
+          node --check dashboard/app.js
+          node --check dashboard/linemate_review.js
+          node tests/test_dashboard_client.cjs
+          node tests/test_linemate_review.cjs
       - name: Run NBA V1 compatibility and historical research tests (no API requests)
         run: python -m unittest discover -s tests -v
       - name: Import core NBA pipeline

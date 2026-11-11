@@ -92,7 +92,49 @@ Actions tab → **NBA Daily Pipeline** → Run workflow (optionally pass a `date
 - `forward_reconciler.py` — resolves actual outcomes and publishes price-aware ROI + probability calibration
 - `nba_v1_readiness.py` — governance gate separating healthy pipeline, forward-testing readiness and production readiness
 - `results_tracker.py` / `line_movement.py` — grading and closing-line-value tracking
-- `build_dashboard.py` — bakes the day's data into `docs/index.html` (generates it from scratch on first run)
+- `build_dashboard.py` / `dashboard_data.py` — prepare dated display records and rebuild `docs/index.html` from the maintained `dashboard/` HTML, CSS and JavaScript on every publication
+
+## Dashboard
+
+The phone-friendly dashboard has Today, Games, Props and Results views. All tip and
+refresh times use Eastern time. Props can be searched by player/team and filtered by
+game, stat, sportsbook, model lean and qualification status. Expand a player for
+projected minutes, prior-game averages, availability and exact book/line/side prices.
+Projection gaps are research observations unless the final card explicitly qualified
+the play. Prices shown beside a lean always belong to that same side and line.
+
+Results separates the historical priced forward-test record from current-model
+validation progress. It includes a flat-one-unit profit chart and date/book/outcome
+filters, and excludes consensus-priced game entries from priced performance.
+
+### Linemate research workspace
+
+Every game has a **Linemate review** section with matchup/trends links and a private
+observation notebook. It is also available from the More menu. Player-prop details
+link to the corresponding Linemate matchup for recent form, home/away, opponent and
+teammate-absence research. Some source views require the user's Linemate+ login.
+
+The notebook deliberately distinguishes **ATS against each game's own spread** from
+**historical hit rate against one selected line**. ATS entries require wins, losses,
+pushes and an identified sportsbook/line-timing basis. Selected-line entries require
+the exact line, side, market, split and sample. Injury/lineup notes are a third type.
+Each entry is dated, scoped to its slate/matchup and labeled as a manual observation;
+the user can flag it as supporting, conflicting with, or unclear relative to the model.
+
+Notes are saved only in that browser's local storage, persist across daily dashboard
+builds, and do not sync between devices or enter the public repository, models,
+calibration, qualifying decisions or Results. Download a JSON backup from the review
+section before clearing browser data. Removing a note affects only that browser.
+No Linemate credentials, background requests, scraping or automatic feed are included.
+An authorized API/export and historical validation would be required for automated
+model ingestion. The provider's published terms restrict systematic collection:
+https://linemate.io/terms. The notebook does not mirror Linemate datasets publicly.
+
+Check the review adapter using `node tests/test_linemate_review.cjs` (no API requests).
+
+Rebuild using `TARGET=YYYY-MM-DD python build_dashboard.py`. Check display data with
+`python -m unittest tests.test_dashboard_data` and filters with
+`node tests/test_dashboard_client.cjs`; neither command makes API requests.
 
 ## NBA V1 current state
 
@@ -121,7 +163,7 @@ Current validated baseline performance on the corrected 6,627-game master:
 Prop prices are compared per sportsbook using recorded American odds and
 no-vig probabilities. Because model probabilities are not yet forward-calibrated,
 the research engine shrinks probability edges 55% toward the no-vig market and
-caps probability tails before EV/Kelly sizing. Final research cards also enforce
+caps probability tails without raising low probabilities before EV/Kelly sizing. Final research cards also enforce
 **one bankroll-bearing prop per player**; additional same-player signals remain
 visible for research but cannot stack correlated minutes/usage exposure.
 
@@ -154,3 +196,39 @@ signal, plus review of book/market splits and drawdowns.
   attempts vacated) only when a trustworthy historical/live source is available.
 - Keep injury/rotation uncertainty fail-closed: questionable/doubtful players do
   not donate speculative minutes, and their own prop signals are blocked.
+
+### Exact-price evidence and recovery
+
+Spread/total consensus columns are for display and comparison. An actionable
+card requires a current paired FanDuel, DraftKings, or Fanatics quote, preserving
+the selected side's handicap and price. Older consensus-priced game results stay
+in the ledger but are excluded from priced ROI and production promotion.
+
+The dashboard requires a prediction payload whose slate date matches the requested
+Eastern date. Missing or mismatched payloads display an awaiting-predictions state;
+older cards and undated fallback CSVs cannot be relabeled as current.
+
+Closing capture checks all scheduled games before installing dependencies, captures
+quotes without waiting for the publication lock, and publishes captured evidence in
+a separate job. Coverage reports list missing games and unmatched exact-book entries.
+GitHub scheduling can still be delayed; capture artifacts are retained for seven days.
+
+`reconcile_pending.py --date YYYY-MM-DD` grades the requested slate and rotates
+through three older pending dates. Each collection/grading step runs independently;
+partial box-score fetches preserve previously collected games. Missing statistics
+remain pending, explicit DNPs are voided, and near-tip execution reports accumulate
+across dates. Overnight reconciliation runs twice each morning and rebuilds today's
+dashboard after publishing reconciliation status.
+
+Every model training entry point calls the same publication gate before replacing
+a champion. New prop bundles use whole-date validation folds, training-fold-only
+imputation, shared baseline minutes features, and out-of-fold residual dispersion.
+Historical injury snapshots are unavailable, so live injury overrides remain
+explicit scenarios; their conditional accuracy still requires forward evidence.
+
+Forecasts record model/calibration artifact hashes. Calibration fits earlier dates
+and must match or improve later-date Brier score and log loss against the market;
+insufficient or failed holdout evidence uses market-only probabilities. Promotion
+counts only the active algorithm and feature families, preserving comparable evidence
+across routine refits. Exact artifact hashes remain recorded for audits. Historical unversioned results
+remain available as diagnostics and cannot certify a newly trained model.

@@ -1,0 +1,7 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-10,401909960,STATUS_FINAL,True,False,New York Knicks,Milwaukee Bucks,117,85,32,202,26.0,32.0,27.0,32.0,21.0,13.0,38.0,13.0,,,Madison Square Garden,19812,2026-11-11T16:07:29.262985
+2026-11-10,401909961,STATUS_FINAL,True,False,Philadelphia 76ers,Boston Celtics,101,123,-22,224,23.0,28.0,31.0,19.0,30.0,32.0,29.0,32.0,,,Xfinity Mobile Arena,21497,2026-11-11T16:07:29.263008
+2026-11-10,401909962,STATUS_FINAL,True,False,Phoenix Suns,LA Clippers,133,110,23,243,29.0,35.0,35.0,34.0,18.0,29.0,25.0,38.0,,,Mortgage Matchup Center,17071,2026-11-11T16:07:29.263021
+2026-11-10,401909963,STATUS_FINAL,True,False,Utah Jazz,Miami Heat,109,115,-6,224,25.0,29.0,18.0,37.0,29.0,35.0,28.0,23.0,,,Delta Center,17867,2026-11-11T16:07:29.263032
+2026-11-10,401909964,STATUS_FINAL,True,False,Sacramento Kings,Orlando Magic,100,107,-7,207,27.0,25.0,24.0,24.0,34.0,23.0,27.0,23.0,,,Golden 1 Center,13573,2026-11-11T16:07:29.263041
+2026-11-10,401909965,STATUS_FINAL,True,False,Portland Trail Blazers,Oklahoma City Thunder,123,103,20,226,26.0,33.0,38.0,26.0,27.0,32.0,21.0,23.0,,,Moda Center,19367,2026-11-11T16:07:29.263050

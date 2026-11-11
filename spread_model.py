@@ -21,6 +21,8 @@ Usage:
     python spread_model.py --mode predict
 """
 
+from model_publication import publish_model_bundle
+
 import os
 import argparse
 import pickle
@@ -421,8 +423,7 @@ def train_mode(data_path: str):
 
     model_path = os.path.join(MODEL_DIR, "spread_model.pkl")
     trained_through = df["game_date"].max().date().isoformat() if not df.empty else None
-    with open(model_path, "wb") as f:
-        pickle.dump({
+    candidate_bundle = {
             "status":        "trained",
             "model":         final_model,
             "feature_names": feature_names,
@@ -437,9 +438,10 @@ def train_mode(data_path: str):
             "feature_names_count": int(len(feature_names)),
             "cv_results":    cv_results,
             "clv_results":   clv_results,
-        }, f)
+        }
+    publish_model_bundle(candidate_bundle, model_path, "spread")
 
-    print(f"\n✅ Model saved → {model_path}")
+    print(f"\nActive model → {model_path} (see publication report)")
     print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
 
     print("\n═══ TRAINING SUMMARY ═══")

@@ -32,6 +32,8 @@ from pathlib import Path
 import pandas as pd
 
 from forward_ledger import EVIDENCE_EPOCH
+from game_markets import timestamp
+from teams import normalize_team
 
 FORWARD = Path("data/history/nba_forward_predictions.jsonl")
 CLOSES = Path("data/history/nba_prop_closing_snapshots.jsonl")
@@ -67,9 +69,12 @@ def read_jsonl(path):
 
 
 def match_key(row):
+    raw_game = str(row.get("game") or "")
+    parts = raw_game.split(" @ ")
+    game = " @ ".join(normalize_team(part.strip()) for part in parts) if len(parts) == 2 else raw_game
     return (
         str(row.get("date") or row.get("game_date") or ""),
-        norm(row.get("game")),
+        norm(game),
         norm(row.get("player")),
         str(row.get("stat") or "").upper(),
         norm(row.get("sportsbook_key") or row.get("book_key")),
@@ -77,13 +82,21 @@ def match_key(row):
     )
 
 
-def select_close(candidates):
+def select_close(candidates, entry_generated=None):
     """Closest valid snapshot before tip (minimum positive minutes_to_tip)."""
     valid=[]
     for row in candidates:
         mins=f(row.get("minutes_to_tip"))
-        if mins is None or mins <= 0:
+        if mins is None or mins <= 0 or mins > 30:
             continue
+        if entry_generated:
+            entry_time, close_time = timestamp(entry_generated), timestamp(row.get("captured_at_utc"))
+            if not entry_time or not close_time or close_time < entry_time:
+                continue
+            update = timestamp(row.get("book_last_update"))
+            tip = timestamp(row.get("commence_time"))
+            if not update or not tip or close_time >= tip or not 0 <= (close_time-update).total_seconds() <= 1800:
+                continue
         valid.append((mins,row))
     if not valid:
         return None
@@ -166,9 +179,11 @@ def main():
     out=[]
     for entry in entries:
         key=match_key(entry)
-        close=select_close(close_map.get(key,[]))
+        close=select_close(close_map.get(key,[]), entry.get("prediction_generated_at_utc"))
         base={
             "prediction_id":entry.get("prediction_id"),
+            "model_artifact_id":entry.get("model_artifact_id"),
+            "model_family_id":entry.get("model_family_id"),
             "ranking_key":entry.get("ranking_key"),
             "date":entry.get("date"),
             "game":entry.get("game"),
@@ -184,6 +199,10 @@ def main():
             "entry_ev":entry.get("ev"),
             "entry_generated_at_utc":entry.get("prediction_generated_at_utc"),
             "close_matched":bool(close),
+            "missing_close_reason": None if close else (
+                "NO_VALID_CAPTURE_FOR_GAME" if not any(
+                    match_key(c)[:2] == key[:2] for c in closes)
+                else "EXACT_BOOK_PLAYER_STAT_SIDE_OR_TIME_UNAVAILABLE"),
             "close_line":None,
             "close_odds":None,
             "close_market_probability":None,
@@ -244,7 +263,8 @@ def main():
     resolved=[r for r in matched if r.get("beat_close") in {True,False}]
 
     report={
-        "status":"READY" if entries else "NO_FORWARD_PROP_BETS",
+        "status":("READY" if matched else "NO_MATCHED_CLOSES") if entries else "NO_FORWARD_PROP_BETS",
+        "coverage_by_slate": closing_coverage(read_jsonl(FORWARD), closes),
         "generated_at_utc":datetime.now(timezone.utc).isoformat(),
         "date_filter":args.date,
         "evidence_epoch":EVIDENCE_EPOCH,
@@ -266,6 +286,8 @@ def main():
         ),
         "by_sportsbook":summarize(out,"sportsbook_key"),
         "by_stat":summarize(out,"stat"),
+        "by_model_artifact":summarize(out,"model_artifact_id"),
+        "by_model_family":summarize(out,"model_family_id"),
         "output_csv":str(OUT_CSV),
         "policy":(
             "EXACT_SPORTSBOOK_MATCH_ONLY; CLOSEST_PRETIP_SNAPSHOT; "
@@ -275,6 +297,23 @@ def main():
     }
     OUT_JSON.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(report,indent=2))
+
+
+def closing_coverage(entries, closes):
+    """Account for every observed game, including games with no selected BET."""
+    expected, captured = defaultdict(set), defaultdict(set)
+    for path in Path("data/tracking/closing_schedule").glob("*.json"):
+        schedule = json.loads(path.read_text())
+        expected[str(schedule["date"])].update(norm(g["game"]) for g in schedule.get("games", []))
+    for row in entries:
+        if row.get("evidence_epoch") == EVIDENCE_EPOCH and row.get("date"):
+            expected[str(row["date"])].add(norm(row.get("game")))
+    for row in closes:
+        if select_close([row]):
+            captured[str(row.get("game_date"))].add(norm(row.get("game")))
+    return {day: {"observed_games": len(games), "captured_games": len(games & captured[day]),
+                  "missing_games": sorted(games - captured[day])}
+            for day, games in sorted(expected.items())}
 
 
 if __name__=="__main__":

@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from datetime import datetime, timezone
 from glob import glob
 from pathlib import Path
@@ -24,6 +25,7 @@ from pathlib import Path
 import pandas as pd
 
 from forward_ledger import EVIDENCE_EPOCH
+from game_markets import priced_evidence, valid_price
 
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 RAW = Path("data/raw")
@@ -34,7 +36,8 @@ def f(value, default=None):
     try:
         if pd.isna(value):
             return default
-        return float(value)
+        val = float(value)
+        return val if math.isfinite(val) else default
     except Exception:
         return default
 
@@ -68,10 +71,14 @@ def load_scores(target):
             df = pd.read_csv(path)
         except Exception:
             continue
+        if path.name == "scores_today.csv":
+            if "game_date" not in df.columns:
+                continue
+            df = df[df["game_date"].astype(str).eq(str(target))]
         out = {}
         for _, r in df.iterrows():
             status = str(r.get("STATUS", r.get("status", ""))).upper()
-            if status and "FINAL" not in status:
+            if "FINAL" not in status:
                 continue
             home = str(r.get("HOME", r.get("home_team", ""))).strip()
             away = str(r.get("AWAY", r.get("away_team", ""))).strip()
@@ -116,7 +123,7 @@ def load_player_actuals(target):
             for name in names:
                 if name in sub.columns:
                     return pd.to_numeric(sub[name], errors="coerce")
-            return pd.Series(0.0, index=sub.index)
+            return pd.Series(float("nan"), index=sub.index)
 
         pts = col("points", "pts")
         reb = col("rebounds", "reb")
@@ -127,13 +134,11 @@ def load_player_actuals(target):
             player = str(r.get(player_col, "")).strip()
             if not player:
                 continue
-            p = f(pts.loc[idx], 0.0)
-            rb = f(reb.loc[idx], 0.0)
-            a = f(ast.loc[idx], 0.0)
-            t = f(threes.loc[idx], 0.0)
+            p, rb, a, t = (f(s.loc[idx]) for s in (pts, reb, ast, threes))
             rows[norm(player)] = {
                 "PTS": p, "REB": rb, "AST": a, "THREES": t,
-                "PRA": p + rb + a,
+                "PRA": p + rb + a if all(x is not None for x in (p, rb, a)) else None,
+                "did_not_play": str(r.get("did_not_play", False)).lower() in {"true", "1"},
             }
     return rows
 
@@ -163,7 +168,7 @@ def resolve_row(row, scores, players, target, now):
         if not game:
             return False
         actual = game["total"]
-        outcome = grade_side(actual, f(row.get("line")), row.get("side"))
+        outcome = "PASS" if row.get("side") == "PASS" else grade_side(actual, f(row.get("line")), row.get("side"))
 
     elif market == "SPREAD":
         if not game:
@@ -177,7 +182,7 @@ def resolve_row(row, scores, players, target, now):
             cover = actual + line
         elif side == "AWAY":
             actual = -game["margin"]
-            cover = actual - line
+            cover = actual + line if row.get("line_basis") == "SELECTED_SIDE" else actual - line
         else:
             # PASS rows still receive the actual margin, but no betting outcome.
             row["actual"] = game["margin"]
@@ -187,11 +192,18 @@ def resolve_row(row, scores, players, target, now):
         outcome = "PUSH" if abs(cover) < 1e-9 else ("WIN" if cover > 0 else "LOSS")
 
     elif market == "PROP":
+        if not game:
+            return False
         pdata = players.get(norm(row.get("player")))
         stat = str(row.get("stat", "")).upper()
         if not pdata or stat not in pdata:
             return False
+        if pdata.get("did_not_play"):
+            row.update(actual=None, outcome="VOID", graded_at_utc=now)
+            return True
         actual = pdata[stat]
+        if actual is None:
+            return False
         if str(row.get("side") or "").upper() == "PASS":
             outcome = "PASS"
         else:
@@ -216,8 +228,8 @@ def profit_units(row):
     if outcome != "WIN":
         return None
     odds = f(row.get("odds"))
-    if odds is None or odds == 0:
-        return 0.9091
+    if not valid_price(odds):
+        return None
     return odds / 100.0 if odds > 0 else 100.0 / abs(odds)
 
 
@@ -281,7 +293,7 @@ def grouped_bet_stats(rows, field):
 
 def performance(rows):
     certified = [r for r in rows if r.get("outcome") in {"WIN", "LOSS", "PUSH"}]
-    bets = [r for r in certified if r.get("decision") == "BET"]
+    bets = [r for r in certified if r.get("decision") == "BET" and priced_evidence(r)]
     wins = sum(r.get("outcome") == "WIN" for r in bets)
     losses = sum(r.get("outcome") == "LOSS" for r in bets)
     pushes = sum(r.get("outcome") == "PUSH" for r in bets)
@@ -313,6 +325,9 @@ def performance(rows):
         "ledger_rows": len(rows),
         "certified_rows": len(certified),
         "bet_rows": len(bets),
+        "excluded_unpriced_bets": sum(r.get("decision") == "BET" and not priced_evidence(r) for r in certified),
+        "pending_rows": sum(r.get("outcome") in {None, "", "PENDING"} for r in rows),
+        "void_rows": sum(r.get("outcome") == "VOID" for r in rows),
         "wins": wins, "losses": losses, "pushes": pushes,
         "hit_rate": round(wins / denom, 4) if denom else None,
         "profit_units": round(sum(profits),4) if profits else 0.0,
@@ -330,6 +345,7 @@ def performance(rows):
         "policy": (
             "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT; ROI_USES_RECORDED_BOOK_PRICE; "
             "PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY; "
+            "EXACT_BOOK_SIDE_QUOTES_ONLY; LEGACY_CONSENSUS_GAME_ROWS_EXCLUDED; "
             "PROP_PERFORMANCE_IS_SPLIT_BY_EXACT_SPORTSBOOK_AND_STAT"
         ),
     }

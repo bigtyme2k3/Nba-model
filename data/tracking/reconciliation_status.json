@@ -1,0 +1,137 @@
+{
+  "status": "READY",
+  "generated_at_utc": "2026-11-11T16:07:49.285570+00:00",
+  "target_date": "2026-11-10",
+  "steps": [
+    {
+      "date": "2026-11-10",
+      "steps": [
+        {
+          "step": "scrape_scores.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "collect_result_box.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "forward_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "execution_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "steps": [
+        {
+          "step": "scrape_scores.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "collect_result_box.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "forward_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "execution_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "steps": [
+        {
+          "step": "scrape_scores.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "collect_result_box.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "forward_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "execution_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "steps": [
+        {
+          "step": "scrape_scores.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "collect_result_box.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "forward_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        },
+        {
+          "step": "execution_reconciler.py",
+          "ok": true,
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "step": "clv_reconciler.py",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "step": "calibrate_edges.py",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "step": "nba_v1_readiness.py",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "step": "build_dashboard.py",
+      "ok": true,
+      "returncode": 0
+    }
+  ],
+  "last_attempt_by_date": {
+    "2026-11-09": "2026-11-10T14:46:43.139981+00:00",
+    "2026-10-27": "2026-11-10T14:46:47.168048+00:00",
+    "2026-10-28": "2026-11-10T14:46:52.003478+00:00",
+    "2026-10-29": "2026-11-10T14:46:55.790841+00:00",
+    "2026-11-10": "2026-11-11T16:07:32.732350+00:00",
+    "2026-10-30": "2026-11-11T16:07:38.314881+00:00",
+    "2026-10-31": "2026-11-11T16:07:43.090164+00:00",
+    "2026-11-01": "2026-11-11T16:07:46.939590+00:00"
+  }
+}

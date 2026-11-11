@@ -20,6 +20,8 @@ from datetime import date, datetime
 from pathlib import Path
 
 from forward_ledger import EVIDENCE_EPOCH
+from forward_reconciler import read_ledger, performance
+from model_publication import artifact_id, model_family_id
 
 DATA=Path("data/processed")
 MODELS=Path("models")
@@ -71,15 +73,22 @@ def lag_days(trained_through, feature_date):
         return None
 
 
+def current_model_rows(rows, active_ids):
+    return [r for r in rows if r.get("model_family_id")
+            and r["model_family_id"] == active_ids.get(r.get("market"))]
+
+
 def main():
     player=load_json(DATA/"player_features_status.json")
     team=load_json(DATA/"team_features_status.json")
-    perf=load_json(TRACK/"nba_forward_performance.json")
-    clv=load_json(TRACK/"nba_prop_clv_report.json")
-    if perf.get("evidence_epoch") != EVIDENCE_EPOCH:
-        perf={}
-    if clv and clv.get("evidence_epoch") != EVIDENCE_EPOCH:
-        clv={}
+    active_ids = {kind: artifact_id(MODELS / filename) for kind, filename in
+                  (("SPREAD", "spread_model.pkl"), ("TOTAL", "totals_model.pkl"), ("PROP", "props_models.pkl"))}
+    active_families = {kind: model_family_id(MODELS / filename) for kind, filename in
+                       (("SPREAD", "spread_model.pkl"), ("TOTAL", "totals_model.pkl"), ("PROP", "props_models.pkl"))}
+    scoped_rows = current_model_rows(read_ledger(), active_families)
+    perf = performance(scoped_rows)
+    all_clv = load_json(TRACK/"nba_prop_clv_report.json")
+    clv = ((all_clv.get("by_model_family") or {}).get(active_families.get("PROP")) or {}) if all_clv.get("evidence_epoch") == EVIDENCE_EPOCH else {}
 
     models={name:model_meta(name) for name in ("spread","totals","props")}
     models["spread"]["lag_days"]=lag_days(models["spread"].get("trained_through"),team.get("max_game_date"))
@@ -92,7 +101,7 @@ def main():
         "all_30_teams_profiled": int(team.get("teams") or 0)==30,
         "all_models_trained": all(m.get("status")=="trained" for m in models.values()),
         "all_models_fresh": all(
-            m.get("lag_days") is not None and m["lag_days"] <= MAX_MODEL_LAG_DAYS
+            m.get("lag_days") is not None and 0 <= m["lag_days"] <= MAX_MODEL_LAG_DAYS
             for m in models.values()
         ),
         "all_prop_markets_trained": set(models["props"].get("markets") or []) >= {"pts","reb","ast","threes","pra"},
@@ -148,6 +157,9 @@ def main():
             "team":{"status":team.get("status"),"max_game_date":team.get("max_game_date"),"teams":team.get("teams"),"seasons":team.get("seasons")},
         },
         "forward_evidence":{
+            "scope": "CURRENT_ALGORITHM_AND_FEATURE_FAMILIES_ONLY",
+            "active_artifact_ids": active_ids,
+            "active_family_ids": active_families,
             "bet_rows":forward_bets,
             "prop_bets":prop_bets,
             "roi":roi,

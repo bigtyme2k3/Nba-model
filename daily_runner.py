@@ -25,6 +25,9 @@ os.makedirs(MODEL_DIR,  exist_ok=True)
 # ── Import local modules ───────────────────────────────────────────────────────
 sys.path.insert(0, ".")
 from teams import EASTERN_CONFERENCE as EAST, WESTERN_CONFERENCE as WEST, TEAM_ABBR, normalize_team
+from game_markets import select_offer, QUOTE_POLICY
+from prop_features import build_features as build_prop_features, VERSION as PROP_FEATURE_VERSION
+from model_publication import artifact_id, model_family_id
 
 try:
     from totals_model import engineer_totals_features, TOTALS_FEATURES
@@ -51,7 +54,7 @@ import team_availability
 
 _PROP_CAL = load_calibration()
 # Recorded on each prop so the ledger shows which shrink produced model_probability.
-PROP_CALIBRATION_LABEL = (f"{_PROP_CAL['prop_price']:.2f}_model_edge_vs_no_vig_cap_25_75"
+PROP_CALIBRATION_LABEL = (f"{_PROP_CAL['prop_price']:.2f}_model_edge_vs_no_vig_cap_01_75"
                           f"_{_PROP_CAL['sources']['prop_price'].lower()}")
 
 try:
@@ -237,6 +240,7 @@ def load_player_profiles(path=PLAYER_PROFILE_PATH):
             "team": normalize_team(str(r.get("team", ""))),
             "pos": str(r.get("pos", "") or "").strip().upper() or "G",
             "mpg": _float(r.get("mpg"), 28.0),
+            "roll5_minutes": _float(r.get("roll5_minutes"), None),
             "projected_minutes": _float(r.get("projected_minutes"), _float(r.get("mpg"), 28.0)),
             "usage": _float(r.get("usage"), 0.20),
             "ts": _float(r.get("ts"), 0.57),
@@ -404,7 +408,9 @@ def _best_prop_offer(pred, model_info, offers, threshold):
     std_stat = _float(model_info.get("std_stat"), None)
     sigma_from_mae = cv_mae * math.sqrt(math.pi / 2.0) if cv_mae is not None else None
     sigma_candidates = [x for x in [sigma_from_mae, std_stat] if x is not None and x > 0]
-    sigma = min(sigma_candidates) if sigma_candidates else max(0.75, threshold * 1.5)
+    sigma = _float(model_info.get("residual_std"), None)
+    if sigma is None or sigma <= 0:
+        sigma = min(sigma_candidates) if sigma_candidates else max(0.75, threshold * 1.5)
     sigma = max(0.55, sigma)
 
     evaluated = []
@@ -462,7 +468,7 @@ def _best_prop_offer(pred, model_info, offers, threshold):
 
 
 def load_market_odds(target_date):
-    """Load The Odds API consensus game lines collected by scrape_odds.py."""
+    """Load dated consensus display columns and the original executable quotes."""
     paths = [
         os.path.join("data/raw", f"odds_{target_date}.csv"),
         os.path.join("data/raw", "odds_today.csv"),
@@ -478,13 +484,23 @@ def load_market_odds(target_date):
     if df.empty:
         return {}
 
+    if "game_date" not in df.columns:
+        return {}
+    df = df[df["game_date"].astype(str).eq(str(target_date))]
+
     out = {}
     for _, r in df.iterrows():
+        try:
+            offers = json.loads(r.get("game_offers", "[]"))
+            offers = offers if isinstance(offers, list) else []
+        except (TypeError, ValueError):
+            offers = []
         home = normalize_team(str(r.get("home_team", "")).strip())
         away = normalize_team(str(r.get("away_team", "")).strip())
         if not home or not away:
             continue
         out[f"{away}@{home}"] = {
+            "game_offers": offers,
             "posted_spread": _float(r.get("spread_home"), None),
             "posted_total": _float(r.get("total"), None),
             "spread_home_juice": _float(r.get("spread_home_juice"), None),
@@ -679,6 +695,8 @@ def build_context(home, away, target_date, game):
         "east_to_west":    int(away in EAST and home in WEST),
         "west_to_east":    int(away in WEST and home in EAST),
         "season_game_num": game.get("game_num", 20),
+        "home_game_num": game.get("home_game_num", game.get("game_num", 20)),
+        "away_game_num": game.get("away_game_num", game.get("game_num", 20)),
         "month":           target_date.month,
     }
 
@@ -879,11 +897,21 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
             "usage_pace": usage * avg_pace / 99.0,
         }
 
+        if bundle.get("feature_semantics_version") == PROP_FEATURE_VERSION:
+            if pdata.get("roll5_minutes") is None:
+                continue
+            row["roll5_minutes"] = pdata["roll5_minutes"]
+            row["roll10_minutes"] = pdata.get("mpg", base_min)
+            row["season_game_num"] = ctx["home_game_num"] if is_home else ctx["away_game_num"]
+            # proj_min above already includes fatigue; the shared builder applies it once.
+            row = build_prop_features(row, projected_minutes=proj_min / (0.95 if b2b else 1.0), projected_usage=usage)
+
         player_result = {
             "player": player,
             "team": pdata["team"],
             "opp": opp,
             "pos": pos,
+            "opponent_defense_scope": "TEAM_OVERALL",
             "proj_min": round(proj_min, 1),
             "base_proj_min": round(base_min, 1),
             "b2b": bool(b2b),
@@ -926,6 +954,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     "line": best["line"],
                     "edge": round(signed_edge, 2),
                     "signal": side if best["qualified"] and not availability_block else None,
+                    "offer_side": side,
                     "availability_block": availability_block,
                     "book": best.get("book"),
                     "book_key": best.get("book_key"),
@@ -981,23 +1010,31 @@ def collect_best_bets(games_output):
         home, away = g["home"]["name"], g["away"]["name"]
         matchup = f"{away} @ {home}"
         sp = g["spread"]
-        if sp.get("edge") is not None:
+        if sp.get("edge") is not None and sp.get("selected_quote"):
+            quote = sp["selected_quote"]
             conf, stars = score_confidence(sp["edge"], "spread")
             if stars >= 2:
                 candidates.append({
                     "type":"SPREAD","game":matchup,"play":sp.get("play") or sp["model_line"],
-                    "market_line":sp.get("posted_line"),"market_odds":sp.get("juice"),
+                    "market_line":quote["line"],"market_odds":quote["price"],
+                    "book":quote["book"],"book_key":quote["book_key"],"side":quote["side"],
+                    "quote_policy":quote["quote_policy"],"model_probability":quote["model_probability"],
+                    "market_probability":quote.get("no_vig_probability"),"ev":quote["ev"],
                     "market_source":sp.get("source"),"model_projection":sp.get("pred"),
                     "edge":sp["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
                 })
         tot = g["totals"]
-        if tot.get("edge") is not None:
+        if tot.get("edge") is not None and tot.get("selected_quote"):
+            quote = tot["selected_quote"]
             conf, stars = score_confidence(tot["edge"], "totals")
             if stars >= 2:
                 candidates.append({
                     "type":"TOTAL","game":matchup,
                     "play":f"{tot['play']} {tot['line']}",
-                    "market_line":tot.get("line"),"market_odds":tot.get("juice"),
+                    "market_line":quote["line"],"market_odds":quote["price"],
+                    "book":quote["book"],"book_key":quote["book_key"],"side":quote["side"],
+                    "quote_policy":quote["quote_policy"],"model_probability":quote["model_probability"],
+                    "market_probability":quote.get("no_vig_probability"),"ev":quote["ev"],
                     "market_source":tot.get("source"),"model_projection":tot.get("pred"),
                     "edge":tot["edge"],"conf":conf,"stars":stars,"tip":g["tip"]
                 })
@@ -1171,6 +1208,26 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         total_play = ("OVER" if total_edge > 0 else "UNDER") if total_edge is not None else None
         total_conf, total_stars = score_confidence(total_edge or 0, "totals")
 
+        spread_quote = select_offer(spread_pred, "SPREAD", game.get("game_offers", []))
+        total_quote = select_offer(total_pred, "TOTAL", game.get("game_offers", []))
+        spread_reference = spread_quote or select_offer(spread_pred, "SPREAD", game.get("game_offers", []), require_value=False)
+        total_reference = total_quote or select_offer(total_pred, "TOTAL", game.get("game_offers", []), require_value=False)
+        if spread_quote:
+            posted_spread = spread_quote["line"] * (1 if spread_quote["side"] == "HOME" else -1)
+            spread_edge = spread_quote["edge"] * (1 if spread_quote["side"] == "HOME" else -1)
+            selected_team = home if spread_quote["side"] == "HOME" else away
+            spread_play = f"{selected_team} {spread_quote['line']:+g}"
+            spread_conf, spread_stars = score_confidence(spread_edge, "spread")
+        else:
+            spread_play, spread_conf, spread_stars = None, "LOW", 1
+        if total_quote:
+            posted_total = total_quote["line"]
+            total_play = total_quote["side"]
+            total_edge = total_quote["edge"] * (1 if total_play == "OVER" else -1)
+            total_conf, total_stars = score_confidence(total_edge, "totals")
+        else:
+            total_play, total_conf, total_stars = None, "LOW", 1
+
         props_out = run_props(
             home, away, ctx, props_bundle,
             posted_props.get(f"{away}@{home}", {}),
@@ -1194,17 +1251,22 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         games_output.append({
             "tip": tip,
+            "event_id": game.get("event_id") or game.get("game_id"),
             "minutes_to_tip": game.get("minutes_to_tip"),
             "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0)},
             "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0)},
             "spread": {"pred":spread_pred,"model_line":fmt_line(spread_pred,home,away),
                        "posted_line":posted_spread,"edge":spread_edge,"play":spread_play,
-                       "juice":game.get("spread_home_juice"),
-                       "source":game.get("market_source"),
+                       "juice":spread_quote["price"] if spread_quote else None,
+                       "source":"the-odds-api-exact-book" if spread_quote else game.get("market_source"),
+                       "selected_quote":spread_quote,
+                       "reference_quote":spread_reference,
                        "conf":spread_conf,"stars":spread_stars},
             "totals": {"pred":total_pred,"line":posted_total,"edge":total_edge,
-                       "play":total_play,"juice":game.get("total_over_juice"),
-                       "source":game.get("market_source"),
+                       "play":total_play,"juice":total_quote["price"] if total_quote else None,
+                       "source":"the-odds-api-exact-book" if total_quote else game.get("market_source"),
+                       "selected_quote":total_quote,
+                       "reference_quote":total_reference,
                        "conf":total_conf,"stars":total_stars},
             "props": props_out, "flags": flags,
             "ctx": {k:v for k,v in ctx.items() if not isinstance(v, np.bool_)},
@@ -1221,6 +1283,11 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         "date":       str(target_date),
         "generated":  datetime.now().astimezone().isoformat(),
         "model_version": "NBA_V1.0",
+        "model_artifacts": {name: artifact_id(os.path.join(MODEL_DIR, filename)) for name, filename in
+                            (("SPREAD", "spread_model.pkl"), ("TOTAL", "totals_model.pkl"), ("PROP", "props_models.pkl"))},
+        "model_families": {name: model_family_id(os.path.join(MODEL_DIR, filename)) for name, filename in
+                           (("SPREAD", "spread_model.pkl"), ("TOTAL", "totals_model.pkl"), ("PROP", "props_models.pkl"))},
+        "calibration_id": artifact_id(os.path.join(MODEL_DIR, "edge_calibration.json")),
         "model_state": "RESEARCH_FORWARD_TESTING",
         "research_only": True,
         "production_ready": False,

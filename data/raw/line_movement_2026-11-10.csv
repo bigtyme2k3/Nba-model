@@ -1,0 +1,5 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Phoenix Suns,Los Angeles Clippers,-3.5,224.5,-3.5,224.5,0.0,0.0,False,False
+Utah Jazz,Miami Heat,8.5,227.67,8.5,227.5,0.0,-0.1699999999999875,False,False
+Sacramento Kings,Orlando Magic,6.33,222.17,5.5,222.17,-0.8300000000000001,0.0,True,False
+Portland Trail Blazers,Oklahoma City Thunder,2.0,224.83,1.5,226.5,-0.5,1.6699999999999875,True,True

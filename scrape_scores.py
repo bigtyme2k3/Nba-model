@@ -22,6 +22,7 @@ Usage:
 import os, re, time, argparse
 from datetime import date, datetime, timedelta
 import requests, pandas as pd
+from zoneinfo import ZoneInfo
 
 OUT_DIR      = "data/raw"
 ESPN_BASE    = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba"
@@ -58,7 +59,11 @@ def parse_scoreboard(data: dict, target_date: str) -> pd.DataFrame:
 
     for event in events:
         game_id   = event.get("id")
-        game_date = event.get("date","")[:10]   # "2026-11-05T00:00Z" → "2026-11-05"
+        try:
+            game_date = datetime.fromisoformat(event["date"].replace("Z", "+00:00")).astimezone(
+                ZoneInfo("America/New_York")).date().isoformat()
+        except (ValueError, KeyError):
+            game_date = target_date
         status    = event.get("status", {})
         state     = status.get("type", {}).get("name","")  # STATUS_FINAL, STATUS_IN_PROGRESS, etc.
 

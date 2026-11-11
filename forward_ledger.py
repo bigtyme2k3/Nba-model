@@ -78,7 +78,8 @@ def spread_rows(data):
         away = game.get("away", {}).get("name", "")
         matchup = f"{away} @ {home}"
         sp = game.get("spread", {})
-        line = sp.get("posted_line")
+        quote = sp.get("selected_quote") or sp.get("reference_quote") or {}
+        line = quote.get("line", sp.get("posted_line"))
         projection = sp.get("pred")
         if line is None or projection is None:
             continue
@@ -91,7 +92,8 @@ def spread_rows(data):
                 side = "HOME"
             elif norm(play).startswith(norm(away)):
                 side = "AWAY"
-        decision = "BET" if matchup in final_games else "PASS"
+        side = quote.get("side", side)
+        decision = "BET" if matchup in final_games and sp.get("selected_quote") else "PASS"
         rk = stable_key([date, matchup, "SPREAD"])
         yield {
             "prediction_id": prediction_id(rk, generated),
@@ -105,8 +107,16 @@ def spread_rows(data):
             "stat": None,
             "side": side,
             "line": line,
-            "odds": sp.get("juice"),
-            "sportsbook": None,
+            "odds": quote.get("price", sp.get("juice")),
+            "sportsbook": quote.get("book"),
+            "sportsbook_key": quote.get("book_key"),
+            "quote_policy": quote.get("quote_policy"),
+            "line_basis": "SELECTED_SIDE" if quote else "HOME_CONSENSUS_LEGACY",
+            "model_probability": quote.get("model_probability"),
+            "raw_model_probability": quote.get("raw_model_probability"),
+            "market_probability": quote.get("no_vig_probability"),
+            "ev": quote.get("ev"),
+            "commence_time": game.get("tip"),
             "market_source": sp.get("source"),
             "projection": projection,
             "edge": edge,
@@ -134,12 +144,13 @@ def total_rows(data):
         away = game.get("away", {}).get("name", "")
         matchup = f"{away} @ {home}"
         total = game.get("totals", {})
-        line = total.get("line")
+        quote = total.get("selected_quote") or total.get("reference_quote") or {}
+        line = quote.get("line", total.get("line"))
         projection = total.get("pred")
         if line is None or projection is None:
             continue
-        side = str(total.get("play") or "PASS").upper()
-        decision = "BET" if matchup in final_games else "PASS"
+        side = str(quote.get("side") or total.get("play") or "PASS").upper()
+        decision = "BET" if matchup in final_games and total.get("selected_quote") else "PASS"
         rk = stable_key([date, matchup, "TOTAL"])
         yield {
             "prediction_id": prediction_id(rk, generated),
@@ -153,8 +164,15 @@ def total_rows(data):
             "stat": None,
             "side": side,
             "line": line,
-            "odds": total.get("juice"),
-            "sportsbook": None,
+            "odds": quote.get("price", total.get("juice")),
+            "sportsbook": quote.get("book"),
+            "sportsbook_key": quote.get("book_key"),
+            "quote_policy": quote.get("quote_policy"),
+            "model_probability": quote.get("model_probability"),
+            "raw_model_probability": quote.get("raw_model_probability"),
+            "market_probability": quote.get("no_vig_probability"),
+            "ev": quote.get("ev"),
+            "commence_time": game.get("tip"),
             "market_source": total.get("source"),
             "projection": projection,
             "edge": total.get("edge"),
@@ -198,7 +216,7 @@ def prop_rows(data):
                 projection = prop.get("pred")
                 if line is None or projection is None:
                     continue
-                signal = str(prop.get("signal") or "PASS").upper()
+                signal = str(prop.get("offer_side") or prop.get("signal") or "PASS").upper()
                 rk = stable_key([date, matchup, "PROP", pname, stat])
                 meta = best_meta.get(rk)
                 decision = "BET" if meta is not None else "PASS"
@@ -218,6 +236,7 @@ def prop_rows(data):
                     "sportsbook": prop.get("book"),
                     "sportsbook_key": prop.get("book_key"),
                     "market_source": prop.get("market_source"),
+                    "commence_time": game.get("tip"),
                     "projection": projection,
                     "projected_minutes": player.get("proj_min"),
                     "base_projected_minutes": player.get("base_proj_min"),
@@ -247,7 +266,12 @@ def prop_rows(data):
 
 
 def flatten(data):
-    return list(spread_rows(data)) + list(total_rows(data)) + list(prop_rows(data))
+    rows = list(spread_rows(data)) + list(total_rows(data)) + list(prop_rows(data))
+    for row in rows:
+        row["model_artifact_id"] = (data.get("model_artifacts") or {}).get(row["market"])
+        row["model_family_id"] = (data.get("model_families") or {}).get(row["market"])
+        row["calibration_id"] = data.get("calibration_id")
+    return rows
 
 
 def main():

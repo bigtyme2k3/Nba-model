@@ -26,6 +26,8 @@ class TestForwardCardDecisionPolicy(unittest.TestCase):
                 "totals":{
                     "pred":225.0,"line":230.5,"edge":-5.5,
                     "play":"UNDER","stars":3,"juice":-110,
+                    "selected_quote":{"book":"FanDuel","book_key":"fanduel","side":"UNDER",
+                                      "line":230.5,"price":-110,"quote_policy":"EXACT_BOOK_SIDE_V1"},
                 },
                 "props":[{
                     "player":"Player A","proj_min":34,
@@ -61,8 +63,10 @@ class TestForwardCardDecisionPolicy(unittest.TestCase):
             ],
             "games":[{
                 "home":{"name":"Home"},"away":{"name":"Away"},
-                "spread":{"pred":1.6,"posted_line":-11.5,"edge":-9.9,"play":"Away +11.5"},
-                "totals":{"pred":227.0,"line":233.5,"edge":-6.5,"play":"UNDER"},
+                "spread":{"pred":1.6,"posted_line":-11.5,"edge":-9.9,"play":"Away +11.5",
+                          "selected_quote":{"side":"AWAY","line":11.5,"price":-110,"book":"FanDuel"}},
+                "totals":{"pred":227.0,"line":233.5,"edge":-6.5,"play":"UNDER",
+                          "selected_quote":{"side":"UNDER","line":233.5,"price":-110,"book":"FanDuel"}},
                 "props":[],
             }],
         }
