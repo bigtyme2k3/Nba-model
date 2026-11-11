@@ -7,10 +7,10 @@
     "draftkings",
     "fanatics"
   ],
-  "checked_at_utc": "2026-11-10T20:16:01.481827+00:00",
-  "rows": 6,
+  "checked_at_utc": "2026-11-11T02:06:31.692761+00:00",
+  "rows": 4,
   "http_status": 200,
-  "api_requests_used": "3720",
-  "api_requests_remaining": "16280",
+  "api_requests_used": "3919",
+  "api_requests_remaining": "16081",
   "error": null
 }
