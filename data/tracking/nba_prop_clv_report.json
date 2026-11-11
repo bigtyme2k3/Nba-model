@@ -174,9 +174,21 @@
         "san antonio spurs @ phoenix suns",
         "washington wizards @ detroit pistons"
       ]
+    },
+    "2026-11-10": {
+      "observed_games": 6,
+      "captured_games": 0,
+      "missing_games": [
+        "boston celtics @ philadelphia 76ers",
+        "la clippers @ phoenix suns",
+        "miami heat @ utah jazz",
+        "milwaukee bucks @ new york knicks",
+        "oklahoma city thunder @ portland trail blazers",
+        "orlando magic @ sacramento kings"
+      ]
     }
   },
-  "generated_at_utc": "2026-11-10T14:46:56.367753+00:00",
+  "generated_at_utc": "2026-11-11T16:07:47.342644+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "forward_prop_bets": 57,

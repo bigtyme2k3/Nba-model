@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-10T14:46:56.735069+00:00",
+  "generated_at_utc": "2026-11-11T16:07:47.611053+00:00",
   "method": "earlier-date MLE fit; later-date Brier and log-loss nonregression versus market",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "min_graded": 200,
@@ -7,21 +7,21 @@
     "prop_price": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 0,
+      "graded": 320,
       "model_family_id": "44a02904e16bdb2b2bec420936232360a07b584bb488672f2ea0281dfc0c7741",
       "validation": "INSUFFICIENT_DATED_EVIDENCE"
     },
     "spread": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 0,
+      "graded": 6,
       "model_family_id": "558fb77332dbdddae1824e89803c1e8e975dbaf9979d3ac2088bfa8db2b50cdf",
       "validation": "INSUFFICIENT_DATED_EVIDENCE"
     },
     "totals": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 0,
+      "graded": 6,
       "model_family_id": "5d01c28c64a385615b36fb1d57f3cf255da596bef9679a0ccdbd6a719378a5e8",
       "validation": "INSUFFICIENT_DATED_EVIDENCE"
     },

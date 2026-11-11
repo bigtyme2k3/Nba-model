@@ -1,7 +1,5 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-10,401909960,STATUS_SCHEDULED,False,False,New York Knicks,Milwaukee Bucks,0,0,0,0,,,,,,,,,NY -15.5,221.5,Madison Square Garden,0,2026-11-10T20:16:03.727591
-2026-11-10,401909961,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Boston Celtics,0,0,0,0,,,,,,,,,BOS -1.5,217.5,Xfinity Mobile Arena,0,2026-11-10T20:16:03.727606
-2026-11-10,401909962,STATUS_SCHEDULED,False,False,Phoenix Suns,LA Clippers,0,0,0,0,,,,,,,,,PHX -3.5,224.5,Mortgage Matchup Center,0,2026-11-10T20:16:03.727614
-2026-11-10,401909963,STATUS_SCHEDULED,False,False,Utah Jazz,Miami Heat,0,0,0,0,,,,,,,,,MIA -9.5,227.5,Delta Center,0,2026-11-10T20:16:03.727621
-2026-11-10,401909964,STATUS_SCHEDULED,False,False,Sacramento Kings,Orlando Magic,0,0,0,0,,,,,,,,,ORL -6.5,222.5,Golden 1 Center,0,2026-11-10T20:16:03.727628
-2026-11-10,401909965,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -1.5,226.5,Moda Center,0,2026-11-10T20:16:03.727634
+2026-11-01,401909903,STATUS_FINAL,True,False,Orlando Magic,Boston Celtics,97,108,-11,205,23.0,27.0,24.0,23.0,24.0,31.0,22.0,31.0,,,Kia Center,18236,2026-11-11T16:07:43.617794
+2026-11-01,401909904,STATUS_FINAL,True,False,Indiana Pacers,Brooklyn Nets,90,98,-8,188,19.0,21.0,22.0,28.0,20.0,23.0,28.0,27.0,,,Gainbridge Fieldhouse,17274,2026-11-11T16:07:43.617813
+2026-11-01,401909905,STATUS_FINAL,True,False,Golden State Warriors,LA Clippers,124,112,12,236,29.0,34.0,29.0,32.0,37.0,20.0,28.0,27.0,,,Chase Center,18064,2026-11-11T16:07:43.617824
+2026-11-01,401909906,STATUS_FINAL,True,False,Los Angeles Lakers,Toronto Raptors,131,125,6,256,36.0,30.0,38.0,27.0,23.0,31.0,28.0,43.0,,,crypto.com Arena,19057,2026-11-11T16:07:43.617836
