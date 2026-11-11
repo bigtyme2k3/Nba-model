@@ -1,5 +1,11 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-01,401909903,STATUS_FINAL,True,False,Orlando Magic,Boston Celtics,97,108,-11,205,23.0,27.0,24.0,23.0,24.0,31.0,22.0,31.0,,,Kia Center,18236,2026-11-11T16:07:43.617794
-2026-11-01,401909904,STATUS_FINAL,True,False,Indiana Pacers,Brooklyn Nets,90,98,-8,188,19.0,21.0,22.0,28.0,20.0,23.0,28.0,27.0,,,Gainbridge Fieldhouse,17274,2026-11-11T16:07:43.617813
-2026-11-01,401909905,STATUS_FINAL,True,False,Golden State Warriors,LA Clippers,124,112,12,236,29.0,34.0,29.0,32.0,37.0,20.0,28.0,27.0,,,Chase Center,18064,2026-11-11T16:07:43.617824
-2026-11-01,401909906,STATUS_FINAL,True,False,Los Angeles Lakers,Toronto Raptors,131,125,6,256,36.0,30.0,38.0,27.0,23.0,31.0,28.0,43.0,,,crypto.com Arena,19057,2026-11-11T16:07:43.617836
+2026-11-11,401909966,STATUS_SCHEDULED,False,False,Indiana Pacers,Washington Wizards,0,0,0,0,,,,,,,,,IND -2.5,228.5,Gainbridge Fieldhouse,0,2026-11-11T20:01:59.590225
+2026-11-11,401909967,STATUS_SCHEDULED,False,False,New York Knicks,Cleveland Cavaliers,0,0,0,0,,,,,,,,,NY -3.5,222.5,Madison Square Garden,0,2026-11-11T20:01:59.590245
+2026-11-11,401909968,STATUS_SCHEDULED,False,False,Toronto Raptors,Boston Celtics,0,0,0,0,,,,,,,,,BOS -5.5,215.5,Scotiabank Arena,0,2026-11-11T20:01:59.590257
+2026-11-11,401909969,STATUS_SCHEDULED,False,False,Chicago Bulls,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -15.5,237.5,United Center,0,2026-11-11T20:01:59.590267
+2026-11-11,401909970,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -3.5,229.5,FedExForum,0,2026-11-11T20:01:59.590276
+2026-11-11,401909971,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -14.5,228.5,Fiserv Forum,0,2026-11-11T20:01:59.590285
+2026-11-11,401909972,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Brooklyn Nets,0,0,0,0,,,,,,,,,NO -3.5,228.5,Smoothie King Center,0,2026-11-11T20:01:59.590295
+2026-11-11,401909973,STATUS_SCHEDULED,False,False,Utah Jazz,Orlando Magic,0,0,0,0,,,,,,,,,ORL -3.5,214.5,Delta Center,0,2026-11-11T20:01:59.590314
+2026-11-11,401909974,STATUS_SCHEDULED,False,False,Houston Rockets,Golden State Warriors,0,0,0,0,,,,,,,,,HOU -6.5,220.5,Toyota Center (Houston),0,2026-11-11T20:01:59.590326
+2026-11-11,401909975,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -1.5,225.5,Moda Center,0,2026-11-11T20:01:59.590335
