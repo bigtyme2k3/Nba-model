@@ -12,6 +12,7 @@ import pandas as pd
 
 from game_markets import BOOKS, priced_evidence, valid_price
 from teams import normalize_team
+from prediction_diagnostics import evaluate_day
 
 
 def num(value):
@@ -117,6 +118,11 @@ def flatten_props(data, quotes=None, profiles=None):
                             'quote': shown, 'offers': offers,
                             'minutes': num(player.get('proj_min')), 'base_minutes': num(player.get('base_proj_min')),
                             'injury_status': player.get('injury_status'), 'availability_block': prop.get('availability_block', False),
+                            'block_reason': prop.get('block_reason'),
+                            'recent_minutes': num(player.get('recent_minutes')),
+                            'minutes_gap': num(player.get('minutes_gap')),
+                            'minutes_guard': bool(player.get('minutes_guard', False)),
+                            'shadow_stabilized_minutes': num(player.get('shadow_stabilized_minutes')),
                             'rotation_risk': player.get('rotation_risk_band'), 'role': player.get('projected_role'),
                             'minutes_delta': num(player.get('opportunity_minutes_delta')),
                             'vacancy_sources': player.get('vacancy_sources'),
@@ -127,7 +133,7 @@ def flatten_props(data, quotes=None, profiles=None):
     return sorted(out, key=lambda r: (str(r['tip']), str(r['player']), r['stat']))
 
 
-def prepare_display(data, raw_dir='data/raw', tracking_dir='data/tracking', processed_dir='data/processed'):
+def prepare_display(data, raw_dir='data/raw', tracking_dir='data/tracking', processed_dir='data/processed', predictions_dir='predictions'):
     data = deepcopy(data)
     target = data['date']
     index, raw_quotes = quote_index(target, raw_dir)
@@ -173,5 +179,8 @@ def prepare_display(data, raw_dir='data/raw', tracking_dir='data/tracking', proc
          float(r['odds'])/100 if float(r['odds']) > 0 else 100/abs(float(r['odds']))))}
         for r in sorted(eligible, key=lambda r: (str(r.get('date')), str(r.get('prediction_id'))), reverse=True)]
     data['yesterday'] = (date.fromisoformat(target)-timedelta(days=1)).isoformat()
+    data['yesterday_diagnostics'] = evaluate_day(
+        data['yesterday'], predictions_dir=predictions_dir, raw_dir=raw_dir)
+    h['injury_feed_healthy'] = bool((data.get('injury_feed') or {}).get('healthy', False))
     data['display_schema'] = 'NBA_DASHBOARD_V2'
     return clean(data)
