@@ -12,7 +12,7 @@ import pandas as pd
 
 from game_markets import BOOKS, priced_evidence, valid_price
 from teams import normalize_team
-from prediction_diagnostics import evaluate_day
+from prediction_diagnostics import evaluate_day, evaluate_history
 
 
 def num(value):
@@ -181,6 +181,8 @@ def prepare_display(data, raw_dir='data/raw', tracking_dir='data/tracking', proc
     data['yesterday'] = (date.fromisoformat(target)-timedelta(days=1)).isoformat()
     data['yesterday_diagnostics'] = evaluate_day(
         data['yesterday'], predictions_dir=predictions_dir, raw_dir=raw_dir)
+    data['trailing_diagnostics'] = evaluate_history(
+        data['yesterday'], lookback_days=14, predictions_dir=predictions_dir, raw_dir=raw_dir)
     h['injury_feed_healthy'] = bool((data.get('injury_feed') or {}).get('healthy', False))
     data['display_schema'] = 'NBA_DASHBOARD_V2'
     return clean(data)
