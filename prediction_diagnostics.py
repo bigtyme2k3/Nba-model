@@ -8,7 +8,7 @@ from __future__ import annotations
 import csv
 import json
 import math
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -177,3 +177,31 @@ def evaluate_day(target_date, predictions_dir="predictions", raw_dir="data/raw")
         key=lambda r: abs(r["error"]), reverse=True
     )[:12]
     return out
+
+
+def evaluate_history(through_date, lookback_days=14, predictions_dir="predictions", raw_dir="data/raw"):
+    """Rolling pregame-error benchmark from dated finalized results; no bet grading.
+
+    Historical model snapshots are compared without fitting a weight on the same
+    data. Shadow values remain a hypothesis until independently validated.
+    """
+    end = date.fromisoformat(str(through_date))
+    games = []
+    covered_dates = []
+    for offset in range(max(0, int(lookback_days))):
+        day = (end - timedelta(days=offset)).isoformat()
+        report = evaluate_day(day, predictions_dir=predictions_dir, raw_dir=raw_dir)
+        if report["status"] not in {"COMPLETE", "PARTIAL_RESULTS"}:
+            continue
+        covered_dates.append(day)
+        games.extend(report["games"])
+    return {
+        "through_date": str(through_date), "lookback_days": lookback_days,
+        "completed_dates": len(covered_dates), "completed_games": len(games),
+        "margin_mae_model": average_absolute(games, "model_margin", "actual_margin"),
+        "margin_mae_market": average_absolute(games, "market_margin", "actual_margin"),
+        "margin_mae_shadow": average_absolute(games, "shadow_margin", "actual_margin"),
+        "total_mae_model": average_absolute(games, "model_total", "actual_total"),
+        "total_mae_market": average_absolute(games, "market_total", "actual_total"),
+        "note": "Research-only paired MAE on completed pregame forecasts; not evidence of profitable bets.",
+    }
