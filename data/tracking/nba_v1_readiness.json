@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-12T16:47:21.885724Z",
+  "generated_at_utc": "2026-11-12T17:22:45.797953Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -23,7 +23,7 @@
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 2
+      "lag_days": 3
     },
     "totals": {
       "name": "totals",
@@ -33,7 +33,7 @@
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge",
-      "lag_days": 2
+      "lag_days": 3
     },
     "props": {
       "name": "props",
@@ -49,14 +49,14 @@
         "threes"
       ],
       "model_name": null,
-      "lag_days": 2
+      "lag_days": 3
     }
   },
   "feature_stores": {
     "player": {
       "status": "READY",
-      "max_game_date": "2026-11-10",
-      "rows": 143418,
+      "max_game_date": "2026-11-11",
+      "rows": 143641,
       "seasons": [
         2021,
         2022,
@@ -68,7 +68,7 @@
     },
     "team": {
       "status": "READY",
-      "max_game_date": "2026-11-10",
+      "max_game_date": "2026-11-11",
       "teams": 30,
       "seasons": [
         2021,

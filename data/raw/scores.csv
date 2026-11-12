@@ -179,3 +179,7 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-04,401909935,STATUS_FINAL,True,False,LA Clippers,Miami Heat,116,117,-1,233,24.0,43.0,20.0,20.0,33.0,19.0,26.0,29.0,,,Intuit Dome,17504,2026-11-12T16:47:12.057072
 2026-11-05,401909936,STATUS_FINAL,True,False,Phoenix Suns,Orlando Magic,117,104,13,221,33.0,30.0,33.0,21.0,26.0,25.0,22.0,31.0,,,Mortgage Matchup Center,17071,2026-11-12T16:47:16.589633
 2026-11-05,401909937,STATUS_FINAL,True,False,Golden State Warriors,Miami Heat,120,100,20,220,26.0,27.0,38.0,29.0,29.0,24.0,23.0,24.0,,,Chase Center,18064,2026-11-12T16:47:16.589649
+2026-11-12,401909976,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Toronto Raptors,0,0,0,0,,,,,,,,,PHI -8.5,223.5,Xfinity Mobile Arena,0,2026-11-12T17:22:24.071781
+2026-11-12,401909977,STATUS_SCHEDULED,False,False,Washington Wizards,Detroit Pistons,0,0,0,0,,,,,,,,,DET -10.5,220.5,Capital One Arena,0,2026-11-12T17:22:24.071796
+2026-11-12,401909978,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Dallas Mavericks,0,0,0,0,,,,,,,,,MIN -5.5,226.5,Target Center,0,2026-11-12T17:22:24.071804
+2026-11-12,401909979,STATUS_SCHEDULED,False,False,Phoenix Suns,Charlotte Hornets,0,0,0,0,,,,,,,,,PHX -6.5,214.5,Mortgage Matchup Center,0,2026-11-12T17:22:24.071811
