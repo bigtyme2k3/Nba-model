@@ -186,9 +186,25 @@
         "oklahoma city thunder @ portland trail blazers",
         "orlando magic @ sacramento kings"
       ]
+    },
+    "2026-11-11": {
+      "observed_games": 10,
+      "captured_games": 0,
+      "missing_games": [
+        "boston celtics @ toronto raptors",
+        "brooklyn nets @ new orleans pelicans",
+        "cleveland cavaliers @ new york knicks",
+        "denver nuggets @ memphis grizzlies",
+        "golden state warriors @ houston rockets",
+        "los angeles lakers @ milwaukee bucks",
+        "oklahoma city thunder @ portland trail blazers",
+        "orlando magic @ utah jazz",
+        "san antonio spurs @ chicago bulls",
+        "washington wizards @ indiana pacers"
+      ]
     }
   },
-  "generated_at_utc": "2026-11-11T16:07:47.342644+00:00",
+  "generated_at_utc": "2026-11-12T16:47:19.507041+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "forward_prop_bets": 57,

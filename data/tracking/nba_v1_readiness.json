@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-11T20:02:28.675143Z",
+  "generated_at_utc": "2026-11-12T16:47:21.885724Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
