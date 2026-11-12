@@ -1275,6 +1275,8 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0)},
             "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0)},
             "spread": {"pred":spread_pred,"model_line":fmt_line(spread_pred,home,away),
+                       "shadow_anchored_margin": round(.35 * spread_pred + .65 * (-posted_spread), 1) if spread_pred is not None and posted_spread is not None else None,
+                       "shadow_policy": "RESEARCH_ONLY_35_MODEL_65_MARKET",
                        "posted_line":posted_spread,"edge":spread_edge,"play":spread_play,
                        "juice":spread_quote["price"] if spread_quote else None,
                        "source":"the-odds-api-exact-book" if spread_quote else game.get("market_source"),
