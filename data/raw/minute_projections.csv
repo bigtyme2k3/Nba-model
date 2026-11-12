@@ -6,8 +6,6 @@ game_date,player,proj_min,adjusted
 2026-11-12,Paul George,15.0,True
 2026-11-12,Nolan Traore,15.0,True
 2026-11-12,Mikel Brown Jr.,15.0,True
-2026-11-12,Grant Williams,0.0,True
-2026-11-12,Moussa Diabate,15.0,True
 2026-11-12,Brandon Miller,0.0,True
 2026-11-12,Kon Knueppel,0.0,True
 2026-11-12,Dennis Schroder,0.0,True
@@ -48,6 +46,8 @@ game_date,player,proj_min,adjusted
 2026-11-12,Quinten Post,15.0,True
 2026-11-12,Scotty Pippen Jr.,0.0,True
 2026-11-12,Richie Saunders,0.0,True
+2026-11-12,Pelle Larsson,15.0,True
+2026-11-12,Klay Thompson,15.0,True
 2026-11-12,Myles Turner,15.0,True
 2026-11-12,Ryan Rollins,15.0,True
 2026-11-12,Anthony Edwards,0.0,True
@@ -69,10 +69,10 @@ game_date,player,proj_min,adjusted
 2026-11-12,Paolo Banchero,0.0,True
 2026-11-12,Noah Penda,0.0,True
 2026-11-12,Izaiyah Nelson,0.0,True
+2026-11-12,LeBron James,0.0,True
 2026-11-12,Dominick Barlow,0.0,True
 2026-11-12,Adem Bona,0.0,True
 2026-11-12,Joel Embiid,15.0,True
-2026-11-12,LeBron James,15.0,True
 2026-11-12,Ariel Hukporti,0.0,True
 2026-11-12,Mark Williams,0.0,True
 2026-11-12,Chris Youngblood,15.0,True
@@ -85,9 +85,9 @@ game_date,player,proj_min,adjusted
 2026-11-12,Devin Vassell,15.0,True
 2026-11-12,Tobias Harris,0.0,True
 2026-11-12,Jayden Quaintance,0.0,True
-2026-11-12,Trayce Jackson-Davis,15.0,True
-2026-11-12,Kawhi Leonard,0.0,True
+2026-11-12,Trayce Jackson-Davis,0.0,True
 2026-11-12,Scottie Barnes,0.0,True
+2026-11-12,Kawhi Leonard,0.0,True
 2026-11-12,Nate Bittle,0.0,True
 2026-11-12,Trey Alexander,0.0,True
 2026-11-12,Lauri Markkanen,0.0,True

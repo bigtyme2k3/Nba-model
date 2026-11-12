@@ -1,7 +1,7 @@
 {
   "status": "READY",
   "target_date": "2026-11-12",
-  "generated_at_utc": "2026-11-12T17:22:41.628385+00:00",
+  "generated_at_utc": "2026-11-12T20:42:00.169472+00:00",
   "injury_feed_status": "ok",
   "injury_rows": 98,
   "slate_teams": [
@@ -15,11 +15,11 @@
     "Washington Wizards"
   ],
   "teams_affected": 3,
-  "absences_modeled": 5,
+  "absences_modeled": 7,
   "recipient_rows": 28,
   "unallocated_minutes": 0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 53
+  "adjustment_rows": 51
 }

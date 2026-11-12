@@ -1,5 +1,5 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-12,401909976,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Toronto Raptors,0,0,0,0,,,,,,,,,PHI -8.5,223.5,Xfinity Mobile Arena,0,2026-11-12T17:22:24.071781
-2026-11-12,401909977,STATUS_SCHEDULED,False,False,Washington Wizards,Detroit Pistons,0,0,0,0,,,,,,,,,DET -10.5,220.5,Capital One Arena,0,2026-11-12T17:22:24.071796
-2026-11-12,401909978,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Dallas Mavericks,0,0,0,0,,,,,,,,,MIN -5.5,226.5,Target Center,0,2026-11-12T17:22:24.071804
-2026-11-12,401909979,STATUS_SCHEDULED,False,False,Phoenix Suns,Charlotte Hornets,0,0,0,0,,,,,,,,,PHX -6.5,214.5,Mortgage Matchup Center,0,2026-11-12T17:22:24.071811
+2026-11-12,401909976,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Toronto Raptors,0,0,0,0,,,,,,,,,PHI -7.5,224.5,Xfinity Mobile Arena,0,2026-11-12T20:41:38.577428
+2026-11-12,401909977,STATUS_SCHEDULED,False,False,Washington Wizards,Detroit Pistons,0,0,0,0,,,,,,,,,DET -9.5,221.5,Capital One Arena,0,2026-11-12T20:41:38.577445
+2026-11-12,401909978,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Dallas Mavericks,0,0,0,0,,,,,,,,,MIN -5.5,225.5,Target Center,0,2026-11-12T20:41:38.577456
+2026-11-12,401909979,STATUS_SCHEDULED,False,False,Phoenix Suns,Charlotte Hornets,0,0,0,0,,,,,,,,,PHX -6.5,214.5,Mortgage Matchup Center,0,2026-11-12T20:41:38.577468
