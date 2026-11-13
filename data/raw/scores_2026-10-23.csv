@@ -1,13 +1,13 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-23,401909848,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Chicago Bulls,0,0,0,0,,,,,,,,,MIL -1.5,240.5,Fiserv Forum,0,2026-10-23T17:44:33.518182
-2026-10-23,401909095,STATUS_SCHEDULED,False,False,Boston Celtics,New York Knicks,0,0,0,0,,,,,,,,,BOS -2.5,221.5,TD Garden,0,2026-10-23T17:44:33.518198
-2026-10-23,401909843,STATUS_SCHEDULED,False,False,Charlotte Hornets,Atlanta Hawks,0,0,0,0,,,,,,,,,ATL -2.5,226.5,Spectrum Center,0,2026-10-23T17:44:33.518206
-2026-10-23,401909844,STATUS_SCHEDULED,False,False,Indiana Pacers,Dallas Mavericks,0,0,0,0,,,,,,,,,IND -7.5,239.5,Gainbridge Fieldhouse,0,2026-10-23T17:44:33.518221
-2026-10-23,401909845,STATUS_SCHEDULED,False,False,Orlando Magic,Minnesota Timberwolves,0,0,0,0,,,,,,,,,ORL -1.5,234.5,Kia Center,0,2026-10-23T17:44:33.518227
-2026-10-23,401909846,STATUS_SCHEDULED,False,False,Washington Wizards,Toronto Raptors,0,0,0,0,,,,,,,,,TOR -8.5,237.5,Capital One Arena,0,2026-10-23T17:44:33.518234
-2026-10-24,401909847,STATUS_SCHEDULED,False,False,Miami Heat,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,235.5,Kaseya Center,0,2026-10-23T17:44:33.518243
-2026-10-24,401909096,STATUS_SCHEDULED,False,False,San Antonio Spurs,Houston Rockets,0,0,0,0,,,,,,,,,SA -4.5,224.5,Moody Center,0,2026-10-23T17:44:33.518257
-2026-10-24,401909849,STATUS_SCHEDULED,False,False,Utah Jazz,New Orleans Pelicans,0,0,0,0,,,,,,,,,UTAH -1.5,239.5,Delta Center,0,2026-10-23T17:44:33.518265
-2026-10-24,401909850,STATUS_SCHEDULED,False,False,Golden State Warriors,Memphis Grizzlies,0,0,0,0,,,,,,,,,GS -4.5,237.5,Chase Center,0,2026-10-23T17:44:33.518271
-2026-10-24,401909851,STATUS_SCHEDULED,False,False,Los Angeles Lakers,LA Clippers,0,0,0,0,,,,,,,,,LAL -9.5,225.5,crypto.com Arena,0,2026-10-23T17:44:33.518276
-2026-10-24,401909852,STATUS_SCHEDULED,False,False,Sacramento Kings,Portland Trail Blazers,0,0,0,0,,,,,,,,,POR -10.5,233.5,Golden 1 Center,0,2026-10-23T17:44:33.518282
+2026-10-23,401909848,STATUS_FINAL,True,False,Milwaukee Bucks,Chicago Bulls,125,132,-7,257,32.0,30.0,42.0,21.0,17.0,44.0,41.0,30.0,,,Fiserv Forum,16354,2026-11-13T22:33:33.173637
+2026-10-23,401909095,STATUS_FINAL,True,False,Boston Celtics,New York Knicks,107,103,4,210,26.0,24.0,33.0,24.0,27.0,22.0,24.0,30.0,,,TD Garden,19156,2026-11-13T22:33:33.173664
+2026-10-23,401909843,STATUS_FINAL,True,False,Charlotte Hornets,Atlanta Hawks,81,128,-47,209,20.0,23.0,19.0,19.0,33.0,35.0,29.0,31.0,,,Spectrum Center,19524,2026-11-13T22:33:33.173679
+2026-10-23,401909844,STATUS_FINAL,True,False,Indiana Pacers,Dallas Mavericks,105,121,-16,226,27.0,16.0,33.0,29.0,44.0,33.0,21.0,23.0,,,Gainbridge Fieldhouse,17274,2026-11-13T22:33:33.173690
+2026-10-23,401909845,STATUS_FINAL,True,False,Orlando Magic,Minnesota Timberwolves,93,115,-22,208,20.0,25.0,15.0,33.0,26.0,31.0,29.0,29.0,,,Kia Center,19551,2026-11-13T22:33:33.173702
+2026-10-23,401909846,STATUS_FINAL,True,False,Washington Wizards,Toronto Raptors,102,112,-10,214,21.0,31.0,25.0,25.0,34.0,26.0,21.0,31.0,,,Capital One Arena,18952,2026-11-13T22:33:33.173712
+2026-10-23,401909847,STATUS_FINAL,True,False,Miami Heat,Detroit Pistons,111,128,-17,239,26.0,27.0,27.0,31.0,41.0,24.0,38.0,25.0,,,Kaseya Center,19616,2026-11-13T22:33:33.173722
+2026-10-23,401909096,STATUS_FINAL,True,False,San Antonio Spurs,Houston Rockets,110,114,-4,224,27.0,32.0,22.0,29.0,32.0,29.0,24.0,29.0,,,Moody Center,16723,2026-11-13T22:33:33.173736
+2026-10-23,401909849,STATUS_FINAL,True,False,Utah Jazz,New Orleans Pelicans,120,119,1,239,31.0,31.0,24.0,34.0,28.0,24.0,38.0,29.0,,,Delta Center,17867,2026-11-13T22:33:33.173743
+2026-10-23,401909850,STATUS_FINAL,True,False,Golden State Warriors,Memphis Grizzlies,108,111,-3,219,34.0,22.0,34.0,18.0,33.0,27.0,24.0,27.0,,,Chase Center,18064,2026-11-13T22:33:33.173752
+2026-10-23,401909851,STATUS_FINAL,True,False,Los Angeles Lakers,LA Clippers,125,117,8,242,27.0,37.0,39.0,22.0,31.0,33.0,26.0,27.0,,,crypto.com Arena,19057,2026-11-13T22:33:33.173760
+2026-10-23,401909852,STATUS_FINAL,True,False,Sacramento Kings,Portland Trail Blazers,120,128,-8,248,33.0,31.0,26.0,30.0,27.0,32.0,44.0,25.0,,,Golden 1 Center,17832,2026-11-13T22:33:33.173768
