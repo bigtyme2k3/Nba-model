@@ -28,6 +28,8 @@ from teams import EASTERN_CONFERENCE as EAST, WESTERN_CONFERENCE as WEST, TEAM_A
 from game_markets import select_offer, QUOTE_POLICY
 from prop_features import build_features as build_prop_features, VERSION as PROP_FEATURE_VERSION
 from model_publication import artifact_id, model_family_id
+from slate_injuries import assess_injury_feed
+from qualification_audit import summarize_qualification
 
 try:
     from totals_model import engineer_totals_features, TOTALS_FEATURES
@@ -800,7 +802,7 @@ def run_totals(home, away, ctx, bundle):
         return None
 
 
-def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustments=None):
+def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustments=None, availability_ready=True):
     if bundle is None:
         return []
     models = bundle.get("models", {})
@@ -875,6 +877,17 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
         if proj_min <= 0:
             continue
 
+        # Large unexplained differences from recently played minutes are risky.
+        # Preserve the raw forecast for research but block an unreliable prop.
+        recent_minutes = _float(pdata.get("roll5_minutes"), None)
+        minutes_gap = (round(proj_min - recent_minutes, 2)
+                       if recent_minutes is not None else None)
+        verified_vacancy_gain = _float(opp_adj.get("minutes_delta"), 0.0) if opp_adj else 0.0
+        minutes_guard = (minutes_gap is not None and abs(minutes_gap) > 8.0
+                         and verified_vacancy_gain < 2.0)
+        shadow_minutes = (round(.65 * proj_min + .35 * recent_minutes, 1)
+                          if recent_minutes is not None else None)
+
         ts = _float(pdata.get("ts"), 0.57)
         row = {
             "minutes": proj_min,
@@ -914,6 +927,10 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
             "opponent_defense_scope": "TEAM_OVERALL",
             "proj_min": round(proj_min, 1),
             "base_proj_min": round(base_min, 1),
+            "recent_minutes": recent_minutes,
+            "minutes_gap": minutes_gap,
+            "minutes_guard": minutes_guard,
+            "shadow_stabilized_minutes": shadow_minutes,
             "b2b": bool(b2b),
             "injury_status": injury_status,
             "opportunity_direction": opportunity_direction,
@@ -948,7 +965,15 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
             if best:
                 side = best["side"]
                 signed_edge = pred - best["line"]
-                availability_block = injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"}
+                availability_block = (
+                    not availability_ready or injury_status in {"OUT", "DOUBTFUL", "QUESTIONABLE"}
+                    or minutes_guard
+                )
+                block_reason = (
+                    "UNVERIFIED_INJURY_FEED" if not availability_ready else
+                    "PLAYER_AVAILABILITY" if injury_status in {"OUT", "DOUBTFUL", "QUESTIONABLE"} else
+                    "UNSTABLE_MINUTES" if minutes_guard else None
+                )
                 player_result["props"][target] = {
                     "pred": round(pred, 2),
                     "line": best["line"],
@@ -956,6 +981,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     "signal": side if best["qualified"] and not availability_block else None,
                     "offer_side": side,
                     "availability_block": availability_block,
+                    "block_reason": block_reason,
                     "book": best.get("book"),
                     "book_key": best.get("book_key"),
                     "odds": int(best["price"]),
@@ -980,11 +1006,21 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     signal = "OVER"
                 elif edge < -thresh:
                     signal = "UNDER"
-            if injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"}:
+            availability_block = (
+                not availability_ready or injury_status in {"OUT", "DOUBTFUL", "QUESTIONABLE"}
+                or minutes_guard
+            )
+            if availability_block:
                 signal = None
+            block_reason = (
+                "UNVERIFIED_INJURY_FEED" if not availability_ready else
+                "PLAYER_AVAILABILITY" if injury_status in {"OUT", "DOUBTFUL", "QUESTIONABLE"} else
+                "UNSTABLE_MINUTES" if minutes_guard else None
+            )
             player_result["props"][target] = {
                 "pred": round(pred, 2), "line": line, "edge": edge, "signal": signal,
-                "availability_block": injury_status in {"OUT","DOUBTFUL","QUESTIONABLE"},
+                "availability_block": availability_block,
+                "block_reason": block_reason,
                 "book": None, "book_key": None, "odds": None,
                 "model_probability": None, "market_probability": None,
                 "probability_edge": None, "ev": None,
@@ -1104,6 +1140,12 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     load_team_profiles_into_context()
     spread_bundle, totals_bundle, props_bundle = load_models(target_date)
 
+    # Fail closed when the injury feed is stale, failed or belongs to another
+    # date. Research projections may publish; none are eligible as prop bets.
+    injury_health = assess_injury_feed(target_date)
+    if not injury_health["healthy"]:
+        print(f"  [WARN] Injury feed unverified: {injury_health['reason']} — props research-only")
+
     # Build transparent injury-driven minutes/usage opportunity adjustments.
     opportunity_adjustments = {}
     inj_df = pd.DataFrame()
@@ -1116,18 +1158,19 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         except Exception:
             inj_df = pd.DataFrame()
     # Rotation regulars listed OUT, measured exactly as the spread model's training
-    # absences (team_availability.py).
+    # absences (team_availability.py). An unverified injury feed counts nobody out.
     slate_teams = {t for g in schedule for t in (g.get("home"), g.get("away")) if t}
     try:
         availability = team_availability.live_availability(
-            team_availability.load_player_logs(), inj_df, slate_teams)
+            team_availability.load_player_logs(),
+            inj_df if injury_health["healthy"] else pd.DataFrame(), slate_teams)
         missing = {t: v["players"] for t, v in availability.items() if v["players"]}
         print(f"  Rotation absences (OUT): {sum(len(v) for v in missing.values())} players on {len(missing)} teams")
     except Exception as exc:
         print(f"  [WARN] Team availability failed: {exc}")
         availability = {}
 
-    if OPPORTUNITY_AVAILABLE:
+    if OPPORTUNITY_AVAILABLE and injury_health["healthy"]:
         try:
             opportunity_adjustments = build_opportunity_adjustments(str(target_date))
             print(f"  Opportunity adjustments: {len(opportunity_adjustments)} players")
@@ -1232,6 +1275,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             home, away, ctx, props_bundle,
             posted_props.get(f"{away}@{home}", {}),
             opportunity_adjustments=opportunity_adjustments,
+            availability_ready=injury_health["healthy"],
         )
 
         flags = []
@@ -1256,6 +1300,8 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0)},
             "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0)},
             "spread": {"pred":spread_pred,"model_line":fmt_line(spread_pred,home,away),
+                       "shadow_anchored_margin": round(.35 * spread_pred + .65 * (-posted_spread), 1) if spread_pred is not None and posted_spread is not None else None,
+                       "shadow_policy": "RESEARCH_ONLY_35_MODEL_65_MARKET",
                        "posted_line":posted_spread,"edge":spread_edge,"play":spread_play,
                        "juice":spread_quote["price"] if spread_quote else None,
                        "source":"the-odds-api-exact-book" if spread_quote else game.get("market_source"),
@@ -1292,6 +1338,8 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
         "research_only": True,
         "production_ready": False,
         "portfolio_policy": "ONE_FINAL_PROP_PER_PLAYER",
+        "injury_feed": injury_health,
+        "qualification_audit": summarize_qualification(games_output, best_bets),
         "games":      games_output,
         "best_bets":  best_bets,
         "model_stats":{"spread":{"algo":"Ridge / GBR","cv_mae":None,"dir_acc":None,"strong_ats":None,"n":0},

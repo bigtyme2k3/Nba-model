@@ -1,0 +1,5 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-12,401909976,STATUS_FINAL,True,False,Philadelphia 76ers,Toronto Raptors,123,112,11,235,24.0,36.0,36.0,27.0,33.0,27.0,27.0,25.0,,,Xfinity Mobile Arena,20986,2026-11-13T16:16:42.094276
+2026-11-12,401909977,STATUS_FINAL,True,False,Washington Wizards,Detroit Pistons,140,144,-4,284,32.0,29.0,29.0,31.0,33.0,31.0,30.0,27.0,,,Capital One Arena,17443,2026-11-13T16:16:42.094301
+2026-11-12,401909978,STATUS_FINAL,True,False,Minnesota Timberwolves,Dallas Mavericks,133,94,39,227,34.0,33.0,36.0,30.0,26.0,26.0,17.0,25.0,,,Target Center,17856,2026-11-13T16:16:42.094316
+2026-11-12,401909979,STATUS_FINAL,True,False,Phoenix Suns,Charlotte Hornets,101,96,5,197,28.0,27.0,17.0,29.0,22.0,28.0,26.0,20.0,,,Mortgage Matchup Center,17071,2026-11-13T16:16:42.094330

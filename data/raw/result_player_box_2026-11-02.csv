@@ -265,9 +265,9 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,4397077,Jaxson Hayes,C,True,False,22.0,9.0,5.0,0.0,1.0,2.0,1.0,2.0,3.0,4.0,9.0,0.0,0.0,1.0,1.0,-5.0,espn_api
 401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,4433627,Keyonte George,G,True,False,22.0,7.0,7.0,0.0,0.0,0.0,3.0,1.0,6.0,3.0,12.0,1.0,5.0,0.0,0.0,-30.0,espn_api
 401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,4873138,Ace Bailey,G,True,False,24.0,5.0,6.0,2.0,1.0,0.0,0.0,1.0,5.0,2.0,11.0,1.0,5.0,0.0,0.0,-26.0,espn_api
-401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,5041955,Darryn Peterson,G,True,False,33.0,14.0,4.0,6.0,3.0,3.0,1.0,0.0,4.0,5.0,13.0,2.0,4.0,2.0,2.0,-4.0,espn_api
+401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,5041955,Darryn Peterson,G,True,False,33.0,14.0,4.0,5.0,3.0,3.0,1.0,0.0,4.0,5.0,13.0,2.0,4.0,2.0,2.0,-4.0,espn_api
 401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,4684793,Kyle Filipowski,F,False,False,8.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,2.0,0.0,0.0,1.0,2.0,2.0,espn_api
-401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,5105839,Brice Sensabaugh,F,False,False,14.0,7.0,2.0,1.0,1.0,0.0,2.0,1.0,1.0,2.0,10.0,1.0,6.0,2.0,2.0,3.0,espn_api
+401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,5105839,Brice Sensabaugh,F,False,False,14.0,7.0,2.0,2.0,1.0,0.0,2.0,1.0,1.0,2.0,10.0,1.0,5.0,2.0,2.0,3.0,espn_api
 401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,4065673,Tony Bradley,C,False,False,7.0,2.0,3.0,0.0,1.0,0.0,0.0,1.0,2.0,1.0,2.0,0.0,0.0,0.0,2.0,4.0,espn_api
 401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,4277919,Mo Bamba,C,False,False,18.0,8.0,8.0,0.0,0.0,2.0,1.0,4.0,4.0,3.0,5.0,0.0,0.0,2.0,3.0,-21.0,espn_api
 401909917,2026,2026-11-02,Jazz,Utah,UTAH,away,3133602,Svi Mykhailiuk,G,False,False,14.0,3.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,1.0,7.0,1.0,4.0,0.0,0.0,-15.0,espn_api

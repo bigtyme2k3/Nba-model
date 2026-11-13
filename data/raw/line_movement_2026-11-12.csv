@@ -1,0 +1,5 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Washington Wizards,Detroit Pistons,10.5,220.5,10.17,221.17,-0.33000000000000007,0.6699999999999875,False,True
+Philadelphia 76ers,Toronto Raptors,-8.5,223.67,-7.5,224.17,1.0,0.5,True,True
+Minnesota Timberwolves,Dallas Mavericks,-5.67,226.33,-5.67,226.0,0.0,-0.3300000000000125,False,False
+Phoenix Suns,Charlotte Hornets,-6.5,214.5,-6.5,214.5,0.0,0.0,False,False
