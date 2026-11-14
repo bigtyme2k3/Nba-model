@@ -168,9 +168,9 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909887,2026,2026-10-28,Rockets,Houston,HOU,away,3136777,Jae'Sean Tate,F,False,False,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,espn_api
 401909887,2026,2026-10-28,Rockets,Houston,HOU,away,4592857,Isaiah Crawford,F,False,False,5.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,8.0,espn_api
 401909887,2026,2026-10-28,Rockets,Houston,HOU,away,3102529,Clint Capela,C,False,False,22.0,10.0,8.0,2.0,3.0,2.0,2.0,3.0,5.0,5.0,6.0,0.0,0.0,0.0,0.0,23.0,espn_api
-401909887,2026,2026-10-28,Rockets,Houston,HOU,away,4432827,Oscar Tshiebwe,C,False,False,14.0,7.0,5.0,2.0,1.0,1.0,1.0,1.0,4.0,3.0,3.0,0.0,0.0,1.0,2.0,10.0,espn_api
+401909887,2026,2026-10-28,Rockets,Houston,HOU,away,4432827,Oscar Tshiebwe,C,False,False,20.0,7.0,5.0,2.0,1.0,1.0,1.0,1.0,4.0,3.0,3.0,0.0,0.0,1.0,2.0,10.0,espn_api
 401909887,2026,2026-10-28,Rockets,Houston,HOU,away,3037789,Bogdan Bogdanovic,G,False,False,15.0,16.0,2.0,4.0,2.0,0.0,1.0,0.0,2.0,5.0,6.0,4.0,5.0,2.0,2.0,23.0,espn_api
-401909887,2026,2026-10-28,Rockets,Houston,HOU,away,4711272,Reed Sheppard,G,False,False,23.0,7.0,3.0,4.0,1.0,0.0,0.0,1.0,2.0,2.0,9.0,1.0,8.0,2.0,2.0,13.0,espn_api
+401909887,2026,2026-10-28,Rockets,Houston,HOU,away,4711272,Reed Sheppard,G,False,False,17.0,7.0,3.0,4.0,1.0,0.0,0.0,1.0,2.0,2.0,9.0,1.0,8.0,2.0,2.0,13.0,espn_api
 401909887,2026,2026-10-28,Rockets,Houston,HOU,away,5105837,Bruce Thornton,G,False,False,3.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,2.0,1.0,1.0,0.0,0.0,5.0,espn_api
 401909887,2026,2026-10-28,Rockets,Houston,HOU,away,4871144,Alperen Sengun,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401909887,2026,2026-10-28,Rockets,Houston,HOU,away,2990992,Marcus Smart,G,False,True,,,,,,,,,,,,,,,,,espn_api
@@ -179,8 +179,8 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,3133628,Myles Turner,C,True,False,22.0,4.0,2.0,2.0,1.0,2.0,2.0,0.0,2.0,2.0,7.0,0.0,5.0,0.0,0.0,-2.0,espn_api
 401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,4395725,Tyler Herro,G,True,False,27.0,23.0,3.0,0.0,1.0,0.0,2.0,0.0,3.0,9.0,13.0,4.0,6.0,1.0,1.0,-12.0,espn_api
 401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,4591725,Ryan Rollins,G,True,False,17.0,4.0,4.0,5.0,1.0,0.0,1.0,1.0,3.0,2.0,14.0,0.0,3.0,0.0,0.0,-8.0,espn_api
-401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,4997526,Ousmane Dieng,F,False,False,13.0,4.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,2.0,5.0,0.0,1.0,0.0,0.0,-8.0,espn_api
-401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,5164559,Nate Ament,F,False,False,20.0,8.0,4.0,0.0,1.0,1.0,2.0,1.0,3.0,2.0,7.0,1.0,4.0,3.0,4.0,-11.0,espn_api
+401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,4997526,Ousmane Dieng,F,False,False,10.0,4.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,2.0,5.0,0.0,1.0,0.0,0.0,-8.0,espn_api
+401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,5164559,Nate Ament,F,False,False,23.0,8.0,4.0,0.0,1.0,1.0,2.0,1.0,3.0,2.0,7.0,1.0,4.0,3.0,4.0,-11.0,espn_api
 401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,5214989,Bogoljub Markovic,F,False,False,5.0,2.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,-9.0,espn_api
 401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,4277922,Jericho Sims,C,False,False,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,espn_api
 401909887,2026,2026-10-28,Bucks,Milwaukee,MIL,home,5105623,Kel'el Ware,C,False,False,17.0,6.0,8.0,0.0,0.0,0.0,1.0,5.0,3.0,2.0,9.0,0.0,3.0,2.0,2.0,-31.0,espn_api
@@ -204,8 +204,8 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909888,2026,2026-10-28,Warriors,Golden State,GS,away,4897449,Malevy Leons,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401909888,2026,2026-10-28,Warriors,Golden State,GS,away,4997536,Gui Santos,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401909888,2026,2026-10-28,Warriors,Golden State,GS,away,4433149,LJ Cryer,G,False,True,,,,,,,,,,,,,,,,,espn_api
-401909888,2026,2026-10-28,Timberwolves,Minnesota,MIN,home,4431671,Jaden McDaniels,F,True,False,35.0,19.0,7.0,4.0,0.0,0.0,2.0,2.0,5.0,8.0,18.0,1.0,8.0,2.0,3.0,-11.0,espn_api
-401909888,2026,2026-10-28,Timberwolves,Minnesota,MIN,home,4433247,Jonathan Kuminga,F,True,False,32.0,20.0,3.0,5.0,2.0,0.0,0.0,1.0,2.0,7.0,15.0,3.0,6.0,3.0,5.0,-9.0,espn_api
+401909888,2026,2026-10-28,Timberwolves,Minnesota,MIN,home,4431671,Jaden McDaniels,F,True,False,35.0,19.0,6.0,4.0,0.0,0.0,2.0,1.0,5.0,8.0,18.0,1.0,8.0,2.0,3.0,-11.0,espn_api
+401909888,2026,2026-10-28,Timberwolves,Minnesota,MIN,home,4433247,Jonathan Kuminga,F,True,False,32.0,20.0,4.0,5.0,2.0,0.0,0.0,2.0,2.0,7.0,15.0,3.0,6.0,3.0,5.0,-9.0,espn_api
 401909888,2026,2026-10-28,Timberwolves,Minnesota,MIN,home,3032976,Rudy Gobert,C,True,False,20.0,1.0,4.0,1.0,1.0,0.0,0.0,0.0,4.0,0.0,4.0,0.0,0.0,1.0,2.0,-11.0,espn_api
 401909888,2026,2026-10-28,Timberwolves,Minnesota,MIN,home,4397002,Ayo Dosunmu,G,True,False,32.0,17.0,3.0,4.0,4.0,0.0,0.0,0.0,3.0,6.0,12.0,3.0,7.0,2.0,2.0,-9.0,espn_api
 401909888,2026,2026-10-28,Timberwolves,Minnesota,MIN,home,4432816,LaMelo Ball,G,True,False,28.0,8.0,3.0,8.0,1.0,0.0,6.0,0.0,3.0,3.0,11.0,2.0,8.0,0.0,0.0,-2.0,espn_api

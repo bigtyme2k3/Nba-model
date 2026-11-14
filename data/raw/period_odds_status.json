@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "target_date": "2026-11-14",
+  "markets_requested": [
+    "spreads_q1",
+    "totals_q1",
+    "h2h_q1"
+  ],
+  "bookmakers_requested": [
+    "fanduel",
+    "draftkings",
+    "fanatics",
+    "novig"
+  ],
+  "events_found": 5,
+  "events_queried": 5,
+  "rows": 70,
+  "http_calls": 5,
+  "generated_at_utc": "2026-11-14T18:41:26.800722+00:00",
+  "error": null,
+  "api_requests_remaining": 11458,
+  "api_requests_last": "3",
+  "markets_returned": [
+    "h2h_q1",
+    "spreads_q1",
+    "totals_q1"
+  ]
+}

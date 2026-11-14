@@ -1,16 +1,17 @@
 {
   "status": "ok",
-  "target_date": "2026-11-13",
-  "source": "the-odds-api-fd-dk-fanatics",
+  "target_date": "2026-11-14",
+  "source": "the-odds-api-fd-dk-fanatics-novig",
   "bookmakers": [
     "fanduel",
     "draftkings",
-    "fanatics"
+    "fanatics",
+    "novig"
   ],
-  "checked_at_utc": "2026-11-13T20:21:47.897384+00:00",
-  "rows": 9,
+  "checked_at_utc": "2026-11-14T18:41:23.518023+00:00",
+  "rows": 5,
   "http_status": 200,
-  "api_requests_used": "4797",
-  "api_requests_remaining": "15203",
+  "api_requests_used": "8502",
+  "api_requests_remaining": "11498",
   "error": null
 }
