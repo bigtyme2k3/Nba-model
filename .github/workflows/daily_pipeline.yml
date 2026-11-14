@@ -78,6 +78,11 @@ jobs:
         run: python scrape_sportsbook_props.py --date ${{ env.TARGET }} --out data/raw
         continue-on-error: true
 
+      - name: Collect first-quarter lines (optional, credit-guarded)
+        if: env.SKIP != 'true'
+        run: python scrape_period_odds.py --date ${{ env.TARGET }} --out data/raw
+        continue-on-error: true
+
       # ── Step 4: Scores ───────────────────────────────────────────────────
       - name: Scrape ESPN scores
         if: env.SKIP != 'true'

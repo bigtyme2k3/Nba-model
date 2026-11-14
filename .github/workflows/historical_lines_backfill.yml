@@ -1,0 +1,75 @@
+name: NBA Historical Lines Backfill
+
+# Manual only: spends paid Odds API credits (20 per snapshot). Cached snapshots are
+# committed, so rerunning only fetches what is missing.
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: 'Season start year (2025 = 2025-26)'
+        required: false
+        default: '2025'
+      max_credits:
+        description: 'Hard cap on credits this run may spend'
+        required: false
+        default: '3400'
+      second_pass:
+        description: 'Add 18:55 ET snapshots on early-tip days (about +1,100 credits per season)'
+        type: boolean
+        required: false
+        default: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY || secrets.THE_ODDS_API_KEY || secrets.THEODDS_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch near-close lines
+        run: |
+          python backfill_historical_lines.py \
+            --season "${{ github.event.inputs.season }}" \
+            --max-credits "${{ github.event.inputs.max_credits }}" \
+            ${{ github.event.inputs.second_pass == 'true' && '--second-pass' || '' }}
+
+      - name: Backtest game models against the near-close lines
+        run: python backtest_vs_close.py --season "${{ github.event.inputs.season }}"
+        continue-on-error: true
+
+      - name: Publish lines
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          for f in data/raw/historical_lines data/raw/historical_lines_*.csv data/raw/historical_lines_status.json data/tracking/historical_backtest_*.json; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+          git diff --cached --quiet || git commit -m "📚 NBA historical near-close lines and backtest — season ${{ github.event.inputs.season }}"
+          git reset --hard HEAD
+          git clean -fd
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push || {
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push
+          }
