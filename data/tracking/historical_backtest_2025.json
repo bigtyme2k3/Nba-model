@@ -1,0 +1,162 @@
+{
+  "generated_at_utc": "2026-11-14T01:04:25.048345+00:00",
+  "season": 2025,
+  "lines_file": "data/raw/historical_lines_2025.csv",
+  "season_games": 1316,
+  "games_matched_to_lines": 1231,
+  "method": "monthly refit on all earlier games (Ridge); near-close median line across FanDuel/DraftKings/Fanatics",
+  "spread": {
+    "games": 1231,
+    "model_mae": 11.541750044287983,
+    "market_mae": 10.881600324939074,
+    "mean_abs_model_minus_market": 3.7521889497287204,
+    "median_hours_before_tip": 1.32,
+    "record_by_edge": [
+      {
+        "min_edge": 0,
+        "bets": 1222,
+        "wins": 604,
+        "losses": 618,
+        "pushes": 9,
+        "win_rate": 0.49427168576104746,
+        "roi_at_110": -0.056390418092545726,
+        "z_vs_coin": -0.4004906973834362
+      },
+      {
+        "min_edge": 1,
+        "bets": 1022,
+        "wins": 510,
+        "losses": 512,
+        "pushes": 8,
+        "win_rate": 0.49902152641878667,
+        "roi_at_110": -0.04732254047322541,
+        "z_vs_coin": -0.06256112470898545
+      },
+      {
+        "min_edge": 2,
+        "bets": 845,
+        "wins": 420,
+        "losses": 425,
+        "pushes": 8,
+        "win_rate": 0.4970414201183432,
+        "roi_at_110": -0.051102743410435726,
+        "z_vs_coin": -0.17200522903844534
+      },
+      {
+        "min_edge": 3,
+        "bets": 667,
+        "wins": 332,
+        "losses": 335,
+        "pushes": 7,
+        "win_rate": 0.49775112443778113,
+        "roi_at_110": -0.049747853346054256,
+        "z_vs_coin": -0.11616046389935496
+      },
+      {
+        "min_edge": 4,
+        "bets": 478,
+        "wins": 236,
+        "losses": 242,
+        "pushes": 4,
+        "win_rate": 0.49372384937238495,
+        "roi_at_110": -0.0574362875618106,
+        "z_vs_coin": -0.27443361224780893
+      },
+      {
+        "min_edge": 6,
+        "bets": 214,
+        "wins": 107,
+        "losses": 107,
+        "pushes": 0,
+        "win_rate": 0.5,
+        "roi_at_110": -0.045454545454545484,
+        "z_vs_coin": 0.0
+      }
+    ],
+    "shrink": {
+      "status": "MARKET_BETTER",
+      "fitted_shrink": 0.07,
+      "holdout_log_loss": 0.6938302374572487,
+      "market_only_log_loss": 0.6931471805599453,
+      "fit_games": 611,
+      "holdout_games": 611
+    }
+  },
+  "totals": {
+    "games": 1231,
+    "model_mae": 15.396197753707398,
+    "market_mae": 14.582859463850529,
+    "mean_abs_model_minus_market": 3.982961892542483,
+    "median_hours_before_tip": 1.32,
+    "record_by_edge": [
+      {
+        "min_edge": 0,
+        "bets": 1225,
+        "wins": 595,
+        "losses": 630,
+        "pushes": 6,
+        "win_rate": 0.4857142857142857,
+        "roi_at_110": -0.07272727272727275,
+        "z_vs_coin": -1.0
+      },
+      {
+        "min_edge": 1,
+        "bets": 1045,
+        "wins": 503,
+        "losses": 542,
+        "pushes": 5,
+        "win_rate": 0.4813397129186603,
+        "roi_at_110": -0.08107872988255765,
+        "z_vs_coin": -1.2064420385350045
+      },
+      {
+        "min_edge": 2,
+        "bets": 851,
+        "wins": 405,
+        "losses": 446,
+        "pushes": 3,
+        "win_rate": 0.47591069330199764,
+        "roi_at_110": -0.09144322187800448,
+        "z_vs_coin": -1.405461898891675
+      },
+      {
+        "min_edge": 3,
+        "bets": 674,
+        "wins": 320,
+        "losses": 354,
+        "pushes": 2,
+        "win_rate": 0.47477744807121663,
+        "roi_at_110": -0.09360669004585923,
+        "z_vs_coin": -1.3096310668112872
+      },
+      {
+        "min_edge": 4,
+        "bets": 505,
+        "wins": 227,
+        "losses": 278,
+        "pushes": 2,
+        "win_rate": 0.4495049504950495,
+        "roi_at_110": -0.1418541854185419,
+        "z_vs_coin": -2.2694702133989226
+      },
+      {
+        "min_edge": 6,
+        "bets": 277,
+        "wins": 127,
+        "losses": 150,
+        "pushes": 2,
+        "win_rate": 0.4584837545126354,
+        "roi_at_110": -0.12471283229405973,
+        "z_vs_coin": -1.3819360666900522
+      }
+    ],
+    "shrink": {
+      "status": "MARKET_BETTER",
+      "fitted_shrink": 0.0,
+      "holdout_log_loss": 0.6931471805599453,
+      "market_only_log_loss": 0.6931471805599453,
+      "fit_games": 612,
+      "holdout_games": 613
+    }
+  }
+}
