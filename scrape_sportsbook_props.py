@@ -137,6 +137,7 @@ def fetch_event_props(event: dict, status: dict):
         "markets": ",".join(MARKETS),
         "oddsFormat": "american",
         "dateFormat": "iso",
+        "includeLinks": "true",   # free: bookmaker event/betslip links on each quote
     }
     resp = requests.get(url, params=params, timeout=25)
     status["http_calls"] += 1
@@ -201,6 +202,7 @@ def parse_event(data: dict, target_date: str):
                     "book": book,
                     "book_key": book_key,
                     "last_update": last_update,
+                    "link": outcome.get("link") or market.get("link") or bm.get("link"),
                     "source": "the-odds-api",
                     "scraped_at": now,
                 })

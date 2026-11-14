@@ -19,6 +19,8 @@
   const shortBook = key => ({fanduel:'FD',draftkings:'DK',fanatics:'FAN'}[key] || '—');
   const statName = stat => ({PTS:'Points',REB:'Rebounds',AST:'Assists',THREES:'Threes',PRA:'Pts + reb + ast'}[stat] || stat);
   // First-quarter record this season (W-L-T); context only, not a model input.
+  // Sportsbook links from The Odds API (includeLinks); only https URLs are rendered.
+  const bookLink = (url,text) => typeof url==='string'&&/^https:\/\//.test(url)?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${text}</a>`:text;
   const q1Record = (team,inline) => { const q=team?.q1; if(!q||!(q.q1_wins+q.q1_losses+q.q1_ties)) return ''; const text=`1Q ${q.q1_wins}-${q.q1_losses}-${q.q1_ties}`; return inline?`${esc(text)} · `:`<span class="small muted">${esc(text)}</span>`; };
   const projectedSpread = game => !numeric(game.spread?.pred) ? 'Unavailable' : Math.abs(Number(game.spread.pred))<.5 ? "Pick’em" : `${Number(game.spread.pred)>0?(game.home.abbr||game.home.name):(game.away.abbr||game.away.name)} -${fmt(Math.abs(Number(game.spread.pred)))}`;
   const quoteFor = (row, book='') => {
@@ -91,7 +93,7 @@
     const keys=[...new Set(quotes.map(q=>q.book_key))].sort();
     const cell=(book,market,side)=>{
       const q=quotes.find(x=>x.book_key===book&&x.market===market&&x.side===side);
-      return q?`${esc(market==='SPREAD'?signed(q.line):fmt(q.line))}<small>${esc(odds(q.price))}</small>`:'—';
+      return q?bookLink(q.link,`${esc(market==='SPREAD'?signed(q.line):fmt(q.line))}<small>${esc(odds(q.price))}</small>`):'—';
     };
     return `<p class="review-heading">Spread · exact handicap and price</p><table class="quote-table"><thead><tr><th>Book</th><th>${esc(game.away.abbr||'Away')}</th><th>${esc(game.home.abbr||'Home')}</th></tr></thead><tbody>${keys.map(book=>`<tr><td>${esc(shortBook(book))}</td><td>${cell(book,'SPREAD','AWAY')}</td><td>${cell(book,'SPREAD','HOME')}</td></tr>`).join('')}</tbody></table><p class="review-heading">Total · exact line and price</p><table class="quote-table"><thead><tr><th>Book</th><th>Over</th><th>Under</th></tr></thead><tbody>${keys.map(book=>`<tr><td>${esc(shortBook(book))}</td><td>${cell(book,'TOTAL','OVER')}</td><td>${cell(book,'TOTAL','UNDER')}</td></tr>`).join('')}</tbody></table><p class="snapshot-note">Quotes captured ${esc(timeET(game.priced_at))}. Each price belongs to the line directly above it.</p>`;
   }
@@ -122,7 +124,7 @@
   function propComparison(row) {
     const grouped=groupedQuotes(row.offers);
     if(!grouped.length) return '<p class="snapshot-note">Exact book comparisons are unavailable for this snapshot.</p>';
-    return `<table class="quote-table"><thead><tr><th>Book</th><th>Line</th><th>Over</th><th>Under</th></tr></thead><tbody>${grouped.map(q=>`<tr><td>${esc(shortBook(q.book_key))}</td><td>${esc(fmt(q.line))}</td><td>${esc(odds(q.OVER))}</td><td>${esc(odds(q.UNDER))}</td></tr>`).join('')}</tbody></table><p class="snapshot-note">Prices are recorded quotes. Compare the same line and side. Captured ${esc(timeET(row.offers[0]?.captured_at))}.</p>`;
+    return `<table class="quote-table"><thead><tr><th>Book</th><th>Line</th><th>Over</th><th>Under</th></tr></thead><tbody>${grouped.map(q=>`<tr><td>${bookLink((row.offers||[]).find(o=>o.book_key===q.book_key&&o.link)?.link,esc(shortBook(q.book_key)))}</td><td>${esc(fmt(q.line))}</td><td>${esc(odds(q.OVER))}</td><td>${esc(odds(q.UNDER))}</td></tr>`).join('')}</tbody></table><p class="snapshot-note">Prices are recorded quotes. Compare the same line and side. Captured ${esc(timeET(row.offers[0]?.captured_at))}.</p>`;
   }
   function linematePropUrl(row) {
     const game=games.find(g=>g.display_name===row.game);

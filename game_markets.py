@@ -69,6 +69,8 @@ def offers_from_event(event, captured_at):
                     "last_update": market.get("last_update") or book.get("last_update"),
                     "captured_at_utc": captured_at, "commence_time": event.get("commence_time"),
                     "quote_policy": QUOTE_POLICY,
+                    # Betslip link when the book supplies one (includeLinks=true).
+                    "link": outcome.get("link") or market.get("link") or book.get("link"),
                 })
     return offers
 

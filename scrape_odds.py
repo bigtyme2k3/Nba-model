@@ -68,6 +68,7 @@ def fetch_odds(status: dict):
         "bookmakers": BOOKMAKERS,
         "markets":    MARKETS,
         "oddsFormat": ODDS_FMT,
+        "includeLinks": "true",   # free: bookmaker event/betslip links on each quote
     }
 
     resp = requests.get(url, params=params, timeout=15)

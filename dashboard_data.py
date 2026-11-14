@@ -75,7 +75,8 @@ def quote_index(target, raw_dir):
         key = (norm(matchup(row.get('home_team'), row.get('away_team'))), norm(row.get('player')), str(row.get('stat')).upper())
         index[key].append({'book': row.get('book'), 'book_key': row['book_key'],
                            'side': row['side'], 'line': num(row['line']), 'odds': int(row['price']),
-                           'updated_at': row.get('last_update'), 'captured_at': row.get('scraped_at')})
+                           'updated_at': row.get('last_update'), 'captured_at': row.get('scraped_at'),
+                           'link': row.get('link') if isinstance(row.get('link'), str) else None})
     return index, rows
 
 
