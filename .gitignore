@@ -7,3 +7,7 @@ data/research/nba_market/cache/
 data/research/nba_market/cache_state/
 data/research/nba_market/warehouse.sqlite3*
 __pycache__/
+
+# V2 research warehouse and raw play-by-play (rebuildable)
+data/warehouse/
+data/raw/pbp/

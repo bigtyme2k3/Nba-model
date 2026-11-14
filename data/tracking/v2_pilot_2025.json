@@ -1,0 +1,101 @@
+{
+  "warehouse_checks": {
+    "player_box_rows": 173098,
+    "duplicate_player_games": 0,
+    "pbp_games": 1325,
+    "pbp_games_without_box": 0,
+    "pbp_athletes_not_in_game_box": 65,
+    "games_without_5_starters_per_team": 0
+  },
+  "games_with_pbp": 1325,
+  "games_valid_lineups": 1283,
+  "lineup_minutes_mae": 0.24961776216050902,
+  "lineup_minutes_max_err_p95": 0.5016666666666652,
+  "player_games_v1": 27579,
+  "player_games_joined": 27579,
+  "opportunity_coverage": 0.9791508031473223,
+  "player_games_with_absent_regular": 18017,
+  "absence_feature_coverage_when_absent": 0.879669201309874,
+  "generated_at_utc": "2026-11-14T02:14:20.875059+00:00",
+  "season": 2025,
+  "evaluation": {
+    "train_rows": 15257,
+    "test_rows": 12322,
+    "cutoff": "2026-02-01",
+    "targets": {
+      "pts": {
+        "v1": {
+          "mae": 4.718344920233581,
+          "mae_when_teammate_absent": 4.796784062627889
+        },
+        "v1+opportunity": {
+          "mae": 4.717612110849717,
+          "mae_when_teammate_absent": 4.791659906329182
+        },
+        "v1+absence": {
+          "mae": 4.654668165571919,
+          "mae_when_teammate_absent": 4.756036837754635
+        },
+        "v1+both": {
+          "mae": 4.6577513531597425,
+          "mae_when_teammate_absent": 4.759189087714477
+        }
+      },
+      "reb": {
+        "v1": {
+          "mae": 1.9756165384203521,
+          "mae_when_teammate_absent": 2.0073825611266733
+        },
+        "v1+opportunity": {
+          "mae": 1.9583819261775892,
+          "mae_when_teammate_absent": 1.987464453627012
+        },
+        "v1+absence": {
+          "mae": 1.9653108466570648,
+          "mae_when_teammate_absent": 2.0120529021245224
+        },
+        "v1+both": {
+          "mae": 1.949259390583736,
+          "mae_when_teammate_absent": 1.9945918455129563
+        }
+      },
+      "ast": {
+        "v1": {
+          "mae": 1.396368438453147,
+          "mae_when_teammate_absent": 1.4255870779119757
+        },
+        "v1+opportunity": {
+          "mae": 1.382990608333916,
+          "mae_when_teammate_absent": 1.4084292846918596
+        },
+        "v1+absence": {
+          "mae": 1.3881643210239805,
+          "mae_when_teammate_absent": 1.425385024544865
+        },
+        "v1+both": {
+          "mae": 1.3731071468956795,
+          "mae_when_teammate_absent": 1.4065734727498618
+        }
+      },
+      "pra": {
+        "v1": {
+          "mae": 6.244438289426506,
+          "mae_when_teammate_absent": 6.375840506311541
+        },
+        "v1+opportunity": {
+          "mae": 6.249784285084251,
+          "mae_when_teammate_absent": 6.373250117787778
+        },
+        "v1+absence": {
+          "mae": 6.1227918089070705,
+          "mae_when_teammate_absent": 6.289258352100063
+        },
+        "v1+both": {
+          "mae": 6.136429013464569,
+          "mae_when_teammate_absent": 6.3011641355273165
+        }
+      }
+    },
+    "test_rows_with_absent_regular": 8741
+  }
+}
