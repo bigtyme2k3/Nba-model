@@ -1,0 +1,57 @@
+{
+  "generated_at_utc": "2026-11-14T01:08:40.328277+00:00",
+  "season": 2025,
+  "method": "1u on every side of every game at each book, best-of-books and a random book; latest pregame near-close quotes; graded on final results",
+  "SPREAD": {
+    "games": 1232,
+    "side_bets": 2464,
+    "roi_by_book": {
+      "draftkings": {
+        "bets": 2464,
+        "roi": -0.044275521511558745
+      },
+      "fanatics": {
+        "bets": 2456,
+        "roi": -0.045333690762808417
+      },
+      "fanduel": {
+        "bets": 2464,
+        "roi": -0.0451792098663046
+      }
+    },
+    "roi_random_book": -0.04491411652117466,
+    "roi_best_of_books": -0.038398218204444834,
+    "gain_vs_random_book": 0.006515898316729829,
+    "avg_points_better_than_median_line": 0.18344155844155843,
+    "share_sides_with_better_line_than_median": 0.34780844155844154,
+    "avg_single_book_hold": 0.04744404476227154,
+    "avg_best_price_hold_same_line": 0.04019822475842994,
+    "games_with_negative_hold": 0
+  },
+  "TOTAL": {
+    "games": 1232,
+    "side_bets": 2464,
+    "roi_by_book": {
+      "draftkings": {
+        "bets": 2464,
+        "roi": -0.045080506625734894
+      },
+      "fanatics": {
+        "bets": 2456,
+        "roi": -0.045123018887358174
+      },
+      "fanduel": {
+        "bets": 2464,
+        "roi": -0.04542746686304912
+      }
+    },
+    "roi_random_book": -0.043642420773693964,
+    "roi_best_of_books": -0.031801632129374785,
+    "gain_vs_random_book": 0.01184078864431918,
+    "avg_points_better_than_median_line": 0.24391233766233766,
+    "share_sides_with_better_line_than_median": 0.39488636363636365,
+    "avg_single_book_hold": 0.04754524194316446,
+    "avg_best_price_hold_same_line": 0.04137145756702692,
+    "games_with_negative_hold": 0
+  }
+}
