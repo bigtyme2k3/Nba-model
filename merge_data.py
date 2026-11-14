@@ -16,6 +16,8 @@ from glob import glob
 
 from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, TEAM_NAMES, normalize_team
 from season_filters import filter_games_for_source, nba_season_start_year
+import team_availability
+import quarter_records
 
 RAW_DIR       = "data/raw"
 PROCESSED_DIR = "data/processed"
@@ -340,6 +342,31 @@ def add_model_labels(df: pd.DataFrame) -> pd.DataFrame:
 
 # ── Main Merge ────────────────────────────────────────────────────────────────
 
+_AVAILABILITY = None
+
+
+def team_availability_table() -> pd.DataFrame:
+    """Absent-rotation-player features for every team-game, built once per run."""
+    global _AVAILABILITY
+    if _AVAILABILITY is None:
+        logs = team_availability.load_player_logs(os.path.join(PROCESSED_DIR, "player_logs.csv"))
+        _AVAILABILITY = team_availability.historical_availability(logs)
+        print(f"  Team availability: {len(_AVAILABILITY)} team-games with absent rotation players")
+    return _AVAILABILITY
+
+
+_Q1_RECORDS = None
+
+
+def q1_records_table() -> pd.DataFrame:
+    """Each team's prior first-quarter record for every game, built once per run."""
+    global _Q1_RECORDS
+    if _Q1_RECORDS is None:
+        _Q1_RECORDS = quarter_records.historical_q1_records(quarter_records.load_q1_games(RAW_DIR))
+        print(f"  First-quarter records: {len(_Q1_RECORDS)} team-games")
+    return _Q1_RECORDS
+
+
 def process_year(year: int) -> pd.DataFrame:
     print(f"\n── Processing canonical season {year}-{str(year+1)[-2:]} ──")
 
@@ -373,6 +400,8 @@ def process_year(year: int) -> pd.DataFrame:
     game_df = add_rest_days(game_df)
     game_df = add_travel_flag(game_df)
     game_df = attach_team_game_context(game_df, team_context_df)
+    game_df = team_availability.attach_to_games(game_df, team_availability_table())
+    game_df = quarter_records.attach_to_games(game_df, q1_records_table())
 
     if not team_context_df.empty:
         # Match daily_runner live semantics exactly.

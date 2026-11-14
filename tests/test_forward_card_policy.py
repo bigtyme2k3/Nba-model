@@ -54,6 +54,26 @@ class TestForwardCardDecisionPolicy(unittest.TestCase):
         self.assertEqual(decisions[("PROP","PRA")],"PASS")
         self.assertTrue(all(r.get("evidence_epoch")==EVIDENCE_EPOCH for r in rows))
 
+    def test_card_selection_sizing_passed_on_is_not_a_bet(self):
+        data={
+            "date":"2026-11-04","generated":"g","model_version":"NBA_V1.0",
+            "best_bets":[
+                {"type":"SPREAD","game":"Away @ Home","play":"Away +11.5","verdict":"BET"},
+                {"type":"TOTAL","game":"Away @ Home","play":"UNDER 233.5","verdict":"PASS"},
+            ],
+            "games":[{
+                "home":{"name":"Home"},"away":{"name":"Away"},
+                "spread":{"pred":1.6,"posted_line":-11.5,"edge":-9.9,"play":"Away +11.5",
+                          "selected_quote":{"side":"AWAY","line":11.5,"price":-110,"book":"FanDuel"}},
+                "totals":{"pred":227.0,"line":233.5,"edge":-6.5,"play":"UNDER",
+                          "selected_quote":{"side":"UNDER","line":233.5,"price":-110,"book":"FanDuel"}},
+                "props":[],
+            }],
+        }
+        decisions={r["market"]:r["decision"] for r in flatten(data)}
+        self.assertEqual(decisions["SPREAD"],"BET")
+        self.assertEqual(decisions["TOTAL"],"PASS")
+
 
 if __name__=="__main__":
     unittest.main()

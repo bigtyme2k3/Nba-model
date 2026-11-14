@@ -52,6 +52,9 @@ except ImportError:
     KELLY_AVAILABLE = False
 
 from kelly_sizing import load_calibration, prop_model_probability
+import team_availability
+import quarter_records
+from season_filters import nba_season_start_year
 
 _PROP_CAL = load_calibration()
 # Recorded on each prop so the ledger shows which shrink produced model_probability.
@@ -742,6 +745,11 @@ def run_spread(home, away, ctx, bundle):
         "season_game_num":   ctx["season_game_num"],
         "month":             ctx["month"],
         "is_playoff":        int(ctx["month"] in (4, 5, 6)),
+        "home_vac_value":    ctx.get("home_vac_value", 0.0),
+        "away_vac_value":    ctx.get("away_vac_value", 0.0),
+        "vac_value_diff":    ctx.get("home_vac_value", 0.0) - ctx.get("away_vac_value", 0.0),
+        "home_vac_minutes":  ctx.get("home_vac_minutes", 0.0),
+        "away_vac_minutes":  ctx.get("away_vac_minutes", 0.0),
     })
     try:
         X = pd.DataFrame([row])[feats]
@@ -1142,6 +1150,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
     # Build transparent injury-driven minutes/usage opportunity adjustments.
     opportunity_adjustments = {}
+    inj_df = pd.DataFrame()
     injuries_path = "data/raw/injuries_today.csv"
     if os.path.exists(injuries_path):
         try:
@@ -1150,6 +1159,28 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             print(f"  Injuries loaded: {out_count} OUT/DOUBTFUL flags")
         except Exception:
             inj_df = pd.DataFrame()
+    # Rotation regulars listed OUT, measured exactly as the spread model's training
+    # absences (team_availability.py). An unverified injury feed counts nobody out.
+    slate_teams = {t for g in schedule for t in (g.get("home"), g.get("away")) if t}
+    try:
+        availability = team_availability.live_availability(
+            team_availability.load_player_logs(),
+            inj_df if injury_health["healthy"] else pd.DataFrame(), slate_teams)
+        missing = {t: v["players"] for t, v in availability.items() if v["players"]}
+        print(f"  Rotation absences (OUT): {sum(len(v) for v in missing.values())} players on {len(missing)} teams")
+    except Exception as exc:
+        print(f"  [WARN] Team availability failed: {exc}")
+        availability = {}
+
+    # Each team's first-quarter record this season (display context; see
+    # quarter_records.py for why it is not a spread-model feature).
+    try:
+        q1_records = quarter_records.live_q1_records(
+            quarter_records.load_q1_games(), slate_teams, nba_season_start_year(target_date))
+    except Exception as exc:
+        print(f"  [WARN] First-quarter records failed: {exc}")
+        q1_records = {}
+
     if OPPORTUNITY_AVAILABLE and injury_health["healthy"]:
         try:
             opportunity_adjustments = build_opportunity_adjustments(str(target_date))
@@ -1189,6 +1220,11 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
 
         print(f"  Processing: {away} @ {home}")
         ctx = build_context(home, away, target_date, game)
+        for side, team in (("home", home), ("away", away)):
+            a = availability.get(team, {})
+            ctx[f"{side}_vac_value"] = a.get("vac_value", 0.0)
+            ctx[f"{side}_vac_minutes"] = a.get("vac_minutes", 0.0)
+            ctx[f"{side}_out"] = a.get("players", [])
 
         # Add referee crew stats to context
         game_key_ref = f"{away}@{home}"
@@ -1272,8 +1308,10 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
             "tip": tip,
             "event_id": game.get("event_id") or game.get("game_id"),
             "minutes_to_tip": game.get("minutes_to_tip"),
-            "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0)},
-            "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0)},
+            "home": {"name":home,"abbr":TEAM_ABBR.get(home, home[:3].upper()),"record":game.get("home_record","?-?"),"net_rtg":hs.get("net_rtg",0),
+                     "q1":q1_records.get(home)},
+            "away": {"name":away,"abbr":TEAM_ABBR.get(away, away[:3].upper()),"record":game.get("away_record","?-?"),"net_rtg":as_.get("net_rtg",0),
+                     "q1":q1_records.get(away)},
             "spread": {"pred":spread_pred,"model_line":fmt_line(spread_pred,home,away),
                        "shadow_anchored_margin": round(.35 * spread_pred + .65 * (-posted_spread), 1) if spread_pred is not None and posted_spread is not None else None,
                        "shadow_policy": "RESEARCH_ONLY_35_MODEL_65_MARKET",

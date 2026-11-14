@@ -1,8 +1,8 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-25,401909861,STATUS_SCHEDULED,False,False,Utah Jazz,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -6.5,236.5,Delta Center,0,2026-10-25T16:59:00.311373
-2026-10-25,401909862,STATUS_SCHEDULED,False,False,Brooklyn Nets,Indiana Pacers,0,0,0,0,,,,,,,,,IND -6.5,232.5,Barclays Center,0,2026-10-25T16:59:00.311395
-2026-10-25,401909863,STATUS_SCHEDULED,False,False,New York Knicks,Orlando Magic,0,0,0,0,,,,,,,,,NY -7.5,224.5,Madison Square Garden,0,2026-10-25T16:59:00.311403
-2026-10-25,401909864,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Toronto Raptors,0,0,0,0,,,,,,,,,MIN -1.5,229.5,Target Center,0,2026-10-25T16:59:00.311417
-2026-10-25,401909865,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,LA Clippers,0,0,0,0,,,,,,,,,OKC -16.5,224.5,Paycom Center,0,2026-10-25T16:59:00.311423
-2026-10-25,401909866,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,227.5,Xfinity Mobile Arena,0,2026-10-25T16:59:00.311430
-2026-10-26,401909867,STATUS_SCHEDULED,False,False,Sacramento Kings,Memphis Grizzlies,0,0,0,0,,,,,,,,,MEM -3.5,234.5,Golden 1 Center,0,2026-10-25T16:59:00.311437
+2026-10-25,401909861,STATUS_FINAL,True,False,Utah Jazz,Los Angeles Lakers,123,132,-9,255,47.0,24.0,29.0,23.0,29.0,45.0,29.0,29.0,,,Delta Center,17867,2026-11-13T22:33:34.829712
+2026-10-25,401909862,STATUS_FINAL,True,False,Brooklyn Nets,Indiana Pacers,109,136,-27,245,26.0,30.0,24.0,29.0,24.0,41.0,37.0,34.0,,,Barclays Center,17548,2026-11-13T22:33:34.829744
+2026-10-25,401909863,STATUS_FINAL,True,False,New York Knicks,Orlando Magic,102,111,-9,213,28.0,24.0,23.0,27.0,21.0,27.0,23.0,40.0,,,Madison Square Garden,19812,2026-11-13T22:33:34.829760
+2026-10-25,401909864,STATUS_FINAL,True,False,Minnesota Timberwolves,Toronto Raptors,117,94,23,211,32.0,23.0,35.0,27.0,21.0,26.0,15.0,32.0,,,Target Center,18978,2026-11-13T22:33:34.829774
+2026-10-25,401909865,STATUS_FINAL,True,False,Oklahoma City Thunder,LA Clippers,108,101,7,209,23.0,20.0,34.0,31.0,20.0,26.0,30.0,25.0,,,Paycom Center,18203,2026-11-13T22:33:34.829787
+2026-10-25,401909866,STATUS_FINAL,True,False,Philadelphia 76ers,Detroit Pistons,93,106,-13,199,22.0,22.0,25.0,24.0,34.0,22.0,23.0,27.0,,,Xfinity Mobile Arena,21117,2026-11-13T22:33:34.829800
+2026-10-25,401909867,STATUS_FINAL,True,False,Sacramento Kings,Memphis Grizzlies,112,123,-11,235,28.0,31.0,31.0,22.0,25.0,42.0,29.0,27.0,,,Golden 1 Center,13076,2026-11-13T22:33:34.829856

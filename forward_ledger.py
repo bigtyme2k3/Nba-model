@@ -55,6 +55,15 @@ def read_ledger():
     return rows
 
 
+def counts_as_bet(bet):
+    """A final-card selection counts as a forward BET only if Kelly sizing also
+    said BET/STRONG. Without this, plays sizing rejected (e.g. 0.2u totals) were
+    recorded and graded as bets. A card entry with no verdict at all (sizing did
+    not run) still counts, as before."""
+    verdict = bet.get("verdict")
+    return verdict is None or str(verdict).upper() in {"BET", "STRONG"}
+
+
 def spread_rows(data):
     date = data.get("date")
     generated = data.get("generated")
@@ -62,7 +71,7 @@ def spread_rows(data):
     final_games = {
         str(b.get("game",""))
         for b in (data.get("best_bets") or [])
-        if str(b.get("type","")).upper()=="SPREAD"
+        if str(b.get("type","")).upper()=="SPREAD" and counts_as_bet(b)
     }
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
@@ -128,7 +137,7 @@ def total_rows(data):
     final_games = {
         str(b.get("game",""))
         for b in (data.get("best_bets") or [])
-        if str(b.get("type","")).upper()=="TOTAL"
+        if str(b.get("type","")).upper()=="TOTAL" and counts_as_bet(b)
     }
     for game in data.get("games", []):
         home = game.get("home", {}).get("name", "")
@@ -186,7 +195,7 @@ def prop_rows(data):
     # All other priced model signals are preserved as PASS/watch evidence.
     best_meta = {}
     for bet in data.get("best_bets", []) or []:
-        if str(bet.get("type", "")).upper() != "PROP":
+        if str(bet.get("type", "")).upper() != "PROP" or not counts_as_bet(bet):
             continue
         game = str(bet.get("game", ""))
         player = str(bet.get("player", ""))
