@@ -1,0 +1,177 @@
+{
+  "warehouse_checks": {
+    "player_box_rows": 173098,
+    "duplicate_player_games": 0,
+    "pbp_games": 6614,
+    "pbp_games_without_box": 0,
+    "pbp_athletes_not_in_game_box": 297,
+    "games_without_5_starters_per_team": 0
+  },
+  "lineups": {
+    "2021": {
+      "games_with_pbp": 1324,
+      "games_valid_lineups": 1301,
+      "lineup_minutes_mae": 0.2500227532281227,
+      "lineup_minutes_max_err_p95": 0.5
+    },
+    "2022": {
+      "games_with_pbp": 1321,
+      "games_valid_lineups": 1298,
+      "lineup_minutes_mae": 0.2566238432671051,
+      "lineup_minutes_max_err_p95": 0.5671666666666666
+    },
+    "2023": {
+      "games_with_pbp": 1320,
+      "games_valid_lineups": 1294,
+      "lineup_minutes_mae": 0.24865233404256243,
+      "lineup_minutes_max_err_p95": 0.5
+    },
+    "2024": {
+      "games_with_pbp": 1324,
+      "games_valid_lineups": 1304,
+      "lineup_minutes_mae": 0.2554171966466521,
+      "lineup_minutes_max_err_p95": 0.5
+    },
+    "2025": {
+      "games_with_pbp": 1325,
+      "games_valid_lineups": 1283,
+      "lineup_minutes_mae": 0.24961776216050902,
+      "lineup_minutes_max_err_p95": 0.5016666666666652
+    }
+  },
+  "player_games_v1": 137131,
+  "player_games_joined": 137128,
+  "opportunity_coverage": 0.9792092059973164,
+  "player_games_with_absent_regular": 86711,
+  "absence_feature_coverage_when_absent": 0.8731879461659997,
+  "generated_at_utc": "2026-11-14T23:39:32.923741+00:00",
+  "seasons": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "evaluation_by_season": {
+    "2022": {
+      "train_rows": 27365,
+      "test_rows": 27077,
+      "targets": {
+        "pts": {
+          "v1": 4.754806460936202,
+          "v1+opportunity": 4.744031231793915,
+          "v1+absence": 4.690018564154384,
+          "v1+both": 4.678506081834768
+        },
+        "reb": {
+          "v1": 1.995344680842584,
+          "v1+opportunity": 1.9806584603859083,
+          "v1+absence": 1.9719793398104697,
+          "v1+both": 1.958198024553421
+        },
+        "ast": {
+          "v1": 1.349071788086677,
+          "v1+opportunity": 1.330241468833817,
+          "v1+absence": 1.3378928810463264,
+          "v1+both": 1.3192599497043265
+        },
+        "pra": {
+          "v1": 6.269166424558971,
+          "v1+opportunity": 6.256641432614456,
+          "v1+absence": 6.155930005167431,
+          "v1+both": 6.149076535938098
+        }
+      }
+    },
+    "2023": {
+      "train_rows": 54442,
+      "test_rows": 27448,
+      "targets": {
+        "pts": {
+          "v1": 4.612878004352748,
+          "v1+opportunity": 4.599803539816772,
+          "v1+absence": 4.561323347087133,
+          "v1+both": 4.552993071791145
+        },
+        "reb": {
+          "v1": 1.9488390650990062,
+          "v1+opportunity": 1.9325285810303465,
+          "v1+absence": 1.9284669001532717,
+          "v1+both": 1.910402282956104
+        },
+        "ast": {
+          "v1": 1.3799334786502402,
+          "v1+opportunity": 1.361998313525175,
+          "v1+absence": 1.3702046637189111,
+          "v1+both": 1.3528339648464434
+        },
+        "pra": {
+          "v1": 6.165170401220264,
+          "v1+opportunity": 6.142715921765997,
+          "v1+absence": 6.083612959964257,
+          "v1+both": 6.059697607008024
+        }
+      }
+    },
+    "2024": {
+      "train_rows": 81890,
+      "test_rows": 27659,
+      "targets": {
+        "pts": {
+          "v1": 4.684669075789703,
+          "v1+opportunity": 4.669758220044989,
+          "v1+absence": 4.655229599262752,
+          "v1+both": 4.641457174512461
+        },
+        "reb": {
+          "v1": 1.9809683788228505,
+          "v1+opportunity": 1.95591077937884,
+          "v1+absence": 1.9688703284990057,
+          "v1+both": 1.9442467931701113
+        },
+        "ast": {
+          "v1": 1.3699731227576026,
+          "v1+opportunity": 1.357470191092594,
+          "v1+absence": 1.3677069994800877,
+          "v1+both": 1.3516324728068094
+        },
+        "pra": {
+          "v1": 6.194420384091106,
+          "v1+opportunity": 6.173143570058031,
+          "v1+absence": 6.126475232312982,
+          "v1+both": 6.104995423117714
+        }
+      }
+    },
+    "2025": {
+      "train_rows": 109549,
+      "test_rows": 27579,
+      "targets": {
+        "pts": {
+          "v1": 4.62367390090502,
+          "v1+opportunity": 4.61106345153107,
+          "v1+absence": 4.5807405328414745,
+          "v1+both": 4.571424915086835
+        },
+        "reb": {
+          "v1": 1.960690530133531,
+          "v1+opportunity": 1.9370408308616391,
+          "v1+absence": 1.9434595931709848,
+          "v1+both": 1.9193094433508664
+        },
+        "ast": {
+          "v1": 1.370664530855218,
+          "v1+opportunity": 1.35254485949785,
+          "v1+absence": 1.3637850787161319,
+          "v1+both": 1.3462835061043097
+        },
+        "pra": {
+          "v1": 6.120243308564264,
+          "v1+opportunity": 6.094418480938154,
+          "v1+absence": 6.030121965388598,
+          "v1+both": 6.009747615460921
+        }
+      }
+    }
+  }
+}
