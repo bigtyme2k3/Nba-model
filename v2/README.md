@@ -19,8 +19,10 @@ cached in `data/raw/pbp/`), `stints`. Identifier checks are written to
 - Teammate absence uses box-score absence as a stand-in for a confirmed OUT; a
   live V2 needs the injury report's timestamped status.
 
-Run: `python -m v2.pilot --season 2025 --cutoff 2026-02-01`
-Result: `data/tracking/v2_pilot_<season>.json`
+Run (one season, date split): `python -m v2.pilot --season 2025 --cutoff 2026-02-01`
+Run (several seasons, each tested on a model trained on earlier seasons):
+`python -m v2.pilot --seasons 2021 2022 2023 2024 2025 --test-seasons 2022 2023 2024 2025`
+Results: `data/tracking/v2_pilot_<season>.json`, `data/tracking/v2_pilot_<first>_<last>.json`
 
 ## Safeguards
 Pregame-only features, verified ESPN game/player ids, coverage gates, and V1
