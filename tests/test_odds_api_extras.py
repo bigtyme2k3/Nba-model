@@ -79,6 +79,15 @@ class BackfillTests(unittest.TestCase):
         self.assertAlmostEqual(lines.loc[0, "hours_before_tip"], 0.08, places=2)
 
 
+class NovigTests(unittest.TestCase):
+    def test_novig_quotes_are_kept_with_the_sportsbooks(self):
+        from game_markets import offers_from_event
+        event = _event("g", "2026-01-06T00:00:00Z")
+        event["bookmakers"][1]["key"] = "novig"
+        books = {o["book_key"] for o in offers_from_event(event, "2026-01-05T23:00:00Z")}
+        self.assertEqual(books, {"fanduel", "novig"})
+
+
 class BacktestSignTests(unittest.TestCase):
     def test_model_side_record(self):
         edge = pd.Series([3.0, -3.0, 1.0])

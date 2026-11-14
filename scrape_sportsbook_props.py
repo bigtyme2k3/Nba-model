@@ -33,7 +33,7 @@ import requests
 API_KEY = os.getenv("ODDS_API_KEY")
 SPORT = "basketball_nba"
 BASE = "https://api.the-odds-api.com/v4/sports"
-BOOKMAKERS = ["fanduel", "draftkings", "fanatics"]
+BOOKMAKERS = ["fanduel", "draftkings", "fanatics", "novig"]  # <= 10 books = 1 region of credits
 MARKETS = [
     "player_points",
     "player_rebounds",
