@@ -1,0 +1,17 @@
+{
+  "season": 2025,
+  "snapshots_planned": 166,
+  "already_cached": 0,
+  "estimated_new_credits": 3320,
+  "max_credits": 3400,
+  "reserve": 3000,
+  "fetched": 166,
+  "cached": 0,
+  "credits_spent": 3320,
+  "stopped": null,
+  "generated_at_utc": "2026-11-14T01:03:25.943904+00:00",
+  "api_requests_remaining": 11736,
+  "games_with_lines": 1234,
+  "median_hours_before_tip": 1.32,
+  "output": "data/raw/historical_lines_2025.csv"
+}
