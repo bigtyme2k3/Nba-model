@@ -23,7 +23,7 @@ from game_markets import offers_from_event
 API_KEY  = os.getenv("ODDS_API_KEY")
 SPORT    = "basketball_nba"
 REGIONS  = "us"
-BOOKMAKERS = "fanduel,draftkings,fanatics"
+BOOKMAKERS = "fanduel,draftkings,fanatics,novig"  # <= 10 books = 1 region of credits
 MARKETS  = "h2h,spreads,totals"
 ODDS_FMT = "american"
 BASE_URL = "https://api.the-odds-api.com/v4/sports"
@@ -212,7 +212,7 @@ def main():
     status = {
         "status": "unknown",
         "target_date": target,
-        "source": "the-odds-api-fd-dk-fanatics",
+        "source": "the-odds-api-fd-dk-fanatics-novig",
         "bookmakers": BOOKMAKERS.split(","),
         "checked_at_utc": datetime.now(timezone.utc).isoformat(),
         "rows": 0,

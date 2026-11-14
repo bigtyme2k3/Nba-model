@@ -101,8 +101,8 @@ def fetch(plan, cache: Path, max_credits: int, status: dict):
         path.write_text(json.dumps({"requested": ts, **resp.json()}))
 
 
-def consolidate(cache: Path, season: int) -> pd.DataFrame:
-    """Latest pregame quote per game/book/side, then the median across books per game."""
+def latest_offers(cache: Path, season: int) -> pd.DataFrame:
+    """Latest pregame quote per game/book/market/side across the cached snapshots."""
     offers = []
     for path in sorted(cache.glob("snap_*.json")):
         snap = json.loads(path.read_text())
@@ -118,7 +118,14 @@ def consolidate(cache: Path, season: int) -> pd.DataFrame:
     if not offers:
         return pd.DataFrame()
     df = pd.DataFrame(offers).sort_values("snapshot")
-    df = df.drop_duplicates(["event_id", "book_key", "market", "side"], keep="last")
+    return df.drop_duplicates(["event_id", "book_key", "market", "side"], keep="last")
+
+
+def consolidate(cache: Path, season: int) -> pd.DataFrame:
+    """One row per game: median home spread and total across books."""
+    df = latest_offers(cache, season)
+    if df.empty:
+        return df
     games = []
     for event_id, g in df.groupby("event_id"):
         spread = g[(g["market"] == "SPREAD") & (g["side"] == "HOME")]["line"].tolist()

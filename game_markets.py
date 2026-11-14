@@ -4,7 +4,8 @@ from __future__ import annotations
 import math
 from datetime import datetime, timezone
 
-BOOKS = {"fanduel", "draftkings", "fanatics"}
+# Novig is an exchange (us_ex) with no vig; up to 10 books still cost one region.
+BOOKS = {"fanduel", "draftkings", "fanatics", "novig"}
 QUOTE_POLICY = "EXACT_BOOK_SIDE_V1"
 
 
