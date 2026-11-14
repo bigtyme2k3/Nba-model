@@ -212,9 +212,24 @@
         "detroit pistons @ washington wizards",
         "toronto raptors @ philadelphia 76ers"
       ]
+    },
+    "2026-11-13": {
+      "observed_games": 9,
+      "captured_games": 0,
+      "missing_games": [
+        "atlanta hawks @ chicago bulls",
+        "cleveland cavaliers @ miami heat",
+        "golden state warriors @ san antonio spurs",
+        "memphis grizzlies @ new orleans pelicans",
+        "milwaukee bucks @ orlando magic",
+        "new york knicks @ indiana pacers",
+        "oklahoma city thunder @ la clippers",
+        "portland trail blazers @ sacramento kings",
+        "utah jazz @ houston rockets"
+      ]
     }
   },
-  "generated_at_utc": "2026-11-13T16:16:54.869980+00:00",
+  "generated_at_utc": "2026-11-14T15:01:00.045763+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "forward_prop_bets": 57,

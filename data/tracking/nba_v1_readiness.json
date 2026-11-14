@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-13T20:22:21.379824Z",
+  "generated_at_utc": "2026-11-14T15:01:02.172376Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -18,12 +18,12 @@
     "spread": {
       "name": "spread",
       "status": "trained",
-      "trained_through": "2026-11-08",
-      "trained_rows": 6705,
+      "trained_through": "2026-11-10",
+      "trained_rows": 6719,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 4
+      "lag_days": 2
     },
     "totals": {
       "name": "totals",
@@ -83,12 +83,12 @@
   "forward_evidence": {
     "scope": "CURRENT_ALGORITHM_AND_FEATURE_FAMILIES_ONLY",
     "active_artifact_ids": {
-      "SPREAD": "ca1331c349a897525316d7463ed17e760be6e0a5f396b716a4cb539756494b42",
+      "SPREAD": "66acea327a0ffb28f828af408057d1cbf89f25851f9b5026937d86c461379118",
       "TOTAL": "73a518561da7c07ca6001bac66e9bc2a2a939d5ac280c51b252d3a12dcf7603b",
       "PROP": "d0e91808218ac219051007fdaac2ac1ccf183fe9a7edb54e0d03ea81f7b10e52"
     },
     "active_family_ids": {
-      "SPREAD": "558fb77332dbdddae1824e89803c1e8e975dbaf9979d3ac2088bfa8db2b50cdf",
+      "SPREAD": "8b578c1f11caa26aa5e79ce6e0d4ca261784a472b22c3774ab6dc7082698be25",
       "TOTAL": "5d01c28c64a385615b36fb1d57f3cf255da596bef9679a0ccdbd6a719378a5e8",
       "PROP": "44a02904e16bdb2b2bec420936232360a07b584bb488672f2ea0281dfc0c7741"
     },

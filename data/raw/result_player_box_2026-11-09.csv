@@ -91,8 +91,8 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909955,2026,2026-11-09,Grizzlies,Memphis,MEM,away,4781746,Javon Small,G,False,False,24.0,9.0,2.0,5.0,0.0,0.0,0.0,2.0,0.0,3.0,5.0,1.0,2.0,2.0,2.0,-2.0,espn_api
 401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,2993874,Kyle Anderson,F,True,False,16.0,6.0,2.0,2.0,0.0,1.0,0.0,0.0,2.0,3.0,4.0,0.0,0.0,0.0,0.0,-10.0,espn_api
 401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,4395625,RJ Barrett,F,True,False,36.0,19.0,3.0,2.0,0.0,1.0,1.0,2.0,1.0,7.0,21.0,1.0,6.0,4.0,9.0,-23.0,espn_api
-401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,3134908,Jakob Poeltl,C,True,False,31.0,18.0,8.0,2.0,1.0,4.0,3.0,6.0,2.0,9.0,12.0,0.0,0.0,0.0,0.0,-15.0,espn_api
-401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,4432241,Jamal Shead,G,True,False,36.0,20.0,2.0,11.0,2.0,0.0,3.0,0.0,2.0,6.0,17.0,4.0,10.0,4.0,4.0,-14.0,espn_api
+401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,3134908,Jakob Poeltl,C,True,False,31.0,18.0,7.0,2.0,1.0,4.0,3.0,5.0,2.0,9.0,12.0,0.0,0.0,0.0,0.0,-15.0,espn_api
+401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,4432241,Jamal Shead,G,True,False,36.0,20.0,3.0,11.0,2.0,0.0,3.0,1.0,2.0,6.0,17.0,4.0,10.0,4.0,4.0,-14.0,espn_api
 401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,4684272,Ja'Kobe Walter,G,True,False,34.0,12.0,6.0,0.0,0.0,0.0,1.0,2.0,4.0,4.0,13.0,2.0,7.0,2.0,2.0,-21.0,espn_api
 401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,4431684,Trayce Jackson-Davis,F,False,False,14.0,4.0,6.0,1.0,2.0,1.0,1.0,2.0,4.0,2.0,3.0,0.0,0.0,0.0,0.0,2.0,espn_api
 401909955,2026,2026-11-09,Raptors,Toronto,TOR,home,4431893,Jamison Battle,F,False,False,29.0,18.0,1.0,2.0,0.0,0.0,1.0,1.0,0.0,6.0,12.0,5.0,11.0,1.0,2.0,-3.0,espn_api
@@ -144,7 +144,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909957,2026,2026-11-09,Nuggets,Denver,DEN,away,4431690,Zeke Nnaji,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401909957,2026,2026-11-09,Rockets,Houston,HOU,home,3202,Kevin Durant,F,True,False,36.0,23.0,12.0,8.0,0.0,1.0,6.0,0.0,12.0,6.0,15.0,1.0,3.0,10.0,10.0,3.0,espn_api
 401909957,2026,2026-11-09,Rockets,Houston,HOU,home,4432639,Jabari Smith Jr.,F,True,False,38.0,14.0,7.0,3.0,0.0,0.0,0.0,3.0,4.0,6.0,13.0,2.0,8.0,0.0,0.0,10.0,espn_api
-401909957,2026,2026-11-09,Rockets,Houston,HOU,home,4871144,Alperen Sengun,C,True,False,35.0,20.0,12.0,8.0,1.0,1.0,2.0,5.0,7.0,9.0,17.0,1.0,3.0,1.0,3.0,-3.0,espn_api
+401909957,2026,2026-11-09,Rockets,Houston,HOU,home,4871144,Alperen Sengun,C,True,False,35.0,20.0,11.0,8.0,1.0,1.0,2.0,5.0,6.0,9.0,17.0,1.0,3.0,1.0,3.0,-3.0,espn_api
 401909957,2026,2026-11-09,Rockets,Houston,HOU,home,2991230,Fred VanVleet,G,True,False,30.0,12.0,1.0,2.0,0.0,0.0,1.0,1.0,0.0,4.0,9.0,3.0,6.0,1.0,2.0,1.0,espn_api
 401909957,2026,2026-11-09,Rockets,Houston,HOU,home,4684740,Amen Thompson,G,True,False,35.0,8.0,9.0,3.0,1.0,0.0,1.0,3.0,6.0,3.0,8.0,0.0,0.0,2.0,2.0,1.0,espn_api
 401909957,2026,2026-11-09,Rockets,Houston,HOU,home,4433192,Tari Eason,F,False,False,19.0,12.0,5.0,2.0,2.0,1.0,0.0,1.0,4.0,5.0,11.0,2.0,6.0,0.0,0.0,18.0,espn_api
@@ -159,7 +159,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4592479,Julian Champagnie,F,True,False,27.0,11.0,3.0,2.0,2.0,0.0,2.0,0.0,3.0,4.0,11.0,3.0,9.0,0.0,0.0,2.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,5104157,Victor Wembanyama,F,True,False,25.0,40.0,11.0,3.0,0.0,9.0,1.0,2.0,9.0,15.0,19.0,2.0,3.0,8.0,10.0,30.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4066259,De'Aaron Fox,G,True,False,29.0,15.0,9.0,6.0,0.0,0.0,1.0,0.0,9.0,5.0,8.0,2.0,4.0,3.0,3.0,20.0,espn_api
-401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4845367,Stephon Castle,G,True,False,30.0,4.0,8.0,7.0,1.0,0.0,2.0,4.0,4.0,2.0,10.0,0.0,1.0,0.0,2.0,13.0,espn_api
+401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4845367,Stephon Castle,G,True,False,30.0,4.0,7.0,7.0,1.0,0.0,2.0,3.0,4.0,2.0,9.0,0.0,1.0,0.0,2.0,13.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,5037871,Dylan Harper,G,True,False,26.0,17.0,5.0,4.0,0.0,0.0,0.0,0.0,5.0,7.0,10.0,0.0,2.0,3.0,5.0,30.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,6578,Harrison Barnes,F,False,False,21.0,11.0,2.0,0.0,0.0,0.0,0.0,1.0,1.0,3.0,8.0,2.0,6.0,3.0,3.0,22.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4395723,Keldon Johnson,F,False,False,26.0,4.0,5.0,3.0,0.0,0.0,0.0,2.0,3.0,2.0,6.0,0.0,1.0,0.0,0.0,30.0,espn_api
@@ -177,7 +177,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,5041953,Koa Peat,F,False,False,6.0,4.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,2.0,3.0,0.0,0.0,0.0,0.0,4.0,espn_api
 401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,5105977,Rasheer Fleming,F,False,False,9.0,2.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,3.0,0.0,1.0,0.0,0.0,6.0,espn_api
 401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,4066268,Duop Reath,C,False,False,6.0,2.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,1.0,3.0,0.0,2.0,0.0,0.0,4.0,espn_api
-401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,5203685,Khaman Maluach,C,False,False,20.0,11.0,5.0,2.0,0.0,1.0,0.0,1.0,4.0,4.0,6.0,1.0,1.0,2.0,2.0,-6.0,espn_api
+401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,5203685,Khaman Maluach,C,False,False,20.0,11.0,5.0,2.0,0.0,0.0,0.0,1.0,4.0,4.0,6.0,1.0,1.0,2.0,2.0,-6.0,espn_api
 401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,3913174,Luke Kennard,G,False,False,14.0,3.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,4.0,1.0,3.0,0.0,0.0,-30.0,espn_api
 401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,4278585,Collin Gillespie,G,False,False,24.0,6.0,2.0,3.0,0.0,0.0,1.0,2.0,0.0,2.0,6.0,2.0,4.0,0.0,0.0,-22.0,espn_api
 401909958,2026,2026-11-09,Suns,Phoenix,PHX,home,4280245,Jamaree Bouyea,G,False,False,9.0,4.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,2.0,2.0,0.0,0.0,0.0,0.0,5.0,espn_api
