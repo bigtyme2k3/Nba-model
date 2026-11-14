@@ -210,3 +210,8 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-29,401909893,STATUS_FINAL,True,False,Atlanta Hawks,Cleveland Cavaliers,114,111,3,225,16.0,30.0,43.0,25.0,28.0,16.0,38.0,29.0,,,State Farm Arena,15025,2026-11-14T15:00:56.609127
 2026-10-29,401909894,STATUS_FINAL,True,False,New Orleans Pelicans,Sacramento Kings,132,120,12,252,24.0,39.0,39.0,30.0,30.0,31.0,27.0,32.0,,,Smoothie King Center,15442,2026-11-14T15:00:56.609143
 2026-10-29,401909895,STATUS_FINAL,True,False,Portland Trail Blazers,Memphis Grizzlies,103,124,-21,227,25.0,33.0,25.0,20.0,25.0,33.0,33.0,33.0,,,Moda Center,19367,2026-11-14T15:00:56.609151
+2026-11-14,401909980,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -12.5,235.5,Smoothie King Center,0,2026-11-14T18:41:27.879696
+2026-11-14,401909981,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Dallas Mavericks,0,0,0,0,,,,,,,,,DAL -4.5,228.5,Rocket Arena,0,2026-11-14T18:41:27.879712
+2026-11-14,401909982,STATUS_SCHEDULED,False,False,Miami Heat,Detroit Pistons,0,0,0,0,,,,,,,,,DET -3.5,229.5,Kaseya Center,0,2026-11-14T18:41:27.879721
+2026-11-14,401909983,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Brooklyn Nets,0,0,0,0,,,,,,,,,MEM -2.5,228.5,FedExForum,0,2026-11-14T18:41:27.879730
+2026-11-14,401909984,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Chicago Bulls,0,0,0,0,,,,,,,,,MIN -15.5,234.5,Target Center,0,2026-11-14T18:41:27.879738

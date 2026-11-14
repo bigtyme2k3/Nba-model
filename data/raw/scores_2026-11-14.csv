@@ -1,0 +1,6 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-14,401909980,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -12.5,235.5,Smoothie King Center,0,2026-11-14T18:41:27.879696
+2026-11-14,401909981,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Dallas Mavericks,0,0,0,0,,,,,,,,,DAL -4.5,228.5,Rocket Arena,0,2026-11-14T18:41:27.879712
+2026-11-14,401909982,STATUS_SCHEDULED,False,False,Miami Heat,Detroit Pistons,0,0,0,0,,,,,,,,,DET -3.5,229.5,Kaseya Center,0,2026-11-14T18:41:27.879721
+2026-11-14,401909983,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Brooklyn Nets,0,0,0,0,,,,,,,,,MEM -2.5,228.5,FedExForum,0,2026-11-14T18:41:27.879730
+2026-11-14,401909984,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Chicago Bulls,0,0,0,0,,,,,,,,,MIN -15.5,234.5,Target Center,0,2026-11-14T18:41:27.879738
