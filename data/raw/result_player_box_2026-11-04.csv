@@ -297,7 +297,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909932,2026,2026-11-04,Suns,Phoenix,PHX,home,4280245,Jamaree Bouyea,G,False,False,3.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,4.0,espn_api
 401909932,2026,2026-11-04,Suns,Phoenix,PHX,home,4592714,Pat Spencer,G,False,False,3.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,4.0,espn_api
 401909933,2026,2026-11-04,Mavericks,Dallas,DAL,away,4278049,Daniel Gafford,F,True,False,18.0,2.0,4.0,1.0,1.0,2.0,2.0,1.0,3.0,1.0,6.0,0.0,0.0,0.0,1.0,-4.0,espn_api
-401909933,2026,2026-11-04,Mavericks,Dallas,DAL,away,4278078,P.J. Washington,F,True,False,39.0,21.0,9.0,3.0,0.0,1.0,1.0,4.0,5.0,7.0,18.0,3.0,8.0,4.0,5.0,0.0,espn_api
+401909933,2026,2026-11-04,Mavericks,Dallas,DAL,away,4278078,P.J. Washington,F,True,False,39.0,21.0,10.0,3.0,0.0,1.0,1.0,4.0,6.0,7.0,18.0,3.0,8.0,4.0,5.0,0.0,espn_api
 401909933,2026,2026-11-04,Mavericks,Dallas,DAL,away,5041939,Cooper Flagg,F,True,False,40.0,19.0,10.0,5.0,0.0,0.0,1.0,5.0,5.0,7.0,19.0,0.0,3.0,5.0,7.0,2.0,espn_api
 401909933,2026,2026-11-04,Mavericks,Dallas,DAL,away,5211175,Zaccharie Risacher,F,True,False,18.0,2.0,1.0,2.0,1.0,0.0,1.0,0.0,1.0,1.0,4.0,0.0,2.0,0.0,0.0,-7.0,espn_api
 401909933,2026,2026-11-04,Mavericks,Dallas,DAL,away,6442,Kyrie Irving,G,True,False,36.0,29.0,7.0,5.0,1.0,0.0,1.0,1.0,6.0,9.0,27.0,5.0,14.0,6.0,8.0,-4.0,espn_api
