@@ -227,9 +227,20 @@
         "portland trail blazers @ sacramento kings",
         "utah jazz @ houston rockets"
       ]
+    },
+    "2026-11-14": {
+      "observed_games": 5,
+      "captured_games": 0,
+      "missing_games": [
+        "brooklyn nets @ memphis grizzlies",
+        "chicago bulls @ minnesota timberwolves",
+        "dallas mavericks @ cleveland cavaliers",
+        "denver nuggets @ new orleans pelicans",
+        "detroit pistons @ miami heat"
+      ]
     }
   },
-  "generated_at_utc": "2026-11-14T15:01:00.045763+00:00",
+  "generated_at_utc": "2026-11-15T08:08:15.450583+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "forward_prop_bets": 57,

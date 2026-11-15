@@ -1,0 +1,26 @@
+{
+  "generated_at_utc": "2026-11-15T08:08:19.615687+00:00",
+  "policy": "SHADOW_ONLY",
+  "strict_gate_rules": {
+    "min_holdout_dates": 7,
+    "min_holdout_rows": 500,
+    "min_log_loss_margin": 0.002,
+    "max_stat_log_loss_deficit": 0.005,
+    "min_stat_rows": 50,
+    "splits": [
+      [
+        0.6,
+        0.8
+      ],
+      [
+        0.8,
+        1.0
+      ]
+    ],
+    "bootstrap": 2000,
+    "fixed_on": "2026-11-15",
+    "data_through_when_fixed": "2026-11-13"
+  },
+  "status": "NO_GRADED_ROWS",
+  "graded_rows": 0
+}
