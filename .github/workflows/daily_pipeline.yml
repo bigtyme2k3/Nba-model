@@ -10,7 +10,9 @@ on:
     paths:
       - '.github/daily-refresh-trigger'
   schedule:
-    - cron: '0 13 * * *'   # 9 AM ET
+    - cron: '23 12 * * *'  # 8:23 AM ET (off the hour: top-of-hour schedules are the most delayed).
+    # GitHub has started this 5-10 hours late; a daily 10:13 AM ET workflow_dispatch from a
+    # scheduled task is the primary early start, this cron is the backstop.
   workflow_dispatch:
     inputs:
       date:
