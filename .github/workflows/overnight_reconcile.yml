@@ -10,8 +10,11 @@ on:
     paths:
       - '.github/reconcile-refresh-trigger'
   schedule:
-    # 08:15 UTC = 4:15 AM EDT / 3:15 AM EST. Late West games should be final.
-    - cron: '15 8,11 * * *'
+    # 3:00 AM ET (08:00 UTC in EST; 4 AM during EDT) with a 6:15 AM ET retry. Late West
+    # games are final by then. GitHub runs these late, so a 3:00 AM ET workflow_dispatch from
+    # a scheduled task is the primary start; these crons are the backstop.
+    - cron: '0 8 * * *'
+    - cron: '15 11 * * *'
   workflow_dispatch:
     inputs:
       date:
