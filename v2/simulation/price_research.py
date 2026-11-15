@@ -47,7 +47,7 @@ import pandas as pd
 
 import calibrate_edges
 from prop_features import BASE_FEATURES
-from v2 import features, lineups, live, pilot, warehouse
+from v2 import lineups, live, pilot, warehouse
 from v2.simulation import engine
 
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
@@ -217,11 +217,6 @@ def v1_anchored_means(cur: pd.DataFrame, graded: pd.DataFrame, props: pd.DataFra
     return {"single": {s: np.clip(v, 0, None) for s, v in m.items()},
             "pra": {**{s: np.clip(v, 0, None) for s, v in pra_means.items()},
                     "threes": np.clip(np.minimum(m["threes"], pra_means["pts"] / 3), 0, None)}}
-
-
-def simulate_arm(cur, means, params, n_sims, seed):
-    sims = engine.simulate(cur, means, params, n_sims, seed)
-    return sims
 
 
 # ---------------------------------------------------------------- evaluation
