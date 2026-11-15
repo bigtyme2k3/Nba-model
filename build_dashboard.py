@@ -181,7 +181,33 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
         'avg_line_clv': (readiness.get('forward_evidence') or {}).get('avg_line_clv'),
         'execution_bets': execution_perf.get('bet_rows', 0),
     }
+    data['v2_lab'] = v2_lab_data(data.get('date'))
     return prepare_display(data)
+
+
+def v2_lab_data(target) -> Dict[str, Any]:
+    """Research Lab inputs. Shadow only: none of this reaches a prediction or bet."""
+    today = load_json('data/simulation/lab_today.json', {})
+    if today and str(today.get('date')) != str(target):
+        today = {}   # never show another slate's simulations as today's
+    historical = load_json('data/tracking/v2_mc_validation.json', {})
+    for season in (historical.get('seasons') or {}).values():
+        season.pop('same_game_pairs', None)
+    phase3 = (load_json('data/tracking/v2_mc_price_research.json', {}).get('sportsbooks') or {}).get('all_arms_common_rows') or {}
+    def lean(block):
+        if not isinstance(block, dict):
+            return block
+        block = {k: v for k, v in block.items() if k not in ('by_stat', 'by_book')}
+        for gate in (block.get('strict_gate') or {}).values():
+            gate.pop('rules', None)
+        return block
+    forward = load_json('data/tracking/v2_mc_shadow_report.json', {})
+    forward.pop('strict_gate_rules', None)
+    for key in ('sportsbooks', 'exchanges_novig'):
+        if isinstance(forward.get(key), dict):
+            forward[key] = {k: lean(v) for k, v in forward[key].items()}
+    return {'today': today, 'historical': historical, 'phase3': lean(phase3), 'forward': forward,
+            'v2_mae': load_json('data/tracking/v2_forward_comparison.json', {})}
 
 
 def fallback_html(data_json: str) -> str:
@@ -189,7 +215,9 @@ def fallback_html(data_json: str) -> str:
     source = Path(__file__).resolve().parent / "dashboard"
     html = (source / "index.html").read_text(encoding="utf-8")
     return (html.replace("__DASHBOARD_CSS__", (source / "style.css").read_text(encoding="utf-8"))
+            .replace("__V2_LAB_CSS__", (source / "v2_lab.css").read_text(encoding="utf-8"))
             .replace("__LINEMATE_REVIEW_JS__", (source / "linemate_review.js").read_text(encoding="utf-8"))
+            .replace("__V2_LAB_JS__", (source / "v2_lab.js").read_text(encoding="utf-8"))
             .replace("__DASHBOARD_JS__", (source / "app.js").read_text(encoding="utf-8"))
             .replace("__DASHBOARD_DATA__", data_json))
 

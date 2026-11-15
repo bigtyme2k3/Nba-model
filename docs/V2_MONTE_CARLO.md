@@ -126,9 +126,49 @@ V2's absences use the injury report version scraped before that day's prediction
   interval includes or lies below zero. No profitable rule is shown.
 - Novig: no graded Novig quotes recorded yet; reported separately once they exist.
 
+## Phase 5: daily shadow forecasts (`v2/simulation/shadow.py`)
+- **publish** runs in the daily pipeline right after `forward_ledger.py`, and in the
+  pre-tip refresh for props first observed there. It simulates every projected
+  player (10,000 draws, frozen V2_MC parameters) around V1's projections and,
+  where V2 has a shadow projection, around V2's. Each forward-ledger prop row gets
+  one immutable row in `data/history/nba_mc_shadow_forecasts.jsonl` (same
+  `ranking_key` and `prediction_id`, first observation only) with the probability
+  of the recorded side at the recorded line and odds, push probability, EV, the
+  parameter digest and the publish time.
+- **grade** runs after the ledger is reconciled (daily pipeline and overnight
+  reconcile). It uses the ledger's own outcomes, scores only rows published before
+  tip, and reports sportsbooks and Novig separately with the same scores, diagnostics,
+  live gate and strict gate as Phase 3: `data/tracking/v2_mc_shadow_report.json`.
+  `v2.compare` updates the forward V1-vs-V2 projection MAE alongside it.
+- Nothing in either step changes a prediction, the ledger, calibration or a verdict.
+
+## Phase 4: V2 Research Lab (dashboard → ••• → V2 Research Lab)
+`dashboard/v2_lab.js` and `v2_lab.css`, built into `docs/index.html` with the
+rest of the dashboard; data from `data/simulation/lab_today.json` (shown only when
+it matches the slate date) and the tracking reports.
+- **Today's simulations:** coverage tiles (games, players, V2 coverage and feature
+  freshness, recorded quotes, agreement, research signals, strict-gate status) and
+  player cards (V1, V2, simulated median, recorded book line and price, MC vs market
+  probability, research status), sortable by tip time, V1–V2 gap, MC probability or
+  stat.
+- **Player analysis:** projection comparison, histogram of the simulated outcomes
+  with the line marked, 10–90% range, over/under at the recorded line, scenario
+  sensitivity (reduced minutes, more minutes, higher usage), every FanDuel,
+  DraftKings and Fanatics quote with no-vig and MC probabilities, Novig in a
+  separate table, and the research verdict (V1's decision plus MC's label).
+- **Validation & results:** prediction accuracy (MAE), probability accuracy
+  (historical Brier, log loss, coverage, PIT), the retrospective recorded-price study
+  and the forward shadow record, each with hypothetical ROI and both gates shown
+  separately.
+
+Research labels: within 3 points of the market's no-vig probability = agrees with
+market; otherwise MC favors or is against the recorded side. Labels carry no bet
+authority.
+
 ## Next phases
-1. Daily shadow publication beside `v2_pred`, forward grading and the V2 Research Lab;
-   rerun Phase 3 as the ledger grows and Novig quotes accrue.
+1. Let the forward shadow record accumulate; the strict gate needs at least 7
+   hold-out dates (roughly 35 graded dates).
+2. A V2 threes model, and a near-tip quote analysis from the pre-tip snapshots.
 
 ## Promotion review
 Better calibrated probabilities on untouched future games, stable historical and

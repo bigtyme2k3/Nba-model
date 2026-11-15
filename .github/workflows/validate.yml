@@ -39,7 +39,9 @@ jobs:
         run: |
           node --check dashboard/app.js
           node --check dashboard/linemate_review.js
+          node --check dashboard/v2_lab.js
           node tests/test_dashboard_client.cjs
+          node tests/test_v2_lab_client.cjs
           node tests/test_linemate_review.cjs
       - name: Run NBA V1 compatibility and historical research tests (no API requests)
         run: python -m unittest discover -s tests -v
