@@ -238,6 +238,7 @@ def prop_rows(data):
                     "market_source": prop.get("market_source"),
                     "commence_time": game.get("tip"),
                     "projection": projection,
+                    "v2_projection": prop.get("v2_pred"),   # shadow challenger, never a decision input
                     "projected_minutes": player.get("proj_min"),
                     "base_projected_minutes": player.get("base_proj_min"),
                     "opportunity_direction": player.get("opportunity_direction"),

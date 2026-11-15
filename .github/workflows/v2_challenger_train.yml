@@ -1,0 +1,48 @@
+name: NBA V2 Challenger Train
+
+# Manual: rebuilds the V2 warehouse from sportsdataverse play-by-play (about 25 MB per
+# season), retrains the shadow prop challenger and commits the model. No Odds API use.
+concurrency:
+  group: nba-model-publish
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Train V2 shadow challenger
+        run: python -m v2.challenger
+
+      - name: Publish model
+        run: |
+          git config user.name "NBA Model Bot"
+          git config user.email "actions@github.com"
+          git add models/v2_props_models.pkl data/tracking/v2_challenger_training.json
+          git diff --cached --quiet || git commit -m "🧪 Retrain NBA V2 shadow challenger"
+          git reset --hard HEAD
+          git clean -fd
+          git fetch origin main
+          git rebase -X theirs origin/main
+          git push || {
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push
+          }

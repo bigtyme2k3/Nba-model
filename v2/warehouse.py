@@ -29,26 +29,54 @@ import requests
 RAW = Path("data/raw")
 PBP_DIR = RAW / "pbp"
 DB_PATH = Path("data/warehouse/nba_v2.duckdb")
-PBP_URL = ("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/"
-           "espn_nba_pbp/play_by_play_{label}.parquet")
+RELEASE = "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/"
+RELEASES = {  # sportsdataverse release files, labelled by the season's end year
+    "pbp": ("espn_nba_pbp", "play_by_play_{label}.parquet"),
+    "player_box": ("espn_nba_player_boxscores", "player_box_{label}.parquet"),
+    "schedule": ("espn_nba_schedules", "nba_schedule_{label}.parquet"),
+}
 
 
-def fetch_pbp(season: int, pbp_dir=PBP_DIR) -> Path:
-    """Cached ESPN play-by-play parquet for a season (start year; hoopR labels by end year)."""
-    path = Path(pbp_dir) / f"play_by_play_{season + 1}.parquet"
-    if not path.exists():
+def fetch_release(kind: str, season: int, refresh: bool = False, pbp_dir=PBP_DIR) -> Path:
+    """Cached sportsdataverse parquet for a season (start year). The current season is
+    republished daily, so callers pass refresh=True for it."""
+    tag, name = RELEASES[kind]
+    path = Path(pbp_dir) / name.format(label=season + 1)
+    if refresh or not path.exists():
         path.parent.mkdir(parents=True, exist_ok=True)
-        resp = requests.get(PBP_URL.format(label=season + 1), timeout=120)
+        resp = requests.get(RELEASE + f"{tag}/{name.format(label=season + 1)}", timeout=120)
         resp.raise_for_status()
         path.write_bytes(resp.content)
     return path
 
 
-def build(seasons, db_path=DB_PATH, raw=RAW) -> duckdb.DuckDBPyConnection:
+def fetch_pbp(season: int, pbp_dir=PBP_DIR, refresh: bool = False) -> Path:
+    return fetch_release("pbp", season, refresh, pbp_dir)
+
+
+def _box_sources(seasons, raw, refresh):
+    """Committed hoopR CSVs for past seasons; the daily parquet for a season without one."""
+    csvs = sorted(glob(str(Path(raw) / "hoopr_player_box_20*.csv")))
+    have = {int(Path(p).stem.rsplit("_", 1)[1]) - 1 for p in csvs}
+    parquets = [str(fetch_release("player_box", s, s in refresh)) for s in seasons if s not in have]
+    scheds = sorted(glob(str(Path(raw) / "hoopr_schedule_20*.csv")))
+    have_s = {int(Path(p).stem.rsplit("_", 1)[1]) - 1 for p in scheds}
+    sched_parquets = [str(fetch_release("schedule", s, s in refresh)) for s in seasons if s not in have_s]
+    return csvs, parquets, scheds, sched_parquets
+
+
+def build(seasons, db_path=DB_PATH, raw=RAW, refresh=()) -> duckdb.DuckDBPyConnection:
+    """refresh: seasons (start years) whose release files are re-downloaded (the current one)."""
     db_path = Path(db_path)
     db_path.parent.mkdir(parents=True, exist_ok=True)
     con = duckdb.connect(str(db_path))
-    boxes = sorted(glob(str(Path(raw) / "hoopr_player_box_20*.csv")))
+    csvs, parquets, scheds, sched_parquets = _box_sources(seasons, raw, set(refresh))
+    parts = ([f"SELECT * FROM read_csv_auto({csvs!r}, union_by_name=true)"] if csvs else []) + \
+            ([f"SELECT * FROM read_parquet({parquets!r}, union_by_name=true)"] if parquets else [])
+    box_from = " UNION ALL BY NAME ".join(parts)
+    sched_from = f"SELECT * FROM read_csv_auto({scheds!r}, union_by_name=true)"
+    if sched_parquets:
+        sched_from += f" UNION ALL BY NAME SELECT * FROM read_parquet({sched_parquets!r}, union_by_name=true)"
     con.execute(f"""
         CREATE OR REPLACE TABLE player_box AS
         SELECT CAST(game_id AS VARCHAR) AS game_id,
@@ -66,9 +94,8 @@ def build(seasons, db_path=DB_PATH, raw=RAW) -> duckdb.DuckDBPyConnection:
                TRY_CAST(assists AS DOUBLE) AS ast,
                TRY_CAST(field_goals_attempted AS DOUBLE) AS fga,
                TRY_CAST(three_point_field_goals_made AS DOUBLE) AS threes
-        FROM read_csv_auto({boxes!r}, union_by_name=true)
+        FROM ({box_from})
     """)
-    scheds = sorted(glob(str(Path(raw) / "hoopr_schedule_20*.csv")))
     con.execute(f"""
         CREATE OR REPLACE TABLE games AS
         SELECT DISTINCT CAST(game_id AS VARCHAR) AS game_id,
@@ -80,9 +107,9 @@ def build(seasons, db_path=DB_PATH, raw=RAW) -> duckdb.DuckDBPyConnection:
                season_type, CAST(home_id AS VARCHAR) AS home_team_id,
                CAST(away_id AS VARCHAR) AS away_team_id,
                home_display_name AS home_team, away_display_name AS away_team
-        FROM read_csv_auto({scheds!r}, union_by_name=true)
+        FROM ({sched_from})
     """)
-    pbps = [str(fetch_pbp(s)) for s in seasons]
+    pbps = [str(fetch_pbp(s, refresh=s in set(refresh))) for s in seasons]
     con.execute(f"""
         CREATE OR REPLACE TABLE pbp AS
         SELECT CAST(game_id AS VARCHAR) AS game_id, CAST(game_play_number AS INTEGER) AS play_no,

@@ -61,6 +61,52 @@ _PROP_CAL = load_calibration()
 PROP_CALIBRATION_LABEL = (f"{_PROP_CAL['prop_price']:.2f}_model_edge_vs_no_vig_cap_01_75"
                           f"_{_PROP_CAL['sources']['prop_price'].lower()}")
 
+# V2 prop challenger, shadow only: its prediction is recorded next to V1's as
+# v2_pred and never changes a signal, price check or bet (see v2/README.md).
+V2_SHADOW = {"bundle": None, "features": {}}
+
+
+def load_v2_shadow(target_date, model_path="models/v2_props_models.pkl",
+                   features_path="data/processed/v2_live_features.csv"):
+    V2_SHADOW.update(bundle=None, features={})
+    try:
+        if not (os.path.exists(model_path) and os.path.exists(features_path)):
+            return
+        feats = pd.read_csv(features_path)
+        if feats.empty or str(feats["target_date"].iloc[0]) != str(target_date):
+            print("  [V2 shadow] live features are not for this date — skipped")
+            return
+        # Absence features need a verified injury feed: with an unverified one V2 would
+        # assume every regular plays, which biases its projections down.
+        if not bool(feats["injury_feed_healthy"].iloc[0]):
+            print("  [V2 shadow] injury feed unverified — skipped")
+            return
+        with open(model_path, "rb") as fh:
+            V2_SHADOW["bundle"] = pickle.load(fh)
+        norm = lambda n: " ".join(str(n or "").lower().replace(".", "").replace("'", "").split())
+        V2_SHADOW["features"] = {norm(r["player"]): r for r in feats.to_dict("records")}
+        print(f"  [V2 shadow] {V2_SHADOW['bundle'].get('version')} · {len(feats)} players")
+    except Exception as exc:
+        print(f"  [WARN] V2 shadow unavailable: {exc}")
+        V2_SHADOW.update(bundle=None, features={})
+
+
+def v2_shadow_prediction(player, target, v1_row):
+    bundle = V2_SHADOW["bundle"]
+    if not bundle or target not in bundle.get("models", {}):
+        return None
+    norm = " ".join(str(player or "").lower().replace(".", "").replace("'", "").split())
+    extra = V2_SHADOW["features"].get(norm)
+    if extra is None:
+        return None
+    try:
+        feats = bundle["features"][target]
+        row = {**{k: extra.get(k) for k in feats}, **{k: v for k, v in v1_row.items() if k in feats}}
+        X = pd.DataFrame([row], columns=feats).astype(float)
+        return round(float(bundle["models"][target].predict(X)[0]), 2)
+    except Exception:
+        return None
+
 try:
     from scrape_refs import get_crew_stats
     REFS_AVAILABLE = True
@@ -961,6 +1007,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                 continue
 
             thresh = thresholds.get(target, 2.0)
+            v2_pred = v2_shadow_prediction(player, target, row)
             offers = offers_by_stat.get(target, [])
             best = _best_prop_offer(pred, m, offers, thresh) if offers else None
 
@@ -996,6 +1043,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     "sigma": round(best["sigma"], 4),
                     "offers_considered": best["offers_considered"],
                     "market_source": best.get("source", "the-odds-api"),
+                    "v2_pred": v2_pred,
                 }
                 continue
 
@@ -1028,6 +1076,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                 "probability_edge": None, "ev": None,
                 "offers_considered": 0,
                 "market_source": "prizepicks" if line is not None else None,
+                "v2_pred": v2_pred,
             }
 
         if player_result["props"]:
@@ -1141,6 +1190,7 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     print(f"\n═══ NBA DAILY PIPELINE — {target_date} ═══\n")
     load_team_profiles_into_context()
     spread_bundle, totals_bundle, props_bundle = load_models(target_date)
+    load_v2_shadow(target_date)
 
     # Fail closed when the injury feed is stale, failed or belongs to another
     # date. Research projections may publish; none are eligible as prop bets.

@@ -133,6 +133,11 @@ jobs:
           fi
 
       # ── Step 10: Predictions ──────────────────────────────────────────────
+      - name: V2 shadow features (lineups, opportunity, expected absences)
+        if: env.SKIP != 'true'
+        run: python -m v2.live --date ${{ env.TARGET }}
+        continue-on-error: true
+
       - name: Generate predictions
         if: env.SKIP != 'true'
         run: |

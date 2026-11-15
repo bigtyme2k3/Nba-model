@@ -48,10 +48,10 @@ def model():
                                          min_samples_leaf=30, l2_regularization=1.0, random_state=42)
 
 
-def build_dataset(seasons, db_path) -> tuple[pd.DataFrame, dict]:
+def build_dataset(seasons, db_path, refresh=()) -> tuple[pd.DataFrame, dict]:
     """Warehouse, lineups and V2 features for each season, joined to V1's prop rows."""
     seasons = [seasons] if isinstance(seasons, int) else list(seasons)
-    con = warehouse.build(seasons, db_path)
+    con = warehouse.build(seasons, db_path, refresh=refresh)
     checks = warehouse.warehouse_checks(con)
     box = con.execute("SELECT * FROM player_box WHERE game_id IN (SELECT DISTINCT game_id FROM pbp)").df()
     parts, all_stints, lineup_report = [], [], {}
