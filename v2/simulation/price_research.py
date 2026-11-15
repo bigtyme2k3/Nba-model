@@ -48,7 +48,7 @@ import pandas as pd
 import calibrate_edges
 from prop_features import BASE_FEATURES
 from v2 import lineups, live, pilot, warehouse
-from v2.simulation import engine, gate
+from v2.simulation import cache, engine, gate
 
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 OUT = Path("data/tracking/v2_mc_price_research.json")
@@ -58,6 +58,8 @@ SPORTSBOOKS = {"fanduel", "draftkings", "fanatics"}
 EXCHANGES = {"novig"}
 EV_THRESHOLDS = [0.0, 0.03, 0.05, 0.10]
 ARMS = ["market", "v1", "mc_v1", "mc_v2"]
+INPUT_CACHE = Path("data/simulation/cache/phase3_inputs.pkl")
+INPUT_SCHEMA = 1   # bump when v2_inputs changes what it computes
 
 
 # ---------------------------------------------------------------- prices and scores
@@ -220,6 +222,56 @@ def v1_anchored_means(cur: pd.DataFrame, graded: pd.DataFrame, props: pd.DataFra
 
 
 # ---------------------------------------------------------------- evaluation
+def _logit(p):
+    p = np.clip(np.asarray(p, float), 0.01, 0.99)
+    return np.log(p / (1 - p))
+
+
+def _logistic(X, y, iters=50):
+    """Maximum-likelihood logistic regression (Newton), X includes any intercept."""
+    b = np.zeros(X.shape[1])
+    for _ in range(iters):
+        p = 1 / (1 + np.exp(-X @ b))
+        H = X.T @ (X * (p * (1 - p))[:, None]) + 1e-9 * np.eye(X.shape[1])
+        step = np.linalg.solve(H, X.T @ (y - p))
+        b += step
+        if np.abs(step).max() < 1e-8:
+            break
+    return b
+
+
+def calibration_diagnostics(rows: pd.DataFrame, arm: str) -> dict:
+    """On the OVER side of every row (so V1's choice of side cannot shape the result):
+    slope    logit(outcome) on logit(p): 1 is calibrated, < 1 overconfident
+    weight   outcome on logit(market) + w * (logit(p) - logit(market)): the weight
+             the data give the arm on top of the market (0 = market already has it)
+    mean_gap the arm's mean over probability minus the market's: a mean problem
+             (the projection disagrees with the line) rather than a shape problem."""
+    over = rows["side"].str.upper().eq("OVER").to_numpy()
+    flip = lambda p: np.where(over, p, 1 - p)
+    y = flip(rows["won"].to_numpy(float))
+    p, m = flip(rows[f"p_{arm}"].to_numpy(float)), flip(rows["p_market"].to_numpy(float))
+    one = np.ones(len(y))
+    slope = _logistic(np.c_[one, _logit(p)], y)[1]
+    out = {"slope": float(slope), "mean_over_prob": float(p.mean()), "over_rate": float(y.mean())}
+    if arm != "market":
+        # Offset model via an augmented design: fix the market coefficient at 1 by
+        # moving it to the left through a working-response trick (one Newton pass per iter).
+        w = 0.0
+        for _ in range(50):
+            eta = _logit(m) + w * (_logit(p) - _logit(m))
+            q = 1 / (1 + np.exp(-eta))
+            d = _logit(p) - _logit(m)
+            g, h = float(((y - q) * d).sum()), float((q * (1 - q) * d * d).sum()) + 1e-9
+            w += g / h
+            if abs(g / h) < 1e-8:
+                break
+        out["weight_on_top_of_market"] = float(w)
+        out["mean_gap_vs_market"] = float(p.mean() - m.mean())
+        out["abs_disagreement_vs_market"] = float(np.abs(p - m).mean())
+    return out
+
+
 def arm_scores(rows: pd.DataFrame, arm: str) -> dict:
     y = rows["won"].to_numpy(float)
     p = rows[f"p_{arm}"].to_numpy(float)
@@ -268,6 +320,7 @@ def calibration_gate(rows: pd.DataFrame, arm: str) -> dict:
 def evaluate(rows: pd.DataFrame, arms) -> dict:
     out = {"rows": int(len(rows)), "dates": int(rows["date"].nunique()),
            "scores": {a: arm_scores(rows, a) for a in arms},
+           "calibration_diagnostics": {a: calibration_diagnostics(rows, a) for a in arms},
            "by_stat": {}, "by_book": {}, "calibration_gate": {}, "hypothetical_roi": {}}
     for stat, g in rows.groupby("stat"):
         out["by_stat"][stat] = {a: {k: v for k, v in arm_scores(g, a).items() if "ci95" not in k} for a in arms}
@@ -296,7 +349,15 @@ def main():
     graded, props = ledger_props()
     cal = json.loads(CALIBRATION.read_text())
     params = engine.Params.from_dict(cal["params"])
-    cur, v2_report = v2_inputs(a.season, a.train_seasons, a.db, graded)
+    key = cache.cache_key(schema=INPUT_SCHEMA, season=a.season, train=a.train_seasons,
+                          ledger_rows=len(graded), last_generated=str(graded["generated"].max()),
+                          base=BASE_FEATURES, opp=pilot.OPP, abs=pilot.ABS,
+                          model=repr(pilot.model().get_params()))
+    hit = cache.load(INPUT_CACHE, key)
+    if hit is None:
+        hit = v2_inputs(a.season, a.train_seasons, a.db, graded)
+        cache.save(INPUT_CACHE, key, hit)
+    cur, v2_report = hit
     cur = cur.drop_duplicates(["date", "name_key"]).reset_index(drop=True)
 
     anchored = v1_anchored_means(cur, graded, props)
@@ -314,6 +375,22 @@ def main():
               "ledger_graded_props": int(len(graded)), "matched_to_player_game": int(len(matched)),
               "unmatched_examples": graded.loc[graded["row"] < 0, "player"].head(10).tolist(),
               "v2_inputs": v2_report}
+
+    unmatched = graded[graded["row"] < 0]
+    def profile(d):
+        return {"rows": int(len(d)), "win_rate": float(d["outcome"].eq("WIN").mean()),
+                "mean_market_probability": float(d["market_probability"].mean()),
+                "mean_v1_probability": float(d["raw_model_probability"].mean()),
+                "over_share": float(d["side"].str.upper().eq("OVER").mean()),
+                "every_side_roi": float(np.where(d["outcome"].eq("WIN"), american_to_decimal(d["odds"]) - 1, -1.0).mean()),
+                "stat_mix": d["stat"].value_counts(normalize=True).round(3).to_dict(),
+                "book_mix": d["sportsbook_key"].value_counts(normalize=True).round(3).to_dict()}
+    report["coverage"] = {"reason_unmatched": "game's lineups could not be reconstructed from ESPN play-by-play",
+                          "matched": profile(graded[graded["row"] >= 0]), "unmatched": profile(unmatched)}
+    if len(unmatched):
+        y = unmatched["outcome"].eq("WIN").to_numpy(float)
+        mp, vp = unmatched["market_probability"].to_numpy(float), unmatched["raw_model_probability"].to_numpy(float)
+        report["coverage"]["unmatched_log_loss"] = {"market": log_loss(mp, y), "v1": log_loss(vp, y)}
 
     idx = matched["row"].to_numpy()
     matched["won"] = matched["outcome"].eq("WIN")

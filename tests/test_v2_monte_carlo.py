@@ -151,6 +151,29 @@ class CouplingTests(unittest.TestCase):
         self.assertGreater(c[0, 3], 0.1)
 
 
+class CacheAndDiagnosticsTests(unittest.TestCase):
+    def test_cache_misses_when_the_key_changes(self):
+        import tempfile, os
+        from v2.simulation import cache
+        with tempfile.TemporaryDirectory() as t:
+            path = os.path.join(t, "c.pkl")
+            cache.save(path, cache.cache_key(features=["a"]), {"x": 1})
+            self.assertEqual(cache.load(path, cache.cache_key(features=["a"])), {"x": 1})
+            self.assertIsNone(cache.load(path, cache.cache_key(features=["a", "b"])))
+
+    def test_overconfident_arm_has_slope_below_one_and_no_weight_over_the_market(self):
+        from v2.simulation import price_research as R
+        rng = np.random.default_rng(3)
+        n = 20000
+        truth = rng.uniform(0.35, 0.65, n)
+        won = rng.random(n) < truth
+        rows = pd.DataFrame({"side": "OVER", "won": won, "p_market": truth,
+                             "p_arm": np.clip(0.5 + 2.5 * (truth - 0.5), 0.01, 0.99)})
+        d = R.calibration_diagnostics(rows, "arm")
+        self.assertLess(d["slope"], 0.6)
+        self.assertLess(d["weight_on_top_of_market"], 0.2)
+
+
 class LeakageTests(unittest.TestCase):
     def test_out_of_sample_models_train_only_on_earlier_seasons(self):
         from unittest.mock import patch

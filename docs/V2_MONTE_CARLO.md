@@ -95,8 +95,9 @@ V2's absences use the injury report version scraped before that day's prediction
 | MC around V2's mean | 0.2612 | 0.7190 | +0.015 to +0.049 |
 
 - The simulated shape removes about 45% of V1's probability deficit with the same mean;
-  V2's mean adds a little more. Every model arm is still clearly worse than the market,
-  on every stat and book. Model probabilities average 57-61% on sides that won 51%.
+  V2's mean adds a little more. Every model arm is still clearly worse than the market
+  on every stat and at DraftKings and FanDuel; at Fanatics (59 rows) MC-on-V2's log
+  loss is 0.6868 vs the market's 0.6879, too few rows to mean anything. Model probabilities average 57-61% on sides that won 51%.
 - Calibration gate (`calibrate_edges.temporal_calibration`, unchanged): V1 and MC-on-V1
   are rejected; MC-on-V2 technically passes with shrink 0.13, holdout log loss 0.68803
   vs the market's 0.68807 (about 485 rows). That is a 0.00004 difference on a model

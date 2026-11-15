@@ -34,7 +34,7 @@ import pandas as pd
 
 from prop_features import BASE_FEATURES
 from v2 import pilot, warehouse
-from v2.simulation import calibration, engine, probabilities as P
+from v2.simulation import cache, calibration, engine, probabilities as P
 
 CACHE = Path("data/simulation/cache/oos.pkl")
 STATS = engine.STATS          # pts, reb, ast, threes
@@ -58,6 +58,15 @@ def build_oos(seasons, predict_seasons, db_path) -> pd.DataFrame:
              "actual_minutes"] + STATS + [f"roll5_{s}" for s in STATS]
             + [f"v1_{s}" for s in STATS] + [f"v2_{s}" for s in V2_STATS])
     return pd.concat(out, ignore_index=True)[keep]
+
+
+CACHE_SCHEMA = 2   # bump when build_oos changes what it computes
+
+
+def oos_key(seasons, predict_seasons) -> str:
+    return cache.cache_key(schema=CACHE_SCHEMA, seasons=list(seasons), predict=list(predict_seasons),
+                           base=BASE_FEATURES, opp=pilot.OPP, abs=pilot.ABS, v2_stats=V2_STATS,
+                           model=repr(pilot.model().get_params()))
 
 
 def attach_team(oos: pd.DataFrame, db_path) -> pd.DataFrame:
@@ -186,11 +195,11 @@ def main():
     ap.add_argument("--db", default=str(warehouse.DB_PATH))
     ap.add_argument("--rebuild", action="store_true")
     a = ap.parse_args()
-    if a.rebuild or not CACHE.exists():
+    key = oos_key(a.seasons, [a.calibration_season] + a.test_seasons)
+    oos = None if a.rebuild else cache.load(CACHE, key)
+    if oos is None:
         oos = build_oos(a.seasons, [a.calibration_season] + a.test_seasons, a.db)
-        CACHE.parent.mkdir(parents=True, exist_ok=True)
-        oos.to_pickle(CACHE)
-    oos = pd.read_pickle(CACHE)
+        cache.save(CACHE, key, oos)
     oos = oos[oos["minutes"].notna() & oos["actual_minutes"].notna()]
     oos = attach_team(oos, a.db)
     oos = oos[oos["team"].notna()]
