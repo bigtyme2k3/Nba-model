@@ -50,3 +50,11 @@ def log_loss(p, outcome) -> float:
     p = np.clip(np.asarray(p, float), 1e-4, 1 - 1e-4)
     o = np.asarray(outcome, float)
     return float(-np.mean(o * np.log(p) + (1 - o) * np.log(1 - p)))
+
+
+def randomized_pit(sims, actual, seed: int = 0):
+    """Probability integral transform for counts: uniform on [P(X<y), P(X<=y)].
+    Calibrated forecasts give a flat histogram; a U shape means tails too thin."""
+    x, y = np.asarray(sims), np.asarray(actual, float)[:, None]
+    lo, hi = (x < y).mean(axis=1), (x <= y).mean(axis=1)
+    return lo + np.random.default_rng(seed).random(len(lo)) * (hi - lo)

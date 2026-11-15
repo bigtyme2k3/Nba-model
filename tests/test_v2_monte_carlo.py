@@ -40,6 +40,22 @@ class EngineTests(unittest.TestCase):
         self.assertGreater(same_game, 0.2)
         self.assertLess(abs(other_game), 0.05)
 
+    def test_event_built_points_share_the_threes_path(self):
+        s = engine.simulate(_players(), MEANS, engine.Params(), 4000, seed=4)
+        self.assertTrue(((s["pts"] - 3 * s["threes"]) >= 0).all())
+        # Points move with threes; the old count model had no link between them.
+        self.assertGreater(np.corrcoef(s["pts"][0], s["threes"][0])[0, 1], 0.3)
+
+    def test_event_built_points_are_wider_than_a_single_count(self):
+        players = pd.DataFrame({"game_id": ["g"], "minutes": [34.0], "minutes_sd_l10": [0.01]})
+        quiet = dict(minutes_sd_scale=0.01, early_exit_prob=0.0, game_sd=0.0, player_sd=0.0,
+                     dispersion={"pts": 1000.0, "threes": 1000.0})
+        means = {"pts": np.array([20.0]), "threes": np.array([2.0])}
+        events = engine.simulate(players, means, engine.Params(**quiet), 40000, seed=8)["pts"]
+        count = engine.simulate(players, means, engine.Params(**quiet, points_model="count"), 40000, seed=8)["pts"]
+        self.assertAlmostEqual(events.mean(), 20.0, delta=0.15)
+        self.assertGreater(events.var(), 1.8 * count.var())
+
     def test_minutes_stay_in_bounds(self):
         s = engine.simulate(_players(), {}, engine.Params(minutes_sd_scale=3.0), 2000, seed=2)
         self.assertGreaterEqual(s["minutes"].min(), 0)
@@ -63,6 +79,34 @@ class ProbabilityTests(unittest.TestCase):
 
     def test_sampling_error_shrinks_with_more_simulations(self):
         self.assertLess(P.sampling_se(np.array([0.5]), 50000)[0], P.sampling_se(np.array([0.5]), 10000)[0])
+
+
+class PriceResearchTests(unittest.TestCase):
+    def test_side_probabilities_and_ev_at_american_odds(self):
+        from v2.simulation import price_research as R
+        sims = np.array([[3, 4, 4, 5, 6], [3, 4, 4, 5, 6]])
+        win, push, loss = R.side_probabilities(sims, [4.0, 4.5], ["OVER", "UNDER"])
+        np.testing.assert_allclose(win, [0.4, 0.6]); np.testing.assert_allclose(push, [0.4, 0.0])
+        np.testing.assert_allclose(loss, [0.2, 0.4])
+        np.testing.assert_allclose(R.american_to_decimal([-110, 150]), [1 + 100 / 110, 2.5])
+        # A push returns the stake: EV counts only win and loss.
+        self.assertAlmostEqual(R.expected_value([0.4], [0.2], [100])[0], 0.2)
+
+    def test_gate_is_the_live_rule_unchanged(self):
+        import calibrate_edges
+        from v2.simulation import price_research as R
+        rng = np.random.default_rng(0)
+        n = 600
+        rows = pd.DataFrame({"date": [f"2026-11-{1 + i % 10:02d}" for i in range(n)],
+                             "p_market": rng.uniform(0.4, 0.6, n), "p_arm": rng.uniform(0.3, 0.7, n)})
+        rows["outcome"] = np.where(rng.random(n) < rows["p_market"], "WIN", "LOSS")
+        live = calibrate_edges.temporal_calibration(
+            [{"market": "PROP", "model_family_id": "x", "date": r.date, "outcome": r.outcome,
+              "market_probability": r.p_market, "raw_model_probability": r.p_arm} for r in rows.itertuples()],
+            active_ids={"PROP": "x"})["prop_price"]
+        gate = R.calibration_gate(rows, "arm")
+        self.assertEqual(gate["status"], live["status"])
+        self.assertEqual(gate["candidate_shrink"], live.get("candidate_shrink"))
 
 
 class LeakageTests(unittest.TestCase):

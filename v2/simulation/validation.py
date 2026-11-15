@@ -68,7 +68,7 @@ def means_for(d: pd.DataFrame, prefix: str) -> dict:
 def evaluate(d: pd.DataFrame, params: engine.Params, sigma: dict, n_sims: int, seed: int) -> dict:
     res = {s: {k: [] for k in ("y", "v1", "v2", "mc_mean", "crps_v1n", "crps_v2n", "crps_mc",
                                 "cov80_n", "cov50_n", "cov80_mc", "cov50_mc",
-                                "line", "p_v1n", "p_v2n", "p_mc")} for s in STATS + ["pra"]}
+                                "line", "p_v1n", "p_v2n", "p_mc", "pit")} for s in STATS + ["pra"]}
     for start in range(0, len(d), 2000):
         c = d.iloc[start:start + 2000].reset_index(drop=True)
         m2 = means_for(c, "v2")
@@ -94,6 +94,7 @@ def evaluate(d: pd.DataFrame, params: engine.Params, sigma: dict, n_sims: int, s
             r["cov80_n"].append((y >= v2 - z80) & (y <= v2 + z80)); r["cov50_n"].append((y >= v2 - z50) & (y <= v2 + z50))
             r["cov80_mc"].append((y >= lo80) & (y <= hi80)); r["cov50_mc"].append((y >= lo50) & (y <= hi50))
             r["line"].append(line)
+            r["pit"].append(P.randomized_pit(x, y, seed + start))
             r["p_v1n"].append(P.normal_over(v1, sg1, line)); r["p_v2n"].append(P.normal_over(v2, sg, line))
             r["p_mc"].append(P.over_under_push(x, line)["over"])
     out = {}
@@ -108,6 +109,7 @@ def evaluate(d: pd.DataFrame, params: engine.Params, sigma: dict, n_sims: int, s
                      "v2_mc": float(a["crps_mc"].mean())},
             "coverage_80": {"v2_normal": float(a["cov80_n"].mean()), "v2_mc": float(a["cov80_mc"].mean())},
             "coverage_50": {"v2_normal": float(a["cov50_n"].mean()), "v2_mc": float(a["cov50_mc"].mean())},
+            "pit_deciles_v2_mc": [round(float(v), 4) for v in np.histogram(a["pit"], 10, (0, 1))[0] / len(a["pit"])],
             "pseudo_line_over_rate": float(over.mean()),
             "brier": {"v1_normal": P.brier(a["p_v1n"], over), "v2_normal": P.brier(a["p_v2n"], over),
                       "v2_mc": P.brier(a["p_mc"], over)},
@@ -143,7 +145,7 @@ def main():
         sigma[arm] = {st: float(np.std(cal[st] - m[st])) for st in STATS}
         sigma[arm]["pra"] = float(np.std((cal["pts"] + cal["reb"] + cal["ast"]) - (m["pts"] + m["reb"] + m["ast"])))
     Path("models/v2_mc_calibration.json").write_text(json.dumps({
-        "version": "V2_MC_1", "fit_on_season": a.calibration_season, "params": params.to_dict(),
+        "version": "V2_MC_2", "fit_on_season": a.calibration_season, "params": params.to_dict(),
         "normal_sigma_from_calibration_season": sigma, "fit": fit_report,
         "generated_at_utc": datetime.now(timezone.utc).isoformat()}, indent=2) + "\n")
 

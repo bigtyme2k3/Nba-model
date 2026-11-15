@@ -13,6 +13,9 @@ threes model) into outcome distributions for each player-game:
 - **Player factor:** one form factor shared by a player's stats in a simulation.
 - **Counts:** negative-binomial stats around the scaled expectation; PRA is the sum of
   the same path.
+- **Points from scoring events:** 3 x the simulated threes + 2 x two-point makes + free
+  throws (non-three points split by `ft_share`, fit 0.23). Counting points one at a time
+  made the distribution too narrow; this also links points to the threes market.
 - Each player's simulated mean is held equal to the model's expectation, so the
   simulation adds shape only and never re-applies injury or minutes effects that V2's
   projection already contains.
@@ -31,32 +34,57 @@ percentiles, Monte Carlo standard errors, CRPS, Brier and log loss.
 - Over/under is scored at pseudo-lines (prior 5-game average rounded to .5), which no
   model sees. Real sportsbook lines come in Phase 3.
 
-### Result (`data/tracking/v2_mc_validation.json`), 2025-26 test season
-| Stat | Brier v1_normal | v2_normal | **v2_mc** | Log loss v1_normal → v2_mc |
+### Result (`data/tracking/v2_mc_validation.json`, version V2_MC_2), 2025-26 test season
+| Stat | Brier v1_normal | **v2_mc** | Log loss v1_normal → v2_mc | Bottom / top PIT decile |
 |---|---|---|---|---|
-| PTS | 0.2391 | 0.2361 | **0.2342** | 0.671 → 0.661 |
-| REB | 0.2414 | 0.2361 | **0.2326** | 0.676 → 0.657 |
-| AST | 0.2390 | 0.2344 | **0.2276** | 0.671 → 0.647 |
-| 3PM | 0.2254 | 0.2254 | **0.2062** | 0.643 → 0.595 |
-| PRA | 0.2408 | 0.2362 | **0.2356** | 0.675 → 0.664 |
+| PTS | 0.2391 | **0.2331** | 0.671 → 0.658 | 10.8% / 10.1% |
+| REB | 0.2414 | **0.2325** | 0.676 → 0.657 | 9.5% / 9.6% |
+| AST | 0.2390 | **0.2276** | 0.671 → 0.647 | 9.9% / 10.3% |
+| 3PM | 0.2254 | **0.2063** | 0.643 → 0.595 | 10.5% / 10.5% |
+| PRA | 0.2408 | **0.2352** | 0.675 → 0.663 | 10.1% / 9.8% |
 
-2024-25 shows the same ordering on every stat; CRPS improves the same way.
+2024-25 shows the same ordering on every stat. Points tails (V2_MC_1 had 14.7% of
+games in the bottom decile, 12.2% in the top) are fixed by event-built points: points
+CRPS 3.229 → 3.206 and log loss 0.661 → 0.658 on 2025-26, other stats unchanged.
 
-Calibration (randomized PIT, 8,000 player-games, 2025-26): rebounds, assists and threes
-put 79-80% of outcomes in the central 80%. **Points tails are too thin**: 73.5% in the
-central 80% and 14.7% in the bottom decile, so bust games are under-simulated. Raw
-p10-p90 coverage looks too wide for low counts only because outcomes are whole numbers.
+The shared game factor now fits at 0.10 (it was 0), so teammates move together. It
+is fit on individual CRPS, not on same-game residual correlation: same-game
+combinations must still not be priced from this version.
 
-The fitted shared game factor is 0: across one season it did not improve individual
-distributions, so teammates' outcomes are not yet linked. Same-game combinations must
-not be priced from this version.
+## Phase 3: recorded sportsbook prices (`python -m v2.simulation.price_research`)
+The ledger's graded props (2026-27, Oct 27 - Nov 13, 17 dates) at the exact quote
+recorded before tip: 2,426 of 2,661 rows (the other 235 are in games whose lineups
+could not be reconstructed from ESPN's play-by-play). All lines were half points, so
+no pushes. Quotes were taken a median 6.5 hours before tip (10-90%: 4.0-11.2 h).
+V2's absences use the injury report version scraped before that day's predictions
+(from git history); every date had one.
+
+| Arm (recorded side wins) | Brier | Log loss | Log loss − market, 95% CI |
+|---|---|---|---|
+| Market no-vig | **0.2476** | **0.6884** | — |
+| V1 recorded probability | 0.2727 | 0.7472 | +0.038 to +0.084 |
+| MC around V1's projection | 0.2626 | 0.7215 | +0.018 to +0.049 |
+| MC around V2's mean | 0.2612 | 0.7190 | +0.015 to +0.049 |
+
+- The simulated shape removes about 45% of V1's probability deficit with the same mean;
+  V2's mean adds a little more. Every model arm is still clearly worse than the market,
+  on every stat and book. Model probabilities average 57-61% on sides that won 51%.
+- Calibration gate (`calibrate_edges.temporal_calibration`, unchanged): V1 and MC-on-V1
+  are rejected; MC-on-V2 technically passes with shrink 0.13, holdout log loss 0.68803
+  vs the market's 0.68807 (about 485 rows). That is a 0.00004 difference on a model
+  that loses to the market overall: noise, not evidence. Nothing was changed; no
+  positive model weight is restored from this.
+- Hypothetical ROI at recorded odds, "bet when EV ≥ threshold": every recorded side
+  −5.5%; MC-on-V2 −3.0% to −4.6%, MC-on-V1 −3.3% to −5.1%, V1 −5.3% to −6.1%. Every
+  interval includes or lies below zero. No profitable rule is shown.
+- Novig: no graded Novig quotes recorded yet; reported separately once they exist.
 
 ## Next phases
-1. Fatter points tails (minutes/usage bust scenarios), and a game factor fit on
-   same-game residual correlation rather than individual CRPS.
-2. Price-aware research on recorded FanDuel/DraftKings/Fanatics quotes, Novig separate,
-   with the existing calibration gate.
-3. Daily shadow publication beside `v2_pred`, forward grading and the V2 Research Lab.
+1. Game factor fit on same-game residual correlation (needed before any combinations).
+2. A stricter gate for the MC arm (a margin or a confidence interval, not "≤ market"),
+   decided before more forward data is looked at.
+3. Daily shadow publication beside `v2_pred`, forward grading and the V2 Research Lab;
+   rerun Phase 3 as the ledger grows and Novig quotes accrue.
 
 ## Promotion review
 Better calibrated probabilities on untouched future games, stable historical and
