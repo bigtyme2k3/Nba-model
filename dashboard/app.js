@@ -209,6 +209,7 @@
       case 'player-props':state.filters={search:control.dataset.player||'',game:'',stat:'',book:'',direction:'',decision:'',sort:'player'};state.limit=25;renderTab('props',true);break;
       case 'reset-filters':state.filters={search:'',game:'',stat:'',book:'',direction:'',decision:'',sort:'player'};state.limit=25;renderProps();document.getElementById('player-search').focus();break;
       case 'more-props':state.limit+=25;renderPropRows();break;
+      case 'v2-lab':document.querySelector('.more-menu').open=false;if(window.V2Lab)window.V2Lab.open(view);break;
       case 'model-status':renderTab('results',true);document.querySelector('.more-menu').open=false;document.getElementById('model-status').open=true;document.getElementById('model-status').scrollIntoView({block:'center'});break;
     }
   });

@@ -58,6 +58,12 @@ jobs:
       - name: Reconcile slate and retry pending dates independently
         run: python reconcile_pending.py --date ${{ env.TARGET }} --max-backlog 3
 
+      - name: Grade Monte Carlo shadow forecasts and V2 projections
+        run: |
+          python -m v2.simulation.shadow grade
+          python -m v2.compare
+        continue-on-error: true
+
       - name: Print evidence summary
         run: |
           python - <<'PY'

@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-15T01:31:40.993063+00:00",
+  "generated_at_utc": "2026-11-15T02:20:45.212507+00:00",
   "season": 2026,
   "n_sims": 10000,
-  "mc_calibration_version": "V2_MC_2",
+  "mc_calibration_version": "V2_MC_3",
   "ledger_graded_props": 2661,
   "matched_to_player_game": 2426,
   "unmatched_examples": [
@@ -114,6 +114,53 @@
     ],
     "player_dates": 2679
   },
+  "coverage": {
+    "reason_unmatched": "game's lineups could not be reconstructed from ESPN play-by-play",
+    "matched": {
+      "rows": 2426,
+      "win_rate": 0.5136026380873866,
+      "mean_market_probability": 0.5103155812036273,
+      "mean_v1_probability": 0.6070854080791427,
+      "over_share": 0.5568837592745259,
+      "every_side_roi": -0.05500536747140405,
+      "stat_mix": {
+        "PTS": 0.251,
+        "PRA": 0.198,
+        "REB": 0.193,
+        "THREES": 0.188,
+        "AST": 0.171
+      },
+      "book_mix": {
+        "draftkings": 0.709,
+        "fanduel": 0.267,
+        "fanatics": 0.024
+      }
+    },
+    "unmatched": {
+      "rows": 235,
+      "win_rate": 0.5574468085106383,
+      "mean_market_probability": 0.5064144680851064,
+      "mean_v1_probability": 0.6074557446808512,
+      "over_share": 0.48936170212765956,
+      "every_side_roi": 0.04780672236706239,
+      "stat_mix": {
+        "PTS": 0.26,
+        "REB": 0.209,
+        "PRA": 0.204,
+        "THREES": 0.166,
+        "AST": 0.162
+      },
+      "book_mix": {
+        "draftkings": 0.562,
+        "fanduel": 0.409,
+        "fanatics": 0.03
+      }
+    },
+    "unmatched_log_loss": {
+      "market": 0.7023690849559333,
+      "v1": 0.7425511627895703
+    }
+  },
   "timing_minutes_before_tip": {
     "median": 387.5934931333333,
     "p10": 237.5934931333333,
@@ -181,6 +228,37 @@
             0.014515928944456394,
             0.04890777302254976
           ]
+        }
+      },
+      "calibration_diagnostics": {
+        "market": {
+          "slope": 0.94809367313467,
+          "mean_over_prob": 0.49553042044517726,
+          "over_rate": 0.47361912613355317
+        },
+        "v1": {
+          "slope": 0.13063358932277871,
+          "mean_over_prob": 0.5257690849134378,
+          "over_rate": 0.47361912613355317,
+          "weight_on_top_of_market": 0.05631677728500833,
+          "mean_gap_vs_market": 0.030238664468260512,
+          "abs_disagreement_vs_market": 0.141260593569662
+        },
+        "mc_v1": {
+          "slope": 0.17012551814557256,
+          "mean_over_prob": 0.4861972794723825,
+          "over_rate": 0.47361912613355317,
+          "weight_on_top_of_market": 0.10880065621116441,
+          "mean_gap_vs_market": -0.009333140972794751,
+          "abs_disagreement_vs_market": 0.11517749381698268
+        },
+        "mc_v2": {
+          "slope": 0.1603918526661274,
+          "mean_over_prob": 0.47266005770816155,
+          "over_rate": 0.47361912613355317,
+          "weight_on_top_of_market": 0.10287548174976462,
+          "mean_gap_vs_market": -0.022870362737015704,
+          "abs_disagreement_vs_market": 0.10612056883759276
         }
       },
       "by_stat": {
@@ -728,6 +806,191 @@
           }
         ]
       },
+      "strict_gate": {
+        "v1": {
+          "arm": "v1",
+          "rules": {
+            "min_holdout_dates": 7,
+            "min_holdout_rows": 500,
+            "min_log_loss_margin": 0.002,
+            "max_stat_log_loss_deficit": 0.005,
+            "min_stat_rows": 50,
+            "splits": [
+              [
+                0.6,
+                0.8
+              ],
+              [
+                0.8,
+                1.0
+              ]
+            ],
+            "bootstrap": 2000,
+            "fixed_on": "2026-11-15",
+            "data_through_when_fixed": "2026-11-13"
+          },
+          "splits": [
+            {
+              "train_dates": 10,
+              "test_dates": 3,
+              "test_rows": 5,
+              "shrink": 0.09,
+              "log_loss_delta": 0.003380364010214687,
+              "brier_delta": 0.001498663231199987
+            },
+            {
+              "train_dates": 13,
+              "test_dates": 4,
+              "test_rows": 1387,
+              "shrink": 0.09,
+              "log_loss_delta": 0.0003763788197999052,
+              "brier_delta": 0.0001927117191737604
+            }
+          ],
+          "holdout_ci95_upper": {
+            "log_loss_delta": 0.002067207635755536,
+            "brier_delta": 0.0010266677897571147
+          },
+          "holdout_log_loss_delta_by_stat": {
+            "AST": 0.0018769058555960735,
+            "PRA": 0.0020891085088309233,
+            "PTS": 0.0006450640560929019,
+            "REB": -0.00183596677561879,
+            "THREES": -0.0004285016904728709
+          },
+          "checks": {
+            "enough_data": false,
+            "positive_shrink": true,
+            "margin": false,
+            "ci_excludes_zero": false,
+            "walk_forward_stable": false,
+            "no_stat_much_worse": true
+          },
+          "status": "FAIL"
+        },
+        "mc_v1": {
+          "arm": "mc_v1",
+          "rules": {
+            "min_holdout_dates": 7,
+            "min_holdout_rows": 500,
+            "min_log_loss_margin": 0.002,
+            "max_stat_log_loss_deficit": 0.005,
+            "min_stat_rows": 50,
+            "splits": [
+              [
+                0.6,
+                0.8
+              ],
+              [
+                0.8,
+                1.0
+              ]
+            ],
+            "bootstrap": 2000,
+            "fixed_on": "2026-11-15",
+            "data_through_when_fixed": "2026-11-13"
+          },
+          "splits": [
+            {
+              "train_dates": 10,
+              "test_dates": 3,
+              "test_rows": 5,
+              "shrink": 0.15,
+              "log_loss_delta": 0.002831069075388548,
+              "brier_delta": 0.0012072483300000214
+            },
+            {
+              "train_dates": 13,
+              "test_dates": 4,
+              "test_rows": 1387,
+              "shrink": 0.15,
+              "log_loss_delta": 0.00025751752115854565,
+              "brier_delta": 0.00012473685513703092
+            }
+          ],
+          "holdout_ci95_upper": {
+            "log_loss_delta": 0.002475928375072479,
+            "brier_delta": 0.0012224725465128402
+          },
+          "holdout_log_loss_delta_by_stat": {
+            "AST": 0.001772073686580246,
+            "PRA": 0.0020024247473857965,
+            "PTS": 0.0007806477437349714,
+            "REB": -0.0045750348755640114,
+            "THREES": 0.0021215597396194124
+          },
+          "checks": {
+            "enough_data": false,
+            "positive_shrink": true,
+            "margin": false,
+            "ci_excludes_zero": false,
+            "walk_forward_stable": false,
+            "no_stat_much_worse": true
+          },
+          "status": "FAIL"
+        },
+        "mc_v2": {
+          "arm": "mc_v2",
+          "rules": {
+            "min_holdout_dates": 7,
+            "min_holdout_rows": 500,
+            "min_log_loss_margin": 0.002,
+            "max_stat_log_loss_deficit": 0.005,
+            "min_stat_rows": 50,
+            "splits": [
+              [
+                0.6,
+                0.8
+              ],
+              [
+                0.8,
+                1.0
+              ]
+            ],
+            "bootstrap": 2000,
+            "fixed_on": "2026-11-15",
+            "data_through_when_fixed": "2026-11-13"
+          },
+          "splits": [
+            {
+              "train_dates": 10,
+              "test_dates": 3,
+              "test_rows": 5,
+              "shrink": 0.14,
+              "log_loss_delta": 0.010763709596122939,
+              "brier_delta": 0.005181637059200023
+            },
+            {
+              "train_dates": 13,
+              "test_dates": 4,
+              "test_rows": 1387,
+              "shrink": 0.13,
+              "log_loss_delta": -3.902803836575153e-05,
+              "brier_delta": -2.1820836828417844e-05
+            }
+          ],
+          "holdout_ci95_upper": {
+            "log_loss_delta": 0.002016744660013731,
+            "brier_delta": 0.0009916892754038896
+          },
+          "holdout_log_loss_delta_by_stat": {
+            "AST": 0.0013662710837693966,
+            "PRA": 9.791544351571175e-05,
+            "PTS": 0.0004757760267358998,
+            "REB": -0.003354732454923902,
+            "THREES": 0.0017745501866612942
+          },
+          "checks": {
+            "enough_data": false,
+            "positive_shrink": true,
+            "margin": false,
+            "ci_excludes_zero": false,
+            "walk_forward_stable": false,
+            "no_stat_much_worse": true
+          },
+          "status": "FAIL"
+        }
+      },
       "every_recorded_side_roi": -0.05500536747140405
     },
     "v1_anchored_all_rows": {
@@ -774,6 +1037,29 @@
             0.017615197115370178,
             0.04915916444998835
           ]
+        }
+      },
+      "calibration_diagnostics": {
+        "market": {
+          "slope": 0.94809367313467,
+          "mean_over_prob": 0.49553042044517726,
+          "over_rate": 0.47361912613355317
+        },
+        "v1": {
+          "slope": 0.13063358932277871,
+          "mean_over_prob": 0.5257690849134378,
+          "over_rate": 0.47361912613355317,
+          "weight_on_top_of_market": 0.05631677728500833,
+          "mean_gap_vs_market": 0.030238664468260512,
+          "abs_disagreement_vs_market": 0.141260593569662
+        },
+        "mc_v1": {
+          "slope": 0.17012551814557256,
+          "mean_over_prob": 0.4861972794723825,
+          "over_rate": 0.47361912613355317,
+          "weight_on_top_of_market": 0.10880065621116441,
+          "mean_gap_vs_market": -0.009333140972794751,
+          "abs_disagreement_vs_market": 0.11517749381698268
         }
       },
       "by_stat": {
@@ -1164,6 +1450,130 @@
             ]
           }
         ]
+      },
+      "strict_gate": {
+        "v1": {
+          "arm": "v1",
+          "rules": {
+            "min_holdout_dates": 7,
+            "min_holdout_rows": 500,
+            "min_log_loss_margin": 0.002,
+            "max_stat_log_loss_deficit": 0.005,
+            "min_stat_rows": 50,
+            "splits": [
+              [
+                0.6,
+                0.8
+              ],
+              [
+                0.8,
+                1.0
+              ]
+            ],
+            "bootstrap": 2000,
+            "fixed_on": "2026-11-15",
+            "data_through_when_fixed": "2026-11-13"
+          },
+          "splits": [
+            {
+              "train_dates": 10,
+              "test_dates": 3,
+              "test_rows": 5,
+              "shrink": 0.09,
+              "log_loss_delta": 0.003380364010214687,
+              "brier_delta": 0.001498663231199987
+            },
+            {
+              "train_dates": 13,
+              "test_dates": 4,
+              "test_rows": 1387,
+              "shrink": 0.09,
+              "log_loss_delta": 0.0003763788197999052,
+              "brier_delta": 0.0001927117191737604
+            }
+          ],
+          "holdout_ci95_upper": {
+            "log_loss_delta": 0.002067207635755536,
+            "brier_delta": 0.0010266677897571147
+          },
+          "holdout_log_loss_delta_by_stat": {
+            "AST": 0.0018769058555960735,
+            "PRA": 0.0020891085088309233,
+            "PTS": 0.0006450640560929019,
+            "REB": -0.00183596677561879,
+            "THREES": -0.0004285016904728709
+          },
+          "checks": {
+            "enough_data": false,
+            "positive_shrink": true,
+            "margin": false,
+            "ci_excludes_zero": false,
+            "walk_forward_stable": false,
+            "no_stat_much_worse": true
+          },
+          "status": "FAIL"
+        },
+        "mc_v1": {
+          "arm": "mc_v1",
+          "rules": {
+            "min_holdout_dates": 7,
+            "min_holdout_rows": 500,
+            "min_log_loss_margin": 0.002,
+            "max_stat_log_loss_deficit": 0.005,
+            "min_stat_rows": 50,
+            "splits": [
+              [
+                0.6,
+                0.8
+              ],
+              [
+                0.8,
+                1.0
+              ]
+            ],
+            "bootstrap": 2000,
+            "fixed_on": "2026-11-15",
+            "data_through_when_fixed": "2026-11-13"
+          },
+          "splits": [
+            {
+              "train_dates": 10,
+              "test_dates": 3,
+              "test_rows": 5,
+              "shrink": 0.15,
+              "log_loss_delta": 0.002831069075388548,
+              "brier_delta": 0.0012072483300000214
+            },
+            {
+              "train_dates": 13,
+              "test_dates": 4,
+              "test_rows": 1387,
+              "shrink": 0.15,
+              "log_loss_delta": 0.00025751752115854565,
+              "brier_delta": 0.00012473685513703092
+            }
+          ],
+          "holdout_ci95_upper": {
+            "log_loss_delta": 0.002475928375072479,
+            "brier_delta": 0.0012224725465128402
+          },
+          "holdout_log_loss_delta_by_stat": {
+            "AST": 0.001772073686580246,
+            "PRA": 0.0020024247473857965,
+            "PTS": 0.0007806477437349714,
+            "REB": -0.0045750348755640114,
+            "THREES": 0.0021215597396194124
+          },
+          "checks": {
+            "enough_data": false,
+            "positive_shrink": true,
+            "margin": false,
+            "ci_excludes_zero": false,
+            "walk_forward_stable": false,
+            "no_stat_much_worse": true
+          },
+          "status": "FAIL"
+        }
       },
       "every_recorded_side_roi": -0.05500536747140405
     }

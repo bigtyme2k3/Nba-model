@@ -16,6 +16,10 @@ threes model) into outcome distributions for each player-game:
 - **Points from scoring events:** 3 x the simulated threes + 2 x two-point makes + free
   throws (non-three points split by `ft_share`, fit 0.23). Counting points one at a time
   made the distribution too narrow; this also links points to the threes market.
+- **Same-game coupling:** each player's simulations are reordered within a game so
+  points ranks follow a Gaussian reference with teammate correlation -0.03 and
+  opponent correlation +0.01 (fit on 2023-24 residuals). Whole simulations move
+  together, so each player's distribution and every single-prop price are unchanged.
 - Each player's simulated mean is held equal to the model's expectation, so the
   simulation adds shape only and never re-applies injury or minutes effects that V2's
   projection already contains.
@@ -47,9 +51,33 @@ percentiles, Monte Carlo standard errors, CRPS, Brier and log loss.
 games in the bottom decile, 12.2% in the top) are fixed by event-built points: points
 CRPS 3.229 → 3.206 and log loss 0.661 → 0.658 on 2025-26, other stats unchanged.
 
-The shared game factor now fits at 0.10 (it was 0), so teammates move together. It
-is fit on individual CRPS, not on same-game residual correlation: same-game
-combinations must still not be priced from this version.
+### Same-game dependence (V2_MC_3)
+A shared game factor can only make everyone in a game move together, but real
+teammates move slightly against each other (2023-24 points residuals: teammates
+-0.029, opponents +0.011; rebounds and assists closer to 0). The CRPS-fit game factor
+(0.10) made teammates +0.028, the wrong sign. Extra within-team usage noise could
+match the sign only by making every player's points distribution too wide (bottom
+decile 7.7%), so dependence is now set by reordering instead (see above); the game
+factor stays as a marginal-shape parameter only.
+
+Out of sample (all same-game pairs, "both over" at pseudo-lines, ~135k teammate and
+~147k opponent pairs per season):
+
+| | 2024-25 actual / simulated corr | 2025-26 actual / simulated | Log loss independent → coupled |
+|---|---|---|---|
+| PTS teammates | -0.026 / -0.028 | -0.025 / -0.028 | 0.47603 → 0.47582 ; 0.47593 → 0.47588 |
+| PTS opponents | +0.014 / +0.009 | +0.012 / +0.009 | 0.48876 → 0.48889 ; 0.48865 → 0.48876 |
+| PRA teammates | -0.005 / -0.023 | -0.003 / -0.023 | 0.49527 → 0.49525 ; 0.49604 → 0.49604 |
+| PRA opponents | +0.008 / +0.007 | +0.005 / +0.008 | 0.50331 → 0.50340 ; 0.50398 → 0.50407 |
+
+- The teammate points correlation holds on both untouched seasons.
+- Same-game dependence between player props is tiny: joint probabilities move by
+  about 0.4 percentage points, and pricing gains over independence are at the fifth
+  decimal, slightly negative for opponents. PRA teammates are too negative (the
+  coupling is keyed on points; rebounds and assists offset it in reality).
+- Conclusion: independence is an adequate approximation for player-prop pairs; the
+  coupling is not a source of edge and same-game combinations should not be priced
+  as if it were. Parameters were not re-tuned on the test seasons.
 
 ## Phase 3: recorded sportsbook prices (`python -m v2.simulation.price_research`)
 The ledger's graded props (2026-27, Oct 27 - Nov 13, 17 dates) at the exact quote
@@ -67,24 +95,80 @@ V2's absences use the injury report version scraped before that day's prediction
 | MC around V2's mean | 0.2612 | 0.7190 | +0.015 to +0.049 |
 
 - The simulated shape removes about 45% of V1's probability deficit with the same mean;
-  V2's mean adds a little more. Every model arm is still clearly worse than the market,
-  on every stat and book. Model probabilities average 57-61% on sides that won 51%.
+  V2's mean adds a little more. Every model arm is still clearly worse than the market
+  on every stat and at DraftKings and FanDuel; at Fanatics (59 rows) MC-on-V2's log
+  loss is 0.6868 vs the market's 0.6879, too few rows to mean anything. Model probabilities average 57-61% on sides that won 51%.
 - Calibration gate (`calibrate_edges.temporal_calibration`, unchanged): V1 and MC-on-V1
   are rejected; MC-on-V2 technically passes with shrink 0.13, holdout log loss 0.68803
   vs the market's 0.68807 (about 485 rows). That is a 0.00004 difference on a model
   that loses to the market overall: noise, not evidence. Nothing was changed; no
   positive model weight is restored from this.
+- Strict gate (`v2/simulation/gate.py`, fixed 2026-11-15 before later data was
+  examined): every arm FAILS. MC-on-V2 has 4 hold-out dates (needs 7), no margin
+  (holdout log loss −0.00004 vs the required −0.002), a CI upper bound of +0.002
+  (must be < 0), and its first walk-forward split loses to the market by 0.011.
+- Why the model arms are overconfident (diagnostics on the OVER side of each row, so
+  V1's choice of side cannot shape them): the level is right (MC-on-V2's mean over
+  probability 47.3% vs a 47.4% over rate) but the calibration slope is 0.16 (market
+  0.95), and the data give MC only about 0.10 weight on top of the market. MC-on-V2
+  differs from the market by 10.6 points on average, and that disagreement is mostly
+  noise. Since the simulated shape is calibrated on historical pseudo-lines (flat
+  PIT), this is a projection-vs-line problem, not a distribution-shape problem: the
+  market's line carries information (late news, lineups) the projection lacks.
+  Re-shaping the distribution cannot fix it.
+- Coverage: the 235 unmatched rows (games without reconstructable lineups) won 55.7%
+  vs 51.4% matched (+4.8% vs −5.5% ROI on every recorded side), with a lower over
+  share (49% vs 56%) and similar stat and book mix. The win-rate gap is about 1.3
+  standard errors on 235 rows; V1 still loses to the market on them (log loss 0.743
+  vs 0.702). No sign the exclusion flatters the results, but it is watched.
 - Hypothetical ROI at recorded odds, "bet when EV ≥ threshold": every recorded side
   −5.5%; MC-on-V2 −3.0% to −4.6%, MC-on-V1 −3.3% to −5.1%, V1 −5.3% to −6.1%. Every
   interval includes or lies below zero. No profitable rule is shown.
 - Novig: no graded Novig quotes recorded yet; reported separately once they exist.
 
+## Phase 5: daily shadow forecasts (`v2/simulation/shadow.py`)
+- **publish** runs in the daily pipeline right after `forward_ledger.py`, and in the
+  pre-tip refresh for props first observed there. It simulates every projected
+  player (10,000 draws, frozen V2_MC parameters) around V1's projections and,
+  where V2 has a shadow projection, around V2's. Each forward-ledger prop row gets
+  one immutable row in `data/history/nba_mc_shadow_forecasts.jsonl` (same
+  `ranking_key` and `prediction_id`, first observation only) with the probability
+  of the recorded side at the recorded line and odds, push probability, EV, the
+  parameter digest and the publish time.
+- **grade** runs after the ledger is reconciled (daily pipeline and overnight
+  reconcile). It uses the ledger's own outcomes, scores only rows published before
+  tip, and reports sportsbooks and Novig separately with the same scores, diagnostics,
+  live gate and strict gate as Phase 3: `data/tracking/v2_mc_shadow_report.json`.
+  `v2.compare` updates the forward V1-vs-V2 projection MAE alongside it.
+- Nothing in either step changes a prediction, the ledger, calibration or a verdict.
+
+## Phase 4: V2 Research Lab (dashboard → ••• → V2 Research Lab)
+`dashboard/v2_lab.js` and `v2_lab.css`, built into `docs/index.html` with the
+rest of the dashboard; data from `data/simulation/lab_today.json` (shown only when
+it matches the slate date) and the tracking reports.
+- **Today's simulations:** coverage tiles (games, players, V2 coverage and feature
+  freshness, recorded quotes, agreement, research signals, strict-gate status) and
+  player cards (V1, V2, simulated median, recorded book line and price, MC vs market
+  probability, research status), sortable by tip time, V1–V2 gap, MC probability or
+  stat.
+- **Player analysis:** projection comparison, histogram of the simulated outcomes
+  with the line marked, 10–90% range, over/under at the recorded line, scenario
+  sensitivity (reduced minutes, more minutes, higher usage), every FanDuel,
+  DraftKings and Fanatics quote with no-vig and MC probabilities, Novig in a
+  separate table, and the research verdict (V1's decision plus MC's label).
+- **Validation & results:** prediction accuracy (MAE), probability accuracy
+  (historical Brier, log loss, coverage, PIT), the retrospective recorded-price study
+  and the forward shadow record, each with hypothetical ROI and both gates shown
+  separately.
+
+Research labels: within 3 points of the market's no-vig probability = agrees with
+market; otherwise MC favors or is against the recorded side. Labels carry no bet
+authority.
+
 ## Next phases
-1. Game factor fit on same-game residual correlation (needed before any combinations).
-2. A stricter gate for the MC arm (a margin or a confidence interval, not "≤ market"),
-   decided before more forward data is looked at.
-3. Daily shadow publication beside `v2_pred`, forward grading and the V2 Research Lab;
-   rerun Phase 3 as the ledger grows and Novig quotes accrue.
+1. Let the forward shadow record accumulate; the strict gate needs at least 7
+   hold-out dates (roughly 35 graded dates).
+2. A V2 threes model, and a near-tip quote analysis from the pre-tip snapshots.
 
 ## Promotion review
 Better calibrated probabilities on untouched future games, stable historical and

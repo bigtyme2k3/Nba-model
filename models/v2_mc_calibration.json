@@ -1,5 +1,5 @@
 {
-  "version": "V2_MC_2",
+  "version": "V2_MC_3",
   "fit_on_season": 2023,
   "params": {
     "minutes_sd_scale": 1.2,
@@ -14,7 +14,9 @@
       "ast": 1000.0
     },
     "points_model": "events",
-    "ft_share": 0.23
+    "ft_share": 0.23,
+    "team_corr": -0.03,
+    "opp_corr": 0.01
   },
   "normal_sigma_from_calibration_season": {
     "v1": {
@@ -36,7 +38,39 @@
     "rows": 6000,
     "n_sims": 400,
     "minutes_crps": 3.687377875098761,
-    "stat_crps_sum": 6.0091339052083335
+    "stat_crps_sum": 6.0091339052083335,
+    "coupling": {
+      "target_teammate_opponent_corr": {
+        "pts": [
+          -0.02879899978147305,
+          0.010896293981493435
+        ],
+        "reb": [
+          -0.007351830464376597,
+          0.0078976469032108
+        ],
+        "ast": [
+          -0.011373569717507678,
+          0.0038131275041812383
+        ]
+      },
+      "simulated_teammate_opponent_corr": {
+        "pts": [
+          -0.026769092980070103,
+          0.008870377939227434
+        ],
+        "reb": [
+          -0.0033484968014567172,
+          0.0016327707812686383
+        ],
+        "ast": [
+          -0.0019315297221684756,
+          0.0011713702689013796
+        ]
+      },
+      "squared_error": 0.00015963121123637987,
+      "games": 300
+    }
   },
-  "generated_at_utc": "2026-11-15T01:15:58.988432+00:00"
+  "generated_at_utc": "2026-11-15T01:49:52.274543+00:00"
 }

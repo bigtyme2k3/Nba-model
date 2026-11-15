@@ -142,6 +142,13 @@ jobs:
             --date ${{ env.TARGET }} \
             --predictions predictions/pretip_${{ env.TARGET }}.json
 
+      - name: Monte Carlo shadow rows for newly observed props
+        if: env.ELIGIBLE == 'true'
+        run: |
+          python -m v2.simulation.shadow publish --date ${{ env.TARGET }} \
+            --predictions predictions/pretip_${{ env.TARGET }}.json --no-lab
+        continue-on-error: true
+
       - name: Publish pre-tip evidence
         if: env.ELIGIBLE == 'true'
         run: |
@@ -163,6 +170,7 @@ jobs:
             predictions/pretip_${{ env.TARGET }}.json \
             data/history/nba_forward_predictions.jsonl \
             data/history/nba_pretip_execution_snapshots.jsonl \
+            data/history/nba_mc_shadow_forecasts.jsonl \
             data/tracking/forward_ledger_status.json \
             data/tracking/execution_ledger_status.json \
             data/tracking/nba_execution_performance.json \

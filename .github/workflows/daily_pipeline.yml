@@ -150,6 +150,11 @@ jobs:
         if: env.SKIP != 'true'
         run: python forward_ledger.py --date ${{ env.TARGET }}
 
+      - name: Monte Carlo shadow forecasts (research only, no bet authority)
+        if: env.SKIP != 'true'
+        run: python -m v2.simulation.shadow publish --date ${{ env.TARGET }}
+        continue-on-error: true
+
       # ── Step 12: Track results ───────────────────────────────────────────
       - name: Track yesterday's results
         if: env.SKIP != 'true'
@@ -159,6 +164,13 @@ jobs:
       - name: Reconcile yesterday's forward predictions
         if: env.SKIP != 'true'
         run: python forward_reconciler.py --date ${{ env.YESTERDAY }}
+        continue-on-error: true
+
+      - name: Grade Monte Carlo shadow forecasts and V2 projections
+        if: env.SKIP != 'true'
+        run: |
+          python -m v2.simulation.shadow grade
+          python -m v2.compare
         continue-on-error: true
 
       - name: Reconcile yesterday's near-tip execution snapshots
