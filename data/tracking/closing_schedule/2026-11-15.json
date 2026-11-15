@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-15",
+  "generated_at_utc": "2026-11-15T21:23:15.706495+00:00",
+  "games": [
+    {
+      "event_id": "401909985",
+      "commence_time": "2026-11-15T18:00Z",
+      "game": "Indiana Pacers @ Philadelphia 76ers",
+      "minutes_to_tip": -203.26,
+      "eligible": false
+    },
+    {
+      "event_id": "401909986",
+      "commence_time": "2026-11-15T21:00Z",
+      "game": "Los Angeles Lakers @ Phoenix Suns",
+      "minutes_to_tip": -23.26,
+      "eligible": false
+    },
+    {
+      "event_id": "401909987",
+      "commence_time": "2026-11-15T21:30Z",
+      "game": "Charlotte Hornets @ LA Clippers",
+      "minutes_to_tip": 6.74,
+      "eligible": true
+    },
+    {
+      "event_id": "401909988",
+      "commence_time": "2026-11-15T22:00Z",
+      "game": "San Antonio Spurs @ Utah Jazz",
+      "minutes_to_tip": 36.74,
+      "eligible": false
+    },
+    {
+      "event_id": "401909989",
+      "commence_time": "2026-11-15T23:00Z",
+      "game": "Dallas Mavericks @ Boston Celtics",
+      "minutes_to_tip": 96.74,
+      "eligible": false
+    },
+    {
+      "event_id": "401909990",
+      "commence_time": "2026-11-15T23:00Z",
+      "game": "New York Knicks @ Toronto Raptors",
+      "minutes_to_tip": 96.74,
+      "eligible": false
+    },
+    {
+      "event_id": "401909991",
+      "commence_time": "2026-11-16T00:00Z",
+      "game": "Houston Rockets @ Washington Wizards",
+      "minutes_to_tip": 156.74,
+      "eligible": false
+    },
+    {
+      "event_id": "401909992",
+      "commence_time": "2026-11-16T01:00Z",
+      "game": "Atlanta Hawks @ Milwaukee Bucks",
+      "minutes_to_tip": 216.74,
+      "eligible": false
+    },
+    {
+      "event_id": "401909993",
+      "commence_time": "2026-11-16T02:00Z",
+      "game": "Oklahoma City Thunder @ Sacramento Kings",
+      "minutes_to_tip": 276.74,
+      "eligible": false
+    }
+  ]
+}
