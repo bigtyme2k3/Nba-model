@@ -109,6 +109,48 @@ class PriceResearchTests(unittest.TestCase):
         self.assertEqual(gate["candidate_shrink"], live.get("candidate_shrink"))
 
 
+class StrictGateTests(unittest.TestCase):
+    def _rows(self, informative, n_dates=40, per_date=150, seed=0):
+        rng = np.random.default_rng(seed)
+        rows = []
+        for d in range(n_dates):
+            for k in range(per_date):
+                truth = rng.uniform(0.3, 0.7)
+                market = np.clip(truth + rng.normal(0, 0.12), 0.05, 0.95)
+                arm = truth if informative else rng.uniform(0.3, 0.7)
+                rows.append({"date": f"d{d:03d}", "stat": ["PTS", "REB", "AST"][k % 3], "p_market": market,
+                             "p_arm": arm, "outcome": "WIN" if rng.random() < truth else "LOSS"})
+        return pd.DataFrame(rows)
+
+    def test_noise_fails_and_a_genuinely_better_arm_passes(self):
+        from v2.simulation import gate
+        self.assertEqual(gate.strict_gate(self._rows(False), "arm")["status"], "FAIL")
+        self.assertEqual(gate.strict_gate(self._rows(True), "arm")["status"], "PASS")
+
+    def test_too_few_holdout_dates_fails_even_when_better(self):
+        from v2.simulation import gate
+        res = gate.strict_gate(self._rows(True, n_dates=17, per_date=150), "arm")
+        self.assertFalse(res["checks"]["enough_data"])
+        self.assertEqual(res["status"], "FAIL")
+
+
+class CouplingTests(unittest.TestCase):
+    def test_coupling_keeps_each_players_distribution_and_sets_correlation(self):
+        df = pd.DataFrame({"game_id": ["g"] * 6, "team": list("AAABBB"),
+                           "minutes": [34, 30, 25, 33, 28, 20.0], "minutes_sd_l10": [4.0] * 6})
+        m = {"pts": np.array([25, 15, 8, 22, 12, 6.0]), "reb": np.array([5, 6, 3, 8, 4, 2.0]),
+             "ast": np.array([6, 3, 2, 4, 2, 1.0]), "threes": np.array([3, 1.5, 1, 2, 1, 0.5])}
+        a = engine.simulate(df, m, engine.Params(), 20000, seed=1)
+        b = engine.simulate(df, m, engine.Params(team_corr=-0.3, opp_corr=0.2), 20000, seed=1)
+        for s in ("pts", "reb", "ast", "threes", "minutes"):
+            for i in range(6):
+                np.testing.assert_array_equal(np.sort(a[s][i]), np.sort(b[s][i]))
+        np.testing.assert_array_equal(b["pra"], b["pts"] + b["reb"] + b["ast"])
+        c = np.corrcoef(b["pts"])
+        self.assertLess(c[0, 1], -0.15)
+        self.assertGreater(c[0, 3], 0.1)
+
+
 class LeakageTests(unittest.TestCase):
     def test_out_of_sample_models_train_only_on_earlier_seasons(self):
         from unittest.mock import patch

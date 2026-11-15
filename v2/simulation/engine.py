@@ -11,6 +11,11 @@ Per player-game and simulation:
   player    one form factor shared by that player's stats in the simulation
   stats     negative-binomial counts whose mean is the model's expected stat scaled
             by minutes, game and player factors; PRA is the sum of the same path
+  coupling  optional same-game dependence (team_corr, opp_corr; needs a "team" column):
+            each player's simulations are reordered so their points ranks follow a
+            Gaussian reference with the target teammate / opponent correlation
+            (Iman-Conover). Reordering moves whole simulations, so every player's
+            own distribution, and every single-prop price, is unchanged.
   points    built from scoring events, not counted one point at a time:
             3 x the simulated threes + 2 x two-point makes + free throws made, with the
             non-three points split by ft_share. Counting points as one Poisson-like
@@ -41,6 +46,8 @@ class Params:
     dispersion: dict = field(default_factory=lambda: {"pts": 20.0, "reb": 20.0, "ast": 20.0, "threes": 20.0})
     points_model: str = "events"       # "events" (3s + 2s + FTs) or "count" (the V2_MC_1 shape)
     ft_share: float = 0.23             # share of non-three points scored at the line
+    team_corr: float = 0.0             # target correlation between teammates' simulations
+    opp_corr: float = 0.0              # target correlation between opponents' simulations
 
     def to_dict(self):
         return asdict(self)
@@ -89,6 +96,44 @@ def simulate(df: pd.DataFrame, means: dict, params: Params, n_sims: int = 10000,
         r = params.dispersion.get("pts", 20.0)
         out["pts"] = (3 * out["threes"] + 2 * counts(rest * (1 - params.ft_share) / 2, r)
                       + counts(rest * params.ft_share, r))
+    if (params.team_corr or params.opp_corr) and "team" in df:
+        out = couple(df, out, params.team_corr, params.opp_corr, rng)
     if all(s in out for s in ("pts", "reb", "ast")):
         out["pra"] = out["pts"] + out["reb"] + out["ast"]
+    return out
+
+
+def reference_correlation(teams, team_corr: float, opp_corr: float) -> np.ndarray:
+    teams = np.asarray(teams)
+    c = np.where(teams[:, None] == teams[None, :], team_corr, opp_corr)
+    np.fill_diagonal(c, 1.0)
+    # Nearest valid correlation matrix if a large negative teammate value is not PSD.
+    w, v = np.linalg.eigh(c)
+    c = (v * np.maximum(w, 1e-6)) @ v.T
+    d = np.sqrt(np.diag(c))
+    return c / d[:, None] / d[None, :]
+
+
+def couple(df: pd.DataFrame, sims: dict, team_corr: float, opp_corr: float, rng) -> dict:
+    """Reorder each player's simulations (all stats and minutes together) so that the
+    ranks of his points follow a correlated Gaussian reference within each game."""
+    key_stat = "pts" if "pts" in sims else next(s for s in sims if s != "minutes")
+    out = {k: v.copy() for k, v in sims.items()}
+    n_sims = sims[key_stat].shape[1]
+    games = df["game_id"].astype(str).to_numpy()
+    teams = df["team"].astype(str).to_numpy()
+    for g in np.unique(games):
+        rows = np.where(games == g)[0]
+        if len(rows) < 2:
+            continue
+        L = np.linalg.cholesky(reference_correlation(teams[rows], team_corr, opp_corr))
+        z = L @ rng.standard_normal((len(rows), n_sims))
+        for i, r in enumerate(rows):
+            key = sims[key_stat][r] + rng.random(n_sims) * 1e-3     # random tie-break
+            src = np.argsort(key)                                    # simulations, low to high
+            dst = np.argsort(z[i])                                   # reference slots, low to high
+            perm = np.empty(n_sims, dtype=int)
+            perm[dst] = src
+            for k in out:
+                out[k][r] = sims[k][r][perm]
     return out

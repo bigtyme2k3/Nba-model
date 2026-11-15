@@ -22,8 +22,8 @@ row written before tip; V2's features use only games before the date.
 Scores: Brier and log loss of the recorded side winning (pushes excluded; a
 whole-number line's push probability is removed from the simulated side), paired
 differences against the market with date-clustered bootstrap intervals, the
-existing calibration gate (calibrate_edges.temporal_calibration, unchanged) applied
-to each arm, and hypothetical ROI at the recorded American odds for "bet when
+existing calibration gate (calibrate_edges.temporal_calibration, unchanged) and the
+strict promotion gate (v2/simulation/gate.py) applied to each arm, and hypothetical ROI at the recorded American odds for "bet when
 expected value >= threshold". Research only: nothing here writes the live
 calibration, changes a verdict or gives any arm bet authority.
 
@@ -48,7 +48,7 @@ import pandas as pd
 import calibrate_edges
 from prop_features import BASE_FEATURES
 from v2 import lineups, live, pilot, warehouse
-from v2.simulation import engine
+from v2.simulation import engine, gate
 
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 OUT = Path("data/tracking/v2_mc_price_research.json")
@@ -278,6 +278,7 @@ def evaluate(rows: pd.DataFrame, arms) -> dict:
     for a in arms:
         if a != "market":
             out["calibration_gate"][a] = calibration_gate(rows, a)
+            out.setdefault("strict_gate", {})[a] = gate.strict_gate(rows, a)
             out["hypothetical_roi"][a] = [roi(rows, a, t) for t in EV_THRESHOLDS]
     stake = np.where(rows["won"], american_to_decimal(rows["odds"]) - 1, -1.0)
     out["every_recorded_side_roi"] = float(stake.mean())
