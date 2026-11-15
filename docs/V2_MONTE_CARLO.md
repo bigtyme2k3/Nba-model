@@ -103,6 +103,24 @@ V2's absences use the injury report version scraped before that day's prediction
   vs the market's 0.68807 (about 485 rows). That is a 0.00004 difference on a model
   that loses to the market overall: noise, not evidence. Nothing was changed; no
   positive model weight is restored from this.
+- Strict gate (`v2/simulation/gate.py`, fixed 2026-11-15 before later data was
+  examined): every arm FAILS. MC-on-V2 has 4 hold-out dates (needs 7), no margin
+  (holdout log loss −0.00004 vs the required −0.002), a CI upper bound of +0.002
+  (must be < 0), and its first walk-forward split loses to the market by 0.011.
+- Why the model arms are overconfident (diagnostics on the OVER side of each row, so
+  V1's choice of side cannot shape them): the level is right (MC-on-V2's mean over
+  probability 47.3% vs a 47.4% over rate) but the calibration slope is 0.16 (market
+  0.95), and the data give MC only about 0.10 weight on top of the market. MC-on-V2
+  differs from the market by 10.6 points on average, and that disagreement is mostly
+  noise. Since the simulated shape is calibrated on historical pseudo-lines (flat
+  PIT), this is a projection-vs-line problem, not a distribution-shape problem: the
+  market's line carries information (late news, lineups) the projection lacks.
+  Re-shaping the distribution cannot fix it.
+- Coverage: the 235 unmatched rows (games without reconstructable lineups) won 55.7%
+  vs 51.4% matched (+4.8% vs −5.5% ROI on every recorded side), with a lower over
+  share (49% vs 56%) and similar stat and book mix. The win-rate gap is about 1.3
+  standard errors on 235 rows; V1 still loses to the market on them (log loss 0.743
+  vs 0.702). No sign the exclusion flatters the results, but it is watched.
 - Hypothetical ROI at recorded odds, "bet when EV ≥ threshold": every recorded side
   −5.5%; MC-on-V2 −3.0% to −4.6%, MC-on-V1 −3.3% to −5.1%, V1 −5.3% to −6.1%. Every
   interval includes or lies below zero. No profitable rule is shown.
