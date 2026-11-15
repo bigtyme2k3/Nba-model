@@ -11,6 +11,11 @@ Per player-game and simulation:
   player    one form factor shared by that player's stats in the simulation
   stats     negative-binomial counts whose mean is the model's expected stat scaled
             by minutes, game and player factors; PRA is the sum of the same path
+  points    built from scoring events, not counted one point at a time:
+            3 x the simulated threes + 2 x two-point makes + free throws made, with the
+            non-three points split by ft_share. Counting points as one Poisson-like
+            variable made the distribution too narrow (2023-24 PIT: 14.7% of games in
+            the bottom decile, 12.2% in the top); the event build puts both near 10%.
 
 The scale factors are normalized so each player's simulated mean equals the model's
 expected value: the simulation adds the distribution's shape, never a second
@@ -34,6 +39,8 @@ class Params:
     game_sd: float = 0.05              # log-SD of the shared game factor
     player_sd: float = 0.15            # log-SD of the player's form factor
     dispersion: dict = field(default_factory=lambda: {"pts": 20.0, "reb": 20.0, "ast": 20.0, "threes": 20.0})
+    points_model: str = "events"       # "events" (3s + 2s + FTs) or "count" (the V2_MC_1 shape)
+    ft_share: float = 0.23             # share of non-three points scored at the line
 
     def to_dict(self):
         return asdict(self)
@@ -67,11 +74,21 @@ def simulate(df: pd.DataFrame, means: dict, params: Params, n_sims: int = 10000,
     # Keep each player's simulated mean equal to the model's expectation.
     scale = scale / np.maximum(scale.mean(axis=1, keepdims=True), 1e-9)
 
+    def counts(mu, r):
+        lam = np.maximum(np.asarray(mu, float), 0)[:, None] * scale
+        return rng.poisson(lam * rng.gamma(r, 1.0 / r, (n, n_sims)))
+
     out = {"minutes": minutes}
     for stat, mu in means.items():
-        lam = np.maximum(np.asarray(mu, float), 0)[:, None] * scale
-        r = params.dispersion.get(stat, 20.0)
-        out[stat] = rng.poisson(lam * rng.gamma(r, 1.0 / r, (n, n_sims)))
+        if stat == "pts" and params.points_model == "events" and "threes" in means:
+            continue
+        out[stat] = counts(mu, params.dispersion.get(stat, 20.0))
+    if "pts" in means and "pts" not in out:
+        # Same threes path as the threes market, so points and threes move together.
+        rest = np.maximum(np.asarray(means["pts"], float) - 3 * np.asarray(means["threes"], float), 0)
+        r = params.dispersion.get("pts", 20.0)
+        out["pts"] = (3 * out["threes"] + 2 * counts(rest * (1 - params.ft_share) / 2, r)
+                      + counts(rest * params.ft_share, r))
     if all(s in out for s in ("pts", "reb", "ast")):
         out["pra"] = out["pts"] + out["reb"] + out["ast"]
     return out

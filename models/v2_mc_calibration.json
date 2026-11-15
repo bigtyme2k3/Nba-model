@@ -1,40 +1,42 @@
 {
-  "version": "V2_MC_1",
+  "version": "V2_MC_2",
   "fit_on_season": 2023,
   "params": {
     "minutes_sd_scale": 1.2,
     "minutes_sd_default": 5.0,
     "early_exit_prob": 0.03,
-    "game_sd": 0.0,
-    "player_sd": 0.1,
+    "game_sd": 0.1,
+    "player_sd": 0.0,
     "dispersion": {
-      "pts": 16.0,
-      "reb": 1000.0,
-      "ast": 1000.0,
-      "threes": 1000.0
-    }
+      "threes": 1000.0,
+      "pts": 1000.0,
+      "reb": 50.0,
+      "ast": 1000.0
+    },
+    "points_model": "events",
+    "ft_share": 0.23
   },
   "normal_sigma_from_calibration_season": {
     "v1": {
-      "pts": 6.028634846860194,
+      "pts": 6.028634846860195,
       "reb": 2.5576850584966118,
       "ast": 1.8789463021104127,
-      "threes": 1.2411002733618568,
+      "threes": 1.241100273361857,
       "pra": 7.892900469449992
     },
     "v2": {
       "pts": 5.979365450188055,
       "reb": 2.5219303551296637,
-      "ast": 1.847627315400482,
-      "threes": 1.2411002733618568,
-      "pra": 7.795570277598528
+      "ast": 1.8476273154004819,
+      "threes": 1.241100273361857,
+      "pra": 7.795570277598529
     }
   },
   "fit": {
     "rows": 6000,
     "n_sims": 400,
     "minutes_crps": 3.687377875098761,
-    "stat_crps_sum": 6.0388318114583335
+    "stat_crps_sum": 6.0091339052083335
   },
-  "generated_at_utc": "2026-11-15T00:48:24.956903+00:00"
+  "generated_at_utc": "2026-11-15T01:15:58.988432+00:00"
 }
