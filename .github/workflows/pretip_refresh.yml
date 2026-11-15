@@ -109,6 +109,11 @@ jobs:
         run: python opportunity_redistribution.py --date ${{ env.TARGET }} --out data/raw
         continue-on-error: true
 
+      - name: Refresh V2 shadow features with the latest injury report
+        if: env.ELIGIBLE == 'true'
+        run: python -m v2.live --date ${{ env.TARGET }}
+        continue-on-error: true
+
       - name: Generate near-tip predictions
         if: env.ELIGIBLE == 'true'
         run: |

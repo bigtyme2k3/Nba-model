@@ -29,3 +29,16 @@ Pregame-only features, verified ESPN game/player ids, coverage gates, and V1
 untouched. NBA tracking data (stats.nba.com) is not used: it was unreachable from
 this environment, and its season-level endpoints must never be used to rebuild
 earlier predictions.
+
+## Shadow challenger (`v2/challenger.py`, `v2/live.py`, `v2/compare.py`)
+- `python -m v2.challenger` trains V1 prop features + opportunity + absence on every
+  season with play-by-play (manual workflow **NBA V2 Challenger Train**).
+- `python -m v2.live --date D` (daily pipeline and pre-tip refresh) writes each player's
+  features for his next game. Absence is an **expected** count from the morning injury
+  report, weighted by how often players with each status sat (OUT 100%, QUESTIONABLE
+  44%, not listed 2.2% in 2026-27), because the report alone catches only 62% of
+  absences and training counts every actual absence.
+- `daily_runner` records `v2_pred` next to V1's prediction (and the ledger keeps it as
+  `v2_projection`). It is skipped when the features are for another date or the injury
+  feed is unverified. V1 makes every signal and bet.
+- `python -m v2.compare` scores both on the same graded props.

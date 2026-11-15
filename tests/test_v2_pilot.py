@@ -74,5 +74,40 @@ class PriorOnlyFeatureTests(unittest.TestCase):
         self.assertAlmostEqual(before.loc[1, "reb_conv"], 5 / 30)
 
 
+class V2ShadowSafetyTests(unittest.TestCase):
+    def _features_file(self, temp, date, healthy):
+        import os
+        path = os.path.join(temp, "v2_live.csv")
+        pd.DataFrame([{"player": "Some Player", "target_date": date, "injury_feed_healthy": healthy,
+                       "n_absent_regulars": 0.0}]).to_csv(path, index=False)
+        return path
+
+    def test_shadow_skips_wrong_date_and_unverified_feed(self):
+        import tempfile
+        import daily_runner as dr
+        with tempfile.TemporaryDirectory() as temp:
+            dr.load_v2_shadow("2026-11-15", model_path="models/v2_props_models.pkl",
+                              features_path=self._features_file(temp, "2026-11-14", True))
+            self.assertIsNone(dr.V2_SHADOW["bundle"])
+            dr.load_v2_shadow("2026-11-15", model_path="models/v2_props_models.pkl",
+                              features_path=self._features_file(temp, "2026-11-15", False))
+            self.assertIsNone(dr.V2_SHADOW["bundle"])
+        self.assertIsNone(dr.v2_shadow_prediction("Some Player", "pts", {"minutes": 30}))
+
+
+class V2CompareTests(unittest.TestCase):
+    def test_compares_only_rows_with_both_projections_and_an_actual(self):
+        from v2 import compare
+        rows = pd.DataFrame([
+            {"market": "PROP", "stat": "PTS", "date": "d1", "projection": 20, "v2_projection": 22, "actual": 23},
+            {"market": "PROP", "stat": "PTS", "date": "d1", "projection": 10, "v2_projection": None, "actual": 12},
+            {"market": "PROP", "stat": "PTS", "date": "d2", "projection": 15, "v2_projection": 14, "actual": None},
+        ])
+        out = compare.compare(rows)
+        self.assertEqual(out["PTS"]["rows"], 1)
+        self.assertEqual(out["PTS"]["v1_mae"], 3.0)
+        self.assertEqual(out["PTS"]["v2_mae"], 1.0)
+
+
 if __name__ == "__main__":
     unittest.main()
