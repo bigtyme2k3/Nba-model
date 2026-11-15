@@ -88,16 +88,21 @@ jobs:
         run: |
           git config user.name "NBA Model Bot"
           git config user.email "actions@github.com"
-          for f in data/raw/scores*.csv data/raw/result*.csv data/tracking data/history/nba_forward_predictions.jsonl models/edge_calibration.json docs/index.html; do
+          for f in data/raw/scores*.csv data/raw/result*.csv data/tracking data/history/nba_forward_predictions.jsonl models/edge_calibration.json; do
             if [ -e "$f" ]; then git add "$f"; fi
           done
           git diff --cached --quiet || git commit -m "✅ NBA overnight evidence reconcile — ${{ env.TARGET }}"
           git reset --hard HEAD
           git clean -fd
-          git fetch origin main
-          git rebase -X theirs origin/main
-          git push || {
+          # The dashboard is rebuilt only after syncing with main: this run's checkout can
+          # predate a newer daily update (GitHub starts schedules hours late), and committing
+          # a dashboard built from it replaced the 2026-11-15 slate with "awaiting predictions".
+          publish() {
             git fetch origin main
-            git rebase -X theirs origin/main
+            git rebase -X theirs origin/main || return 1
+            TARGET=$(python active_slate_date.py) python build_dashboard.py
+            git add docs/index.html
+            git diff --cached --quiet || git commit -m "Dashboard refresh after reconcile — ${{ env.TARGET }}"
             git push
           }
+          publish || { git rebase --abort 2>/dev/null; git reset --hard HEAD; publish; }
