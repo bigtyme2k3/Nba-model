@@ -251,6 +251,7 @@ def prop_rows(data):
                     "raw_model_probability": prop.get("raw_model_probability"),
                     "model_probability": prop.get("model_probability"),
                     "market_probability": prop.get("market_probability"),
+                    "novig_reference": prop.get("novig_reference"),   # comparison only
                     "probability_calibration": prop.get("probability_calibration"),
                     "probability_edge": prop.get("probability_edge"),
                     "ev": prop.get("ev"),

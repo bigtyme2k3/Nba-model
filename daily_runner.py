@@ -25,7 +25,7 @@ os.makedirs(MODEL_DIR,  exist_ok=True)
 # ── Import local modules ───────────────────────────────────────────────────────
 sys.path.insert(0, ".")
 from teams import EASTERN_CONFERENCE as EAST, WESTERN_CONFERENCE as WEST, TEAM_ABBR, normalize_team
-from game_markets import select_offer, QUOTE_POLICY
+from game_markets import select_offer, QUOTE_POLICY, V1_BOOKS
 from prop_features import build_features as build_prop_features, VERSION as PROP_FEATURE_VERSION
 from model_publication import artifact_id, model_family_id
 from slate_injuries import assess_injury_feed
@@ -448,6 +448,16 @@ def _normal_over_probability(pred, line, sigma):
         return None
     z = (line - pred) / (sigma * math.sqrt(2.0))
     return 0.5 * (1.0 - math.erf(z))
+
+
+def novig_reference(offers, line, side):
+    """Novig's quote on the same line and side as V1's selected sportsbook quote, for
+    comparison only (never selected, never evidence)."""
+    for o in offers or []:
+        if (o.get("book_key") == "novig" and str(o.get("side", "")).upper() == side
+                and _float(o.get("line"), None) == _float(line, None) and _float(o.get("price"), None)):
+            return {"odds": int(_float(o.get("price"), 0)), "no_vig_probability": _float(o.get("no_vig_probability"), None)}
+    return None
 
 
 def _best_prop_offer(pred, model_info, offers, threshold):
@@ -1009,7 +1019,9 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
             thresh = thresholds.get(target, 2.0)
             v2_pred = v2_shadow_prediction(player, target, row)
             offers = offers_by_stat.get(target, [])
-            best = _best_prop_offer(pred, m, offers, thresh) if offers else None
+            # V1 selects among FanDuel, DraftKings and Fanatics only; Novig is a reference.
+            book_offers = [o for o in offers if o.get("book_key") in V1_BOOKS]
+            best = _best_prop_offer(pred, m, book_offers, thresh) if book_offers else None
 
             if best:
                 side = best["side"]
@@ -1044,6 +1056,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     "offers_considered": best["offers_considered"],
                     "market_source": best.get("source", "the-odds-api"),
                     "v2_pred": v2_pred,
+                    "novig_reference": novig_reference(offers, best["line"], side),
                 }
                 continue
 
