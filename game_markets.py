@@ -5,7 +5,11 @@ import math
 from datetime import datetime, timezone
 
 # Novig is an exchange (us_ex) with no vig; up to 10 books still cost one region.
-BOOKS = {"fanduel", "draftkings", "fanatics", "novig"}
+BOOKS = {"fanduel", "draftkings", "fanatics", "novig"}      # collected and displayed
+# Books V1 may select and count as evidence. Novig stays a separate reference: with
+# market-only calibration a near-zero-vig exchange (and its alternate-line ladders)
+# always wins a highest-EV comparison, which on 2026-11-14 crowded out every sportsbook.
+V1_BOOKS = {"fanduel", "draftkings", "fanatics"}
 QUOTE_POLICY = "EXACT_BOOK_SIDE_V1"
 
 
@@ -85,7 +89,7 @@ def select_offer(projection, market, offers, now=None, require_value=True):
     now = now or datetime.now(timezone.utc)
     evaluated = []
     for offer in offers:
-        if offer.get("market") != market or offer.get("book_key") not in BOOKS:
+        if offer.get("market") != market or offer.get("book_key") not in V1_BOOKS:
             continue
         line, price = number(offer.get("line")), number(offer.get("price"))
         cap, tip, update = (timestamp(offer.get(k)) for k in
@@ -120,7 +124,7 @@ def select_offer(projection, market, offers, now=None, require_value=True):
 def priced_evidence(row):
     """Legacy prop quotes remain valid; consensus game rows stay diagnostic only."""
     book = row.get("sportsbook_key") or row.get("book_key")
-    if book not in BOOKS or not valid_price(row.get("odds")):
+    if book not in V1_BOOKS or not valid_price(row.get("odds")):
         return False
     if str(row.get("market")).upper() == "PROP":
         return row.get("side") in {"OVER", "UNDER"}

@@ -87,6 +87,35 @@ class NovigTests(unittest.TestCase):
         books = {o["book_key"] for o in offers_from_event(event, "2026-01-05T23:00:00Z")}
         self.assertEqual(books, {"fanduel", "novig"})
 
+    def test_v1_never_selects_novig_and_novig_is_not_v1_evidence(self):
+        from datetime import datetime, timezone
+        from game_markets import select_offer, priced_evidence
+        tip, now = "2026-01-06T00:00:00Z", datetime(2026, 1, 5, 23, 10, tzinfo=timezone.utc)
+        offer = lambda book, price: {"market": "TOTAL", "side": "OVER", "line": 221.5, "price": price,
+                                     "book_key": book, "book": book, "no_vig_probability": 0.5,
+                                     "captured_at_utc": "2026-01-05T23:00:00Z", "commence_time": tip,
+                                     "last_update": "2026-01-05T22:59:00Z", "quote_policy": "EXACT_BOOK_SIDE_V1"}
+        # Novig's +105 beats the books' -110 on EV, but V1 must still pick a sportsbook.
+        pick = select_offer(230.0, "TOTAL", [offer("novig", 105), offer("draftkings", -110)], now=now,
+                            require_value=False)
+        self.assertEqual(pick["book_key"], "draftkings")
+        self.assertIsNone(select_offer(230.0, "TOTAL", [offer("novig", 105)], now=now, require_value=False))
+        row = {"market": "PROP", "side": "OVER", "odds": -110}
+        self.assertTrue(priced_evidence({**row, "sportsbook_key": "fanduel"}))
+        self.assertFalse(priced_evidence({**row, "sportsbook_key": "novig"}))
+
+    def test_prop_selection_uses_sportsbooks_and_keeps_novig_as_reference(self):
+        import daily_runner as dr
+        offers = [{"book_key": "novig", "side": "OVER", "line": 34.5, "price": 1438, "no_vig_probability": 0.065},
+                  {"book_key": "novig", "side": "OVER", "line": 18.5, "price": 110, "no_vig_probability": 0.47},
+                  {"book_key": "fanduel", "side": "OVER", "line": 18.5, "price": -110, "no_vig_probability": 0.49},
+                  {"book_key": "fanduel", "side": "UNDER", "line": 18.5, "price": -120, "no_vig_probability": 0.51}]
+        books = [o for o in offers if o["book_key"] in dr.V1_BOOKS]
+        best = dr._best_prop_offer(22.5, {"residual_std": 5.8}, books, 2.0)
+        self.assertEqual(best["book_key"], "fanduel")
+        self.assertEqual(dr.novig_reference(offers, best["line"], best["side"])["odds"], 110)
+        self.assertIsNone(dr.novig_reference(offers, 19.5, "OVER"))
+
 
 class BacktestSignTests(unittest.TestCase):
     def test_model_side_record(self):
