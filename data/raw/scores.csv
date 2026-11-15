@@ -215,3 +215,12 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-06,401909293,STATUS_FINAL,True,False,New Orleans Pelicans,Minnesota Timberwolves,109,115,-6,224,30.0,21.0,28.0,30.0,27.0,30.0,20.0,38.0,,,Smoothie King Center,17767,2026-11-15T17:41:37.035404
 2026-11-06,401909294,STATUS_FINAL,True,False,Los Angeles Lakers,Portland Trail Blazers,124,118,6,242,20.0,33.0,34.0,37.0,29.0,31.0,15.0,43.0,,,crypto.com Arena,19057,2026-11-15T17:41:37.035419
 2026-11-06,401909295,STATUS_FINAL,True,False,Sacramento Kings,San Antonio Spurs,109,124,-15,233,29.0,27.0,24.0,29.0,38.0,37.0,24.0,25.0,,,Golden 1 Center,14238,2026-11-15T17:41:37.035429
+2026-11-15,401909985,STATUS_IN_PROGRESS,False,True,Philadelphia 76ers,Indiana Pacers,51,53,-2,104,29.0,22.0,,,35.0,18.0,,,,,Xfinity Mobile Arena,0,2026-11-15T19:01:22.887206
+2026-11-15,401909986,STATUS_SCHEDULED,False,False,Phoenix Suns,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -3.5,226.5,Mortgage Matchup Center,0,2026-11-15T19:01:22.887226
+2026-11-15,401909987,STATUS_SCHEDULED,False,False,LA Clippers,Charlotte Hornets,0,0,0,0,,,,,,,,,CHA -1.5,213.5,Intuit Dome,0,2026-11-15T19:01:22.887236
+2026-11-15,401909988,STATUS_SCHEDULED,False,False,Utah Jazz,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -15.5,224.5,Delta Center,0,2026-11-15T19:01:22.887247
+2026-11-15,401909989,STATUS_SCHEDULED,False,False,Boston Celtics,Dallas Mavericks,0,0,0,0,,,,,,,,,BOS -14.5,218.5,TD Garden,0,2026-11-15T19:01:22.887255
+2026-11-15,401909990,STATUS_SCHEDULED,False,False,Toronto Raptors,New York Knicks,0,0,0,0,,,,,,,,,NY -5.5,217.5,Scotiabank Arena,0,2026-11-15T19:01:22.887264
+2026-11-15,401909991,STATUS_SCHEDULED,False,False,Washington Wizards,Houston Rockets,0,0,0,0,,,,,,,,,HOU -8.5,224.5,Capital One Arena,0,2026-11-15T19:01:22.887272
+2026-11-15,401909992,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Atlanta Hawks,0,0,0,0,,,,,,,,,ATL -8.5,233.5,Fiserv Forum,0,2026-11-15T19:01:22.887287
+2026-11-15,401909993,STATUS_SCHEDULED,False,False,Sacramento Kings,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -10.5,222.5,Golden 1 Center,0,2026-11-15T19:01:22.887297

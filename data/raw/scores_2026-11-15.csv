@@ -1,10 +1,10 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-15,401909985,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Indiana Pacers,0,0,0,0,,,,,,,,,PHI -7.5,225.5,Xfinity Mobile Arena,0,2026-11-15T15:16:43.422563
-2026-11-15,401909986,STATUS_SCHEDULED,False,False,Phoenix Suns,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -2.5,228.5,Mortgage Matchup Center,0,2026-11-15T15:16:43.422581
-2026-11-15,401909987,STATUS_SCHEDULED,False,False,LA Clippers,Charlotte Hornets,0,0,0,0,,,,,,,,,CHA -1.5,214.5,Intuit Dome,0,2026-11-15T15:16:43.422591
-2026-11-15,401909988,STATUS_SCHEDULED,False,False,Utah Jazz,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -16.5,225.5,Delta Center,0,2026-11-15T15:16:43.422600
-2026-11-15,401909989,STATUS_SCHEDULED,False,False,Boston Celtics,Dallas Mavericks,0,0,0,0,,,,,,,,,BOS -13.5,219.5,TD Garden,0,2026-11-15T15:16:43.422608
-2026-11-15,401909990,STATUS_SCHEDULED,False,False,Toronto Raptors,New York Knicks,0,0,0,0,,,,,,,,,NY -4.5,217.5,Scotiabank Arena,0,2026-11-15T15:16:43.422616
-2026-11-15,401909991,STATUS_SCHEDULED,False,False,Washington Wizards,Houston Rockets,0,0,0,0,,,,,,,,,HOU -8.5,222.5,Capital One Arena,0,2026-11-15T15:16:43.422624
-2026-11-15,401909992,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Atlanta Hawks,0,0,0,0,,,,,,,,,ATL -7.5,234.5,Fiserv Forum,0,2026-11-15T15:16:43.422642
-2026-11-15,401909993,STATUS_SCHEDULED,False,False,Sacramento Kings,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -10.5,222.5,Golden 1 Center,0,2026-11-15T15:16:43.422652
+2026-11-15,401909985,STATUS_IN_PROGRESS,False,True,Philadelphia 76ers,Indiana Pacers,51,53,-2,104,29.0,22.0,,,35.0,18.0,,,,,Xfinity Mobile Arena,0,2026-11-15T19:01:22.887206
+2026-11-15,401909986,STATUS_SCHEDULED,False,False,Phoenix Suns,Los Angeles Lakers,0,0,0,0,,,,,,,,,LAL -3.5,226.5,Mortgage Matchup Center,0,2026-11-15T19:01:22.887226
+2026-11-15,401909987,STATUS_SCHEDULED,False,False,LA Clippers,Charlotte Hornets,0,0,0,0,,,,,,,,,CHA -1.5,213.5,Intuit Dome,0,2026-11-15T19:01:22.887236
+2026-11-15,401909988,STATUS_SCHEDULED,False,False,Utah Jazz,San Antonio Spurs,0,0,0,0,,,,,,,,,SA -15.5,224.5,Delta Center,0,2026-11-15T19:01:22.887247
+2026-11-15,401909989,STATUS_SCHEDULED,False,False,Boston Celtics,Dallas Mavericks,0,0,0,0,,,,,,,,,BOS -14.5,218.5,TD Garden,0,2026-11-15T19:01:22.887255
+2026-11-15,401909990,STATUS_SCHEDULED,False,False,Toronto Raptors,New York Knicks,0,0,0,0,,,,,,,,,NY -5.5,217.5,Scotiabank Arena,0,2026-11-15T19:01:22.887264
+2026-11-15,401909991,STATUS_SCHEDULED,False,False,Washington Wizards,Houston Rockets,0,0,0,0,,,,,,,,,HOU -8.5,224.5,Capital One Arena,0,2026-11-15T19:01:22.887272
+2026-11-15,401909992,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Atlanta Hawks,0,0,0,0,,,,,,,,,ATL -8.5,233.5,Fiserv Forum,0,2026-11-15T19:01:22.887287
+2026-11-15,401909993,STATUS_SCHEDULED,False,False,Sacramento Kings,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -10.5,222.5,Golden 1 Center,0,2026-11-15T19:01:22.887297
