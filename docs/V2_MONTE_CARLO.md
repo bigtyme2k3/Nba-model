@@ -16,6 +16,10 @@ threes model) into outcome distributions for each player-game:
 - **Points from scoring events:** 3 x the simulated threes + 2 x two-point makes + free
   throws (non-three points split by `ft_share`, fit 0.23). Counting points one at a time
   made the distribution too narrow; this also links points to the threes market.
+- **Same-game coupling:** each player's simulations are reordered within a game so
+  points ranks follow a Gaussian reference with teammate correlation -0.03 and
+  opponent correlation +0.01 (fit on 2023-24 residuals). Whole simulations move
+  together, so each player's distribution and every single-prop price are unchanged.
 - Each player's simulated mean is held equal to the model's expectation, so the
   simulation adds shape only and never re-applies injury or minutes effects that V2's
   projection already contains.
@@ -47,9 +51,33 @@ percentiles, Monte Carlo standard errors, CRPS, Brier and log loss.
 games in the bottom decile, 12.2% in the top) are fixed by event-built points: points
 CRPS 3.229 → 3.206 and log loss 0.661 → 0.658 on 2025-26, other stats unchanged.
 
-The shared game factor now fits at 0.10 (it was 0), so teammates move together. It
-is fit on individual CRPS, not on same-game residual correlation: same-game
-combinations must still not be priced from this version.
+### Same-game dependence (V2_MC_3)
+A shared game factor can only make everyone in a game move together, but real
+teammates move slightly against each other (2023-24 points residuals: teammates
+-0.029, opponents +0.011; rebounds and assists closer to 0). The CRPS-fit game factor
+(0.10) made teammates +0.028, the wrong sign. Extra within-team usage noise could
+match the sign only by making every player's points distribution too wide (bottom
+decile 7.7%), so dependence is now set by reordering instead (see above); the game
+factor stays as a marginal-shape parameter only.
+
+Out of sample (all same-game pairs, "both over" at pseudo-lines, ~135k teammate and
+~147k opponent pairs per season):
+
+| | 2024-25 actual / simulated corr | 2025-26 actual / simulated | Log loss independent → coupled |
+|---|---|---|---|
+| PTS teammates | -0.026 / -0.028 | -0.025 / -0.028 | 0.47603 → 0.47582 ; 0.47593 → 0.47588 |
+| PTS opponents | +0.014 / +0.009 | +0.012 / +0.009 | 0.48876 → 0.48889 ; 0.48865 → 0.48876 |
+| PRA teammates | -0.005 / -0.023 | -0.003 / -0.023 | 0.49527 → 0.49525 ; 0.49604 → 0.49604 |
+| PRA opponents | +0.008 / +0.007 | +0.005 / +0.008 | 0.50331 → 0.50340 ; 0.50398 → 0.50407 |
+
+- The teammate points correlation holds on both untouched seasons.
+- Same-game dependence between player props is tiny: joint probabilities move by
+  about 0.4 percentage points, and pricing gains over independence are at the fifth
+  decimal, slightly negative for opponents. PRA teammates are too negative (the
+  coupling is keyed on points; rebounds and assists offset it in reality).
+- Conclusion: independence is an adequate approximation for player-prop pairs; the
+  coupling is not a source of edge and same-game combinations should not be priced
+  as if it were. Parameters were not re-tuned on the test seasons.
 
 ## Phase 3: recorded sportsbook prices (`python -m v2.simulation.price_research`)
 The ledger's graded props (2026-27, Oct 27 - Nov 13, 17 dates) at the exact quote
@@ -80,10 +108,7 @@ V2's absences use the injury report version scraped before that day's prediction
 - Novig: no graded Novig quotes recorded yet; reported separately once they exist.
 
 ## Next phases
-1. Game factor fit on same-game residual correlation (needed before any combinations).
-2. A stricter gate for the MC arm (a margin or a confidence interval, not "≤ market"),
-   decided before more forward data is looked at.
-3. Daily shadow publication beside `v2_pred`, forward grading and the V2 Research Lab;
+1. Daily shadow publication beside `v2_pred`, forward grading and the V2 Research Lab;
    rerun Phase 3 as the ledger grows and Novig quotes accrue.
 
 ## Promotion review
