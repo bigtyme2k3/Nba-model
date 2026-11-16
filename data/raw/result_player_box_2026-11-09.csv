@@ -40,7 +40,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,4396971,Naz Reid,C,True,False,32.0,25.0,13.0,4.0,2.0,0.0,3.0,1.0,12.0,10.0,26.0,4.0,9.0,1.0,2.0,16.0,espn_api
 401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,4576060,Ryan Kalkbrenner,C,True,False,35.0,8.0,15.0,3.0,1.0,3.0,2.0,10.0,5.0,4.0,7.0,0.0,0.0,0.0,0.0,20.0,espn_api
 401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,3135045,Grayson Allen,G,True,False,34.0,27.0,4.0,6.0,2.0,0.0,3.0,1.0,3.0,8.0,14.0,6.0,12.0,5.0,6.0,-1.0,espn_api
-401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,4395651,Coby White,G,True,False,20.0,10.0,2.0,9.0,0.0,0.0,3.0,1.0,1.0,3.0,12.0,0.0,4.0,4.0,5.0,-6.0,espn_api
+401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,4395651,Coby White,G,True,False,20.0,10.0,2.0,9.0,0.0,0.0,2.0,1.0,1.0,3.0,12.0,0.0,4.0,4.0,5.0,-6.0,espn_api
 401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,4602025,Sion James,G,True,False,33.0,11.0,4.0,4.0,2.0,0.0,0.0,0.0,4.0,4.0,9.0,3.0,6.0,0.0,0.0,18.0,espn_api
 401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,2583632,Royce O'Neale,F,False,False,23.0,10.0,3.0,1.0,1.0,0.0,0.0,0.0,3.0,4.0,8.0,2.0,5.0,0.0,0.0,12.0,espn_api
 401909953,2026,2026-11-09,Hornets,Charlotte,CHA,home,5211176,Tidjane Salaun,F,False,False,18.0,14.0,3.0,0.0,1.0,0.0,0.0,0.0,3.0,4.0,6.0,3.0,4.0,3.0,3.0,-3.0,espn_api
@@ -157,7 +157,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909957,2026,2026-11-09,Rockets,Houston,HOU,home,2991235,Steven Adams,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401909957,2026,2026-11-09,Rockets,Houston,HOU,home,3102529,Clint Capela,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4592479,Julian Champagnie,F,True,False,27.0,11.0,3.0,2.0,2.0,0.0,2.0,0.0,3.0,4.0,11.0,3.0,9.0,0.0,0.0,2.0,espn_api
-401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,5104157,Victor Wembanyama,F,True,False,25.0,40.0,11.0,3.0,0.0,9.0,1.0,2.0,9.0,15.0,19.0,2.0,3.0,8.0,10.0,30.0,espn_api
+401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,5104157,Victor Wembanyama,F,True,False,25.0,40.0,11.0,3.0,0.0,8.0,1.0,2.0,9.0,15.0,19.0,2.0,3.0,8.0,10.0,30.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4066259,De'Aaron Fox,G,True,False,29.0,15.0,9.0,6.0,0.0,0.0,1.0,0.0,9.0,5.0,8.0,2.0,4.0,3.0,3.0,20.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,4845367,Stephon Castle,G,True,False,30.0,4.0,7.0,7.0,1.0,0.0,2.0,3.0,4.0,2.0,9.0,0.0,1.0,0.0,2.0,13.0,espn_api
 401909958,2026,2026-11-09,Spurs,San Antonio,SA,away,5037871,Dylan Harper,G,True,False,26.0,17.0,5.0,4.0,0.0,0.0,0.0,0.0,5.0,7.0,10.0,0.0,2.0,3.0,5.0,30.0,espn_api
