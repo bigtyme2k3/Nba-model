@@ -155,7 +155,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909943,2026,2026-11-07,Suns,Phoenix,PHX,home,4066268,Duop Reath,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401909943,2026,2026-11-07,Suns,Phoenix,PHX,home,4280245,Jamaree Bouyea,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401909943,2026,2026-11-07,Suns,Phoenix,PHX,home,4592714,Pat Spencer,G,False,True,,,,,,,,,,,,,,,,,espn_api
-401909944,2026,2026-11-07,Spurs,San Antonio,SA,away,5104157,Victor Wembanyama,F,True,False,24.0,29.0,7.0,3.0,1.0,1.0,2.0,1.0,6.0,9.0,13.0,3.0,6.0,8.0,9.0,23.0,espn_api
+401909944,2026,2026-11-07,Spurs,San Antonio,SA,away,5104157,Victor Wembanyama,F,True,False,24.0,29.0,7.0,3.0,1.0,2.0,2.0,1.0,6.0,9.0,13.0,3.0,6.0,8.0,9.0,23.0,espn_api
 401909944,2026,2026-11-07,Spurs,San Antonio,SA,away,4066259,De'Aaron Fox,G,True,False,22.0,8.0,3.0,6.0,1.0,1.0,1.0,1.0,2.0,1.0,3.0,1.0,2.0,5.0,6.0,23.0,espn_api
 401909944,2026,2026-11-07,Spurs,San Antonio,SA,away,4395630,Devin Vassell,G,True,False,21.0,15.0,2.0,3.0,2.0,0.0,0.0,1.0,1.0,4.0,8.0,2.0,4.0,5.0,5.0,26.0,espn_api
 401909944,2026,2026-11-07,Spurs,San Antonio,SA,away,4845367,Stephon Castle,G,True,False,24.0,14.0,7.0,5.0,0.0,1.0,2.0,3.0,4.0,5.0,12.0,2.0,5.0,2.0,2.0,19.0,espn_api

@@ -58,13 +58,13 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4433627,Keyonte George,G,True,False,30.0,19.0,5.0,8.0,2.0,0.0,2.0,0.0,5.0,5.0,13.0,0.0,3.0,9.0,10.0,-12.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4873138,Ace Bailey,G,True,False,32.0,7.0,2.0,3.0,4.0,0.0,2.0,1.0,1.0,3.0,9.0,1.0,4.0,0.0,0.0,-8.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,5041955,Darryn Peterson,G,True,False,35.0,26.0,6.0,4.0,1.0,0.0,3.0,1.0,5.0,11.0,21.0,4.0,8.0,0.0,0.0,3.0,espn_api
-401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4684793,Kyle Filipowski,F,False,False,15.0,9.0,6.0,1.0,0.0,0.0,1.0,2.0,4.0,4.0,10.0,1.0,2.0,0.0,0.0,-7.0,espn_api
+401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4684793,Kyle Filipowski,F,False,False,15.0,9.0,6.0,0.0,0.0,0.0,1.0,2.0,4.0,4.0,10.0,1.0,2.0,0.0,0.0,-7.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,5105839,Brice Sensabaugh,F,False,False,13.0,2.0,3.0,0.0,1.0,0.0,0.0,2.0,1.0,1.0,10.0,0.0,3.0,0.0,0.0,-4.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4065673,Tony Bradley,C,False,False,2.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4277919,Mo Bamba,C,False,False,17.0,3.0,3.0,1.0,1.0,2.0,0.0,1.0,2.0,1.0,1.0,0.0,0.0,1.0,2.0,-17.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,3133602,Svi Mykhailiuk,G,False,False,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4065663,Josh Okogie,G,False,False,17.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,3.0,0.0,1.0,0.0,0.0,-19.0,espn_api
-401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4683766,Isaiah Collier,G,False,False,16.0,6.0,4.0,2.0,0.0,0.0,2.0,0.0,4.0,3.0,6.0,0.0,0.0,0.0,0.0,-14.0,espn_api
+401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4683766,Isaiah Collier,G,False,False,16.0,6.0,4.0,3.0,0.0,0.0,2.0,0.0,4.0,3.0,6.0,0.0,0.0,0.0,0.0,-14.0,espn_api
 401909947,2026,2026-11-08,Jazz,Utah,UTAH,away,4683736,Kobe Bufkin,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401909947,2026,2026-11-08,Timberwolves,Minnesota,MIN,home,4431671,Jaden McDaniels,F,True,False,33.0,16.0,6.0,3.0,1.0,1.0,4.0,2.0,4.0,5.0,9.0,2.0,3.0,4.0,4.0,17.0,espn_api
 401909947,2026,2026-11-08,Timberwolves,Minnesota,MIN,home,4433247,Jonathan Kuminga,F,True,False,25.0,4.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,2.0,5.0,0.0,2.0,0.0,0.0,-10.0,espn_api
@@ -107,21 +107,21 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909948,2026,2026-11-08,Mavericks,Dallas,DAL,home,4896372,Walter Clayton Jr.,G,False,False,16.0,5.0,4.0,6.0,2.0,0.0,2.0,1.0,3.0,2.0,3.0,1.0,2.0,0.0,0.0,21.0,espn_api
 401909948,2026,2026-11-08,Mavericks,Dallas,DAL,home,5105806,Jett Howard,G,False,False,3.0,5.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,2.0,1.0,2.0,2.0,2.0,11.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4251,Paul George,F,True,False,28.0,27.0,3.0,1.0,2.0,0.0,2.0,1.0,2.0,11.0,18.0,5.0,10.0,0.0,0.0,16.0,espn_api
-401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4065648,Jayson Tatum,F,True,False,29.0,21.0,4.0,6.0,1.0,1.0,1.0,1.0,3.0,6.0,19.0,5.0,11.0,4.0,4.0,5.0,espn_api
-401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4397424,Neemias Queta,C,True,False,22.0,13.0,9.0,4.0,0.0,0.0,1.0,5.0,4.0,6.0,11.0,0.0,0.0,1.0,2.0,0.0,espn_api
+401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4065648,Jayson Tatum,F,True,False,29.0,21.0,4.0,6.0,1.0,1.0,1.0,1.0,3.0,6.0,18.0,5.0,11.0,4.0,4.0,5.0,espn_api
+401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4397424,Neemias Queta,C,True,False,22.0,13.0,8.0,4.0,0.0,0.0,1.0,4.0,4.0,6.0,11.0,0.0,0.0,1.0,2.0,0.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,3195,Mike Conley,G,True,False,10.0,3.0,3.0,1.0,0.0,0.0,1.0,1.0,2.0,1.0,2.0,1.0,2.0,0.0,0.0,-11.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,3078576,Derrick White,G,True,False,27.0,9.0,3.0,7.0,2.0,2.0,1.0,1.0,2.0,4.0,10.0,1.0,5.0,0.0,0.0,7.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4065804,Sam Hauser,F,False,False,23.0,7.0,3.0,1.0,0.0,0.0,1.0,1.0,2.0,3.0,5.0,1.0,3.0,0.0,0.0,15.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4277951,Luka Garza,C,False,False,9.0,4.0,5.0,0.0,0.0,1.0,0.0,3.0,2.0,1.0,2.0,0.0,0.0,2.0,4.0,3.0,espn_api
-401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4351852,Mitchell Robinson,C,False,False,18.0,12.0,7.0,2.0,4.0,1.0,0.0,4.0,3.0,6.0,6.0,0.0,0.0,0.0,2.0,19.0,espn_api
-401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4066354,Payton Pritchard,G,False,False,29.0,12.0,5.0,4.0,1.0,0.0,0.0,1.0,4.0,4.0,12.0,4.0,11.0,0.0,0.0,29.0,espn_api
+401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4351852,Mitchell Robinson,C,False,False,18.0,12.0,7.0,2.0,5.0,1.0,0.0,4.0,3.0,6.0,6.0,0.0,0.0,0.0,2.0,19.0,espn_api
+401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4066354,Payton Pritchard,G,False,False,29.0,12.0,5.0,4.0,0.0,0.0,0.0,1.0,4.0,4.0,12.0,4.0,11.0,0.0,0.0,29.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4397251,Ron Harper Jr.,G,False,False,4.0,2.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,-1.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4593841,Baylor Scheierman,G,False,False,19.0,7.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,2.0,6.0,1.0,4.0,2.0,2.0,15.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,4683689,Jordan Walsh,G,False,False,11.0,0.0,3.0,0.0,1.0,0.0,1.0,1.0,2.0,0.0,2.0,0.0,1.0,0.0,0.0,3.0,espn_api
 401909949,2026,2026-11-08,Celtics,Boston,BOS,away,5175647,Hugo Gonzalez,G,False,False,10.0,0.0,2.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,espn_api
-401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,3134907,Kyle Kuzma,F,True,False,31.0,27.0,4.0,0.0,1.0,2.0,1.0,0.0,4.0,10.0,17.0,6.0,13.0,1.0,2.0,-4.0,espn_api
+401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,3134907,Kyle Kuzma,F,True,False,31.0,27.0,4.0,0.0,1.0,1.0,1.0,0.0,4.0,10.0,17.0,6.0,13.0,1.0,2.0,-4.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,4432848,Jaime Jaquez Jr.,F,True,False,23.0,4.0,2.0,2.0,1.0,0.0,0.0,0.0,2.0,1.0,3.0,0.0,2.0,2.0,2.0,-6.0,espn_api
-401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,3133628,Myles Turner,C,True,False,24.0,3.0,5.0,7.0,0.0,1.0,2.0,1.0,4.0,1.0,8.0,0.0,3.0,1.0,1.0,-3.0,espn_api
+401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,3133628,Myles Turner,C,True,False,24.0,3.0,6.0,7.0,0.0,1.0,2.0,1.0,5.0,1.0,8.0,0.0,3.0,1.0,1.0,-3.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,4395725,Tyler Herro,G,True,False,27.0,13.0,1.0,2.0,0.0,0.0,1.0,0.0,1.0,5.0,12.0,1.0,5.0,2.0,2.0,-3.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,5082206,Brayden Burries,G,True,False,29.0,13.0,8.0,4.0,0.0,1.0,1.0,4.0,4.0,5.0,11.0,1.0,4.0,2.0,2.0,-12.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,4997526,Ousmane Dieng,F,False,False,15.0,10.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,3.0,3.0,2.0,2.0,2.0,2.0,-2.0,espn_api
@@ -129,7 +129,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,4277922,Jericho Sims,C,False,False,15.0,2.0,2.0,0.0,0.0,0.0,1.0,0.0,2.0,1.0,3.0,0.0,1.0,0.0,0.0,-2.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,5105623,Kel'el Ware,C,False,False,9.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,-15.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,4397475,AJ Green,G,False,False,18.0,5.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,2.0,6.0,1.0,5.0,0.0,0.0,-21.0,espn_api
-401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,4591725,Ryan Rollins,G,False,False,20.0,7.0,5.0,6.0,1.0,0.0,3.0,0.0,5.0,2.0,4.0,2.0,3.0,1.0,1.0,-7.0,espn_api
+401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,4591725,Ryan Rollins,G,False,False,20.0,7.0,4.0,6.0,1.0,0.0,3.0,0.0,4.0,2.0,4.0,2.0,3.0,1.0,1.0,-7.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,5214640,Kasparas Jakucionis,G,False,False,7.0,1.0,2.0,0.0,0.0,0.0,2.0,2.0,0.0,0.0,1.0,0.0,1.0,1.0,2.0,-11.0,espn_api
 401909949,2026,2026-11-08,Bucks,Milwaukee,MIL,home,2991043,Caris LeVert,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401909950,2026,2026-11-08,Pelicans,New Orleans,NO,away,4395628,Zion Williamson,F,True,False,31.0,25.0,4.0,2.0,0.0,0.0,2.0,1.0,3.0,9.0,9.0,0.0,0.0,7.0,9.0,0.0,espn_api
