@@ -1,4 +1,8 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-10-29,401909893,STATUS_FINAL,True,False,Atlanta Hawks,Cleveland Cavaliers,114,111,3,225,16.0,30.0,43.0,25.0,28.0,16.0,38.0,29.0,,,State Farm Arena,15025,2026-11-16T17:52:03.041177
-2026-10-29,401909894,STATUS_FINAL,True,False,New Orleans Pelicans,Sacramento Kings,132,120,12,252,24.0,39.0,39.0,30.0,30.0,31.0,27.0,32.0,,,Smoothie King Center,15442,2026-11-16T17:52:03.041198
-2026-10-29,401909895,STATUS_FINAL,True,False,Portland Trail Blazers,Memphis Grizzlies,103,124,-21,227,25.0,33.0,25.0,20.0,25.0,33.0,33.0,33.0,,,Moda Center,19367,2026-11-16T17:52:03.041210
+2026-10-31,401909896,STATUS_FINAL,True,False,Utah Jazz,Portland Trail Blazers,90,112,-22,202,18.0,24.0,22.0,26.0,27.0,32.0,29.0,24.0,,,Delta Center,17867,2026-11-16T20:59:26.303956
+2026-10-31,401909897,STATUS_FINAL,True,False,Charlotte Hornets,Philadelphia 76ers,104,109,-5,213,37.0,17.0,29.0,21.0,27.0,30.0,20.0,32.0,,,Spectrum Center,19533,2026-11-16T20:59:26.303974
+2026-10-31,401909898,STATUS_FINAL,True,False,New Orleans Pelicans,Atlanta Hawks,121,99,22,220,35.0,28.0,29.0,29.0,18.0,30.0,26.0,25.0,,,Smoothie King Center,15366,2026-11-16T20:59:26.303986
+2026-10-31,401909899,STATUS_FINAL,True,False,Memphis Grizzlies,Sacramento Kings,136,105,31,241,27.0,39.0,42.0,28.0,21.0,34.0,25.0,25.0,,,FedExForum,15060,2026-11-16T20:59:26.303997
+2026-10-31,401909900,STATUS_FINAL,True,False,Milwaukee Bucks,Cleveland Cavaliers,111,136,-25,247,25.0,21.0,30.0,35.0,24.0,48.0,37.0,27.0,,,Fiserv Forum,12572,2026-11-16T20:59:26.304008
+2026-10-31,401909901,STATUS_FINAL,True,False,San Antonio Spurs,Minnesota Timberwolves,121,111,10,232,34.0,26.0,33.0,28.0,28.0,33.0,27.0,23.0,,,Frost Bank Center,18354,2026-11-16T20:59:26.304018
+2026-10-31,401909902,STATUS_FINAL,True,False,Houston Rockets,Oklahoma City Thunder,119,98,21,217,35.0,27.0,30.0,27.0,26.0,25.0,24.0,23.0,,,Toyota Center (Houston),18055,2026-11-16T20:59:26.304028

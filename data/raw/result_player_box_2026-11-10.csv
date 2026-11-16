@@ -32,13 +32,13 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4397424,Neemias Queta,C,True,False,22.0,4.0,6.0,3.0,0.0,0.0,1.0,1.0,5.0,2.0,4.0,0.0,0.0,0.0,0.0,16.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,3078576,Derrick White,G,True,False,22.0,5.0,1.0,3.0,0.0,0.0,1.0,0.0,1.0,2.0,6.0,1.0,4.0,0.0,0.0,6.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4683689,Jordan Walsh,G,True,False,19.0,8.0,2.0,2.0,1.0,0.0,0.0,0.0,2.0,3.0,7.0,1.0,5.0,1.0,1.0,-6.0,espn_api
-401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4065804,Sam Hauser,F,False,False,18.0,12.0,5.0,2.0,0.0,0.0,0.0,0.0,5.0,4.0,6.0,4.0,6.0,0.0,0.0,24.0,espn_api
+401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4065804,Sam Hauser,F,False,False,18.0,12.0,4.0,2.0,0.0,0.0,0.0,0.0,4.0,4.0,6.0,4.0,6.0,0.0,0.0,24.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4277951,Luka Garza,C,False,False,9.0,2.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,0.0,1.0,0.0,0.0,-2.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4351852,Mitchell Robinson,C,False,False,17.0,2.0,6.0,2.0,1.0,1.0,0.0,4.0,2.0,1.0,5.0,0.0,0.0,0.0,0.0,8.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4066354,Payton Pritchard,G,False,False,30.0,18.0,6.0,5.0,1.0,0.0,0.0,0.0,6.0,7.0,15.0,4.0,8.0,0.0,0.0,26.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4397251,Ron Harper Jr.,G,False,False,4.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,2.0,0.0,2.0,0.0,0.0,-5.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,4593841,Baylor Scheierman,G,False,False,18.0,5.0,3.0,2.0,0.0,0.0,0.0,0.0,3.0,2.0,3.0,1.0,1.0,0.0,0.0,3.0,espn_api
-401909961,2026,2026-11-10,Celtics,Boston,BOS,away,5175647,Hugo Gonzalez,G,False,False,19.0,10.0,2.0,2.0,3.0,1.0,1.0,0.0,2.0,4.0,6.0,2.0,4.0,0.0,0.0,17.0,espn_api
+401909961,2026,2026-11-10,Celtics,Boston,BOS,away,5175647,Hugo Gonzalez,G,False,False,19.0,10.0,3.0,2.0,3.0,1.0,1.0,0.0,3.0,4.0,6.0,2.0,4.0,0.0,0.0,17.0,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,5106283,Dillon Mitchell,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,5142621,Chris Cenac Jr.,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401909961,2026,2026-11-10,Celtics,Boston,BOS,away,3195,Mike Conley,G,False,True,,,,,,,,,,,,,,,,,espn_api
@@ -134,7 +134,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,3133626,Kenrich Williams,G,True,False,19.0,3.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,1.0,3.0,1.0,1.0,0.0,0.0,-15.0,espn_api
 401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,4278073,Shai Gilgeous-Alexander,G,True,False,29.0,26.0,8.0,3.0,0.0,1.0,2.0,2.0,6.0,8.0,22.0,0.0,4.0,10.0,11.0,-17.0,espn_api
 401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,4683778,Jared McCain,G,True,False,31.0,21.0,3.0,3.0,0.0,0.0,1.0,0.0,3.0,6.0,12.0,4.0,7.0,5.0,6.0,-14.0,espn_api
-401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,4900671,Ajay Mitchell,G,True,False,28.0,14.0,3.0,3.0,1.0,0.0,2.0,1.0,2.0,6.0,10.0,0.0,1.0,2.0,2.0,-18.0,espn_api
+401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,4900671,Ajay Mitchell,G,True,False,28.0,14.0,3.0,3.0,1.0,0.0,3.0,1.0,2.0,6.0,10.0,0.0,1.0,2.0,2.0,-18.0,espn_api
 401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,4684208,Brooks Barnhizer,F,False,False,5.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,2.0,espn_api
 401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,5174983,Aday Mara,C,False,False,26.0,10.0,10.0,2.0,0.0,1.0,0.0,4.0,6.0,5.0,9.0,0.0,0.0,0.0,1.0,-14.0,espn_api
 401909965,2026,2026-11-10,Thunder,Oklahoma City,OKC,away,2991350,Alex Caruso,G,False,False,19.0,5.0,2.0,1.0,0.0,1.0,3.0,0.0,2.0,1.0,5.0,1.0,3.0,2.0,2.0,-5.0,espn_api
