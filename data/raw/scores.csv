@@ -232,3 +232,8 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-02,401909919,STATUS_FINAL,True,False,Golden State Warriors,Phoenix Suns,116,113,3,229,19.0,32.0,42.0,23.0,31.0,26.0,36.0,20.0,,,Chase Center,18064,2026-11-17T08:05:25.974450
 2026-11-02,401909920,STATUS_FINAL,True,False,LA Clippers,Toronto Raptors,118,125,-7,243,33.0,30.0,28.0,27.0,22.0,30.0,26.0,47.0,,,Intuit Dome,16044,2026-11-17T08:05:25.974459
 2026-11-02,401909921,STATUS_FINAL,True,False,Los Angeles Lakers,Miami Heat,138,117,21,255,37.0,42.0,32.0,27.0,30.0,42.0,21.0,24.0,,,crypto.com Arena,18752,2026-11-17T08:05:25.974468
+2026-11-17,401910002,STATUS_SCHEDULED,False,False,Toronto Raptors,New York Knicks,0,0,0,0,,,,,,,,,NY -2.5,215.5,Scotiabank Arena,0,2026-11-17T15:19:16.812818
+2026-11-17,401910003,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Portland Trail Blazers,0,0,0,0,,,,,,,,,MIN -2.5,228.5,Target Center,0,2026-11-17T15:19:16.812836
+2026-11-17,401910004,STATUS_SCHEDULED,False,False,San Antonio Spurs,Detroit Pistons,0,0,0,0,,,,,,,,,SA -9.5,222.5,Frost Bank Center,0,2026-11-17T15:19:16.812847
+2026-11-17,401910006,STATUS_SCHEDULED,False,False,LA Clippers,Utah Jazz,0,0,0,0,,,,,,,,,LAC -6.5,225.5,Intuit Dome,0,2026-11-17T15:19:16.812857
+2026-11-17,401910005,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Charlotte Hornets,0,0,0,0,,,,,,,,,LAL -7.5,221.5,crypto.com Arena,0,2026-11-17T15:19:16.812866
