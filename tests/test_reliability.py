@@ -310,3 +310,27 @@ class ModelGovernanceTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PublicationReportNumpyTests(__import__("unittest").TestCase):
+    def test_props_report_with_numpy_metrics_is_written(self):
+        # 2026-11-16: numpy cv_mae made the checks np.bool_, json.dumps raised, and the
+        # Monday retrain stopped the whole daily pipeline.
+        import json, os, tempfile
+        import numpy as np
+        import model_publication as mp
+        from prop_features import VERSION
+        candidate = {"status": "trained", "feature_semantics_version": VERSION,
+                     "validation": "expanding_date_groups_fold_imputation", "trained_through": "2026-11-15",
+                     "models": {s: {"cv_mae": np.float64(v)} for s, v in
+                                {"pts": 4.66, "reb": 1.97, "ast": 1.37, "threes": 0.91, "pra": 6.17}.items()}}
+        with tempfile.TemporaryDirectory() as d:
+            cwd = os.getcwd()
+            os.chdir(d)
+            try:
+                self.assertTrue(mp.publish_model_bundle(candidate, "props.pkl", "props"))
+                report = json.loads(open("data/tracking/model_publication/props.json").read())
+            finally:
+                os.chdir(cwd)
+        self.assertIs(report["promotable"], True)
+        self.assertIs(report["checks"]["pts_sane_nonregression"], True)
