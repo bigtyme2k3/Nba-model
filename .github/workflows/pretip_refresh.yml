@@ -187,6 +187,7 @@ jobs:
             data/history/nba_pretip_execution_snapshots.jsonl \
             data/history/nba_mc_shadow_forecasts.jsonl \
             data/history/nba_model_picks.jsonl \
+            data/history/nba_game_predictions.jsonl \
             data/tracking/forward_ledger_status.json \
             data/tracking/execution_ledger_status.json \
             data/tracking/nba_execution_performance.json \

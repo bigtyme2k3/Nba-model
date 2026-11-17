@@ -30,7 +30,22 @@ TOTALS_FEATURES = [
     "home_rolling_allowed_5g","away_rolling_allowed_5g","rolling_total_sum_5g",
     "home_back_to_back","away_back_to_back","home_rest_days","away_rest_days","both_b2b",
     "long_travel","month","is_playoff","season_game_num",
+    # Availability (2026-11-17): rotation regulars missing, box scores in training and
+    # OUT on the injury report live, as in the spread model (team_availability.py).
+    # 2025-26 hold-out: MAE 15.324 -> 15.244 (95% CI of the change -0.144 to -0.017);
+    # with only 62% of absences known pregame, as live, still 15.267.
+    "home_vac_value","away_vac_value","home_vac_minutes","away_vac_minutes",
+    "vac_value_sum","vac_minutes_sum",
 ]
+
+def add_availability_totals(df):
+    """Combined absences for the totals model (missing columns stay absent)."""
+    if {"home_vac_value", "away_vac_value"} <= set(df.columns):
+        df["vac_value_sum"] = df["home_vac_value"].fillna(0) + df["away_vac_value"].fillna(0)
+    if {"home_vac_minutes", "away_vac_minutes"} <= set(df.columns):
+        df["vac_minutes_sum"] = df["home_vac_minutes"].fillna(0) + df["away_vac_minutes"].fillna(0)
+    return df
+
 
 def engineer_totals_features(df):
     df = df.sort_values(["season","game_date"]).reset_index(drop=True)
@@ -69,7 +84,7 @@ def engineer_totals_features(df):
     if "month" in df.columns:
         # NBA playoffs run April - June.
         df["is_playoff"] = df["month"].isin([4, 5, 6]).astype(int)
-    return df
+    return add_availability_totals(df)
 
 def add_rolling_scoring(df, window=5):
     """Add strictly prior rolling scoring features without changing game cardinality."""
@@ -246,6 +261,7 @@ def train_totals_model(data_path):
             "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
             "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
             "feature_names_count": int(len(available)),
+            "availability_features": "ROTATION_ABSENCES_V1",
         }
     publish_model_bundle(candidate_bundle, path, "totals")
     print(f"\nActive model → {path} (see publication report)")

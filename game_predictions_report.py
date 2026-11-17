@@ -79,6 +79,62 @@ def follow_fade(rows: list[dict]) -> dict:
                               f"{sum(r['outcome'] == 'LOSS' for r in graded if r.get('decision') == 'BET')}"}
 
 
+GAME_PHASES = Path("data/history/nba_game_predictions.jsonl")
+
+
+def phase_records(fin: dict, path=GAME_PHASES) -> dict:
+    """Winner, ATS and O/U records and errors for EARLY and ADJUSTED game predictions,
+    graded against the market line each phase recorded; plus how much the adjusted
+    pass moved the early prediction."""
+    if not Path(path).exists():
+        return {}
+    rows = [json.loads(l) for l in Path(path).read_text().splitlines() if l.strip()]
+    out = {}
+    graded = {}
+    for r in rows:
+        k = _key(r["date"], r["away"], r["home"])
+        if k not in fin:
+            continue
+        hs, as_ = fin[k]
+        margin, total = hs - as_, hs + as_
+        g = {"winner": (r["pred_home_margin"] > 0) == (margin > 0),
+             "margin_err": abs(r["pred_home_margin"] - margin)}
+        line = r.get("market_home_line")
+        if line is not None and margin + line != 0 and r["pred_home_margin"] + line != 0:
+            g["ats"] = ((r["pred_home_margin"] + line) > 0) == ((margin + line) > 0)
+        if r.get("pred_total") is not None:
+            g["total_err"] = abs(r["pred_total"] - total)
+            mt = r.get("market_total")
+            if mt is not None and total != mt and r["pred_total"] != mt:
+                g["ou"] = (r["pred_total"] > mt) == (total > mt)
+                g["line_total_err"] = abs(mt - total)
+        graded.setdefault(r["phase"], []).append(g)
+        graded.setdefault(("pair", r["date"], r["game"]), {})[r["phase"]] = r
+    for phase in ("EARLY", "ADJUSTED"):
+        gs = graded.get(phase, [])
+        if not gs:
+            out[phase] = {"games": 0}
+            continue
+        def rec(field):
+            v = [g[field] for g in gs if field in g]
+            return {"wins": int(sum(v)), "losses": int(len(v) - sum(v)), "rate": round(sum(v) / len(v), 4) if v else None}
+        mean = lambda f: round(sum(g[f] for g in gs if f in g) / max(1, sum(f in g for g in gs)), 2)
+        out[phase] = {"games": len(gs), "winner": rec("winner"), "ats": rec("ats"), "ou": rec("ou"),
+                      "margin_mae": mean("margin_err"), "total_mae": mean("total_err"),
+                      "line_total_mae": mean("line_total_err")}
+    pairs = [v for k, v in graded.items() if isinstance(k, tuple) and k[0] == "pair" and {"EARLY", "ADJUSTED"} <= set(v)]
+    if pairs:
+        dm = [abs(p["ADJUSTED"]["pred_home_margin"] - p["EARLY"]["pred_home_margin"]) for p in pairs]
+        dt = [abs((p["ADJUSTED"]["pred_total"] or 0) - (p["EARLY"]["pred_total"] or 0)) for p in pairs
+              if p["ADJUSTED"]["pred_total"] is not None and p["EARLY"]["pred_total"] is not None]
+        out["changes"] = {"games_with_both": len(pairs),
+                          "spread_moved": int(sum(d > 0.05 for d in dm)), "mean_spread_move": round(sum(dm) / len(dm), 2),
+                          "total_moved": int(sum(d > 0.05 for d in dt)), "mean_total_move": round(sum(dt) / len(dt), 2) if dt else None,
+                          "winner_flipped": int(sum((p["EARLY"]["pred_home_margin"] > 0) != (p["ADJUSTED"]["pred_home_margin"] > 0)
+                                                    for p in pairs))}
+    return out
+
+
 def main():
     ledger = [json.loads(l) for l in LEDGER.read_text().splitlines() if l.strip()]
     ledger = [r for r in ledger if str(r.get("date", "")) >= SEASON_START]
@@ -122,6 +178,7 @@ def main():
                       "market_total_mae": round(float((t["market_total"] - t["total"]).abs().mean()), 2) if len(t) else None,
                       "total_games": int(len(t))},
         })
+    report["phases"] = phase_records(fin)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(report, indent=2, default=str) + "\n")
     print(json.dumps(report, indent=2, default=str))

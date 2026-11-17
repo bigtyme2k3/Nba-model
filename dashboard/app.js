@@ -197,6 +197,13 @@
     if(!r||!r.bets) return null;
     return [esc(fmt(r.bets,0)),esc(`${r.model_wins}–${r.model_losses}`),esc(pct(r.model_win_rate)),`${esc(signed(r.follow_units,1))}u<br><span class="small muted" style="white-space:nowrap">${esc(signed(r.follow_roi*100,1))}%</span>`,`${esc(signed(r.fade_units,1))}u<br><span class="small muted" style="white-space:nowrap">${esc(signed(r.fade_roi*100,1))}%</span>`];
   }
+  function phaseTable(P) {
+    if(!P||!(P.EARLY?.games||P.ADJUSTED?.games)) return '<p class="small muted">Early (morning) and adjusted (after the injury report) game predictions are graded separately once both have been recorded.</p>';
+    const r=x=>x&&x.rate!=null?`${x.wins}–${x.losses} (${pct(x.rate)})`:'—';
+    const line=(label,p)=>p&&p.games?`<tr><td>${esc(label)}</td><td>${esc(fmt(p.games,0))}</td><td>${esc(r(p.winner))}</td><td>${esc(r(p.ats))}</td><td>${esc(r(p.ou))}</td><td>${esc(fmt(p.margin_mae,1))}</td><td>${esc(fmt(p.total_mae,1))}</td></tr>`:`<tr><td>${esc(label)}</td><td colspan="6" class="muted">Not graded yet</td></tr>`;
+    const c=P.changes;
+    return `<h3 class="review-heading">Early vs adjusted (after the injury report)</h3><div class="table-wrap"><table class="quote-table"><thead><tr><th>Phase</th><th>Games</th><th>Winner</th><th>ATS</th><th>O/U</th><th>Margin miss</th><th>Total miss</th></tr></thead><tbody>${line('Early',P.EARLY)}${line('Adjusted',P.ADJUSTED)}</tbody></table></div>${c?`<p class="small muted">Adjusted pass moved the spread in ${fmt(c.spread_moved,0)} of ${fmt(c.games_with_both,0)} games (avg ${fmt(c.mean_spread_move,1)} pts), the total in ${fmt(c.total_moved,0)} (avg ${fmt(c.mean_total_move,1)}), and flipped the winner ${fmt(c.winner_flipped,0)} times.</p>`:''}`;
+  }
   function gamePredictionResults() {
     const G=D.game_predictions||{};
     if(!G.games) return '';
@@ -205,6 +212,7 @@
     return `<section class="panel"><h2 class="inline-title">Game predictions</h2><p class="subtitle">${esc(fmt(G.games,0))} regular-season games, ${esc(G.first_date||'')} to ${esc(G.last_date||'')}. Every game the model projected, not only qualified bets.</p>
       <div class="detail-metrics">${metric('Winner · model',`${w.model_wins}–${w.model_losses} (${pct(w.model_rate)})`,true)}${metric('Winner · market favorite',w.games_with_market_line?`${w.market_favorite_wins}–${w.market_favorite_losses} (${pct(w.market_favorite_rate)})`:'—')}${metric('Margin miss (avg)',`${fmt(e.model_margin_mae,1)} pts`)}${metric('Total miss · model vs line',`${fmt(e.model_total_mae,1)} vs ${fmt(e.market_total_mae,1)}`)}</div>
       <div class="table-wrap"><table class="quote-table"><thead><tr><th>Market</th><th>Games</th><th>Model W–L</th><th>Model win %</th><th>Follow</th><th>Fade</th></tr></thead><tbody>${row('Spread (ATS)',G.spread)}${row('Total (O/U)',G.total)}</tbody></table></div>
+      ${phaseTable(G.phases)}
       <p class="small muted">Spread and total records use the model\u2019s side at the recorded sportsbook price (follow) and the other side\u2019s price (fade); break-even is about 52.4% at \u2212110. Qualified bets so far: spread ${esc(G.spread?.qualified_bets||'0-0')}, total ${esc(G.total?.qualified_bets||'0-0')}.</p></section>`;
   }
   function modelPickResults() {
