@@ -450,6 +450,17 @@ def _normal_over_probability(pred, line, sigma):
     return 0.5 * (1.0 - math.erf(z))
 
 
+def opposite_odds(offers, book_key, line, side):
+    """The other side's price at the same book and line, so a fade of the model's side
+    can be graded at a real quote."""
+    other = "UNDER" if side == "OVER" else "OVER"
+    for o in offers or []:
+        if (o.get("book_key") == book_key and str(o.get("side", "")).upper() == other
+                and _float(o.get("line"), None) == _float(line, None) and _float(o.get("price"), None)):
+            return int(_float(o.get("price"), 0))
+    return None
+
+
 def novig_reference(offers, line, side):
     """Novig's quote on the same line and side as V1's selected sportsbook quote, for
     comparison only (never selected, never evidence)."""
@@ -1057,6 +1068,7 @@ def run_props(home, away, ctx, bundle, posted_lines=None, opportunity_adjustment
                     "market_source": best.get("source", "the-odds-api"),
                     "v2_pred": v2_pred,
                     "novig_reference": novig_reference(offers, best["line"], side),
+                    "opposite_odds": opposite_odds(book_offers, best.get("book_key"), best["line"], side),
                 }
                 continue
 
@@ -1102,6 +1114,60 @@ def score_confidence(edge, model_type):
     if ae >= t["HIGH"]: return "HIGH", 3
     if ae >= t["MED"]:  return "MED",  2
     return "LOW", 1
+
+
+# Data-collection bets (user decision 2026-11-17): every day V1 also issues its
+# DATA_BETS_PER_DAY strongest prop opinions as flat 1-unit BETs, whatever the
+# qualification rules say, so the forward record measures the model directly (follow
+# or fade). Strength = raw model probability minus the quote's no-vig probability.
+# Players with an availability block are skipped; one prop per player.
+DATA_BETS_PER_DAY = 10
+DATA_BET_UNITS = 1.0
+DATA_BET_POLICY = "DATA_COLLECTION_TOP10_RAW_EDGE"
+
+
+def data_collection_bets(games_output, existing, n=DATA_BETS_PER_DAY):
+    taken = {str(b.get("player", "")).strip().lower() for b in existing if b.get("type") == "PROP"}
+    pool = []
+    for g in games_output:
+        matchup = f"{g['away']['name']} @ {g['home']['name']}"
+        for pr in g.get("props", []):
+            for pt, pd_data in pr["props"].items():
+                side = pd_data.get("offer_side")
+                raw, mkt = _float(pd_data.get("raw_model_probability"), None), _float(pd_data.get("market_probability"), None)
+                if (pd_data.get("availability_block") or side not in {"OVER", "UNDER"} or raw is None or mkt is None
+                        or pd_data.get("book_key") not in V1_BOOKS or pd_data.get("odds") is None):
+                    continue
+                pool.append((raw - mkt, g, matchup, pr, pt, pd_data))
+    pool.sort(key=lambda x: -x[0])
+    picks = []
+    for strength, g, matchup, pr, pt, pd_data in pool:
+        key = str(pr["player"]).strip().lower()
+        if key in taken:
+            continue
+        taken.add(key)
+        side = pd_data["offer_side"]
+        pd_data["signal"] = side                 # the dashboard and ledger treat it as a BET
+        pd_data["bet_tier"] = "DATA_COLLECTION"
+        picks.append({
+            "type": "PROP", "game": matchup,
+            "play": f"{pr['player']} {pt.upper()} {side} {pd_data['line']}",
+            "market_line": pd_data.get("line"), "market_odds": pd_data.get("odds"),
+            "market_source": pd_data.get("market_source"), "book": pd_data.get("book"),
+            "book_key": pd_data.get("book_key"), "model_projection": pd_data.get("pred"),
+            "model_probability": pd_data.get("model_probability"),
+            "raw_model_probability": pd_data.get("raw_model_probability"),
+            "market_probability": pd_data.get("market_probability"),
+            "probability_edge": pd_data.get("probability_edge"), "ev": pd_data.get("ev"),
+            "player": pr["player"], "stat": pt.upper(), "side": side, "edge": pd_data.get("edge"),
+            "conf": "DATA", "stars": 1, "tip": g["tip"],
+            "units": DATA_BET_UNITS, "dollar_amt": DATA_BET_UNITS * 10.0, "verdict": "BET",
+            "bet_tier": "DATA_COLLECTION", "bet_policy": DATA_BET_POLICY,
+            "raw_edge_vs_market": round(strength, 4), "opposite_odds": pd_data.get("opposite_odds"),
+        })
+        if len(picks) >= n:
+            break
+    return picks
 
 
 def collect_best_bets(games_output):
@@ -1400,6 +1466,13 @@ def run_pipeline(target_date: date, schedule: list, posted_props: dict = None):
     if KELLY_AVAILABLE and best_bets:
         best_bets = size_all_bets(best_bets, bankroll=1000.0)
         print(f"  Kelly sizing applied: {sum(1 for b in best_bets if b.get('units',0)>0)} bets sized")
+    for b in best_bets:
+        b.setdefault("bet_tier", "QUALIFIED")
+    data_bets = data_collection_bets(games_output, [b for b in best_bets if str(b.get("verdict", "BET")).upper() in {"BET", "STRONG"}])
+    best_bets = best_bets + data_bets
+    for i, b in enumerate(best_bets):
+        b["rank"] = i + 1
+    print(f"  Data-collection bets: {len(data_bets)} (flat {DATA_BET_UNITS}u, {DATA_BET_POLICY})")
 
     return {
         "date":       str(target_date),

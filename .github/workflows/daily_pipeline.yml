@@ -173,6 +173,7 @@ jobs:
         run: |
           python -m v2.simulation.shadow grade
           python -m v2.compare
+          python data_bets_report.py
         continue-on-error: true
 
       - name: Reconcile yesterday's near-tip execution snapshots
