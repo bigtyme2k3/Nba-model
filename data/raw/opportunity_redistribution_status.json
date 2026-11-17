@@ -1,7 +1,7 @@
 {
   "status": "READY",
   "target_date": "2026-11-17",
-  "generated_at_utc": "2026-11-17T21:10:20.079419+00:00",
+  "generated_at_utc": "2026-11-17T23:21:49.022517+00:00",
   "injury_feed_status": "ok",
   "injury_rows": 107,
   "slate_teams": [
@@ -23,5 +23,5 @@
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 75
+  "adjustment_rows": 74
 }
