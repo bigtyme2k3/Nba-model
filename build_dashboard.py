@@ -183,6 +183,7 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
     }
     data['v2_lab'] = v2_lab_data(data.get('date'))
     data['model_picks'] = model_picks_for(data.get('date'))
+    data['data_bets'] = load_json('data/tracking/data_bets_report.json', {})
     return prepare_display(data)
 
 
