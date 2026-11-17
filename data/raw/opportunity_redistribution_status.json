@@ -1,9 +1,9 @@
 {
   "status": "READY",
   "target_date": "2026-11-17",
-  "generated_at_utc": "2026-11-17T15:19:49.694698+00:00",
+  "generated_at_utc": "2026-11-17T21:10:20.079419+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 105,
+  "injury_rows": 107,
   "slate_teams": [
     "Charlotte Hornets",
     "Detroit Pistons",
@@ -17,11 +17,11 @@
     "Utah Jazz"
   ],
   "teams_affected": 5,
-  "absences_modeled": 8,
+  "absences_modeled": 10,
   "recipient_rows": 46,
-  "unallocated_minutes": 0.0,
+  "unallocated_minutes": -0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 72
+  "adjustment_rows": 75
 }

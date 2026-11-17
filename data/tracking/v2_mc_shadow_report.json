@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-17T19:48:40.047702+00:00",
+  "generated_at_utc": "2026-11-17T21:10:28.444427+00:00",
   "policy": "SHADOW_ONLY",
   "strict_gate_rules": {
     "min_holdout_dates": 7,

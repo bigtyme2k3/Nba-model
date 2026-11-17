@@ -197,12 +197,12 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4397189,Jalen Smith,F,True,False,19.0,15.0,8.0,1.0,0.0,1.0,0.0,4.0,4.0,5.0,10.0,0.0,3.0,5.0,6.0,-19.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4711294,Matas Buzelis,F,True,False,25.0,17.0,6.0,0.0,0.0,2.0,3.0,1.0,5.0,2.0,8.0,0.0,4.0,13.0,16.0,-24.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5095151,Caleb Wilson,F,True,False,32.0,16.0,4.0,0.0,3.0,1.0,9.0,3.0,1.0,7.0,21.0,1.0,8.0,1.0,2.0,-45.0,espn_api
-401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,2595516,Norman Powell,G,True,False,22.0,15.0,5.0,1.0,2.0,0.0,1.0,0.0,5.0,3.0,9.0,2.0,6.0,7.0,11.0,-13.0,espn_api
+401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,2595516,Norman Powell,G,True,False,22.0,15.0,5.0,1.0,1.0,0.0,1.0,0.0,5.0,3.0,9.0,2.0,6.0,7.0,11.0,-13.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4871145,Josh Giddey,G,True,False,24.0,2.0,7.0,6.0,0.0,0.0,5.0,2.0,5.0,1.0,10.0,0.0,4.0,0.0,2.0,-39.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4066650,Zach Collins,F,False,False,9.0,0.0,5.0,0.0,0.0,0.0,0.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4432822,Isaac Okoro,F,False,False,18.0,4.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,4.0,4.0,-27.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5044385,Leonard Miller,F,False,False,26.0,4.0,6.0,1.0,1.0,0.0,5.0,2.0,4.0,2.0,9.0,0.0,4.0,0.0,0.0,-22.0,espn_api
-401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5105555,Tobe Awaka,F,False,False,14.0,2.0,7.0,2.0,0.0,1.0,0.0,6.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,-6.0,espn_api
+401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5105555,Tobe Awaka,F,False,False,14.0,2.0,7.0,2.0,1.0,1.0,0.0,6.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,-6.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5242496,Noa Essengue,F,False,False,10.0,1.0,3.0,0.0,0.0,0.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,1.0,2.0,-10.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,2990984,Buddy Hield,G,False,False,14.0,0.0,2.0,2.0,0.0,0.0,2.0,1.0,1.0,0.0,4.0,0.0,3.0,0.0,0.0,-12.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4395626,Tre Jones,G,False,False,13.0,13.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,5.0,8.0,0.0,1.0,3.0,4.0,1.0,espn_api
