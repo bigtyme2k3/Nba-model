@@ -44,7 +44,7 @@ def evaluate(kind, champion, candidate):
         for stat, ceiling in limits.items():
             metric = (candidate.get("models", {}).get(stat) or {}).get("cv_mae")
             old = ((champion or {}).get("models", {}).get(stat) or {}).get("cv_mae")
-            checks[f"{stat}_sane_nonregression"] = (metric is not None and math.isfinite(metric)
+            checks[f"{stat}_sane_nonregression"] = bool(metric is not None and math.isfinite(metric)
                 and metric <= ceiling and (old is None or metric <= old + .03))
         report = {"checks": checks}
     through = candidate.get("trained_through")
@@ -54,8 +54,16 @@ def evaluate(kind, champion, candidate):
         checks["valid_training_date"] = trained <= date.today() and (not old_through or through >= old_through)
     except (TypeError, ValueError):
         checks["valid_training_date"] = False
-    report["promotable"] = all(checks.values())
+    report["promotable"] = bool(all(checks.values()))
     return report
+
+
+def _json_default(value):
+    """numpy scalars (np.bool_, np.float64) come from metric comparisons; write them as
+    plain JSON values. A failed report write once stopped the whole Monday pipeline."""
+    if hasattr(value, "item"):
+        return value.item()
+    return str(value)
 
 
 def publish_model_bundle(candidate, path, kind):
@@ -77,6 +85,6 @@ def publish_model_bundle(candidate, path, kind):
     report["active_artifact_id"] = artifact_id(path)
     out = Path("data/tracking/model_publication") / f"{kind}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(report, indent=2) + "\n")
+    out.write_text(json.dumps(report, indent=2, default=_json_default) + "\n")
     print(f"Model publication {kind}: {'APPROVED' if report['promotable'] else 'REJECTED; champion retained'}")
     return report["promotable"]
