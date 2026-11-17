@@ -260,9 +260,20 @@
       "missing_games": [
         "phoenix suns @ denver nuggets"
       ]
+    },
+    "2026-11-17": {
+      "observed_games": 5,
+      "captured_games": 0,
+      "missing_games": [
+        "charlotte hornets @ los angeles lakers",
+        "detroit pistons @ san antonio spurs",
+        "new york knicks @ toronto raptors",
+        "portland trail blazers @ minnesota timberwolves",
+        "utah jazz @ la clippers"
+      ]
     }
   },
-  "generated_at_utc": "2026-11-17T08:05:29.215275+00:00",
+  "generated_at_utc": "2026-11-17T17:20:37.325573+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "forward_prop_bets": 57,

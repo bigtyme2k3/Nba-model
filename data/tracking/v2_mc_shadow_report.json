@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-17T15:19:59.153665+00:00",
+  "generated_at_utc": "2026-11-17T17:20:40.669695+00:00",
   "policy": "SHADOW_ONLY",
   "strict_gate_rules": {
     "min_holdout_dates": 7,
@@ -93,12 +93,12 @@
       },
       "calibration_diagnostics": {
         "market": {
-          "slope": 0.030787048689616046,
+          "slope": 0.030787048689616243,
           "mean_over_prob": 0.49378787276341946,
           "over_rate": 0.5149105367793241
         },
         "v1": {
-          "slope": -0.2704242740658509,
+          "slope": -0.2704242740658508,
           "mean_over_prob": 0.5242717693836979,
           "over_rate": 0.5149105367793241,
           "weight_on_top_of_market": -0.2597729786424514,
@@ -106,7 +106,7 @@
           "abs_disagreement_vs_market": 0.10221948310139166
         },
         "mc_v1": {
-          "slope": -0.23799523234978368,
+          "slope": -0.23799523234978376,
           "mean_over_prob": 0.48083797216699803,
           "over_rate": 0.5149105367793241,
           "weight_on_top_of_market": -0.2844919579888779,
@@ -845,12 +845,12 @@
       },
       "calibration_diagnostics": {
         "market": {
-          "slope": 0.030787048689616046,
+          "slope": 0.030787048689616243,
           "mean_over_prob": 0.49378787276341946,
           "over_rate": 0.5149105367793241
         },
         "v1": {
-          "slope": -0.2704242740658509,
+          "slope": -0.2704242740658508,
           "mean_over_prob": 0.5242717693836979,
           "over_rate": 0.5149105367793241,
           "weight_on_top_of_market": -0.2597729786424514,
@@ -858,7 +858,7 @@
           "abs_disagreement_vs_market": 0.10221948310139166
         },
         "mc_v1": {
-          "slope": -0.23799523234978368,
+          "slope": -0.23799523234978376,
           "mean_over_prob": 0.48083797216699803,
           "over_rate": 0.5149105367793241,
           "weight_on_top_of_market": -0.2844919579888779,
