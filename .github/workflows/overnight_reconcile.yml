@@ -66,6 +66,7 @@ jobs:
           python -m v2.simulation.shadow grade
           python -m v2.compare
           python data_bets_report.py
+          python game_predictions_report.py
         continue-on-error: true
 
       - name: Print evidence summary
