@@ -109,10 +109,24 @@
     const bet=(D.best_bets||[]).some(b=>b.game===game.display_name);
     return `<article class="game-card"><div class="game-top"><span>${esc(timeET(game.tip))}</span>${badge(isStarted?'Started · pregame snapshot':bet?'Qualified bet':'Pregame',bet&&!isStarted?'bet':'')}</div><div class="team-row"><div class="team-name"><span class="team-code">${esc(game.away.abbr||'AWY')}</span><span>${esc(game.away.name)}</span></div>${q1Record(game.away)}</div><div class="team-row"><div class="team-name"><span class="team-code">${esc(game.home.abbr||'HME')}</span><span>${esc(game.home.name)}</span></div><span class="small muted">${q1Record(game.home,true)}HOME</span></div><div class="game-models"><div>${metric('Model spread',projectedSpread(game),true)}<p class="market-note">${esc(marketNote(game,'SPREAD'))}</p></div><div>${metric('Model total',fmt(game.totals?.pred),true)}<p class="market-note">${esc(marketNote(game,'TOTAL'))}</p></div></div><details class="details-link" ${expanded?'open':''}><summary>Compare books &amp; view game props</summary><div class="details-content">${gameQuoteTable(game)}${numeric(game.spread?.shadow_anchored_margin)?`<p class="snapshot-note">Shadow spread: ${esc(projectedSpread({spread:{pred:game.spread.shadow_anchored_margin},home:game.home,away:game.away}))}. Market-anchored research scenario only, not a bet.</p>`:''}${button('Player props','game-props',`data-game-index="${index}"`)}</div></details>${window.LinemateReview?.render(game,D.date,index)||''}</article>`;
   }
+  function modelPicks() {
+    const picks=D.model_picks||[];
+    if(!picks.length) return '';
+    const card=p=>`<article class="panel"><div class="small muted">${esc(p.game)} · ${esc(timeET(p.tip))}</div><h2 class="inline-title">${esc(p.player)} ${esc(statName(p.stat))} ${esc(String(p.side||'').toLowerCase())} ${esc(fmt(p.line))}</h2><p class="subtitle">${esc(bookName(p.book_key))} ${esc(odds(p.odds))} · fade ${esc(odds(p.opposite_odds))} · model ${esc(fmt(p.projection))} · 1u</p></article>`;
+    const group=(phase,title,note)=>{const rows=picks.filter(p=>p.phase===phase);return rows.length?`<div class="section-heading"><h2>${title}</h2>${badge(note,'research')}</div><div class="game-grid">${rows.map(card).join('')}</div>`:'';};
+    const early=picks.some(p=>p.phase==='EARLY'), adjusted=picks.some(p=>p.phase==='ADJUSTED');
+    return group('EARLY','Early picks','Before the injury report')+group('ADJUSTED','Adjusted picks','After the injury report')
+      +(early&&!adjusted?'<p class="small muted">Adjusted picks post about 75 minutes before each group of tips, after the injury report.</p>':'')
+      +'<p class="small muted">Data-collection picks: the model\u2019s strongest opinions, flat 1 unit, graded both ways (follow and fade). Not qualified bets.</p>';
+  }
   function qualifiedBets() {
-    const bets=(D.best_bets||[]).filter(b=>!started(b.tip));
+    if((D.model_picks||[]).length) return modelPicks()+qualifiedOnly();
+    return qualifiedOnly(true);
+  }
+  function qualifiedOnly(includeData=false) {
+    const bets=(D.best_bets||[]).filter(b=>!started(b.tip)&&(includeData||b.bet_tier!=='DATA_COLLECTION'));
     if(!bets.length) return '';
-    return `<div class="section-heading"><h2>Model picks</h2>${badge('Forward test','bet')}</div><div class="game-grid">${bets.map(b=>`<article class="panel"><div class="small muted">${esc(b.game)}</div>${b.bet_tier==='DATA_COLLECTION'?badge('Data bet · not qualified','research'):badge('Qualified','bet')}<h2 class="inline-title">${esc(b.play)}</h2><p class="subtitle">${esc(bookName(b.book_key))} · ${esc(odds(b.market_odds))} · ${esc(fmt(b.units))}u</p></article>`).join('')}</div>`;
+    return `<div class="section-heading"><h2>${includeData?"Model picks":"Qualified picks"}</h2>${badge("Forward test","bet")}</div><div class="game-grid">${bets.map(b=>`<article class="panel"><div class="small muted">${esc(b.game)}</div>${b.bet_tier==='DATA_COLLECTION'?badge('Data bet · not qualified','research'):badge('Qualified','bet')}<h2 class="inline-title">${esc(b.play)}</h2><p class="subtitle">${esc(bookName(b.book_key))} · ${esc(odds(b.market_odds))} · ${esc(fmt(b.units))}u</p></article>`).join('')}</div>`;
   }
   function renderToday() {
     const previews=props.filter(r=>r.direction&&r.line!==null&&!r.availability_block&&!started(r.tip)).filter((r,i,all)=>all.findIndex(x=>x.player===r.player)===i).slice(0,3);

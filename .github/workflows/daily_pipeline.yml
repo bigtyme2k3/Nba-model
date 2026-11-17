@@ -152,6 +152,11 @@ jobs:
         if: env.SKIP != 'true'
         run: python forward_ledger.py --date ${{ env.TARGET }}
 
+      - name: Early model picks (morning read, before the injury report settles)
+        if: env.SKIP != 'true'
+        run: python model_picks.py record --date ${{ env.TARGET }} --phase EARLY
+        continue-on-error: true
+
       - name: Monte Carlo shadow forecasts (research only, no bet authority)
         if: env.SKIP != 'true'
         run: python -m v2.simulation.shadow publish --date ${{ env.TARGET }}

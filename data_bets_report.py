@@ -15,6 +15,11 @@ strongest prop opinions, flat 1 unit; user decision 2026-11-17).
 Fading is profitable only if the model's side wins less often than the opposite
 price's break-even (about 47.6% at -110 both ways).
 
+  phases         EARLY (morning read) and ADJUSTED (after the injury report) picks from
+                 data/history/nba_model_picks.jsonl (model_picks.py), graded on the
+                 forward ledger's actual stat lines, with how often the adjusted pass
+                 changed or dropped the early pick.
+
 Usage:
     python data_bets_report.py
 Output:
@@ -122,6 +127,63 @@ def retrospective(df: pd.DataFrame) -> pd.DataFrame:
     return pd.concat(picks) if picks else g.iloc[:0]
 
 
+PICKS = Path("data/history/nba_model_picks.jsonl")
+
+
+def actuals(df: pd.DataFrame) -> dict:
+    a = df.dropna(subset=["actual"]) if "actual" in df else df.iloc[:0]
+    return {(r["date"], " ".join(str(r["player"]).lower().split()), str(r["stat"]).upper()): float(r["actual"])
+            for r in a.to_dict("records")}
+
+
+def graded_picks(ledger: pd.DataFrame, path=PICKS) -> pd.DataFrame:
+    if not Path(path).exists():
+        return pd.DataFrame()
+    p = pd.DataFrame([json.loads(l) for l in Path(path).read_text().splitlines() if l.strip()])
+    if p.empty:
+        return p
+    act = actuals(ledger)
+    p["actual"] = [act.get((d, " ".join(str(n).lower().split()), s)) for d, n, s in zip(p["date"], p["player"], p["stat"])]
+    p = p.dropna(subset=["actual"]).copy()
+    over = p["actual"] > p["line"]
+    under = p["actual"] < p["line"]
+    p["outcome"] = ["PUSH" if not (o or u) else ("WIN" if (o if s == "OVER" else u) else "LOSS")
+                    for o, u, s in zip(over, under, p["side"])]
+    p = p[p["outcome"].ne("PUSH")]
+    cache, opp = {}, []
+    for r in p.to_dict("records"):
+        o = _num(r.get("opposite_odds"))
+        opp.append(o if o is not None else (quoted_opposite({**r, "sportsbook_key": r["book_key"]}, cache)
+                                            or opposite_from_pair(r["odds"], r["market_probability"])))
+    p["opp_odds"] = opp
+    return p.dropna(subset=["opp_odds"])
+
+
+def _num(v):
+    try:
+        v = float(v)
+        return v if math.isfinite(v) else None
+    except (TypeError, ValueError):
+        return None
+
+
+def phase_changes(path=PICKS) -> dict:
+    if not Path(path).exists():
+        return {}
+    p = pd.DataFrame([json.loads(l) for l in Path(path).read_text().splitlines() if l.strip()])
+    if p.empty or not {"EARLY", "ADJUSTED"} <= set(p["phase"]):
+        return {}
+    early = p[p["phase"].eq("EARLY")].set_index(["date", "player", "stat"])
+    adj = p[p["phase"].eq("ADJUSTED")].set_index(["date", "player", "stat"])
+    both = early.join(adj, how="inner", lsuffix="_early", rsuffix="_adj")
+    days = sorted(set(early.index.get_level_values(0)) & set(adj.index.get_level_values(0)))
+    e_days = early[early.index.get_level_values(0).isin(days)]
+    return {"dates_with_both": len(days), "early_picks": int(len(e_days)),
+            "kept_same_side": int((both["side_early"] == both["side_adj"]).sum()),
+            "flipped_side": int((both["side_early"] != both["side_adj"]).sum()),
+            "dropped_after_report": int(len(e_days) - len(both))}
+
+
 def main():
     df = load()
     tier = df["bet_tier"] if "bet_tier" in df else pd.Series(None, index=df.index)
@@ -133,9 +195,14 @@ def main():
               "fade_break_even_note": "fading needs the model side to win less than ~47.6% at -110 both ways",
               "live": breakdown(with_opposite(live)) if len(live) else {"overall": {"bets": 0}},
               "retrospective_same_rule": breakdown(with_opposite(retro))}
+    picks = graded_picks(df)
+    report["phases"] = {ph: breakdown(picks[picks["phase"].eq(ph)]) if len(picks) and (picks["phase"] == ph).any()
+                        else {"overall": {"bets": 0}} for ph in ("EARLY", "ADJUSTED")}
+    report["phase_changes"] = phase_changes()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(report, indent=2, default=str) + "\n")
-    print(json.dumps({"live": report["live"]["overall"], "retrospective": report["retrospective_same_rule"]["overall"]},
+    print(json.dumps({"live": report["live"]["overall"], "retrospective": report["retrospective_same_rule"]["overall"],
+                      "early": report["phases"]["EARLY"]["overall"], "adjusted": report["phases"]["ADJUSTED"]["overall"]},
                      indent=2))
 
 
