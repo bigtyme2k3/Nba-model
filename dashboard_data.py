@@ -116,6 +116,7 @@ def flatten_props(data, quotes=None, profiles=None):
                             'game': game_name, 'tip': game.get('tip'), 'stat': stat,
                             'projection': prediction, 'line': line, 'gap': prediction-line if line is not None else None,
                             'direction': side, 'decision': 'BET' if eligible else 'RESEARCH',
+                            'bet_tier': (meta or {}).get('bet_tier') if eligible else None,
                             'quote': shown, 'offers': offers,
                             'minutes': num(player.get('proj_min')), 'base_minutes': num(player.get('base_proj_min')),
                             'injury_status': player.get('injury_status'), 'availability_block': prop.get('availability_block', False),

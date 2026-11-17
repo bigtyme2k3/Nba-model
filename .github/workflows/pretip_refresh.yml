@@ -17,6 +17,14 @@ on:
         description: 'Target Eastern slate date (YYYY-MM-DD); blank=today'
         required: false
         default: ''
+      min_to_tip:
+        description: 'Earliest minutes before tip to include (default 35)'
+        required: false
+        default: ''
+      max_to_tip:
+        description: 'Latest minutes before tip to include (default 70); widen to cover a group of tips'
+        required: false
+        default: ''
 
 jobs:
   pretip-refresh:
@@ -26,8 +34,8 @@ jobs:
       contents: write
     env:
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-      MIN_TO_TIP: '35'
-      MAX_TO_TIP: '70'
+      MIN_TO_TIP: ${{ github.event.inputs.min_to_tip || '35' }}
+      MAX_TO_TIP: ${{ github.event.inputs.max_to_tip || '70' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -142,6 +150,13 @@ jobs:
             --date ${{ env.TARGET }} \
             --predictions predictions/pretip_${{ env.TARGET }}.json
 
+      - name: Adjusted model picks (after the injury report, before these tips)
+        if: env.ELIGIBLE == 'true'
+        run: |
+          python model_picks.py record --date ${{ env.TARGET }} --phase ADJUSTED \
+            --predictions predictions/pretip_${{ env.TARGET }}.json
+        continue-on-error: true
+
       - name: Monte Carlo shadow rows for newly observed props
         if: env.ELIGIBLE == 'true'
         run: |
@@ -171,6 +186,7 @@ jobs:
             data/history/nba_forward_predictions.jsonl \
             data/history/nba_pretip_execution_snapshots.jsonl \
             data/history/nba_mc_shadow_forecasts.jsonl \
+            data/history/nba_model_picks.jsonl \
             data/tracking/forward_ledger_status.json \
             data/tracking/execution_ledger_status.json \
             data/tracking/nba_execution_performance.json \
@@ -180,6 +196,13 @@ jobs:
           git diff --cached --quiet || git commit -m "⏱️ NBA pre-tip refresh — ${{ env.TARGET }}"
           git reset --hard HEAD
           git clean -fd
-          git fetch origin main
-          git rebase -X theirs origin/main
-          git push
+          # Dashboard (with adjusted picks) is rebuilt only on the synced tree.
+          publish() {
+            git fetch origin main
+            git rebase -X theirs origin/main || return 1
+            TARGET=$(python active_slate_date.py) python build_dashboard.py
+            git add docs/index.html
+            git diff --cached --quiet || git commit -m "Dashboard refresh after pre-tip picks — ${{ env.TARGET }}"
+            git push
+          }
+          publish || { git rebase --abort 2>/dev/null; git reset --hard HEAD; publish; }

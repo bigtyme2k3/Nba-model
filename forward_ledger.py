@@ -259,6 +259,8 @@ def prop_rows(data):
                     "confidence": meta.get("conf") if meta else None,
                     "stars": meta.get("stars") if meta else None,
                     "recommended_units": meta.get("units") if meta else 0,
+                    "bet_tier": meta.get("bet_tier") if meta else None,     # QUALIFIED or DATA_COLLECTION
+                    "opposite_odds": prop.get("opposite_odds"),             # for grading a fade
                     "recommended_dollar_amt": meta.get("dollar_amt") if meta else 0,
                     "model_version": version,
                     "actual": None,

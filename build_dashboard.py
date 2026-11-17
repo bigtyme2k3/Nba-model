@@ -182,7 +182,19 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
         'execution_bets': execution_perf.get('bet_rows', 0),
     }
     data['v2_lab'] = v2_lab_data(data.get('date'))
+    data['model_picks'] = model_picks_for(data.get('date'))
     return prepare_display(data)
+
+
+def model_picks_for(target) -> List[Dict[str, Any]]:
+    """Today's EARLY and ADJUSTED model picks (model_picks.py)."""
+    path = Path('data/history/nba_model_picks.jsonl')
+    if not path.exists():
+        return []
+    keep = ('phase', 'player', 'team', 'game', 'tip', 'stat', 'side', 'line', 'odds', 'opposite_odds', 'book_key',
+            'projection', 'raw_model_probability', 'market_probability', 'recorded_at_utc', 'units')
+    rows = [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+    return [{k: r.get(k) for k in keep} for r in rows if str(r.get('date')) == str(target)]
 
 
 def v2_lab_data(target) -> Dict[str, Any]:
