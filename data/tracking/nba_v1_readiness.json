@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-16T20:59:32.441460Z",
+  "generated_at_utc": "2026-11-17T01:17:54.637644Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -18,29 +18,29 @@
     "spread": {
       "name": "spread",
       "status": "trained",
-      "trained_through": "2026-11-10",
-      "trained_rows": 6719,
+      "trained_through": "2026-11-15",
+      "trained_rows": 6756,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 4
+      "lag_days": 0
     },
     "totals": {
       "name": "totals",
       "status": "trained",
-      "trained_through": "2026-11-08",
-      "trained_rows": 6705,
+      "trained_through": "2026-11-15",
+      "trained_rows": 6756,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge",
-      "lag_days": 6
+      "lag_days": 0
     },
     "props": {
       "name": "props",
       "status": "trained",
-      "trained_through": "2026-11-08",
-      "trained_rows": 143092,
-      "validation": "global_chronological_timeseries_split",
+      "trained_through": "2026-11-15",
+      "trained_rows": 144230,
+      "validation": "expanding_date_groups_fold_imputation",
       "markets": [
         "ast",
         "pra",
@@ -49,14 +49,14 @@
         "threes"
       ],
       "model_name": null,
-      "lag_days": 6
+      "lag_days": 0
     }
   },
   "feature_stores": {
     "player": {
       "status": "READY",
-      "max_game_date": "2026-11-14",
-      "rows": 144031,
+      "max_game_date": "2026-11-15",
+      "rows": 144230,
       "seasons": [
         2021,
         2022,
@@ -68,7 +68,7 @@
     },
     "team": {
       "status": "READY",
-      "max_game_date": "2026-11-14",
+      "max_game_date": "2026-11-15",
       "teams": 30,
       "seasons": [
         2021,
@@ -83,14 +83,14 @@
   "forward_evidence": {
     "scope": "CURRENT_ALGORITHM_AND_FEATURE_FAMILIES_ONLY",
     "active_artifact_ids": {
-      "SPREAD": "66acea327a0ffb28f828af408057d1cbf89f25851f9b5026937d86c461379118",
-      "TOTAL": "73a518561da7c07ca6001bac66e9bc2a2a939d5ac280c51b252d3a12dcf7603b",
-      "PROP": "d0e91808218ac219051007fdaac2ac1ccf183fe9a7edb54e0d03ea81f7b10e52"
+      "SPREAD": "bd11dfced6e30e92c97fe60540e3e53bd7714c29dac63f162b86ffb61eca7ef7",
+      "TOTAL": "a09302957da3653fb0f3a684068e5013c974c008cb04883757e42ef78a20c8b5",
+      "PROP": "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5"
     },
     "active_family_ids": {
       "SPREAD": "8b578c1f11caa26aa5e79ce6e0d4ca261784a472b22c3774ab6dc7082698be25",
       "TOTAL": "5d01c28c64a385615b36fb1d57f3cf255da596bef9679a0ccdbd6a719378a5e8",
-      "PROP": "44a02904e16bdb2b2bec420936232360a07b584bb488672f2ea0281dfc0c7741"
+      "PROP": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff"
     },
     "bet_rows": 0,
     "prop_bets": 0,

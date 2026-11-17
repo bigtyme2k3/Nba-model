@@ -1,19 +1,19 @@
 {
   "status": "READY",
-  "target_date": "2026-11-15",
-  "generated_at_utc": "2026-11-16T01:19:00.801125+00:00",
+  "target_date": "2026-11-16",
+  "generated_at_utc": "2026-11-17T01:17:45.362307+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 102,
+  "injury_rows": 98,
   "slate_teams": [
-    "Oklahoma City Thunder",
-    "Sacramento Kings"
+    "Denver Nuggets",
+    "Phoenix Suns"
   ],
-  "teams_affected": 1,
-  "absences_modeled": 2,
-  "recipient_rows": 9,
-  "unallocated_minutes": -0.0,
+  "teams_affected": 0,
+  "absences_modeled": 0,
+  "recipient_rows": 0,
+  "unallocated_minutes": 0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 17
+  "adjustment_rows": 2
 }

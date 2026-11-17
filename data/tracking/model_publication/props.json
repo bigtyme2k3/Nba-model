@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "trained": true,
+    "feature_semantics": true,
+    "date_grouped_validation": true,
+    "pts_sane_nonregression": true,
+    "reb_sane_nonregression": true,
+    "ast_sane_nonregression": true,
+    "threes_sane_nonregression": true,
+    "pra_sane_nonregression": true,
+    "valid_training_date": true
+  },
+  "promotable": true,
+  "model": "props",
+  "generated_at_utc": "2026-11-17T01:17:38.121504+00:00",
+  "prior_artifact_id": "d0e91808218ac219051007fdaac2ac1ccf183fe9a7edb54e0d03ea81f7b10e52",
+  "trained_through": "2026-11-15",
+  "active_artifact_id": "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5"
+}

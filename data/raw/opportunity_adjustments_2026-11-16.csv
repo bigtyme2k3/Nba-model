@@ -1,0 +1,3 @@
+game_date,player,team,position,injury_severity,base_minutes,adjusted_minutes,minutes_delta,base_usage,adjusted_usage,usage_delta,minutes_received,minutes_reduced,pts_multiplier,reb_multiplier,ast_multiplier,threes_multiplier,pra_multiplier,vacancy_sources,basis
+2026-11-16,Julian Strawther,Denver Nuggets,G,OUT,18.835,0.0,-18.835,0.17882,0.0,-0.17882,0.0,18.835,0.0,0.0,0.0,0.0,0.0,,INJURY_STATUS_PLUS_PRIOR_ROTATION_PROFILE
+2026-11-16,Mark Williams,Phoenix Suns,C,OUT,22.535,0.0,-22.535,0.19334,0.0,-0.19334,0.0,22.535,0.0,0.0,0.0,0.0,0.0,,INJURY_STATUS_PLUS_PRIOR_ROTATION_PROFILE

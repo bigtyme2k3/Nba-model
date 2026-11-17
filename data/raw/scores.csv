@@ -224,3 +224,11 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-31,401909900,STATUS_FINAL,True,False,Milwaukee Bucks,Cleveland Cavaliers,111,136,-25,247,25.0,21.0,30.0,35.0,24.0,48.0,37.0,27.0,,,Fiserv Forum,12572,2026-11-16T20:59:26.304008
 2026-10-31,401909901,STATUS_FINAL,True,False,San Antonio Spurs,Minnesota Timberwolves,121,111,10,232,34.0,26.0,33.0,28.0,28.0,33.0,27.0,23.0,,,Frost Bank Center,18354,2026-11-16T20:59:26.304018
 2026-10-31,401909902,STATUS_FINAL,True,False,Houston Rockets,Oklahoma City Thunder,119,98,21,217,35.0,27.0,30.0,27.0,26.0,25.0,24.0,23.0,,,Toyota Center (Houston),18055,2026-11-16T20:59:26.304028
+2026-11-16,401909994,STATUS_HALFTIME,False,False,Boston Celtics,Orlando Magic,41,50,-9,91,17.0,24.0,,,20.0,30.0,,,,,TD Garden,19156,2026-11-17T01:16:26.978466
+2026-11-16,401909995,STATUS_HALFTIME,False,False,Cleveland Cavaliers,Chicago Bulls,57,48,9,105,25.0,32.0,,,31.0,17.0,,,,,Rocket Arena,0,2026-11-17T01:16:26.978478
+2026-11-16,401909996,STATUS_HALFTIME,False,False,Washington Wizards,Memphis Grizzlies,69,59,10,128,35.0,34.0,,,33.0,26.0,,,,,Capital One Arena,0,2026-11-17T01:16:26.978484
+2026-11-16,401909997,STATUS_IN_PROGRESS,False,True,Brooklyn Nets,Philadelphia 76ers,28,43,-15,71,26.0,2.0,,,33.0,10.0,,,,,Barclays Center,0,2026-11-17T01:16:26.978490
+2026-11-16,401909998,STATUS_IN_PROGRESS,False,True,Miami Heat,Houston Rockets,29,18,11,47,29.0,0.0,,,15.0,3.0,,,,,Kaseya Center,0,2026-11-17T01:16:26.978495
+2026-11-16,401909999,STATUS_IN_PROGRESS,False,True,Minnesota Timberwolves,Portland Trail Blazers,2,7,-5,9,2.0,,,,7.0,,,,,,Target Center,0,2026-11-17T01:16:26.978500
+2026-11-16,401910000,STATUS_IN_PROGRESS,False,True,New Orleans Pelicans,Golden State Warriors,11,2,9,13,11.0,,,,2.0,,,,,,Smoothie King Center,0,2026-11-17T01:16:26.978505
+2026-11-16,401910001,STATUS_SCHEDULED,False,False,Denver Nuggets,Phoenix Suns,0,0,0,0,,,,,,,,,DEN -9.5,229.5,Ball Arena,0,2026-11-17T01:16:26.978516
