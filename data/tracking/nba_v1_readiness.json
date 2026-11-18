@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-17T21:10:36.096765Z",
+  "generated_at_utc": "2026-11-18T08:05:26.524567Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -18,22 +18,22 @@
     "spread": {
       "name": "spread",
       "status": "trained",
-      "trained_through": "2026-11-15",
-      "trained_rows": 6756,
+      "trained_through": "2026-11-16",
+      "trained_rows": 6764,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 1
+      "lag_days": 0
     },
     "totals": {
       "name": "totals",
       "status": "trained",
-      "trained_through": "2026-11-15",
-      "trained_rows": 6756,
+      "trained_through": "2026-11-16",
+      "trained_rows": 6764,
       "validation": "global_chronological_timeseries_split",
       "markets": null,
       "model_name": "Ridge",
-      "lag_days": 1
+      "lag_days": 0
     },
     "props": {
       "name": "props",
@@ -83,32 +83,64 @@
   "forward_evidence": {
     "scope": "CURRENT_ALGORITHM_AND_FEATURE_FAMILIES_ONLY",
     "active_artifact_ids": {
-      "SPREAD": "bd11dfced6e30e92c97fe60540e3e53bd7714c29dac63f162b86ffb61eca7ef7",
-      "TOTAL": "a09302957da3653fb0f3a684068e5013c974c008cb04883757e42ef78a20c8b5",
+      "SPREAD": "34e9e43bcbf875af75d99286e1c22c2a9c38e83d2f4f1efa3ead7984da24bf41",
+      "TOTAL": "b9edac801bd774eafb0e0e2cd6c7acb1de14120f9d3c65510d7981fd3f92a52a",
       "PROP": "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5"
     },
     "active_family_ids": {
       "SPREAD": "8b578c1f11caa26aa5e79ce6e0d4ca261784a472b22c3774ab6dc7082698be25",
-      "TOTAL": "5d01c28c64a385615b36fb1d57f3cf255da596bef9679a0ccdbd6a719378a5e8",
+      "TOTAL": "326f93f9f563381d82928eb1dc49c3f2539983453f2786a5e8ecdafd6531fc4c",
       "PROP": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff"
     },
-    "bet_rows": 0,
-    "prop_bets": 0,
-    "roi": null,
-    "brier": null,
+    "bet_rows": 1,
+    "prop_bets": 1,
+    "roi": -1.0,
+    "brier": 0.2281,
     "clv_matched": 0,
     "beat_close_rate": null,
     "avg_line_clv": null,
     "avg_same_line_price_clv_probability": null,
-    "by_sportsbook": {},
-    "by_prop_stat": {},
+    "by_sportsbook": {
+      "draftkings": {
+        "bets": 1,
+        "resolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "pushes": 0,
+        "hit_rate": 0.0,
+        "profit_units": -1.0,
+        "roi": -1.0,
+        "probability_calibration": {
+          "rows": 1,
+          "brier": 0.2281,
+          "bins": []
+        }
+      }
+    },
+    "by_prop_stat": {
+      "REB": {
+        "bets": 1,
+        "resolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "pushes": 0,
+        "hit_rate": 0.0,
+        "profit_units": -1.0,
+        "roi": -1.0,
+        "probability_calibration": {
+          "rows": 1,
+          "brier": 0.2281,
+          "bins": []
+        }
+      }
+    },
     "clv_by_sportsbook": {},
     "clv_by_stat": {},
     "evidence_checks": {
       "forward_bets_at_least_200": false,
       "prop_forward_bets_at_least_100": false,
       "positive_price_aware_roi": false,
-      "acceptable_brier": false,
+      "acceptable_brier": true,
       "clv_rows_at_least_100": false,
       "beat_close_rate_at_least_50pct": false,
       "nonnegative_clv_signal": false

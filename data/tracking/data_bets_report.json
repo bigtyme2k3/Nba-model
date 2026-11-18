@@ -1,10 +1,53 @@
 {
-  "generated_at_utc": "2026-11-17T22:38:48.248349+00:00",
+  "generated_at_utc": "2026-11-18T08:05:34.675862+00:00",
   "rule": "top 10 per day by raw model probability minus no-vig market probability; flat 1 unit",
   "fade_break_even_note": "fading needs the model side to win less than ~47.6% at -110 both ways",
   "live": {
     "overall": {
-      "bets": 0
+      "bets": 1,
+      "model_wins": 0,
+      "model_losses": 1,
+      "model_win_rate": 0.0,
+      "follow_units": -1.0,
+      "follow_roi": -1.0,
+      "fade_units": 0.79,
+      "fade_roi": 0.7937
+    },
+    "by_stat": {
+      "REB": {
+        "bets": 1,
+        "model_wins": 0,
+        "model_losses": 1,
+        "model_win_rate": 0.0,
+        "follow_units": -1.0,
+        "follow_roi": -1.0,
+        "fade_units": 0.79,
+        "fade_roi": 0.7937
+      }
+    },
+    "by_side": {
+      "UNDER": {
+        "bets": 1,
+        "model_wins": 0,
+        "model_losses": 1,
+        "model_win_rate": 0.0,
+        "follow_units": -1.0,
+        "follow_roi": -1.0,
+        "fade_units": 0.79,
+        "fade_roi": 0.7937
+      }
+    },
+    "by_date": {
+      "2026-11-17": {
+        "bets": 1,
+        "model_wins": 0,
+        "model_losses": 1,
+        "model_win_rate": 0.0,
+        "follow_units": -1.0,
+        "follow_roi": -1.0,
+        "fade_units": 0.79,
+        "fade_roi": 0.7937
+      }
     }
   },
   "retrospective_same_rule": {
@@ -303,7 +346,90 @@
     },
     "ADJUSTED": {
       "overall": {
-        "bets": 0
+        "bets": 10,
+        "model_wins": 5,
+        "model_losses": 5,
+        "model_win_rate": 0.5,
+        "follow_units": -0.35,
+        "follow_roi": -0.0348,
+        "fade_units": -0.48,
+        "fade_roi": -0.0475
+      },
+      "by_stat": {
+        "PRA": {
+          "bets": 1,
+          "model_wins": 1,
+          "model_losses": 0,
+          "model_win_rate": 1.0,
+          "follow_units": 0.9,
+          "follow_roi": 0.9009,
+          "fade_units": -1.0,
+          "fade_roi": -1.0
+        },
+        "PTS": {
+          "bets": 1,
+          "model_wins": 0,
+          "model_losses": 1,
+          "model_win_rate": 0.0,
+          "follow_units": -1.0,
+          "follow_roi": -1.0,
+          "fade_units": 0.96,
+          "fade_roi": 0.9615
+        },
+        "REB": {
+          "bets": 7,
+          "model_wins": 3,
+          "model_losses": 4,
+          "model_win_rate": 0.4286,
+          "follow_units": -1.18,
+          "follow_roi": -0.1679,
+          "fade_units": 0.56,
+          "fade_roi": 0.0805
+        },
+        "THREES": {
+          "bets": 1,
+          "model_wins": 1,
+          "model_losses": 0,
+          "model_win_rate": 1.0,
+          "follow_units": 0.93,
+          "follow_roi": 0.9259,
+          "fade_units": -1.0,
+          "fade_roi": -1.0
+        }
+      },
+      "by_side": {
+        "OVER": {
+          "bets": 5,
+          "model_wins": 3,
+          "model_losses": 2,
+          "model_win_rate": 0.6,
+          "follow_units": 1.07,
+          "follow_roi": 0.2132,
+          "fade_units": -1.29,
+          "fade_roi": -0.2584
+        },
+        "UNDER": {
+          "bets": 5,
+          "model_wins": 2,
+          "model_losses": 3,
+          "model_win_rate": 0.4,
+          "follow_units": -1.41,
+          "follow_roi": -0.2828,
+          "fade_units": 0.82,
+          "fade_roi": 0.1634
+        }
+      },
+      "by_date": {
+        "2026-11-17": {
+          "bets": 10,
+          "model_wins": 5,
+          "model_losses": 5,
+          "model_win_rate": 0.5,
+          "follow_units": -0.35,
+          "follow_roi": -0.0348,
+          "fade_units": -0.48,
+          "fade_roi": -0.0475
+        }
       }
     }
   },

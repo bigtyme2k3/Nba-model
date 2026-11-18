@@ -273,10 +273,10 @@
       ]
     }
   },
-  "generated_at_utc": "2026-11-17T19:48:36.998061+00:00",
+  "generated_at_utc": "2026-11-18T08:05:24.953217+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "forward_prop_bets": 57,
+  "forward_prop_bets": 58,
   "matched_closes": 0,
   "match_rate": 0.0,
   "avg_line_clv": null,
@@ -287,7 +287,7 @@
   "beat_close_rate": null,
   "by_sportsbook": {
     "draftkings": {
-      "entries": 25,
+      "entries": 26,
       "matched_closes": 0,
       "match_rate": 0.0,
       "avg_line_clv": null,
@@ -355,7 +355,7 @@
       "beat_close_rate": null
     },
     "REB": {
-      "entries": 14,
+      "entries": 15,
       "matched_closes": 0,
       "match_rate": 0.0,
       "avg_line_clv": null,
@@ -378,6 +378,17 @@
     }
   },
   "by_model_artifact": {
+    "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5": {
+      "entries": 1,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
     "UNKNOWN": {
       "entries": 57,
       "matched_closes": 0,
@@ -391,6 +402,17 @@
     }
   },
   "by_model_family": {
+    "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff": {
+      "entries": 1,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
     "UNKNOWN": {
       "entries": 57,
       "matched_closes": 0,

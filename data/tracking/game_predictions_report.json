@@ -1,45 +1,70 @@
 {
-  "generated_at_utc": "2026-11-17T23:49:49.919017+00:00",
+  "generated_at_utc": "2026-11-18T08:05:35.378217+00:00",
   "season_from": "2026-10-27",
-  "games": 145,
+  "games": 150,
   "first_date": "2026-10-27",
-  "last_date": "2026-11-16",
+  "last_date": "2026-11-17",
   "winner": {
-    "model_wins": 90,
-    "model_losses": 55,
-    "model_rate": 0.6207,
-    "market_favorite_wins": 82,
-    "market_favorite_losses": 60,
-    "market_favorite_rate": 0.5775,
-    "games_with_market_line": 142
+    "model_wins": 93,
+    "model_losses": 57,
+    "model_rate": 0.62,
+    "market_favorite_wins": 85,
+    "market_favorite_losses": 62,
+    "market_favorite_rate": 0.5782,
+    "games_with_market_line": 147
   },
   "spread": {
-    "games": 142,
-    "model_wins": 66,
-    "model_losses": 76,
-    "model_win_rate": 0.4648,
-    "follow_units": -14.48,
-    "follow_roi": -0.102,
-    "fade_units": -9.22,
-    "fade_roi": -0.0649,
+    "games": 147,
+    "model_wins": 69,
+    "model_losses": 78,
+    "model_win_rate": 0.4694,
+    "follow_units": -13.85,
+    "follow_roi": -0.0942,
+    "fade_units": -10.41,
+    "fade_roi": -0.0708,
     "qualified_bets": "12-13"
   },
   "total": {
-    "games": 143,
+    "games": 148,
     "model_wins": 64,
-    "model_losses": 79,
-    "model_win_rate": 0.4476,
-    "follow_units": -20.78,
-    "follow_roi": -0.1453,
-    "fade_units": -1.22,
-    "fade_roi": -0.0086,
+    "model_losses": 84,
+    "model_win_rate": 0.4324,
+    "follow_units": -25.78,
+    "follow_roi": -0.1742,
+    "fade_units": 3.38,
+    "fade_roi": 0.0229,
     "qualified_bets": "5-10"
   },
   "error": {
-    "model_margin_mae": 13.26,
-    "model_total_mae": 17.21,
-    "market_total_mae": 13.92,
-    "total_games": 145
+    "model_margin_mae": 13.21,
+    "model_total_mae": 17.11,
+    "market_total_mae": 13.87,
+    "total_games": 150
   },
-  "phases": {}
+  "phases": {
+    "EARLY": {
+      "games": 0
+    },
+    "ADJUSTED": {
+      "games": 2,
+      "winner": {
+        "wins": 1,
+        "losses": 1,
+        "rate": 0.5
+      },
+      "ats": {
+        "wins": 1,
+        "losses": 1,
+        "rate": 0.5
+      },
+      "ou": {
+        "wins": 1,
+        "losses": 1,
+        "rate": 0.5
+      },
+      "margin_mae": 17.7,
+      "total_mae": 10.75,
+      "line_total_mae": 11.31
+    }
+  }
 }
