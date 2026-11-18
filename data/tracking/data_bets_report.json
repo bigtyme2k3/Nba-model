@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-18T08:05:34.675862+00:00",
+  "generated_at_utc": "2026-11-18T14:22:03.608091+00:00",
   "rule": "top 10 per day by raw model probability minus no-vig market probability; flat 1 unit",
   "fade_break_even_note": "fading needs the model side to win less than ~47.6% at -110 both ways",
   "live": {
@@ -433,5 +433,11 @@
       }
     }
   },
-  "phase_changes": {}
+  "phase_changes": {
+    "dates_with_both": 0,
+    "early_picks": 0,
+    "kept_same_side": 0,
+    "flipped_side": 0,
+    "dropped_after_report": 0
+  }
 }
