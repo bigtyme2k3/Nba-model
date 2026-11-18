@@ -3,19 +3,6 @@
     "present": true,
     "status": "trained",
     "model_name": "Ridge (Baseline)",
-    "trained_through": "2026-11-10",
-    "trained_rows": 6719,
-    "validation": "global_chronological_timeseries_split",
-    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-    "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
-    "feature_names_count": 34,
-    "mae": 11.112289573288503,
-    "directional_accuracy": 0.6545048399106478
-  },
-  "candidate": {
-    "present": true,
-    "status": "trained",
-    "model_name": "Ridge (Baseline)",
     "trained_through": "2026-11-15",
     "trained_rows": 6756,
     "validation": "global_chronological_timeseries_split",
@@ -24,6 +11,19 @@
     "feature_names_count": 34,
     "mae": 11.11278162499033,
     "directional_accuracy": 0.6547002220577349
+  },
+  "candidate": {
+    "present": true,
+    "status": "trained",
+    "model_name": "Ridge (Baseline)",
+    "trained_through": "2026-11-16",
+    "trained_rows": 6764,
+    "validation": "global_chronological_timeseries_split",
+    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+    "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+    "feature_names_count": 34,
+    "mae": 11.115091076051304,
+    "directional_accuracy": 0.6551405325443787
   },
   "checks": {
     "candidate_present": true,
@@ -36,10 +36,10 @@
     "valid_training_date": true
   },
   "promotable": true,
-  "mae_delta_candidate_minus_champion": 0.00049,
+  "mae_delta_candidate_minus_champion": 0.00231,
   "model": "spread",
-  "generated_at_utc": "2026-11-17T01:17:18.195522+00:00",
-  "prior_artifact_id": "66acea327a0ffb28f828af408057d1cbf89f25851f9b5026937d86c461379118",
-  "trained_through": "2026-11-15",
-  "active_artifact_id": "bd11dfced6e30e92c97fe60540e3e53bd7714c29dac63f162b86ffb61eca7ef7"
+  "generated_at_utc": "2026-11-18T02:57:46.767220+00:00",
+  "prior_artifact_id": "bd11dfced6e30e92c97fe60540e3e53bd7714c29dac63f162b86ffb61eca7ef7",
+  "trained_through": "2026-11-16",
+  "active_artifact_id": "34e9e43bcbf875af75d99286e1c22c2a9c38e83d2f4f1efa3ead7984da24bf41"
 }

@@ -3,19 +3,6 @@
     "present": true,
     "status": "trained",
     "model_name": "Ridge",
-    "trained_through": "2026-11-08",
-    "trained_rows": 6705,
-    "validation": "global_chronological_timeseries_split",
-    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-    "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
-    "feature_names_count": 29,
-    "mae": 15.048021977445842,
-    "directional_accuracy": null
-  },
-  "candidate": {
-    "present": true,
-    "status": "trained",
-    "model_name": "Ridge",
     "trained_through": "2026-11-15",
     "trained_rows": 6756,
     "validation": "global_chronological_timeseries_split",
@@ -23,6 +10,19 @@
     "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
     "feature_names_count": 29,
     "mae": 15.03754857908335,
+    "directional_accuracy": null
+  },
+  "candidate": {
+    "present": true,
+    "status": "trained",
+    "model_name": "Ridge",
+    "trained_through": "2026-11-16",
+    "trained_rows": 6764,
+    "validation": "global_chronological_timeseries_split",
+    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+    "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+    "feature_names_count": 35,
+    "mae": 15.018246215742598,
     "directional_accuracy": null
   },
   "checks": {
@@ -35,10 +35,10 @@
     "valid_training_date": true
   },
   "promotable": true,
-  "mae_delta_candidate_minus_champion": -0.01047,
+  "mae_delta_candidate_minus_champion": -0.0193,
   "model": "totals",
-  "generated_at_utc": "2026-11-17T01:17:19.555008+00:00",
-  "prior_artifact_id": "73a518561da7c07ca6001bac66e9bc2a2a939d5ac280c51b252d3a12dcf7603b",
-  "trained_through": "2026-11-15",
-  "active_artifact_id": "a09302957da3653fb0f3a684068e5013c974c008cb04883757e42ef78a20c8b5"
+  "generated_at_utc": "2026-11-18T02:57:48.755897+00:00",
+  "prior_artifact_id": "a09302957da3653fb0f3a684068e5013c974c008cb04883757e42ef78a20c8b5",
+  "trained_through": "2026-11-16",
+  "active_artifact_id": "b9edac801bd774eafb0e0e2cd6c7acb1de14120f9d3c65510d7981fd3f92a52a"
 }

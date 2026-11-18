@@ -1,0 +1,82 @@
+{
+  "generated_at_utc": "2026-11-18T02:57:48.943226+00:00",
+  "policy": "CHAMPION_CHALLENGER_WALK_FORWARD_NONREGRESSION",
+  "spread": {
+    "champion": {
+      "present": true,
+      "status": "trained",
+      "model_name": "Ridge (Baseline)",
+      "trained_through": "2026-11-15",
+      "trained_rows": 6756,
+      "validation": "global_chronological_timeseries_split",
+      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+      "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+      "feature_names_count": 34,
+      "mae": 11.11278162499033,
+      "directional_accuracy": 0.6547002220577349
+    },
+    "candidate": {
+      "present": true,
+      "status": "trained",
+      "model_name": "Ridge (Baseline)",
+      "trained_through": "2026-11-16",
+      "trained_rows": 6764,
+      "validation": "global_chronological_timeseries_split",
+      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+      "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+      "feature_names_count": 34,
+      "mae": 11.115091076051304,
+      "directional_accuracy": 0.6551405325443787
+    },
+    "checks": {
+      "candidate_present": true,
+      "candidate_trained": true,
+      "prior_context_policy": true,
+      "feature_semantics_version": true,
+      "absolute_mae_sane": true,
+      "mae_nonregression": true,
+      "directional_nonregression": true
+    },
+    "promotable": true,
+    "mae_delta_candidate_minus_champion": 0.00231
+  },
+  "totals": {
+    "champion": {
+      "present": true,
+      "status": "trained",
+      "model_name": "Ridge",
+      "trained_through": "2026-11-15",
+      "trained_rows": 6756,
+      "validation": "global_chronological_timeseries_split",
+      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+      "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+      "feature_names_count": 29,
+      "mae": 15.03754857908335,
+      "directional_accuracy": null
+    },
+    "candidate": {
+      "present": true,
+      "status": "trained",
+      "model_name": "Ridge",
+      "trained_through": "2026-11-16",
+      "trained_rows": 6764,
+      "validation": "global_chronological_timeseries_split",
+      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+      "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+      "feature_names_count": 35,
+      "mae": 15.018246215742598,
+      "directional_accuracy": null
+    },
+    "checks": {
+      "candidate_present": true,
+      "candidate_trained": true,
+      "prior_context_policy": true,
+      "feature_semantics_version": true,
+      "absolute_mae_sane": true,
+      "mae_nonregression": true
+    },
+    "promotable": true,
+    "mae_delta_candidate_minus_champion": -0.0193
+  },
+  "promotion_approved": true
+}
