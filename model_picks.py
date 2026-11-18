@@ -30,6 +30,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 PICKS = Path("data/history/nba_model_picks.jsonl")
+GAMES = Path("data/history/nba_game_predictions.jsonl")
 PRED_DIR = Path("predictions")
 PER_DAY = 10
 BOOKS = {"fanduel", "draftkings", "fanatics"}
@@ -117,6 +118,52 @@ def select(data: dict, phase: str, existing: list[dict], slate_games: int | None
     return rows
 
 
+def game_rows(data: dict, phase: str, existing: list[dict], now=None) -> list[dict]:
+    """One immutable row per (date, phase, game): the model's margin, total and winner
+    with the market line and absences it saw. Written only before tip."""
+    now = now or datetime.now(timezone.utc)
+    date = data.get("date")
+    have = {r["game_key"] for r in existing}
+    rows = []
+    for g in data.get("games", []):
+        home, away = g.get("home", {}).get("name"), g.get("away", {}).get("name")
+        game = f"{away} @ {home}"
+        key = "|".join([str(date), phase, game.lower()])
+        tip = _tip(g.get("tip"))
+        sp, tot, ctx = g.get("spread") or {}, g.get("totals") or {}, g.get("ctx") or {}
+        margin = _num(sp.get("pred"))
+        if key in have or tip is None or tip <= now or margin is None:
+            continue
+        rq = sp.get("reference_quote") or sp.get("selected_quote") or {}
+        home_line = _num(sp.get("posted_line"))
+        if home_line is None and _num(rq.get("line")) is not None:
+            home_line = _num(rq["line"]) if rq.get("side") == "HOME" else -_num(rq["line"])
+        rows.append({"game_key": key, "date": date, "phase": phase, "game": game, "home": home, "away": away,
+                     "tip": g.get("tip"), "recorded_at_utc": now.isoformat(),
+                     "prediction_generated_at": data.get("generated"),
+                     "pred_home_margin": margin, "pred_winner": home if margin > 0 else away,
+                     "pred_total": _num(tot.get("pred")), "market_home_line": home_line,
+                     "market_total": _num(tot.get("line")),
+                     "home_vac_minutes": _num(ctx.get("home_vac_minutes")),
+                     "away_vac_minutes": _num(ctx.get("away_vac_minutes")),
+                     "home_out": ctx.get("home_out"), "away_out": ctx.get("away_out"),
+                     "injury_feed_healthy": (data.get("injury_feed") or {}).get("healthy")})
+    return rows
+
+
+def record_games(data: dict, phase: str, path=GAMES) -> int:
+    existing = read_picks(path)
+    if phase == "EARLY" and any(r["date"] == data.get("date") and r["phase"] == "EARLY" for r in existing):
+        return 0   # one morning read per day
+    rows = game_rows(data, phase, existing)
+    if rows:
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
+        with Path(path).open("a", encoding="utf-8") as fh:
+            for r in rows:
+                fh.write(json.dumps(r, allow_nan=False, default=str) + "\n")
+    return len(rows)
+
+
 def record(date: str, phase: str, predictions: str | None = None, path=PICKS) -> dict:
     if phase not in PHASES:
         raise SystemExit(f"phase must be one of {sorted(PHASES)}")
@@ -133,7 +180,9 @@ def record(date: str, phase: str, predictions: str | None = None, path=PICKS) ->
         with Path(path).open("a", encoding="utf-8") as fh:
             for r in rows:
                 fh.write(json.dumps(r, allow_nan=False, default=str) + "\n")
+    games_recorded = record_games(data, phase)
     status = {"date": date, "phase": phase, "predictions": str(pred_path), "games_in_file": len(data.get("games", [])),
+              "game_predictions_recorded": games_recorded,
               "slate_games": slate, "picks_recorded": len(rows),
               "picks": [f"{r['player']} {r['stat']} {r['side']} {r['line']} ({r['book_key']} {r['odds']})" for r in rows]}
     print(json.dumps(status, indent=2))

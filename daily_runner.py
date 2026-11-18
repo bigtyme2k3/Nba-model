@@ -858,6 +858,11 @@ def run_totals(home, away, ctx, bundle):
         "long_travel": int(ctx["long_travel"]),
         "month": ctx["month"], "is_playoff": int(ctx["month"] in (4, 5, 6)),
         "season_game_num": ctx["season_game_num"],
+        # Rotation regulars listed OUT (used once the retrained totals bundle has them).
+        "home_vac_value": ctx.get("home_vac_value", 0.0), "away_vac_value": ctx.get("away_vac_value", 0.0),
+        "home_vac_minutes": ctx.get("home_vac_minutes", 0.0), "away_vac_minutes": ctx.get("away_vac_minutes", 0.0),
+        "vac_value_sum": ctx.get("home_vac_value", 0.0) + ctx.get("away_vac_value", 0.0),
+        "vac_minutes_sum": ctx.get("home_vac_minutes", 0.0) + ctx.get("away_vac_minutes", 0.0),
     })
     try:
         X = pd.DataFrame([row])[feats]
