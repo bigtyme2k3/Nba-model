@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-18T16:54:56.200370+00:00",
+  "generated_at_utc": "2026-11-18T19:24:36.818407+00:00",
   "policy": "SHADOW_ONLY",
   "strict_gate_rules": {
     "min_holdout_dates": 7,
@@ -93,12 +93,12 @@
       },
       "calibration_diagnostics": {
         "market": {
-          "slope": 0.6550359027564276,
+          "slope": 0.6550359027564275,
           "mean_over_prob": 0.4958724358974359,
           "over_rate": 0.5166666666666667
         },
         "v1": {
-          "slope": -0.11043728268974012,
+          "slope": -0.11043728268974014,
           "mean_over_prob": 0.5274147435897435,
           "over_rate": 0.5166666666666667,
           "weight_on_top_of_market": -0.1630914662371212,
@@ -106,7 +106,7 @@
           "abs_disagreement_vs_market": 0.1057794871794872
         },
         "mc_v1": {
-          "slope": -0.10082074558431198,
+          "slope": -0.10082074558431203,
           "mean_over_prob": 0.48539974358974364,
           "over_rate": 0.5166666666666667,
           "weight_on_top_of_market": -0.2289913153925843,
@@ -114,7 +114,7 @@
           "abs_disagreement_vs_market": 0.09059064102564102
         },
         "mc_v2": {
-          "slope": -0.07735687547401418,
+          "slope": -0.07735687547401422,
           "mean_over_prob": 0.48061782051282054,
           "over_rate": 0.5166666666666667,
           "weight_on_top_of_market": -0.2274310175122849,
@@ -881,12 +881,12 @@
       },
       "calibration_diagnostics": {
         "market": {
-          "slope": 0.6550359027564276,
+          "slope": 0.6550359027564275,
           "mean_over_prob": 0.4958724358974359,
           "over_rate": 0.5166666666666667
         },
         "v1": {
-          "slope": -0.11043728268974012,
+          "slope": -0.11043728268974014,
           "mean_over_prob": 0.5274147435897435,
           "over_rate": 0.5166666666666667,
           "weight_on_top_of_market": -0.1630914662371212,
@@ -894,7 +894,7 @@
           "abs_disagreement_vs_market": 0.1057794871794872
         },
         "mc_v1": {
-          "slope": -0.10082074558431198,
+          "slope": -0.10082074558431203,
           "mean_over_prob": 0.48539974358974364,
           "over_rate": 0.5166666666666667,
           "weight_on_top_of_market": -0.2289913153925843,

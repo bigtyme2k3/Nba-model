@@ -1,7 +1,5 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-10,401909960,STATUS_FINAL,True,False,New York Knicks,Milwaukee Bucks,117,85,32,202,26.0,32.0,27.0,32.0,21.0,13.0,38.0,13.0,,,Madison Square Garden,19812,2026-11-18T16:54:47.124493
-2026-11-10,401909961,STATUS_FINAL,True,False,Philadelphia 76ers,Boston Celtics,101,123,-22,224,23.0,28.0,31.0,19.0,30.0,32.0,29.0,32.0,,,Xfinity Mobile Arena,21497,2026-11-18T16:54:47.124515
-2026-11-10,401909962,STATUS_FINAL,True,False,Phoenix Suns,LA Clippers,133,110,23,243,29.0,35.0,35.0,34.0,18.0,29.0,25.0,38.0,,,Mortgage Matchup Center,17071,2026-11-18T16:54:47.124528
-2026-11-10,401909963,STATUS_FINAL,True,False,Utah Jazz,Miami Heat,109,115,-6,224,25.0,29.0,18.0,37.0,29.0,35.0,28.0,23.0,,,Delta Center,17867,2026-11-18T16:54:47.124539
-2026-11-10,401909964,STATUS_FINAL,True,False,Sacramento Kings,Orlando Magic,100,107,-7,207,27.0,25.0,24.0,24.0,34.0,23.0,27.0,23.0,,,Golden 1 Center,13573,2026-11-18T16:54:47.124549
-2026-11-10,401909965,STATUS_FINAL,True,False,Portland Trail Blazers,Oklahoma City Thunder,123,103,20,226,26.0,33.0,38.0,26.0,27.0,32.0,21.0,23.0,,,Moda Center,19367,2026-11-18T16:54:47.124559
+2026-11-01,401909903,STATUS_FINAL,True,False,Orlando Magic,Boston Celtics,97,108,-11,205,23.0,27.0,24.0,23.0,24.0,31.0,22.0,31.0,,,Kia Center,18236,2026-11-18T19:24:29.610699
+2026-11-01,401909904,STATUS_FINAL,True,False,Indiana Pacers,Brooklyn Nets,90,98,-8,188,19.0,21.0,22.0,28.0,20.0,23.0,28.0,27.0,,,Gainbridge Fieldhouse,17274,2026-11-18T19:24:29.610713
+2026-11-01,401909905,STATUS_FINAL,True,False,Golden State Warriors,LA Clippers,124,112,12,236,29.0,34.0,29.0,32.0,37.0,20.0,28.0,27.0,,,Chase Center,18064,2026-11-18T19:24:29.610720
+2026-11-01,401909906,STATUS_FINAL,True,False,Los Angeles Lakers,Toronto Raptors,131,125,6,256,36.0,30.0,38.0,27.0,23.0,31.0,28.0,43.0,,,crypto.com Arena,19057,2026-11-18T19:24:29.610725
