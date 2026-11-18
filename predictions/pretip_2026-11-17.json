@@ -1,6 +1,6 @@
 {
   "date": "2026-11-17",
-  "generated": "2026-11-18T02:22:06.084954+00:00",
+  "generated": "2026-11-18T02:48:41.100513+00:00",
   "model_version": "NBA_V1.0",
   "model_artifacts": {
     "SPREAD": "bd11dfced6e30e92c97fe60540e3e53bd7714c29dac63f162b86ffb61eca7ef7",
@@ -22,7 +22,7 @@
     "healthy": true,
     "reason": "OK",
     "age_hours": 0.0,
-    "rows": 105,
+    "rows": 106,
     "feed_status": "ok"
   },
   "qualification_audit": {
@@ -40,7 +40,7 @@
     {
       "tip": "2026-11-18T03:30Z",
       "event_id": null,
-      "minutes_to_tip": 67.94,
+      "minutes_to_tip": 41.35,
       "home": {
         "name": "LA Clippers",
         "abbr": "LAC",
@@ -87,8 +87,8 @@
           "book_key": "draftkings",
           "book": "DraftKings",
           "no_vig_probability": 0.48481627695110846,
-          "last_update": "2026-11-18T02:20:20Z",
-          "captured_at_utc": "2026-11-18T02:21:53.782439+00:00",
+          "last_update": "2026-11-18T02:47:15Z",
+          "captured_at_utc": "2026-11-18T02:48:29.802191+00:00",
           "commence_time": "2026-11-18T03:40:00Z",
           "quote_policy": "EXACT_BOOK_SIDE_V1",
           "link": "https://sportsbook.draftkings.com/?outcomes=0HC87266278P550_3",
@@ -103,8 +103,8 @@
       },
       "totals": {
         "pred": 226.9,
-        "line": 227.38,
-        "edge": -0.5,
+        "line": 227.5,
+        "edge": -0.6,
         "play": null,
         "juice": null,
         "source": "the-odds-api-consensus-display-only",
@@ -114,17 +114,17 @@
           "market": "TOTAL",
           "side": "UNDER",
           "line": 227.5,
-          "price": -113,
+          "price": -107,
           "book_key": "draftkings",
           "book": "DraftKings",
-          "no_vig_probability": 0.5064960374171755,
-          "last_update": "2026-11-18T02:20:20Z",
-          "captured_at_utc": "2026-11-18T02:21:53.782439+00:00",
+          "no_vig_probability": 0.4935039625828245,
+          "last_update": "2026-11-18T02:47:15Z",
+          "captured_at_utc": "2026-11-18T02:48:29.802191+00:00",
           "commence_time": "2026-11-18T03:40:00Z",
           "quote_policy": "EXACT_BOOK_SIDE_V1",
           "link": "https://sportsbook.draftkings.com/?outcomes=0OU87266278U22750_3",
           "edge": 0.5999999999999943,
-          "model_probability": 0.5064960374171755,
+          "model_probability": 0.4935039625828245,
           "raw_model_probability": 0.513295613817092,
           "ev": -0.045277380797713374,
           "qualified": false
@@ -204,8 +204,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 3.36,
               "novig_reference": {
-                "odds": 141,
-                "no_vig_probability": 0.4107971460408801
+                "odds": 135,
+                "no_vig_probability": 0.4169128196472276
               },
               "opposite_odds": -167
             },
@@ -232,7 +232,7 @@
               "v2_pred": 3.2,
               "novig_reference": {
                 "odds": -141,
-                "no_vig_probability": 0.5820181067674911
+                "no_vig_probability": 0.5789289770245479
               },
               "opposite_odds": 134
             },
@@ -327,8 +327,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 22.03,
               "novig_reference": {
-                "odds": -111,
-                "no_vig_probability": 0.5151877211525205
+                "odds": -113,
+                "no_vig_probability": 0.5148063781321185
               },
               "opposite_odds": -115
             },
@@ -382,7 +382,7 @@
               "v2_pred": 4.89,
               "novig_reference": {
                 "odds": -120,
-                "no_vig_probability": 0.5291095890410958
+                "no_vig_probability": 0.5315161839863713
               },
               "opposite_odds": -104
             },
@@ -396,13 +396,13 @@
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -120,
+              "odds": -122,
               "raw_model_probability": 0.6312,
-              "model_probability": 0.5146,
-              "market_probability": 0.5146,
+              "model_probability": 0.5188,
+              "market_probability": 0.5188,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0566,
+              "ev": -0.056,
               "sigma": 1.2593,
               "offers_considered": 4,
               "market_source": "the-odds-api",
@@ -411,7 +411,7 @@
                 "odds": 100,
                 "no_vig_probability": 0.4951456310679611
               },
-              "opposite_odds": -106
+              "opposite_odds": -104
             },
             "pra": {
               "pred": 31.91,
@@ -435,8 +435,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 31.53,
               "novig_reference": {
-                "odds": -115,
-                "no_vig_probability": 0.5325578867268181
+                "odds": -113,
+                "no_vig_probability": 0.5281660501074364
               },
               "opposite_odds": -104
             }
@@ -487,7 +487,7 @@
               "v2_pred": 10.82,
               "novig_reference": {
                 "odds": -130,
-                "no_vig_probability": 0.5439222684909776
+                "no_vig_probability": 0.5403677058353318
               },
               "opposite_odds": 104
             },
@@ -540,8 +540,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 2.9,
               "novig_reference": {
-                "odds": 147,
-                "no_vig_probability": 0.401008067711718
+                "odds": 150,
+                "no_vig_probability": 0.3981117230527144
               },
               "opposite_odds": -170
             },
@@ -567,8 +567,8 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": 113,
-                "no_vig_probability": 0.4512967518255245
+                "odds": 115,
+                "no_vig_probability": 0.4451094071441929
               },
               "opposite_odds": -136
             },
@@ -645,8 +645,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 21.74,
               "novig_reference": {
-                "odds": -122,
-                "no_vig_probability": 0.5439043431811645
+                "odds": -115,
+                "no_vig_probability": 0.5302086747514475
               },
               "opposite_odds": -104
             },
@@ -699,8 +699,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 7.29,
               "novig_reference": {
-                "odds": -115,
-                "no_vig_probability": 0.5168539325842696
+                "odds": -108,
+                "no_vig_probability": 0.509433962264151
               },
               "opposite_odds": -104
             },
@@ -709,40 +709,40 @@
               "line": 2.5,
               "edge": -0.27,
               "signal": null,
-              "offer_side": "UNDER",
-              "availability_block": false,
-              "block_reason": null,
-              "book": "FanDuel",
-              "book_key": "fanduel",
-              "odds": -196,
-              "raw_model_probability": 0.5858,
-              "model_probability": 0.6253,
-              "market_probability": 0.6253,
-              "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
-              "probability_edge": 0.0,
-              "ev": -0.0557,
-              "sigma": 1.2593,
-              "offers_considered": 4,
-              "market_source": "the-odds-api",
-              "v2_pred": null,
-              "novig_reference": {
-                "odds": -170,
-                "no_vig_probability": 0.6234834751080742
-              },
-              "opposite_odds": 152
-            },
-            "pra": {
-              "pred": 35.1,
-              "line": 32.5,
-              "edge": 2.6,
-              "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
+              "odds": 154,
+              "raw_model_probability": 0.4142,
+              "model_probability": 0.3713,
+              "market_probability": 0.3713,
+              "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
+              "probability_edge": 0.0,
+              "ev": -0.0569,
+              "sigma": 1.2593,
+              "offers_considered": 4,
+              "market_source": "the-odds-api",
+              "v2_pred": null,
+              "novig_reference": {
+                "odds": 163,
+                "no_vig_probability": 0.368946567248897
+              },
+              "opposite_odds": -200
+            },
+            "pra": {
+              "pred": 35.1,
+              "line": 33.5,
+              "edge": 1.6,
+              "signal": null,
+              "offer_side": "UNDER",
+              "availability_block": false,
+              "block_reason": null,
+              "book": "FanDuel",
+              "book_key": "fanduel",
               "odds": -125,
-              "raw_model_probability": 0.6288,
+              "raw_model_probability": 0.4198,
               "model_probability": 0.5239,
               "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -754,7 +754,7 @@
               "v2_pred": 34.6,
               "novig_reference": {
                 "odds": -125,
-                "no_vig_probability": 0.5238589211618258
+                "no_vig_probability": 0.55
               },
               "opposite_odds": -102
             }
@@ -832,7 +832,7 @@
               "v2_pred": 3.44,
               "novig_reference": {
                 "odds": 120,
-                "no_vig_probability": 0.4394387001477104
+                "no_vig_probability": 0.4433028919330289
               },
               "opposite_odds": -142
             },
@@ -859,7 +859,7 @@
               "v2_pred": 8.2,
               "novig_reference": {
                 "odds": 113,
-                "no_vig_probability": 0.4607147304196239
+                "no_vig_probability": 0.4562722357339551
               },
               "opposite_odds": -128
             },
@@ -949,15 +949,15 @@
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
-              "book": "FanDuel",
-              "book_key": "fanduel",
-              "odds": -122,
+              "book": "DraftKings",
+              "book_key": "draftkings",
+              "odds": -128,
               "raw_model_probability": 0.6581,
-              "model_probability": 0.5188,
-              "market_probability": 0.5188,
+              "model_probability": 0.5302,
+              "market_probability": 0.5302,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.056,
+              "ev": -0.0556,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
@@ -966,7 +966,7 @@
                 "odds": -115,
                 "no_vig_probability": 0.521797153024911
               },
-              "opposite_odds": -104
+              "opposite_odds": 101
             },
             "reb": {
               "pred": 5.81,
@@ -1045,7 +1045,7 @@
               "v2_pred": null,
               "novig_reference": {
                 "odds": -111,
-                "no_vig_probability": 0.5224947949669593
+                "no_vig_probability": 0.5200837010417141
               },
               "opposite_odds": -115
             },
@@ -1071,8 +1071,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 23.28,
               "novig_reference": {
-                "odds": 104,
-                "no_vig_probability": 0.4714576962283384
+                "odds": 100,
+                "no_vig_probability": 0.4763948497854076
               },
               "opposite_odds": -118,
               "bet_tier": "DATA_COLLECTION"
@@ -1124,7 +1124,7 @@
               "v2_pred": 6.69,
               "novig_reference": {
                 "odds": 100,
-                "no_vig_probability": 0.492822966507177
+                "no_vig_probability": 0.48729792147806
               },
               "opposite_odds": -126
             },
@@ -1238,27 +1238,27 @@
               "line": 14.5,
               "edge": 1.88,
               "signal": null,
-              "offer_side": "UNDER",
+              "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -122,
-              "raw_model_probability": 0.3786,
-              "model_probability": 0.5188,
-              "market_probability": 0.5188,
+              "odds": 102,
+              "raw_model_probability": 0.6214,
+              "model_probability": 0.4669,
+              "market_probability": 0.4669,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.056,
+              "ev": -0.0568,
               "sigma": 6.0784,
               "offers_considered": 6,
               "market_source": "the-odds-api",
               "v2_pred": 15.77,
               "novig_reference": {
-                "odds": -115,
-                "no_vig_probability": 0.5242310245629564
+                "odds": 106,
+                "no_vig_probability": 0.4778141684238862
               },
-              "opposite_odds": -104
+              "opposite_odds": -130
             },
             "reb": {
               "pred": 5.01,
@@ -1282,8 +1282,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 5.25,
               "novig_reference": {
-                "odds": 111,
-                "no_vig_probability": 0.4697913252485524
+                "odds": 108,
+                "no_vig_probability": 0.4733597534125936
               },
               "opposite_odds": -120
             },
@@ -1346,27 +1346,27 @@
               "line": 22.5,
               "edge": 1.63,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -111,
-              "raw_model_probability": 0.5816,
-              "model_probability": 0.4958,
-              "market_probability": 0.4958,
+              "odds": -125,
+              "raw_model_probability": 0.4184,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0574,
+              "ev": -0.0571,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 23.35,
               "novig_reference": {
-                "odds": -104,
-                "no_vig_probability": 0.4812406203101549
+                "odds": -122,
+                "no_vig_probability": 0.5211470140416173
               },
-              "opposite_odds": -115
+              "opposite_odds": -102
             }
           }
         },
@@ -1394,30 +1394,30 @@
           "props": {
             "pts": {
               "pred": 12.77,
-              "line": 13.5,
-              "edge": -0.73,
+              "line": 12.5,
+              "edge": 0.27,
               "signal": null,
-              "offer_side": "UNDER",
+              "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
-              "book": "DraftKings",
-              "book_key": "draftkings",
-              "odds": -110,
-              "raw_model_probability": 0.5476,
-              "model_probability": 0.4938,
-              "market_probability": 0.4938,
+              "book": "FanDuel",
+              "book_key": "fanduel",
+              "odds": -125,
+              "raw_model_probability": 0.5179,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0574,
+              "ev": -0.0571,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 11.27,
               "novig_reference": {
-                "odds": -115,
-                "no_vig_probability": 0.521797153024911
+                "odds": -113,
+                "no_vig_probability": 0.5197510822510822
               },
-              "opposite_odds": -116
+              "opposite_odds": -102
             },
             "reb": {
               "pred": 4.18,
@@ -1486,8 +1486,8 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": -147,
-                "no_vig_probability": 0.5830871803527724
+                "odds": -144,
+                "no_vig_probability": 0.5810439560439561
               },
               "opposite_odds": 126
             },
@@ -1555,8 +1555,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 13.52,
               "novig_reference": {
-                "odds": -117,
-                "no_vig_probability": 0.5368690641340306
+                "odds": -115,
+                "no_vig_probability": 0.5193382517326178
               },
               "opposite_odds": -102
             },
@@ -1583,7 +1583,7 @@
               "v2_pred": 5.87,
               "novig_reference": {
                 "odds": -144,
-                "no_vig_probability": 0.5841287155713116
+                "no_vig_probability": 0.5871683811586356
               },
               "opposite_odds": 114
             },
@@ -1591,28 +1591,29 @@
               "pred": 2.67,
               "line": 1.5,
               "edge": 1.17,
-              "signal": null,
-              "offer_side": "UNDER",
+              "signal": "OVER",
+              "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -184,
-              "raw_model_probability": 0.2645,
-              "model_probability": 0.6076,
-              "market_probability": 0.6076,
+              "odds": 144,
+              "raw_model_probability": 0.7355,
+              "model_probability": 0.3844,
+              "market_probability": 0.3844,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0622,
+              "ev": -0.0621,
               "sigma": 1.8618,
               "offers_considered": 2,
               "market_source": "the-odds-api",
               "v2_pred": 2.08,
               "novig_reference": {
-                "odds": -174,
-                "no_vig_probability": 0.6290178450540226
+                "odds": 167,
+                "no_vig_probability": 0.3709821549459774
               },
-              "opposite_odds": 139
+              "opposite_odds": -191,
+              "bet_tier": "DATA_COLLECTION"
             },
             "threes": {
               "pred": 1.67,
@@ -1636,8 +1637,8 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": 141,
-                "no_vig_probability": 0.4107971460408801
+                "odds": 138,
+                "no_vig_probability": 0.4118616144975288
               },
               "opposite_odds": -174
             },
@@ -1714,8 +1715,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 9.4,
               "novig_reference": {
-                "odds": -104,
-                "no_vig_probability": 0.4742268041237114
+                "odds": 100,
+                "no_vig_probability": 0.4831460674157303
               },
               "opposite_odds": -106
             },
@@ -1741,8 +1742,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 5.33,
               "novig_reference": {
-                "odds": -106,
-                "no_vig_probability": 0.509663905550795
+                "odds": -104,
+                "no_vig_probability": 0.5048543689320388
               },
               "opposite_odds": -126,
               "bet_tier": "DATA_COLLECTION"
@@ -1788,7 +1789,7 @@
               "v2_pred": null,
               "novig_reference": {
                 "odds": -106,
-                "no_vig_probability": 0.507177033492823
+                "no_vig_probability": 0.4903184165232359
               },
               "opposite_odds": -106
             },
@@ -1815,7 +1816,7 @@
               "v2_pred": 15.68,
               "novig_reference": {
                 "odds": -117,
-                "no_vig_probability": 0.5139977603583427
+                "no_vig_probability": 0.5188470066518847
               },
               "opposite_odds": -115
             }
@@ -1892,8 +1893,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 2.23,
               "novig_reference": {
-                "odds": -141,
-                "no_vig_probability": 0.5768440644039823
+                "odds": -344,
+                "no_vig_probability": 0.645480677099968
               },
               "opposite_odds": 103
             },
@@ -1937,8 +1938,8 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": -160,
-                "no_vig_probability": 0.582798459563543
+                "odds": -153,
+                "no_vig_probability": 0.584898849858078
               },
               "opposite_odds": 126
             },
@@ -2105,7 +2106,7 @@
     {
       "tip": "2026-11-18T04:00Z",
       "event_id": null,
-      "minutes_to_tip": 97.94,
+      "minutes_to_tip": 71.35,
       "home": {
         "name": "Los Angeles Lakers",
         "abbr": "LAL",
@@ -2133,12 +2134,12 @@
         }
       },
       "spread": {
-        "pred": 9.9,
-        "model_line": "Los Angeles Lakers -9.9",
-        "shadow_anchored_margin": 8.2,
+        "pred": 10.8,
+        "model_line": "Los Angeles Lakers -10.8",
+        "shadow_anchored_margin": 8.4,
         "shadow_policy": "RESEARCH_ONLY_35_MODEL_65_MARKET",
-        "posted_line": -7.25,
-        "edge": 2.7,
+        "posted_line": -7.12,
+        "edge": 3.7,
         "play": null,
         "juice": null,
         "source": "the-odds-api-consensus-display-only",
@@ -2146,21 +2147,21 @@
         "reference_quote": {
           "event_id": "bed6147c75f3706f25e25f5bdfeaf1ec",
           "market": "SPREAD",
-          "side": "AWAY",
-          "line": 7.5,
-          "price": -115,
-          "book_key": "fanatics",
-          "book": "Fanatics",
-          "no_vig_probability": 0.5108342361863489,
-          "last_update": "2026-11-18T02:21:18Z",
-          "captured_at_utc": "2026-11-18T02:21:53.782646+00:00",
+          "side": "HOME",
+          "line": -7.5,
+          "price": -102,
+          "book_key": "draftkings",
+          "book": "DraftKings",
+          "no_vig_probability": 0.4826358742837298,
+          "last_update": "2026-11-18T02:47:15Z",
+          "captured_at_utc": "2026-11-18T02:48:29.802387+00:00",
           "commence_time": "2026-11-18T04:10:00Z",
           "quote_policy": "EXACT_BOOK_SIDE_V1",
-          "link": "https://fanatics.onelink.me/5kut?deep_link_value=consume-betslip&af_force_deeplink=true&pid=share_bet&deep_link_sub1=%7B%22legs%22%3A%5B%7B%22eventId%22%3A%225887568%22%2C%22marketId%22%3A%22782244246%22%2C%22selectionId%22%3A%221924621699%22%7D%5D%7D",
-          "edge": -2.4000000000000004,
-          "model_probability": 0.5108342361863489,
-          "raw_model_probability": 0.420740290560897,
-          "ev": -0.044962080173347685,
+          "link": "https://sportsbook.draftkings.com/?outcomes=0HC87266282N750_1",
+          "edge": 3.3000000000000007,
+          "model_probability": 0.4826358742837298,
+          "raw_model_probability": 0.6083418808463948,
+          "ev": -0.044191699947907614,
           "qualified": false
         },
         "conf": "LOW",
@@ -2168,8 +2169,8 @@
       },
       "totals": {
         "pred": 222.6,
-        "line": 221.88,
-        "edge": 0.7,
+        "line": 220.88,
+        "edge": 1.7,
         "play": null,
         "juice": null,
         "source": "the-odds-api-consensus-display-only",
@@ -2177,21 +2178,21 @@
         "reference_quote": {
           "event_id": "bed6147c75f3706f25e25f5bdfeaf1ec",
           "market": "TOTAL",
-          "side": "UNDER",
-          "line": 222.5,
-          "price": -112,
+          "side": "OVER",
+          "line": 220.5,
+          "price": -115,
           "book_key": "draftkings",
           "book": "DraftKings",
-          "no_vig_probability": 0.5043297540699689,
-          "last_update": "2026-11-18T02:20:20Z",
-          "captured_at_utc": "2026-11-18T02:21:53.782646+00:00",
+          "no_vig_probability": 0.5108342361863489,
+          "last_update": "2026-11-18T02:47:15Z",
+          "captured_at_utc": "2026-11-18T02:48:29.802387+00:00",
           "commence_time": "2026-11-18T04:10:00Z",
           "quote_policy": "EXACT_BOOK_SIDE_V1",
-          "link": "https://sportsbook.draftkings.com/?outcomes=0OU87266282U22250_3",
-          "edge": -0.09999999999999432,
-          "model_probability": 0.5043297540699689,
-          "raw_model_probability": 0.49778366539867397,
-          "ev": -0.04537582265327311,
+          "link": "https://sportsbook.draftkings.com/?outcomes=0OU87266282O22050_1",
+          "edge": 2.0999999999999943,
+          "model_probability": 0.5108342361863489,
+          "raw_model_probability": 0.5464378970049221,
+          "ev": -0.044962080173347685,
           "qualified": false
         },
         "conf": "LOW",
@@ -2204,34 +2205,34 @@
           "opp": "Los Angeles Lakers",
           "pos": "G",
           "opponent_defense_scope": "TEAM_OVERALL",
-          "proj_min": 18.4,
+          "proj_min": 21.6,
           "base_proj_min": 18.4,
           "recent_minutes": 18.8,
-          "minutes_gap": -0.42,
+          "minutes_gap": 2.81,
           "minutes_guard": false,
-          "shadow_stabilized_minutes": 18.5,
+          "shadow_stabilized_minutes": 20.6,
           "b2b": false,
-          "injury_status": "ACTIVE_OR_UNKNOWN",
-          "opportunity_direction": "UNCHANGED",
-          "opportunity_minutes_delta": 0.0,
-          "vacancy_sources": "",
+          "injury_status": "OPPORTUNITY_UP",
+          "opportunity_direction": "UP",
+          "opportunity_minutes_delta": 3.23,
+          "vacancy_sources": "Grayson Allen",
           "rotation_stability_score": 87.72,
           "rotation_risk_band": "STABLE",
           "projected_role": "STARTER",
           "profile_source": "PRIOR_BOX_SCORES",
           "props": {
             "pts": {
-              "pred": 11.19,
+              "pred": 12.41,
               "line": 15.5,
-              "edge": -4.31,
-              "signal": "UNDER",
+              "edge": -3.09,
+              "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": -122,
-              "raw_model_probability": 0.7608,
+              "raw_model_probability": 0.6944,
               "model_probability": 0.5188,
               "market_probability": 0.5188,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -2240,45 +2241,44 @@
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 10.25,
+              "v2_pred": 11.47,
               "novig_reference": {
                 "odds": -122,
-                "no_vig_probability": 0.5164392569455861
+                "no_vig_probability": 0.5285423037716617
               },
-              "opposite_odds": -104,
-              "bet_tier": "DATA_COLLECTION"
+              "opposite_odds": -104
             },
             "reb": {
-              "pred": 2.55,
+              "pred": 2.98,
               "line": 2.5,
-              "edge": 0.05,
+              "edge": 0.48,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -106,
-              "raw_model_probability": 0.5073,
-              "model_probability": 0.4854,
-              "market_probability": 0.4854,
+              "odds": 102,
+              "raw_model_probability": 0.5737,
+              "model_probability": 0.4669,
+              "market_probability": 0.4669,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0566,
+              "ev": -0.0568,
               "sigma": 2.5807,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 2.17,
+              "v2_pred": 2.39,
               "novig_reference": {
-                "odds": 108,
-                "no_vig_probability": 0.4666218261308222
+                "odds": 111,
+                "no_vig_probability": 0.4630595302657377
               },
-              "opposite_odds": -120
+              "opposite_odds": -130
             },
             "ast": {
-              "pred": 3.58,
+              "pred": 3.62,
               "line": 3.5,
-              "edge": 0.08,
+              "edge": 0.12,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
@@ -2286,7 +2286,7 @@
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": -106,
-              "raw_model_probability": 0.5166,
+              "raw_model_probability": 0.5264,
               "model_probability": 0.4854,
               "market_probability": 0.4854,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -2295,17 +2295,17 @@
               "sigma": 1.8618,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 3.13,
+              "v2_pred": 3.32,
               "novig_reference": {
                 "odds": 106,
-                "no_vig_probability": 0.4757689754370436
+                "no_vig_probability": 0.4778141684238862
               },
               "opposite_odds": -120
             },
             "threes": {
-              "pred": 1.13,
+              "pred": 1.3,
               "line": 1.5,
-              "edge": -0.37,
+              "edge": -0.2,
               "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
@@ -2313,7 +2313,7 @@
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": 130,
-              "raw_model_probability": 0.6168,
+              "raw_model_probability": 0.5634,
               "model_probability": 0.4106,
               "market_probability": 0.4106,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -2325,36 +2325,36 @@
               "v2_pred": null,
               "novig_reference": {
                 "odds": 138,
-                "no_vig_probability": 0.4179818932325089
+                "no_vig_probability": 0.4158712844286882
               },
               "opposite_odds": -166
             },
             "pra": {
-              "pred": 17.1,
+              "pred": 18.88,
               "line": 21.5,
-              "edge": -4.4,
+              "edge": -2.62,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -111,
-              "raw_model_probability": 0.2894,
-              "model_probability": 0.4958,
-              "market_probability": 0.4958,
+              "odds": -113,
+              "raw_model_probability": 0.6295,
+              "model_probability": 0.5,
+              "market_probability": 0.5,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0574,
+              "ev": -0.0575,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 16.15,
+              "v2_pred": 18.04,
               "novig_reference": {
-                "odds": -111,
-                "no_vig_probability": 0.4938491819411982
+                "odds": -113,
+                "no_vig_probability": 0.505375419282704
               },
-              "opposite_odds": -115
+              "opposite_odds": -113
             }
           }
         },
@@ -2385,27 +2385,27 @@
               "line": 14.5,
               "edge": 0.53,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -113,
-              "raw_model_probability": 0.5346,
-              "model_probability": 0.5,
-              "market_probability": 0.5,
+              "odds": -111,
+              "raw_model_probability": 0.4654,
+              "model_probability": 0.4958,
+              "market_probability": 0.4958,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0575,
+              "ev": -0.0574,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 13.69,
               "novig_reference": {
-                "odds": 106,
-                "no_vig_probability": 0.4778141684238862
+                "odds": -113,
+                "no_vig_probability": 0.5245960182126596
               },
-              "opposite_odds": -113
+              "opposite_odds": -115
             },
             "reb": {
               "pred": 2.3,
@@ -2429,28 +2429,29 @@
               "pred": 3.73,
               "line": 2.5,
               "edge": 1.23,
-              "signal": null,
-              "offer_side": "UNDER",
+              "signal": "OVER",
+              "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": 116,
-              "raw_model_probability": 0.2538,
-              "model_probability": 0.4369,
-              "market_probability": 0.4369,
+              "odds": -140,
+              "raw_model_probability": 0.7462,
+              "model_probability": 0.5506,
+              "market_probability": 0.5506,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0564,
+              "ev": -0.0562,
               "sigma": 1.8618,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 3.8,
               "novig_reference": {
-                "odds": 115,
-                "no_vig_probability": 0.4631309358659695
+                "odds": -115,
+                "no_vig_probability": 0.5266402465874064
               },
-              "opposite_odds": -148
+              "opposite_odds": 110,
+              "bet_tier": "DATA_COLLECTION"
             },
             "threes": {
               "pred": 1.62,
@@ -2484,27 +2485,27 @@
               "line": 19.5,
               "edge": 1.6,
               "signal": null,
-              "offer_side": "UNDER",
+              "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": 100,
-              "raw_model_probability": 0.42,
-              "model_probability": 0.4711,
-              "market_probability": 0.4711,
+              "odds": -125,
+              "raw_model_probability": 0.58,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0579,
+              "ev": -0.0571,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 20.37,
               "novig_reference": {
-                "odds": -102,
-                "no_vig_probability": 0.4897596941561988
+                "odds": -111,
+                "no_vig_probability": 0.5102403058438012
               },
-              "opposite_odds": -128
+              "opposite_odds": -102
             }
           }
         },
@@ -2514,34 +2515,34 @@
           "opp": "Los Angeles Lakers",
           "pos": "G",
           "opponent_defense_scope": "TEAM_OVERALL",
-          "proj_min": 29.3,
+          "proj_min": 33.5,
           "base_proj_min": 29.3,
           "recent_minutes": 30.4,
-          "minutes_gap": -1.12,
+          "minutes_gap": 3.07,
           "minutes_guard": false,
-          "shadow_stabilized_minutes": 29.7,
+          "shadow_stabilized_minutes": 32.4,
           "b2b": false,
-          "injury_status": "ACTIVE_OR_UNKNOWN",
-          "opportunity_direction": "UNCHANGED",
-          "opportunity_minutes_delta": 0.0,
-          "vacancy_sources": "",
+          "injury_status": "OPPORTUNITY_UP",
+          "opportunity_direction": "UP",
+          "opportunity_minutes_delta": 4.19,
+          "vacancy_sources": "Grayson Allen",
           "rotation_stability_score": 88.75,
           "rotation_risk_band": "STABLE",
           "projected_role": "STARTER",
           "profile_source": "PRIOR_BOX_SCORES",
           "props": {
             "pts": {
-              "pred": 8.4,
+              "pred": 10.15,
               "line": 6.5,
-              "edge": 1.9,
-              "signal": null,
+              "edge": 3.65,
+              "signal": "OVER",
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
               "odds": -127,
-              "raw_model_probability": 0.623,
+              "raw_model_probability": 0.7261,
               "model_probability": 0.5281,
               "market_probability": 0.5281,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -2550,44 +2551,45 @@
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 8.41,
+              "v2_pred": 9.35,
               "novig_reference": {
-                "odds": -113,
-                "no_vig_probability": 0.5123451247979889
+                "odds": -130,
+                "no_vig_probability": 0.5234558248631743
               },
-              "opposite_odds": 100
+              "opposite_odds": 100,
+              "bet_tier": "DATA_COLLECTION"
             },
             "reb": {
-              "pred": 4.48,
-              "line": 3.5,
-              "edge": 0.98,
+              "pred": 4.65,
+              "line": 4.5,
+              "edge": 0.15,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -148,
-              "raw_model_probability": 0.6473,
-              "model_probability": 0.5654,
-              "market_probability": 0.5654,
+              "odds": 136,
+              "raw_model_probability": 0.5229,
+              "model_probability": 0.4002,
+              "market_probability": 0.4002,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0526,
+              "ev": -0.0555,
               "sigma": 2.5807,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 4.42,
+              "v2_pred": 4.67,
               "novig_reference": {
-                "odds": -141,
-                "no_vig_probability": 0.5649976535143136
+                "odds": 138,
+                "no_vig_probability": 0.4018300574902929
               },
-              "opposite_odds": 118
+              "opposite_odds": -174
             },
             "ast": {
-              "pred": 2.62,
+              "pred": 2.77,
               "line": 3.5,
-              "edge": -0.88,
+              "edge": -0.73,
               "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
@@ -2595,7 +2597,7 @@
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": -138,
-              "raw_model_probability": 0.6826,
+              "raw_model_probability": 0.653,
               "model_probability": 0.5467,
               "market_probability": 0.5467,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -2604,17 +2606,17 @@
               "sigma": 1.8618,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 3.13,
+              "v2_pred": 3.37,
               "novig_reference": {
-                "odds": -127,
-                "no_vig_probability": 0.5483396008675064
+                "odds": -130,
+                "no_vig_probability": 0.5508689709041202
               },
               "opposite_odds": 108
             },
             "threes": {
-              "pred": 1.58,
+              "pred": 1.7,
               "line": 1.5,
-              "edge": 0.08,
+              "edge": 0.2,
               "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
@@ -2622,7 +2624,7 @@
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": -164,
-              "raw_model_probability": 0.475,
+              "raw_model_probability": 0.4359,
               "model_probability": 0.5862,
               "market_probability": 0.5862,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -2633,37 +2635,37 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": -147,
-                "no_vig_probability": 0.5892028539591198
+                "odds": -141,
+                "no_vig_probability": 0.5820181067674911
               },
               "opposite_odds": 128
             },
             "pra": {
-              "pred": 15.06,
+              "pred": 17.52,
               "line": 15.5,
-              "edge": -0.44,
+              "edge": 2.02,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": 100,
-              "raw_model_probability": 0.478,
-              "model_probability": 0.4711,
-              "market_probability": 0.4711,
+              "odds": -125,
+              "raw_model_probability": 0.3991,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0579,
+              "ev": -0.0571,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 15.1,
+              "v2_pred": 17.09,
               "novig_reference": {
-                "odds": -106,
-                "no_vig_probability": null
+                "odds": -127,
+                "no_vig_probability": 0.5232248162210195
               },
-              "opposite_odds": -128
+              "opposite_odds": -102
             }
           }
         },
@@ -2697,15 +2699,15 @@
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
-              "book": "FanDuel",
-              "book_key": "fanduel",
-              "odds": -111,
+              "book": "DraftKings",
+              "book_key": "draftkings",
+              "odds": -116,
               "raw_model_probability": 0.2181,
-              "model_probability": 0.4958,
-              "market_probability": 0.4958,
+              "model_probability": 0.5073,
+              "market_probability": 0.5073,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0574,
+              "ev": -0.0553,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
@@ -2714,7 +2716,7 @@
                 "odds": 100,
                 "no_vig_probability": 0.492822966507177
               },
-              "opposite_odds": -115
+              "opposite_odds": -109
             },
             "reb": {
               "pred": 5.77,
@@ -2734,12 +2736,12 @@
               "probability_edge": 0.0,
               "ev": -0.0575,
               "sigma": 2.5807,
-              "offers_considered": 4,
+              "offers_considered": 6,
               "market_source": "the-odds-api",
               "v2_pred": 6.29,
               "novig_reference": {
-                "odds": 102,
-                "no_vig_probability": 0.4926584234930448
+                "odds": 100,
+                "no_vig_probability": 0.4975369458128079
               },
               "opposite_odds": -113
             },
@@ -2765,8 +2767,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 8.29,
               "novig_reference": {
-                "odds": 125,
-                "no_vig_probability": 0.4377642085486143
+                "odds": 127,
+                "no_vig_probability": 0.4355872950589818
               },
               "opposite_odds": -148
             },
@@ -2792,8 +2794,8 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": 117,
-                "no_vig_probability": 0.4491310290958797
+                "odds": 125,
+                "no_vig_probability": 0.4401913875598086
               },
               "opposite_odds": -128
             },
@@ -2819,8 +2821,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 45.02,
               "novig_reference": {
-                "odds": -111,
-                "no_vig_probability": 0.4978941161605526
+                "odds": -108,
+                "no_vig_probability": 0.4967303165053623
               },
               "opposite_odds": -115,
               "bet_tier": "DATA_COLLECTION"
@@ -2833,34 +2835,34 @@
           "opp": "Los Angeles Lakers",
           "pos": "F",
           "opponent_defense_scope": "TEAM_OVERALL",
-          "proj_min": 27.1,
+          "proj_min": 29.7,
           "base_proj_min": 27.1,
           "recent_minutes": 25.6,
-          "minutes_gap": 1.47,
+          "minutes_gap": 4.07,
           "minutes_guard": false,
-          "shadow_stabilized_minutes": 26.6,
+          "shadow_stabilized_minutes": 28.2,
           "b2b": false,
-          "injury_status": "ACTIVE_OR_UNKNOWN",
-          "opportunity_direction": "UNCHANGED",
-          "opportunity_minutes_delta": 0.0,
-          "vacancy_sources": "",
+          "injury_status": "OPPORTUNITY_UP",
+          "opportunity_direction": "UP",
+          "opportunity_minutes_delta": 2.6,
+          "vacancy_sources": "Grayson Allen",
           "rotation_stability_score": 91.28,
           "rotation_risk_band": "STABLE",
           "projected_role": "STARTER",
           "profile_source": "PRIOR_BOX_SCORES",
           "props": {
             "pts": {
-              "pred": 14.95,
+              "pred": 17.07,
               "line": 18.5,
-              "edge": -3.55,
-              "signal": "UNDER",
+              "edge": -1.43,
+              "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": -111,
-              "raw_model_probability": 0.7201,
+              "raw_model_probability": 0.593,
               "model_probability": 0.4958,
               "market_probability": 0.4958,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -2869,45 +2871,17 @@
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 13.99,
+              "v2_pred": 15.52,
               "novig_reference": {
-                "odds": 108,
-                "no_vig_probability": 0.4733597534125936
+                "odds": 106,
+                "no_vig_probability": 0.4737784376228112
               },
-              "opposite_odds": -115,
-              "bet_tier": "DATA_COLLECTION"
+              "opposite_odds": -115
             },
             "reb": {
-              "pred": 3.33,
+              "pred": 3.5,
               "line": 3.5,
-              "edge": -0.17,
-              "signal": null,
-              "offer_side": "OVER",
-              "availability_block": false,
-              "block_reason": null,
-              "book": "FanDuel",
-              "book_key": "fanduel",
-              "odds": -156,
-              "raw_model_probability": 0.4736,
-              "model_probability": 0.575,
-              "market_probability": 0.575,
-              "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
-              "probability_edge": 0.0,
-              "ev": -0.0564,
-              "sigma": 2.5807,
-              "offers_considered": 4,
-              "market_source": "the-odds-api",
-              "v2_pred": 3.29,
-              "novig_reference": {
-                "odds": -138,
-                "no_vig_probability": 0.5682618002394515
-              },
-              "opposite_odds": 122
-            },
-            "ast": {
-              "pred": 3.63,
-              "line": 2.5,
-              "edge": 1.13,
+              "edge": -0.0,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
@@ -2915,75 +2889,102 @@
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": -154,
-              "raw_model_probability": 0.7284,
+              "raw_model_probability": 0.4995,
               "model_probability": 0.5715,
               "market_probability": 0.5715,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
               "ev": -0.0574,
-              "sigma": 1.8618,
+              "sigma": 2.5807,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 3.18,
+              "v2_pred": 3.51,
               "novig_reference": {
-                "odds": -138,
-                "no_vig_probability": 0.5605612998522895
+                "odds": -135,
+                "no_vig_probability": 0.5659802382491458
               },
               "opposite_odds": 120
             },
-            "threes": {
-              "pred": 2.18,
+            "ast": {
+              "pred": 3.78,
               "line": 2.5,
-              "edge": -0.32,
+              "edge": 1.28,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -150,
-              "raw_model_probability": 0.3988,
-              "model_probability": 0.5667,
-              "market_probability": 0.5667,
+              "odds": -156,
+              "raw_model_probability": 0.7535,
+              "model_probability": 0.575,
+              "market_probability": 0.575,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0555,
+              "ev": -0.0564,
+              "sigma": 1.8618,
+              "offers_considered": 4,
+              "market_source": "the-odds-api",
+              "v2_pred": 3.35,
+              "novig_reference": {
+                "odds": -144,
+                "no_vig_probability": 0.5649072753209701
+              },
+              "opposite_odds": 122
+            },
+            "threes": {
+              "pred": 2.44,
+              "line": 2.5,
+              "edge": -0.06,
+              "signal": null,
+              "offer_side": "OVER",
+              "availability_block": false,
+              "block_reason": null,
+              "book": "FanDuel",
+              "book_key": "fanduel",
+              "odds": -146,
+              "raw_model_probability": 0.4816,
+              "model_probability": 0.5595,
+              "market_probability": 0.5595,
+              "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
+              "probability_edge": 0.0,
+              "ev": -0.0573,
               "sigma": 1.2593,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": -115,
-                "no_vig_probability": 0.5266402465874064
+                "odds": -122,
+                "no_vig_probability": 0.539285269580376
               },
-              "opposite_odds": 118
+              "opposite_odds": 114
             },
             "pra": {
-              "pred": 21.41,
+              "pred": 23.25,
               "line": 25.5,
-              "edge": -4.09,
+              "edge": -2.25,
               "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -106,
-              "raw_model_probability": 0.6973,
-              "model_probability": 0.4854,
-              "market_probability": 0.4854,
+              "odds": -108,
+              "raw_model_probability": 0.612,
+              "model_probability": 0.4896,
+              "market_probability": 0.4896,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0566,
+              "ev": -0.0571,
               "sigma": 7.9174,
               "offers_considered": 6,
               "market_source": "the-odds-api",
-              "v2_pred": 20.76,
+              "v2_pred": 21.86,
               "novig_reference": {
                 "odds": -108,
                 "no_vig_probability": 0.4925753075943997
               },
-              "opposite_odds": -120
+              "opposite_odds": -118
             }
           }
         },
@@ -3011,30 +3012,30 @@
           "props": {
             "pts": {
               "pred": 12.67,
-              "line": 12.5,
-              "edge": 0.17,
+              "line": 13.5,
+              "edge": -0.83,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
-              "book": "FanDuel",
-              "book_key": "fanduel",
-              "odds": -125,
-              "raw_model_probability": 0.511,
-              "model_probability": 0.5239,
-              "market_probability": 0.5239,
+              "book": "DraftKings",
+              "book_key": "draftkings",
+              "odds": -123,
+              "raw_model_probability": 0.5544,
+              "model_probability": 0.5197,
+              "market_probability": 0.5197,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0571,
+              "ev": -0.0578,
               "sigma": 6.0784,
               "offers_considered": 6,
               "market_source": "the-odds-api",
               "v2_pred": 12.63,
               "novig_reference": {
-                "odds": -113,
-                "no_vig_probability": 0.5221858315761138
+                "odds": -120,
+                "no_vig_probability": 0.5397489539748954
               },
-              "opposite_odds": -102
+              "opposite_odds": -104
             },
             "reb": {
               "pred": 3.19,
@@ -3058,8 +3059,8 @@
               "market_source": "the-odds-api",
               "v2_pred": 3.13,
               "novig_reference": {
-                "odds": -122,
-                "no_vig_probability": 0.5416064422878382
+                "odds": -115,
+                "no_vig_probability": 0.5302086747514475
               },
               "opposite_odds": -104
             },
@@ -3073,22 +3074,22 @@
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": 102,
+              "odds": 100,
               "raw_model_probability": 0.5414,
-              "model_probability": 0.4669,
-              "market_probability": 0.4669,
+              "model_probability": 0.4711,
+              "market_probability": 0.4711,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0568,
+              "ev": -0.0579,
               "sigma": 1.8618,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 2.33,
               "novig_reference": {
-                "odds": 122,
-                "no_vig_probability": 0.4477611940298507
+                "odds": 111,
+                "no_vig_probability": 0.4649196956889265
               },
-              "opposite_odds": -130
+              "opposite_odds": -128
             },
             "threes": {
               "pred": 2.18,
@@ -3113,7 +3114,7 @@
               "v2_pred": null,
               "novig_reference": {
                 "odds": 104,
-                "no_vig_probability": 0.4856182293612252
+                "no_vig_probability": 0.4802489177489177
               },
               "opposite_odds": -128,
               "bet_tier": "DATA_COLLECTION"
@@ -3128,13 +3129,13 @@
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -111,
+              "odds": -106,
               "raw_model_probability": 0.5899,
-              "model_probability": 0.4958,
-              "market_probability": 0.4958,
+              "model_probability": 0.4854,
+              "market_probability": 0.4854,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0574,
+              "ev": -0.0566,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
@@ -3143,7 +3144,7 @@
                 "odds": 102,
                 "no_vig_probability": 0.4848122788474794
               },
-              "opposite_odds": -115
+              "opposite_odds": -120
             }
           }
         },
@@ -3171,30 +3172,30 @@
           "props": {
             "pts": {
               "pred": 11.63,
-              "line": 9.5,
-              "edge": 2.13,
+              "line": 8.5,
+              "edge": 3.13,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
-              "book": "FanDuel",
-              "book_key": "fanduel",
-              "odds": 102,
-              "raw_model_probability": 0.6372,
-              "model_probability": 0.4669,
-              "market_probability": 0.4669,
+              "book": "DraftKings",
+              "book_key": "draftkings",
+              "odds": -129,
+              "raw_model_probability": 0.6969,
+              "model_probability": 0.531,
+              "market_probability": 0.531,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0568,
+              "ev": -0.0573,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 12.89,
               "novig_reference": {
-                "odds": 106,
-                "no_vig_probability": 0.4757689754370436
+                "odds": -133,
+                "no_vig_probability": 0.5622357914513856
               },
-              "opposite_odds": -130
+              "opposite_odds": 101
             },
             "reb": {
               "pred": 2.97,
@@ -3206,13 +3207,13 @@
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -118,
+              "odds": -119,
               "raw_model_probability": 0.5719,
-              "model_probability": 0.5061,
-              "market_probability": 0.5061,
+              "model_probability": 0.5081,
+              "market_probability": 0.5081,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0651,
+              "ev": -0.0649,
               "sigma": 2.5807,
               "offers_considered": 2,
               "market_source": "the-odds-api",
@@ -3221,7 +3222,7 @@
                 "odds": -104,
                 "no_vig_probability": 0.5048543689320388
               },
-              "opposite_odds": -112
+              "opposite_odds": -111
             },
             "ast": {
               "pred": 2.22,
@@ -3233,22 +3234,22 @@
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -140,
+              "odds": -137,
               "raw_model_probability": 0.3497,
-              "model_probability": 0.5458,
-              "market_probability": 0.5458,
+              "model_probability": 0.5411,
+              "market_probability": 0.5411,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0643,
+              "ev": -0.0639,
               "sigma": 1.8618,
               "offers_considered": 2,
               "market_source": "the-odds-api",
               "v2_pred": 2.35,
               "novig_reference": {
-                "odds": -138,
-                "no_vig_probability": 0.5627893305900508
+                "odds": -135,
+                "no_vig_probability": 0.5659802382491458
               },
-              "opposite_odds": 106
+              "opposite_odds": 104
             },
             "threes": {
               "pred": 1.71,
@@ -3278,13 +3279,13 @@
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -106,
+              "odds": -108,
               "raw_model_probability": 0.6497,
-              "model_probability": 0.4854,
-              "market_probability": 0.4854,
+              "model_probability": 0.4896,
+              "market_probability": 0.4896,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0566,
+              "ev": -0.0571,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
@@ -3293,7 +3294,7 @@
                 "odds": -104,
                 "no_vig_probability": 0.4921503543554319
               },
-              "opposite_odds": -120
+              "opposite_odds": -118
             }
           }
         },
@@ -3324,27 +3325,27 @@
               "line": 12.5,
               "edge": 2.36,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -120,
-              "raw_model_probability": 0.6511,
-              "model_probability": 0.5146,
-              "market_probability": 0.5146,
+              "odds": -122,
+              "raw_model_probability": 0.3489,
+              "model_probability": 0.5188,
+              "market_probability": 0.5188,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0566,
+              "ev": -0.056,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 14.62,
               "novig_reference": {
-                "odds": -104,
-                "no_vig_probability": 0.497677011707861
+                "odds": -115,
+                "no_vig_probability": 0.5168539325842696
               },
-              "opposite_odds": -106
+              "opposite_odds": -104
             },
             "reb": {
               "pred": 4.01,
@@ -3356,22 +3357,22 @@
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -146,
+              "odds": -160,
               "raw_model_probability": 0.8324,
-              "model_probability": 0.5595,
-              "market_probability": 0.5595,
+              "model_probability": 0.5796,
+              "market_probability": 0.5796,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0573,
+              "ev": -0.0582,
               "sigma": 2.5807,
-              "offers_considered": 6,
+              "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 4.68,
               "novig_reference": {
-                "odds": -150,
-                "no_vig_probability": 0.5881383855024712
+                "odds": -160,
+                "no_vig_probability": 0.5942571785268415
               },
-              "opposite_odds": 114,
+              "opposite_odds": 124,
               "bet_tier": "DATA_COLLECTION"
             },
             "ast": {
@@ -3384,22 +3385,22 @@
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -186,
+              "odds": -166,
               "raw_model_probability": 0.6398,
-              "model_probability": 0.6095,
-              "market_probability": 0.6095,
+              "model_probability": 0.5841,
+              "market_probability": 0.5841,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0628,
+              "ev": -0.0641,
               "sigma": 1.8618,
               "offers_considered": 2,
               "market_source": "the-odds-api",
               "v2_pred": 2.04,
               "novig_reference": {
-                "odds": -170,
-                "no_vig_probability": 0.6207865168539325
+                "odds": -160,
+                "no_vig_probability": 0.59727385377943
               },
-              "opposite_odds": 140
+              "opposite_odds": 125
             },
             "threes": {
               "pred": 2.52,
@@ -3424,7 +3425,7 @@
               "v2_pred": null,
               "novig_reference": {
                 "odds": -122,
-                "no_vig_probability": 0.5333781738691777
+                "no_vig_probability": 0.5369404697342622
               },
               "opposite_odds": 110
             },
@@ -3433,27 +3434,27 @@
               "line": 20.5,
               "edge": -0.19,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -120,
-              "raw_model_probability": 0.4905,
-              "model_probability": 0.5101,
-              "market_probability": 0.5101,
+              "odds": -119,
+              "raw_model_probability": 0.5095,
+              "model_probability": 0.5081,
+              "market_probability": 0.5081,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0648,
+              "ev": -0.0649,
               "sigma": 7.9174,
               "offers_considered": 2,
               "market_source": "the-odds-api",
               "v2_pred": 20.39,
               "novig_reference": {
-                "odds": 111,
-                "no_vig_probability": 0.4536339388275607
+                "odds": -147,
+                "no_vig_probability": 0.559015193444145
               },
-              "opposite_odds": -110
+              "opposite_odds": -111
             }
           }
         },
@@ -3511,27 +3512,27 @@
               "line": 2.5,
               "edge": 1.44,
               "signal": null,
-              "offer_side": "UNDER",
+              "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": 100,
-              "raw_model_probability": 0.2887,
-              "model_probability": 0.4711,
-              "market_probability": 0.4711,
+              "odds": -125,
+              "raw_model_probability": 0.7113,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0579,
+              "ev": -0.0571,
               "sigma": 2.5807,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 3.61,
               "novig_reference": {
-                "odds": 100,
-                "no_vig_probability": 0.4851936218678816
+                "odds": -108,
+                "no_vig_probability": 0.509433962264151
               },
-              "opposite_odds": -128
+              "opposite_odds": -102
             },
             "ast": {
               "pred": 1.25,
@@ -3573,8 +3574,8 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": 115,
-                "no_vig_probability": 0.4602510460251046
+                "odds": 120,
+                "no_vig_probability": 0.44826224328594
               },
               "opposite_odds": -136
             },
@@ -3625,82 +3626,81 @@
               "line": 7.5,
               "edge": 2.11,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": 100,
-              "raw_model_probability": 0.6359,
-              "model_probability": 0.4711,
-              "market_probability": 0.4711,
+              "odds": -125,
+              "raw_model_probability": 0.3641,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0579,
+              "ev": -0.0571,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 9.66,
               "novig_reference": {
-                "odds": 115,
-                "no_vig_probability": 0.4631309358659695
+                "odds": -120,
+                "no_vig_probability": 0.5420482930890924
               },
-              "opposite_odds": -128
+              "opposite_odds": -102
             },
             "reb": {
               "pred": 4.66,
               "line": 4.5,
               "edge": 0.16,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": 102,
-              "raw_model_probability": 0.5245,
-              "model_probability": 0.4669,
-              "market_probability": 0.4669,
+              "odds": -132,
+              "raw_model_probability": 0.4755,
+              "model_probability": 0.5372,
+              "market_probability": 0.5372,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0568,
+              "ev": -0.0559,
               "sigma": 2.5807,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": 4.86,
               "novig_reference": {
-                "odds": 117,
-                "no_vig_probability": 0.4560956568188355
+                "odds": -120,
+                "no_vig_probability": 0.5397489539748954
               },
-              "opposite_odds": -130
+              "opposite_odds": 104
             },
             "ast": {
               "pred": 3.1,
               "line": 2.5,
               "edge": 0.6,
-              "signal": "OVER",
-              "offer_side": "OVER",
+              "signal": null,
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": 123,
-              "raw_model_probability": 0.6261,
-              "model_probability": 0.4198,
-              "market_probability": 0.4198,
+              "odds": -157,
+              "raw_model_probability": 0.3739,
+              "model_probability": 0.5723,
+              "market_probability": 0.5723,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0638,
+              "ev": -0.0632,
               "sigma": 1.8618,
               "offers_considered": 2,
               "market_source": "the-odds-api",
               "v2_pred": 2.95,
               "novig_reference": {
-                "odds": 150,
-                "no_vig_probability": 0.3845089903181189
+                "odds": -178,
+                "no_vig_probability": 0.6037854170229747
               },
-              "opposite_odds": -163,
-              "bet_tier": "DATA_COLLECTION"
+              "opposite_odds": 119
             },
             "threes": {
               "pred": 1.4,
@@ -3724,8 +3724,8 @@
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": -147,
-                "no_vig_probability": 0.5691910559179544
+                "odds": -150,
+                "no_vig_probability": 0.574468085106383
               },
               "opposite_odds": 134
             },
@@ -3764,80 +3764,80 @@
           "opp": "Los Angeles Lakers",
           "pos": "F",
           "opponent_defense_scope": "TEAM_OVERALL",
-          "proj_min": 28.0,
+          "proj_min": 30.7,
           "base_proj_min": 28.0,
           "recent_minutes": 27.8,
-          "minutes_gap": 0.18,
+          "minutes_gap": 2.85,
           "minutes_guard": false,
-          "shadow_stabilized_minutes": 27.9,
+          "shadow_stabilized_minutes": 29.7,
           "b2b": false,
-          "injury_status": "ACTIVE_OR_UNKNOWN",
-          "opportunity_direction": "UNCHANGED",
-          "opportunity_minutes_delta": 0.0,
-          "vacancy_sources": "",
+          "injury_status": "OPPORTUNITY_UP",
+          "opportunity_direction": "UP",
+          "opportunity_minutes_delta": 2.68,
+          "vacancy_sources": "Grayson Allen",
           "rotation_stability_score": 94.09,
           "rotation_risk_band": "STABLE",
           "projected_role": "STARTER",
           "profile_source": "PRIOR_BOX_SCORES",
           "props": {
             "pts": {
-              "pred": 8.76,
+              "pred": 9.5,
               "line": 8.5,
-              "edge": 0.26,
+              "edge": 1.0,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -117,
-              "raw_model_probability": 0.5173,
-              "model_probability": 0.5083,
-              "market_probability": 0.5083,
+              "odds": -113,
+              "raw_model_probability": 0.5652,
+              "model_probability": 0.501,
+              "market_probability": 0.501,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0572,
+              "ev": -0.0556,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 8.95,
+              "v2_pred": 9.69,
               "novig_reference": {
-                "odds": 102,
-                "no_vig_probability": 0.4848122788474794
+                "odds": -106,
+                "no_vig_probability": 0.49447293951185
               },
-              "opposite_odds": -109
+              "opposite_odds": -112
             },
             "reb": {
-              "pred": 9.15,
+              "pred": 9.53,
               "line": 9.5,
-              "edge": -0.35,
+              "edge": 0.03,
               "signal": null,
-              "offer_side": "UNDER",
+              "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -113,
-              "raw_model_probability": 0.5539,
-              "model_probability": 0.5,
-              "market_probability": 0.5,
+              "odds": -111,
+              "raw_model_probability": 0.5042,
+              "model_probability": 0.4958,
+              "market_probability": 0.4958,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0575,
+              "ev": -0.0574,
               "sigma": 2.5807,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 9.08,
+              "v2_pred": 9.79,
               "novig_reference": {
-                "odds": -106,
-                "no_vig_probability": 0.509663905550795
+                "odds": 102,
+                "no_vig_probability": 0.490336094449205
               },
-              "opposite_odds": -113
+              "opposite_odds": -115
             },
             "ast": {
-              "pred": 1.9,
+              "pred": 1.93,
               "line": 1.5,
-              "edge": 0.4,
+              "edge": 0.43,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
@@ -3845,7 +3845,7 @@
               "book": "DraftKings",
               "book_key": "draftkings",
               "odds": -168,
-              "raw_model_probability": 0.5851,
+              "raw_model_probability": 0.5906,
               "model_probability": 0.5873,
               "market_probability": 0.5873,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -3854,7 +3854,7 @@
               "sigma": 1.8618,
               "offers_considered": 2,
               "market_source": "the-odds-api",
-              "v2_pred": 2.22,
+              "v2_pred": 2.35,
               "novig_reference": {
                 "odds": -147,
                 "no_vig_probability": 0.5830871803527724
@@ -3862,7 +3862,7 @@
               "opposite_odds": 127
             },
             "threes": {
-              "pred": 0.03,
+              "pred": 0.04,
               "line": null,
               "edge": null,
               "signal": null,
@@ -3880,31 +3880,31 @@
               "v2_pred": null
             },
             "pra": {
-              "pred": 20.2,
+              "pred": 20.81,
               "line": 20.5,
-              "edge": -0.3,
+              "edge": 0.31,
               "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -122,
-              "raw_model_probability": 0.5151,
-              "model_probability": 0.5188,
-              "market_probability": 0.5188,
+              "odds": -125,
+              "raw_model_probability": 0.4846,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.056,
+              "ev": -0.0571,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 20.24,
+              "v2_pred": 21.21,
               "novig_reference": {
                 "odds": -115,
                 "no_vig_probability": 0.5120034919249236
               },
-              "opposite_odds": -104
+              "opposite_odds": -102
             }
           }
         },
@@ -3914,54 +3914,54 @@
           "opp": "Los Angeles Lakers",
           "pos": "C",
           "opponent_defense_scope": "TEAM_OVERALL",
-          "proj_min": 30.3,
+          "proj_min": 31.4,
           "base_proj_min": 30.3,
           "recent_minutes": 31.0,
-          "minutes_gap": -0.66,
+          "minutes_gap": 0.42,
           "minutes_guard": false,
-          "shadow_stabilized_minutes": 30.6,
+          "shadow_stabilized_minutes": 31.3,
           "b2b": false,
-          "injury_status": "ACTIVE_OR_UNKNOWN",
-          "opportunity_direction": "UNCHANGED",
-          "opportunity_minutes_delta": 0.0,
-          "vacancy_sources": "",
+          "injury_status": "OPPORTUNITY_UP",
+          "opportunity_direction": "UP",
+          "opportunity_minutes_delta": 1.08,
+          "vacancy_sources": "Grayson Allen",
           "rotation_stability_score": 92.31,
           "rotation_risk_band": "STABLE",
           "projected_role": "STARTER",
           "profile_source": "PRIOR_BOX_SCORES",
           "props": {
             "pts": {
-              "pred": 21.67,
+              "pred": 22.33,
               "line": 17.5,
-              "edge": 4.17,
+              "edge": 4.83,
               "signal": "OVER",
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -120,
-              "raw_model_probability": 0.7535,
-              "model_probability": 0.5146,
-              "market_probability": 0.5146,
+              "odds": -122,
+              "raw_model_probability": 0.7867,
+              "model_probability": 0.5188,
+              "market_probability": 0.5188,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0566,
+              "ev": -0.056,
               "sigma": 6.0784,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 20.85,
+              "v2_pred": 22.23,
               "novig_reference": {
-                "odds": -102,
-                "no_vig_probability": 0.4976085708819591
+                "odds": -115,
+                "no_vig_probability": 0.521797153024911
               },
-              "opposite_odds": -106,
+              "opposite_odds": -104,
               "bet_tier": "DATA_COLLECTION"
             },
             "reb": {
-              "pred": 7.3,
+              "pred": 7.34,
               "line": 7.5,
-              "edge": -0.2,
+              "edge": -0.16,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
@@ -3969,7 +3969,7 @@
               "book": "FanDuel",
               "book_key": "fanduel",
               "odds": 100,
-              "raw_model_probability": 0.4687,
+              "raw_model_probability": 0.4747,
               "model_probability": 0.4711,
               "market_probability": 0.4711,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
@@ -3978,7 +3978,7 @@
               "sigma": 2.5807,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 7.75,
+              "v2_pred": 7.95,
               "novig_reference": {
                 "odds": 117,
                 "no_vig_probability": 0.4579517069109076
@@ -3986,85 +3986,85 @@
               "opposite_odds": -128
             },
             "ast": {
-              "pred": 3.49,
+              "pred": 3.5,
               "line": 2.5,
-              "edge": 0.99,
+              "edge": 1.0,
               "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -111,
-              "raw_model_probability": 0.2977,
-              "model_probability": 0.4929,
-              "market_probability": 0.4929,
+              "odds": -116,
+              "raw_model_probability": 0.2953,
+              "model_probability": 0.502,
+              "market_probability": 0.502,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0631,
+              "ev": -0.0652,
               "sigma": 1.8618,
               "offers_considered": 2,
               "market_source": "the-odds-api",
-              "v2_pred": 3.4,
+              "v2_pred": 3.47,
               "novig_reference": {
-                "odds": -117,
-                "no_vig_probability": 0.5188470066518847
+                "odds": -115,
+                "no_vig_probability": 0.5120034919249236
               },
-              "opposite_odds": -118
+              "opposite_odds": -114
             },
             "threes": {
-              "pred": 2.34,
+              "pred": 2.4,
               "line": 2.5,
-              "edge": -0.16,
+              "edge": -0.1,
               "signal": null,
               "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -162,
-              "raw_model_probability": 0.5506,
-              "model_probability": 0.5829,
-              "market_probability": 0.5829,
+              "odds": -160,
+              "raw_model_probability": 0.5322,
+              "model_probability": 0.5796,
+              "market_probability": 0.5796,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0573,
+              "ev": -0.0582,
               "sigma": 1.2593,
               "offers_considered": 4,
               "market_source": "the-odds-api",
               "v2_pred": null,
               "novig_reference": {
-                "odds": -153,
-                "no_vig_probability": 0.5989919322882821
+                "odds": -147,
+                "no_vig_probability": 0.5830871803527724
               },
-              "opposite_odds": 126
+              "opposite_odds": 124
             },
             "pra": {
-              "pred": 32.22,
-              "line": 27.5,
-              "edge": 4.72,
+              "pred": 33.55,
+              "line": 28.5,
+              "edge": 5.05,
               "signal": null,
-              "offer_side": "OVER",
+              "offer_side": "UNDER",
               "availability_block": false,
               "block_reason": null,
               "book": "FanDuel",
               "book_key": "fanduel",
-              "odds": -122,
-              "raw_model_probability": 0.7245,
-              "model_probability": 0.5188,
-              "market_probability": 0.5188,
+              "odds": -125,
+              "raw_model_probability": 0.2618,
+              "model_probability": 0.5239,
+              "market_probability": 0.5239,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.056,
+              "ev": -0.0571,
               "sigma": 7.9174,
               "offers_considered": 4,
               "market_source": "the-odds-api",
-              "v2_pred": 32.71,
+              "v2_pred": 34.29,
               "novig_reference": {
-                "odds": 106,
-                "no_vig_probability": 0.4799162989582859
+                "odds": -127,
+                "no_vig_probability": 0.5232248162210195
               },
-              "opposite_odds": -104
+              "opposite_odds": -102
             }
           }
         },
@@ -4074,79 +4074,79 @@
           "opp": "Los Angeles Lakers",
           "pos": "C",
           "opponent_defense_scope": "TEAM_OVERALL",
-          "proj_min": 20.6,
+          "proj_min": 21.8,
           "base_proj_min": 20.6,
           "recent_minutes": 21.8,
-          "minutes_gap": -1.16,
+          "minutes_gap": 0.02,
           "minutes_guard": false,
-          "shadow_stabilized_minutes": 21.0,
+          "shadow_stabilized_minutes": 21.8,
           "b2b": false,
-          "injury_status": "ACTIVE_OR_UNKNOWN",
-          "opportunity_direction": "UNCHANGED",
-          "opportunity_minutes_delta": 0.0,
-          "vacancy_sources": "",
+          "injury_status": "OPPORTUNITY_UP",
+          "opportunity_direction": "UP",
+          "opportunity_minutes_delta": 1.17,
+          "vacancy_sources": "Grayson Allen",
           "rotation_stability_score": 84.58,
           "rotation_risk_band": "STABLE",
           "projected_role": "BENCH",
           "profile_source": "PRIOR_BOX_SCORES",
           "props": {
             "pts": {
-              "pred": 5.66,
+              "pred": 5.96,
               "line": 4.5,
-              "edge": 1.16,
+              "edge": 1.46,
               "signal": null,
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": -111,
-              "raw_model_probability": 0.5759,
-              "model_probability": 0.4958,
-              "market_probability": 0.4958,
+              "odds": -109,
+              "raw_model_probability": 0.5947,
+              "model_probability": 0.4917,
+              "market_probability": 0.4917,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
-              "ev": -0.0574,
+              "ev": -0.0572,
               "sigma": 6.0784,
               "offers_considered": 2,
               "market_source": "the-odds-api",
-              "v2_pred": 5.48,
+              "v2_pred": 5.73,
               "novig_reference": {
                 "odds": 104,
                 "no_vig_probability": 0.4762113764044943
               },
-              "opposite_odds": -115
+              "opposite_odds": -117
             },
             "reb": {
-              "pred": 6.66,
+              "pred": 6.83,
               "line": 4.5,
-              "edge": 2.16,
+              "edge": 2.33,
               "signal": "OVER",
               "offer_side": "OVER",
               "availability_block": false,
               "block_reason": null,
               "book": "DraftKings",
               "book_key": "draftkings",
-              "odds": 102,
-              "raw_model_probability": 0.7986,
-              "model_probability": 0.4637,
-              "market_probability": 0.4637,
+              "odds": -101,
+              "raw_model_probability": 0.8164,
+              "model_probability": 0.4706,
+              "market_probability": 0.4706,
               "probability_calibration": "0.00_model_edge_vs_no_vig_cap_01_75_market_only",
               "probability_edge": 0.0,
               "ev": -0.0634,
               "sigma": 2.5807,
               "offers_considered": 2,
               "market_source": "the-odds-api",
-              "v2_pred": 6.49,
+              "v2_pred": 6.77,
               "novig_reference": {
-                "odds": 113,
-                "no_vig_probability": 0.4674421132731819
+                "odds": 115,
+                "no_vig_probability": 0.4583935577121618
               },
-              "opposite_odds": -134,
+              "opposite_odds": -130,
               "bet_tier": "DATA_COLLECTION"
             },
             "ast": {
-              "pred": 1.18,
+              "pred": 1.28,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4161,10 +4161,10 @@
               "ev": null,
               "offers_considered": 0,
               "market_source": null,
-              "v2_pred": 1.21
+              "v2_pred": 1.36
             },
             "threes": {
-              "pred": 0.01,
+              "pred": 0.02,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4182,7 +4182,7 @@
               "v2_pred": null
             },
             "pra": {
-              "pred": 13.47,
+              "pred": 14.36,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4197,7 +4197,7 @@
               "ev": null,
               "offers_considered": 0,
               "market_source": null,
-              "v2_pred": 13.27
+              "v2_pred": 14.25
             }
           }
         },
@@ -4207,24 +4207,24 @@
           "opp": "Los Angeles Lakers",
           "pos": "F",
           "opponent_defense_scope": "TEAM_OVERALL",
-          "proj_min": 21.3,
+          "proj_min": 24.4,
           "base_proj_min": 21.3,
           "recent_minutes": 21.6,
-          "minutes_gap": -0.32,
+          "minutes_gap": 2.81,
           "minutes_guard": false,
-          "shadow_stabilized_minutes": 21.4,
+          "shadow_stabilized_minutes": 23.4,
           "b2b": false,
-          "injury_status": "ACTIVE_OR_UNKNOWN",
-          "opportunity_direction": "UNCHANGED",
-          "opportunity_minutes_delta": 0.0,
-          "vacancy_sources": "",
+          "injury_status": "OPPORTUNITY_UP",
+          "opportunity_direction": "UP",
+          "opportunity_minutes_delta": 3.12,
+          "vacancy_sources": "Grayson Allen",
           "rotation_stability_score": 88.83,
           "rotation_risk_band": "STABLE",
           "projected_role": "BENCH",
           "profile_source": "PRIOR_BOX_SCORES",
           "props": {
             "pts": {
-              "pred": 5.8,
+              "pred": 6.12,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4239,10 +4239,10 @@
               "ev": null,
               "offers_considered": 0,
               "market_source": null,
-              "v2_pred": 5.84
+              "v2_pred": 6.72
             },
             "reb": {
-              "pred": 3.25,
+              "pred": 3.38,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4257,10 +4257,10 @@
               "ev": null,
               "offers_considered": 0,
               "market_source": null,
-              "v2_pred": 3.02
+              "v2_pred": 3.51
             },
             "ast": {
-              "pred": 1.31,
+              "pred": 1.45,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4275,10 +4275,10 @@
               "ev": null,
               "offers_considered": 0,
               "market_source": null,
-              "v2_pred": 1.13
+              "v2_pred": 1.29
             },
             "threes": {
-              "pred": 1.21,
+              "pred": 1.37,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4296,7 +4296,7 @@
               "v2_pred": null
             },
             "pra": {
-              "pred": 10.08,
+              "pred": 10.62,
               "line": null,
               "edge": null,
               "signal": null,
@@ -4311,7 +4311,7 @@
               "ev": null,
               "offers_considered": 0,
               "market_source": null,
-              "v2_pred": 9.94
+              "v2_pred": 10.99
             }
           }
         }
@@ -4339,9 +4339,11 @@
           "Austin Reaves",
           "Walker Kessler"
         ],
-        "away_vac_value": 0.0,
-        "away_vac_minutes": 0.0,
-        "away_out": []
+        "away_vac_value": 17.7,
+        "away_vac_minutes": 26.24,
+        "away_out": [
+          "Grayson Allen"
+        ]
       }
     }
   ],
@@ -4379,23 +4381,54 @@
     },
     {
       "type": "PROP",
-      "game": "Charlotte Hornets @ Los Angeles Lakers",
-      "play": "Ryan Kalkbrenner REB OVER 4.5",
-      "market_line": 4.5,
-      "market_odds": 102,
+      "game": "Utah Jazz @ LA Clippers",
+      "play": "Rui Hachimura AST OVER 1.5",
+      "market_line": 1.5,
+      "market_odds": 144,
       "market_source": "the-odds-api",
       "book": "DraftKings",
       "book_key": "draftkings",
-      "model_projection": 6.66,
-      "model_probability": 0.4637,
-      "raw_model_probability": 0.7986,
-      "market_probability": 0.4637,
+      "model_projection": 2.67,
+      "model_probability": 0.3844,
+      "raw_model_probability": 0.7355,
+      "market_probability": 0.3844,
+      "probability_edge": 0.0,
+      "ev": -0.0621,
+      "player": "Rui Hachimura",
+      "stat": "AST",
+      "side": "OVER",
+      "edge": 1.17,
+      "conf": "DATA",
+      "stars": 1,
+      "tip": "2026-11-18T03:30Z",
+      "units": 1.0,
+      "dollar_amt": 10.0,
+      "verdict": "BET",
+      "bet_tier": "DATA_COLLECTION",
+      "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
+      "raw_edge_vs_market": 0.3511,
+      "opposite_odds": -191,
+      "rank": 2
+    },
+    {
+      "type": "PROP",
+      "game": "Charlotte Hornets @ Los Angeles Lakers",
+      "play": "Ryan Kalkbrenner REB OVER 4.5",
+      "market_line": 4.5,
+      "market_odds": -101,
+      "market_source": "the-odds-api",
+      "book": "DraftKings",
+      "book_key": "draftkings",
+      "model_projection": 6.83,
+      "model_probability": 0.4706,
+      "raw_model_probability": 0.8164,
+      "market_probability": 0.4706,
       "probability_edge": 0.0,
       "ev": -0.0634,
       "player": "Ryan Kalkbrenner",
       "stat": "REB",
       "side": "OVER",
-      "edge": 2.16,
+      "edge": 2.33,
       "conf": "DATA",
       "stars": 1,
       "tip": "2026-11-18T04:00Z",
@@ -4404,9 +4437,9 @@
       "verdict": "BET",
       "bet_tier": "DATA_COLLECTION",
       "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
-      "raw_edge_vs_market": 0.3349,
-      "opposite_odds": -134,
-      "rank": 2
+      "raw_edge_vs_market": 0.3458,
+      "opposite_odds": -130,
+      "rank": 3
     },
     {
       "type": "PROP",
@@ -4437,23 +4470,54 @@
       "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
       "raw_edge_vs_market": 0.3334,
       "opposite_odds": -115,
-      "rank": 3
+      "rank": 4
+    },
+    {
+      "type": "PROP",
+      "game": "Charlotte Hornets @ Los Angeles Lakers",
+      "play": "Naz Reid PTS OVER 17.5",
+      "market_line": 17.5,
+      "market_odds": -122,
+      "market_source": "the-odds-api",
+      "book": "FanDuel",
+      "book_key": "fanduel",
+      "model_projection": 22.33,
+      "model_probability": 0.5188,
+      "raw_model_probability": 0.7867,
+      "market_probability": 0.5188,
+      "probability_edge": 0.0,
+      "ev": -0.056,
+      "player": "Naz Reid",
+      "stat": "PTS",
+      "side": "OVER",
+      "edge": 4.83,
+      "conf": "DATA",
+      "stars": 1,
+      "tip": "2026-11-18T04:00Z",
+      "units": 1.0,
+      "dollar_amt": 10.0,
+      "verdict": "BET",
+      "bet_tier": "DATA_COLLECTION",
+      "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
+      "raw_edge_vs_market": 0.2679,
+      "opposite_odds": -104,
+      "rank": 5
     },
     {
       "type": "PROP",
       "game": "Charlotte Hornets @ Los Angeles Lakers",
       "play": "Sandro Mamukelashvili REB UNDER 6.5",
       "market_line": 6.5,
-      "market_odds": -146,
+      "market_odds": -160,
       "market_source": "the-odds-api",
       "book": "FanDuel",
       "book_key": "fanduel",
       "model_projection": 4.01,
-      "model_probability": 0.5595,
+      "model_probability": 0.5796,
       "raw_model_probability": 0.8324,
-      "market_probability": 0.5595,
+      "market_probability": 0.5796,
       "probability_edge": 0.0,
-      "ev": -0.0573,
+      "ev": -0.0582,
       "player": "Sandro Mamukelashvili",
       "stat": "REB",
       "side": "UNDER",
@@ -4466,70 +4530,8 @@
       "verdict": "BET",
       "bet_tier": "DATA_COLLECTION",
       "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
-      "raw_edge_vs_market": 0.2729,
-      "opposite_odds": 114,
-      "rank": 4
-    },
-    {
-      "type": "PROP",
-      "game": "Charlotte Hornets @ Los Angeles Lakers",
-      "play": "Coby White PTS UNDER 15.5",
-      "market_line": 15.5,
-      "market_odds": -122,
-      "market_source": "the-odds-api",
-      "book": "FanDuel",
-      "book_key": "fanduel",
-      "model_projection": 11.19,
-      "model_probability": 0.5188,
-      "raw_model_probability": 0.7608,
-      "market_probability": 0.5188,
-      "probability_edge": 0.0,
-      "ev": -0.056,
-      "player": "Coby White",
-      "stat": "PTS",
-      "side": "UNDER",
-      "edge": -4.31,
-      "conf": "DATA",
-      "stars": 1,
-      "tip": "2026-11-18T04:00Z",
-      "units": 1.0,
-      "dollar_amt": 10.0,
-      "verdict": "BET",
-      "bet_tier": "DATA_COLLECTION",
-      "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
-      "raw_edge_vs_market": 0.242,
-      "opposite_odds": -104,
-      "rank": 5
-    },
-    {
-      "type": "PROP",
-      "game": "Charlotte Hornets @ Los Angeles Lakers",
-      "play": "Naz Reid PTS OVER 17.5",
-      "market_line": 17.5,
-      "market_odds": -120,
-      "market_source": "the-odds-api",
-      "book": "FanDuel",
-      "book_key": "fanduel",
-      "model_projection": 21.67,
-      "model_probability": 0.5146,
-      "raw_model_probability": 0.7535,
-      "market_probability": 0.5146,
-      "probability_edge": 0.0,
-      "ev": -0.0566,
-      "player": "Naz Reid",
-      "stat": "PTS",
-      "side": "OVER",
-      "edge": 4.17,
-      "conf": "DATA",
-      "stars": 1,
-      "tip": "2026-11-18T04:00Z",
-      "units": 1.0,
-      "dollar_amt": 10.0,
-      "verdict": "BET",
-      "bet_tier": "DATA_COLLECTION",
-      "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
-      "raw_edge_vs_market": 0.2389,
-      "opposite_odds": -106,
+      "raw_edge_vs_market": 0.2528,
+      "opposite_odds": 124,
       "rank": 6
     },
     {
@@ -4566,22 +4568,22 @@
     {
       "type": "PROP",
       "game": "Charlotte Hornets @ Los Angeles Lakers",
-      "play": "Brandon Miller PTS UNDER 18.5",
-      "market_line": 18.5,
-      "market_odds": -111,
+      "play": "Sion James PTS OVER 6.5",
+      "market_line": 6.5,
+      "market_odds": -127,
       "market_source": "the-odds-api",
-      "book": "FanDuel",
-      "book_key": "fanduel",
-      "model_projection": 14.95,
-      "model_probability": 0.4958,
-      "raw_model_probability": 0.7201,
-      "market_probability": 0.4958,
+      "book": "DraftKings",
+      "book_key": "draftkings",
+      "model_projection": 10.15,
+      "model_probability": 0.5281,
+      "raw_model_probability": 0.7261,
+      "market_probability": 0.5281,
       "probability_edge": 0.0,
-      "ev": -0.0574,
-      "player": "Brandon Miller",
+      "ev": -0.0561,
+      "player": "Sion James",
       "stat": "PTS",
-      "side": "UNDER",
-      "edge": -3.55,
+      "side": "OVER",
+      "edge": 3.65,
       "conf": "DATA",
       "stars": 1,
       "tip": "2026-11-18T04:00Z",
@@ -4590,29 +4592,29 @@
       "verdict": "BET",
       "bet_tier": "DATA_COLLECTION",
       "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
-      "raw_edge_vs_market": 0.2243,
-      "opposite_odds": -115,
+      "raw_edge_vs_market": 0.198,
+      "opposite_odds": 100,
       "rank": 8
     },
     {
       "type": "PROP",
       "game": "Charlotte Hornets @ Los Angeles Lakers",
-      "play": "Jake LaRavia AST OVER 2.5",
+      "play": "Collin Sexton AST OVER 2.5",
       "market_line": 2.5,
-      "market_odds": 123,
+      "market_odds": -140,
       "market_source": "the-odds-api",
-      "book": "DraftKings",
-      "book_key": "draftkings",
-      "model_projection": 3.1,
-      "model_probability": 0.4198,
-      "raw_model_probability": 0.6261,
-      "market_probability": 0.4198,
+      "book": "FanDuel",
+      "book_key": "fanduel",
+      "model_projection": 3.73,
+      "model_probability": 0.5506,
+      "raw_model_probability": 0.7462,
+      "market_probability": 0.5506,
       "probability_edge": 0.0,
-      "ev": -0.0638,
-      "player": "Jake LaRavia",
+      "ev": -0.0562,
+      "player": "Collin Sexton",
       "stat": "AST",
       "side": "OVER",
-      "edge": 0.6,
+      "edge": 1.23,
       "conf": "DATA",
       "stars": 1,
       "tip": "2026-11-18T04:00Z",
@@ -4621,8 +4623,8 @@
       "verdict": "BET",
       "bet_tier": "DATA_COLLECTION",
       "bet_policy": "DATA_COLLECTION_TOP10_RAW_EDGE",
-      "raw_edge_vs_market": 0.2063,
-      "opposite_odds": -163,
+      "raw_edge_vs_market": 0.1956,
+      "opposite_odds": 110,
       "rank": 9
     },
     {
