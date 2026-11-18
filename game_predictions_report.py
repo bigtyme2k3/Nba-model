@@ -91,6 +91,7 @@ def phase_records(fin: dict, path=GAME_PHASES) -> dict:
     rows = [json.loads(l) for l in Path(path).read_text().splitlines() if l.strip()]
     out = {}
     graded = {}
+    history = []
     for r in rows:
         k = _key(r["date"], r["away"], r["home"])
         if k not in fin:
@@ -109,6 +110,11 @@ def phase_records(fin: dict, path=GAME_PHASES) -> dict:
                 g["ou"] = (r["pred_total"] > mt) == (total > mt)
                 g["line_total_err"] = abs(mt - total)
         graded.setdefault(r["phase"], []).append(g)
+        history.append({"date": r["date"], "phase": r["phase"], "game": r["game"], "pred_winner": r["pred_winner"],
+                        "winner": r["home"] if margin > 0 else r["away"], "pred_home_margin": r["pred_home_margin"],
+                        "home_margin": margin, "market_home_line": line, "pred_total": r.get("pred_total"),
+                        "total": total, "market_total": r.get("market_total"), "winner_right": g["winner"],
+                        "ats_right": g.get("ats"), "ou_right": g.get("ou")})
         graded.setdefault(("pair", r["date"], r["game"]), {})[r["phase"]] = r
     for phase in ("EARLY", "ADJUSTED"):
         gs = graded.get(phase, [])
@@ -122,6 +128,7 @@ def phase_records(fin: dict, path=GAME_PHASES) -> dict:
         out[phase] = {"games": len(gs), "winner": rec("winner"), "ats": rec("ats"), "ou": rec("ou"),
                       "margin_mae": mean("margin_err"), "total_mae": mean("total_err"),
                       "line_total_mae": mean("line_total_err")}
+    out["history"] = sorted(history, key=lambda h: (h["date"], h["phase"], h["game"]), reverse=True)[:200]
     pairs = [v for k, v in graded.items() if isinstance(k, tuple) and k[0] == "pair" and {"EARLY", "ADJUSTED"} <= set(v)]
     if pairs:
         dm = [abs(p["ADJUSTED"]["pred_home_margin"] - p["EARLY"]["pred_home_margin"]) for p in pairs]

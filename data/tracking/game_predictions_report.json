@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-18T19:24:42.941838+00:00",
+  "generated_at_utc": "2026-11-18T20:24:30.360873+00:00",
   "season_from": "2026-10-27",
   "games": 150,
   "first_date": "2026-10-27",
@@ -65,6 +65,40 @@
       "margin_mae": 17.7,
       "total_mae": 10.75,
       "line_total_mae": 11.31
-    }
+    },
+    "history": [
+      {
+        "date": "2026-11-17",
+        "phase": "ADJUSTED",
+        "game": "Utah Jazz @ LA Clippers",
+        "pred_winner": "LA Clippers",
+        "winner": "Utah Jazz",
+        "pred_home_margin": 3.6,
+        "home_margin": -25.0,
+        "market_home_line": -5.62,
+        "pred_total": 226.9,
+        "total": 239.0,
+        "market_total": 227.5,
+        "winner_right": false,
+        "ats_right": true,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-17",
+        "phase": "ADJUSTED",
+        "game": "Charlotte Hornets @ Los Angeles Lakers",
+        "pred_winner": "Los Angeles Lakers",
+        "winner": "Los Angeles Lakers",
+        "pred_home_margin": 10.8,
+        "home_margin": 4.0,
+        "market_home_line": -7.12,
+        "pred_total": 222.6,
+        "total": 232.0,
+        "market_total": 220.88,
+        "winner_right": true,
+        "ats_right": false,
+        "ou_right": true
+      }
+    ]
   }
 }
