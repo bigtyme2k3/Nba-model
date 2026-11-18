@@ -1,13 +1,13 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-18,401910007,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Memphis Grizzlies,0,0,0,0,,,,,,,,,CLE -4.5,234.5,Rocket Arena,0,2026-11-18T14:20:58.584231
-2026-11-18,401910008,STATUS_SCHEDULED,False,False,Indiana Pacers,Houston Rockets,0,0,0,0,,,,,,,,,HOU -7.5,225.5,Gainbridge Fieldhouse,0,2026-11-18T14:20:58.584249
-2026-11-18,401910009,STATUS_SCHEDULED,False,False,Miami Heat,Milwaukee Bucks,0,0,0,0,,,,,,,,,MIA -11.5,234.5,Kaseya Center,0,2026-11-18T14:20:58.584261
-2026-11-18,401910010,STATUS_SCHEDULED,False,False,Orlando Magic,Philadelphia 76ers,0,0,0,0,,,,,,,,,PHI -1.5,221.5,Kia Center,0,2026-11-18T14:20:58.584271
-2026-11-18,401910011,STATUS_SCHEDULED,False,False,Brooklyn Nets,Chicago Bulls,0,0,0,0,,,,,,,,,BKN -2.5,239.5,Barclays Center,0,2026-11-18T14:20:58.584281
-2026-11-18,401910012,STATUS_SCHEDULED,False,False,Toronto Raptors,Washington Wizards,0,0,0,0,,,,,,,,,TOR -6.5,227.5,Scotiabank Arena,0,2026-11-18T14:20:58.584290
-2026-11-18,401910013,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Detroit Pistons,0,0,0,0,,,,,,,,,DET -6.5,227.5,Smoothie King Center,0,2026-11-18T14:20:58.584299
-2026-11-18,401910014,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Atlanta Hawks,0,0,0,0,,,,,,,,,OKC -6.5,227.5,Paycom Center,0,2026-11-18T14:20:58.584317
-2026-11-18,401910016,STATUS_SCHEDULED,False,False,Dallas Mavericks,Golden State Warriors,0,0,0,0,,,,,,,,,DAL -4.5,222.5,American Airlines Center,0,2026-11-18T14:20:58.584328
-2026-11-18,401910015,STATUS_SCHEDULED,False,False,Denver Nuggets,Boston Celtics,0,0,0,0,,,,,,,,,BOS -2.5,222.5,Ball Arena,0,2026-11-18T14:20:58.584338
-2026-11-18,401910017,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Utah Jazz,0,0,0,0,,,,,,,,,LAL -10.5,228.5,crypto.com Arena,0,2026-11-18T14:20:58.584347
-2026-11-18,401910018,STATUS_SCHEDULED,False,False,Sacramento Kings,Phoenix Suns,0,0,0,0,,,,,,,,,PHX -6.5,227.5,Golden 1 Center,0,2026-11-18T14:20:58.584356
+2026-11-18,401910007,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Memphis Grizzlies,0,0,0,0,,,,,,,,,CLE -4.5,238.5,Rocket Arena,0,2026-11-18T20:47:13.602078
+2026-11-18,401910008,STATUS_SCHEDULED,False,False,Indiana Pacers,Houston Rockets,0,0,0,0,,,,,,,,,HOU -7.5,225.5,Gainbridge Fieldhouse,0,2026-11-18T20:47:13.602097
+2026-11-18,401910009,STATUS_SCHEDULED,False,False,Miami Heat,Milwaukee Bucks,0,0,0,0,,,,,,,,,MIA -11.5,237.5,Kaseya Center,0,2026-11-18T20:47:13.602108
+2026-11-18,401910010,STATUS_SCHEDULED,False,False,Orlando Magic,Philadelphia 76ers,0,0,0,0,,,,,,,,,PHI -1.5,221.5,Kia Center,0,2026-11-18T20:47:13.602119
+2026-11-18,401910011,STATUS_SCHEDULED,False,False,Brooklyn Nets,Chicago Bulls,0,0,0,0,,,,,,,,,BKN -2.5,239.5,Barclays Center,0,2026-11-18T20:47:13.602130
+2026-11-18,401910012,STATUS_SCHEDULED,False,False,Toronto Raptors,Washington Wizards,0,0,0,0,,,,,,,,,TOR -4.5,225.5,Scotiabank Arena,0,2026-11-18T20:47:13.602140
+2026-11-18,401910013,STATUS_SCHEDULED,False,False,New Orleans Pelicans,Detroit Pistons,0,0,0,0,,,,,,,,,DET -4.5,225.5,Smoothie King Center,0,2026-11-18T20:47:13.602150
+2026-11-18,401910014,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,Atlanta Hawks,0,0,0,0,,,,,,,,,OKC -6.5,228.5,Paycom Center,0,2026-11-18T20:47:13.602168
+2026-11-18,401910016,STATUS_SCHEDULED,False,False,Dallas Mavericks,Golden State Warriors,0,0,0,0,,,,,,,,,DAL -4.5,224.5,American Airlines Center,0,2026-11-18T20:47:13.602180
+2026-11-18,401910015,STATUS_SCHEDULED,False,False,Denver Nuggets,Boston Celtics,0,0,0,0,,,,,,,,,BOS -2.5,219.5,Ball Arena,0,2026-11-18T20:47:13.602189
+2026-11-18,401910017,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Utah Jazz,0,0,0,0,,,,,,,,,LAL -10.5,228.5,crypto.com Arena,0,2026-11-18T20:47:13.602199
+2026-11-18,401910018,STATUS_SCHEDULED,False,False,Sacramento Kings,Phoenix Suns,0,0,0,0,,,,,,,,,PHX -7.5,226.5,Golden 1 Center,0,2026-11-18T20:47:13.602208
