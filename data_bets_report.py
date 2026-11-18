@@ -167,6 +167,20 @@ def _num(v):
         return None
 
 
+def pick_history(picks: pd.DataFrame, limit: int = 300) -> list[dict]:
+    """Each graded EARLY/ADJUSTED pick with its follow and fade result, newest first."""
+    if picks is None or picks.empty:
+        return []
+    out = []
+    for r in picks.sort_values(["date", "phase", "player"], ascending=[False, True, True]).head(limit).to_dict("records"):
+        won = r["outcome"] == "WIN"
+        out.append({k: r.get(k) for k in ("date", "phase", "game", "player", "stat", "side", "line", "odds",
+                                           "opp_odds", "book_key", "actual", "outcome")}
+                   | {"follow_units": round(decimal(r["odds"]) - 1 if won else -1.0, 2),
+                      "fade_units": round(decimal(r["opp_odds"]) - 1 if not won else -1.0, 2)})
+    return out
+
+
 def phase_changes(path=PICKS) -> dict:
     if not Path(path).exists():
         return {}
@@ -199,6 +213,7 @@ def main():
     report["phases"] = {ph: breakdown(picks[picks["phase"].eq(ph)]) if len(picks) and (picks["phase"] == ph).any()
                         else {"overall": {"bets": 0}} for ph in ("EARLY", "ADJUSTED")}
     report["phase_changes"] = phase_changes()
+    report["graded_picks"] = pick_history(picks)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(report, indent=2, default=str) + "\n")
     print(json.dumps({"live": report["live"]["overall"], "retrospective": report["retrospective_same_rule"]["overall"],

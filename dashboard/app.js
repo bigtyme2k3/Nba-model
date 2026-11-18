@@ -197,6 +197,12 @@
     if(!r||!r.bets) return null;
     return [esc(fmt(r.bets,0)),esc(`${r.model_wins}–${r.model_losses}`),esc(pct(r.model_win_rate)),`${esc(signed(r.follow_units,1))}u<br><span class="small muted" style="white-space:nowrap">${esc(signed(r.follow_roi*100,1))}%</span>`,`${esc(signed(r.fade_units,1))}u<br><span class="small muted" style="white-space:nowrap">${esc(signed(r.fade_roi*100,1))}%</span>`];
   }
+  function gameHistory(rows) {
+    if(!rows||!rows.length) return '';
+    const mark=(label,v)=>v===true?badge(label+' ✓','bet'):v===false?badge(label+' ✗','warning'):'';
+    const body=rows.slice(0,60).map(r=>`<tr><td><strong>${esc(r.game)}</strong><br><span class="small muted">${esc(dayLabel(r.date))} · ${esc(r.phase==='EARLY'?'Early':'Adjusted')}</span></td><td>Model ${esc(r.pred_winner)} by ${esc(fmt(Math.abs(r.pred_home_margin)))}<br><span class="small muted">Won: ${esc(r.winner)} · line ${esc(signed(r.market_home_line,1))} · total ${esc(fmt(r.pred_total))} vs ${esc(fmt(r.market_total))}, actual ${esc(fmt(r.total,0))}</span></td><td>${mark('Winner',r.winner_right)}<br>${mark('Spread',r.ats_right)}<br>${mark('Total',r.ou_right)}</td></tr>`).join('');
+    return `<details class="details-link"><summary>Graded game predictions (${fmt(rows.length,0)})</summary><div class="table-wrap"><table class="quote-table"><thead><tr><th>Game</th><th>Prediction</th><th>Result</th></tr></thead><tbody>${body}</tbody></table></div></details>`;
+  }
   function phaseTable(P) {
     if(!P||!(P.EARLY?.games||P.ADJUSTED?.games)) return '<p class="small muted">Early (morning) and adjusted (after the injury report) game predictions are graded separately once both have been recorded.</p>';
     const r=x=>x&&x.rate!=null?`${x.wins}–${x.losses} (${pct(x.rate)})`:'—';
@@ -212,8 +218,13 @@
     return `<section class="panel"><h2 class="inline-title">Game predictions</h2><p class="subtitle">${esc(fmt(G.games,0))} regular-season games, ${esc(G.first_date||'')} to ${esc(G.last_date||'')}. Every game the model projected, not only qualified bets.</p>
       <div class="detail-metrics">${metric('Winner · model',`${w.model_wins}–${w.model_losses} (${pct(w.model_rate)})`,true)}${metric('Winner · market favorite',w.games_with_market_line?`${w.market_favorite_wins}–${w.market_favorite_losses} (${pct(w.market_favorite_rate)})`:'—')}${metric('Margin miss (avg)',`${fmt(e.model_margin_mae,1)} pts`)}${metric('Total miss · model vs line',`${fmt(e.model_total_mae,1)} vs ${fmt(e.market_total_mae,1)}`)}</div>
       <div class="table-wrap"><table class="quote-table"><thead><tr><th>Market</th><th>Games</th><th>Model W–L</th><th>Model win %</th><th>Follow</th><th>Fade</th></tr></thead><tbody>${row('Spread (ATS)',G.spread)}${row('Total (O/U)',G.total)}</tbody></table></div>
-      ${phaseTable(G.phases)}
+      ${phaseTable(G.phases)}${gameHistory(G.phases?.history)}
       <p class="small muted">Spread and total records use the model\u2019s side at the recorded sportsbook price (follow) and the other side\u2019s price (fade); break-even is about 52.4% at \u2212110. Qualified bets so far: spread ${esc(G.spread?.qualified_bets||'0-0')}, total ${esc(G.total?.qualified_bets||'0-0')}.</p></section>`;
+  }
+  function pickHistory(rows) {
+    if(!rows||!rows.length) return '';
+    const body=rows.slice(0,60).map(r=>`<tr><td><strong>${esc(r.player)}</strong><br><span class="small muted">${esc(dayLabel(r.date))} · ${esc(r.phase==='EARLY'?'Early':'Adjusted')}</span></td><td>${esc(statName(r.stat))} ${esc(String(r.side||'').toLowerCase())} ${esc(fmt(r.line))}<br><span class="small muted">${esc(shortBook(r.book_key))} ${esc(odds(r.odds))} · fade ${esc(odds(r.opp_odds))} · actual ${esc(fmt(r.actual))}</span></td><td>${badge(r.outcome==='WIN'?'Win':'Loss',r.outcome==='WIN'?'bet':'warning')}<br><span class="small muted" style="white-space:nowrap">${esc(signed(r.follow_units,2))}u · fade ${esc(signed(r.fade_units,2))}u</span></td></tr>`).join('');
+    return `<details class="details-link"><summary>Graded picks (${fmt(rows.length,0)})</summary><div class="table-wrap"><table class="quote-table"><thead><tr><th>Player</th><th>Pick</th><th>Result</th></tr></thead><tbody>${body}</tbody></table></div></details>`;
   }
   function modelPickResults() {
     const R=D.data_bets||{};
@@ -226,7 +237,7 @@
     const statRows=Object.entries(best.by_stat||{}).map(([k,r])=>{const v=pickRecord(r);return v?`<tr><td>${esc(statName(k))}</td>${v.map(x=>`<td>${x}</td>`).join('')}</tr>`:'';}).join('');
     const ch=R.phase_changes||{};
     const changes=ch.dates_with_both?`<p class="small muted">After the injury report the adjusted pass kept ${fmt(ch.kept_same_side,0)} early picks, flipped ${fmt(ch.flipped_side,0)} and dropped ${fmt(ch.dropped_after_report,0)} (${fmt(ch.dates_with_both,0)} dates).</p>`:'';
-    return `<section class="panel"><h2 class="inline-title">Model picks · follow vs fade</h2><p class="subtitle">The model\u2019s 10 strongest prop opinions a day, flat 1u, graded at the recorded price (follow) and at the opposite side\u2019s price at the same book and line (fade).</p><div class="table-wrap"><table class="quote-table">${head}<tbody>${body}</tbody></table></div>${statRows?`<h3 class="review-heading">By stat · ${esc(best===R.retrospective_same_rule?'same rule, earlier dates':'largest graded group')}</h3><div class="table-wrap"><table class="quote-table">${head.replace('Group','Stat')}<tbody>${statRows}</tbody></table></div>`:''}${changes}<p class="small muted">Fading pays only if the model\u2019s side wins less than about 47.6% at \u2212110 both ways. Earlier-dates rows apply today\u2019s rule to props recorded before it existed; they were not issued as picks at the time.</p></section>`;
+    return `<section class="panel"><h2 class="inline-title">Model picks · follow vs fade</h2><p class="subtitle">The model\u2019s 10 strongest prop opinions a day, flat 1u, graded at the recorded price (follow) and at the opposite side\u2019s price at the same book and line (fade).</p><div class="table-wrap"><table class="quote-table">${head}<tbody>${body}</tbody></table></div>${statRows?`<h3 class="review-heading">By stat · ${esc(best===R.retrospective_same_rule?'same rule, earlier dates':'largest graded group')}</h3><div class="table-wrap"><table class="quote-table">${head.replace('Group','Stat')}<tbody>${statRows}</tbody></table></div>`:''}${changes}${pickHistory(R.graded_picks)}<p class="small muted">Fading pays only if the model\u2019s side wins less than about 47.6% at \u2212110 both ways. Earlier-dates rows apply today\u2019s rule to props recorded before it existed; they were not issued as picks at the time.</p></section>`;
   }
   function renderResults() {
     const perf=D.forward_performance||{}, clv=D.clv_report||{}, rows=D.results||[];
