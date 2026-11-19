@@ -61,6 +61,8 @@ import numpy as np
 import pandas as pd
 
 from teams import normalize_team
+from forward_ledger import EVIDENCE_EPOCH
+from model_publication import model_family_id
 
 VERSION = "consistency-v2.0"
 BOX = Path("data/raw/espn_current_player_box_2026.csv")
@@ -91,6 +93,11 @@ LOW_MINUTES = 15.0
 ACTIVE_N, RESERVE_N = 20, 10
 EDGE_MARGIN = 0.03
 STALE_BOX_DAYS = 3
+MAX_QUOTE_AGE_MINUTES = 90
+MAX_TIP_DRIFT_MINUTES = 60
+CALIBRATION_MIN_DATES = 5
+CALIBRATION_MIN_HOLDOUT = 50
+CALIBRATION_MIN_TRAIN = 200
 RULES = {"min_gp": MIN_GP, "qualify_rate": QUALIFY_RATE, "fallback_rate": FALLBACK_RATE,
          "l10_preferred": L10_PREFERRED, "mpg_preferred": MPG_PREFERRED, "minutes_cv_stable": MINUTES_CV_STABLE,
          "floors": FLOORS, "active": ACTIVE_N, "reserve": RESERVE_N, "edge_margin": EDGE_MARGIN,
@@ -295,6 +302,7 @@ def tonight_context(data: dict) -> dict:
         for side, me, them in (("home", home, away), ("away", away, home)):
             teams[normalize_team(me.get("name", ""))] = {
                 "tip": g.get("tip"), "event_id": g.get("event_id"), "opp": them.get("abbr") or them.get("name"),
+                "home_team": home.get("name"), "away_team": away.get("name"),
                 "home": side == "home", "game": f"{away.get('name')} @ {home.get('name')}"}
         for p in g.get("props", []):
             players[_name(p.get("player"))] = p
@@ -314,18 +322,61 @@ def injury_map(target: str) -> dict:
                               "detail": str(getattr(r, "detail", "") or "")} for r in inj.itertuples()}
 
 
-def latest_quotes(target: str, now: datetime) -> pd.DataFrame:
-    path = RAW / f"sportsbook_props_{target}.csv"
+def latest_quotes(target: str, now: datetime, path=None) -> pd.DataFrame:
+    """Only today's fresh, pre-tip quotes; retain event IDs for exact game matching."""
+    path = Path(path) if path is not None else RAW / f"sportsbook_props_{target}.csv"
     if not path.exists():
         return pd.DataFrame()
     q = pd.read_csv(path, low_memory=False)
-    q = q[q["book_key"].isin(V1_BOOKS)].copy()
+    required = {"book_key", "game_date", "event_id", "commence_time", "home_team", "away_team",
+                "player", "stat", "side", "line", "price", "scraped_at"}
+    if not required.issubset(q.columns):
+        return pd.DataFrame()
+    q = q[q["book_key"].isin(V1_BOOKS) & q["game_date"].astype(str).eq(str(target))].copy()
+    if q.empty:
+        return q
+    now_utc = pd.Timestamp(now)
+    if now_utc.tzinfo is None:
+        now_utc = now_utc.tz_localize("UTC")
+    else:
+        now_utc = now_utc.tz_convert("UTC")
     scraped = pd.to_datetime(q["scraped_at"], utc=True, errors="coerce")
     tip = pd.to_datetime(q["commence_time"], utc=True, errors="coerce")
-    q = q[(scraped < tip) & (scraped <= pd.Timestamp(now))]   # pregame quotes only
+    age = (now_utc - scraped).dt.total_seconds() / 60
+    valid = (scraped < tip) & (scraped <= now_utc) & (age >= 0) & (age <= MAX_QUOTE_AGE_MINUTES)
+    if "last_update" in q:
+        updated = pd.to_datetime(q["last_update"], utc=True, errors="coerce")
+        update_age = (now_utc - updated).dt.total_seconds() / 60
+        valid &= updated.notna() & (updated <= now_utc) & (update_age >= 0) & (update_age <= MAX_QUOTE_AGE_MINUTES)
+    q = q.loc[valid].copy()
+    if q.empty:
+        return q
     q["player_key"] = q["player"].map(_name)
-    q = q.sort_values("scraped_at").groupby(["player_key", "stat", "book_key", "side"]).tail(1)
+    q["_scraped_dt"] = pd.to_datetime(q["scraped_at"], utc=True)
+    q = q.sort_values("_scraped_dt").groupby(
+        ["event_id", "player_key", "stat", "book_key", "side"], dropna=False).tail(1)
     return q
+
+
+def _quotes_for_game(quotes: pd.DataFrame, game: dict | None) -> pd.DataFrame:
+    """Require the event ID, or exact home/away teams plus a nearby tip when no ID exists."""
+    if game is None:
+        return quotes   # compatibility for isolated historical-unit tests
+    gid = str(game.get("event_id") or "").strip()
+    if gid:
+        if "event_id" not in quotes:
+            return quotes.iloc[0:0]
+        return quotes[quotes["event_id"].astype(str).eq(gid)]
+    home, away = normalize_team(game.get("home_team") or ""), normalize_team(game.get("away_team") or "")
+    if not home or not away or home == away or not {"home_team", "away_team", "commence_time"}.issubset(quotes.columns):
+        return quotes.iloc[0:0]
+    tip = pd.to_datetime(game.get("tip"), utc=True, errors="coerce")
+    if pd.isna(tip):
+        return quotes.iloc[0:0]
+    qtip = pd.to_datetime(quotes["commence_time"], utc=True, errors="coerce")
+    close_tip = ((qtip - tip).abs().dt.total_seconds() / 60) <= MAX_TIP_DRIFT_MINUTES
+    return quotes[(quotes["home_team"].map(normalize_team) == home)
+                  & (quotes["away_team"].map(normalize_team) == away) & close_tip]
 
 
 def exact_line(values: np.ndarray, line: float) -> dict:
@@ -335,88 +386,146 @@ def exact_line(values: np.ndarray, line: float) -> dict:
     return {"season": counts(v), "l10": counts(v[-10:]), "l5": counts(v[-5:])}
 
 
-def calibration_state(path=None) -> dict:
+def calibration_state(path=None, expected_family=None) -> dict:
+    """Only an independently validated, current-family calibration can unlock BET."""
     try:
-        m = json.loads(Path(path or CALIBRATION).read_text())["markets"]["prop_price"]
-    except (OSError, KeyError, ValueError):
+        d = json.loads(Path(path or CALIBRATION).read_text())
+        m = d["markets"]["prop_price"]
+    except (OSError, KeyError, ValueError, TypeError):
         return {"calibrated": False, "status": "UNAVAILABLE"}
-    ok = m.get("status") not in (None, "MARKET_ONLY") and (m.get("shrink") or 0) > 0 \
-        and m.get("validation") not in ("INSUFFICIENT_DATED_EVIDENCE", "FAILED")
-    return {"calibrated": bool(ok), "status": m.get("status"), "validation": m.get("validation"), "shrink": m.get("shrink")}
+    family = expected_family if expected_family is not None else model_family_id("models/props_models.pkl")
+    min_train = max(CALIBRATION_MIN_TRAIN, int(d.get("min_graded") or CALIBRATION_MIN_TRAIN))
+    shrink = _num(m.get("shrink"))
+    candidate, market = m.get("candidate_scores") or {}, m.get("market_scores") or {}
+    comparable = all(_num(candidate.get(metric)) is not None
+                     and _num(market.get(metric)) is not None
+                     and float(candidate[metric]) <= float(market[metric])
+                     for metric in ("brier", "log_loss"))
+    checks = {
+        "validated_status": m.get("status") == "VALIDATED" and m.get("validation") == "PASSED",
+        "positive_shrink": shrink is not None and 0 < shrink <= 1,
+        "matching_family": bool(family) and m.get("model_family_id") == family,
+        "matching_epoch": d.get("evidence_epoch") == EVIDENCE_EPOCH,
+        "sufficient_dates": (_num(m.get("dated_evidence_dates")) or 0) >= CALIBRATION_MIN_DATES,
+        "sufficient_training": (_num(m.get("training_rows")) or 0) >= min_train,
+        "sufficient_holdout": (_num(m.get("holdout_rows")) or 0) >= CALIBRATION_MIN_HOLDOUT,
+        "heldout_nonregression": comparable,
+    }
+    return {"calibrated": all(checks.values()), "status": m.get("status"),
+            "validation": m.get("validation"), "shrink": shrink,
+            "model_family_id": m.get("model_family_id"),
+            "failed_checks": [key for key, ok in checks.items() if not ok]}
 
 
 def evaluate_line(player: dict, cat: str, values: np.ndarray, quotes: pd.DataFrame, prop: dict | None,
-                  injury: dict | None, calibration: dict, stale: bool) -> dict | None:
+                  injury: dict | None, calibration: dict, stale: bool, game: dict | None = None,
+                  now: datetime | None = None) -> dict | None:
     stat = PROP_STAT.get(cat)
     if stat is None or quotes.empty:
         return None
-    q = quotes[(quotes["player_key"] == player["player_key"]) & (quotes["stat"] == stat)]
+    q = quotes[(quotes["player_key"] == player["player_key"]) & (quotes["stat"] == stat)].copy()
+    q = _quotes_for_game(q, game)
     if q.empty:
         return None
-    overs = q[q["side"] == "OVER"]
-    if overs.empty:
+    if now is not None and "scraped_at" in q:
+        now_utc = pd.Timestamp(now)
+        if now_utc.tzinfo is None:
+            now_utc = now_utc.tz_localize("UTC")
+        else:
+            now_utc = now_utc.tz_convert("UTC")
+        seen = pd.to_datetime(q["scraped_at"], utc=True, errors="coerce")
+        age = (now_utc - seen).dt.total_seconds() / 60
+        q = q[(age >= 0) & (age <= MAX_QUOTE_AGE_MINUTES)].copy()
+        if "last_update" in q:
+            updated = pd.to_datetime(q["last_update"], utc=True, errors="coerce")
+            age = (now_utc - updated).dt.total_seconds() / 60
+            q = q[(age >= 0) & (age <= MAX_QUOTE_AGE_MINUTES)].copy()
+    if q.empty:
         return None
-    lines = overs["line"].round(1).value_counts()
-    line = float(lines[lines == lines.max()].index.min()) if len(lines) else None
-    books = {}
+    # Use only complete two-sided prices at one exact line per sportsbook.
+    # Missing/stale/mismatched bookmaker sides must not be combined across prices.
+    pairs = {}
     for book in V1_BOOKS:
         bq = q[q["book_key"] == book]
-        at = bq[bq["line"].round(1) == line]
-        books[book] = {"line": float(bq["line"].iloc[0]) if len(bq) else None,
-                       "over": int(at.loc[at["side"] == "OVER", "price"].iloc[0]) if (at["side"] == "OVER").any() else None,
-                       "under": int(at.loc[at["side"] == "UNDER", "price"].iloc[0]) if (at["side"] == "UNDER").any() else None}
+        if bq.empty:
+            continue
+        if "scraped_at" in bq:
+            bq = bq.sort_values("scraped_at")
+        over = bq[bq["side"] == "OVER"]
+        under = bq[bq["side"] == "UNDER"]
+        if over.empty or under.empty:
+            continue
+        o, u = over.iloc[-1], under.iloc[-1]
+        if _num(o["line"]) is None or _num(u["line"]) is None or float(o["line"]) != float(u["line"]):
+            continue
+        pairs[book] = (float(o["line"]), int(o["price"]), int(u["price"]),
+                       str(o.get("scraped_at") or ""), str(o.get("event_id") or ""))
+    if not pairs:
+        return None
+    counts = {}
+    for line_value, *_ in pairs.values():
+        counts[line_value] = counts.get(line_value, 0) + 1
+    line = min(counts, key=lambda v: (-counts[v], v))
+    books = {}
+    for book in V1_BOOKS:
+        item = pairs.get(book)
+        books[book] = {
+            "line": item[0] if item else None,
+            "over": item[1] if item and item[0] == line else None,
+            "under": item[2] if item and item[0] == line else None,
+        }
     hits = exact_line(values, line)
-    s = hits["season"]
-    side = "OVER" if s["over"] >= s["under"] else "UNDER"
+    season = hits["season"]
+    side = "OVER" if season["over"] >= season["under"] else "UNDER"
     key = side.lower()
-    priced = {b: v[key] for b, v in books.items() if v[key] is not None}
-    best_book = max(priced, key=lambda b: priced[b]) if priced else None
+    priced = {book: offer[key] for book, offer in books.items() if offer[key] is not None}
+    best_book = max(priced, key=lambda book: priced[book]) if priced else None
     best_odds = priced.get(best_book)
     break_even = implied(best_odds)
-    rate = lambda h: (h[key] / (h["n"] - h["push"])) if (h["n"] - h["push"]) > 0 else None
+    rate = lambda h: h[key] / (h["n"] - h["push"]) if h["n"] > h["push"] else None
     pred = prob = cal_prob = None
     if prop:
         pr = (prop.get("props") or {}).get(stat) or {}
         pred = _num(pr.get("pred"))
         same_line = _num(pr.get("line")) == line
         raw = _num(pr.get("raw_model_probability"))
-        if raw is not None and same_line:
+        if raw is not None and 0 <= raw <= 1 and same_line:
             prob = raw if pr.get("offer_side") == side else 1 - raw
         mp = _num(pr.get("model_probability"))
-        if calibration["calibrated"] and mp is not None and same_line:
+        if calibration.get("calibrated") is True and mp is not None and 0 <= mp <= 1 and same_line:
             cal_prob = mp if pr.get("offer_side") == side else 1 - mp
-    edge = round(cal_prob - break_even, 4) if (cal_prob is not None and break_even is not None) else None
-    status = str((injury or {}).get("status") or prop and prop.get("injury_status") or "").upper()
+    edge = round(cal_prob - break_even, 4) if cal_prob is not None and break_even is not None else None
+    status = str((injury or {}).get("status") or (prop or {}).get("injury_status") or "").upper()
     checks = {"price_available": best_odds is not None,
               "not_out": not any(s_ in status for s_ in OUT_STATUSES),
               "not_questionable": "QUESTIONABLE" not in status and "GTD" not in status and "DAY-TO-DAY" not in status,
               "no_minutes_restriction": not (prop or {}).get("minutes_guard", False),
               "fresh_data": not stale,
-              "season_rate_60": (rate(s) or 0) >= 0.60,
+              "season_rate_60": (rate(season) or 0) >= 0.60,
               "l10_rate_60": (rate(hits["l10"]) or 0) >= 0.60,
-              "record_beats_break_even": break_even is not None and (rate(s) or 0) >= break_even + EDGE_MARGIN,
+              "record_beats_break_even": break_even is not None and (rate(season) or 0) >= break_even + EDGE_MARGIN,
               "projection_available": pred is not None,
-              "projection_agrees": pred is not None and ((pred > line) if side == "OVER" else (pred < line))}
+              "projection_agrees": pred is not None and (pred > line if side == "OVER" else pred < line)}
     hard = ("price_available", "not_out", "no_minutes_restriction", "fresh_data", "season_rate_60")
     if not all(checks[c] for c in hard) or (pred is not None and not checks["projection_agrees"]):
         rec = "PASS"
     elif all(checks.values()) and edge is not None and edge >= EDGE_MARGIN:
         rec = "BET"
-    elif all(checks.values()) and (rate(s) or 0) >= 0.70 and (rate(hits["l10"]) or 0) >= 0.70:
+    elif all(checks.values()) and (rate(season) or 0) >= .70 and (rate(hits["l10"]) or 0) >= .70:
         rec = "LEAN"
     else:
         rec = "WATCH"
-    failed = [c for c, ok in checks.items() if not ok]
-    return {"category": cat, "line": line, "side": side, "books": books, "best_book": best_book, "best_odds": best_odds,
-            "break_even": round(break_even, 4) if break_even is not None else None, "hits": hits,
-            "season_rate": round(rate(s), 4) if rate(s) is not None else None,
+    return {"category": cat, "line": line, "side": side, "books": books, "best_book": best_book,
+            "best_odds": best_odds, "break_even": round(break_even, 4) if break_even is not None else None,
+            "hits": hits, "season_rate": round(rate(season), 4) if rate(season) is not None else None,
             "l10_rate": round(rate(hits["l10"]), 4) if rate(hits["l10"]) is not None else None,
             "l5_rate": round(rate(hits["l5"]), 4) if rate(hits["l5"]) is not None else None,
             "projection": pred, "model_probability": prob, "calibrated_probability": cal_prob, "edge": edge,
-            "recommendation": rec, "failed_checks": failed, "line_spread": sorted({v["line"] for v in books.values() if v["line"] is not None})}
+            "recommendation": rec, "failed_checks": [k for k, ok in checks.items() if not ok],
+            "line_spread": sorted({v["line"] for v in books.values() if v["line"] is not None}),
+            "event_id": pairs[best_book][4] if best_book else None,
+            "quote_scraped_at": pairs[best_book][3] if best_book else None}
 
-
-# ---------------------------------------------------------------- build
 
 def load_overrides(path=None) -> dict:
     try:
@@ -493,6 +602,7 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
     profiles = [player_profile(g) for _, g in games.groupby("player_id") if (~g["dnp"]).sum() > 0]
     active, reserve, removed = rank(profiles, load_overrides())
     tonight, signals = [], []
+    snapshot_id = hashlib.sha256(f"{target}|{phase}|{now.isoformat()}".encode()).hexdigest()[:20]
     for p in active + reserve:
         g = games[games["player_id"] == p["player_id"]]
         played = g[~g["dnp"]]
@@ -515,7 +625,8 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
             tip = datetime.fromisoformat(str(game["tip"]).replace("Z", "+00:00"))
             pregame = tip > now and (window is None or team_full in window)
             for cat in CATS:
-                ev = evaluate_line(p, cat, played[cat].to_numpy(), quotes, prop, inj, calibration, stale)
+                ev = evaluate_line(p, cat, played[cat].to_numpy(), quotes, prop, inj, calibration, stale,
+                                   game=game, now=now)
                 if ev:
                     p["lines"][cat] = ev
                     tonight.append({"game": game["game"], "player": p["player"], "player_id": p["player_id"], "team": p["team"],
@@ -525,12 +636,13 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
                                     "opportunity_minutes_delta": _num((prop or {}).get("opportunity_minutes_delta")),
                                     "qualified_category": cat in p["qualifying_categories"], **ev})
                     if pregame:
-                        signals.append(_signal(target, phase, "LINE", p, cat, game, now, ev))
+                        signals.append(_signal(target, phase, "LINE", p, cat, game, now, ev, snapshot_id))
                 c = p["categories"][cat]
                 if pregame and cat in p["qualifying_categories"] and isinstance(p["rank"], int):
                     signals.append(_signal(target, phase, "TREND", p, cat, game, now,
                                            {"threshold": c["threshold"], "season_rate": c["season_rate"],
-                                            "l10_rate": c["l10_rate"], "streak": c["streak"], "recommendation": "MONITOR"}))
+                                            "l10_rate": c["l10_rate"], "streak": c["streak"], "recommendation": "MONITOR"},
+                                           snapshot_id))
         statuses = [v["recommendation"] for v in p["lines"].values()]
         p["status"] = next((s for s in ("BET", "LEAN", "WATCH") if s in statuses), "PASS")
         p["status_reason"] = None if statuses else ("No game today" if not game else "No sportsbook line yet")
@@ -539,7 +651,8 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
                                                     "model_probability", "calibrated_probability")} if best else None
         p.pop("lines")   # the full rows live in snapshot["tonight"]
     snapshot = {"date": target, "phase": phase, "version": VERSION, "rules_id": RULES_ID, "rules": RULES,
-                "generated_at_utc": now.isoformat(), "predictions": str(pred_path) if pred_path.exists() else None,
+                "generated_at_utc": now.isoformat(), "snapshot_id": snapshot_id,
+                "predictions": str(pred_path) if pred_path.exists() else None,
                 "signal_window": sorted(window) if window is not None else "full slate",
                 "calibration": calibration,
                 "freshness": {"last_box_score_date": last_box, "stale_box_scores": stale,
@@ -585,15 +698,17 @@ def missing_feeds(quotes, pred_path, injuries, stale) -> list[str]:
     return out
 
 
-def _signal(target, phase, kind, p, cat, game, now, payload) -> dict:
-    key = "|".join([target, phase, kind, str(p["player_id"]), cat])
-    return {"signal_key": key, "date": target, "phase": phase, "kind": kind, "version": VERSION, "rules_id": RULES_ID,
+def _signal(target, phase, kind, p, cat, game, now, payload, snapshot_id) -> dict:
+    # A new pre-tip pass is always an immutable observation, including same-phase changes.
+    key = "|".join([target, phase, kind, str(p["player_id"]), cat, snapshot_id])
+    return {"signal_key": key, "snapshot_id": snapshot_id, "date": target,
+            "phase": phase, "kind": kind, "version": VERSION, "rules_id": RULES_ID,
             "recorded_at_utc": now.isoformat(), "player_id": p["player_id"], "player": p["player"], "team": p["team"],
-            "rank": p["rank"], "category": cat, "combined": cat in COMBINED, "event_id": game.get("event_id"),
+            "rank": p["rank"], "category": cat, "combined": cat in COMBINED,
+            "event_id": payload.get("event_id") or game.get("event_id"),
             "tip": game.get("tip"), "opp": game.get("opp"), "injury": p.get("injury"),
-            **{k: v for k, v in payload.items() if k not in ("hits", "books")},
+            **{k: v for k, v in payload.items() if k not in ("hits", "books", "event_id")},
             "books": payload.get("books")}
-
 
 def read_jsonl(path) -> list[dict]:
     path = Path(path)
@@ -616,10 +731,11 @@ def append_signals(rows: list[dict], path=None) -> int:
 
 def append_ranking(snapshot: dict, path=None) -> bool:
     path = path or RANKINGS
-    key = f"{snapshot['date']}|{snapshot['phase']}"
+    key = f"{snapshot['date']}|{snapshot['phase']}|{snapshot.get('snapshot_id', snapshot['generated_at_utc'])}"
     if any(r.get("ranking_key") == key for r in read_jsonl(path)):
         return False
-    row = {"ranking_key": key, "date": snapshot["date"], "phase": snapshot["phase"], "version": VERSION,
+    row = {"ranking_key": key, "snapshot_id": snapshot.get("snapshot_id"),
+           "date": snapshot["date"], "phase": snapshot["phase"], "version": VERSION,
            "rules_id": RULES_ID, "recorded_at_utc": snapshot["generated_at_utc"],
            "active": [{"rank": p["rank"], "player_id": p["player_id"], "player": p["player"], "score": p["score"],
                        "qualifying_categories": p["qualifying_categories"], "override": p.get("override")}
@@ -663,11 +779,13 @@ def grade(box=None, path=None, out=None) -> dict:
         b[cat] = b[list(parts)].sum(axis=1, min_count=len(parts))
     b["dnp"] = b["did_not_play"].astype(str).str.lower().eq("true") | b["minutes"].fillna(0).le(0)
     idx = {(r["game_date"], int(r["player_id"])): r for r in b.to_dict("records")}
-    # One graded row per (date, kind, player, category): the latest pregame phase.
+    # One graded row per (date, kind, player, category): latest PRETIP snapshot wins;
+    # within the same phase, later recorded_at_utc wins. Earlier snapshots remain immutable.
     latest = {}
     for r in rows:
         k = (r["date"], r["kind"], r["player_id"], r["category"])
-        if k not in latest or (r["phase"] == "PRETIP" and latest[k]["phase"] != "PRETIP"):
+        if k not in latest or ((r.get("phase") == "PRETIP", r.get("recorded_at_utc") or "") >
+                               (latest[k].get("phase") == "PRETIP", latest[k].get("recorded_at_utc") or "")):
             latest[k] = r
     graded = []
     for r in latest.values():
@@ -676,7 +794,8 @@ def grade(box=None, path=None, out=None) -> dict:
             continue
         out_row = {k: r.get(k) for k in ("date", "phase", "kind", "player", "player_id", "team", "opp", "category",
                                          "combined", "threshold", "line", "side", "best_book", "best_odds",
-                                         "recommendation", "edge", "event_id", "version", "rank")}
+                                         "recommendation", "edge", "event_id", "version", "rank", "snapshot_id",
+                                         "recorded_at_utc", "quote_scraped_at")}
         out_row["game_id"] = str(g["game_id"])
         if g["dnp"]:
             out_row["outcome"] = "VOID_DNP"
