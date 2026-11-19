@@ -1,9 +1,9 @@
 {
   "status": "READY",
   "target_date": "2026-11-19",
-  "generated_at_utc": "2026-11-19T20:52:52.550819+00:00",
+  "generated_at_utc": "2026-11-19T23:51:55.557758+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 105,
+  "injury_rows": 108,
   "slate_teams": [
     "Golden State Warriors",
     "Los Angeles Clippers",
@@ -17,9 +17,9 @@
   "teams_affected": 6,
   "absences_modeled": 13,
   "recipient_rows": 57,
-  "unallocated_minutes": -0.0,
+  "unallocated_minutes": 0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 84
+  "adjustment_rows": 83
 }

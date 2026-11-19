@@ -1,11 +1,11 @@
 {
   "status": "ok",
   "target_date": "2026-11-19",
-  "rows": 105,
-  "out": 78,
-  "questionable": 27,
+  "rows": 108,
+  "out": 88,
+  "questionable": 20,
   "error": null,
-  "generated_at_utc": "2026-11-19T20:52:25.773673+00:00",
+  "generated_at_utc": "2026-11-19T23:51:47.146144+00:00",
   "sources": [
     "espn_league",
     "espn_team_fallback",
@@ -13,5 +13,5 @@
   ],
   "teams_checked": 30,
   "empty_feed_warning": false,
-  "completed_at_utc": "2026-11-19T20:52:25.839582+00:00"
+  "completed_at_utc": "2026-11-19T23:51:47.319628+00:00"
 }
