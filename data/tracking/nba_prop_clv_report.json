@@ -1,5 +1,5 @@
 {
-  "status": "NO_MATCHED_CLOSES",
+  "status": "READY",
   "coverage_by_slate": {
     "2026-10-27": {
       "observed_games": 1,
@@ -274,46 +274,43 @@
     },
     "2026-11-18": {
       "observed_games": 12,
-      "captured_games": 0,
+      "captured_games": 3,
       "missing_games": [
         "atlanta hawks @ oklahoma city thunder",
         "boston celtics @ denver nuggets",
-        "chicago bulls @ brooklyn nets",
         "detroit pistons @ new orleans pelicans",
         "golden state warriors @ dallas mavericks",
         "houston rockets @ indiana pacers",
         "memphis grizzlies @ cleveland cavaliers",
-        "milwaukee bucks @ miami heat",
         "philadelphia 76ers @ orlando magic",
         "phoenix suns @ sacramento kings",
-        "utah jazz @ los angeles lakers",
-        "washington wizards @ toronto raptors"
+        "utah jazz @ los angeles lakers"
       ]
     }
   },
-  "generated_at_utc": "2026-11-18T19:24:33.472447+00:00",
+  "generated_at_utc": "2026-11-19T00:13:01.400083+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "forward_prop_bets": 68,
-  "matched_closes": 0,
-  "match_rate": 0.0,
-  "avg_line_clv": null,
-  "positive_line_clv_rate": null,
-  "same_line_price_rows": 0,
-  "avg_same_line_price_clv_probability": null,
-  "beat_close_rows": 0,
-  "beat_close_rate": null,
+  "forward_prop_bets": 71,
+  "matched_closes": 2,
+  "match_rate": 0.0282,
+  "avg_line_clv": 1.0,
+  "positive_line_clv_rate": 0.5,
+  "same_line_price_rows": 1,
+  "avg_same_line_price_clv_probability": 0.05782,
+  "beat_close_rows": 2,
+  "beat_close_rate": 1.0,
   "by_sportsbook": {
     "draftkings": {
-      "entries": 33,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "entries": 34,
+      "matched_closes": 1,
+      "match_rate": 0.0294,
+      "avg_line_clv": 0.0,
+      "positive_line_clv_rate": 0.0,
+      "same_line_price_rows": 1,
+      "avg_same_line_price_clv_probability": 0.05782,
+      "beat_close_rows": 1,
+      "beat_close_rate": 1.0
     },
     "fanatics": {
       "entries": 3,
@@ -327,15 +324,15 @@
       "beat_close_rate": null
     },
     "fanduel": {
-      "entries": 32,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
+      "entries": 34,
+      "matched_closes": 1,
+      "match_rate": 0.0294,
+      "avg_line_clv": 2.0,
+      "positive_line_clv_rate": 1.0,
       "same_line_price_rows": 0,
       "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "beat_close_rows": 1,
+      "beat_close_rate": 1.0
     }
   },
   "by_stat": {
@@ -362,26 +359,26 @@
       "beat_close_rate": null
     },
     "PTS": {
-      "entries": 11,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
+      "entries": 14,
+      "matched_closes": 1,
+      "match_rate": 0.0714,
+      "avg_line_clv": 2.0,
+      "positive_line_clv_rate": 1.0,
       "same_line_price_rows": 0,
       "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "beat_close_rows": 1,
+      "beat_close_rate": 1.0
     },
     "REB": {
       "entries": 18,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "matched_closes": 1,
+      "match_rate": 0.0556,
+      "avg_line_clv": 0.0,
+      "positive_line_clv_rate": 0.0,
+      "same_line_price_rows": 1,
+      "avg_same_line_price_clv_probability": 0.05782,
+      "beat_close_rows": 1,
+      "beat_close_rate": 1.0
     },
     "THREES": {
       "entries": 13,
@@ -397,15 +394,15 @@
   },
   "by_model_artifact": {
     "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5": {
-      "entries": 11,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "entries": 14,
+      "matched_closes": 2,
+      "match_rate": 0.1429,
+      "avg_line_clv": 1.0,
+      "positive_line_clv_rate": 0.5,
+      "same_line_price_rows": 1,
+      "avg_same_line_price_clv_probability": 0.05782,
+      "beat_close_rows": 2,
+      "beat_close_rate": 1.0
     },
     "UNKNOWN": {
       "entries": 57,
@@ -421,15 +418,15 @@
   },
   "by_model_family": {
     "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff": {
-      "entries": 11,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "entries": 14,
+      "matched_closes": 2,
+      "match_rate": 0.1429,
+      "avg_line_clv": 1.0,
+      "positive_line_clv_rate": 0.5,
+      "same_line_price_rows": 1,
+      "avg_same_line_price_clv_probability": 0.05782,
+      "beat_close_rows": 2,
+      "beat_close_rate": 1.0
     },
     "UNKNOWN": {
       "entries": 57,

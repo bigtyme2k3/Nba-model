@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "target_date": "2026-11-15",
+  "target_date": "2026-11-18",
   "bookmakers_requested": [
     "fanduel",
     "draftkings",
@@ -14,12 +14,12 @@
     "player_threes",
     "player_points_rebounds_assists"
   ],
-  "events_found": 1,
-  "events_queried": 1,
+  "events_found": 3,
+  "events_queried": 3,
   "min_minutes_to_tip": 1.0,
   "max_minutes_to_tip": 30.0,
-  "rows": 759,
-  "unique_players": 13,
+  "rows": 2520,
+  "unique_players": 46,
   "books_returned": [
     "draftkings",
     "fanatics",
@@ -33,11 +33,11 @@
     "player_rebounds",
     "player_threes"
   ],
-  "http_calls": 1,
-  "api_requests_used": "9022",
-  "api_requests_remaining": "10978",
+  "http_calls": 3,
+  "api_requests_used": "10265",
+  "api_requests_remaining": "9735",
   "api_requests_last": "5",
   "error": null,
   "output_prefix": "sportsbook_props_closing",
-  "generated_at_utc": "2026-11-15T21:23:23.469224+00:00"
+  "generated_at_utc": "2026-11-19T00:12:13.827224+00:00"
 }

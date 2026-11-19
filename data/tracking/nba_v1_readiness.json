@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-18T20:48:21.656372Z",
+  "generated_at_utc": "2026-11-19T00:13:02.744797Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -96,10 +96,10 @@
     "prop_bets": 1,
     "roi": -1.0,
     "brier": 0.2281,
-    "clv_matched": 0,
-    "beat_close_rate": null,
-    "avg_line_clv": null,
-    "avg_same_line_price_clv_probability": null,
+    "clv_matched": 2,
+    "beat_close_rate": 1.0,
+    "avg_line_clv": 1.0,
+    "avg_same_line_price_clv_probability": 0.05782,
     "by_sportsbook": {
       "draftkings": {
         "bets": 1,
@@ -142,8 +142,8 @@
       "positive_price_aware_roi": false,
       "acceptable_brier": true,
       "clv_rows_at_least_100": false,
-      "beat_close_rate_at_least_50pct": false,
-      "nonnegative_clv_signal": false
+      "beat_close_rate_at_least_50pct": true,
+      "nonnegative_clv_signal": true
     }
   },
   "promotion_policy": {
