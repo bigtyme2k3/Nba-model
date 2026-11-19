@@ -185,6 +185,8 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
     data['model_picks'] = model_picks_for(data.get('date'))
     data['data_bets'] = load_json('data/tracking/data_bets_report.json', {})
     data['game_predictions'] = load_json('data/tracking/game_predictions_report.json', {})
+    data['consistency'] = consistency_for(data.get('date'))
+    data['consistency_report'] = consistency_report()
     return prepare_display(data)
 
 
@@ -197,6 +199,22 @@ def model_picks_for(target) -> List[Dict[str, Any]]:
             'projection', 'raw_model_probability', 'market_probability', 'recorded_at_utc', 'units')
     rows = [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
     return [{k: r.get(k) for k in keep} for r in rows if str(r.get('date')) == str(target)]
+
+
+def consistency_for(target) -> Dict[str, Any]:
+    """Player Consistency snapshot for the slate date (consistency.py). Never another date's."""
+    snap = load_json(f'data/consistency/consistency_{target}.json', {})
+    if not snap or str(snap.get('date')) != str(target):
+        return {}
+    snap.pop('rules', None)
+    return snap
+
+
+def consistency_report() -> Dict[str, Any]:
+    report = load_json('data/tracking/consistency_report.json', {})
+    if isinstance(report.get('history'), list):
+        report['history'] = report['history'][:200]
+    return report
 
 
 def v2_lab_data(target) -> Dict[str, Any]:
@@ -229,9 +247,11 @@ def fallback_html(data_json: str) -> str:
     source = Path(__file__).resolve().parent / "dashboard"
     html = (source / "index.html").read_text(encoding="utf-8")
     return (html.replace("__DASHBOARD_CSS__", (source / "style.css").read_text(encoding="utf-8"))
-            .replace("__V2_LAB_CSS__", (source / "v2_lab.css").read_text(encoding="utf-8"))
+            .replace("__V2_LAB_CSS__", (source / "v2_lab.css").read_text(encoding="utf-8")
+                     + "\n" + (source / "consistency.css").read_text(encoding="utf-8"))
             .replace("__LINEMATE_REVIEW_JS__", (source / "linemate_review.js").read_text(encoding="utf-8"))
-            .replace("__V2_LAB_JS__", (source / "v2_lab.js").read_text(encoding="utf-8"))
+            .replace("__V2_LAB_JS__", (source / "v2_lab.js").read_text(encoding="utf-8")
+                     + "\n" + (source / "consistency.js").read_text(encoding="utf-8"))
             .replace("__DASHBOARD_JS__", (source / "app.js").read_text(encoding="utf-8"))
             .replace("__DASHBOARD_DATA__", data_json))
 
