@@ -1,0 +1,5 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-19,401910019,STATUS_SCHEDULED,False,False,Memphis Grizzlies,Golden State Warriors,0,0,0,0,,,,,,,,,MEM -6.5,226.5,FedExForum,0,2026-11-19T14:20:35.083754
+2026-11-19,401910020,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Portland Trail Blazers,0,0,0,0,,,,,,,,,POR -10.5,228.5,Fiserv Forum,0,2026-11-19T14:20:35.083771
+2026-11-19,401910021,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,New York Knicks,0,0,0,0,,,,,,,,,NY -1.5,216.5,Target Center,0,2026-11-19T14:20:35.083779
+2026-11-19,401910022,STATUS_SCHEDULED,False,False,San Antonio Spurs,LA Clippers,0,0,0,0,,,,,,,,,SA -15.5,224.5,Frost Bank Center,0,2026-11-19T14:20:35.083786
