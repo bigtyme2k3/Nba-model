@@ -180,6 +180,12 @@ jobs:
           python -m v2.compare
           python data_bets_report.py
           python game_predictions_report.py
+          python consistency.py grade
+        continue-on-error: true
+
+      - name: Player consistency (top 20, trends, exact lines; research only)
+        if: env.SKIP != 'true'
+        run: python consistency.py build --date ${{ env.TARGET }} --phase EARLY
         continue-on-error: true
 
       - name: Reconcile yesterday's near-tip execution snapshots

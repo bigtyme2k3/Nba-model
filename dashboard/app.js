@@ -251,11 +251,14 @@
     const rows=(D.results||[]).filter(r=>(!state.resultDate||r.date===state.resultDate)&&(!state.resultBook||r.sportsbook_key===state.resultBook)&&(!state.resultOutcome||r.outcome===state.resultOutcome));
     document.getElementById('result-history').innerHTML=rows.map(r=>`<article class="result-row"><div><strong>${esc(r.player?`${r.player} · ${r.stat} ${r.side} ${fmt(r.line)}`:`${r.game} · ${r.market} ${r.side} ${fmt(r.line)}`)}</strong><p class="subtitle">${esc(dayLabel(r.date))} · ${esc(bookName(r.sportsbook_key))} ${esc(odds(r.odds))} · Actual ${esc(fmt(r.actual))}</p></div><div><span class="badge ${r.outcome==='WIN'?'bet':''}">${esc(r.outcome)}</span><div class="small ${r.outcome.toLowerCase()}">${esc(signed(r.profit_units,2))}u</div></div></article>`).join('')||empty('No priced BET results for this filter','Research observations and excluded consensus entries do not count as graded bets.');
   }
+  function renderConsistency() {
+    if(window.Consistency)window.Consistency.open(view);else view.innerHTML=empty('Player consistency unavailable','The consistency module did not load.');
+  }
   function renderTab(tab,focus=false) {
     state.tab=tab;
     for(const button of document.querySelectorAll('[data-tab]')){const selected=button.dataset.tab===tab;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;}
     view.setAttribute('aria-labelledby','tab-'+tab);
-    ({today:renderToday,games:renderGames,props:renderProps,results:renderResults}[tab]||renderToday)();
+    ({today:renderToday,games:renderGames,props:renderProps,results:renderResults,consistency:renderConsistency}[tab]||renderToday)();
     window.scrollTo({top:0,behavior:'instant'});
     if(focus)view.focus({preventScroll:true});
   }

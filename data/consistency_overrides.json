@@ -1,0 +1,5 @@
+{
+  "_note": "Manual Player Consistency overrides. Each entry: {\"player\": \"Full Name\", \"reason\": \"why\"}. Included players are added to the active list marked MANUAL; excluded players are removed and listed as removed. Recorded with every day's ranking.",
+  "include": [],
+  "exclude": []
+}
