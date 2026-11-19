@@ -37,6 +37,7 @@ from kelly_sizing import (CALIBRATION_PATH, EDGE_SHRINK_PRIOR, PROP_PRICE_SHRINK
 LEDGER = Path("data/history/nba_forward_predictions.jsonl")
 EDGE_MARKETS = {"SPREAD": "spread", "TOTAL": "totals", "PROP": "props"}
 MIN_GRADED = 200
+MIN_CALIBRATION_DATES = 5   # graded dates of the current model family before a date split
 SHRINK_GRID = [i / 100 for i in range(101)]
 
 
@@ -126,7 +127,8 @@ def temporal_calibration(rows, min_graded=MIN_GRADED, active_ids=None):
         info = {"status": "MARKET_ONLY", "shrink": 0.0, "graded": len(subset),
                 "model_family_id": active_ids.get(market), "validation": "INSUFFICIENT_DATED_EVIDENCE"}
         dates = sorted({r["date"] for r in subset})
-        if len(dates) >= 5:
+        info.update(dated_evidence_dates=len(dates), min_dated_evidence_dates=MIN_CALIBRATION_DATES)
+        if len(dates) >= MIN_CALIBRATION_DATES:
             cut = max(1, int(len(dates) * .8))
             training = [r for r in subset if r["date"] < dates[cut]]
             holdout = [r for r in subset if r["date"] >= dates[cut]]
