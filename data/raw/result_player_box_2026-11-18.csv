@@ -216,11 +216,11 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910016,2026,2026-11-18,Warriors,Golden State,GS,away,3134903,Gary Payton II,G,False,False,16.0,8.0,8.0,2.0,1.0,0.0,1.0,2.0,6.0,3.0,4.0,2.0,2.0,0.0,0.0,12.0,espn_api
 401910016,2026,2026-11-18,Warriors,Golden State,GS,away,4066436,De'Anthony Melton,G,False,False,19.0,0.0,2.0,2.0,3.0,0.0,4.0,0.0,2.0,0.0,3.0,0.0,3.0,0.0,0.0,-8.0,espn_api
 401910016,2026,2026-11-18,Warriors,Golden State,GS,away,4897262,Will Richard,G,False,False,27.0,20.0,0.0,3.0,4.0,0.0,2.0,0.0,0.0,9.0,13.0,1.0,5.0,1.0,2.0,8.0,espn_api
-401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,3138160,Caleb Martin,F,True,False,20.0,8.0,5.0,3.0,1.0,0.0,1.0,0.0,5.0,3.0,6.0,2.0,4.0,0.0,0.0,24.0,espn_api
+401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,3138160,Caleb Martin,F,True,False,20.0,8.0,5.0,3.0,2.0,0.0,1.0,0.0,5.0,3.0,6.0,2.0,4.0,0.0,0.0,24.0,espn_api
 401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,4278049,Daniel Gafford,F,True,False,24.0,6.0,6.0,2.0,0.0,2.0,1.0,1.0,5.0,3.0,6.0,0.0,0.0,0.0,2.0,28.0,espn_api
 401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,4278078,P.J. Washington,F,True,False,25.0,21.0,5.0,2.0,1.0,3.0,0.0,3.0,2.0,7.0,10.0,5.0,7.0,2.0,2.0,32.0,espn_api
 401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,5041939,Cooper Flagg,F,True,False,34.0,33.0,5.0,9.0,4.0,0.0,5.0,2.0,3.0,11.0,15.0,3.0,5.0,8.0,8.0,32.0,espn_api
-401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,6442,Kyrie Irving,G,True,False,29.0,17.0,6.0,5.0,3.0,0.0,1.0,2.0,4.0,7.0,15.0,1.0,6.0,2.0,2.0,22.0,espn_api
+401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,6442,Kyrie Irving,G,True,False,29.0,17.0,6.0,5.0,2.0,0.0,1.0,2.0,4.0,7.0,15.0,1.0,6.0,2.0,2.0,22.0,espn_api
 401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,4278594,Naji Marshall,F,False,False,27.0,12.0,5.0,2.0,2.0,0.0,2.0,0.0,5.0,4.0,8.0,2.0,4.0,2.0,2.0,-9.0,espn_api
 401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,4593125,Santi Aldama,F,False,False,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,2.0,0.0,0.0,-4.0,espn_api
 401910016,2026,2026-11-18,Mavericks,Dallas,DAL,home,4873153,Morez Johnson Jr.,F,False,False,15.0,3.0,1.0,1.0,0.0,0.0,2.0,1.0,0.0,1.0,5.0,0.0,1.0,1.0,3.0,-6.0,espn_api
