@@ -1,30 +1,33 @@
 game_date,player,proj_min,adjusted
-2026-11-19,Jock Landale,0.0,True
-2026-11-19,Kingston Flemings,0.0,True
+2026-11-19,Jock Landale,15.0,True
+2026-11-19,Kingston Flemings,15.0,True
 2026-11-19,Asa Newell,0.0,True
 2026-11-19,CJ McCollum,0.0,True
 2026-11-19,Mouhamed Gueye,0.0,True
 2026-11-19,Henri Veesaar,0.0,True
+2026-11-19,Grant Nelson,15.0,True
 2026-11-19,Grayson Allen,15.0,True
 2026-11-19,Kon Knueppel,0.0,True
 2026-11-19,Dennis Schroder,0.0,True
 2026-11-19,Tobe Awaka,0.0,True
 2026-11-19,Caleb Wilson,0.0,True
-2026-11-19,Peyton Watson,0.0,True
-2026-11-19,Jaylon Tyson,0.0,True
+2026-11-19,Jaylon Tyson,15.0,True
+2026-11-19,Peyton Watson,15.0,True
 2026-11-19,Nae'Qwan Tomlin,0.0,True
 2026-11-19,Evan Mobley,0.0,True
-2026-11-19,Tobi Lawal,0.0,True
+2026-11-19,Tobi Lawal,15.0,True
 2026-11-19,Sergio de Larrea,0.0,True
 2026-11-19,Dereck Lively II,0.0,True
 2026-11-19,Tarik Biberovic,0.0,True
 2026-11-19,Julian Strawther,0.0,True
-2026-11-19,Cade Cunningham,0.0,True
-2026-11-19,Taurean Prince,0.0,True
-2026-11-19,Ronald Holland II,0.0,True
+2026-11-19,Ugonna Onyenso,15.0,True
+2026-11-19,Taurean Prince,15.0,True
+2026-11-19,Ronald Holland II,15.0,True
+2026-11-19,Cade Cunningham,15.0,True
 2026-11-19,Duncan Robinson,0.0,True
 2026-11-19,Jalen Duren,0.0,True
-2026-11-19,Al Horford,0.0,True
+2026-11-19,Draymond Green,0.0,True
+2026-11-19,LJ Cryer,15.0,True
 2026-11-19,Brandon Williams,0.0,True
 2026-11-19,Stephen Curry,0.0,True
 2026-11-19,Kristaps Porzingis,0.0,True
@@ -32,8 +35,8 @@ game_date,player,proj_min,adjusted
 2026-11-19,Jimmy Butler III,0.0,True
 2026-11-19,Alperen Sengun,15.0,True
 2026-11-19,Clint Capela,0.0,True
+2026-11-19,Andrew Nembhard,15.0,True
 2026-11-19,Braden Smith,15.0,True
-2026-11-19,Andrew Nembhard,0.0,True
 2026-11-19,Tyrese Haliburton,0.0,True
 2026-11-19,Johnny Furphy,0.0,True
 2026-11-19,Ben Sheppard,0.0,True
@@ -41,15 +44,16 @@ game_date,player,proj_min,adjusted
 2026-11-19,Bradley Beal,0.0,True
 2026-11-19,Jordan Miller,0.0,True
 2026-11-19,Austin Reaves,0.0,True
-2026-11-19,GG Jackson,0.0,True
-2026-11-19,Isaiah Stewart,0.0,True
+2026-11-19,Isaiah Stewart,15.0,True
+2026-11-19,Zach Edey,0.0,True
 2026-11-19,Ty Jerome,0.0,True
+2026-11-19,GG Jackson,0.0,True
 2026-11-19,Scotty Pippen Jr.,0.0,True
 2026-11-19,Richie Saunders,0.0,True
-2026-11-19,Myron Gardner,0.0,True
-2026-11-19,Ryan Rollins,0.0,True
+2026-11-19,Myron Gardner,15.0,True
+2026-11-19,Kyle Kuzma,0.0,True
+2026-11-19,Myles Turner,0.0,True
 2026-11-19,Ousmane Dieng,0.0,True
-2026-11-19,Zyon Pullin,15.0,True
 2026-11-19,Jonathan Kuminga,15.0,True
 2026-11-19,Jaylen Clark,0.0,True
 2026-11-19,Anthony Edwards,0.0,True
@@ -59,7 +63,7 @@ game_date,player,proj_min,adjusted
 2026-11-19,Trendon Watford,0.0,True
 2026-11-19,Trey Murphy III,0.0,True
 2026-11-19,Dejounte Murray,0.0,True
-2026-11-19,Alex Caruso,0.0,True
+2026-11-19,Alex Caruso,15.0,True
 2026-11-19,Thomas Sorber,0.0,True
 2026-11-19,Cason Wallace,0.0,True
 2026-11-19,Chet Holmgren,0.0,True
@@ -68,17 +72,17 @@ game_date,player,proj_min,adjusted
 2026-11-19,Jonathan Isaac,0.0,True
 2026-11-19,Noah Penda,0.0,True
 2026-11-19,Paolo Banchero,0.0,True
-2026-11-19,Tyrese Maxey,0.0,True
-2026-11-19,Dean Wade,0.0,True
+2026-11-19,Dean Wade,15.0,True
+2026-11-19,Tyrese Maxey,15.0,True
 2026-11-19,Jaylen Brown,0.0,True
 2026-11-19,Dominick Barlow,0.0,True
 2026-11-19,Adem Bona,0.0,True
 2026-11-19,Ariel Hukporti,0.0,True
 2026-11-19,Mark Williams,0.0,True
+2026-11-19,Chris Youngblood,0.0,True
 2026-11-19,Robert Williams III,0.0,True
 2026-11-19,Deni Avdija,15.0,True
 2026-11-19,Toumani Camara,15.0,True
-2026-11-19,Chris Youngblood,0.0,True
 2026-11-19,Vit Krejci,0.0,True
 2026-11-19,Ja Morant,0.0,True
 2026-11-19,Shaedon Sharpe,0.0,True
@@ -87,9 +91,9 @@ game_date,player,proj_min,adjusted
 2026-11-19,Dylan Harper,0.0,True
 2026-11-19,Tobias Harris,0.0,True
 2026-11-19,Jayden Quaintance,0.0,True
+2026-11-19,RJ Barrett,15.0,True
+2026-11-19,Scottie Barnes,15.0,True
 2026-11-19,Collin Murray-Boyles,15.0,True
-2026-11-19,RJ Barrett,0.0,True
-2026-11-19,Scottie Barnes,0.0,True
 2026-11-19,Kawhi Leonard,0.0,True
 2026-11-19,Nate Bittle,0.0,True
 2026-11-19,Lauri Markkanen,0.0,True

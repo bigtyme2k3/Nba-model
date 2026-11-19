@@ -16,9 +16,9 @@
   "events_queried": 4,
   "rows": 56,
   "http_calls": 4,
-  "generated_at_utc": "2026-11-19T14:20:34.095892+00:00",
+  "generated_at_utc": "2026-11-19T20:52:24.312843+00:00",
   "error": null,
-  "api_requests_remaining": 9497,
+  "api_requests_remaining": 9360,
   "api_requests_last": "3",
   "markets_returned": [
     "h2h_q1",
