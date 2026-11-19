@@ -174,5 +174,139 @@ class GradeTests(unittest.TestCase):
             self.assertNotIn("units_if_followed", rep["alternate_thresholds"])   # trends are never wagers
 
 
+
+class SafeguardTests(unittest.TestCase):
+    def test_calibration_requires_real_holdout_and_matching_family(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "calibration.json"
+            data = {
+                "evidence_epoch": cs.EVIDENCE_EPOCH, "min_graded": 200,
+                "markets": {"prop_price": {
+                    "status": "VALIDATED", "validation": "PASSED", "shrink": 0.25,
+                    "model_family_id": "current-family", "dated_evidence_dates": 5,
+                    "training_rows": 220, "holdout_rows": 60,
+                    "candidate_scores": {"brier": .21, "log_loss": .60},
+                    "market_scores": {"brier": .22, "log_loss": .61},
+                }},
+            }
+            def check():
+                path.write_text(json.dumps(data))
+                return cs.calibration_state(path=path, expected_family="current-family")
+            self.assertTrue(check()["calibrated"])
+            data["markets"]["prop_price"]["model_family_id"] = "stale-family"
+            self.assertFalse(check()["calibrated"])
+            data["markets"]["prop_price"]["model_family_id"] = "current-family"
+            data["markets"]["prop_price"]["holdout_rows"] = 8
+            self.assertFalse(check()["calibrated"])
+            data["markets"]["prop_price"]["holdout_rows"] = 60
+            data["markets"]["prop_price"]["validation"] = "INSUFFICIENT_DATED_EVIDENCE"
+            self.assertFalse(check()["calibrated"])
+            data["markets"]["prop_price"]["validation"] = "PASSED"
+            data["markets"]["prop_price"]["candidate_scores"]["brier"] = .23
+            self.assertFalse(check()["calibrated"])
+            data["markets"]["prop_price"]["candidate_scores"]["brier"] = .21
+            data["evidence_epoch"] = "OLD_EPOCH"
+            self.assertFalse(check()["calibrated"])
+
+    def test_latest_quotes_excludes_stale_wrong_date_future_and_posttip(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "sportsbook.csv"
+            template = {"game_date": "2026-11-20", "event_id": "game-1",
+                        "commence_time": "2026-11-20T20:00:00Z",
+                        "home_team": "Boston Celtics", "away_team": "New York Knicks",
+                        "player": "Steady Star", "stat": "pts", "side": "OVER",
+                        "line": 24.5, "price": -110, "book_key": "fanduel",
+                        "scraped_at": "2026-11-20T14:50:00Z",
+                        "last_update": "2026-11-20T14:49:00Z"}
+            rows = [template]
+            rows += [{**template, "book_key": "draftkings", "scraped_at": "2026-11-20T11:00:00Z"}]
+            rows += [{**template, "book_key": "fanatics", "last_update": "2026-11-20T11:00:00Z"}]
+            rows += [{**template, "event_id": "future-quote", "scraped_at": "2026-11-20T15:10:00Z",
+                      "last_update": "2026-11-20T15:10:00Z"}]
+            rows += [{**template, "event_id": "after-tip", "scraped_at": "2026-11-20T20:01:00Z",
+                      "last_update": "2026-11-20T20:01:00Z"}]
+            rows += [{**template, "game_date": "2026-11-19", "event_id": "previous-game"}]
+            pd.DataFrame(rows).to_csv(path, index=False)
+            now = datetime(2026, 11, 20, 15, tzinfo=timezone.utc)
+            q = cs.latest_quotes("2026-11-20", now, path=path)
+            self.assertEqual(len(q), 1)
+            self.assertEqual(q.iloc[0]["event_id"], "game-1")
+            self.assertEqual(q.iloc[0]["book_key"], "fanduel")
+
+    def test_exact_game_matching_prevents_same_player_wrong_event(self):
+        def item(event, home, away, line, price, book="fanduel"):
+            return [{"player_key": "steady star", "stat": "pts", "book_key": book,
+                     "event_id": event, "home_team": home, "away_team": away,
+                     "commence_time": "2026-11-20T20:10:00Z",
+                     "scraped_at": "2026-11-20T19:00:00Z",
+                     "side": side, "line": line, "price": price}
+                    for side in ("OVER", "UNDER")]
+        q = pd.DataFrame(item("game-1", "Boston Celtics", "New York Knicks", 24.5, -110)
+                         + item("game-2", "Miami Heat", "Orlando Magic", 20.5, 120, "draftkings"))
+        now = datetime(2026, 11, 20, 19, 30, tzinfo=timezone.utc)
+        player = {"player_key": "steady star"}
+        vals = np.array([25, 26, 27, 24, 28, 30, 25, 26, 29, 31, 22, 27])
+        game = {"event_id": "game-1", "tip": "2026-11-20T20:00:00Z",
+                "home_team": "Boston Celtics", "away_team": "New York Knicks"}
+        r = cs.evaluate_line(player, "PTS", vals, q, None, None, {"calibrated": False},
+                             stale=False, game=game, now=now)
+        self.assertEqual(r["line"], 24.5)
+        self.assertEqual(r["best_book"], "fanduel")
+        self.assertEqual(r["event_id"], "game-1")
+        self.assertIsNone(r["books"]["draftkings"]["over"])
+        game["event_id"] = None
+        r = cs.evaluate_line(player, "PTS", vals, q, None, None, {"calibrated": False},
+                             stale=False, game=game, now=now)
+        self.assertEqual(r["line"], 24.5)
+        game["home_team"] = "Miami Heat"
+        self.assertIsNone(cs.evaluate_line(player, "PTS", vals, q, None, None,
+                                            {"calibrated": False}, stale=False, game=game, now=now))
+
+    def test_incomplete_bookmaker_sides_never_mix_lines(self):
+        base = {"player_key": "steady star", "stat": "pts", "event_id": "game-1"}
+        q = pd.DataFrame([
+            {**base, "book_key": "fanduel", "side": "OVER", "line": 24.5, "price": -110},
+            {**base, "book_key": "fanduel", "side": "UNDER", "line": 25.5, "price": -115},
+            {**base, "book_key": "draftkings", "side": "OVER", "line": 24.5, "price": -120},
+            {**base, "book_key": "draftkings", "side": "UNDER", "line": 24.5, "price": +100},
+        ])
+        r = cs.evaluate_line({"player_key": "steady star"}, "PTS", np.array([25] * 12),
+                             q, None, None, {"calibrated": False}, stale=False)
+        self.assertEqual(r["best_book"], "draftkings")
+        self.assertIsNone(r["books"]["fanduel"]["over"])
+        self.assertIsNone(cs.evaluate_line({"player_key": "steady star"}, "PTS",
+                          np.array([25] * 12), q[q["book_key"] == "fanduel"], None,
+                          None, {"calibrated": False}, stale=False))
+
+    def test_same_phase_updates_remain_immutable_and_latest_is_graded(self):
+        with tempfile.TemporaryDirectory() as folder:
+            folder = Path(folder)
+            path = folder / "signals.jsonl"
+            box = folder / "box.csv"
+            out = folder / "report.json"
+            _box(box, [(1, "Steady Star", [25])], days=1)
+            player = {"player_id": 1, "player": "Steady Star", "team": "BOS", "rank": 1,
+                      "injury": None}
+            game = {"event_id": "game-1", "tip": "2026-11-01T23:00:00Z", "opp": "NY"}
+            a = cs._signal("2026-11-01", "PRETIP", "LINE", player, "PTS", game,
+                           datetime(2026, 11, 1, 20, 0, tzinfo=timezone.utc),
+                           {"line": 25, "side": "OVER", "best_odds": -110, "recommendation": "WATCH"},
+                           "snapshot-early")
+            b = cs._signal("2026-11-01", "PRETIP", "LINE", player, "PTS", game,
+                           datetime(2026, 11, 1, 21, 0, tzinfo=timezone.utc),
+                           {"line": 24.5, "side": "OVER", "best_odds": -105, "recommendation": "LEAN"},
+                           "snapshot-later")
+            self.assertEqual(cs.append_signals([a], path=path), 1)
+            self.assertEqual(cs.append_signals([b], path=path), 1)
+            self.assertEqual(cs.append_signals([b], path=path), 0)
+            self.assertEqual(len(cs.read_jsonl(path)), 2)
+            result = cs.grade(box=box, path=path, out=out)
+            self.assertEqual(result["exact_lines"]["n"], 1)
+            rows = [r for r in result["history"] if r["kind"] == "LINE"]
+            self.assertEqual(rows[0]["outcome"], "WIN")
+            self.assertEqual(rows[0]["line"], 24.5)
+            self.assertEqual(rows[0]["snapshot_id"], "snapshot-later")
+
+
 if __name__ == "__main__":
     unittest.main()
