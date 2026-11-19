@@ -99,6 +99,50 @@ class BuildTests(unittest.TestCase):
         self.assertEqual([r["player"] for r in snap["removed_by_override"]], ["Opp Guy"])
 
 
+    def test_include_override_promotes_reserve_player(self):
+        players = [(i, f"Player {i}", [20 + i % 3]) for i in range(1, 26)]   # 25 qualified, 5 in reserve
+        _box(self.box, players, days=12)
+        snap = cs.build("2026-11-20", record=False, box=self.box, now=datetime(2026, 11, 20, tzinfo=timezone.utc))
+        reserve_player = snap["reserve"][0]["player"]
+        (self.dir / "overrides.json").write_text(json.dumps({"include": [{"player": reserve_player, "reason": "t"}]}))
+        snap = cs.build("2026-11-20", record=False, box=self.box, now=datetime(2026, 11, 20, tzinfo=timezone.utc))
+        self.assertNotIn(reserve_player, [p["player"] for p in snap["reserve"]])
+        promoted = [p for p in snap["active"] if p["player"] == reserve_player]
+        self.assertEqual(promoted[0]["override"], "MANUAL_INCLUDE")
+
+    def test_pretip_without_window_file_records_no_signals(self):
+        _box(self.box, [(1, "Steady Star", [25, 26, 27])], days=12)
+        (self.dir / "pred" / "predictions_2026-11-20.json").write_text(json.dumps({"games": [{
+            "tip": "2026-11-21T00:00Z", "home": {"name": "Boston Celtics", "abbr": "BOS"},
+            "away": {"name": "New York Knicks", "abbr": "NY"}, "props": []}]}))
+        now = datetime(2026, 11, 20, 15, tzinfo=timezone.utc)
+        snap = cs.build("2026-11-20", "PRETIP", predictions=str(self.dir / "pred" / "missing.json"), box=self.box, now=now)
+        self.assertEqual(snap["signals_recorded"], 0)
+        self.assertTrue(snap["active"][0]["playing_tonight"])            # display still refreshed
+        snap = cs.build("2026-11-20", "EARLY", box=self.box, now=now)
+        self.assertGreater(snap["signals_recorded"], 0)
+
+    def test_missing_stat_never_breaks_the_snapshot(self):
+        _box(self.box, [(1, "Steady Star", [25, 26, 27])], days=12)
+        b = pd.read_csv(self.box)
+        b.loc[0, "reb"] = None
+        b.loc[0, "position"] = None
+        b.to_csv(self.box, index=False)
+        snap = cs.build("2026-11-20", box=self.box, now=datetime(2026, 11, 20, tzinfo=timezone.utc))
+        json.dumps(snap, allow_nan=False)
+        star = [p for p in snap["active"] + snap["reserve"] if p["player"] == "Steady Star"][0]
+        self.assertEqual(star["categories"]["REB"]["gp"], 11)              # that game left out of REB only
+        self.assertEqual(star["categories"]["PTS"]["gp"], 12)
+
+    def test_staleness_follows_the_schedule(self):
+        sched = self.dir / "sched.csv"
+        pd.DataFrame({"game_id": [1, 2], "season": 2026, "game_date": ["2026-02-10", "2026-02-19"],
+                      "season_type": 2, "season_slug": "regular-season",
+                      "status": ["STATUS_FINAL", "STATUS_SCHEDULED"]}).to_csv(sched, index=False)
+        self.assertFalse(cs.box_is_stale("2026-02-19", "2026-02-10", sched))   # All-Star break, nothing missing
+        self.assertTrue(cs.box_is_stale("2026-02-19", "2026-02-08", sched))    # a played game is missing
+
+
 class LineTests(unittest.TestCase):
     def quotes(self, line=24.5, over=-110, under=-110):
         rows = []
@@ -139,6 +183,35 @@ class LineTests(unittest.TestCase):
         r = cs.evaluate_line(self.player, "PTS", self.values, self.quotes(), self.prop(), None,
                              {"calibrated": True}, stale=True)
         self.assertEqual(r["recommendation"], "PASS")
+
+    def test_latest_scrape_per_book_keeps_both_sides_at_one_line(self):
+        with tempfile.TemporaryDirectory() as t:
+            old = cs.RAW
+            cs.RAW = Path(t)
+            try:
+                rows = []
+                for scraped, line in (("2026-11-20T14:00:00Z", 23.5), ("2026-11-20T18:00:00Z", 24.5)):
+                    for side in ("OVER", "UNDER"):
+                        if scraped.startswith("2026-11-20T18") and side == "UNDER":
+                            continue                                     # latest scrape lost the UNDER
+                        rows.append({"player": "Steady Star", "stat": "pts", "book_key": "fanduel", "side": side,
+                                     "line": line, "price": -110, "scraped_at": scraped, "event_id": "e1",
+                                     "commence_time": "2026-11-21T00:00:00Z"})
+                pd.DataFrame(rows).to_csv(Path(t) / "sportsbook_props_2026-11-20.csv", index=False)
+                q = cs.latest_quotes("2026-11-20", datetime(2026, 11, 20, 20, tzinfo=timezone.utc))
+            finally:
+                cs.RAW = old
+        self.assertEqual(set(q["line"]), {24.5})
+        self.assertEqual(list(q["side"]), ["OVER"])                          # never an UNDER from an older line
+
+    def test_calibration_needs_a_passed_holdout(self):
+        with tempfile.TemporaryDirectory() as t:
+            f = Path(t) / "c.json"
+            for entry, ok in (({"status": "VALIDATED", "validation": "PASSED", "shrink": .4}, True),
+                              ({"status": "FITTED", "validation": "REJECTED_HOLDOUT", "shrink": .4}, False),
+                              ({"status": "MARKET_ONLY", "shrink": 0.0}, False)):
+                f.write_text(json.dumps({"markets": {"prop_price": entry}}))
+                self.assertEqual(cs.calibration_state(f)["calibrated"], ok)
 
     def test_no_line_for_categories_without_markets(self):
         self.assertIsNone(cs.evaluate_line(self.player, "STL", self.values, self.quotes(), None, None,

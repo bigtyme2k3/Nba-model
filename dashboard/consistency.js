@@ -52,15 +52,16 @@
   }
 
   // Last-N chart: one bar per game, a dashed line at the threshold or tonight's exact line.
-  function chartSvg(games, cat, line) {
+  function chartSvg(games, cat, line, side='OVER') {
     const g = (games||[]).filter(x => num(x[cat]));
     if (!g.length) return '<p class="small muted">No games.</p>';
     const W = 560, H = 190, pad = 26, bw = (W - pad) / g.length;
     const max = Math.max(...g.map(x => x[cat]), num(line) ? line : 0, 1) * 1.15;
     const y = v => H - 34 - (v / max) * (H - 50);
     const bars = g.map((x,i) => {
-      const hit = num(line) ? x[cat] > line : null, h = H - 34 - y(x[cat]);
-      const cls = hit === null ? 'cs-bar' : hit ? 'cs-bar hit' : 'cs-bar miss';
+      const push = num(line) && x[cat] === Number(line), h = H - 34 - y(x[cat]);
+      const hit = !num(line) || push ? null : (side === 'UNDER' ? x[cat] < line : x[cat] > line);
+      const cls = push ? 'cs-bar push' : hit === null ? 'cs-bar' : hit ? 'cs-bar hit' : 'cs-bar miss';
       const label = `${x.date} ${x.home?'vs':'@'} ${x.opp}: ${x[cat]} ${cat}, ${fmt(x.minutes,0)} min${x.b2b?', back-to-back':''}${x.low_minutes?', low minutes':''}`;
       return `<g><title>${esc(label)}</title><rect class="${cls}" x="${pad + i*bw + 2}" y="${y(x[cat])}" width="${Math.max(bw-4,2)}" height="${Math.max(h,1)}" rx="2"></rect>`
         + `<text class="cs-val" x="${pad + i*bw + bw/2}" y="${y(x[cat]) - 3}" text-anchor="middle">${esc(fmt(x[cat],0))}</text>`
@@ -190,8 +191,8 @@
       ${ng?` · next ${ng.tip?`${ng.home?'vs':'@'} ${esc(ng.opp)} ${esc(timeET(ng.tip))}`:esc(dayET(ng.date))}`:''}${num(p.projected_minutes)?` · projected ${fmt(p.projected_minutes)} min`:''}${p.injury?` · <b class="loss">${esc(p.injury)}</b>`:''}${p.override?` · <b>Manual override: ${esc(p.override_reason||'')}</b>`:''}</p>
       ${(p.preferences_missed||[]).length?`<p class="small muted">Preferences missed: ${p.preferences_missed.map(esc).join(', ')}</p>`:''}
       <div class="cs-cards">${cards}</div>
-      <h3 class="review-heading">Last ${(p.last20||[]).length} games · ${cat} vs ${line?`tonight's line ${line.line}`:`${c.threshold}+ threshold`} (opponent, minutes; ·B = back-to-back)</h3>
-      <div class="table-wrap"><div class="cs-chart-wrap">${chartSvg(p.last20, cat, line ? line.line : (num(c.threshold) ? c.threshold - .5 : null))}</div></div>
+      <h3 class="review-heading">Last ${(p.last20||[]).length} games · ${cat} vs ${line?`tonight's line (${line.side} ${line.line})`:`${c.threshold}+ threshold`} (opponent, minutes; ·B = back-to-back)</h3>
+      <div class="table-wrap"><div class="cs-chart-wrap">${chartSvg(p.last20, cat, line ? line.line : (num(c.threshold) ? c.threshold - .5 : null), line ? line.side : 'OVER')}</div></div>
       <div class="cs-two"><div><h3 class="review-heading">${cat} splits at ${esc(c.threshold)}+ (games, average, hit rate)</h3><div class="table-wrap"><table class="cs-table"><tr><th>Split</th><th>GP</th><th>Avg</th><th>Hit</th></tr>${splitRows}</table></div></div>
       <div><h3 class="review-heading">Combined-stat stability (from per-game totals)</h3><div class="table-wrap"><table class="cs-table"><tr><th>Stat</th><th>Avg</th><th>SD</th><th>CV</th><th>SD ÷ parts</th></tr>${cs}</table></div>
       <p class="small muted">SD ÷ parts below 1 means the components offset each other, so the combined line is steadier than its pieces.</p></div></div></section>`;

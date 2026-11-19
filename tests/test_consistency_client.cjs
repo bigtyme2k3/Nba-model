@@ -22,4 +22,8 @@ assert.equal(hitText({n:10, over:6, under:3, push:1}, 'OVER'), '6/9 (1P)');
 assert.equal(hitText({n:5, over:1, under:4, push:0}, 'UNDER'), '4/5');
 const svg = chartSvg([{date:'2026-11-01', opp:'NY', home:true, minutes:30, PTS:25}, {date:'2026-11-03', opp:'<x>', home:false, minutes:12, PTS:18, low_minutes:true}], 'PTS', 21.5);
 assert.match(svg, /cs-bar hit/); assert.match(svg, /cs-bar miss/); assert.doesNotMatch(svg, /<x>/);
-console.log('Consistency client: 21 assertions passed');
+const under = chartSvg([{date:'d', opp:'A', minutes:30, REB:6}, {date:'e', opp:'B', minutes:30, REB:10}, {date:'f', opp:'C', minutes:30, REB:8}], 'REB', 8.5, 'UNDER');
+assert.match(under, /cs-bar hit"[^>]*height/); assert.equal((under.match(/cs-bar hit/g)||[]).length, 2);   // 6 and 8 hit the UNDER
+const push = chartSvg([{date:'d', opp:'A', minutes:30, PTS:20}], 'PTS', 20, 'OVER');
+assert.match(push, /cs-bar push/);
+console.log('Consistency client: 24 assertions passed');

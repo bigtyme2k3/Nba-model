@@ -64,6 +64,7 @@ from teams import normalize_team
 
 VERSION = "consistency-v2.0"
 BOX = Path("data/raw/espn_current_player_box_2026.csv")
+SCHEDULE = Path("data/raw/espn_current_schedule_2026.csv")
 RAW = Path("data/raw")
 PRED_DIR = Path("predictions")
 OUT_DIR = Path("data/consistency")
@@ -160,6 +161,7 @@ def load_games(target: str, path=None) -> pd.DataFrame:
 
 def category_profile(values: np.ndarray, cat: str) -> dict:
     v = np.asarray(values, dtype=float)
+    v = v[np.isfinite(v)]   # a played game with a missing stat is left out of that category only
     n = len(v)
     floor = FLOORS[cat]
     top = int(np.nanmax(v)) if n else floor
@@ -324,12 +326,18 @@ def latest_quotes(target: str, now: datetime) -> pd.DataFrame:
     tip = pd.to_datetime(q["commence_time"], utc=True, errors="coerce")
     q = q[(scraped < tip) & (scraped <= pd.Timestamp(now))]   # pregame quotes only
     q["player_key"] = q["player"].map(_name)
-    q = q.sort_values("scraped_at").groupby(["player_key", "stat", "book_key", "side"]).tail(1)
-    return q
+    last = q.groupby(["player_key", "stat", "book_key"])["scraped_at"].transform("max")
+    q = q[q["scraped_at"] == last]
+    # One market line per book: if a scrape ever holds several (alternates), keep the one priced closest to even.
+    q = q.assign(_gap=(q["price"].abs() - 110).abs())
+    main = q.groupby(["player_key", "stat", "book_key", "line"])["_gap"].mean().reset_index() \
+        .sort_values("_gap").groupby(["player_key", "stat", "book_key"]).head(1)[["player_key", "stat", "book_key", "line"]]
+    return q.merge(main, on=["player_key", "stat", "book_key", "line"]).drop(columns="_gap")
 
 
 def exact_line(values: np.ndarray, line: float) -> dict:
     v = np.asarray(values, dtype=float)
+    v = v[np.isfinite(v)]
     def counts(x):
         return {"n": int(len(x)), "over": int((x > line).sum()), "under": int((x < line).sum()), "push": int((x == line).sum())}
     return {"season": counts(v), "l10": counts(v[-10:]), "l5": counts(v[-5:])}
@@ -340,8 +348,7 @@ def calibration_state(path=None) -> dict:
         m = json.loads(Path(path or CALIBRATION).read_text())["markets"]["prop_price"]
     except (OSError, KeyError, ValueError):
         return {"calibrated": False, "status": "UNAVAILABLE"}
-    ok = m.get("status") not in (None, "MARKET_ONLY") and (m.get("shrink") or 0) > 0 \
-        and m.get("validation") not in ("INSUFFICIENT_DATED_EVIDENCE", "FAILED")
+    ok = m.get("status") == "VALIDATED" and m.get("validation") == "PASSED" and (m.get("shrink") or 0) > 0
     return {"calibrated": bool(ok), "status": m.get("status"), "validation": m.get("validation"), "shrink": m.get("shrink")}
 
 
@@ -418,6 +425,21 @@ def evaluate_line(player: dict, cat: str, values: np.ndarray, quotes: pd.DataFra
 
 # ---------------------------------------------------------------- build
 
+def box_is_stale(target: str, last_box: str | None, schedule=None) -> bool:
+    """Stale when a game finished before `target` but after the last box score we hold
+    (the schedule says it was played; we don't have it). Without a schedule, fall back
+    to a gap of more than STALE_BOX_DAYS days."""
+    if last_box is None:
+        return True
+    path = Path(schedule) if schedule else SCHEDULE
+    if path.exists():
+        s = pd.read_csv(path, low_memory=False)
+        s["game_date"] = s["game_date"].astype(str)
+        done = s[s["status"].astype(str).str.contains("FINAL", case=False) & (s["game_date"] < str(target))]
+        return bool((done["game_date"] > str(last_box)).any())
+    return (Date.fromisoformat(target) - Date.fromisoformat(last_box)).days > STALE_BOX_DAYS
+
+
 def load_overrides(path=None) -> dict:
     try:
         d = json.loads(Path(path or OVERRIDES).read_text())
@@ -439,9 +461,10 @@ def rank(profiles: list[dict], overrides: dict) -> tuple[list[dict], list[dict],
             pool.append(p)
     pool.sort(key=lambda p: (-p["score"], -p["gp"], p["player"]))
     active, reserve = pool[:ACTIVE_N], pool[ACTIVE_N:ACTIVE_N + RESERVE_N]
-    listed = {p["player_key"] for p in active + reserve}
+    in_active = {p["player_key"] for p in active}
+    reserve = [p for p in reserve if p["player_key"] not in included]   # an included reserve player moves up, marked
     for p in profiles:
-        if p["player_key"] in included and p["player_key"] not in listed:
+        if p["player_key"] in included and p["player_key"] not in in_active:
             active.append({**p, "override": "MANUAL_INCLUDE", "override_reason": included[p["player_key"]]})
     for i, p in enumerate(active, 1):
         p["rank"] = i
@@ -476,7 +499,9 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
     data = json.loads(daily_path.read_text()) if daily_path.exists() else {"games": []}
     ctx = tonight_context(data)
     window = None   # a pre-tip file covers only the games in its window: record signals for those only
-    if pred_path != daily_path and pred_path.exists():
+    if phase == "PRETIP" and (pred_path == daily_path or not pred_path.exists()):
+        window = set()   # no fresh window predictions: refresh the display, record no signals
+    elif pred_path != daily_path and pred_path.exists():
         latest = json.loads(pred_path.read_text())
         win = tonight_context(latest)
         ctx["teams"].update(win["teams"])
@@ -489,7 +514,7 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
     calibration = calibration_state()
     upcoming = next_games(target)
     last_box = games["game_date"].max() if len(games) else None
-    stale = last_box is None or (Date.fromisoformat(target) - Date.fromisoformat(last_box)).days > STALE_BOX_DAYS
+    stale = box_is_stale(target, last_box)
     profiles = [player_profile(g) for _, g in games.groupby("player_id") if (~g["dnp"]).sum() > 0]
     active, reserve, removed = rank(profiles, load_overrides())
     tonight, signals = [], []
@@ -515,6 +540,10 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
             tip = datetime.fromisoformat(str(game["tip"]).replace("Z", "+00:00"))
             pregame = tip > now and (window is None or team_full in window)
             for cat in CATS:
+                if not game.get("event_id") and len(quotes):
+                    ids = quotes.loc[quotes["player_key"] == p["player_key"], "event_id"].dropna()
+                    if len(ids):
+                        game = {**game, "event_id": str(ids.iloc[0])}
                 ev = evaluate_line(p, cat, played[cat].to_numpy(), quotes, prop, inj, calibration, stale)
                 if ev:
                     p["lines"][cat] = ev
@@ -550,6 +579,8 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
                 "active": active, "reserve": reserve, "removed_by_override": removed,
                 "tonight": sorted(tonight, key=lambda r: (str(r["tip"]), str(r["player"]), r["category"]))}
     snapshot["kpis"] = kpis(snapshot)
+    snapshot = clean(snapshot)
+    signals = clean(signals)
     if record:
         OUT_DIR.mkdir(parents=True, exist_ok=True)
         (OUT_DIR / f"consistency_{target}.json").write_text(json.dumps(snapshot, default=_json, allow_nan=False) + "\n")
@@ -557,6 +588,17 @@ def build(target: str, phase: str = "EARLY", predictions: str | None = None, now
         append_ranking(snapshot)
         snapshot["signals_recorded"] = n
     return snapshot
+
+
+def clean(o):
+    """NaN/inf -> None throughout, so a missing box-score field can never break the write."""
+    if isinstance(o, dict):
+        return {k: clean(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [clean(v) for v in o]
+    if isinstance(o, (float, np.floating)):
+        return float(o) if math.isfinite(float(o)) else None
+    return o
 
 
 def _json(o):
