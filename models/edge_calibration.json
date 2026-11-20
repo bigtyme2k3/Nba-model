@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-19T19:29:01.933266+00:00",
+  "generated_at_utc": "2026-11-20T08:05:35.169827+00:00",
   "method": "earlier-date MLE fit; later-date Brier and log-loss nonregression versus market",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "min_graded": 200,
@@ -7,23 +7,33 @@
     "prop_price": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 1009,
+      "graded": 1239,
       "model_family_id": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff",
-      "validation": "INSUFFICIENT_DATED_EVIDENCE"
+      "validation": "INSUFFICIENT_DATED_EVIDENCE",
+      "dated_evidence_dates": 4,
+      "min_dated_evidence_dates": 5
     },
     "spread": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 27,
+      "graded": 31,
       "model_family_id": "8b578c1f11caa26aa5e79ce6e0d4ca261784a472b22c3774ab6dc7082698be25",
-      "validation": "INSUFFICIENT_DATED_EVIDENCE"
+      "validation": "INSUFFICIENT_DATED_EVIDENCE",
+      "dated_evidence_dates": 5,
+      "min_dated_evidence_dates": 5,
+      "training_rows": 27,
+      "holdout_rows": 4,
+      "train_through": "2026-11-18",
+      "holdout_from": "2026-11-19"
     },
     "totals": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 12,
+      "graded": 16,
       "model_family_id": "326f93f9f563381d82928eb1dc49c3f2539983453f2786a5e8ecdafd6531fc4c",
-      "validation": "INSUFFICIENT_DATED_EVIDENCE"
+      "validation": "INSUFFICIENT_DATED_EVIDENCE",
+      "dated_evidence_dates": 2,
+      "min_dated_evidence_dates": 5
     },
     "props": {
       "status": "MARKET_ONLY",

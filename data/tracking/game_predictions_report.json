@@ -1,90 +1,218 @@
 {
-  "generated_at_utc": "2026-11-19T20:53:10.490823+00:00",
+  "generated_at_utc": "2026-11-20T08:05:56.497259+00:00",
   "season_from": "2026-10-27",
-  "games": 162,
+  "games": 166,
   "first_date": "2026-10-27",
-  "last_date": "2026-11-18",
+  "last_date": "2026-11-19",
   "winner": {
-    "model_wins": 99,
-    "model_losses": 63,
-    "model_rate": 0.6111,
-    "market_favorite_wins": 91,
+    "model_wins": 101,
+    "model_losses": 65,
+    "model_rate": 0.6084,
+    "market_favorite_wins": 95,
     "market_favorite_losses": 68,
-    "market_favorite_rate": 0.5723,
-    "games_with_market_line": 159
+    "market_favorite_rate": 0.5828,
+    "games_with_market_line": 163
   },
   "spread": {
-    "games": 159,
-    "model_wins": 75,
-    "model_losses": 84,
-    "model_win_rate": 0.4717,
-    "follow_units": -14.54,
-    "follow_roi": -0.0914,
-    "fade_units": -10.87,
-    "fade_roi": -0.0684,
+    "games": 163,
+    "model_wins": 76,
+    "model_losses": 87,
+    "model_win_rate": 0.4663,
+    "follow_units": -16.67,
+    "follow_roi": -0.1023,
+    "fade_units": -9.1,
+    "fade_roi": -0.0559,
     "qualified_bets": "12-13"
   },
   "total": {
-    "games": 160,
-    "model_wins": 68,
-    "model_losses": 92,
-    "model_win_rate": 0.425,
-    "follow_units": -30.19,
-    "follow_roi": -0.1887,
-    "fade_units": 6.69,
-    "fade_roi": 0.0418,
+    "games": 164,
+    "model_wins": 69,
+    "model_losses": 95,
+    "model_win_rate": 0.4207,
+    "follow_units": -32.32,
+    "follow_roi": -0.1971,
+    "fade_units": 8.45,
+    "fade_roi": 0.0515,
     "qualified_bets": "5-10"
   },
   "error": {
-    "model_margin_mae": 13.25,
-    "model_total_mae": 16.89,
-    "market_total_mae": 13.76,
-    "total_games": 162
+    "model_margin_mae": 13.17,
+    "model_total_mae": 16.76,
+    "market_total_mae": 13.63,
+    "total_games": 166
   },
   "phases": {
     "EARLY": {
-      "games": 12,
+      "games": 16,
       "winner": {
-        "wins": 6,
-        "losses": 6,
+        "wins": 8,
+        "losses": 8,
         "rate": 0.5
       },
       "ats": {
         "wins": 3,
-        "losses": 9,
-        "rate": 0.25
+        "losses": 13,
+        "rate": 0.1875
       },
       "ou": {
         "wins": 7,
-        "losses": 5,
-        "rate": 0.5833
+        "losses": 9,
+        "rate": 0.4375
       },
-      "margin_mae": 13.7,
-      "total_mae": 14.14,
-      "line_total_mae": 12.79
+      "margin_mae": 12.64,
+      "total_mae": 13.39,
+      "line_total_mae": 12.0
     },
     "ADJUSTED": {
-      "games": 14,
+      "games": 18,
       "winner": {
-        "wins": 7,
-        "losses": 7,
+        "wins": 9,
+        "losses": 9,
         "rate": 0.5
       },
       "ats": {
         "wins": 5,
-        "losses": 9,
-        "rate": 0.3571
+        "losses": 13,
+        "rate": 0.2778
       },
       "ou": {
         "wins": 8,
-        "losses": 6,
-        "rate": 0.5714
+        "losses": 10,
+        "rate": 0.4444
       },
-      "margin_mae": 14.02,
-      "total_mae": 13.53,
-      "line_total_mae": 12.42
+      "margin_mae": 13.08,
+      "total_mae": 13.03,
+      "line_total_mae": 11.58
     },
     "history": [
+      {
+        "date": "2026-11-19",
+        "phase": "EARLY",
+        "game": "Portland Trail Blazers @ Milwaukee Bucks",
+        "pred_winner": "Portland Trail Blazers",
+        "winner": "Portland Trail Blazers",
+        "pred_home_margin": -11.7,
+        "home_margin": -10.0,
+        "market_home_line": 10.12,
+        "pred_total": 227.6,
+        "total": 238.0,
+        "market_total": 228.62,
+        "winner_right": true,
+        "ats_right": false,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-19",
+        "phase": "EARLY",
+        "game": "New York Knicks @ Minnesota Timberwolves",
+        "pred_winner": "Minnesota Timberwolves",
+        "winner": "New York Knicks",
+        "pred_home_margin": 0.5,
+        "home_margin": -3.0,
+        "market_home_line": 1.38,
+        "pred_total": 217.7,
+        "total": 201.0,
+        "market_total": 216.38,
+        "winner_right": false,
+        "ats_right": false,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-19",
+        "phase": "EARLY",
+        "game": "LA Clippers @ San Antonio Spurs",
+        "pred_winner": "San Antonio Spurs",
+        "winner": "San Antonio Spurs",
+        "pred_home_margin": 15.6,
+        "home_margin": 12.0,
+        "market_home_line": -15.5,
+        "pred_total": 223.6,
+        "total": 236.0,
+        "market_total": 224.88,
+        "winner_right": true,
+        "ats_right": false,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-19",
+        "phase": "EARLY",
+        "game": "Golden State Warriors @ Memphis Grizzlies",
+        "pred_winner": "Golden State Warriors",
+        "winner": "Memphis Grizzlies",
+        "pred_home_margin": -1.1,
+        "home_margin": 28.0,
+        "market_home_line": -6.5,
+        "pred_total": 229.0,
+        "total": 224.0,
+        "market_total": 226.62,
+        "winner_right": false,
+        "ats_right": false,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-19",
+        "phase": "ADJUSTED",
+        "game": "Portland Trail Blazers @ Milwaukee Bucks",
+        "pred_winner": "Portland Trail Blazers",
+        "winner": "Portland Trail Blazers",
+        "pred_home_margin": -12.9,
+        "home_margin": -10.0,
+        "market_home_line": 11.5,
+        "pred_total": 228.0,
+        "total": 238.0,
+        "market_total": 230.62,
+        "winner_right": true,
+        "ats_right": false,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-19",
+        "phase": "ADJUSTED",
+        "game": "New York Knicks @ Minnesota Timberwolves",
+        "pred_winner": "Minnesota Timberwolves",
+        "winner": "New York Knicks",
+        "pred_home_margin": 0.5,
+        "home_margin": -3.0,
+        "market_home_line": 1.38,
+        "pred_total": 217.7,
+        "total": 201.0,
+        "market_total": 216.12,
+        "winner_right": false,
+        "ats_right": false,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-19",
+        "phase": "ADJUSTED",
+        "game": "LA Clippers @ San Antonio Spurs",
+        "pred_winner": "San Antonio Spurs",
+        "winner": "San Antonio Spurs",
+        "pred_home_margin": 15.6,
+        "home_margin": 12.0,
+        "market_home_line": -15.5,
+        "pred_total": 223.6,
+        "total": 236.0,
+        "market_total": 224.5,
+        "winner_right": true,
+        "ats_right": false,
+        "ou_right": false
+      },
+      {
+        "date": "2026-11-19",
+        "phase": "ADJUSTED",
+        "game": "Golden State Warriors @ Memphis Grizzlies",
+        "pred_winner": "Golden State Warriors",
+        "winner": "Memphis Grizzlies",
+        "pred_home_margin": -1.1,
+        "home_margin": 28.0,
+        "market_home_line": -5.5,
+        "pred_total": 230.1,
+        "total": 224.0,
+        "market_total": 224.5,
+        "winner_right": false,
+        "ats_right": false,
+        "ou_right": false
+      },
       {
         "date": "2026-11-18",
         "phase": "EARLY",
@@ -503,11 +631,11 @@
       }
     ],
     "changes": {
-      "games_with_both": 12,
-      "spread_moved": 5,
-      "mean_spread_move": 0.71,
-      "total_moved": 5,
-      "mean_total_move": 0.28,
+      "games_with_both": 16,
+      "spread_moved": 6,
+      "mean_spread_move": 0.61,
+      "total_moved": 7,
+      "mean_total_move": 0.31,
       "winner_flipped": 0
     }
   }

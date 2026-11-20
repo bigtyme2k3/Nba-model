@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-19T20:53:15.521600Z",
+  "generated_at_utc": "2026-11-20T08:05:37.044791Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -92,33 +92,39 @@
       "TOTAL": "326f93f9f563381d82928eb1dc49c3f2539983453f2786a5e8ecdafd6531fc4c",
       "PROP": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff"
     },
-    "bet_rows": 16,
-    "prop_bets": 16,
-    "roi": -0.3189,
-    "brier": 0.23569,
+    "bet_rows": 31,
+    "prop_bets": 31,
+    "roi": -0.2737,
+    "brier": 0.24699,
     "clv_matched": 2,
     "beat_close_rate": 1.0,
     "avg_line_clv": 1.0,
     "avg_same_line_price_clv_probability": 0.05782,
     "by_sportsbook": {
       "draftkings": {
-        "bets": 9,
-        "resolved": 9,
-        "wins": 3,
-        "losses": 6,
+        "bets": 23,
+        "resolved": 23,
+        "wins": 8,
+        "losses": 15,
         "pushes": 0,
-        "hit_rate": 0.3333,
-        "profit_units": -3.4413,
-        "roi": -0.3824,
+        "hit_rate": 0.3478,
+        "profit_units": -7.7227,
+        "roi": -0.3358,
         "probability_calibration": {
-          "rows": 9,
-          "brier": 0.24986,
+          "rows": 23,
+          "brier": 0.25566,
           "bins": [
             {
               "range": "0.50-0.55",
-              "n": 5,
-              "avg_predicted": 0.5318,
+              "n": 10,
+              "avg_predicted": 0.5282,
               "actual_hit_rate": 0.4
+            },
+            {
+              "range": "0.55-0.60",
+              "n": 3,
+              "avg_predicted": 0.5685,
+              "actual_hit_rate": 0.3333
             }
           ]
         }
@@ -139,17 +145,17 @@
         }
       },
       "fanduel": {
-        "bets": 6,
-        "resolved": 6,
-        "wins": 3,
+        "bets": 7,
+        "resolved": 7,
+        "wins": 4,
         "losses": 3,
         "pushes": 0,
-        "hit_rate": 0.5,
-        "profit_units": -0.6615,
-        "roi": -0.1102,
+        "hit_rate": 0.5714,
+        "profit_units": 0.2394,
+        "roi": 0.0342,
         "probability_calibration": {
-          "rows": 6,
-          "brier": 0.2272,
+          "rows": 7,
+          "brier": 0.23106,
           "bins": [
             {
               "range": "0.50-0.55",
@@ -169,61 +175,67 @@
     },
     "by_prop_stat": {
       "AST": {
-        "bets": 4,
-        "resolved": 4,
-        "wins": 2,
-        "losses": 2,
+        "bets": 7,
+        "resolved": 7,
+        "wins": 3,
+        "losses": 4,
         "pushes": 0,
-        "hit_rate": 0.5,
-        "profit_units": -0.5113,
-        "roi": -0.1278,
+        "hit_rate": 0.4286,
+        "profit_units": -1.7538,
+        "roi": -0.2505,
         "probability_calibration": {
-          "rows": 4,
-          "brier": 0.23276,
+          "rows": 7,
+          "brier": 0.25128,
           "bins": [
             {
               "range": "0.50-0.55",
-              "n": 3,
-              "avg_predicted": 0.5369,
-              "actual_hit_rate": 0.6667
+              "n": 5,
+              "avg_predicted": 0.5386,
+              "actual_hit_rate": 0.6
+            },
+            {
+              "range": "0.55-0.60",
+              "n": 1,
+              "avg_predicted": 0.5541,
+              "actual_hit_rate": 0.0
             }
           ]
         }
       },
       "PTS": {
-        "bets": 4,
-        "resolved": 4,
-        "wins": 2,
-        "losses": 2,
+        "bets": 8,
+        "resolved": 8,
+        "wins": 4,
+        "losses": 4,
         "pushes": 0,
         "hit_rate": 0.5,
-        "profit_units": -0.2233,
-        "roi": -0.0558,
+        "profit_units": -0.5027,
+        "roi": -0.0628,
         "probability_calibration": {
-          "rows": 4,
-          "brier": 0.24909,
+          "rows": 8,
+          "brier": 0.24672,
           "bins": [
             {
               "range": "0.50-0.55",
-              "n": 2,
-              "avg_predicted": 0.5104,
+              "n": 4,
+              "avg_predicted": 0.5141,
               "actual_hit_rate": 0.5
             }
           ]
         }
       },
       "REB": {
-        "bets": 6,
-        "resolved": 6,
-        "wins": 1,
-        "losses": 5,
+        "bets": 10,
+        "resolved": 10,
+        "wins": 2,
+        "losses": 8,
         "pushes": 0,
-        "hit_rate": 0.1667,
-        "profit_units": -3.93,
-        "roi": -0.655,
+        "hit_rate": 0.2,
+        "profit_units": -5.86,
+        "roi": -0.586,
         "probability_calibration": {
-          "rows": 6,
-          "brier": 0.25459,
+          "rows": 10,
+          "brier": 0.24933,
           "bins": [
             {
               "range": "0.50-0.55",
@@ -235,18 +247,30 @@
         }
       },
       "THREES": {
-        "bets": 2,
-        "resolved": 2,
-        "wins": 1,
-        "losses": 1,
+        "bets": 6,
+        "resolved": 6,
+        "wins": 3,
+        "losses": 3,
         "pushes": 0,
         "hit_rate": 0.5,
-        "profit_units": -0.4382,
-        "roi": -0.2191,
+        "profit_units": -0.3668,
+        "roi": -0.0611,
         "probability_calibration": {
-          "rows": 2,
-          "brier": 0.15805,
+          "rows": 6,
+          "brier": 0.23844,
           "bins": [
+            {
+              "range": "0.50-0.55",
+              "n": 1,
+              "avg_predicted": 0.5051,
+              "actual_hit_rate": 0.0
+            },
+            {
+              "range": "0.55-0.60",
+              "n": 2,
+              "avg_predicted": 0.5756,
+              "actual_hit_rate": 0.5
+            },
             {
               "range": "0.60-0.65",
               "n": 1,
@@ -263,7 +287,7 @@
       "forward_bets_at_least_200": false,
       "prop_forward_bets_at_least_100": false,
       "positive_price_aware_roi": false,
-      "acceptable_brier": true,
+      "acceptable_brier": false,
       "clv_rows_at_least_100": false,
       "beat_close_rate_at_least_50pct": true,
       "nonnegative_clv_signal": true

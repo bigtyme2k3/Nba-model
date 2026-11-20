@@ -298,12 +298,12 @@
       ]
     }
   },
-  "generated_at_utc": "2026-11-19T19:29:01.570098+00:00",
+  "generated_at_utc": "2026-11-20T08:05:34.827032+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "forward_prop_bets": 84,
+  "forward_prop_bets": 89,
   "matched_closes": 2,
-  "match_rate": 0.0238,
+  "match_rate": 0.0225,
   "avg_line_clv": 1.0,
   "positive_line_clv_rate": 0.5,
   "same_line_price_rows": 1,
@@ -312,9 +312,9 @@
   "beat_close_rate": 1.0,
   "by_sportsbook": {
     "draftkings": {
-      "entries": 45,
+      "entries": 49,
       "matched_closes": 1,
-      "match_rate": 0.0222,
+      "match_rate": 0.0204,
       "avg_line_clv": 0.0,
       "positive_line_clv_rate": 0.0,
       "same_line_price_rows": 1,
@@ -334,9 +334,9 @@
       "beat_close_rate": null
     },
     "fanduel": {
-      "entries": 36,
+      "entries": 37,
       "matched_closes": 1,
-      "match_rate": 0.0278,
+      "match_rate": 0.027,
       "avg_line_clv": 2.0,
       "positive_line_clv_rate": 1.0,
       "same_line_price_rows": 0,
@@ -347,7 +347,7 @@
   },
   "by_stat": {
     "AST": {
-      "entries": 23,
+      "entries": 25,
       "matched_closes": 0,
       "match_rate": 0.0,
       "avg_line_clv": null,
@@ -369,9 +369,9 @@
       "beat_close_rate": null
     },
     "PTS": {
-      "entries": 16,
+      "entries": 18,
       "matched_closes": 1,
-      "match_rate": 0.0625,
+      "match_rate": 0.0556,
       "avg_line_clv": 2.0,
       "positive_line_clv_rate": 1.0,
       "same_line_price_rows": 0,
@@ -380,9 +380,9 @@
       "beat_close_rate": 1.0
     },
     "REB": {
-      "entries": 23,
+      "entries": 24,
       "matched_closes": 1,
-      "match_rate": 0.0435,
+      "match_rate": 0.0417,
       "avg_line_clv": 0.0,
       "positive_line_clv_rate": 0.0,
       "same_line_price_rows": 1,
@@ -404,9 +404,9 @@
   },
   "by_model_artifact": {
     "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5": {
-      "entries": 27,
+      "entries": 32,
       "matched_closes": 2,
-      "match_rate": 0.0741,
+      "match_rate": 0.0625,
       "avg_line_clv": 1.0,
       "positive_line_clv_rate": 0.5,
       "same_line_price_rows": 1,
@@ -428,9 +428,9 @@
   },
   "by_model_family": {
     "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff": {
-      "entries": 27,
+      "entries": 32,
       "matched_closes": 2,
-      "match_rate": 0.0741,
+      "match_rate": 0.0625,
       "avg_line_clv": 1.0,
       "positive_line_clv_rate": 0.5,
       "same_line_price_rows": 1,
