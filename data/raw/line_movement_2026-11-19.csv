@@ -1,0 +1,5 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Memphis Grizzlies,Golden State Warriors,-6.5,226.62,-5.5,224.5,1.0,-2.1200000000000045,True,True
+San Antonio Spurs,Los Angeles Clippers,-15.5,224.88,-15.5,224.5,0.0,-0.37999999999999545,False,False
+Milwaukee Bucks,Portland Trail Blazers,10.12,228.62,11.5,230.62,1.3800000000000008,2.0,True,True
+Minnesota Timberwolves,New York Knicks,1.38,216.38,1.38,216.12,0.0,-0.2599999999999909,False,False

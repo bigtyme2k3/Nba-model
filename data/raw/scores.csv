@@ -253,3 +253,12 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-29,401909893,STATUS_FINAL,True,False,Atlanta Hawks,Cleveland Cavaliers,114,111,3,225,16.0,30.0,43.0,25.0,28.0,16.0,38.0,29.0,,,State Farm Arena,15025,2026-11-20T08:05:29.987899
 2026-10-29,401909894,STATUS_FINAL,True,False,New Orleans Pelicans,Sacramento Kings,132,120,12,252,24.0,39.0,39.0,30.0,30.0,31.0,27.0,32.0,,,Smoothie King Center,15442,2026-11-20T08:05:29.987919
 2026-10-29,401909895,STATUS_FINAL,True,False,Portland Trail Blazers,Memphis Grizzlies,103,124,-21,227,25.0,33.0,25.0,20.0,25.0,33.0,33.0,33.0,,,Moda Center,19367,2026-11-20T08:05:29.987932
+2026-11-20,401909305,STATUS_SCHEDULED,False,False,Atlanta Hawks,Charlotte Hornets,0,0,0,0,,,,,,,,,ATL -6.5,219.5,State Farm Arena,0,2026-11-20T12:50:04.081131
+2026-11-20,401909306,STATUS_SCHEDULED,False,False,Brooklyn Nets,Orlando Magic,0,0,0,0,,,,,,,,,ORL -5.5,222.5,Barclays Center,0,2026-11-20T12:50:04.081147
+2026-11-20,401909307,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Indiana Pacers,0,0,0,0,,,,,,,,,CLE -6.5,232.5,Rocket Arena,0,2026-11-20T12:50:04.081155
+2026-11-20,401909308,STATUS_SCHEDULED,False,False,Detroit Pistons,Toronto Raptors,0,0,0,0,,,,,,,,,DET -7.5,217.5,Little Caesars Arena,0,2026-11-20T12:50:04.081162
+2026-11-20,401909309,STATUS_SCHEDULED,False,False,Chicago Bulls,Washington Wizards,0,0,0,0,,,,,,,,,CHI -2.5,239.5,United Center,0,2026-11-20T12:50:04.081169
+2026-11-20,401909310,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,New Orleans Pelicans,0,0,0,0,,,,,,,,,OKC -11.5,228.5,Paycom Center,0,2026-11-20T12:50:04.081176
+2026-11-20,401909311,STATUS_SCHEDULED,False,False,Utah Jazz,Phoenix Suns,0,0,0,0,,,,,,,,,PHX -4.5,226.5,Delta Center,0,2026-11-20T12:50:04.081182
+2026-11-20,401909312,STATUS_SCHEDULED,False,False,Denver Nuggets,Houston Rockets,0,0,0,0,,,,,,,,,DEN -1.5,226.5,Ball Arena,0,2026-11-20T12:50:04.081196
+2026-11-20,401909313,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Sacramento Kings,0,0,0,0,,,,,,,,,LAL -14.5,229.5,crypto.com Arena,0,2026-11-20T12:50:04.081205
