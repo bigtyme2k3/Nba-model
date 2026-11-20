@@ -1,5 +1,10 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-01,401909903,STATUS_FINAL,True,False,Orlando Magic,Boston Celtics,97,108,-11,205,23.0,27.0,24.0,23.0,24.0,31.0,22.0,31.0,,,Kia Center,18236,2026-11-20T19:05:11.821780
-2026-11-01,401909904,STATUS_FINAL,True,False,Indiana Pacers,Brooklyn Nets,90,98,-8,188,19.0,21.0,22.0,28.0,20.0,23.0,28.0,27.0,,,Gainbridge Fieldhouse,17274,2026-11-20T19:05:11.821795
-2026-11-01,401909905,STATUS_FINAL,True,False,Golden State Warriors,LA Clippers,124,112,12,236,29.0,34.0,29.0,32.0,37.0,20.0,28.0,27.0,,,Chase Center,18064,2026-11-20T19:05:11.821804
-2026-11-01,401909906,STATUS_FINAL,True,False,Los Angeles Lakers,Toronto Raptors,131,125,6,256,36.0,30.0,38.0,27.0,23.0,31.0,28.0,43.0,,,crypto.com Arena,19057,2026-11-20T19:05:11.821811
+2026-11-20,401909305,STATUS_SCHEDULED,False,False,Atlanta Hawks,Charlotte Hornets,0,0,0,0,,,,,,,,,ATL -7.5,219.5,State Farm Arena,0,2026-11-20T20:37:14.001024
+2026-11-20,401909306,STATUS_SCHEDULED,False,False,Brooklyn Nets,Orlando Magic,0,0,0,0,,,,,,,,,ORL -6.5,224.5,Barclays Center,0,2026-11-20T20:37:14.001039
+2026-11-20,401909307,STATUS_SCHEDULED,False,False,Cleveland Cavaliers,Indiana Pacers,0,0,0,0,,,,,,,,,CLE -5.5,234.5,Rocket Arena,0,2026-11-20T20:37:14.001048
+2026-11-20,401909308,STATUS_SCHEDULED,False,False,Detroit Pistons,Toronto Raptors,0,0,0,0,,,,,,,,,DET -6.5,216.5,Little Caesars Arena,0,2026-11-20T20:37:14.001056
+2026-11-20,401909309,STATUS_SCHEDULED,False,False,Chicago Bulls,Washington Wizards,0,0,0,0,,,,,,,,,CHI -2.5,237.5,United Center,0,2026-11-20T20:37:14.001062
+2026-11-20,401909310,STATUS_SCHEDULED,False,False,Oklahoma City Thunder,New Orleans Pelicans,0,0,0,0,,,,,,,,,OKC -11.5,227.5,Paycom Center,0,2026-11-20T20:37:14.001069
+2026-11-20,401909311,STATUS_SCHEDULED,False,False,Utah Jazz,Phoenix Suns,0,0,0,0,,,,,,,,,PHX -4.5,225.5,Delta Center,0,2026-11-20T20:37:14.001078
+2026-11-20,401909312,STATUS_SCHEDULED,False,False,Denver Nuggets,Houston Rockets,0,0,0,0,,,,,,,,,DEN -1.5,226.5,Ball Arena,0,2026-11-20T20:37:14.001093
+2026-11-20,401909313,STATUS_SCHEDULED,False,False,Los Angeles Lakers,Sacramento Kings,0,0,0,0,,,,,,,,,LAL -14.5,229.5,crypto.com Arena,0,2026-11-20T20:37:14.001102

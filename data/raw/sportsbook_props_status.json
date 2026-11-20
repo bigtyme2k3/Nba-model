@@ -18,8 +18,8 @@
   "events_queried": 9,
   "min_minutes_to_tip": null,
   "max_minutes_to_tip": null,
-  "rows": 6455,
-  "unique_players": 114,
+  "rows": 7147,
+  "unique_players": 117,
   "books_returned": [
     "draftkings",
     "fanatics",
@@ -34,10 +34,10 @@
     "player_threes"
   ],
   "http_calls": 9,
-  "api_requests_used": "10912",
-  "api_requests_remaining": "9088",
+  "api_requests_used": "11091",
+  "api_requests_remaining": "8909",
   "api_requests_last": "5",
   "error": null,
   "output_prefix": "sportsbook_props",
-  "generated_at_utc": "2026-11-20T12:49:59.006256+00:00"
+  "generated_at_utc": "2026-11-20T20:37:06.526143+00:00"
 }

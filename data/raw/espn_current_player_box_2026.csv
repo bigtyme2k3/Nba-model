@@ -197,12 +197,12 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4397189,Jalen Smith,F,True,False,19.0,15.0,8.0,1.0,0.0,1.0,0.0,4.0,4.0,5.0,10.0,0.0,3.0,5.0,6.0,-19.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4711294,Matas Buzelis,F,True,False,25.0,17.0,6.0,0.0,0.0,2.0,3.0,1.0,5.0,2.0,8.0,0.0,4.0,13.0,16.0,-24.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5095151,Caleb Wilson,F,True,False,32.0,16.0,4.0,0.0,3.0,1.0,9.0,3.0,1.0,7.0,21.0,1.0,8.0,1.0,2.0,-45.0,espn_api
-401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,2595516,Norman Powell,G,True,False,22.0,15.0,5.0,1.0,1.0,0.0,1.0,0.0,5.0,3.0,9.0,2.0,6.0,7.0,11.0,-13.0,espn_api
+401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,2595516,Norman Powell,G,True,False,22.0,15.0,5.0,1.0,2.0,0.0,1.0,0.0,5.0,3.0,9.0,2.0,6.0,7.0,11.0,-13.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4871145,Josh Giddey,G,True,False,24.0,2.0,7.0,6.0,0.0,0.0,5.0,2.0,5.0,1.0,10.0,0.0,4.0,0.0,2.0,-39.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4066650,Zach Collins,F,False,False,9.0,0.0,5.0,0.0,0.0,0.0,0.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4432822,Isaac Okoro,F,False,False,18.0,4.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,4.0,4.0,-27.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5044385,Leonard Miller,F,False,False,26.0,4.0,6.0,1.0,1.0,0.0,5.0,2.0,4.0,2.0,9.0,0.0,4.0,0.0,0.0,-22.0,espn_api
-401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5105555,Tobe Awaka,F,False,False,14.0,2.0,7.0,2.0,1.0,1.0,0.0,6.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,-6.0,espn_api
+401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5105555,Tobe Awaka,F,False,False,14.0,2.0,7.0,2.0,0.0,1.0,0.0,6.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,-6.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,5242496,Noa Essengue,F,False,False,10.0,1.0,3.0,0.0,0.0,0.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,1.0,2.0,-10.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,2990984,Buddy Hield,G,False,False,14.0,0.0,2.0,2.0,0.0,0.0,2.0,1.0,1.0,0.0,4.0,0.0,3.0,0.0,0.0,-12.0,espn_api
 401909837,2026,2026-10-21,Bulls,Chicago,CHI,away,4395626,Tre Jones,G,False,False,13.0,13.0,3.0,0.0,0.0,0.0,0.0,0.0,3.0,5.0,8.0,0.0,1.0,3.0,4.0,1.0,espn_api
@@ -5294,7 +5294,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909994,2026,2026-11-16,Celtics,Boston,BOS,home,4397251,Ron Harper Jr.,G,False,True,,,0.0,0.0,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4397189,Jalen Smith,F,True,False,28.0,17.0,11.0,3.0,2.0,2.0,1.0,6.0,5.0,6.0,9.0,3.0,6.0,2.0,3.0,-14.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4432822,Isaac Okoro,F,True,False,32.0,13.0,6.0,2.0,4.0,0.0,0.0,3.0,3.0,5.0,12.0,3.0,7.0,0.0,0.0,-15.0,espn_api
-401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4711294,Matas Buzelis,F,True,False,31.0,23.0,3.0,0.0,1.0,1.0,3.0,0.0,3.0,8.0,14.0,3.0,6.0,4.0,4.0,-9.0,espn_api
+401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4711294,Matas Buzelis,F,True,False,31.0,23.0,3.0,0.0,1.0,1.0,2.0,0.0,3.0,8.0,14.0,3.0,6.0,4.0,4.0,-9.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,2595516,Norman Powell,G,True,False,33.0,27.0,2.0,6.0,1.0,0.0,4.0,0.0,2.0,10.0,18.0,0.0,6.0,7.0,11.0,-11.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4871145,Josh Giddey,G,True,False,24.0,4.0,4.0,8.0,0.0,1.0,6.0,0.0,4.0,1.0,5.0,1.0,4.0,1.0,2.0,-11.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4431687,Patrick Williams,F,False,False,13.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0.0,1.0,espn_api
@@ -5302,7 +5302,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,5242496,Noa Essengue,F,False,False,14.0,1.0,2.0,1.0,1.0,0.0,0.0,1.0,1.0,0.0,4.0,0.0,3.0,1.0,2.0,5.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4278067,Nic Claxton,C,False,False,17.0,8.0,2.0,1.0,1.0,0.0,1.0,0.0,2.0,3.0,6.0,0.0,0.0,2.0,2.0,0.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,2990984,Buddy Hield,G,False,False,19.0,6.0,4.0,2.0,0.0,0.0,0.0,1.0,3.0,2.0,8.0,2.0,7.0,0.0,0.0,-5.0,espn_api
-401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4395626,Tre Jones,G,False,False,23.0,16.0,2.0,6.0,4.0,0.0,0.0,0.0,2.0,6.0,11.0,0.0,3.0,4.0,4.0,-5.0,espn_api
+401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4395626,Tre Jones,G,False,False,23.0,16.0,2.0,6.0,4.0,0.0,1.0,0.0,2.0,6.0,11.0,0.0,3.0,4.0,4.0,-5.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4683750,Jordan Hawkins,G,False,False,4.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,3.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4848625,Dailyn Swain,G,False,False,2.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,espn_api
 401909995,2026,2026-11-16,Bulls,Chicago,CHI,away,4066650,Zach Collins,F,False,True,,,0.0,0.0,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,espn_api
@@ -5427,7 +5427,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910000,2026,2026-11-16,Warriors,Golden State,GS,away,5175737,Yaxel Lendeborg,F,True,False,33.0,28.0,8.0,3.0,1.0,2.0,4.0,4.0,4.0,9.0,23.0,2.0,9.0,8.0,8.0,-30.0,espn_api
 401910000,2026,2026-11-16,Warriors,Golden State,GS,away,3213,Al Horford,C,True,False,14.0,0.0,5.0,0.0,0.0,3.0,0.0,0.0,5.0,0.0,4.0,0.0,2.0,0.0,0.0,-17.0,espn_api
 401910000,2026,2026-11-16,Warriors,Golden State,GS,away,4433149,LJ Cryer,G,True,False,24.0,7.0,1.0,3.0,0.0,0.0,1.0,0.0,1.0,2.0,10.0,1.0,8.0,2.0,2.0,-10.0,espn_api
-401910000,2026,2026-11-16,Warriors,Golden State,GS,away,4709138,Brandin Podziemski,G,True,False,30.0,15.0,6.0,3.0,1.0,2.0,4.0,1.0,5.0,3.0,8.0,3.0,7.0,6.0,7.0,1.0,espn_api
+401910000,2026,2026-11-16,Warriors,Golden State,GS,away,4709138,Brandin Podziemski,G,True,False,30.0,15.0,6.0,3.0,1.0,1.0,5.0,1.0,5.0,3.0,8.0,3.0,7.0,6.0,7.0,1.0,espn_api
 401910000,2026,2026-11-16,Warriors,Golden State,GS,away,2990969,Georges Niang,F,False,False,14.0,0.0,4.0,2.0,0.0,0.0,1.0,0.0,4.0,0.0,5.0,0.0,4.0,0.0,0.0,-16.0,espn_api
 401910000,2026,2026-11-16,Warriors,Golden State,GS,away,4703396,Graham Ike,F,False,False,8.0,3.0,5.0,1.0,0.0,0.0,0.0,1.0,4.0,1.0,1.0,0.0,0.0,1.0,2.0,6.0,espn_api
 401910000,2026,2026-11-16,Warriors,Golden State,GS,away,4897449,Malevy Leons,F,False,False,6.0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,8.0,espn_api
@@ -5442,12 +5442,12 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,5061589,Yves Missi,C,True,False,23.0,6.0,14.0,1.0,3.0,1.0,2.0,7.0,7.0,3.0,7.0,0.0,0.0,0.0,1.0,15.0,espn_api
 401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,5144091,Jeremiah Fears,G,True,False,29.0,19.0,10.0,10.0,0.0,0.0,3.0,1.0,9.0,6.0,13.0,1.0,4.0,6.0,7.0,22.0,espn_api
 401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4683742,Julian Reese,F,False,False,5.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,-9.0,espn_api
-401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4712862,Malik Dia,F,False,False,5.0,2.0,1.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0,3.0,0.0,1.0,0.0,0.0,-9.0,espn_api
-401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4997538,Karlo Matkovic,F,False,False,20.0,3.0,2.0,0.0,0.0,1.0,2.0,1.0,1.0,1.0,7.0,0.0,4.0,1.0,1.0,15.0,espn_api
+401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4712862,Malik Dia,F,False,False,5.0,2.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,3.0,0.0,1.0,0.0,0.0,-9.0,espn_api
+401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4997538,Karlo Matkovic,F,False,False,20.0,3.0,2.0,0.0,0.0,1.0,2.0,1.0,1.0,1.0,6.0,0.0,4.0,1.0,1.0,15.0,espn_api
 401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4869780,Derik Queen,C,False,False,21.0,17.0,10.0,0.0,0.0,1.0,0.0,3.0,7.0,6.0,9.0,4.0,5.0,1.0,2.0,-2.0,espn_api
 401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4277956,Jordan Poole,G,False,False,31.0,11.0,2.0,5.0,1.0,0.0,1.0,0.0,2.0,3.0,8.0,1.0,5.0,4.0,6.0,7.0,espn_api
-401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4703115,Jaron Pierre Jr.,G,False,False,19.0,10.0,4.0,0.0,0.0,0.0,2.0,1.0,3.0,4.0,10.0,2.0,7.0,0.0,0.0,0.0,espn_api
-401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,5170947,AJ Johnson,G,False,False,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,-8.0,espn_api
+401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,4703115,Jaron Pierre Jr.,G,False,False,19.0,10.0,3.0,0.0,1.0,0.0,2.0,0.0,3.0,4.0,10.0,2.0,7.0,0.0,0.0,0.0,espn_api
+401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,5170947,AJ Johnson,G,False,False,6.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,-8.0,espn_api
 401910000,2026,2026-11-16,Pelicans,New Orleans,NO,home,3442,DeAndre Jordan,C,False,True,,,0.0,0.0,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,espn_api
 401910001,2026,2026-11-16,Suns,Phoenix,PHX,away,3155526,Dillon Brooks,F,True,False,27.0,15.0,4.0,4.0,0.0,0.0,3.0,3.0,1.0,6.0,17.0,3.0,6.0,0.0,1.0,16.0,espn_api
 401910001,2026,2026-11-16,Suns,Phoenix,PHX,away,4066383,Miles Bridges,F,True,False,29.0,16.0,8.0,2.0,1.0,1.0,1.0,2.0,6.0,7.0,15.0,2.0,7.0,0.0,0.0,3.0,espn_api
@@ -5672,9 +5672,9 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,6475,Klay Thompson,G,True,False,23.0,13.0,1.0,1.0,0.0,1.0,0.0,0.0,1.0,4.0,10.0,4.0,10.0,1.0,1.0,10.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4278053,Davion Mitchell,G,True,False,36.0,24.0,2.0,6.0,0.0,1.0,4.0,0.0,2.0,8.0,11.0,6.0,7.0,2.0,2.0,22.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4601025,Pelle Larsson,G,True,False,15.0,4.0,2.0,2.0,1.0,0.0,3.0,0.0,2.0,1.0,2.0,1.0,2.0,1.0,2.0,0.0,espn_api
-401910009,2026,2026-11-18,Heat,Miami,MIA,home,3059319,Andrew Wiggins,F,False,False,26.0,11.0,2.0,2.0,0.0,0.0,1.0,0.0,2.0,2.0,5.0,1.0,4.0,6.0,6.0,11.0,espn_api
+401910009,2026,2026-11-18,Heat,Miami,MIA,home,3059319,Andrew Wiggins,F,False,False,26.0,11.0,2.0,2.0,1.0,0.0,1.0,0.0,2.0,2.0,5.0,1.0,4.0,6.0,6.0,11.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,3064482,Bobby Portis,F,False,False,17.0,9.0,3.0,0.0,0.0,0.0,2.0,0.0,3.0,4.0,9.0,1.0,5.0,0.0,0.0,1.0,espn_api
-401910009,2026,2026-11-18,Heat,Miami,MIA,home,3899664,Simone Fontecchio,F,False,False,18.0,6.0,5.0,1.0,2.0,0.0,1.0,2.0,3.0,2.0,3.0,2.0,2.0,0.0,0.0,-11.0,espn_api
+401910009,2026,2026-11-18,Heat,Miami,MIA,home,3899664,Simone Fontecchio,F,False,False,18.0,6.0,5.0,1.0,1.0,0.0,1.0,2.0,3.0,2.0,3.0,2.0,2.0,0.0,0.0,-11.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4997528,Nikola Jovic,F,False,False,14.0,4.0,1.0,4.0,0.0,1.0,2.0,1.0,0.0,1.0,4.0,1.0,3.0,1.0,2.0,-4.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4278076,Nick Richards,C,False,False,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-7.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4837356,Tre Donaldson,G,False,False,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0.0,-7.0,espn_api
@@ -5750,7 +5750,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,5093267,Collin Murray-Boyles,F,True,False,5.0,1.0,2.0,1.0,0.0,0.0,0.0,0.0,2.0,0.0,2.0,0.0,1.0,1.0,2.0,0.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,3134908,Jakob Poeltl,C,True,False,29.0,8.0,9.0,5.0,3.0,1.0,3.0,3.0,6.0,3.0,8.0,0.0,0.0,2.0,3.0,-9.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4395724,Immanuel Quickley,G,True,False,34.0,24.0,3.0,5.0,1.0,0.0,1.0,0.0,3.0,9.0,21.0,4.0,9.0,2.0,6.0,-9.0,espn_api
-401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4684272,Ja'Kobe Walter,G,True,False,38.0,18.0,7.0,6.0,3.0,0.0,2.0,2.0,5.0,7.0,16.0,3.0,8.0,1.0,1.0,-3.0,espn_api
+401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4684272,Ja'Kobe Walter,G,True,False,38.0,18.0,7.0,6.0,2.0,0.0,2.0,2.0,5.0,7.0,16.0,3.0,8.0,1.0,1.0,-3.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,2993874,Kyle Anderson,F,False,False,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,-1.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4431684,Trayce Jackson-Davis,F,False,False,17.0,3.0,7.0,1.0,1.0,1.0,0.0,2.0,5.0,1.0,5.0,0.0,0.0,1.0,2.0,-1.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,5149115,Allen Graves,F,False,False,31.0,9.0,4.0,0.0,0.0,1.0,0.0,1.0,3.0,4.0,7.0,1.0,3.0,0.0,0.0,-2.0,espn_api
@@ -5980,12 +5980,12 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910021,2026,2026-11-19,Knicks,New York,NY,away,5289900,Mohamed Diawara,F,False,True,,,0.0,0.0,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,espn_api
 401910021,2026,2026-11-19,Knicks,New York,NY,away,4432808,James Wiseman,C,False,True,,,0.0,0.0,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,espn_api
 401910021,2026,2026-11-19,Knicks,New York,NY,away,2528426,Jordan Clarkson,G,False,True,,,0.0,0.0,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,espn_api
-401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4431671,Jaden McDaniels,F,True,False,39.0,17.0,3.0,1.0,2.0,2.0,3.0,0.0,3.0,6.0,10.0,4.0,4.0,1.0,1.0,-1.0,espn_api
+401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4431671,Jaden McDaniels,F,True,False,39.0,17.0,4.0,1.0,2.0,2.0,3.0,0.0,4.0,6.0,10.0,4.0,4.0,1.0,1.0,-1.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4433247,Jonathan Kuminga,F,True,False,35.0,23.0,3.0,3.0,0.0,3.0,5.0,1.0,2.0,7.0,13.0,2.0,4.0,7.0,7.0,8.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,3032976,Rudy Gobert,C,True,False,35.0,9.0,7.0,0.0,2.0,0.0,2.0,1.0,6.0,4.0,6.0,0.0,0.0,1.0,2.0,0.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4397002,Ayo Dosunmu,G,True,False,32.0,6.0,4.0,4.0,1.0,0.0,3.0,0.0,4.0,2.0,9.0,2.0,5.0,0.0,0.0,-1.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4432816,LaMelo Ball,G,True,False,35.0,15.0,8.0,8.0,0.0,0.0,1.0,1.0,7.0,6.0,21.0,3.0,10.0,0.0,0.0,-5.0,espn_api
-401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,3136196,Trey Lyles,F,False,False,16.0,8.0,6.0,1.0,0.0,0.0,1.0,1.0,5.0,3.0,5.0,2.0,4.0,0.0,0.0,-9.0,espn_api
+401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,3136196,Trey Lyles,F,False,False,16.0,8.0,5.0,1.0,0.0,0.0,1.0,1.0,4.0,3.0,5.0,2.0,4.0,0.0,0.0,-9.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,5279133,Joan Beringer,F,False,False,13.0,5.0,3.0,0.0,0.0,0.0,0.0,1.0,2.0,1.0,1.0,0.0,0.0,3.0,4.0,-3.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4432847,Terrence Shannon Jr.,G,False,False,21.0,10.0,4.0,3.0,1.0,0.0,0.0,1.0,3.0,4.0,9.0,0.0,0.0,2.0,2.0,-3.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4592492,Bones Hyland,G,False,False,15.0,6.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,2.0,5.0,1.0,4.0,1.0,1.0,-1.0,espn_api

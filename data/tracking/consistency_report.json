@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-20T19:05:32.118969+00:00",
+  "generated_at_utc": "2026-11-20T20:38:07.591735+00:00",
   "version": "consistency-v2.0",
   "note": "TREND rows are monitored thresholds (consistency tracking, alternate lines), never wagers. LINE rows are exact sportsbook lines; units are what following would have returned at the recorded best price. Only BET rows are qualified selections.",
   "graded": 75,
@@ -1148,7 +1148,7 @@
       "recorded_at_utc": "2026-11-19T23:51:58.017790+00:00",
       "quote_scraped_at": null,
       "game_id": "401910021",
-      "actual": 20.0,
+      "actual": 21.0,
       "minutes": 39.0,
       "outcome": "HIT",
       "units_if_followed": null
@@ -1177,7 +1177,7 @@
       "recorded_at_utc": "2026-11-19T23:51:58.017790+00:00",
       "quote_scraped_at": "2026-11-19T23:51:45.869997+00:00",
       "game_id": "401910021",
-      "actual": 21.0,
+      "actual": 22.0,
       "minutes": 39.0,
       "outcome": "LOSS",
       "units_if_followed": -1.0
@@ -1206,7 +1206,7 @@
       "recorded_at_utc": "2026-11-19T23:51:58.017790+00:00",
       "quote_scraped_at": null,
       "game_id": "401910021",
-      "actual": 21.0,
+      "actual": 22.0,
       "minutes": 39.0,
       "outcome": "MISS",
       "units_if_followed": null
@@ -1293,7 +1293,7 @@
       "recorded_at_utc": "2026-11-19T23:51:58.017790+00:00",
       "quote_scraped_at": null,
       "game_id": "401910021",
-      "actual": 4.0,
+      "actual": 5.0,
       "minutes": 39.0,
       "outcome": "MISS",
       "units_if_followed": null
@@ -1322,7 +1322,7 @@
       "recorded_at_utc": "2026-11-19T23:51:58.017790+00:00",
       "quote_scraped_at": "2026-11-19T23:51:45.869997+00:00",
       "game_id": "401910021",
-      "actual": 3.0,
+      "actual": 4.0,
       "minutes": 39.0,
       "outcome": "LOSS",
       "units_if_followed": -1.0
@@ -1351,7 +1351,7 @@
       "recorded_at_utc": "2026-11-19T23:51:58.017790+00:00",
       "quote_scraped_at": null,
       "game_id": "401910021",
-      "actual": 3.0,
+      "actual": 4.0,
       "minutes": 39.0,
       "outcome": "MISS",
       "units_if_followed": null
