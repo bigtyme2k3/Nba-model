@@ -65,7 +65,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910021,2026,2026-11-19,Knicks,New York,NY,away,5289900,Mohamed Diawara,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401910021,2026,2026-11-19,Knicks,New York,NY,away,4432808,James Wiseman,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401910021,2026,2026-11-19,Knicks,New York,NY,away,2528426,Jordan Clarkson,G,False,True,,,,,,,,,,,,,,,,,espn_api
-401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4431671,Jaden McDaniels,F,True,False,39.0,17.0,3.0,1.0,2.0,2.0,3.0,0.0,3.0,6.0,10.0,4.0,4.0,1.0,1.0,-1.0,espn_api
+401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4431671,Jaden McDaniels,F,True,False,39.0,17.0,4.0,1.0,2.0,2.0,3.0,0.0,4.0,6.0,10.0,4.0,4.0,1.0,1.0,-1.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4433247,Jonathan Kuminga,F,True,False,35.0,23.0,3.0,3.0,0.0,3.0,5.0,1.0,2.0,7.0,13.0,2.0,4.0,7.0,7.0,8.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,3032976,Rudy Gobert,C,True,False,35.0,9.0,7.0,0.0,2.0,0.0,2.0,1.0,6.0,4.0,6.0,0.0,0.0,1.0,2.0,0.0,espn_api
 401910021,2026,2026-11-19,Timberwolves,Minnesota,MIN,home,4397002,Ayo Dosunmu,G,True,False,32.0,6.0,4.0,4.0,1.0,0.0,3.0,0.0,4.0,2.0,9.0,2.0,5.0,0.0,0.0,-1.0,espn_api

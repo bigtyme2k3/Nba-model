@@ -113,8 +113,8 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910005,2026,2026-11-17,Hornets,Charlotte,CHA,away,3032979,Dennis Schroder,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,3155535,Kevon Looney,F,True,False,17.0,4.0,8.0,0.0,0.0,0.0,0.0,5.0,3.0,2.0,3.0,0.0,0.0,0.0,0.0,-7.0,espn_api
 401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,4592691,Jake LaRavia,F,True,False,23.0,4.0,5.0,2.0,0.0,1.0,1.0,2.0,3.0,2.0,5.0,0.0,1.0,0.0,0.0,11.0,espn_api
-401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,3907498,Matisse Thybulle,G,True,False,31.0,7.0,6.0,0.0,3.0,1.0,1.0,0.0,6.0,2.0,6.0,2.0,6.0,1.0,2.0,8.0,espn_api
-401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,3945274,Luka Doncic,G,True,False,42.0,36.0,6.0,7.0,1.0,1.0,5.0,0.0,6.0,13.0,34.0,5.0,16.0,5.0,7.0,2.0,espn_api
+401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,3907498,Matisse Thybulle,G,True,False,31.0,7.0,5.0,0.0,3.0,1.0,1.0,0.0,5.0,2.0,6.0,2.0,6.0,1.0,2.0,8.0,espn_api
+401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,3945274,Luka Doncic,G,True,False,42.0,36.0,7.0,7.0,1.0,1.0,5.0,0.0,7.0,13.0,34.0,5.0,16.0,5.0,7.0,2.0,espn_api
 401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,4397014,Quentin Grimes,G,True,False,42.0,47.0,6.0,3.0,1.0,0.0,3.0,2.0,4.0,16.0,24.0,10.0,14.0,5.0,6.0,5.0,espn_api
 401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,4278077,Jarred Vanderbilt,F,False,False,14.0,4.0,7.0,0.0,0.0,0.0,0.0,6.0,1.0,2.0,3.0,0.0,0.0,0.0,2.0,-5.0,espn_api
 401910005,2026,2026-11-17,Lakers,Los Angeles,LAL,home,4278580,Sandro Mamukelashvili,F,False,False,23.0,3.0,3.0,2.0,1.0,0.0,1.0,1.0,2.0,1.0,8.0,0.0,4.0,1.0,2.0,-1.0,espn_api

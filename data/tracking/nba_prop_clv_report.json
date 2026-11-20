@@ -296,14 +296,29 @@
         "new york knicks @ minnesota timberwolves",
         "portland trail blazers @ milwaukee bucks"
       ]
+    },
+    "2026-11-20": {
+      "observed_games": 9,
+      "captured_games": 0,
+      "missing_games": [
+        "charlotte hornets @ atlanta hawks",
+        "houston rockets @ denver nuggets",
+        "indiana pacers @ cleveland cavaliers",
+        "new orleans pelicans @ oklahoma city thunder",
+        "orlando magic @ brooklyn nets",
+        "phoenix suns @ utah jazz",
+        "sacramento kings @ los angeles lakers",
+        "toronto raptors @ detroit pistons",
+        "washington wizards @ chicago bulls"
+      ]
     }
   },
-  "generated_at_utc": "2026-11-20T08:05:34.827032+00:00",
+  "generated_at_utc": "2026-11-20T16:39:14.802526+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "forward_prop_bets": 89,
+  "forward_prop_bets": 99,
   "matched_closes": 2,
-  "match_rate": 0.0225,
+  "match_rate": 0.0202,
   "avg_line_clv": 1.0,
   "positive_line_clv_rate": 0.5,
   "same_line_price_rows": 1,
@@ -312,9 +327,9 @@
   "beat_close_rate": 1.0,
   "by_sportsbook": {
     "draftkings": {
-      "entries": 49,
+      "entries": 58,
       "matched_closes": 1,
-      "match_rate": 0.0204,
+      "match_rate": 0.0172,
       "avg_line_clv": 0.0,
       "positive_line_clv_rate": 0.0,
       "same_line_price_rows": 1,
@@ -334,9 +349,9 @@
       "beat_close_rate": null
     },
     "fanduel": {
-      "entries": 37,
+      "entries": 38,
       "matched_closes": 1,
-      "match_rate": 0.027,
+      "match_rate": 0.0263,
       "avg_line_clv": 2.0,
       "positive_line_clv_rate": 1.0,
       "same_line_price_rows": 0,
@@ -347,7 +362,7 @@
   },
   "by_stat": {
     "AST": {
-      "entries": 25,
+      "entries": 28,
       "matched_closes": 0,
       "match_rate": 0.0,
       "avg_line_clv": null,
@@ -369,9 +384,9 @@
       "beat_close_rate": null
     },
     "PTS": {
-      "entries": 18,
+      "entries": 22,
       "matched_closes": 1,
-      "match_rate": 0.0556,
+      "match_rate": 0.0455,
       "avg_line_clv": 2.0,
       "positive_line_clv_rate": 1.0,
       "same_line_price_rows": 0,
@@ -380,9 +395,9 @@
       "beat_close_rate": 1.0
     },
     "REB": {
-      "entries": 24,
+      "entries": 25,
       "matched_closes": 1,
-      "match_rate": 0.0417,
+      "match_rate": 0.04,
       "avg_line_clv": 0.0,
       "positive_line_clv_rate": 0.0,
       "same_line_price_rows": 1,
@@ -391,7 +406,7 @@
       "beat_close_rate": 1.0
     },
     "THREES": {
-      "entries": 18,
+      "entries": 20,
       "matched_closes": 0,
       "match_rate": 0.0,
       "avg_line_clv": null,
@@ -404,9 +419,9 @@
   },
   "by_model_artifact": {
     "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5": {
-      "entries": 32,
+      "entries": 42,
       "matched_closes": 2,
-      "match_rate": 0.0625,
+      "match_rate": 0.0476,
       "avg_line_clv": 1.0,
       "positive_line_clv_rate": 0.5,
       "same_line_price_rows": 1,
@@ -428,9 +443,9 @@
   },
   "by_model_family": {
     "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff": {
-      "entries": 32,
+      "entries": 42,
       "matched_closes": 2,
-      "match_rate": 0.0625,
+      "match_rate": 0.0476,
       "avg_line_clv": 1.0,
       "positive_line_clv_rate": 0.5,
       "same_line_price_rows": 1,
