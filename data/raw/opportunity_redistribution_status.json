@@ -1,9 +1,9 @@
 {
   "status": "READY",
   "target_date": "2026-11-20",
-  "generated_at_utc": "2026-11-20T20:37:42.862995+00:00",
+  "generated_at_utc": "2026-11-20T22:51:44.820337+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 109,
+  "injury_rows": 111,
   "slate_teams": [
     "Atlanta Hawks",
     "Brooklyn Nets",
@@ -24,12 +24,12 @@
     "Utah Jazz",
     "Washington Wizards"
   ],
-  "teams_affected": 9,
-  "absences_modeled": 16,
-  "recipient_rows": 88,
+  "teams_affected": 10,
+  "absences_modeled": 18,
+  "recipient_rows": 98,
   "unallocated_minutes": 0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 149
+  "adjustment_rows": 159
 }
