@@ -28,7 +28,7 @@ SPREAD_DIRECTIONAL_TOLERANCE = 0.005
 ABS_SPREAD_MAE_MAX = 12.5
 ABS_TOTALS_MAE_MAX = 17.0
 EXPECTED_CONTEXT_POLICY = "BOTH_TEAMS_PRIOR_ONLY_REQUIRED"
-EXPECTED_SEMANTICS_VERSION = "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT"
+from team_box_matchups import VERSION as EXPECTED_SEMANTICS_VERSION
 
 
 def load_bundle(path):
@@ -84,6 +84,7 @@ def evaluate_model(model_type, champion, candidate):
 
     checks["candidate_present"]=bool(candidate)
     checks["candidate_trained"]=cand.get("status")=="trained"
+    checks["production_scope"]=not bool((candidate or {}).get("research_only"))
     checks["prior_context_policy"]=cand.get("team_context_policy")==EXPECTED_CONTEXT_POLICY
     checks["feature_semantics_version"]=(
         cand.get("feature_semantics_version")==EXPECTED_SEMANTICS_VERSION

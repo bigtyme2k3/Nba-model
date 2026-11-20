@@ -18,6 +18,7 @@ from teams import EASTERN_CONFERENCE, WESTERN_CONFERENCE, TEAM_NAMES, normalize_
 from season_filters import filter_games_for_source, nba_season_start_year
 import team_availability
 import quarter_records
+from team_box_matchups import BOX_METRICS
 
 RAW_DIR       = "data/raw"
 PROCESSED_DIR = "data/processed"
@@ -166,6 +167,7 @@ def attach_team_game_context(game_df: pd.DataFrame, context_df: pd.DataFrame) ->
         "games_prior","pace","ortg","drtg","net_rtg","ts_pct",
         "roll5_net_rtg","roll10_net_rtg",
         "roll5_points","roll10_points","roll5_allowed","roll10_allowed",
+        *BOX_METRICS,
     ]
     for side in ("home","away"):
         team_col = f"{side}_team"
@@ -432,7 +434,11 @@ def process_year(year: int) -> pd.DataFrame:
         keys = [k for k in ["game_date","home_team","away_team"] if k in odds_df.columns and k in game_df.columns]
         if keys:
             before = len(game_df)
-            merged = game_df.merge(odds_df, on=keys, how="left", validate="many_to_one")
+            # ESPN and the odds provider use different event identifiers. Preserve
+            # the canonical stats game_id; otherwise pandas renames it game_id_x
+            # and current-season rows lose their ID in the all-season master.
+            merged = game_df.merge(odds_df, on=keys, how="left", validate="many_to_one",
+                                   suffixes=("", "_odds"))
             if len(merged) != before:
                 raise RuntimeError(
                     f"Odds merge changed game cardinality: {before} -> {len(merged)}"

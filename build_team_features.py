@@ -25,6 +25,8 @@ import pandas as pd
 
 from teams import TEAM_ABBR, normalize_team
 from season_filters import filter_games_for_source, nba_season_start_year
+from team_box_matchups import (BOX_COUNTS, BOX_METRICS, VERSION, attach_opponent_counts,
+                               prior_box_rates, latest_box_rates)
 
 RAW_DIR = "data/raw"
 OUT_DIR = "data/processed"
@@ -90,6 +92,14 @@ def load_team_boxes(raw_dir):
         df["fta"] = num(df, ["free_throws_attempted", "fta", "ft_att"])
         df["oreb"] = num(df, ["offensive_rebounds", "oreb"])
         df["tov"] = num(df, ["turnovers", "tov"])
+        for col, aliases in {
+            "fgm": ["field_goals_made", "fgm"],
+            "three_pm": ["three_point_field_goals_made", "three_pm", "fg3m"],
+            "three_pa": ["three_point_field_goals_attempted", "three_pa", "fg3a"],
+            "ftm": ["free_throws_made", "ftm"],
+            "dreb": ["defensive_rebounds", "dreb"],
+        }.items():
+            df[col] = num(df, aliases)
         df["poss"] = df["fga"] - df["oreb"] + df["tov"] + 0.44 * df["fta"]
         df.loc[df["poss"] <= 0, "poss"] = np.nan
         df["ortg"] = 100 * df["points"] / df["poss"]
@@ -100,13 +110,14 @@ def load_team_boxes(raw_dir):
         df["margin"] = df["points"] - df["opp_points"]
         frames.append(df[[
             "game_id", "season", "game_date", "team", "points", "opp_points",
-            "poss", "ortg", "drtg", "net_rtg", "ts_pct", "margin"
+            *BOX_COUNTS, "ortg", "drtg", "net_rtg", "ts_pct", "margin"
         ]])
     if not frames:
         return pd.DataFrame()
     out = pd.concat(frames, ignore_index=True)
     out = out[out["game_date"].notna() & out["team"].isin(TEAM_ABBR)].copy()
-    return out.drop_duplicates(["game_id", "team"], keep="last")
+    out = out.drop_duplicates(["game_id", "team"], keep="last").reset_index(drop=True)
+    return attach_opponent_counts(out)
 
 
 def avg(frame, col):
@@ -124,6 +135,7 @@ def build_game_context(df):
         return pd.DataFrame()
 
     work = df.sort_values(["season","team","game_date","game_id"]).copy()
+    raw = work.copy()
     work["games_prior"] = work.groupby(["season","team"]).cumcount()
 
     metric_map = {
@@ -134,7 +146,7 @@ def build_game_context(df):
         "ts_pct": "ts_pct",
     }
     for source, out_name in metric_map.items():
-        values = pd.to_numeric(work[source], errors="coerce")
+        values = pd.to_numeric(raw[source], errors="coerce")
         work[out_name] = (
             values.groupby(work["team"])
             .transform(lambda x: x.shift(1).rolling(10, min_periods=1).mean())
@@ -145,7 +157,7 @@ def build_game_context(df):
         ("points", "points"),
         ("opp_points", "allowed"),
     ]:
-        values = pd.to_numeric(work[source], errors="coerce")
+        values = pd.to_numeric(raw[source], errors="coerce")
         work[f"roll5_{label}"] = (
             values.groupby(work["team"])
             .transform(lambda x: x.shift(1).rolling(5, min_periods=1).mean())
@@ -163,12 +175,13 @@ def build_game_context(df):
         "roll5_allowed","roll10_allowed",
     ]
     out = work[keep].copy()
+    out[list(BOX_METRICS)] = prior_box_rates(raw)
 
     # Guard against target leakage/cardinality mistakes.
     if out.duplicated(["game_id","team"]).any():
         raise RuntimeError("Team game context is not unique by game_id/team")
 
-    # The first game of a season has no same-season prior data by design.
+    # Rolling context carries across seasons; games_prior counts only this season.
     return out
 
 
@@ -196,7 +209,8 @@ def build_profiles(df):
             "roll10_allowed": round(avg(l10, "opp_points"), 3),
             "source": "COMPLETED_TEAM_BOX_SCORES",
         })
-    return pd.DataFrame(rows).sort_values("team").reset_index(drop=True)
+    profiles = pd.DataFrame(rows).sort_values("team").reset_index(drop=True)
+    return profiles.merge(latest_box_rates(df), on="team", validate="one_to_one")
 
 
 def main():
@@ -234,6 +248,9 @@ def main():
         "game_context_output": str(context_out),
         "game_context_rows": int(len(game_context)),
         "pregame_context_rows_with_prior": prior_rows,
+        "feature_semantics_version": VERSION,
+        "box_rate_policy": "POOLED_PRIOR_10_GAMES; THREE_PCT_SHRUNK_TO_OLDER_HISTORY; TOV_PER_ESTIMATED_POSSESSION; FT_RATE_FTA_PER_FGA",
+        "box_context_rows_complete": int(game_context[list(BOX_METRICS)].notna().all(axis=1).sum()),
         "policy": "COMPLETED_GAMES_ONLY; HISTORICAL_CONTEXT_SHIFT_1_PRIOR_ONLY; ROLLING_CONTEXT_CONTINUES_ACROSS_SEASONS",
     }
     Path(args.out, "team_features_status.json").write_text(json.dumps(status, indent=2) + "\n")
