@@ -1,6 +1,8 @@
 """Regression coverage for prior-only counts and the training/live boundary."""
 import tempfile
 import unittest
+import contextlib
+import sys
 from pathlib import Path
 from unittest.mock import patch
 
@@ -34,6 +36,15 @@ def boxes(n=25):
 
 
 class BoxRateTests(unittest.TestCase):
+    def test_opponent_pair_requires_both_counts_and_distinct_teams(self):
+        frame = boxes(3)
+        frame.loc[0, "tov"] = np.nan
+        frame.loc[2:3, "team"] = "Boston Celtics"
+        out = attach_opponent_counts(frame)
+        self.assertTrue(out.loc[0:1, "opp_tov"].isna().all())
+        self.assertTrue(out.loc[2:3, "opp_fga"].isna().all())
+        self.assertTrue(out.loc[4:5, "opp_fga"].notna().all())
+
     def test_rates_pool_counts_and_use_opponent_rebound_chances(self):
         frame = boxes(3)
         # Make denominators differ to catch mean-of-percentages implementations.
@@ -115,6 +126,99 @@ class MatchupIntegrationTests(unittest.TestCase):
         live = live_matchup_features(home, away, MATCHUP_FEATURES)
         for feature in MATCHUP_FEATURES:
             self.assertAlmostEqual(historical[feature], live[feature])
+
+    def test_baseline_row_filter_ignores_present_but_missing_research_columns(self):
+        import spread_model as sm
+        frame = pd.DataFrame({name: [np.nan, np.nan] for name in sm.BASE_SPREAD_FEATURES})
+        for name in sm.BASE_SPREAD_FEATURES[:10]:
+            frame[name] = 1.
+        for name in ("home_back_to_back", "away_back_to_back", "home_three_in_four", "away_three_in_four", "long_travel"):
+            frame[name] = 0
+        frame["game_date"] = pd.to_datetime(["2026-11-01", "2026-11-02"])
+        frame["season"] = 2026
+        frame["game_id"] = ["one", "two"]
+        frame["actual_spread"] = [3., -2.]
+        for name in MATCHUP_FEATURES:
+            frame[name] = np.nan
+        counts = sm.engineer_features(frame.copy())[sm.BASE_SPREAD_FEATURES].notna().sum(axis=1)
+        self.assertTrue(counts.between(17, 23).all())
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "master.csv"
+            frame.to_csv(path, index=False)
+            out = sm.load_and_prepare(path)
+            self.assertEqual(out.game_id.tolist(), ["one", "two"])
+            self.assertFalse(set(sm.get_feature_matrix(out)[2]) & set(MATCHUP_FEATURES))
+
+    def test_production_backtest_uses_baseline_even_when_box_columns_are_populated(self):
+        import backtest_vs_close as bt
+        import spread_model as sm
+        import totals_model as tm
+        frame = pd.DataFrame({name: [1., 1.] for name in set(sm.BOX_SPREAD_FEATURES + tm.BOX_TOTALS_FEATURES)})
+        frame["game_date"] = pd.to_datetime(["2024-11-01", "2025-11-01"])
+        frame["season"] = [2024, 2025]
+        frame["game_id"] = ["old", "held"]
+        frame["actual_spread"] = [5., 6.]
+        frame["actual_total"] = [220., 225.]
+        frame["close_spread_home"] = -3.
+        with tempfile.TemporaryDirectory() as temp, \
+             patch.object(sys, "argv", ["backtest", "--out", str(Path(temp) / "report.json")]), \
+             patch.object(sm, "load_and_prepare", return_value=frame), \
+             patch.object(bt, "load_lines", return_value=pd.DataFrame()), \
+             patch.object(bt, "join_lines", side_effect=lambda data, _: data), \
+             patch.object(bt, "monthly_predictions", side_effect=lambda data, *args: pd.Series(0., index=data.index)) as predictions, \
+             patch.object(bt, "evaluate", return_value={}):
+            bt.main()
+        self.assertEqual(predictions.call_count, 2)
+        self.assertEqual(predictions.call_args_list[0].args[1], sm.BASE_SPREAD_FEATURES)
+        self.assertEqual(predictions.call_args_list[1].args[1], tm.BASE_TOTALS_FEATURES)
+        self.assertFalse(set(sm.SPREAD_FEATURES + tm.TOTALS_FEATURES) & set(MATCHUP_FEATURES))
+
+    def test_direct_scorers_skip_only_games_missing_context(self):
+        import spread_model as sm
+        import totals_model as tm
+        home, away = self.fixture()
+        class Capture:
+            def __init__(self):
+                self.calls = 0
+            def predict(self, frame):
+                self.calls += 1
+                return np.array([225.])
+        model = Capture()
+        self.assertIsNone(sm.predict_game(model, list(MATCHUP_FEATURES), "H", "A", {}, away, {}))
+        self.assertIsNotNone(sm.predict_game(model, list(MATCHUP_FEATURES), "H", "A", home, away, {}))
+        self.assertEqual(model.calls, 1)
+        valid = {"home": "H", "away": "A", "home_stats": home, "away_stats": away, "ctx": {}}
+        missing = {**valid, "home_stats": {}}
+        bundle = {"model": model, "feature_names": list(MATCHUP_FEATURES)}
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "candidate.pkl"
+            path.write_bytes(b"")
+            with patch.object(tm.pickle, "load", return_value=bundle):
+                out = tm.predict_totals([valid, missing, valid], path)
+        self.assertEqual(len(out), 3)
+        self.assertEqual(out.pred_total.notna().tolist(), [True, False, True])
+        self.assertEqual(out.loc[1, "status"], "SKIPPED_MISSING_BOX_CONTEXT")
+        self.assertEqual(model.calls, 3)
+
+    def test_candidate_guard_protects_every_model_asset_and_symlink_target(self):
+        import spread_model as sm
+        import totals_model as tm
+        with tempfile.TemporaryDirectory() as temp, contextlib.chdir(temp):
+            Path("models/candidates").mkdir(parents=True)
+            protected = Path("models/props_models.pkl")
+            protected.write_bytes(b"champion")
+            Path("models/candidates/link.pkl").symlink_to(protected.resolve())
+            for path in ("models/spread_model.pkl", "models/totals_model.pkl", "models/props_models.pkl",
+                         "models/edge_calibration.json", "models/future_model.pkl",
+                         "models/candidates/../props_models.pkl", "models/candidates/link.pkl"):
+                with self.subTest(path=path), self.assertRaises(ValueError):
+                    save_research_candidate({}, path)
+            self.assertEqual(protected.read_bytes(), b"champion")
+            save_research_candidate({}, "models/candidates/valid.pkl")
+            self.assertTrue(Path("models/candidates/valid.pkl").exists())
+            for trainer in (sm.train_mode, tm.train_totals_model):
+                with self.assertRaises(ValueError):
+                    trainer("missing.csv", candidate_out="models/props_models.pkl")
 
     def test_merge_carries_all_box_context_to_both_sides(self):
         context = build_game_context(boxes())

@@ -43,6 +43,10 @@ MATCHUP_GROUPS = {
 MATCHUP_FEATURES = tuple(f for group in MATCHUP_GROUPS.values() for f in group)
 
 
+class MissingBoxContextError(ValueError):
+    """The current game lacks a required prior box-score matchup input."""
+
+
 def attach_opponent_counts(frame):
     """Require exactly two distinct team rows per game; incomplete pairs stay NaN."""
     out = frame.copy()
@@ -51,7 +55,7 @@ def attach_opponent_counts(frame):
     for col in BOX_COUNTS:
         values = pd.to_numeric(out.get(col, pd.Series(np.nan, index=out.index)), errors="coerce")
         out[col] = values
-        totals = values.groupby(out["game_id"]).transform(lambda s: s.sum(min_count=2))
+        totals = values.groupby(out["game_id"]).transform("sum", min_count=2)
         out[f"opp_{col}"] = (totals - values).where(paired)
     return out
 
@@ -115,7 +119,7 @@ def live_matchup_features(home, away, required):
            for side, values in (("home", home), ("away", away)) for key in BOX_METRICS}
     row = add_matchup_features(pd.DataFrame([raw])).iloc[0]
     if any(f not in row or not np.isfinite(row[f]) for f in required):
-        raise ValueError("Required prior box-score matchup context is missing")
+        raise MissingBoxContextError("Required prior box-score matchup context is missing")
     return {f: float(row[f]) for f in required}
 
 
@@ -143,14 +147,22 @@ def whole_date_splits(dates, n_splits=4):
         yield np.flatnonzero(days.isin(unique[train])), np.flatnonzero(days.isin(unique[test]))
 
 
-def save_research_candidate(bundle, path):
-    """An explicit candidate destination can never overwrite an active bundle."""
-    import pickle
+def validate_candidate_path(path):
+    """Protect all model assets; only models/candidates/ permits research writes."""
     from pathlib import Path
     destination = Path(path)
-    active = {Path("models", f"{kind}_model.pkl").resolve() for kind in ("spread", "totals")}
-    if destination.resolve() in active:
-        raise ValueError("Candidate output must be separate from active model paths")
+    models = Path("models").absolute()
+    # Check both the lexical path and its target, including traversal/symlinks.
+    for target, root in ((destination.absolute(), models), (destination.resolve(), models.resolve())):
+        if target.is_relative_to(root) and not target.is_relative_to(root / "candidates"):
+            raise ValueError("Research output inside models/ must use models/candidates/")
+    return destination
+
+
+def save_research_candidate(bundle, path):
+    """An explicit candidate destination can never overwrite production assets."""
+    import pickle
+    destination = validate_candidate_path(path)
     destination.parent.mkdir(parents=True, exist_ok=True)
     bundle = dict(bundle, research_only=True)
     destination.write_bytes(pickle.dumps(bundle))

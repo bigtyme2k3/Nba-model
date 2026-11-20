@@ -38,9 +38,11 @@ BASE_TOTALS_FEATURES = [
 ]
 
 from team_box_matchups import (MATCHUP_FEATURES, VERSION, VALIDATION, add_matchup_features,
-    live_matchup_features, training_features, whole_date_splits, save_research_candidate)
+    live_matchup_features, training_features, whole_date_splits, save_research_candidate,
+    MissingBoxContextError, validate_candidate_path)
 
-TOTALS_FEATURES = BASE_TOTALS_FEATURES + list(MATCHUP_FEATURES)
+TOTALS_FEATURES = list(BASE_TOTALS_FEATURES)
+BOX_TOTALS_FEATURES = BASE_TOTALS_FEATURES + list(MATCHUP_FEATURES)
 
 def add_availability_totals(df):
     """Combined absences for the totals model (missing columns stay absent)."""
@@ -174,6 +176,8 @@ def add_rolling_scoring(df, window=5):
 def train_totals_model(data_path, include_box_matchups=False, candidate_out=None):
     if include_box_matchups and not candidate_out:
         raise ValueError("Box matchups require --candidate-out; evaluate them before promotion")
+    if candidate_out:
+        validate_candidate_path(candidate_out)
     print("\n═══ NBA TOTALS MODEL — TRAINING ═══\n")
     df = pd.read_csv(data_path, parse_dates=["game_date"])
     df = df.sort_values(["season","game_date"]).reset_index(drop=True)
@@ -311,7 +315,14 @@ def predict_totals(games, model_path="models/totals_model.pkl"):
             "month": g["ctx"].get("month",11), "is_playoff": 0,
             "season_game_num": g["ctx"].get("game_num",10),
         })
-        row.update(live_matchup_features(hs, as_, feats))
+        try:
+            row.update(live_matchup_features(hs, as_, feats))
+        except MissingBoxContextError as exc:
+            rows.append({"game": f"{g['away']} @ {g['home']}", "pred_total": None,
+                         "posted_total": g.get("posted_total"), "edge": None,
+                         "model_play": "N/A", "confidence": None,
+                         "status": "SKIPPED_MISSING_BOX_CONTEXT", "reason": str(exc)})
+            continue
         X = pd.DataFrame([row])[feats]
         pred = float(model.predict(X)[0])
         posted = g.get("posted_total")

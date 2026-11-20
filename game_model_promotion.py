@@ -4,7 +4,9 @@ game_model_promotion.py
 Champion/challenger promotion gate for NBA spread and totals bundles.
 
 The workflow snapshots the currently committed champion bundles before training.
-Candidate bundles are then compared on their own stored walk-forward metrics.
+Candidate bundles are compared on stored metrics only when their validation
+methods match. A method migration explicitly skips relative comparisons while
+retaining the candidate's validation, scope, context and absolute-sanity gates.
 
 A candidate is publishable only when:
 - it is a trained/fresh bundle with prior-only team context policy
@@ -18,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import pickle
 from datetime import datetime, timezone
 from pathlib import Path
@@ -28,7 +31,7 @@ SPREAD_DIRECTIONAL_TOLERANCE = 0.005
 ABS_SPREAD_MAE_MAX = 12.5
 ABS_TOTALS_MAE_MAX = 17.0
 EXPECTED_CONTEXT_POLICY = "BOTH_TEAMS_PRIOR_ONLY_REQUIRED"
-from team_box_matchups import VERSION as EXPECTED_SEMANTICS_VERSION
+from team_box_matchups import VERSION as EXPECTED_SEMANTICS_VERSION, VALIDATION
 
 
 def load_bundle(path):
@@ -54,7 +57,8 @@ def metric(bundle, model_type, name):
     else:
         val=None
     try:
-        return float(val) if val is not None else None
+        value = float(val) if val is not None else None
+        return value if value is not None and math.isfinite(value) else None
     except Exception:
         return None
 
@@ -89,24 +93,31 @@ def evaluate_model(model_type, champion, candidate):
     checks["feature_semantics_version"]=(
         cand.get("feature_semantics_version")==EXPECTED_SEMANTICS_VERSION
     )
+    checks["validation_method"] = cand.get("validation") == VALIDATION
+    comparable = bool(champion and cand.get("validation")
+                      and champ.get("validation") == cand.get("validation"))
+    comparison_reason = ("SAME_VALIDATION_METHOD" if comparable else
+                         "NO_CHAMPION" if not champion else
+                         "CHAMPION_VALIDATION_MISSING" if not champ.get("validation") else
+                         "VALIDATION_METHOD_CHANGED")
 
     c_mae=cand.get("mae")
     h_mae=champ.get("mae")
     abs_max=ABS_SPREAD_MAE_MAX if model_type=="spread" else ABS_TOTALS_MAE_MAX
-    checks["absolute_mae_sane"]=c_mae is not None and c_mae <= abs_max
+    checks["absolute_mae_sane"]=c_mae is not None and 0 <= c_mae <= abs_max
 
     tol=SPREAD_MAE_TOLERANCE if model_type=="spread" else TOTALS_MAE_TOLERANCE
     checks["mae_nonregression"]=(
         c_mae is not None and
-        (h_mae is None or c_mae <= h_mae + tol)
+        (not comparable or h_mae is None or c_mae <= h_mae + tol)
     )
 
     if model_type=="spread":
         c_dir=cand.get("directional_accuracy")
         h_dir=champ.get("directional_accuracy")
         checks["directional_nonregression"]=(
-            c_dir is not None and
-            (h_dir is None or c_dir + SPREAD_DIRECTIONAL_TOLERANCE >= h_dir)
+            c_dir is not None and 0 <= c_dir <= 1 and
+            (not comparable or h_dir is None or c_dir + SPREAD_DIRECTIONAL_TOLERANCE >= h_dir)
         )
 
     promotable=all(checks.values())
@@ -115,9 +126,12 @@ def evaluate_model(model_type, champion, candidate):
         "candidate":cand,
         "checks":checks,
         "promotable":promotable,
+        "metric_comparison": {"performed": comparable, "reason": comparison_reason,
+                              "champion_validation": champ.get("validation"),
+                              "candidate_validation": cand.get("validation")},
         "mae_delta_candidate_minus_champion":(
             round(c_mae-h_mae,5)
-            if c_mae is not None and h_mae is not None else None
+            if comparable and c_mae is not None and h_mae is not None else None
         ),
     }
 
@@ -133,7 +147,7 @@ def main():
 
     report={
         "generated_at_utc":datetime.now(timezone.utc).isoformat(),
-        "policy":"CHAMPION_CHALLENGER_WALK_FORWARD_NONREGRESSION",
+        "policy":"NONREGRESSION_WHEN_VALIDATION_MATCHES_ELSE_ABSOLUTE_SANITY",
         "spread":evaluate_model(
             "spread",
             load_bundle(args.champion_spread),

@@ -6,6 +6,11 @@ three-point volume/accuracy. These additions are opt-in research candidates.
 Normal training retains the baseline feature list. Existing active bundles and
 prediction files are not replaced by this change.
 
+`SPREAD_FEATURES` and `TOTALS_FEATURES` remain the baseline lists, including in
+`backtest_vs_close.py`. Extended lists have separate `BOX_SPREAD_FEATURES` and
+`BOX_TOTALS_FEATURES` names. The spread row-coverage filter counts baseline
+features only, even when research columns are present but missing.
+
 ## Foundation fixes
 
 `build_team_features.py` now calculates 5/10-game net ratings from the raw game
@@ -20,6 +25,13 @@ Feature semantics are stamped `NBA_GAME_FEATURES_V3_FORM_PARITY`. Validation
 uses whole-date expanding folds. Both change the model-family ID on retraining;
 calibration evidence for an older family does not become evidence for the new
 family. Existing betting qualification rules are unchanged.
+
+Stored CV scores from different validation methods are not compared. On a method
+migration the publication report marks relative MAE/directional comparisons as
+skipped and leaves the MAE delta unset. Candidate validation method, context,
+semantics, production scope, training freshness and absolute-sanity gates still
+apply. Once both bundles use the same method, relative nonregression applies
+again. A skipped comparison does not demonstrate improvement over the champion.
 
 ## Rate definitions
 
@@ -50,7 +62,9 @@ corresponding opponent rate. Home and away free-throw percentages are also
 included. Fourteen candidate features result. `team_box_matchups.py` shares all
 rate and interaction calculations between historical data and daily scoring.
 Candidate scoring stops if required matchup context is missing; legacy bundles
-do not require the new context.
+do not require the new context. The daily runner and direct spread scorer skip
+only that game; the direct totals batch retains an explicit skipped row and
+continues scoring the rest of the slate.
 
 ## Reproduce the review
 
@@ -91,7 +105,9 @@ python totals_model.py --data "$OUT/master_all.csv" --box-matchups \
 ```
 
 Candidates carry `research_only=True`; the publication gate rejects that scope.
-Candidate output cannot use either active model path. A later promotion needs
+Research writes anywhere in `models/` must use `models/candidates/`; production
+props, calibration and other model files are protected too. Traversal and
+symlink targets are checked before training and again before saving. A later promotion needs
 reviewed out-of-sample evidence and explicit removal of research-only scope.
 The model comparison, forward evidence, calibration, and actual executable
 FD/DK/Fanatics prices remain separate requirements.
