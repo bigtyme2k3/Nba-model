@@ -1,0 +1,4 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Utah Jazz,Phoenix Suns,4.5,226.12,4.62,225.62,0.1200000000000001,-0.5,False,True
+Denver Nuggets,Houston Rockets,-1.5,226.25,-1.5,227.5,0.0,1.25,False,True
+Los Angeles Lakers,Sacramento Kings,-14.5,229.12,-14.5,229.38,0.0,0.2599999999999909,False,False

@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "target_date": "2026-11-20",
+  "target_date": "2026-11-21",
   "markets_requested": [
     "spreads_q1",
     "totals_q1",
@@ -12,13 +12,13 @@
     "fanatics",
     "novig"
   ],
-  "events_found": 9,
-  "events_queried": 9,
-  "rows": 126,
-  "http_calls": 9,
-  "generated_at_utc": "2026-11-20T20:37:12.115662+00:00",
+  "events_found": 6,
+  "events_queried": 6,
+  "rows": 82,
+  "http_calls": 6,
+  "generated_at_utc": "2026-11-21T14:17:37.079649+00:00",
   "error": null,
-  "api_requests_remaining": 8882,
+  "api_requests_remaining": 8537,
   "api_requests_last": "3",
   "markets_returned": [
     "h2h_q1",

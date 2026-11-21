@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-21T08:05:17.056811Z",
+  "generated_at_utc": "2026-11-21T14:18:34.704414Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -18,22 +18,22 @@
     "spread": {
       "name": "spread",
       "status": "trained",
-      "trained_through": "2026-11-16",
-      "trained_rows": 6764,
-      "validation": "global_chronological_timeseries_split",
+      "trained_through": "2026-11-20",
+      "trained_rows": 6794,
+      "validation": "expanding_whole_date_groups",
       "markets": null,
       "model_name": "Ridge (Baseline)",
-      "lag_days": 3
+      "lag_days": 0
     },
     "totals": {
       "name": "totals",
       "status": "trained",
-      "trained_through": "2026-11-16",
-      "trained_rows": 6764,
-      "validation": "global_chronological_timeseries_split",
+      "trained_through": "2026-11-20",
+      "trained_rows": 6794,
+      "validation": "expanding_whole_date_groups",
       "markets": null,
       "model_name": "Ridge",
-      "lag_days": 3
+      "lag_days": 0
     },
     "props": {
       "name": "props",
@@ -49,14 +49,14 @@
         "threes"
       ],
       "model_name": null,
-      "lag_days": 4
+      "lag_days": 5
     }
   },
   "feature_stores": {
     "player": {
       "status": "READY",
-      "max_game_date": "2026-11-19",
-      "rows": 144882,
+      "max_game_date": "2026-11-20",
+      "rows": 145063,
       "seasons": [
         2021,
         2022,
@@ -68,7 +68,7 @@
     },
     "team": {
       "status": "READY",
-      "max_game_date": "2026-11-19",
+      "max_game_date": "2026-11-20",
       "teams": 30,
       "seasons": [
         2021,
@@ -83,13 +83,13 @@
   "forward_evidence": {
     "scope": "CURRENT_ALGORITHM_AND_FEATURE_FAMILIES_ONLY",
     "active_artifact_ids": {
-      "SPREAD": "34e9e43bcbf875af75d99286e1c22c2a9c38e83d2f4f1efa3ead7984da24bf41",
-      "TOTAL": "b9edac801bd774eafb0e0e2cd6c7acb1de14120f9d3c65510d7981fd3f92a52a",
+      "SPREAD": "d204a7686bb2a525abf6eac284f320e745437556bdad512937a8998dabb37a2e",
+      "TOTAL": "6dffae32e005b5624893f73a3d2b5dbfb0a07b0868785c47db377b762a57c716",
       "PROP": "4527d4630fb60771130442414dbc8b988dccb782c6db5b8da83d11e434e2a7f5"
     },
     "active_family_ids": {
-      "SPREAD": "8b578c1f11caa26aa5e79ce6e0d4ca261784a472b22c3774ab6dc7082698be25",
-      "TOTAL": "326f93f9f563381d82928eb1dc49c3f2539983453f2786a5e8ecdafd6531fc4c",
+      "SPREAD": "b7fe2ea686494c1e3b79fc99973b95975a2a2fb21b3c1c4a81894b5da465be2c",
+      "TOTAL": "4fd4d0311393439186a61dc101757b5b58a7489efbe7fc35089d56a7179cbb09",
       "PROP": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff"
     },
     "bet_rows": 41,

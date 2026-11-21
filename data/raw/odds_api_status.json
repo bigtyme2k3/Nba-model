@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "target_date": "2026-11-20",
+  "target_date": "2026-11-21",
   "source": "the-odds-api-fd-dk-fanatics-novig",
   "bookmakers": [
     "fanduel",
@@ -8,10 +8,10 @@
     "fanatics",
     "novig"
   ],
-  "checked_at_utc": "2026-11-21T01:21:31.036654+00:00",
-  "rows": 3,
+  "checked_at_utc": "2026-11-21T14:17:33.051888+00:00",
+  "rows": 6,
   "http_status": 200,
-  "api_requests_used": "11154",
-  "api_requests_remaining": "8846",
+  "api_requests_used": "11415",
+  "api_requests_remaining": "8585",
   "error": null
 }
