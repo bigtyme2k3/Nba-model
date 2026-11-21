@@ -1,9 +1,9 @@
 {
   "status": "READY",
-  "generated_at_utc": "2026-11-21T16:51:43.540969+00:00",
+  "generated_at_utc": "2026-11-21T23:21:47.623260+00:00",
   "date": "2026-11-21",
-  "candidate_snapshots": 55,
-  "new_snapshots": 55,
+  "candidate_snapshots": 236,
+  "new_snapshots": 236,
   "ledger_path": "data/history/nba_pretip_execution_snapshots.jsonl",
   "policy": "APPEND_ALL_VALID_PRETIP_SNAPSHOTS; DO_NOT_REWRITE_FORWARD_LEDGER"
 }

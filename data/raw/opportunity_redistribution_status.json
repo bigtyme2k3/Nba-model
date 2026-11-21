@@ -1,9 +1,9 @@
 {
   "status": "READY",
   "target_date": "2026-11-21",
-  "generated_at_utc": "2026-11-21T19:35:42.473497+00:00",
+  "generated_at_utc": "2026-11-21T23:21:45.658233+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 105,
+  "injury_rows": 109,
   "slate_teams": [
     "Boston Celtics",
     "Dallas Mavericks",
@@ -16,12 +16,12 @@
     "Sacramento Kings",
     "San Antonio Spurs"
   ],
-  "teams_affected": 5,
-  "absences_modeled": 11,
-  "recipient_rows": 48,
-  "unallocated_minutes": -0.0,
+  "teams_affected": 7,
+  "absences_modeled": 17,
+  "recipient_rows": 68,
+  "unallocated_minutes": 0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 79
+  "adjustment_rows": 98
 }
