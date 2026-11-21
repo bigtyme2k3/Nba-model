@@ -1,21 +1,8 @@
 {
-  "generated_at_utc": "2026-11-18T02:57:48.943226+00:00",
-  "policy": "CHAMPION_CHALLENGER_WALK_FORWARD_NONREGRESSION",
+  "generated_at_utc": "2026-11-21T11:34:36.499685+00:00",
+  "policy": "NONREGRESSION_WHEN_VALIDATION_MATCHES_ELSE_ABSOLUTE_SANITY",
   "spread": {
     "champion": {
-      "present": true,
-      "status": "trained",
-      "model_name": "Ridge (Baseline)",
-      "trained_through": "2026-11-15",
-      "trained_rows": 6756,
-      "validation": "global_chronological_timeseries_split",
-      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-      "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
-      "feature_names_count": 34,
-      "mae": 11.11278162499033,
-      "directional_accuracy": 0.6547002220577349
-    },
-    "candidate": {
       "present": true,
       "status": "trained",
       "model_name": "Ridge (Baseline)",
@@ -28,33 +15,41 @@
       "mae": 11.115091076051304,
       "directional_accuracy": 0.6551405325443787
     },
+    "candidate": {
+      "present": true,
+      "status": "trained",
+      "model_name": "Ridge (Baseline)",
+      "trained_through": "2026-11-20",
+      "trained_rows": 6794,
+      "validation": "expanding_whole_date_groups",
+      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+      "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
+      "feature_names_count": 34,
+      "mae": 11.233288558668871,
+      "directional_accuracy": 0.6432305132352762
+    },
     "checks": {
       "candidate_present": true,
       "candidate_trained": true,
+      "production_scope": true,
       "prior_context_policy": true,
       "feature_semantics_version": true,
+      "validation_method": true,
       "absolute_mae_sane": true,
       "mae_nonregression": true,
       "directional_nonregression": true
     },
     "promotable": true,
-    "mae_delta_candidate_minus_champion": 0.00231
+    "metric_comparison": {
+      "performed": false,
+      "reason": "VALIDATION_METHOD_CHANGED",
+      "champion_validation": "global_chronological_timeseries_split",
+      "candidate_validation": "expanding_whole_date_groups"
+    },
+    "mae_delta_candidate_minus_champion": null
   },
   "totals": {
     "champion": {
-      "present": true,
-      "status": "trained",
-      "model_name": "Ridge",
-      "trained_through": "2026-11-15",
-      "trained_rows": 6756,
-      "validation": "global_chronological_timeseries_split",
-      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-      "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
-      "feature_names_count": 29,
-      "mae": 15.03754857908335,
-      "directional_accuracy": null
-    },
-    "candidate": {
       "present": true,
       "status": "trained",
       "model_name": "Ridge",
@@ -67,16 +62,37 @@
       "mae": 15.018246215742598,
       "directional_accuracy": null
     },
+    "candidate": {
+      "present": true,
+      "status": "trained",
+      "model_name": "Ridge",
+      "trained_through": "2026-11-20",
+      "trained_rows": 6794,
+      "validation": "expanding_whole_date_groups",
+      "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+      "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
+      "feature_names_count": 35,
+      "mae": 15.015255432901736,
+      "directional_accuracy": null
+    },
     "checks": {
       "candidate_present": true,
       "candidate_trained": true,
+      "production_scope": true,
       "prior_context_policy": true,
       "feature_semantics_version": true,
+      "validation_method": true,
       "absolute_mae_sane": true,
       "mae_nonregression": true
     },
     "promotable": true,
-    "mae_delta_candidate_minus_champion": -0.0193
+    "metric_comparison": {
+      "performed": false,
+      "reason": "VALIDATION_METHOD_CHANGED",
+      "champion_validation": "global_chronological_timeseries_split",
+      "candidate_validation": "expanding_whole_date_groups"
+    },
+    "mae_delta_candidate_minus_champion": null
   },
   "promotion_approved": true
 }
