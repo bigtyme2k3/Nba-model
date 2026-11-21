@@ -68,9 +68,9 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,6475,Klay Thompson,G,True,False,23.0,13.0,1.0,1.0,0.0,1.0,0.0,0.0,1.0,4.0,10.0,4.0,10.0,1.0,1.0,10.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4278053,Davion Mitchell,G,True,False,36.0,24.0,2.0,6.0,0.0,1.0,4.0,0.0,2.0,8.0,11.0,6.0,7.0,2.0,2.0,22.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4601025,Pelle Larsson,G,True,False,15.0,4.0,2.0,2.0,1.0,0.0,3.0,0.0,2.0,1.0,2.0,1.0,2.0,1.0,2.0,0.0,espn_api
-401910009,2026,2026-11-18,Heat,Miami,MIA,home,3059319,Andrew Wiggins,F,False,False,26.0,11.0,2.0,2.0,0.0,0.0,1.0,0.0,2.0,2.0,5.0,1.0,4.0,6.0,6.0,11.0,espn_api
+401910009,2026,2026-11-18,Heat,Miami,MIA,home,3059319,Andrew Wiggins,F,False,False,26.0,11.0,2.0,2.0,1.0,0.0,1.0,0.0,2.0,2.0,5.0,1.0,4.0,6.0,6.0,11.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,3064482,Bobby Portis,F,False,False,17.0,9.0,3.0,0.0,0.0,0.0,2.0,0.0,3.0,4.0,9.0,1.0,5.0,0.0,0.0,1.0,espn_api
-401910009,2026,2026-11-18,Heat,Miami,MIA,home,3899664,Simone Fontecchio,F,False,False,18.0,6.0,5.0,1.0,2.0,0.0,1.0,2.0,3.0,2.0,3.0,2.0,2.0,0.0,0.0,-11.0,espn_api
+401910009,2026,2026-11-18,Heat,Miami,MIA,home,3899664,Simone Fontecchio,F,False,False,18.0,6.0,5.0,1.0,1.0,0.0,1.0,2.0,3.0,2.0,3.0,2.0,2.0,0.0,0.0,-11.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4997528,Nikola Jovic,F,False,False,14.0,4.0,1.0,4.0,0.0,1.0,2.0,1.0,0.0,1.0,4.0,1.0,3.0,1.0,2.0,-4.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4278076,Nick Richards,C,False,False,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-7.0,espn_api
 401910009,2026,2026-11-18,Heat,Miami,MIA,home,4837356,Tre Donaldson,G,False,False,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0.0,-7.0,espn_api
@@ -146,7 +146,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,5093267,Collin Murray-Boyles,F,True,False,5.0,1.0,2.0,1.0,0.0,0.0,0.0,0.0,2.0,0.0,2.0,0.0,1.0,1.0,2.0,0.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,3134908,Jakob Poeltl,C,True,False,29.0,8.0,9.0,5.0,3.0,1.0,3.0,3.0,6.0,3.0,8.0,0.0,0.0,2.0,3.0,-9.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4395724,Immanuel Quickley,G,True,False,34.0,24.0,3.0,5.0,1.0,0.0,1.0,0.0,3.0,9.0,21.0,4.0,9.0,2.0,6.0,-9.0,espn_api
-401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4684272,Ja'Kobe Walter,G,True,False,38.0,18.0,7.0,6.0,3.0,0.0,2.0,2.0,5.0,7.0,16.0,3.0,8.0,1.0,1.0,-3.0,espn_api
+401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4684272,Ja'Kobe Walter,G,True,False,38.0,18.0,7.0,6.0,2.0,0.0,2.0,2.0,5.0,7.0,16.0,3.0,8.0,1.0,1.0,-3.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,2993874,Kyle Anderson,F,False,False,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,-1.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,4431684,Trayce Jackson-Davis,F,False,False,17.0,3.0,7.0,1.0,1.0,1.0,0.0,2.0,5.0,1.0,5.0,0.0,0.0,1.0,2.0,-1.0,espn_api
 401910012,2026,2026-11-18,Raptors,Toronto,TOR,home,5149115,Allen Graves,F,False,False,31.0,9.0,4.0,0.0,0.0,1.0,0.0,1.0,3.0,4.0,7.0,1.0,3.0,0.0,0.0,-2.0,espn_api
