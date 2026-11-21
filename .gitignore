@@ -12,3 +12,7 @@ __pycache__/
 data/warehouse/
 data/raw/pbp/
 data/simulation/cache/
+
+# Rebuildable game matchup experiments; keep only the compact evidence report.
+data/research/game_box_matchups/processed/
+models/candidates/

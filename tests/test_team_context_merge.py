@@ -1,10 +1,30 @@
 import unittest
 import pandas as pd
+from unittest.mock import patch
+import merge_data
 
 from merge_data import attach_team_game_context
 
 
 class TestTeamContextMerge(unittest.TestCase):
+    def test_odds_provider_id_does_not_replace_canonical_game_id(self):
+        games = pd.DataFrame([{"game_id": "espn-1", "season": 2026,
+            "game_date": pd.Timestamp("2026-11-01"), "home_team": "Boston Celtics",
+            "away_team": "Atlanta Hawks", "home_pts": 110, "away_pts": 100}])
+        odds = pd.DataFrame([{"game_id": "odds-1", "game_date": pd.Timestamp("2026-11-01"),
+            "home_team": "Boston Celtics", "away_team": "Atlanta Hawks", "avg_total_point": 220.5}])
+        with patch.object(merge_data, "load_game_logs", return_value=games), \
+             patch.object(merge_data, "load_odds", return_value=odds), \
+             patch.object(merge_data, "load_team_game_context", return_value=pd.DataFrame()), \
+             patch.object(merge_data, "load_team_stats", return_value=pd.DataFrame()), \
+             patch.object(merge_data, "team_availability_table", return_value=pd.DataFrame(
+                 columns=["game_id", "team", *merge_data.team_availability.VAC_COLS])), \
+             patch.object(merge_data, "q1_records_table", return_value=pd.DataFrame(
+                 columns=["game_id", "team", *merge_data.quarter_records.Q1_COLS])):
+            out = merge_data.process_year(2026)
+        self.assertEqual(out.iloc[0].game_id, "espn-1")
+        self.assertEqual(out.iloc[0].game_id_odds, "odds-1")
+
     def test_numeric_and_string_game_ids_merge(self):
         games=pd.DataFrame([
             {"game_id":123,"home_team":"A","away_team":"B","game_date":"2026-10-20"}

@@ -30,6 +30,7 @@ from prop_features import build_features as build_prop_features, VERSION as PROP
 from model_publication import artifact_id, model_family_id
 from slate_injuries import assess_injury_feed
 from qualification_audit import summarize_qualification
+from team_box_matchups import BOX_METRICS, live_matchup_features
 
 try:
     from totals_model import engineer_totals_features, TOTALS_FEATURES
@@ -255,6 +256,7 @@ def load_team_profiles_into_context(path=TEAM_PROFILE_PATH):
             "ts_pct": _float(r.get("ts_pct"), CURRENT_TEAM_STATS[team].get("ts_pct", 0.57)),
             "last_game_date": str(r.get("last_game_date", "")),
             "source": str(r.get("source", "COMPLETED_TEAM_BOX_SCORES")),
+            **{key: _float(r.get(key), float("nan")) for key in BOX_METRICS},
         }
         TEAM_ROLLING[team] = {
             "roll5": _float(r.get("roll5_net_rtg"), CURRENT_TEAM_STATS[team]["net_rtg"]),
@@ -819,6 +821,7 @@ def run_spread(home, away, ctx, bundle):
         "away_vac_minutes":  ctx.get("away_vac_minutes", 0.0),
     })
     try:
+        row.update(live_matchup_features(hs, as_, feats))
         X = pd.DataFrame([row])[feats]
         return round(float(model.predict(X)[0]), 1)
     except Exception as e:
@@ -865,6 +868,7 @@ def run_totals(home, away, ctx, bundle):
         "vac_minutes_sum": ctx.get("home_vac_minutes", 0.0) + ctx.get("away_vac_minutes", 0.0),
     })
     try:
+        row.update(live_matchup_features(hs, as_, feats))
         X = pd.DataFrame([row])[feats]
         pred = round(float(model.predict(X)[0]), 1)
         if not (180.0 <= pred <= 280.0):

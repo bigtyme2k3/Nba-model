@@ -34,7 +34,7 @@ from datetime import datetime
 # Sklearn
 from sklearn.linear_model import Ridge
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
-from sklearn.model_selection import TimeSeriesSplit, cross_val_score
+from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import mean_absolute_error
@@ -48,7 +48,7 @@ os.makedirs(MODEL_DIR, exist_ok=True)
 
 # ── Feature Definitions ───────────────────────────────────────────────────────
 
-SPREAD_FEATURES = [
+BASE_SPREAD_FEATURES = [
     # Rolling performance (form)
     "home_rolling_5g",          # Home team avg margin, last 5 games
     "away_rolling_5g",          # Away team avg margin, last 5 games
@@ -99,6 +99,13 @@ SPREAD_FEATURES = [
     "is_playoff",               # Playoff game flag (0/1)
 ]
 
+from team_box_matchups import (MATCHUP_FEATURES, VERSION, VALIDATION, add_matchup_features,
+    live_matchup_features, training_features, whole_date_splits, save_research_candidate,
+    MissingBoxContextError, validate_candidate_path)
+
+SPREAD_FEATURES = list(BASE_SPREAD_FEATURES)
+BOX_SPREAD_FEATURES = BASE_SPREAD_FEATURES + list(MATCHUP_FEATURES)
+
 # Target variable
 TARGET = "actual_spread"  # home_pts - away_pts; positive = home won by X
 
@@ -124,7 +131,7 @@ def load_and_prepare(path: str) -> pd.DataFrame:
 
     df = engineer_features(df)
 
-    feature_cols = [f for f in SPREAD_FEATURES if f in df.columns]
+    feature_cols = [f for f in BASE_SPREAD_FEATURES if f in df.columns]
     df = df.dropna(subset=feature_cols, thresh=len(feature_cols) // 2)
     print(f"  Rows after feature filtering: {len(df)}")
 
@@ -170,13 +177,13 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     if "month" in df.columns:
         df["is_playoff"] = df["month"].isin([4, 5, 6]).astype(int)
 
-    return df
+    return add_matchup_features(df)
 
 
-def get_feature_matrix(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.Series]:
+def get_feature_matrix(df: pd.DataFrame, include_box_matchups=False) -> tuple[pd.DataFrame, pd.Series]:
     """Return X (features) and y (target) with available columns only."""
-    available = [f for f in SPREAD_FEATURES if f in df.columns]
-    missing   = [f for f in SPREAD_FEATURES if f not in df.columns]
+    available = training_features(df, BASE_SPREAD_FEATURES, include_box_matchups)
+    missing   = [f for f in BASE_SPREAD_FEATURES if f not in df.columns]
 
     if missing:
         print(f"  [INFO] Features not in data (will be added when stats pipeline runs): {missing}")
@@ -226,10 +233,9 @@ def build_rf() -> Pipeline:
 def walk_forward_cv(model, X: pd.DataFrame, y: pd.Series,
                     dates: pd.Series, n_splits: int = 4) -> dict:
     """Time-series aware cross-validation. Trains on past seasons, tests on the next."""
-    tscv = TimeSeriesSplit(n_splits=n_splits)
     maes, ats_records = [], []
 
-    for fold, (train_idx, test_idx) in enumerate(tscv.split(X)):
+    for fold, (train_idx, test_idx) in enumerate(whole_date_splits(dates, n_splits)):
         X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
         y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
 
@@ -305,7 +311,7 @@ def feature_importance_report(model, feature_names: list) -> pd.DataFrame:
 def predict_game(model, feature_names: list,
                  home_team: str, away_team: str,
                  home_stats: dict, away_stats: dict,
-                 schedule_context: dict) -> dict:
+                 schedule_context: dict) -> dict | None:
     """
     Generate a spread prediction for a single upcoming game.
 
@@ -350,6 +356,11 @@ def predict_game(model, feature_names: list,
     row["month"]              = schedule_context.get("month", 11)
     row["is_playoff"]         = int(schedule_context.get("month", 11) in (4, 5, 6))
 
+    try:
+        row.update(live_matchup_features(home_stats, away_stats, feature_names))
+    except MissingBoxContextError as exc:
+        print(f"  [WARN] Skipped {away_team} @ {home_team}: {exc}")
+        return None
     X_pred = pd.DataFrame([row])[feature_names]
     pred_spread = model.predict(X_pred)[0]
 
@@ -364,13 +375,17 @@ def predict_game(model, feature_names: list,
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-def train_mode(data_path: str):
+def train_mode(data_path: str, include_box_matchups=False, candidate_out=None):
+    if include_box_matchups and not candidate_out:
+        raise ValueError("Box matchups require --candidate-out; evaluate them before promotion")
+    if candidate_out:
+        validate_candidate_path(candidate_out)
     print("\n═══ NBA SPREAD MODEL — TRAINING ═══\n")
 
     df = load_and_prepare(data_path)
     df = df.sort_values("game_date").reset_index(drop=True)
 
-    X, y, feature_names = get_feature_matrix(df)
+    X, y, feature_names = get_feature_matrix(df, include_box_matchups)
     print(f"\nFeatures used: {len(feature_names)}")
     print(f"Training samples: {len(X)}")
     print(f"Seasons: {sorted(df['season'].unique())}\n")
@@ -417,7 +432,9 @@ def train_mode(data_path: str):
     if not fi.empty:
         print(fi.head(15).to_string(index=False))
 
-        fi_path = os.path.join(MODEL_DIR, "feature_importance_spread.csv")
+        fi_path = (str(candidate_out) + ".importance.csv" if candidate_out
+                   else os.path.join(MODEL_DIR, "feature_importance_spread.csv"))
+        os.makedirs(os.path.dirname(fi_path) or ".", exist_ok=True)
         fi.to_csv(fi_path, index=False)
         print(f"\n  Saved → {fi_path}")
 
@@ -431,17 +448,21 @@ def train_mode(data_path: str):
             "trained_on":    datetime.now().isoformat(),
             "trained_rows":  int(len(df)),
             "trained_through": trained_through,
-            "validation":    "global_chronological_timeseries_split",
+            "validation":    VALIDATION,
             "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-            "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+            "feature_semantics_version": VERSION,
+            "box_matchups": bool(include_box_matchups),
             "availability_features": "ROTATION_ABSENCES_V1",
             "feature_names_count": int(len(feature_names)),
             "cv_results":    cv_results,
             "clv_results":   clv_results,
         }
-    publish_model_bundle(candidate_bundle, model_path, "spread")
+    if candidate_out:
+        save_research_candidate(candidate_bundle, candidate_out)
+    else:
+        publish_model_bundle(candidate_bundle, model_path, "spread")
 
-    print(f"\nActive model → {model_path} (see publication report)")
+    print(f"\nModel output → {candidate_out or model_path}")
     print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
 
     print("\n═══ TRAINING SUMMARY ═══")
@@ -501,6 +522,8 @@ def predict_mode(model_path: str = None):
             g["home_stats"], g["away_stats"], g["context"]
         )
         game_str = f"{g['away']} @ {g['home']}"
+        if result is None:
+            continue
         print(f"{game_str:<40} {result['pred_spread']:>+12.1f} {result['favored_team']:>24} {result['margin']:>5.1f}")
 
     print("\nNote: Positive spread = home team favored by that margin.")
@@ -514,9 +537,11 @@ if __name__ == "__main__":
     parser.add_argument("--mode", choices=["train", "predict"], default="train")
     parser.add_argument("--data", type=str, default="data/processed/master_all.csv")
     parser.add_argument("--model", type=str, default=None, help="Path to saved model (predict mode)")
+    parser.add_argument("--box-matchups", action="store_true", help="Research candidate with prior box-score matchups")
+    parser.add_argument("--candidate-out", help="Write an isolated research bundle; do not publish")
     args = parser.parse_args()
 
     if args.mode == "train":
-        train_mode(args.data)
+        train_mode(args.data, args.box_matchups, args.candidate_out)
     else:
         predict_mode(args.model)

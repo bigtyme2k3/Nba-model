@@ -13,7 +13,6 @@ from sklearn.linear_model import Ridge
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import TimeSeriesSplit
 from sklearn.metrics import mean_absolute_error
 warnings.filterwarnings("ignore")
 
@@ -21,7 +20,7 @@ MODEL_DIR = "models"
 os.makedirs(MODEL_DIR, exist_ok=True)
 TARGET = "actual_total"
 
-TOTALS_FEATURES = [
+BASE_TOTALS_FEATURES = [
     "avg_pace","home_pace","away_pace","pace_sum",
     "home_ortg","away_ortg","combined_ortg",
     "home_drtg","away_drtg","combined_drtg","def_mismatch",
@@ -37,6 +36,13 @@ TOTALS_FEATURES = [
     "home_vac_value","away_vac_value","home_vac_minutes","away_vac_minutes",
     "vac_value_sum","vac_minutes_sum",
 ]
+
+from team_box_matchups import (MATCHUP_FEATURES, VERSION, VALIDATION, add_matchup_features,
+    live_matchup_features, training_features, whole_date_splits, save_research_candidate,
+    MissingBoxContextError, validate_candidate_path)
+
+TOTALS_FEATURES = list(BASE_TOTALS_FEATURES)
+BOX_TOTALS_FEATURES = BASE_TOTALS_FEATURES + list(MATCHUP_FEATURES)
 
 def add_availability_totals(df):
     """Combined absences for the totals model (missing columns stay absent)."""
@@ -84,7 +90,7 @@ def engineer_totals_features(df):
     if "month" in df.columns:
         # NBA playoffs run April - June.
         df["is_playoff"] = df["month"].isin([4, 5, 6]).astype(int)
-    return add_availability_totals(df)
+    return add_matchup_features(add_availability_totals(df))
 
 def add_rolling_scoring(df, window=5):
     """Add strictly prior rolling scoring features without changing game cardinality."""
@@ -167,7 +173,11 @@ def add_rolling_scoring(df, window=5):
     )
     return df
 
-def train_totals_model(data_path):
+def train_totals_model(data_path, include_box_matchups=False, candidate_out=None):
+    if include_box_matchups and not candidate_out:
+        raise ValueError("Box matchups require --candidate-out; evaluate them before promotion")
+    if candidate_out:
+        validate_candidate_path(candidate_out)
     print("\n═══ NBA TOTALS MODEL — TRAINING ═══\n")
     df = pd.read_csv(data_path, parse_dates=["game_date"])
     df = df.sort_values(["season","game_date"]).reset_index(drop=True)
@@ -197,12 +207,11 @@ def train_totals_model(data_path):
         )
     df = df[df[TARGET].notna()].copy()
 
-    available = [f for f in TOTALS_FEATURES if f in df.columns]
+    available = training_features(df, BASE_TOTALS_FEATURES, include_box_matchups)
     X = df[available].fillna(0)
     y = df[TARGET]
     print(f"Features: {len(available)} | Games: {len(X)}\n")
 
-    tscv = TimeSeriesSplit(n_splits=4)
     models = {
         "Ridge":  Pipeline([("sc", StandardScaler()), ("m", Ridge(alpha=10.0))]),
         "HistGBR": Pipeline([("m", HistGradientBoostingRegressor(
@@ -213,7 +222,7 @@ def train_totals_model(data_path):
     cv_results = {}
     for name, model in models.items():
         maes, ous = [], []
-        for tr, te in tscv.split(X):
+        for tr, te in whole_date_splits(df["game_date"]):
             model.fit(X.iloc[tr], y.iloc[tr])
             preds = model.predict(X.iloc[te])
             maes.append(mean_absolute_error(y.iloc[te], preds))
@@ -257,14 +266,18 @@ def train_totals_model(data_path):
             "ou_results": ou_results,
             "trained_rows": int(len(df)),
             "trained_through": trained_through,
-            "validation": "global_chronological_timeseries_split",
+            "validation": VALIDATION,
             "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-            "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
+            "feature_semantics_version": VERSION,
+            "box_matchups": bool(include_box_matchups),
             "feature_names_count": int(len(available)),
             "availability_features": "ROTATION_ABSENCES_V1",
         }
-    publish_model_bundle(candidate_bundle, path, "totals")
-    print(f"\nActive model → {path} (see publication report)")
+    if candidate_out:
+        save_research_candidate(candidate_bundle, candidate_out)
+    else:
+        publish_model_bundle(candidate_bundle, path, "totals")
+    print(f"\nModel output → {candidate_out or path}")
     print(f"   Trained through: {trained_through} | Rows: {len(df):,}")
     print(f"\n═══ SUMMARY ═══")
     print(f"  Model: {best_name} | CV MAE: {cv_results[best_name]['mae']:.2f} pts")
@@ -302,6 +315,14 @@ def predict_totals(games, model_path="models/totals_model.pkl"):
             "month": g["ctx"].get("month",11), "is_playoff": 0,
             "season_game_num": g["ctx"].get("game_num",10),
         })
+        try:
+            row.update(live_matchup_features(hs, as_, feats))
+        except MissingBoxContextError as exc:
+            rows.append({"game": f"{g['away']} @ {g['home']}", "pred_total": None,
+                         "posted_total": g.get("posted_total"), "edge": None,
+                         "model_play": "N/A", "confidence": None,
+                         "status": "SKIPPED_MISSING_BOX_CONTEXT", "reason": str(exc)})
+            continue
         X = pd.DataFrame([row])[feats]
         pred = float(model.predict(X)[0])
         posted = g.get("posted_total")
@@ -317,6 +338,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["train","predict"], default="train")
     parser.add_argument("--data", default="data/processed/master_all.csv")
+    parser.add_argument("--box-matchups", action="store_true", help="Research candidate with prior box-score matchups")
+    parser.add_argument("--candidate-out", help="Write an isolated research bundle; do not publish")
     args = parser.parse_args()
     if args.mode == "train":
-        train_totals_model(args.data)
+        train_totals_model(args.data, args.box_matchups, args.candidate_out)

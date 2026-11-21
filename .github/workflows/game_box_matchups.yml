@@ -1,0 +1,49 @@
+name: NBA Game Box Matchup Research
+
+on:
+  workflow_dispatch:
+    inputs:
+      holdout_season:
+        description: 'Completed NBA season start year reserved for evaluation (2025 = 2025-26)'
+        required: true
+        default: '2025'
+
+permissions:
+  contents: read
+
+jobs:
+  ablation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Rebuild isolated features including existing availability baseline
+        run: |
+          OUT=data/research/game_box_matchups/processed
+          python build_team_features.py --out "$OUT"
+          cp data/processed/player_logs.csv "$OUT/player_logs.csv"
+          python merge_data.py --year all --out "$OUT"
+      - name: Compare groups using whole-date folds and a frozen season holdout
+        env:
+          HOLDOUT_SEASON: ${{ inputs.holdout_season }}
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: |
+          python research/game_box_matchups.py \
+            --data data/research/game_box_matchups/processed/master_all.csv \
+            --holdout-season "$HOLDOUT_SEASON" \
+            --out data/tracking/game_box_matchups_ablation.json
+      - name: Upload research evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-game-box-matchups
+          path: |
+            data/tracking/game_box_matchups_ablation.json
+            data/research/game_box_matchups/processed/team_features_status.json
+          if-no-files-found: error

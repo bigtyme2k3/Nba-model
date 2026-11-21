@@ -28,8 +28,8 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from spread_model import SPREAD_FEATURES, engineer_features as engineer_spread
-from totals_model import TOTALS_FEATURES, engineer_totals_features
+from spread_model import BASE_SPREAD_FEATURES as SPREAD_FEATURES, engineer_features as engineer_spread
+from totals_model import BASE_TOTALS_FEATURES as TOTALS_FEATURES, engineer_totals_features
 
 TEAM_CONTEXT_SPREAD = {
     "home_net_rtg","away_net_rtg","net_rtg_diff",
