@@ -200,12 +200,6 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-14,401909982,STATUS_FINAL,True,False,Miami Heat,Detroit Pistons,137,117,20,254,37.0,31.0,35.0,34.0,39.0,21.0,26.0,31.0,,,Kaseya Center,19658,2026-11-21T08:05:10.582903
 2026-11-14,401909983,STATUS_FINAL,True,False,Memphis Grizzlies,Brooklyn Nets,129,110,19,239,38.0,33.0,32.0,26.0,23.0,31.0,30.0,26.0,,,FedExForum,15103,2026-11-21T08:05:10.582911
 2026-11-14,401909984,STATUS_FINAL,True,False,Minnesota Timberwolves,Chicago Bulls,106,117,-11,223,17.0,28.0,35.0,26.0,29.0,29.0,30.0,29.0,,,Target Center,18054,2026-11-21T08:05:10.582921
-2026-11-21,401910023,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Milwaukee Bucks,0,0,0,0,,,,,,,,,PHI -11.5,228.5,Xfinity Mobile Arena,0,2026-11-21T14:17:38.473098
-2026-11-21,401910024,STATUS_SCHEDULED,False,False,New York Knicks,Portland Trail Blazers,0,0,0,0,,,,,,,,,NY -5.5,216.5,Madison Square Garden,0,2026-11-21T14:17:38.473113
-2026-11-21,401910025,STATUS_SCHEDULED,False,False,Dallas Mavericks,LA Clippers,0,0,0,0,,,,,,,,,DAL -5.5,230.5,American Airlines Center,0,2026-11-21T14:17:38.473121
-2026-11-21,401910026,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Memphis Grizzlies,0,0,0,0,,,,,,,,,MIN -6.5,227.5,Target Center,0,2026-11-21T14:17:38.473128
-2026-11-21,401910027,STATUS_SCHEDULED,False,False,San Antonio Spurs,New Orleans Pelicans,0,0,0,0,,,,,,,,,SA -17.5,228.5,Frost Bank Center,0,2026-11-21T14:17:38.473134
-2026-11-21,401910028,STATUS_SCHEDULED,False,False,Sacramento Kings,Boston Celtics,0,0,0,0,,,,,,,,,BOS -13.5,216.5,Golden 1 Center,0,2026-11-21T14:17:38.473141
 2026-11-04,401909922,STATUS_FINAL,True,False,Detroit Pistons,Philadelphia 76ers,106,112,-6,218,21.0,21.0,33.0,31.0,29.0,27.0,35.0,21.0,,,Little Caesars Arena,20198,2026-11-21T15:53:25.688682
 2026-11-04,401909923,STATUS_FINAL,True,False,Washington Wizards,Atlanta Hawks,105,120,-15,225,32.0,29.0,24.0,20.0,37.0,31.0,25.0,27.0,,,Capital One Arena,16974,2026-11-21T15:53:25.688705
 2026-11-04,401909924,STATUS_FINAL,True,False,Boston Celtics,Milwaukee Bucks,109,102,7,211,28.0,34.0,25.0,22.0,14.0,27.0,38.0,23.0,,,TD Garden,19156,2026-11-21T15:53:25.688718
@@ -268,3 +262,9 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-08,401909949,STATUS_FINAL,True,False,Milwaukee Bucks,Boston Celtics,97,117,-20,214,27.0,18.0,29.0,23.0,25.0,33.0,33.0,26.0,,,Fiserv Forum,13402,2026-11-21T17:57:47.534670
 2026-11-08,401909950,STATUS_FINAL,True,False,LA Clippers,New Orleans Pelicans,139,123,16,262,28.0,39.0,35.0,37.0,28.0,32.0,35.0,28.0,,,Intuit Dome,17927,2026-11-21T17:57:47.534681
 2026-11-08,401909951,STATUS_FINAL,True,False,Sacramento Kings,Miami Heat,108,114,-6,222,30.0,29.0,22.0,27.0,34.0,34.0,23.0,23.0,,,Golden 1 Center,13016,2026-11-21T17:57:47.534690
+2026-11-21,401910023,STATUS_IN_PROGRESS,False,True,Philadelphia 76ers,Milwaukee Bucks,77,73,4,150,29.0,31.0,17.0,,30.0,29.0,14.0,,,,Xfinity Mobile Arena,21043,2026-11-21T19:35:15.213268
+2026-11-21,401910024,STATUS_SCHEDULED,False,False,New York Knicks,Portland Trail Blazers,0,0,0,0,,,,,,,,,NY -3.5,215.5,Madison Square Garden,0,2026-11-21T19:35:15.213283
+2026-11-21,401910025,STATUS_SCHEDULED,False,False,Dallas Mavericks,LA Clippers,0,0,0,0,,,,,,,,,DAL -4.5,230.5,American Airlines Center,0,2026-11-21T19:35:15.213292
+2026-11-21,401910026,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Memphis Grizzlies,0,0,0,0,,,,,,,,,MIN -6.5,228.5,Target Center,0,2026-11-21T19:35:15.213299
+2026-11-21,401910027,STATUS_SCHEDULED,False,False,San Antonio Spurs,New Orleans Pelicans,0,0,0,0,,,,,,,,,SA -18.5,227.5,Frost Bank Center,0,2026-11-21T19:35:15.213306
+2026-11-21,401910028,STATUS_SCHEDULED,False,False,Sacramento Kings,Boston Celtics,0,0,0,0,,,,,,,,,BOS -13.5,217.5,Golden 1 Center,0,2026-11-21T19:35:15.213313

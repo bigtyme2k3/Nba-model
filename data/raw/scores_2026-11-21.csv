@@ -1,7 +1,7 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-21,401910023,STATUS_SCHEDULED,False,False,Philadelphia 76ers,Milwaukee Bucks,0,0,0,0,,,,,,,,,PHI -11.5,228.5,Xfinity Mobile Arena,0,2026-11-21T14:17:38.473098
-2026-11-21,401910024,STATUS_SCHEDULED,False,False,New York Knicks,Portland Trail Blazers,0,0,0,0,,,,,,,,,NY -5.5,216.5,Madison Square Garden,0,2026-11-21T14:17:38.473113
-2026-11-21,401910025,STATUS_SCHEDULED,False,False,Dallas Mavericks,LA Clippers,0,0,0,0,,,,,,,,,DAL -5.5,230.5,American Airlines Center,0,2026-11-21T14:17:38.473121
-2026-11-21,401910026,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Memphis Grizzlies,0,0,0,0,,,,,,,,,MIN -6.5,227.5,Target Center,0,2026-11-21T14:17:38.473128
-2026-11-21,401910027,STATUS_SCHEDULED,False,False,San Antonio Spurs,New Orleans Pelicans,0,0,0,0,,,,,,,,,SA -17.5,228.5,Frost Bank Center,0,2026-11-21T14:17:38.473134
-2026-11-21,401910028,STATUS_SCHEDULED,False,False,Sacramento Kings,Boston Celtics,0,0,0,0,,,,,,,,,BOS -13.5,216.5,Golden 1 Center,0,2026-11-21T14:17:38.473141
+2026-11-21,401910023,STATUS_IN_PROGRESS,False,True,Philadelphia 76ers,Milwaukee Bucks,77,73,4,150,29.0,31.0,17.0,,30.0,29.0,14.0,,,,Xfinity Mobile Arena,21043,2026-11-21T19:35:15.213268
+2026-11-21,401910024,STATUS_SCHEDULED,False,False,New York Knicks,Portland Trail Blazers,0,0,0,0,,,,,,,,,NY -3.5,215.5,Madison Square Garden,0,2026-11-21T19:35:15.213283
+2026-11-21,401910025,STATUS_SCHEDULED,False,False,Dallas Mavericks,LA Clippers,0,0,0,0,,,,,,,,,DAL -4.5,230.5,American Airlines Center,0,2026-11-21T19:35:15.213292
+2026-11-21,401910026,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Memphis Grizzlies,0,0,0,0,,,,,,,,,MIN -6.5,228.5,Target Center,0,2026-11-21T19:35:15.213299
+2026-11-21,401910027,STATUS_SCHEDULED,False,False,San Antonio Spurs,New Orleans Pelicans,0,0,0,0,,,,,,,,,SA -18.5,227.5,Frost Bank Center,0,2026-11-21T19:35:15.213306
+2026-11-21,401910028,STATUS_SCHEDULED,False,False,Sacramento Kings,Boston Celtics,0,0,0,0,,,,,,,,,BOS -13.5,217.5,Golden 1 Center,0,2026-11-21T19:35:15.213313
