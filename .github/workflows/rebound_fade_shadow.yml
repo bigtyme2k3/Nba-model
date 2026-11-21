@@ -1,0 +1,37 @@
+name: NBA Rebound Fade Shadow Research
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Research only; after overnight reconciliation and morning data collection.
+    - cron: '30 16 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nba-rebound-fade-shadow
+  cancel-in-progress: false
+
+jobs:
+  shadow-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify independent shadow audit
+        run: python -m unittest tests.test_rebound_fade_shadow -v
+      - name: Rebuild observation-only ledger from recorded pregame evidence
+        run: python research/rebound_fade_shadow.py --out artifacts/rebound_fade_shadow
+      - name: Upload research artifact (never publish to production)
+        uses: actions/upload-artifact@v4
+        with:
+          name: rebound-fade-shadow-${{ github.run_number }}
+          path: |
+            artifacts/rebound_fade_shadow/summary.json
+            artifacts/rebound_fade_shadow/ledger.csv
+            artifacts/rebound_fade_shadow/REPORT.md
+          retention-days: 30
