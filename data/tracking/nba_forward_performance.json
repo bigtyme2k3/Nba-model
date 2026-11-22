@@ -1,11 +1,11 @@
 {
-  "generated_at_utc": "2026-11-22T08:05:19.226520+00:00",
+  "generated_at_utc": "2026-11-22T14:18:01.362553+00:00",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "ledger_rows": 9893,
+  "ledger_rows": 10229,
   "certified_rows": 5730,
   "bet_rows": 117,
   "excluded_unpriced_bets": 40,
-  "pending_rows": 297,
+  "pending_rows": 633,
   "void_rows": 69,
   "wins": 60,
   "losses": 57,
@@ -391,8 +391,8 @@
     }
   },
   "policy": "ONLY_FORWARD_ROWS_WITH_DECISION_BET_COUNT; ROI_USES_RECORDED_BOOK_PRICE; PROBABILITY_CALIBRATION_USES_FORWARD_WIN_LOSS_ROWS_ONLY; EXACT_BOOK_SIDE_QUOTES_ONLY; LEGACY_CONSENSUS_GAME_ROWS_EXCLUDED; PROP_PERFORMANCE_IS_SPLIT_BY_EXACT_SPORTSBOOK_AND_STAT",
-  "target_date": "2026-10-28",
+  "target_date": "2026-11-21",
   "newly_resolved": 0,
-  "score_games_available": 12,
-  "player_actuals_available": 320
+  "score_games_available": 6,
+  "player_actuals_available": 150
 }

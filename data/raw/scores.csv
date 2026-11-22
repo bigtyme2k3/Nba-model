@@ -268,3 +268,10 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-28,401909890,STATUS_FINAL,True,False,Utah Jazz,San Antonio Spurs,111,117,-6,228,32.0,23.0,30.0,20.0,22.0,29.0,34.0,20.0,,,Delta Center,17867,2026-11-22T08:05:16.288506
 2026-10-28,401909891,STATUS_FINAL,True,False,Dallas Mavericks,Oklahoma City Thunder,120,96,24,216,33.0,32.0,29.0,26.0,30.0,29.0,22.0,15.0,,,American Airlines Center,18111,2026-11-22T08:05:16.288517
 2026-10-28,401909892,STATUS_FINAL,True,False,LA Clippers,Los Angeles Lakers,87,103,-16,190,22.0,16.0,28.0,21.0,25.0,31.0,29.0,18.0,,,Intuit Dome,17927,2026-11-22T08:05:16.288528
+2026-11-22,401910029,STATUS_SCHEDULED,False,False,Atlanta Hawks,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,224.5,State Farm Arena,0,2026-11-22T14:17:14.140642
+2026-11-22,401910030,STATUS_SCHEDULED,False,False,Miami Heat,Oklahoma City Thunder,0,0,0,0,,,,,,,,,MIA -3.5,231.5,Kaseya Center,0,2026-11-22T14:17:14.140658
+2026-11-22,401910031,STATUS_SCHEDULED,False,False,Washington Wizards,Orlando Magic,0,0,0,0,,,,,,,,,ORL -4.5,220.5,Capital One Arena,0,2026-11-22T14:17:14.140669
+2026-11-22,401910032,STATUS_SCHEDULED,False,False,Chicago Bulls,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -8.5,237.5,United Center,0,2026-11-22T14:17:14.140680
+2026-11-22,401910033,STATUS_SCHEDULED,False,False,Utah Jazz,Dallas Mavericks,0,0,0,0,,,,,,,,,DAL -1.5,225.5,Delta Center,0,2026-11-22T14:17:14.140689
+2026-11-22,401910034,STATUS_SCHEDULED,False,False,New York Knicks,Indiana Pacers,0,0,0,0,,,,,,,,,NY -8.5,214.5,Madison Square Garden,0,2026-11-22T14:17:14.140698
+2026-11-22,401910035,STATUS_SCHEDULED,False,False,Golden State Warriors,Boston Celtics,0,0,0,0,,,,,,,,,BOS -8.5,210.5,Chase Center,0,2026-11-22T14:17:14.140707

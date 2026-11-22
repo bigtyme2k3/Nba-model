@@ -1,0 +1,8 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-22,401910029,STATUS_SCHEDULED,False,False,Atlanta Hawks,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,224.5,State Farm Arena,0,2026-11-22T14:17:14.140642
+2026-11-22,401910030,STATUS_SCHEDULED,False,False,Miami Heat,Oklahoma City Thunder,0,0,0,0,,,,,,,,,MIA -3.5,231.5,Kaseya Center,0,2026-11-22T14:17:14.140658
+2026-11-22,401910031,STATUS_SCHEDULED,False,False,Washington Wizards,Orlando Magic,0,0,0,0,,,,,,,,,ORL -4.5,220.5,Capital One Arena,0,2026-11-22T14:17:14.140669
+2026-11-22,401910032,STATUS_SCHEDULED,False,False,Chicago Bulls,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -8.5,237.5,United Center,0,2026-11-22T14:17:14.140680
+2026-11-22,401910033,STATUS_SCHEDULED,False,False,Utah Jazz,Dallas Mavericks,0,0,0,0,,,,,,,,,DAL -1.5,225.5,Delta Center,0,2026-11-22T14:17:14.140689
+2026-11-22,401910034,STATUS_SCHEDULED,False,False,New York Knicks,Indiana Pacers,0,0,0,0,,,,,,,,,NY -8.5,214.5,Madison Square Garden,0,2026-11-22T14:17:14.140698
+2026-11-22,401910035,STATUS_SCHEDULED,False,False,Golden State Warriors,Boston Celtics,0,0,0,0,,,,,,,,,BOS -8.5,210.5,Chase Center,0,2026-11-22T14:17:14.140707
