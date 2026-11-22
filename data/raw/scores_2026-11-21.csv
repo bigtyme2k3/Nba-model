@@ -1,7 +1,7 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-21,401910023,STATUS_FINAL,True,False,Philadelphia 76ers,Milwaukee Bucks,132,129,3,261,29.0,31.0,38.0,34.0,30.0,29.0,33.0,37.0,,,Xfinity Mobile Arena,21043,2026-11-22T08:05:03.175859
-2026-11-21,401910024,STATUS_FINAL,True,False,New York Knicks,Portland Trail Blazers,97,96,1,193,40.0,26.0,15.0,16.0,23.0,20.0,29.0,24.0,,,Madison Square Garden,19812,2026-11-22T08:05:03.175877
-2026-11-21,401910025,STATUS_FINAL,True,False,Dallas Mavericks,LA Clippers,110,100,10,210,23.0,29.0,26.0,32.0,26.0,18.0,30.0,26.0,,,American Airlines Center,19888,2026-11-22T08:05:03.175889
-2026-11-21,401910026,STATUS_FINAL,True,False,Minnesota Timberwolves,Memphis Grizzlies,104,95,9,199,28.0,28.0,27.0,21.0,34.0,12.0,16.0,33.0,,,Target Center,0,2026-11-22T08:05:03.175899
-2026-11-21,401910027,STATUS_FINAL,True,False,San Antonio Spurs,New Orleans Pelicans,114,91,23,205,32.0,29.0,28.0,25.0,29.0,16.0,21.0,25.0,,,Frost Bank Center,18708,2026-11-22T08:05:03.175910
-2026-11-21,401910028,STATUS_FINAL,True,False,Sacramento Kings,Boston Celtics,97,96,1,193,25.0,16.0,35.0,21.0,27.0,27.0,13.0,29.0,,,Golden 1 Center,15416,2026-11-22T08:05:03.175920
+2026-11-21,401910023,STATUS_FINAL,True,False,Philadelphia 76ers,Milwaukee Bucks,132,129,3,261,29.0,31.0,38.0,34.0,30.0,29.0,33.0,37.0,,,Xfinity Mobile Arena,21043,2026-11-22T15:52:59.528619
+2026-11-21,401910024,STATUS_FINAL,True,False,New York Knicks,Portland Trail Blazers,97,96,1,193,40.0,26.0,15.0,16.0,23.0,20.0,29.0,24.0,,,Madison Square Garden,19812,2026-11-22T15:52:59.528638
+2026-11-21,401910025,STATUS_FINAL,True,False,Dallas Mavericks,LA Clippers,110,100,10,210,23.0,29.0,26.0,32.0,26.0,18.0,30.0,26.0,,,American Airlines Center,19888,2026-11-22T15:52:59.528651
+2026-11-21,401910026,STATUS_FINAL,True,False,Minnesota Timberwolves,Memphis Grizzlies,104,95,9,199,28.0,28.0,27.0,21.0,34.0,12.0,16.0,33.0,,,Target Center,0,2026-11-22T15:52:59.528661
+2026-11-21,401910027,STATUS_FINAL,True,False,San Antonio Spurs,New Orleans Pelicans,114,91,23,205,32.0,29.0,28.0,25.0,29.0,16.0,21.0,25.0,,,Frost Bank Center,18708,2026-11-22T15:52:59.528671
+2026-11-21,401910028,STATUS_FINAL,True,False,Sacramento Kings,Boston Celtics,97,96,1,193,25.0,16.0,35.0,21.0,27.0,27.0,13.0,29.0,,,Golden 1 Center,15416,2026-11-22T15:52:59.528681

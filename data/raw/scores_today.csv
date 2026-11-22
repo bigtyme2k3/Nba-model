@@ -1,8 +1,7 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-22,401910029,STATUS_SCHEDULED,False,False,Atlanta Hawks,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,224.5,State Farm Arena,0,2026-11-22T14:17:14.140642
-2026-11-22,401910030,STATUS_SCHEDULED,False,False,Miami Heat,Oklahoma City Thunder,0,0,0,0,,,,,,,,,MIA -3.5,231.5,Kaseya Center,0,2026-11-22T14:17:14.140658
-2026-11-22,401910031,STATUS_SCHEDULED,False,False,Washington Wizards,Orlando Magic,0,0,0,0,,,,,,,,,ORL -4.5,220.5,Capital One Arena,0,2026-11-22T14:17:14.140669
-2026-11-22,401910032,STATUS_SCHEDULED,False,False,Chicago Bulls,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -8.5,237.5,United Center,0,2026-11-22T14:17:14.140680
-2026-11-22,401910033,STATUS_SCHEDULED,False,False,Utah Jazz,Dallas Mavericks,0,0,0,0,,,,,,,,,DAL -1.5,225.5,Delta Center,0,2026-11-22T14:17:14.140689
-2026-11-22,401910034,STATUS_SCHEDULED,False,False,New York Knicks,Indiana Pacers,0,0,0,0,,,,,,,,,NY -8.5,214.5,Madison Square Garden,0,2026-11-22T14:17:14.140698
-2026-11-22,401910035,STATUS_SCHEDULED,False,False,Golden State Warriors,Boston Celtics,0,0,0,0,,,,,,,,,BOS -8.5,210.5,Chase Center,0,2026-11-22T14:17:14.140707
+2026-11-10,401909960,STATUS_FINAL,True,False,New York Knicks,Milwaukee Bucks,117,85,32,202,26.0,32.0,27.0,32.0,21.0,13.0,38.0,13.0,,,Madison Square Garden,19812,2026-11-22T15:53:12.004387
+2026-11-10,401909961,STATUS_FINAL,True,False,Philadelphia 76ers,Boston Celtics,101,123,-22,224,23.0,28.0,31.0,19.0,30.0,32.0,29.0,32.0,,,Xfinity Mobile Arena,21497,2026-11-22T15:53:12.004407
+2026-11-10,401909962,STATUS_FINAL,True,False,Phoenix Suns,LA Clippers,133,110,23,243,29.0,35.0,35.0,34.0,18.0,29.0,25.0,38.0,,,Mortgage Matchup Center,17071,2026-11-22T15:53:12.004420
+2026-11-10,401909963,STATUS_FINAL,True,False,Utah Jazz,Miami Heat,109,115,-6,224,25.0,29.0,18.0,37.0,29.0,35.0,28.0,23.0,,,Delta Center,17867,2026-11-22T15:53:12.004432
+2026-11-10,401909964,STATUS_FINAL,True,False,Sacramento Kings,Orlando Magic,100,107,-7,207,27.0,25.0,24.0,24.0,34.0,23.0,27.0,23.0,,,Golden 1 Center,13573,2026-11-22T15:53:12.004444
+2026-11-10,401909965,STATUS_FINAL,True,False,Portland Trail Blazers,Oklahoma City Thunder,123,103,20,226,26.0,33.0,38.0,26.0,27.0,32.0,21.0,23.0,,,Moda Center,19367,2026-11-22T15:53:12.004454
