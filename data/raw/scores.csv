@@ -225,13 +225,6 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-28,401909890,STATUS_FINAL,True,False,Utah Jazz,San Antonio Spurs,111,117,-6,228,32.0,23.0,30.0,20.0,22.0,29.0,34.0,20.0,,,Delta Center,17867,2026-11-22T08:05:16.288506
 2026-10-28,401909891,STATUS_FINAL,True,False,Dallas Mavericks,Oklahoma City Thunder,120,96,24,216,33.0,32.0,29.0,26.0,30.0,29.0,22.0,15.0,,,American Airlines Center,18111,2026-11-22T08:05:16.288517
 2026-10-28,401909892,STATUS_FINAL,True,False,LA Clippers,Los Angeles Lakers,87,103,-16,190,22.0,16.0,28.0,21.0,25.0,31.0,29.0,18.0,,,Intuit Dome,17927,2026-11-22T08:05:16.288528
-2026-11-22,401910029,STATUS_SCHEDULED,False,False,Atlanta Hawks,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,224.5,State Farm Arena,0,2026-11-22T14:17:14.140642
-2026-11-22,401910030,STATUS_SCHEDULED,False,False,Miami Heat,Oklahoma City Thunder,0,0,0,0,,,,,,,,,MIA -3.5,231.5,Kaseya Center,0,2026-11-22T14:17:14.140658
-2026-11-22,401910031,STATUS_SCHEDULED,False,False,Washington Wizards,Orlando Magic,0,0,0,0,,,,,,,,,ORL -4.5,220.5,Capital One Arena,0,2026-11-22T14:17:14.140669
-2026-11-22,401910032,STATUS_SCHEDULED,False,False,Chicago Bulls,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -8.5,237.5,United Center,0,2026-11-22T14:17:14.140680
-2026-11-22,401910033,STATUS_SCHEDULED,False,False,Utah Jazz,Dallas Mavericks,0,0,0,0,,,,,,,,,DAL -1.5,225.5,Delta Center,0,2026-11-22T14:17:14.140689
-2026-11-22,401910034,STATUS_SCHEDULED,False,False,New York Knicks,Indiana Pacers,0,0,0,0,,,,,,,,,NY -8.5,214.5,Madison Square Garden,0,2026-11-22T14:17:14.140698
-2026-11-22,401910035,STATUS_SCHEDULED,False,False,Golden State Warriors,Boston Celtics,0,0,0,0,,,,,,,,,BOS -8.5,210.5,Chase Center,0,2026-11-22T14:17:14.140707
 2026-10-29,401909893,STATUS_FINAL,True,False,Atlanta Hawks,Cleveland Cavaliers,114,111,3,225,16.0,30.0,43.0,25.0,28.0,16.0,38.0,29.0,,,State Farm Arena,15025,2026-11-22T15:53:03.738888
 2026-10-29,401909894,STATUS_FINAL,True,False,New Orleans Pelicans,Sacramento Kings,132,120,12,252,24.0,39.0,39.0,30.0,30.0,31.0,27.0,32.0,,,Smoothie King Center,15442,2026-11-22T15:53:03.738909
 2026-10-29,401909895,STATUS_FINAL,True,False,Portland Trail Blazers,Memphis Grizzlies,103,124,-21,227,25.0,33.0,25.0,20.0,25.0,33.0,33.0,33.0,,,Moda Center,19367,2026-11-22T15:53:03.738921
@@ -275,3 +268,10 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-10-30,401909284,STATUS_FINAL,True,False,Minnesota Timberwolves,LA Clippers,127,101,26,228,34.0,35.0,29.0,29.0,24.0,32.0,25.0,20.0,,,Target Center,17593,2026-11-22T18:29:16.330596
 2026-10-30,401909285,STATUS_FINAL,True,False,Golden State Warriors,Los Angeles Lakers,112,95,17,207,15.0,38.0,32.0,27.0,38.0,15.0,27.0,15.0,,,Chase Center,18064,2026-11-22T18:29:16.330604
 2026-10-30,401909286,STATUS_FINAL,True,False,Phoenix Suns,Denver Nuggets,120,127,-7,247,37.0,30.0,26.0,27.0,32.0,39.0,32.0,24.0,,,Mortgage Matchup Center,17071,2026-11-22T18:29:16.330611
+2026-11-22,401910029,STATUS_SCHEDULED,False,False,Atlanta Hawks,Detroit Pistons,0,0,0,0,,,,,,,,,DET -1.5,223.5,State Farm Arena,0,2026-11-22T19:55:16.010168
+2026-11-22,401910030,STATUS_SCHEDULED,False,False,Miami Heat,Oklahoma City Thunder,0,0,0,0,,,,,,,,,MIA -3.5,231.5,Kaseya Center,0,2026-11-22T19:55:16.010188
+2026-11-22,401910031,STATUS_SCHEDULED,False,False,Washington Wizards,Orlando Magic,0,0,0,0,,,,,,,,,ORL -4.5,220.5,Capital One Arena,0,2026-11-22T19:55:16.010202
+2026-11-22,401910032,STATUS_SCHEDULED,False,False,Chicago Bulls,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -9.5,235.5,United Center,0,2026-11-22T19:55:16.010213
+2026-11-22,401910033,STATUS_SCHEDULED,False,False,Utah Jazz,Dallas Mavericks,0,0,0,0,,,,,,,,,DAL -1.5,226.5,Delta Center,0,2026-11-22T19:55:16.010223
+2026-11-22,401910034,STATUS_SCHEDULED,False,False,New York Knicks,Indiana Pacers,0,0,0,0,,,,,,,,,NY -7.5,213.5,Madison Square Garden,0,2026-11-22T19:55:16.010234
+2026-11-22,401910035,STATUS_SCHEDULED,False,False,Golden State Warriors,Boston Celtics,0,0,0,0,,,,,,,,,BOS -8.5,210.5,Chase Center,0,2026-11-22T19:55:16.010244

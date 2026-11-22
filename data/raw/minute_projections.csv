@@ -1,38 +1,36 @@
 game_date,player,proj_min,adjusted
-2026-11-22,Kingston Flemings,0.0,True
 2026-11-22,Jock Landale,0.0,True
 2026-11-22,Asa Newell,0.0,True
 2026-11-22,CJ McCollum,0.0,True
 2026-11-22,Mouhamed Gueye,0.0,True
 2026-11-22,Henri Veesaar,0.0,True
-2026-11-22,Mitchell Robinson,0.0,True
-2026-11-22,Derrick White,0.0,True
-2026-11-22,Jayson Tatum,0.0,True
+2026-11-22,Derrick White,15.0,True
+2026-11-22,Mitchell Robinson,15.0,True
+2026-11-22,Jayson Tatum,15.0,True
 2026-11-22,Nolan Traore,15.0,True
 2026-11-22,Grant Nelson,15.0,True
 2026-11-22,Grant Williams,15.0,True
 2026-11-22,Grayson Allen,15.0,True
 2026-11-22,Kon Knueppel,0.0,True
 2026-11-22,Dennis Schroder,0.0,True
-2026-11-22,Patrick Williams,15.0,True
-2026-11-22,Norman Powell,15.0,True
+2026-11-22,Nic Claxton,15.0,True
 2026-11-22,Jalen Smith,15.0,True
-2026-11-22,Tobe Awaka,0.0,True
+2026-11-22,Norman Powell,0.0,True
+2026-11-22,Patrick Williams,15.0,True
 2026-11-22,Caleb Wilson,0.0,True
 2026-11-22,Jaylon Tyson,0.0,True
 2026-11-22,Nae'Qwan Tomlin,0.0,True
 2026-11-22,Evan Mobley,0.0,True
-2026-11-22,P.J. Washington,0.0,True
+2026-11-22,P.J. Washington,15.0,True
+2026-11-22,Walter Clayton Jr.,15.0,True
 2026-11-22,Tobi Lawal,0.0,True
 2026-11-22,Dereck Lively II,0.0,True
 2026-11-22,Sergio de Larrea,0.0,True
 2026-11-22,Tarik Biberovic,0.0,True
 2026-11-22,Julian Strawther,0.0,True
-2026-11-22,Ronald Holland II,0.0,True
 2026-11-22,Ebuka Okorie,0.0,True
 2026-11-22,Cade Cunningham,15.0,True
 2026-11-22,Taurean Prince,0.0,True
-2026-11-22,Ugonna Onyenso,15.0,True
 2026-11-22,Duncan Robinson,0.0,True
 2026-11-22,Jalen Duren,0.0,True
 2026-11-22,Brandon Williams,0.0,True
@@ -50,9 +48,9 @@ game_date,player,proj_min,adjusted
 2026-11-22,Bradley Beal,0.0,True
 2026-11-22,Jordan Miller,0.0,True
 2026-11-22,Austin Reaves,0.0,True
-2026-11-22,Jerami Grant,0.0,True
-2026-11-22,Javon Small,0.0,True
-2026-11-22,Cameron Boozer,0.0,True
+2026-11-22,Javon Small,15.0,True
+2026-11-22,Cameron Boozer,15.0,True
+2026-11-22,Jerami Grant,15.0,True
 2026-11-22,GG Jackson,0.0,True
 2026-11-22,Scotty Pippen Jr.,0.0,True
 2026-11-22,Richie Saunders,0.0,True
@@ -62,15 +60,15 @@ game_date,player,proj_min,adjusted
 2026-11-22,Jaylen Clark,0.0,True
 2026-11-22,Anthony Edwards,0.0,True
 2026-11-22,Donte DiVincenzo,0.0,True
-2026-11-22,Zion Williamson,0.0,True
-2026-11-22,Trey Murphy III,0.0,True
+2026-11-22,Zion Williamson,15.0,True
+2026-11-22,Trey Murphy III,15.0,True
 2026-11-22,Trendon Watford,0.0,True
 2026-11-22,Bryce McGowens,0.0,True
 2026-11-22,Bennedict Mathurin,0.0,True
 2026-11-22,Dejounte Murray,0.0,True
+2026-11-22,OG Anunoby,0.0,True
 2026-11-22,Karl-Anthony Towns,15.0,True
-2026-11-22,Jordan Clarkson,15.0,True
-2026-11-22,OG Anunoby,15.0,True
+2026-11-22,Jordan Clarkson,0.0,True
 2026-11-22,Shai Gilgeous-Alexander,15.0,True
 2026-11-22,Nikola Topic,0.0,True
 2026-11-22,Jaylin Williams,0.0,True
@@ -83,9 +81,9 @@ game_date,player,proj_min,adjusted
 2026-11-22,Izaiyah Nelson,0.0,True
 2026-11-22,Noah Penda,0.0,True
 2026-11-22,Paolo Banchero,0.0,True
-2026-11-22,Dean Wade,0.0,True
+2026-11-22,Dean Wade,15.0,True
+2026-11-22,Jaylen Brown,15.0,True
 2026-11-22,Adem Bona,0.0,True
-2026-11-22,Jaylen Brown,0.0,True
 2026-11-22,Ariel Hukporti,0.0,True
 2026-11-22,Ryan Dunn,15.0,True
 2026-11-22,Mark Williams,0.0,True
@@ -105,6 +103,8 @@ game_date,player,proj_min,adjusted
 2026-11-22,Jusuf Nurkic,0.0,True
 2026-11-22,Lauri Markkanen,0.0,True
 2026-11-22,Jaren Jackson Jr.,0.0,True
+2026-11-22,Bub Carrington,15.0,True
+2026-11-22,Deandre Ayton,15.0,True
 2026-11-22,Tristan Vukcevic,0.0,True
 2026-11-22,Reece Beekman,0.0,True
 2026-11-22,Justin Champagnie,0.0,True
