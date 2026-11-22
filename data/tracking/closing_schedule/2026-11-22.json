@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-22",
+  "generated_at_utc": "2026-11-22T22:33:31.005457+00:00",
+  "games": [
+    {
+      "event_id": "401910029",
+      "commence_time": "2026-11-22T20:30Z",
+      "game": "Detroit Pistons @ Atlanta Hawks",
+      "minutes_to_tip": -123.52,
+      "eligible": false
+    },
+    {
+      "event_id": "401910030",
+      "commence_time": "2026-11-22T23:00Z",
+      "game": "Oklahoma City Thunder @ Miami Heat",
+      "minutes_to_tip": 26.48,
+      "eligible": true
+    },
+    {
+      "event_id": "401910031",
+      "commence_time": "2026-11-23T00:00Z",
+      "game": "Orlando Magic @ Washington Wizards",
+      "minutes_to_tip": 86.48,
+      "eligible": false
+    },
+    {
+      "event_id": "401910032",
+      "commence_time": "2026-11-23T00:00Z",
+      "game": "Denver Nuggets @ Chicago Bulls",
+      "minutes_to_tip": 86.48,
+      "eligible": false
+    },
+    {
+      "event_id": "401910033",
+      "commence_time": "2026-11-23T00:00Z",
+      "game": "Dallas Mavericks @ Utah Jazz",
+      "minutes_to_tip": 86.48,
+      "eligible": false
+    },
+    {
+      "event_id": "401910034",
+      "commence_time": "2026-11-23T01:00Z",
+      "game": "Indiana Pacers @ New York Knicks",
+      "minutes_to_tip": 146.48,
+      "eligible": false
+    },
+    {
+      "event_id": "401910035",
+      "commence_time": "2026-11-23T01:30Z",
+      "game": "Boston Celtics @ Golden State Warriors",
+      "minutes_to_tip": 176.48,
+      "eligible": false
+    }
+  ]
+}
