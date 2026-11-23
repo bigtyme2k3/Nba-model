@@ -3,19 +3,6 @@
     "present": true,
     "status": "trained",
     "model_name": "Ridge (Baseline)",
-    "trained_through": "2026-11-16",
-    "trained_rows": 6764,
-    "validation": "global_chronological_timeseries_split",
-    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-    "feature_semantics_version": "NBA_GAME_FEATURES_V2_PRIOR_CONTEXT",
-    "feature_names_count": 34,
-    "mae": 11.115091076051304,
-    "directional_accuracy": 0.6551405325443787
-  },
-  "candidate": {
-    "present": true,
-    "status": "trained",
-    "model_name": "Ridge (Baseline)",
     "trained_through": "2026-11-20",
     "trained_rows": 6794,
     "validation": "expanding_whole_date_groups",
@@ -24,6 +11,19 @@
     "feature_names_count": 34,
     "mae": 11.233288558668871,
     "directional_accuracy": 0.6432305132352762
+  },
+  "candidate": {
+    "present": true,
+    "status": "trained",
+    "model_name": "Ridge (Baseline)",
+    "trained_through": "2026-11-22",
+    "trained_rows": 6807,
+    "validation": "expanding_whole_date_groups",
+    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+    "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
+    "feature_names_count": 34,
+    "mae": 11.214568866976062,
+    "directional_accuracy": 0.6420278706811505
   },
   "checks": {
     "candidate_present": true,
@@ -39,15 +39,15 @@
   },
   "promotable": true,
   "metric_comparison": {
-    "performed": false,
-    "reason": "VALIDATION_METHOD_CHANGED",
-    "champion_validation": "global_chronological_timeseries_split",
+    "performed": true,
+    "reason": "SAME_VALIDATION_METHOD",
+    "champion_validation": "expanding_whole_date_groups",
     "candidate_validation": "expanding_whole_date_groups"
   },
-  "mae_delta_candidate_minus_champion": null,
+  "mae_delta_candidate_minus_champion": -0.01872,
   "model": "spread",
-  "generated_at_utc": "2026-11-21T11:34:34.363665+00:00",
-  "prior_artifact_id": "34e9e43bcbf875af75d99286e1c22c2a9c38e83d2f4f1efa3ead7984da24bf41",
-  "trained_through": "2026-11-20",
-  "active_artifact_id": "d204a7686bb2a525abf6eac284f320e745437556bdad512937a8998dabb37a2e"
+  "generated_at_utc": "2026-11-23T14:24:09.204176+00:00",
+  "prior_artifact_id": "d204a7686bb2a525abf6eac284f320e745437556bdad512937a8998dabb37a2e",
+  "trained_through": "2026-11-22",
+  "active_artifact_id": "df1e387b49d1d027fd4f072f7f7ac2bcd9539ad01348d8647889b483f36cc470"
 }

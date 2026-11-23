@@ -1,6 +1,6 @@
 {
   "status": "READY",
-  "source_rows": 13632,
+  "source_rows": 13646,
   "teams": 30,
   "seasons": [
     2021,
@@ -11,13 +11,13 @@
     2026
   ],
   "min_game_date": "2021-10-19",
-  "max_game_date": "2026-11-21",
+  "max_game_date": "2026-11-22",
   "output": "data/processed/team_profiles_latest.csv",
   "game_context_output": "data/processed/team_game_context.csv",
-  "game_context_rows": 13632,
-  "pregame_context_rows_with_prior": 13602,
+  "game_context_rows": 13646,
+  "pregame_context_rows_with_prior": 13616,
   "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
   "box_rate_policy": "POOLED_PRIOR_10_GAMES; THREE_PCT_SHRUNK_TO_OLDER_HISTORY; TOV_PER_ESTIMATED_POSSESSION; FT_RATE_FTA_PER_FGA",
-  "box_context_rows_complete": 13602,
+  "box_context_rows_complete": 13616,
   "policy": "COMPLETED_GAMES_ONLY; HISTORICAL_CONTEXT_SHIFT_1_PRIOR_ONLY; ROLLING_CONTEXT_CONTINUES_ACROSS_SEASONS"
 }

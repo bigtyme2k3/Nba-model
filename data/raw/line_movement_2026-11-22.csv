@@ -1,0 +1,6 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Chicago Bulls,Denver Nuggets,8.88,237.5,9.62,237.5,0.7399999999999984,0.0,True,False
+Utah Jazz,Dallas Mavericks,0.12,225.38,2.5,226.25,2.38,0.8700000000000045,True,True
+Washington Wizards,Orlando Magic,4.88,220.5,4.5,219.88,-0.3799999999999999,-0.6200000000000045,False,True
+New York Knicks,Indiana Pacers,-8.5,214.75,-7.5,213.12,1.0,-1.6299999999999955,True,True
+Golden State Warriors,Boston Celtics,8.5,210.5,8.0,210.12,-0.5,-0.37999999999999545,True,False
