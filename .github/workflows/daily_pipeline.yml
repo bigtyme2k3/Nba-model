@@ -179,6 +179,7 @@ jobs:
           python -m v2.simulation.shadow grade
           python -m v2.compare
           python data_bets_report.py
+          python top10_calibration.py
           python game_predictions_report.py
           python consistency.py grade
         continue-on-error: true
