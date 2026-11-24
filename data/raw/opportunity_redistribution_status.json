@@ -1,9 +1,9 @@
 {
   "status": "READY",
   "target_date": "2026-11-23",
-  "generated_at_utc": "2026-11-23T22:52:18.359981+00:00",
+  "generated_at_utc": "2026-11-24T00:11:38.676560+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 102,
+  "injury_rows": 93,
   "slate_teams": [
     "Brooklyn Nets",
     "Charlotte Hornets",
@@ -26,12 +26,12 @@
     "Toronto Raptors",
     "Utah Jazz"
   ],
-  "teams_affected": 12,
-  "absences_modeled": 19,
-  "recipient_rows": 115,
+  "teams_affected": 13,
+  "absences_modeled": 20,
+  "recipient_rows": 125,
   "unallocated_minutes": 0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 172
+  "adjustment_rows": 174
 }

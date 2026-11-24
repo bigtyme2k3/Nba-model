@@ -1,7 +1,7 @@
 {
   "version": "NBA_V1.0",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "generated_at_utc": "2026-11-23T22:37:02.486602Z",
+  "generated_at_utc": "2026-11-24T00:12:26.333122Z",
   "data_model_healthy": true,
   "ready_for_forward_testing": true,
   "production_ready": false,
@@ -19,7 +19,7 @@
       "name": "spread",
       "status": "trained",
       "trained_through": "2026-11-22",
-      "trained_rows": 6807,
+      "trained_rows": 6803,
       "validation": "expanding_whole_date_groups",
       "markets": null,
       "model_name": "Ridge (Baseline)",
@@ -29,7 +29,7 @@
       "name": "totals",
       "status": "trained",
       "trained_through": "2026-11-22",
-      "trained_rows": 6807,
+      "trained_rows": 6803,
       "validation": "expanding_whole_date_groups",
       "markets": null,
       "model_name": "Ridge",
@@ -39,7 +39,7 @@
       "name": "props",
       "status": "trained",
       "trained_through": "2026-11-22",
-      "trained_rows": 145338,
+      "trained_rows": 145240,
       "validation": "expanding_date_groups_fold_imputation",
       "markets": [
         "ast",
@@ -56,7 +56,7 @@
     "player": {
       "status": "READY",
       "max_game_date": "2026-11-22",
-      "rows": 145338,
+      "rows": 145240,
       "seasons": [
         2021,
         2022,
@@ -83,9 +83,9 @@
   "forward_evidence": {
     "scope": "CURRENT_ALGORITHM_AND_FEATURE_FAMILIES_ONLY",
     "active_artifact_ids": {
-      "SPREAD": "df1e387b49d1d027fd4f072f7f7ac2bcd9539ad01348d8647889b483f36cc470",
-      "TOTAL": "6c46ac54325a8d7539a2e40d606b8422bcca919d0e86e95efee20933ca8e68be",
-      "PROP": "a606e61ac8163f4dad575120d5af3535069697b93baa2cb7e0f241472029e72e"
+      "SPREAD": "ef4582f416ed2a2880a9f076eadc15079b881addde8cc642180b0efd4fe926b9",
+      "TOTAL": "c72996686f49dc3820de5e7cfe20e2437c11981dcda90e3b905e149dfebd8c9e",
+      "PROP": "50740eff3b8234e824ee7bb4b3d8e89a121f6b8a3c503cc302838f90b542b615"
     },
     "active_family_ids": {
       "SPREAD": "b7fe2ea686494c1e3b79fc99973b95975a2a2fb21b3c1c4a81894b5da465be2c",

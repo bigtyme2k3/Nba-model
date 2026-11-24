@@ -3,19 +3,6 @@
     "present": true,
     "status": "trained",
     "model_name": "Ridge (Baseline)",
-    "trained_through": "2026-11-20",
-    "trained_rows": 6794,
-    "validation": "expanding_whole_date_groups",
-    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-    "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
-    "feature_names_count": 34,
-    "mae": 11.233288558668871,
-    "directional_accuracy": 0.6432305132352762
-  },
-  "candidate": {
-    "present": true,
-    "status": "trained",
-    "model_name": "Ridge (Baseline)",
     "trained_through": "2026-11-22",
     "trained_rows": 6807,
     "validation": "expanding_whole_date_groups",
@@ -24,6 +11,19 @@
     "feature_names_count": 34,
     "mae": 11.214568866976062,
     "directional_accuracy": 0.6420278706811505
+  },
+  "candidate": {
+    "present": true,
+    "status": "trained",
+    "model_name": "Ridge (Baseline)",
+    "trained_through": "2026-11-22",
+    "trained_rows": 6803,
+    "validation": "expanding_whole_date_groups",
+    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+    "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
+    "feature_names_count": 34,
+    "mae": 11.213465933053028,
+    "directional_accuracy": 0.6417778735405949
   },
   "checks": {
     "candidate_present": true,
@@ -44,10 +44,10 @@
     "champion_validation": "expanding_whole_date_groups",
     "candidate_validation": "expanding_whole_date_groups"
   },
-  "mae_delta_candidate_minus_champion": -0.01872,
+  "mae_delta_candidate_minus_champion": -0.0011,
   "model": "spread",
-  "generated_at_utc": "2026-11-23T14:24:09.204176+00:00",
-  "prior_artifact_id": "d204a7686bb2a525abf6eac284f320e745437556bdad512937a8998dabb37a2e",
+  "generated_at_utc": "2026-11-24T00:10:51.185552+00:00",
+  "prior_artifact_id": "df1e387b49d1d027fd4f072f7f7ac2bcd9539ad01348d8647889b483f36cc470",
   "trained_through": "2026-11-22",
-  "active_artifact_id": "df1e387b49d1d027fd4f072f7f7ac2bcd9539ad01348d8647889b483f36cc470"
+  "active_artifact_id": "ef4582f416ed2a2880a9f076eadc15079b881addde8cc642180b0efd4fe926b9"
 }

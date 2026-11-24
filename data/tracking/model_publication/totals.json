@@ -3,19 +3,6 @@
     "present": true,
     "status": "trained",
     "model_name": "Ridge",
-    "trained_through": "2026-11-20",
-    "trained_rows": 6794,
-    "validation": "expanding_whole_date_groups",
-    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
-    "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
-    "feature_names_count": 35,
-    "mae": 15.015255432901736,
-    "directional_accuracy": null
-  },
-  "candidate": {
-    "present": true,
-    "status": "trained",
-    "model_name": "Ridge",
     "trained_through": "2026-11-22",
     "trained_rows": 6807,
     "validation": "expanding_whole_date_groups",
@@ -23,6 +10,19 @@
     "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
     "feature_names_count": 35,
     "mae": 15.02759423706761,
+    "directional_accuracy": null
+  },
+  "candidate": {
+    "present": true,
+    "status": "trained",
+    "model_name": "Ridge",
+    "trained_through": "2026-11-22",
+    "trained_rows": 6803,
+    "validation": "expanding_whole_date_groups",
+    "team_context_policy": "BOTH_TEAMS_PRIOR_ONLY_REQUIRED",
+    "feature_semantics_version": "NBA_GAME_FEATURES_V3_FORM_PARITY",
+    "feature_names_count": 35,
+    "mae": 15.027207937033364,
     "directional_accuracy": null
   },
   "checks": {
@@ -43,10 +43,10 @@
     "champion_validation": "expanding_whole_date_groups",
     "candidate_validation": "expanding_whole_date_groups"
   },
-  "mae_delta_candidate_minus_champion": 0.01234,
+  "mae_delta_candidate_minus_champion": -0.00039,
   "model": "totals",
-  "generated_at_utc": "2026-11-23T14:24:11.320754+00:00",
-  "prior_artifact_id": "6dffae32e005b5624893f73a3d2b5dbfb0a07b0868785c47db377b762a57c716",
+  "generated_at_utc": "2026-11-24T00:10:53.441345+00:00",
+  "prior_artifact_id": "6c46ac54325a8d7539a2e40d606b8422bcca919d0e86e95efee20933ca8e68be",
   "trained_through": "2026-11-22",
-  "active_artifact_id": "6c46ac54325a8d7539a2e40d606b8422bcca919d0e86e95efee20933ca8e68be"
+  "active_artifact_id": "c72996686f49dc3820de5e7cfe20e2437c11981dcda90e3b905e149dfebd8c9e"
 }
