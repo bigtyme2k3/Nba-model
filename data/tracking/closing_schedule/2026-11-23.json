@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-23",
+  "generated_at_utc": "2026-11-24T00:06:56.149408+00:00",
+  "games": [
+    {
+      "event_id": "401910036",
+      "commence_time": "2026-11-24T00:00Z",
+      "game": "Memphis Grizzlies @ Charlotte Hornets",
+      "minutes_to_tip": -6.94,
+      "eligible": false
+    },
+    {
+      "event_id": "401910037",
+      "commence_time": "2026-11-24T00:00Z",
+      "game": "Portland Trail Blazers @ Philadelphia 76ers",
+      "minutes_to_tip": -6.94,
+      "eligible": false
+    },
+    {
+      "event_id": "401910038",
+      "commence_time": "2026-11-24T00:30Z",
+      "game": "Oklahoma City Thunder @ Indiana Pacers",
+      "minutes_to_tip": 23.06,
+      "eligible": true
+    },
+    {
+      "event_id": "401910039",
+      "commence_time": "2026-11-24T00:30Z",
+      "game": "Milwaukee Bucks @ Toronto Raptors",
+      "minutes_to_tip": 23.06,
+      "eligible": true
+    },
+    {
+      "event_id": "401910040",
+      "commence_time": "2026-11-24T00:30Z",
+      "game": "Brooklyn Nets @ Minnesota Timberwolves",
+      "minutes_to_tip": 23.06,
+      "eligible": true
+    },
+    {
+      "event_id": "401910041",
+      "commence_time": "2026-11-24T01:00Z",
+      "game": "Cleveland Cavaliers @ Chicago Bulls",
+      "minutes_to_tip": 53.06,
+      "eligible": false
+    },
+    {
+      "event_id": "401910042",
+      "commence_time": "2026-11-24T01:00Z",
+      "game": "Phoenix Suns @ New Orleans Pelicans",
+      "minutes_to_tip": 53.06,
+      "eligible": false
+    },
+    {
+      "event_id": "401910043",
+      "commence_time": "2026-11-24T01:30Z",
+      "game": "LA Clippers @ Houston Rockets",
+      "minutes_to_tip": 83.06,
+      "eligible": false
+    },
+    {
+      "event_id": "401910044",
+      "commence_time": "2026-11-24T03:00Z",
+      "game": "Utah Jazz @ Los Angeles Lakers",
+      "minutes_to_tip": 173.06,
+      "eligible": false
+    },
+    {
+      "event_id": "401910045",
+      "commence_time": "2026-11-24T03:00Z",
+      "game": "San Antonio Spurs @ Sacramento Kings",
+      "minutes_to_tip": 173.06,
+      "eligible": false
+    }
+  ]
+}

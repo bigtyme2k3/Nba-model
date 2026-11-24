@@ -1,13 +1,19 @@
 {
-  "status": "empty",
-  "date": "2026-11-22",
-  "input": "data/raw/sportsbook_props_closing_2026-11-22.csv",
-  "generated_at_utc": "2026-11-22T22:34:29.662199+00:00",
-  "candidate_rows": 0,
-  "new_rows": 0,
-  "books": [],
-  "players": 0,
-  "min_minutes_to_tip": null,
-  "max_minutes_to_tip": null,
-  "policy": "APPEND_ONLY_EXACT_BOOK_PROP_CLOSES"
+  "status": "READY",
+  "date": "2026-11-23",
+  "input": "data/raw/sportsbook_props_closing_2026-11-23.csv",
+  "generated_at_utc": "2026-11-24T00:13:31.470389+00:00",
+  "candidate_rows": 1752,
+  "new_rows": 1752,
+  "books": [
+    "draftkings",
+    "fanatics",
+    "fanduel",
+    "novig"
+  ],
+  "players": 29,
+  "min_minutes_to_tip": 2.901,
+  "max_minutes_to_tip": 2.903,
+  "policy": "APPEND_ONLY_EXACT_BOOK_PROP_CLOSES",
+  "ledger": "data/history/nba_prop_closing_snapshots.jsonl"
 }

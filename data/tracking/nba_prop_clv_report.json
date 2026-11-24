@@ -339,43 +339,41 @@
     },
     "2026-11-23": {
       "observed_games": 10,
-      "captured_games": 0,
+      "captured_games": 2,
       "missing_games": [
         "brooklyn nets @ minnesota timberwolves",
         "cleveland cavaliers @ chicago bulls",
         "la clippers @ houston rockets",
-        "memphis grizzlies @ charlotte hornets",
         "milwaukee bucks @ toronto raptors",
         "oklahoma city thunder @ indiana pacers",
         "phoenix suns @ new orleans pelicans",
-        "portland trail blazers @ philadelphia 76ers",
         "san antonio spurs @ sacramento kings",
         "utah jazz @ los angeles lakers"
       ]
     }
   },
-  "generated_at_utc": "2026-11-23T22:36:59.960635+00:00",
+  "generated_at_utc": "2026-11-24T00:13:34.504230+00:00",
   "date_filter": null,
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
-  "forward_prop_bets": 142,
-  "matched_closes": 2,
-  "match_rate": 0.0141,
-  "avg_line_clv": 1.0,
-  "positive_line_clv_rate": 0.5,
-  "same_line_price_rows": 1,
-  "avg_same_line_price_clv_probability": 0.05782,
-  "beat_close_rows": 2,
+  "forward_prop_bets": 145,
+  "matched_closes": 5,
+  "match_rate": 0.0345,
+  "avg_line_clv": 0.4,
+  "positive_line_clv_rate": 0.2,
+  "same_line_price_rows": 4,
+  "avg_same_line_price_clv_probability": 0.04516,
+  "beat_close_rows": 5,
   "beat_close_rate": 1.0,
   "by_sportsbook": {
     "draftkings": {
-      "entries": 86,
-      "matched_closes": 1,
-      "match_rate": 0.0116,
+      "entries": 87,
+      "matched_closes": 4,
+      "match_rate": 0.046,
       "avg_line_clv": 0.0,
       "positive_line_clv_rate": 0.0,
-      "same_line_price_rows": 1,
-      "avg_same_line_price_clv_probability": 0.05782,
-      "beat_close_rows": 1,
+      "same_line_price_rows": 4,
+      "avg_same_line_price_clv_probability": 0.04516,
+      "beat_close_rows": 4,
       "beat_close_rate": 1.0
     },
     "fanatics": {
@@ -390,9 +388,9 @@
       "beat_close_rate": null
     },
     "fanduel": {
-      "entries": 52,
+      "entries": 54,
       "matched_closes": 1,
-      "match_rate": 0.0192,
+      "match_rate": 0.0185,
       "avg_line_clv": 2.0,
       "positive_line_clv_rate": 1.0,
       "same_line_price_rows": 0,
@@ -403,15 +401,15 @@
   },
   "by_stat": {
     "AST": {
-      "entries": 36,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "entries": 37,
+      "matched_closes": 1,
+      "match_rate": 0.027,
+      "avg_line_clv": 0.0,
+      "positive_line_clv_rate": 0.0,
+      "same_line_price_rows": 1,
+      "avg_same_line_price_clv_probability": 0.07205,
+      "beat_close_rows": 1,
+      "beat_close_rate": 1.0
     },
     "PRA": {
       "entries": 9,
@@ -425,14 +423,14 @@
       "beat_close_rate": null
     },
     "PTS": {
-      "entries": 36,
-      "matched_closes": 1,
-      "match_rate": 0.0278,
-      "avg_line_clv": 2.0,
-      "positive_line_clv_rate": 1.0,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 1,
+      "entries": 38,
+      "matched_closes": 2,
+      "match_rate": 0.0526,
+      "avg_line_clv": 1.0,
+      "positive_line_clv_rate": 0.5,
+      "same_line_price_rows": 1,
+      "avg_same_line_price_clv_probability": 0.02291,
+      "beat_close_rows": 2,
       "beat_close_rate": 1.0
     },
     "REB": {
@@ -448,14 +446,14 @@
     },
     "THREES": {
       "entries": 26,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "matched_closes": 1,
+      "match_rate": 0.0385,
+      "avg_line_clv": 0.0,
+      "positive_line_clv_rate": 0.0,
+      "same_line_price_rows": 1,
+      "avg_same_line_price_clv_probability": 0.02785,
+      "beat_close_rows": 1,
+      "beat_close_rate": 1.0
     }
   },
   "by_model_artifact": {
@@ -470,6 +468,17 @@
       "beat_close_rows": 2,
       "beat_close_rate": 1.0
     },
+    "50740eff3b8234e824ee7bb4b3d8e89a121f6b8a3c503cc302838f90b542b615": {
+      "entries": 2,
+      "matched_closes": 0,
+      "match_rate": 0.0,
+      "avg_line_clv": null,
+      "positive_line_clv_rate": null,
+      "same_line_price_rows": 0,
+      "avg_same_line_price_clv_probability": null,
+      "beat_close_rows": 0,
+      "beat_close_rate": null
+    },
     "UNKNOWN": {
       "entries": 57,
       "matched_closes": 0,
@@ -482,27 +491,27 @@
       "beat_close_rate": null
     },
     "a606e61ac8163f4dad575120d5af3535069697b93baa2cb7e0f241472029e72e": {
-      "entries": 10,
-      "matched_closes": 0,
-      "match_rate": 0.0,
-      "avg_line_clv": null,
-      "positive_line_clv_rate": null,
-      "same_line_price_rows": 0,
-      "avg_same_line_price_clv_probability": null,
-      "beat_close_rows": 0,
-      "beat_close_rate": null
+      "entries": 11,
+      "matched_closes": 3,
+      "match_rate": 0.2727,
+      "avg_line_clv": 0.0,
+      "positive_line_clv_rate": 0.0,
+      "same_line_price_rows": 3,
+      "avg_same_line_price_clv_probability": 0.04094,
+      "beat_close_rows": 3,
+      "beat_close_rate": 1.0
     }
   },
   "by_model_family": {
     "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff": {
-      "entries": 85,
-      "matched_closes": 2,
-      "match_rate": 0.0235,
-      "avg_line_clv": 1.0,
-      "positive_line_clv_rate": 0.5,
-      "same_line_price_rows": 1,
-      "avg_same_line_price_clv_probability": 0.05782,
-      "beat_close_rows": 2,
+      "entries": 88,
+      "matched_closes": 5,
+      "match_rate": 0.0568,
+      "avg_line_clv": 0.4,
+      "positive_line_clv_rate": 0.2,
+      "same_line_price_rows": 4,
+      "avg_same_line_price_clv_probability": 0.04516,
+      "beat_close_rows": 5,
       "beat_close_rate": 1.0
     },
     "UNKNOWN": {
