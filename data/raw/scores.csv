@@ -228,9 +228,6 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-08,401909949,STATUS_FINAL,True,False,Milwaukee Bucks,Boston Celtics,97,117,-20,214,27.0,18.0,29.0,23.0,25.0,33.0,33.0,26.0,,,Fiserv Forum,13402,2026-11-24T08:05:13.993502
 2026-11-08,401909950,STATUS_FINAL,True,False,LA Clippers,New Orleans Pelicans,139,123,16,262,28.0,39.0,35.0,37.0,28.0,32.0,35.0,28.0,,,Intuit Dome,17927,2026-11-24T08:05:13.993514
 2026-11-08,401909951,STATUS_FINAL,True,False,Sacramento Kings,Miami Heat,108,114,-6,222,30.0,29.0,22.0,27.0,34.0,34.0,23.0,23.0,,,Golden 1 Center,13016,2026-11-24T08:05:13.993526
-2026-11-24,401909314,STATUS_SCHEDULED,False,False,Orlando Magic,Detroit Pistons,0,0,0,0,,,,,,,,,DET -2.5,213.5,Kia Center,0,2026-11-24T14:19:57.953814
-2026-11-24,401909315,STATUS_SCHEDULED,False,False,Washington Wizards,Boston Celtics,0,0,0,0,,,,,,,,,BOS -10.5,217.5,Capital One Arena,0,2026-11-24T14:19:57.953830
-2026-11-24,401909316,STATUS_SCHEDULED,False,False,Denver Nuggets,Dallas Mavericks,0,0,0,0,,,,,,,,,DEN -7.5,233.5,Ball Arena,0,2026-11-24T14:19:57.953839
 2026-11-13,401909296,STATUS_FINAL,True,False,Indiana Pacers,New York Knicks,106,104,2,210,26.0,32.0,27.0,21.0,27.0,22.0,35.0,20.0,,,Gainbridge Fieldhouse,17274,2026-11-24T19:18:09.589745
 2026-11-13,401909297,STATUS_FINAL,True,False,Orlando Magic,Milwaukee Bucks,107,99,8,206,23.0,29.0,32.0,23.0,15.0,22.0,35.0,27.0,,,Kia Center,19140,2026-11-24T19:18:09.589767
 2026-11-13,401909298,STATUS_FINAL,True,False,Miami Heat,Cleveland Cavaliers,133,121,12,254,29.0,25.0,38.0,41.0,27.0,30.0,34.0,30.0,,,Kaseya Center,19646,2026-11-24T19:18:09.589777
@@ -288,3 +285,6 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-10,401909963,STATUS_FINAL,True,False,Utah Jazz,Miami Heat,109,115,-6,224,25.0,29.0,18.0,37.0,29.0,35.0,28.0,23.0,,,Delta Center,17867,2026-11-24T21:09:08.905417
 2026-11-10,401909964,STATUS_FINAL,True,False,Sacramento Kings,Orlando Magic,100,107,-7,207,27.0,25.0,24.0,24.0,34.0,23.0,27.0,23.0,,,Golden 1 Center,13573,2026-11-24T21:09:08.905428
 2026-11-10,401909965,STATUS_FINAL,True,False,Portland Trail Blazers,Oklahoma City Thunder,123,103,20,226,26.0,33.0,38.0,26.0,27.0,32.0,21.0,23.0,,,Moda Center,19367,2026-11-24T21:09:08.905437
+2026-11-24,401909314,STATUS_SCHEDULED,False,False,Orlando Magic,Detroit Pistons,0,0,0,0,,,,,,,,,DET -2.5,212.5,Kia Center,0,2026-11-24T22:41:30.966090
+2026-11-24,401909315,STATUS_SCHEDULED,False,False,Washington Wizards,Boston Celtics,0,0,0,0,,,,,,,,,BOS -11.5,218.5,Capital One Arena,0,2026-11-24T22:41:30.966102
+2026-11-24,401909316,STATUS_SCHEDULED,False,False,Denver Nuggets,Dallas Mavericks,0,0,0,0,,,,,,,,,DEN -8.5,234.5,Ball Arena,0,2026-11-24T22:41:30.966108

@@ -1,9 +1,9 @@
 {
   "status": "READY",
   "target_date": "2026-11-24",
-  "generated_at_utc": "2026-11-24T14:20:28.996558+00:00",
+  "generated_at_utc": "2026-11-24T22:41:52.850434+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 92,
+  "injury_rows": 95,
   "slate_teams": [
     "Boston Celtics",
     "Dallas Mavericks",
@@ -19,5 +19,5 @@
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 36
+  "adjustment_rows": 37
 }
