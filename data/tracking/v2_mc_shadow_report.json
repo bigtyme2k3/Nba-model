@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-24T19:18:25.432673+00:00",
+  "generated_at_utc": "2026-11-24T21:09:20.232571+00:00",
   "policy": "SHADOW_ONLY",
   "strict_gate_rules": {
     "min_holdout_dates": 7,
@@ -98,23 +98,23 @@
           "over_rate": 0.49749779216956136
         },
         "v1": {
-          "slope": 0.006267539727496924,
+          "slope": 0.00626753972749691,
           "mean_over_prob": 0.5319280541654401,
           "over_rate": 0.49749779216956136,
-          "weight_on_top_of_market": -0.08911249680532736,
+          "weight_on_top_of_market": -0.08911249680532735,
           "mean_gap_vs_market": 0.03856791286429201,
           "abs_disagreement_vs_market": 0.10782914336178982
         },
         "mc_v1": {
-          "slope": 0.014680007609323066,
+          "slope": 0.014680007609323076,
           "mean_over_prob": 0.49075510744774803,
           "over_rate": 0.49749779216956136,
-          "weight_on_top_of_market": -0.12024878506159696,
+          "weight_on_top_of_market": -0.12024878506159695,
           "mean_gap_vs_market": -0.0026050338534000517,
           "abs_disagreement_vs_market": 0.0926122166617604
         },
         "mc_v2": {
-          "slope": 0.0100123756624032,
+          "slope": 0.010012375662403187,
           "mean_over_prob": 0.4862965263467765,
           "over_rate": 0.49749779216956136,
           "weight_on_top_of_market": -0.14340167238859183,
@@ -188,11 +188,11 @@
           "mc_v2": {
             "rows": 639,
             "brier": 0.2687803484037559,
-            "log_loss": 0.7352769634441512,
+            "log_loss": 0.7352769634441514,
             "mean_probability": 0.5271854460093898,
             "win_rate": 0.5039123630672926,
             "brier_minus_market": 0.018619822456964086,
-            "log_loss_minus_market": 0.041809326824092774
+            "log_loss_minus_market": 0.041809326824092996
           }
         },
         "PTS": {
@@ -235,7 +235,7 @@
           "market": {
             "rows": 735,
             "brier": 0.2465669128163265,
-            "log_loss": 0.6862333550363869,
+            "log_loss": 0.686233355036387,
             "mean_probability": 0.5169904761904762,
             "win_rate": 0.48707482993197276
           },
@@ -246,7 +246,7 @@
             "mean_probability": 0.5458054421768708,
             "win_rate": 0.48707482993197276,
             "brier_minus_market": 0.0267274760272109,
-            "log_loss_minus_market": 0.06673224249143217
+            "log_loss_minus_market": 0.06673224249143206
           },
           "mc_v1": {
             "rows": 735,
@@ -255,7 +255,7 @@
             "mean_probability": 0.5426863945578232,
             "win_rate": 0.48707482993197276,
             "brier_minus_market": 0.02271628926530614,
-            "log_loss_minus_market": 0.05691378940909664
+            "log_loss_minus_market": 0.05691378940909653
           },
           "mc_v2": {
             "rows": 735,
@@ -264,7 +264,7 @@
             "mean_probability": 0.5371375510204082,
             "win_rate": 0.48707482993197276,
             "brier_minus_market": 0.02137955065306127,
-            "log_loss_minus_market": 0.05093979475223398
+            "log_loss_minus_market": 0.05093979475223387
           }
         },
         "THREES": {
@@ -367,7 +367,7 @@
             "log_loss": 0.7328141879807951
           },
           "mc_v1": {
-            "log_loss": 0.7320352023779618
+            "log_loss": 0.7320352023779619
           },
           "mc_v2": {
             "log_loss": 0.7145755636970317
@@ -907,18 +907,18 @@
           "over_rate": 0.49749779216956136
         },
         "v1": {
-          "slope": 0.006267539727496924,
+          "slope": 0.00626753972749691,
           "mean_over_prob": 0.5319280541654401,
           "over_rate": 0.49749779216956136,
-          "weight_on_top_of_market": -0.08911249680532736,
+          "weight_on_top_of_market": -0.08911249680532735,
           "mean_gap_vs_market": 0.03856791286429201,
           "abs_disagreement_vs_market": 0.10782914336178982
         },
         "mc_v1": {
-          "slope": 0.014680007609323066,
+          "slope": 0.014680007609323076,
           "mean_over_prob": 0.49075510744774803,
           "over_rate": 0.49749779216956136,
-          "weight_on_top_of_market": -0.12024878506159696,
+          "weight_on_top_of_market": -0.12024878506159695,
           "mean_gap_vs_market": -0.0026050338534000517,
           "abs_disagreement_vs_market": 0.0926122166617604
         }
@@ -1009,7 +1009,7 @@
           "market": {
             "rows": 735,
             "brier": 0.2465669128163265,
-            "log_loss": 0.6862333550363869,
+            "log_loss": 0.686233355036387,
             "mean_probability": 0.5169904761904762,
             "win_rate": 0.48707482993197276
           },
@@ -1020,7 +1020,7 @@
             "mean_probability": 0.5458054421768708,
             "win_rate": 0.48707482993197276,
             "brier_minus_market": 0.0267274760272109,
-            "log_loss_minus_market": 0.06673224249143217
+            "log_loss_minus_market": 0.06673224249143206
           },
           "mc_v1": {
             "rows": 735,
@@ -1029,7 +1029,7 @@
             "mean_probability": 0.5426863945578232,
             "win_rate": 0.48707482993197276,
             "brier_minus_market": 0.02271628926530614,
-            "log_loss_minus_market": 0.05691378940909664
+            "log_loss_minus_market": 0.05691378940909653
           }
         },
         "THREES": {
@@ -1108,7 +1108,7 @@
             "log_loss": 0.7328141879807951
           },
           "mc_v1": {
-            "log_loss": 0.7320352023779618
+            "log_loss": 0.7320352023779619
           },
           "roi_mc_ev_ge_5pct": {
             "v1": {
@@ -1453,7 +1453,7 @@
       "rows": 440,
       "log_loss_market": 0.6945831436634136,
       "log_loss_v1": 0.762130691401936,
-      "log_loss_mc_v1": 0.7426264855959163,
+      "log_loss_mc_v1": 0.7426264855959164,
       "log_loss_mc_v2": 0.730446801980146
     },
     {
@@ -1476,7 +1476,7 @@
       "date": "2026-11-18 00:00:00",
       "rows": 669,
       "log_loss_market": 0.6897449046567785,
-      "log_loss_v1": 0.7347126497882149,
+      "log_loss_v1": 0.734712649788215,
       "log_loss_mc_v1": 0.7202033850857976,
       "log_loss_mc_v2": 0.7213792585796198
     },
@@ -1491,7 +1491,7 @@
     {
       "date": "2026-11-20 00:00:00",
       "rows": 485,
-      "log_loss_market": 0.6813055084452833,
+      "log_loss_market": 0.6813055084452834,
       "log_loss_v1": 0.7359607172598045,
       "log_loss_mc_v1": 0.7198320689127401,
       "log_loss_mc_v2": 0.7184181347093819
@@ -1509,7 +1509,7 @@
       "rows": 362,
       "log_loss_market": 0.689544635379718,
       "log_loss_v1": 0.7513759229240097,
-      "log_loss_mc_v1": 0.7480854244603138,
+      "log_loss_mc_v1": 0.7480854244603139,
       "log_loss_mc_v2": 0.7439446849142675
     },
     {
