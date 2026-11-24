@@ -1,11 +1,11 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-23,401910036,STATUS_FINAL,True,False,Charlotte Hornets,Memphis Grizzlies,111,117,-6,228,32.0,28.0,22.0,29.0,28.0,34.0,27.0,28.0,,,Spectrum Center,18018,2026-11-24T08:04:59.015633
-2026-11-23,401910037,STATUS_FINAL,True,False,Philadelphia 76ers,Portland Trail Blazers,111,128,-17,239,32.0,37.0,23.0,19.0,30.0,39.0,32.0,27.0,,,Xfinity Mobile Arena,21512,2026-11-24T08:04:59.015658
-2026-11-23,401910038,STATUS_FINAL,True,False,Indiana Pacers,Oklahoma City Thunder,125,120,5,245,27.0,29.0,40.0,29.0,27.0,24.0,40.0,29.0,,,Gainbridge Fieldhouse,17274,2026-11-24T08:04:59.015674
-2026-11-23,401910039,STATUS_FINAL,True,False,Toronto Raptors,Milwaukee Bucks,111,116,-5,227,28.0,25.0,27.0,31.0,28.0,21.0,36.0,31.0,,,Scotiabank Arena,18969,2026-11-24T08:04:59.015687
-2026-11-23,401910040,STATUS_FINAL,True,False,Minnesota Timberwolves,Brooklyn Nets,142,116,26,258,41.0,33.0,41.0,27.0,28.0,33.0,30.0,25.0,,,Target Center,18329,2026-11-24T08:04:59.015701
-2026-11-23,401910041,STATUS_FINAL,True,False,Chicago Bulls,Cleveland Cavaliers,122,108,14,230,27.0,45.0,21.0,29.0,30.0,20.0,39.0,19.0,,,United Center,20150,2026-11-24T08:04:59.015715
-2026-11-23,401910042,STATUS_FINAL,True,False,New Orleans Pelicans,Phoenix Suns,119,123,-4,242,35.0,19.0,29.0,26.0,31.0,25.0,23.0,30.0,,,Smoothie King Center,16875,2026-11-24T08:04:59.015728
-2026-11-23,401910043,STATUS_FINAL,True,False,Houston Rockets,LA Clippers,116,104,12,220,25.0,22.0,38.0,31.0,15.0,28.0,32.0,29.0,,,Toyota Center (Houston),18055,2026-11-24T08:04:59.015749
-2026-11-23,401910044,STATUS_FINAL,True,False,Los Angeles Lakers,Utah Jazz,109,94,15,203,30.0,23.0,25.0,31.0,20.0,22.0,35.0,17.0,,,crypto.com Arena,19057,2026-11-24T08:04:59.015762
-2026-11-23,401910045,STATUS_FINAL,True,False,Sacramento Kings,San Antonio Spurs,107,123,-16,230,28.0,23.0,23.0,33.0,19.0,41.0,32.0,31.0,,,Golden 1 Center,15301,2026-11-24T08:04:59.015775
+2026-11-23,401910036,STATUS_FINAL,True,False,Charlotte Hornets,Memphis Grizzlies,111,117,-6,228,32.0,28.0,22.0,29.0,28.0,34.0,27.0,28.0,,,Spectrum Center,18018,2026-11-24T19:18:06.306947
+2026-11-23,401910037,STATUS_FINAL,True,False,Philadelphia 76ers,Portland Trail Blazers,111,128,-17,239,32.0,37.0,23.0,19.0,30.0,39.0,32.0,27.0,,,Xfinity Mobile Arena,21512,2026-11-24T19:18:06.306960
+2026-11-23,401910038,STATUS_FINAL,True,False,Indiana Pacers,Oklahoma City Thunder,125,120,5,245,27.0,29.0,40.0,29.0,27.0,24.0,40.0,29.0,,,Gainbridge Fieldhouse,17274,2026-11-24T19:18:06.306967
+2026-11-23,401910039,STATUS_FINAL,True,False,Toronto Raptors,Milwaukee Bucks,111,116,-5,227,28.0,25.0,27.0,31.0,28.0,21.0,36.0,31.0,,,Scotiabank Arena,18969,2026-11-24T19:18:06.306972
+2026-11-23,401910040,STATUS_FINAL,True,False,Minnesota Timberwolves,Brooklyn Nets,142,116,26,258,41.0,33.0,41.0,27.0,28.0,33.0,30.0,25.0,,,Target Center,18329,2026-11-24T19:18:06.306978
+2026-11-23,401910041,STATUS_FINAL,True,False,Chicago Bulls,Cleveland Cavaliers,122,108,14,230,27.0,45.0,21.0,29.0,30.0,20.0,39.0,19.0,,,United Center,20150,2026-11-24T19:18:06.306983
+2026-11-23,401910042,STATUS_FINAL,True,False,New Orleans Pelicans,Phoenix Suns,119,123,-4,242,35.0,19.0,29.0,26.0,31.0,25.0,23.0,30.0,,,Smoothie King Center,16875,2026-11-24T19:18:06.306989
+2026-11-23,401910043,STATUS_FINAL,True,False,Houston Rockets,LA Clippers,116,104,12,220,25.0,22.0,38.0,31.0,15.0,28.0,32.0,29.0,,,Toyota Center (Houston),18055,2026-11-24T19:18:06.307001
+2026-11-23,401910044,STATUS_FINAL,True,False,Los Angeles Lakers,Utah Jazz,109,94,15,203,30.0,23.0,25.0,31.0,20.0,22.0,35.0,17.0,,,crypto.com Arena,19057,2026-11-24T19:18:06.307009
+2026-11-23,401910045,STATUS_FINAL,True,False,Sacramento Kings,San Antonio Spurs,107,123,-16,230,28.0,23.0,23.0,33.0,19.0,41.0,32.0,31.0,,,Golden 1 Center,15301,2026-11-24T19:18:06.307014
