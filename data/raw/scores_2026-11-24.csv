@@ -1,0 +1,4 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-24,401909314,STATUS_SCHEDULED,False,False,Orlando Magic,Detroit Pistons,0,0,0,0,,,,,,,,,DET -2.5,213.5,Kia Center,0,2026-11-24T14:19:57.953814
+2026-11-24,401909315,STATUS_SCHEDULED,False,False,Washington Wizards,Boston Celtics,0,0,0,0,,,,,,,,,BOS -10.5,217.5,Capital One Arena,0,2026-11-24T14:19:57.953830
+2026-11-24,401909316,STATUS_SCHEDULED,False,False,Denver Nuggets,Dallas Mavericks,0,0,0,0,,,,,,,,,DEN -7.5,233.5,Ball Arena,0,2026-11-24T14:19:57.953839

@@ -1,0 +1,3 @@
+home_team,away_team,spread_home_open,total_open,spread_home_close,total_close,spread_movement,total_movement,spread_moved,total_moved
+Los Angeles Lakers,Utah Jazz,-13.62,225.88,-13.25,225.12,0.3699999999999992,-0.7599999999999909,False,True
+Sacramento Kings,San Antonio Spurs,10.5,223.75,8.5,224.5,-2.0,0.75,True,True

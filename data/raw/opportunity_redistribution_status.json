@@ -1,21 +1,23 @@
 {
   "status": "READY",
-  "target_date": "2026-11-23",
-  "generated_at_utc": "2026-11-24T01:51:51.334232+00:00",
+  "target_date": "2026-11-24",
+  "generated_at_utc": "2026-11-24T14:20:28.996558+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 90,
+  "injury_rows": 92,
   "slate_teams": [
-    "Los Angeles Lakers",
-    "Sacramento Kings",
-    "San Antonio Spurs",
-    "Utah Jazz"
+    "Boston Celtics",
+    "Dallas Mavericks",
+    "Denver Nuggets",
+    "Detroit Pistons",
+    "Orlando Magic",
+    "Washington Wizards"
   ],
   "teams_affected": 2,
-  "absences_modeled": 4,
-  "recipient_rows": 18,
-  "unallocated_minutes": 0.0,
+  "absences_modeled": 3,
+  "recipient_rows": 20,
+  "unallocated_minutes": -0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 26
+  "adjustment_rows": 36
 }
