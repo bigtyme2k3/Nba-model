@@ -1,5 +1,6 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-01,401909903,STATUS_FINAL,True,False,Orlando Magic,Boston Celtics,97,108,-11,205,23.0,27.0,24.0,23.0,24.0,31.0,22.0,31.0,,,Kia Center,18236,2026-11-25T18:23:54.257971
-2026-11-01,401909904,STATUS_FINAL,True,False,Indiana Pacers,Brooklyn Nets,90,98,-8,188,19.0,21.0,22.0,28.0,20.0,23.0,28.0,27.0,,,Gainbridge Fieldhouse,17274,2026-11-25T18:23:54.257990
-2026-11-01,401909905,STATUS_FINAL,True,False,Golden State Warriors,LA Clippers,124,112,12,236,29.0,34.0,29.0,32.0,37.0,20.0,28.0,27.0,,,Chase Center,18064,2026-11-25T18:23:54.258003
-2026-11-01,401909906,STATUS_FINAL,True,False,Los Angeles Lakers,Toronto Raptors,131,125,6,256,36.0,30.0,38.0,27.0,23.0,31.0,28.0,43.0,,,crypto.com Arena,19057,2026-11-25T18:23:54.258013
+2026-11-14,401909980,STATUS_FINAL,True,False,New Orleans Pelicans,Denver Nuggets,108,116,-8,224,23.0,28.0,31.0,26.0,29.0,27.0,30.0,30.0,,,Smoothie King Center,15721,2026-11-25T20:27:52.518417
+2026-11-14,401909981,STATUS_FINAL,True,False,Cleveland Cavaliers,Dallas Mavericks,127,117,10,244,33.0,38.0,34.0,22.0,33.0,20.0,38.0,26.0,,,Rocket Arena,19432,2026-11-25T20:27:52.518430
+2026-11-14,401909982,STATUS_FINAL,True,False,Miami Heat,Detroit Pistons,137,117,20,254,37.0,31.0,35.0,34.0,39.0,21.0,26.0,31.0,,,Kaseya Center,19658,2026-11-25T20:27:52.518437
+2026-11-14,401909983,STATUS_FINAL,True,False,Memphis Grizzlies,Brooklyn Nets,129,110,19,239,38.0,33.0,32.0,26.0,23.0,31.0,30.0,26.0,,,FedExForum,15103,2026-11-25T20:27:52.518443
+2026-11-14,401909984,STATUS_FINAL,True,False,Minnesota Timberwolves,Chicago Bulls,106,117,-11,223,17.0,28.0,35.0,26.0,29.0,29.0,30.0,29.0,,,Target Center,18054,2026-11-25T20:27:52.518448
