@@ -1,4 +1,4 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-24,401909314,STATUS_FINAL,True,False,Orlando Magic,Detroit Pistons,86,104,-18,190,22.0,14.0,25.0,25.0,16.0,32.0,25.0,31.0,,,Kia Center,19352,2026-11-25T08:05:06.494016
-2026-11-24,401909315,STATUS_FINAL,True,False,Washington Wizards,Boston Celtics,116,131,-15,247,28.0,21.0,40.0,27.0,34.0,46.0,24.0,27.0,,,Capital One Arena,20028,2026-11-25T08:05:06.494037
-2026-11-24,401909316,STATUS_FINAL,True,False,Denver Nuggets,Dallas Mavericks,101,120,-19,221,17.0,22.0,38.0,24.0,24.0,34.0,26.0,36.0,,,Ball Arena,20023,2026-11-25T08:05:06.494050
+2026-11-24,401909314,STATUS_FINAL,True,False,Orlando Magic,Detroit Pistons,86,104,-18,190,22.0,14.0,25.0,25.0,16.0,32.0,25.0,31.0,,,Kia Center,19352,2026-11-25T18:23:40.968365
+2026-11-24,401909315,STATUS_FINAL,True,False,Washington Wizards,Boston Celtics,116,131,-15,247,28.0,21.0,40.0,27.0,34.0,46.0,24.0,27.0,,,Capital One Arena,20028,2026-11-25T18:23:40.968385
+2026-11-24,401909316,STATUS_FINAL,True,False,Denver Nuggets,Dallas Mavericks,101,120,-19,221,17.0,22.0,38.0,24.0,24.0,34.0,26.0,36.0,,,Ball Arena,20023,2026-11-25T18:23:40.968397
