@@ -1,23 +1,19 @@
 {
   "status": "READY",
   "target_date": "2026-11-24",
-  "generated_at_utc": "2026-11-24T22:52:34.205805+00:00",
+  "generated_at_utc": "2026-11-25T01:51:23.351594+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 95,
+  "injury_rows": 94,
   "slate_teams": [
-    "Boston Celtics",
     "Dallas Mavericks",
-    "Denver Nuggets",
-    "Detroit Pistons",
-    "Orlando Magic",
-    "Washington Wizards"
+    "Denver Nuggets"
   ],
-  "teams_affected": 2,
-  "absences_modeled": 3,
-  "recipient_rows": 20,
-  "unallocated_minutes": -0.0,
+  "teams_affected": 0,
+  "absences_modeled": 0,
+  "recipient_rows": 0,
+  "unallocated_minutes": 0.0,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 37
+  "adjustment_rows": 3
 }
