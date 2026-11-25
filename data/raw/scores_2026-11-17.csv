@@ -1,6 +1,6 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-17,401910002,STATUS_FINAL,True,False,Toronto Raptors,New York Knicks,102,111,-9,213,29.0,21.0,33.0,19.0,23.0,31.0,26.0,31.0,,,Scotiabank Arena,19800,2026-11-22T18:29:08.707538
-2026-11-17,401910003,STATUS_FINAL,True,False,Minnesota Timberwolves,Portland Trail Blazers,106,105,1,211,29.0,20.0,30.0,27.0,17.0,31.0,31.0,26.0,,,Target Center,18281,2026-11-22T18:29:08.707559
-2026-11-17,401910004,STATUS_FINAL,True,False,San Antonio Spurs,Detroit Pistons,93,105,-12,198,33.0,21.0,18.0,21.0,26.0,29.0,23.0,27.0,,,Frost Bank Center,18412,2026-11-22T18:29:08.707568
-2026-11-17,401910006,STATUS_FINAL,True,False,LA Clippers,Utah Jazz,107,132,-25,239,29.0,33.0,24.0,21.0,35.0,23.0,30.0,44.0,,,Intuit Dome,14716,2026-11-22T18:29:08.707577
-2026-11-17,401910005,STATUS_FINAL,True,False,Los Angeles Lakers,Charlotte Hornets,118,114,4,232,30.0,29.0,22.0,30.0,34.0,32.0,28.0,17.0,,,crypto.com Arena,19057,2026-11-22T18:29:08.707586
+2026-11-17,401910002,STATUS_FINAL,True,False,Toronto Raptors,New York Knicks,102,111,-9,213,29.0,21.0,33.0,19.0,23.0,31.0,26.0,31.0,,,Scotiabank Arena,19800,2026-11-25T08:05:15.127387
+2026-11-17,401910003,STATUS_FINAL,True,False,Minnesota Timberwolves,Portland Trail Blazers,106,105,1,211,29.0,20.0,30.0,27.0,17.0,31.0,31.0,26.0,,,Target Center,18281,2026-11-25T08:05:15.127407
+2026-11-17,401910004,STATUS_FINAL,True,False,San Antonio Spurs,Detroit Pistons,93,105,-12,198,33.0,21.0,18.0,21.0,26.0,29.0,23.0,27.0,,,Frost Bank Center,18412,2026-11-25T08:05:15.127420
+2026-11-17,401910006,STATUS_FINAL,True,False,LA Clippers,Utah Jazz,107,132,-25,239,29.0,33.0,24.0,21.0,35.0,23.0,30.0,44.0,,,Intuit Dome,14716,2026-11-25T08:05:15.127430
+2026-11-17,401910005,STATUS_FINAL,True,False,Los Angeles Lakers,Charlotte Hornets,118,114,4,232,30.0,29.0,22.0,30.0,34.0,32.0,28.0,17.0,,,crypto.com Arena,19057,2026-11-25T08:05:15.127442

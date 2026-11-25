@@ -1,4 +1,5 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-24,401909314,STATUS_SCHEDULED,False,False,Orlando Magic,Detroit Pistons,0,0,0,0,,,,,,,,,DET -2.5,212.5,Kia Center,0,2026-11-24T22:41:30.966090
-2026-11-24,401909315,STATUS_SCHEDULED,False,False,Washington Wizards,Boston Celtics,0,0,0,0,,,,,,,,,BOS -11.5,218.5,Capital One Arena,0,2026-11-24T22:41:30.966102
-2026-11-24,401909316,STATUS_SCHEDULED,False,False,Denver Nuggets,Dallas Mavericks,0,0,0,0,,,,,,,,,DEN -8.5,234.5,Ball Arena,0,2026-11-24T22:41:30.966108
+2026-11-19,401910019,STATUS_FINAL,True,False,Memphis Grizzlies,Golden State Warriors,126,98,28,224,31.0,24.0,37.0,34.0,24.0,23.0,26.0,25.0,,,FedExForum,15019,2026-11-25T08:05:19.716076
+2026-11-19,401910020,STATUS_FINAL,True,False,Milwaukee Bucks,Portland Trail Blazers,114,124,-10,238,21.0,37.0,34.0,22.0,24.0,36.0,36.0,28.0,,,Fiserv Forum,13545,2026-11-25T08:05:19.716096
+2026-11-19,401910021,STATUS_FINAL,True,False,Minnesota Timberwolves,New York Knicks,99,102,-3,201,26.0,24.0,28.0,21.0,33.0,32.0,25.0,12.0,,,Target Center,0,2026-11-25T08:05:19.716108
+2026-11-19,401910022,STATUS_FINAL,True,False,San Antonio Spurs,LA Clippers,124,112,12,236,24.0,33.0,35.0,32.0,21.0,33.0,34.0,24.0,,,Frost Bank Center,18532,2026-11-25T08:05:19.716119

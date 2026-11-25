@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-24T21:09:16.185386+00:00",
+  "generated_at_utc": "2026-11-25T08:05:26.880506+00:00",
   "method": "earlier-date MLE fit; later-date Brier and log-loss nonregression versus market",
   "evidence_epoch": "NBA_V1_CLEAN_2026-10-27",
   "min_graded": 200,
@@ -7,41 +7,41 @@
     "prop_price": {
       "status": "VALIDATED",
       "shrink": 0.0,
-      "graded": 2957,
+      "graded": 3113,
       "model_family_id": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff",
       "validation": "PASSED",
-      "dated_evidence_dates": 8,
+      "dated_evidence_dates": 9,
       "min_dated_evidence_dates": 5,
-      "training_rows": 2050,
-      "holdout_rows": 907,
-      "train_through": "2026-11-21",
-      "holdout_from": "2026-11-22",
+      "training_rows": 2412,
+      "holdout_rows": 701,
+      "train_through": "2026-11-22",
+      "holdout_from": "2026-11-23",
       "candidate_shrink": 0.0,
       "candidate_scores": {
-        "brier": 0.2503365013340682,
-        "log_loss": 0.6938721811399748
+        "brier": 0.24999281783166916,
+        "log_loss": 0.6931968591207099
       },
       "market_scores": {
-        "brier": 0.2503365013340682,
-        "log_loss": 0.6938721811399748
+        "brier": 0.24999281783166916,
+        "log_loss": 0.6931968591207099
       }
     },
     "spread": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 23,
+      "graded": 26,
       "model_family_id": "b7fe2ea686494c1e3b79fc99973b95975a2a2fb21b3c1c4a81894b5da465be2c",
       "validation": "INSUFFICIENT_DATED_EVIDENCE",
-      "dated_evidence_dates": 3,
+      "dated_evidence_dates": 4,
       "min_dated_evidence_dates": 5
     },
     "totals": {
       "status": "MARKET_ONLY",
       "shrink": 0.0,
-      "graded": 23,
+      "graded": 26,
       "model_family_id": "4fd4d0311393439186a61dc101757b5b58a7489efbe7fc35089d56a7179cbb09",
       "validation": "INSUFFICIENT_DATED_EVIDENCE",
-      "dated_evidence_dates": 3,
+      "dated_evidence_dates": 4,
       "min_dated_evidence_dates": 5
     },
     "props": {

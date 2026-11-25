@@ -101,7 +101,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910026,2026,2026-11-21,Timberwolves,Minnesota,MIN,home,5061585,Isaiah Evans,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401910026,2026,2026-11-21,Timberwolves,Minnesota,MIN,home,4592979,Zyon Pullin,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,4277813,Herbert Jones,F,True,False,25.0,2.0,4.0,2.0,3.0,0.0,2.0,2.0,2.0,1.0,8.0,0.0,3.0,0.0,2.0,-9.0,espn_api
-401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,4397136,Saddiq Bey,F,True,False,32.0,2.0,5.0,2.0,0.0,0.0,0.0,1.0,4.0,1.0,12.0,0.0,7.0,0.0,1.0,-26.0,espn_api
+401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,4397136,Saddiq Bey,F,True,False,32.0,2.0,4.0,2.0,0.0,0.0,0.0,1.0,3.0,1.0,12.0,0.0,7.0,0.0,1.0,-26.0,espn_api
 401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,4869780,Derik Queen,C,True,False,35.0,15.0,15.0,0.0,1.0,0.0,3.0,4.0,11.0,7.0,16.0,0.0,1.0,1.0,2.0,-7.0,espn_api
 401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,5061589,Yves Missi,C,True,False,35.0,9.0,13.0,1.0,2.0,1.0,0.0,4.0,9.0,3.0,8.0,0.0,0.0,3.0,6.0,-6.0,espn_api
 401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,5144091,Jeremiah Fears,G,True,False,34.0,29.0,5.0,4.0,2.0,0.0,5.0,2.0,3.0,9.0,17.0,2.0,6.0,9.0,10.0,-9.0,espn_api
@@ -112,7 +112,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,4395628,Zion Williamson,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401910027,2026,2026-11-21,Pelicans,New Orleans,NO,away,3442,DeAndre Jordan,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401910027,2026,2026-11-21,Spurs,San Antonio,SA,home,4592479,Julian Champagnie,F,True,False,25.0,9.0,3.0,3.0,0.0,1.0,0.0,0.0,3.0,3.0,10.0,3.0,10.0,0.0,0.0,18.0,espn_api
-401910027,2026,2026-11-21,Spurs,San Antonio,SA,home,5104157,Victor Wembanyama,F,True,False,32.0,50.0,19.0,1.0,4.0,5.0,3.0,3.0,16.0,20.0,29.0,5.0,11.0,5.0,6.0,35.0,espn_api
+401910027,2026,2026-11-21,Spurs,San Antonio,SA,home,5104157,Victor Wembanyama,F,True,False,32.0,50.0,18.0,1.0,4.0,5.0,3.0,3.0,15.0,20.0,29.0,5.0,11.0,5.0,6.0,35.0,espn_api
 401910027,2026,2026-11-21,Spurs,San Antonio,SA,home,4066259,De'Aaron Fox,G,True,False,26.0,5.0,2.0,10.0,0.0,0.0,3.0,1.0,1.0,1.0,4.0,0.0,3.0,3.0,3.0,33.0,espn_api
 401910027,2026,2026-11-21,Spurs,San Antonio,SA,home,4395630,Devin Vassell,G,True,False,26.0,10.0,3.0,2.0,0.0,2.0,1.0,0.0,3.0,2.0,7.0,2.0,6.0,4.0,5.0,5.0,espn_api
 401910027,2026,2026-11-21,Spurs,San Antonio,SA,home,4845367,Stephon Castle,G,True,False,29.0,19.0,3.0,6.0,0.0,0.0,2.0,0.0,3.0,7.0,12.0,5.0,7.0,0.0,0.0,5.0,espn_api
