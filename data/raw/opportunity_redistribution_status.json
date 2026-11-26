@@ -1,21 +1,16 @@
 {
   "status": "READY",
-  "target_date": "2026-11-25",
-  "generated_at_utc": "2026-11-26T01:52:12.579755+00:00",
+  "target_date": "2026-11-26",
+  "generated_at_utc": "2026-11-26T14:17:23.413549+00:00",
   "injury_feed_status": "ok",
-  "injury_rows": 91,
-  "slate_teams": [
-    "Golden State Warriors",
-    "Portland Trail Blazers",
-    "Sacramento Kings",
-    "San Antonio Spurs"
-  ],
-  "teams_affected": 2,
-  "absences_modeled": 2,
-  "recipient_rows": 19,
-  "unallocated_minutes": 0.0,
+  "injury_rows": 93,
+  "slate_teams": [],
+  "teams_affected": 8,
+  "absences_modeled": 13,
+  "recipient_rows": 80,
+  "unallocated_minutes": 0.047,
   "method": "POSITION_ROLE_WEIGHTED_CAPPED_REDISTRIBUTION",
   "coach_intent_inferred": false,
   "tracking_opportunity_data_used": false,
-  "adjustment_rows": 31
+  "adjustment_rows": 159
 }

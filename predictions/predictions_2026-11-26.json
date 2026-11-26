@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-26",
+  "generated": "2026-11-26T14:17:23.725682+00:00",
+  "model_version": "NBA_V1.0",
+  "model_artifacts": {
+    "SPREAD": "ef4582f416ed2a2880a9f076eadc15079b881addde8cc642180b0efd4fe926b9",
+    "TOTAL": "c72996686f49dc3820de5e7cfe20e2437c11981dcda90e3b905e149dfebd8c9e",
+    "PROP": "50740eff3b8234e824ee7bb4b3d8e89a121f6b8a3c503cc302838f90b542b615"
+  },
+  "model_families": {
+    "SPREAD": "b7fe2ea686494c1e3b79fc99973b95975a2a2fb21b3c1c4a81894b5da465be2c",
+    "TOTAL": "4fd4d0311393439186a61dc101757b5b58a7489efbe7fc35089d56a7179cbb09",
+    "PROP": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff"
+  },
+  "calibration_id": "0c42beff143b5396b7c8cb970ebebc86d682b9b3d6676ca3927b0b33403f26e4",
+  "model_state": "RESEARCH_FORWARD_TESTING",
+  "research_only": true,
+  "production_ready": false,
+  "portfolio_policy": "ONE_FINAL_PROP_PER_PLAYER",
+  "injury_feed": {
+    "target_date": "2026-11-26",
+    "healthy": true,
+    "reason": "OK",
+    "age_hours": 0.01,
+    "rows": 93,
+    "feed_status": "ok"
+  },
+  "qualification_audit": {
+    "examined_market_projections": 0,
+    "final_bets": 0,
+    "rejection_counts": {},
+    "note": "Each row has one primary diagnostic. No rejected row is a BET."
+  },
+  "games": [],
+  "best_bets": [],
+  "model_stats": {
+    "spread": {
+      "algo": "Ridge / GBR",
+      "cv_mae": null,
+      "dir_acc": null,
+      "strong_ats": null,
+      "n": 0
+    },
+    "totals": {
+      "algo": "Ridge / RF",
+      "cv_mae": null,
+      "ou_acc": null,
+      "strong_ou": null,
+      "n": 0
+    },
+    "props": {
+      "algo": "Ridge / HistGBR",
+      "cv_mae": null,
+      "hit_rate": null,
+      "strong_hr": null,
+      "n": 0
+    }
+  }
+}
