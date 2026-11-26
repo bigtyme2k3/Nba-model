@@ -8,10 +8,10 @@
     "fanatics",
     "novig"
   ],
-  "checked_at_utc": "2026-11-26T00:22:15.059983+00:00",
-  "rows": 7,
+  "checked_at_utc": "2026-11-26T01:51:55.648846+00:00",
+  "rows": 2,
   "http_status": 200,
-  "api_requests_used": "13271",
-  "api_requests_remaining": "6729",
+  "api_requests_used": "13289",
+  "api_requests_remaining": "6711",
   "error": null
 }
