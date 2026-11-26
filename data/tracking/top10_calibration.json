@@ -1,0 +1,133 @@
+{
+  "generated_at_utc": "2026-11-23T15:42:52.677705+00:00",
+  "research_only": true,
+  "rule": "each date's 10 largest raw-model-minus-market gaps, one per player, FanDuel/DraftKings/Fanatics, current props model family",
+  "model_family_id": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff",
+  "top10": {
+    "n": 70,
+    "wins": 27,
+    "win_rate": 0.3857,
+    "mean_model_probability": 0.7895,
+    "mean_market_probability": 0.4994,
+    "mean_gap": 0.2901,
+    "follow_units": -18.6,
+    "follow_roi": -0.2658,
+    "fade_units": 11.4,
+    "fade_roi": 0.1628
+  },
+  "all_props_same_family": {
+    "n": 2412,
+    "wins": 1215,
+    "win_rate": 0.5037,
+    "mean_model_probability": 0.5434,
+    "mean_market_probability": 0.5159,
+    "mean_gap": 0.0276,
+    "follow_units": -206.87,
+    "follow_roi": -0.0858,
+    "fade_units": -96.67,
+    "fade_roi": -0.0401
+  },
+  "by_gap": {
+    "0%-5%": {
+      "n": 0
+    },
+    "5%-10%": {
+      "n": 3,
+      "wins": 2,
+      "win_rate": 0.6667,
+      "mean_model_probability": 0.6618,
+      "mean_market_probability": 0.5813,
+      "mean_gap": 0.0805,
+      "follow_units": 0.34,
+      "follow_roi": 0.1125,
+      "fade_units": -0.6,
+      "fade_roi": -0.2
+    },
+    "10%-15%": {
+      "n": 3,
+      "wins": 1,
+      "win_rate": 0.3333,
+      "mean_model_probability": 0.62,
+      "mean_market_probability": 0.4867,
+      "mean_gap": 0.1333,
+      "follow_units": -1.08,
+      "follow_roi": -0.3609,
+      "fade_units": 0.71,
+      "fade_roi": 0.2376
+    },
+    "15%+": {
+      "n": 64,
+      "wins": 24,
+      "win_rate": 0.375,
+      "mean_model_probability": 0.8034,
+      "mean_market_probability": 0.4961,
+      "mean_gap": 0.3073,
+      "follow_units": -17.86,
+      "follow_roi": -0.279,
+      "fade_units": 11.28,
+      "fade_roi": 0.1763
+    }
+  },
+  "by_side": {
+    "OVER": {
+      "n": 43,
+      "wins": 18,
+      "win_rate": 0.4186,
+      "mean_model_probability": 0.7751,
+      "mean_market_probability": 0.4893,
+      "mean_gap": 0.2858,
+      "follow_units": -8.08,
+      "follow_roi": -0.1879,
+      "fade_units": 3.49,
+      "fade_roi": 0.0812
+    },
+    "UNDER": {
+      "n": 27,
+      "wins": 9,
+      "win_rate": 0.3333,
+      "mean_model_probability": 0.8123,
+      "mean_market_probability": 0.5153,
+      "mean_gap": 0.297,
+      "follow_units": -10.52,
+      "follow_roi": -0.3898,
+      "fade_units": 7.91,
+      "fade_roi": 0.2928
+    }
+  },
+  "temporal": {
+    "dates": 7,
+    "min_dates": 5,
+    "status": "MARKET_AS_GOOD_OR_BETTER",
+    "train_through": "2026-11-20",
+    "holdout_from": "2026-11-21",
+    "training_rows": 50,
+    "holdout_rows": 20,
+    "full_sample_shrink": 0.0,
+    "fitted_shrink": 0.0,
+    "holdout_fitted": {
+      "brier": 0.26458,
+      "log_loss": 0.72308
+    },
+    "holdout_market": {
+      "brier": 0.26458,
+      "log_loss": 0.72308
+    },
+    "holdout_raw_model": {
+      "brier": 0.43914,
+      "log_loss": 1.20807
+    },
+    "holdout_record": {
+      "n": 20,
+      "wins": 8,
+      "win_rate": 0.4,
+      "mean_model_probability": 0.8235,
+      "mean_market_probability": 0.5078,
+      "mean_gap": 0.3157,
+      "follow_units": -4.53,
+      "follow_roi": -0.2267,
+      "fade_units": 3.46,
+      "fade_roi": 0.1728
+    }
+  },
+  "note": "shrink 0 = market probability, 1 = raw model probability. A fitted shrink above 0 that also beats the market on later dates would mean the strongest opinions carry information. A win rate well under the market probability is the fade signal (follow/fade units at recorded prices). Research only: does not change calibration, picks or BET decisions."
+}

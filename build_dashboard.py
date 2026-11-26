@@ -185,6 +185,7 @@ def enrich_data(data: Dict[str, Any]) -> Dict[str, Any]:
     data['model_picks'] = model_picks_for(data.get('date'))
     data['data_bets'] = load_json('data/tracking/data_bets_report.json', {})
     data['game_predictions'] = load_json('data/tracking/game_predictions_report.json', {})
+    data['top10_calibration'] = load_json('data/tracking/top10_calibration.json', {})
     data['consistency'] = consistency_for(data.get('date'))
     data['consistency_report'] = consistency_report()
     return prepare_display(data)

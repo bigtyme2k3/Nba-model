@@ -69,6 +69,21 @@
     const amount=Number(current)||0, maximum=Number(target)||1;
     return `<div class="progress-item"><div class="progress-text"><span>${esc(label)}</span><span>${fmt(amount,0)} / ${fmt(maximum,0)}</span></div><div class="progress-track" role="progressbar" aria-label="${esc(label)}" aria-valuenow="${amount}" aria-valuemin="0" aria-valuemax="${maximum}"><div class="progress-fill" style="width:${Math.max(0,Math.min(100,amount/maximum*100))}%"></div></div></div>`;
   }
+  function calibrationResult(c) {
+    if(c.validation!=='PASSED'&&c.validation!=='REJECTED_HOLDOUT') return '';
+    const w=Number(c.shrink||0), cand=numeric(c.candidate_shrink)?Number(c.candidate_shrink):w;
+    const text=c.validation==='REJECTED_HOLDOUT'?`The fitted model weight (${fmt(cand*100,0)}%) did worse than the market on later dates, so calibrated probabilities stay at the market's.`
+      :w>0?`Model weight ${fmt(w*100,0)}%: calibrated probabilities blend the model into the market, and edges can appear.`
+      :'Model weight 0%: the best fit on earlier dates trusts the market fully, so calibrated probabilities equal the market\u2019s and there is no edge or BET yet.';
+    return `<p class="small"><strong>Result:</strong> ${esc(text)} (fit through ${esc(c.train_through||'—')}, tested from ${esc(c.holdout_from||'—')}).</p>`;
+  }
+  function top10Calibration() {
+    const t=D.top10_calibration||{}, r=t.top10||{}, tm=t.temporal||{};
+    if(!r.n) return '';
+    const verdict=tm.status==='MODEL_ADDS_INFORMATION'?`the strongest opinions add information (weight ${fmt(tm.fitted_shrink*100,0)}%)`
+      :tm.status==='MARKET_AS_GOOD_OR_BETTER'?'the market is as good or better on later dates (weight 0%)':'not enough dated evidence yet';
+    return `<p class="small"><strong>Top-10 check (research only):</strong> on each day\u2019s 10 strongest opinions (${fmt(r.n,0)} graded) the model averaged ${pct(r.mean_model_probability)} and the market ${pct(r.mean_market_probability)}; they won ${pct(r.win_rate)}. Follow ${signed(r.follow_units,2)}u (${pct(r.follow_roi)}), fade ${signed(r.fade_units,2)}u (${pct(r.fade_roi)}). Later-date test: ${esc(verdict)}.</p>`;
+  }
   function freshness() {
     const waiting=D.slate_status==='AWAITING_PREDICTIONS', stamp=D.generated||D.last_successful_prediction_at;
     document.getElementById('slate-freshness').innerHTML=`<strong class="${waiting?'waiting':''}">${waiting?'Awaiting today’s predictions':esc(dayLabel(D.date))}</strong><span title="${esc(stamp||'No successful refresh')}">${D.generated?'Updated':'Last refresh'} ${esc(stamp?timeET(stamp):'unavailable')}</span>`;
@@ -177,7 +192,7 @@
   }
   function modelStatus() {
     const evidence=D.readiness?.forward_evidence||{}, policy=D.readiness?.promotion_policy||{}, calibration=D.calibration?.markets?.prop_price||{};
-    return `<details id="model-status" class="model-status"><summary>Model status &amp; validation</summary><p>Current model evidence is tracked separately from the historical forward-test record.</p>${progress('Current priced BETs',evidence.bet_rows,policy.min_forward_bets||200)}${progress('Current prop BETs',evidence.prop_bets,policy.min_prop_forward_bets||100)}${progress('Matched closing lines',evidence.clv_matched,policy.min_matched_closes||100)}<p>Calibration observations: ${fmt(calibration.graded||0,0)}. Validation uses earlier dates for fitting and later dates for testing.</p>${calibration.validation==='INSUFFICIENT_DATED_EVIDENCE'?`${progress('Graded dates for the current model',calibration.dated_evidence_dates,calibration.min_dated_evidence_dates||5)}<p class="small muted">The training/holdout split starts once the current model has ${fmt(calibration.min_dated_evidence_dates||5,0)} graded dates${numeric(calibration.dated_evidence_dates)?` (it has ${fmt(calibration.dated_evidence_dates,0)})`:''}. A retrain that changes the model starts this count over, so evidence from different models is never mixed.</p>`:`${progress('Calibration training observations',calibration.training_rows,D.calibration?.min_graded||200)}${progress('Calibration holdout observations',calibration.holdout_rows,50)}`}<p>Data: ${esc(D.readiness?.data_model_healthy?'Ready':'Awaiting healthy inputs')} · Grading: ${esc((D.reconciliation?.status||'Unknown').toLowerCase())}</p></details>`;
+    return `<details id="model-status" class="model-status"><summary>Model status &amp; validation</summary><p>Current model evidence is tracked separately from the historical forward-test record.</p>${progress('Current priced BETs',evidence.bet_rows,policy.min_forward_bets||200)}${progress('Current prop BETs',evidence.prop_bets,policy.min_prop_forward_bets||100)}${progress('Matched closing lines',evidence.clv_matched,policy.min_matched_closes||100)}<p>Calibration observations: ${fmt(calibration.graded||0,0)}. Validation uses earlier dates for fitting and later dates for testing.</p>${calibration.validation==='INSUFFICIENT_DATED_EVIDENCE'?`${progress('Graded dates for the current model',calibration.dated_evidence_dates,calibration.min_dated_evidence_dates||5)}<p class="small muted">The training/holdout split starts once the current model has ${fmt(calibration.min_dated_evidence_dates||5,0)} graded dates${numeric(calibration.dated_evidence_dates)?` (it has ${fmt(calibration.dated_evidence_dates,0)})`:''}. A retrain that changes the model starts this count over, so evidence from different models is never mixed.</p>`:`${progress('Calibration training observations',calibration.training_rows,D.calibration?.min_graded||200)}${progress('Calibration holdout observations',calibration.holdout_rows,50)}`}${calibrationResult(calibration)}${top10Calibration()}<p>Data: ${esc(D.readiness?.data_model_healthy?'Ready':'Awaiting healthy inputs')} · Grading: ${esc((D.reconciliation?.status||'Unknown').toLowerCase())}</p></details>`;
   }
 
   function renderDiagnostics() {
