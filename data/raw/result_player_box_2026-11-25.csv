@@ -129,13 +129,13 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,3064514,Julius Randle,F,True,False,39.0,28.0,9.0,3.0,0.0,0.0,4.0,2.0,7.0,10.0,16.0,2.0,6.0,6.0,8.0,4.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4278104,Michael Porter Jr.,F,True,False,34.0,12.0,11.0,4.0,1.0,0.0,1.0,0.0,11.0,4.0,14.0,2.0,6.0,2.0,3.0,-7.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,5107173,Danny Wolf,F,True,False,19.0,5.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,2.0,8.0,1.0,4.0,0.0,0.0,-4.0,espn_api
-401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4432194,Day'Ron Sharpe,C,True,False,31.0,11.0,14.0,5.0,3.0,2.0,0.0,7.0,7.0,5.0,10.0,1.0,1.0,0.0,0.0,2.0,espn_api
+401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4432194,Day'Ron Sharpe,C,True,False,31.0,11.0,14.0,5.0,4.0,2.0,0.0,7.0,7.0,5.0,10.0,1.0,1.0,0.0,0.0,2.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,5101761,Mikel Brown Jr.,G,True,False,23.0,6.0,2.0,2.0,1.0,0.0,2.0,0.0,2.0,2.0,9.0,0.0,5.0,2.0,2.0,-7.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4702670,Grant Nelson,F,False,False,13.0,1.0,6.0,0.0,1.0,0.0,1.0,3.0,3.0,0.0,1.0,0.0,0.0,1.0,2.0,6.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4712896,Noah Clowney,F,False,False,27.0,17.0,5.0,1.0,1.0,0.0,1.0,1.0,4.0,7.0,13.0,3.0,7.0,0.0,0.0,14.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,3150844,Moritz Wagner,C,False,False,4.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,2.0,2.0,-1.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,3907823,Terance Mann,G,False,False,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,-1.0,espn_api
-401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4702177,Keon Ellis,G,False,False,23.0,7.0,2.0,3.0,2.0,0.0,0.0,0.0,2.0,2.0,5.0,1.0,3.0,2.0,2.0,14.0,espn_api
+401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4702177,Keon Ellis,G,False,False,23.0,7.0,2.0,3.0,1.0,0.0,0.0,0.0,2.0,2.0,5.0,1.0,3.0,2.0,2.0,14.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,5175643,Egor Demin,G,False,False,25.0,15.0,3.0,4.0,1.0,1.0,3.0,2.0,1.0,5.0,11.0,0.0,5.0,5.0,7.0,15.0,espn_api
 401909322,2026,2026-11-25,Nets,Brooklyn,BKN,away,4687718,Josh Minott,F,False,True,,,,,,,,,,,,,,,,,espn_api
 401909322,2026,2026-11-25,Bucks,Milwaukee,MIL,home,3134907,Kyle Kuzma,F,True,False,31.0,13.0,3.0,2.0,0.0,0.0,1.0,0.0,3.0,5.0,11.0,3.0,7.0,0.0,2.0,-12.0,espn_api

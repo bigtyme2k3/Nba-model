@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-26T14:17:28.734496+00:00",
+  "generated_at_utc": "2026-11-26T18:05:13.547474+00:00",
   "policy": "SHADOW_ONLY",
   "strict_gate_rules": {
     "min_holdout_dates": 7,
@@ -69,8 +69,8 @@
           ],
           "log_loss_minus_market": 0.038252071712651214,
           "log_loss_minus_market_ci95": [
-            0.03247183016026238,
-            0.045141489549664036
+            0.03247183016026249,
+            0.04514148954966414
           ]
         },
         "mc_v2": {
@@ -87,7 +87,7 @@
           "log_loss_minus_market": 0.03469365103903921,
           "log_loss_minus_market_ci95": [
             0.02989225719348059,
-            0.04062444287965473
+            0.04062444287965483
           ]
         }
       },
@@ -101,20 +101,20 @@
           "slope": 0.021656007586628317,
           "mean_over_prob": 0.534087426035503,
           "over_rate": 0.4977810650887574,
-          "weight_on_top_of_market": -0.08142743688774616,
+          "weight_on_top_of_market": -0.08142743688774617,
           "mean_gap_vs_market": 0.04076550788954636,
           "abs_disagreement_vs_market": 0.10865165187376725
         },
         "mc_v1": {
-          "slope": 0.04196348765155719,
+          "slope": 0.04196348765155721,
           "mean_over_prob": 0.49310574457593687,
           "over_rate": 0.4977810650887574,
-          "weight_on_top_of_market": -0.10316029977950252,
+          "weight_on_top_of_market": -0.10316029977950254,
           "mean_gap_vs_market": -0.0002161735700197398,
           "abs_disagreement_vs_market": 0.09279674556213019
         },
         "mc_v2": {
-          "slope": 0.04552239814441311,
+          "slope": 0.0455223981444132,
           "mean_over_prob": 0.48858340729783034,
           "over_rate": 0.4977810650887574,
           "weight_on_top_of_market": -0.11902194812731663,
@@ -134,11 +134,11 @@
           "v1": {
             "rows": 710,
             "brier": 0.26850185530985915,
-            "log_loss": 0.7391633553427642,
+            "log_loss": 0.7391633553427641,
             "mean_probability": 0.5525860563380283,
             "win_rate": 0.5084507042253521,
             "brier_minus_market": 0.022805571408450687,
-            "log_loss_minus_market": 0.05462946031419702
+            "log_loss_minus_market": 0.05462946031419691
           },
           "mc_v1": {
             "rows": 710,
@@ -163,7 +163,7 @@
           "market": {
             "rows": 760,
             "brier": 0.25031287180263156,
-            "log_loss": 0.6937730242559129,
+            "log_loss": 0.6937730242559128,
             "mean_probability": 0.5054167105263158,
             "win_rate": 0.5078947368421053
           },
@@ -174,7 +174,7 @@
             "mean_probability": 0.5371400000000001,
             "win_rate": 0.5078947368421053,
             "brier_minus_market": 0.019794816986842156,
-            "log_loss_minus_market": 0.043659147001486986
+            "log_loss_minus_market": 0.0436591470014871
           },
           "mc_v1": {
             "rows": 760,
@@ -183,7 +183,7 @@
             "mean_probability": 0.5331409210526316,
             "win_rate": 0.5078947368421053,
             "brier_minus_market": 0.01831253813157896,
-            "log_loss_minus_market": 0.04067731670400099
+            "log_loss_minus_market": 0.0406773167040011
           },
           "mc_v2": {
             "rows": 760,
@@ -192,7 +192,7 @@
             "mean_probability": 0.5305706578947369,
             "win_rate": 0.5078947368421053,
             "brier_minus_market": 0.019412556421052607,
-            "log_loss_minus_market": 0.043315528122990665
+            "log_loss_minus_market": 0.043315528122990776
           }
         },
         "PTS": {
@@ -235,18 +235,18 @@
           "market": {
             "rows": 877,
             "brier": 0.24705036434435576,
-            "log_loss": 0.6871946351513938,
+            "log_loss": 0.6871946351513936,
             "mean_probability": 0.5182144811858609,
             "win_rate": 0.48346636259977194
           },
           "v1": {
             "rows": 877,
             "brier": 0.2687111235689852,
-            "log_loss": 0.7415887404812795,
+            "log_loss": 0.7415887404812794,
             "mean_probability": 0.543257582668187,
             "win_rate": 0.48346636259977194,
             "brier_minus_market": 0.021660759224629428,
-            "log_loss_minus_market": 0.054394105329885756
+            "log_loss_minus_market": 0.05439410532988587
           },
           "mc_v1": {
             "rows": 877,
@@ -255,7 +255,7 @@
             "mean_probability": 0.5412948688711517,
             "win_rate": 0.48346636259977194,
             "brier_minus_market": 0.018194853945267958,
-            "log_loss_minus_market": 0.04595440902064285
+            "log_loss_minus_market": 0.04595440902064307
           },
           "mc_v2": {
             "rows": 877,
@@ -264,25 +264,25 @@
             "mean_probability": 0.5364836944127709,
             "win_rate": 0.48346636259977194,
             "brier_minus_market": 0.016646710364880274,
-            "log_loss_minus_market": 0.040060172988733656
+            "log_loss_minus_market": 0.04006017298873388
           }
         },
         "THREES": {
           "market": {
             "rows": 756,
             "brier": 0.24439993309523808,
-            "log_loss": 0.6818346303349165,
+            "log_loss": 0.6818346303349163,
             "mean_probability": 0.5341256613756613,
             "win_rate": 0.5264550264550265
           },
           "v1": {
             "rows": 756,
             "brier": 0.26611506978835975,
-            "log_loss": 0.7298355231395852,
+            "log_loss": 0.7298355231395853,
             "mean_probability": 0.555928306878307,
             "win_rate": 0.5264550264550265,
             "brier_minus_market": 0.021715136693121667,
-            "log_loss_minus_market": 0.04800089280466868
+            "log_loss_minus_market": 0.048000892804669015
           },
           "mc_v1": {
             "rows": 756,
@@ -291,7 +291,7 @@
             "mean_probability": 0.5489342592592593,
             "win_rate": 0.5264550264550265,
             "brier_minus_market": 0.01168581435185187,
-            "log_loss_minus_market": 0.025229690616532352
+            "log_loss_minus_market": 0.025229690616532574
           },
           "mc_v2": {
             "rows": 756,
@@ -300,7 +300,7 @@
             "mean_probability": 0.5486787037037038,
             "win_rate": 0.5264550264550265,
             "brier_minus_market": 0.011846608240740769,
-            "log_loss_minus_market": 0.025509964785325634
+            "log_loss_minus_market": 0.025509964785325856
           }
         }
       },
@@ -417,10 +417,10 @@
             "log_loss": 0.6858477629980229
           },
           "v1": {
-            "log_loss": 0.7334267204060788
+            "log_loss": 0.7334267204060786
           },
           "mc_v1": {
-            "log_loss": 0.7234004494388286
+            "log_loss": 0.7234004494388285
           },
           "mc_v2": {
             "log_loss": 0.7226428731376572
@@ -895,8 +895,8 @@
           ],
           "log_loss_minus_market": 0.038252071712651214,
           "log_loss_minus_market_ci95": [
-            0.03247183016026238,
-            0.045141489549664036
+            0.03247183016026249,
+            0.04514148954966414
           ]
         }
       },
@@ -910,15 +910,15 @@
           "slope": 0.021656007586628317,
           "mean_over_prob": 0.534087426035503,
           "over_rate": 0.4977810650887574,
-          "weight_on_top_of_market": -0.08142743688774616,
+          "weight_on_top_of_market": -0.08142743688774617,
           "mean_gap_vs_market": 0.04076550788954636,
           "abs_disagreement_vs_market": 0.10865165187376725
         },
         "mc_v1": {
-          "slope": 0.04196348765155719,
+          "slope": 0.04196348765155721,
           "mean_over_prob": 0.49310574457593687,
           "over_rate": 0.4977810650887574,
-          "weight_on_top_of_market": -0.10316029977950252,
+          "weight_on_top_of_market": -0.10316029977950254,
           "mean_gap_vs_market": -0.0002161735700197398,
           "abs_disagreement_vs_market": 0.09279674556213019
         }
@@ -935,11 +935,11 @@
           "v1": {
             "rows": 710,
             "brier": 0.26850185530985915,
-            "log_loss": 0.7391633553427642,
+            "log_loss": 0.7391633553427641,
             "mean_probability": 0.5525860563380283,
             "win_rate": 0.5084507042253521,
             "brier_minus_market": 0.022805571408450687,
-            "log_loss_minus_market": 0.05462946031419702
+            "log_loss_minus_market": 0.05462946031419691
           },
           "mc_v1": {
             "rows": 710,
@@ -955,7 +955,7 @@
           "market": {
             "rows": 760,
             "brier": 0.25031287180263156,
-            "log_loss": 0.6937730242559129,
+            "log_loss": 0.6937730242559128,
             "mean_probability": 0.5054167105263158,
             "win_rate": 0.5078947368421053
           },
@@ -966,7 +966,7 @@
             "mean_probability": 0.5371400000000001,
             "win_rate": 0.5078947368421053,
             "brier_minus_market": 0.019794816986842156,
-            "log_loss_minus_market": 0.043659147001486986
+            "log_loss_minus_market": 0.0436591470014871
           },
           "mc_v1": {
             "rows": 760,
@@ -975,7 +975,7 @@
             "mean_probability": 0.5331409210526316,
             "win_rate": 0.5078947368421053,
             "brier_minus_market": 0.01831253813157896,
-            "log_loss_minus_market": 0.04067731670400099
+            "log_loss_minus_market": 0.0406773167040011
           }
         },
         "PTS": {
@@ -1009,18 +1009,18 @@
           "market": {
             "rows": 877,
             "brier": 0.24705036434435576,
-            "log_loss": 0.6871946351513938,
+            "log_loss": 0.6871946351513936,
             "mean_probability": 0.5182144811858609,
             "win_rate": 0.48346636259977194
           },
           "v1": {
             "rows": 877,
             "brier": 0.2687111235689852,
-            "log_loss": 0.7415887404812795,
+            "log_loss": 0.7415887404812794,
             "mean_probability": 0.543257582668187,
             "win_rate": 0.48346636259977194,
             "brier_minus_market": 0.021660759224629428,
-            "log_loss_minus_market": 0.054394105329885756
+            "log_loss_minus_market": 0.05439410532988587
           },
           "mc_v1": {
             "rows": 877,
@@ -1029,25 +1029,25 @@
             "mean_probability": 0.5412948688711517,
             "win_rate": 0.48346636259977194,
             "brier_minus_market": 0.018194853945267958,
-            "log_loss_minus_market": 0.04595440902064285
+            "log_loss_minus_market": 0.04595440902064307
           }
         },
         "THREES": {
           "market": {
             "rows": 756,
             "brier": 0.24439993309523808,
-            "log_loss": 0.6818346303349165,
+            "log_loss": 0.6818346303349163,
             "mean_probability": 0.5341256613756613,
             "win_rate": 0.5264550264550265
           },
           "v1": {
             "rows": 756,
             "brier": 0.26611506978835975,
-            "log_loss": 0.7298355231395852,
+            "log_loss": 0.7298355231395853,
             "mean_probability": 0.555928306878307,
             "win_rate": 0.5264550264550265,
             "brier_minus_market": 0.021715136693121667,
-            "log_loss_minus_market": 0.04800089280466868
+            "log_loss_minus_market": 0.048000892804669015
           },
           "mc_v1": {
             "rows": 756,
@@ -1056,7 +1056,7 @@
             "mean_probability": 0.5489342592592593,
             "win_rate": 0.5264550264550265,
             "brier_minus_market": 0.01168581435185187,
-            "log_loss_minus_market": 0.025229690616532352
+            "log_loss_minus_market": 0.025229690616532574
           }
         }
       },
@@ -1143,10 +1143,10 @@
             "log_loss": 0.6858477629980229
           },
           "v1": {
-            "log_loss": 0.7334267204060788
+            "log_loss": 0.7334267204060786
           },
           "mc_v1": {
-            "log_loss": 0.7234004494388286
+            "log_loss": 0.7234004494388285
           },
           "roi_mc_ev_ge_5pct": {
             "v1": {
@@ -1453,7 +1453,7 @@
       "rows": 440,
       "log_loss_market": 0.6945831436634136,
       "log_loss_v1": 0.762130691401936,
-      "log_loss_mc_v1": 0.7426264855959164,
+      "log_loss_mc_v1": 0.7426264855959163,
       "log_loss_mc_v2": 0.730446801980146
     },
     {
@@ -1476,7 +1476,7 @@
       "date": "2026-11-18 00:00:00",
       "rows": 669,
       "log_loss_market": 0.6897449046567785,
-      "log_loss_v1": 0.734712649788215,
+      "log_loss_v1": 0.7347126497882149,
       "log_loss_mc_v1": 0.7202033850857976,
       "log_loss_mc_v2": 0.7213792585796198
     },
@@ -1491,7 +1491,7 @@
     {
       "date": "2026-11-20 00:00:00",
       "rows": 485,
-      "log_loss_market": 0.6813055084452834,
+      "log_loss_market": 0.6813055084452833,
       "log_loss_v1": 0.7359607172598045,
       "log_loss_mc_v1": 0.7198320689127401,
       "log_loss_mc_v2": 0.7184181347093819
@@ -1509,7 +1509,7 @@
       "rows": 362,
       "log_loss_market": 0.689544635379718,
       "log_loss_v1": 0.7513759229240097,
-      "log_loss_mc_v1": 0.7480854244603139,
+      "log_loss_mc_v1": 0.7480854244603138,
       "log_loss_mc_v2": 0.7439446849142675
     },
     {
@@ -1533,7 +1533,7 @@
       "rows": 503,
       "log_loss_market": 0.6841680179406352,
       "log_loss_v1": 0.7410943790805588,
-      "log_loss_mc_v1": 0.7222720394062152,
+      "log_loss_mc_v1": 0.7222720394062151,
       "log_loss_mc_v2": 0.7132314708937888
     }
   ]
