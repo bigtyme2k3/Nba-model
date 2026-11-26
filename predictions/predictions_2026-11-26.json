@@ -1,6 +1,6 @@
 {
   "date": "2026-11-26",
-  "generated": "2026-11-26T14:17:23.725682+00:00",
+  "generated": "2026-11-26T21:48:13.413089+00:00",
   "model_version": "NBA_V1.0",
   "model_artifacts": {
     "SPREAD": "ef4582f416ed2a2880a9f076eadc15079b881addde8cc642180b0efd4fe926b9",
@@ -12,7 +12,7 @@
     "TOTAL": "4fd4d0311393439186a61dc101757b5b58a7489efbe7fc35089d56a7179cbb09",
     "PROP": "705947d1fed79a1a9f1ae95ec678d0e35882864f55a099b90638ecd0831542ff"
   },
-  "calibration_id": "0c42beff143b5396b7c8cb970ebebc86d682b9b3d6676ca3927b0b33403f26e4",
+  "calibration_id": "eb65b3f27864d1a96f5f2f5cf0a60b6bb792848e92a7b2741d4dbbb70148c95c",
   "model_state": "RESEARCH_FORWARD_TESTING",
   "research_only": true,
   "production_ready": false,
@@ -22,7 +22,7 @@
     "healthy": true,
     "reason": "OK",
     "age_hours": 0.01,
-    "rows": 93,
+    "rows": 97,
     "feed_status": "ok"
   },
   "qualification_audit": {
