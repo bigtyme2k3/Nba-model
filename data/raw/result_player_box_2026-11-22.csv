@@ -2,8 +2,8 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910029,2026,2026-11-22,Pistons,Detroit,DET,away,3908845,John Collins,F,True,False,22.0,18.0,6.0,0.0,1.0,1.0,1.0,1.0,5.0,6.0,9.0,4.0,5.0,2.0,2.0,-5.0,espn_api
 401910029,2026,2026-11-22,Pistons,Detroit,DET,away,4066372,Kevin Huerter,G,True,False,30.0,2.0,3.0,1.0,1.0,0.0,3.0,0.0,3.0,1.0,8.0,0.0,4.0,0.0,0.0,-28.0,espn_api
 401910029,2026,2026-11-22,Pistons,Detroit,DET,away,4432166,Cade Cunningham,G,True,False,33.0,5.0,4.0,15.0,1.0,1.0,6.0,0.0,4.0,2.0,9.0,1.0,3.0,0.0,0.0,-8.0,espn_api
-401910029,2026,2026-11-22,Pistons,Detroit,DET,away,4684742,Ausar Thompson,G,True,False,38.0,18.0,11.0,5.0,1.0,2.0,1.0,1.0,10.0,7.0,10.0,0.0,0.0,4.0,4.0,3.0,espn_api
-401910029,2026,2026-11-22,Pistons,Detroit,DET,away,5107199,Daniss Jenkins,G,True,False,38.0,11.0,5.0,3.0,1.0,0.0,0.0,1.0,4.0,4.0,12.0,1.0,6.0,2.0,2.0,1.0,espn_api
+401910029,2026,2026-11-22,Pistons,Detroit,DET,away,4684742,Ausar Thompson,G,True,False,38.0,18.0,12.0,5.0,1.0,2.0,1.0,1.0,11.0,7.0,10.0,0.0,0.0,4.0,4.0,3.0,espn_api
+401910029,2026,2026-11-22,Pistons,Detroit,DET,away,5107199,Daniss Jenkins,G,True,False,38.0,11.0,4.0,3.0,1.0,0.0,0.0,1.0,3.0,4.0,12.0,1.0,6.0,2.0,2.0,1.0,espn_api
 401910029,2026,2026-11-22,Pistons,Detroit,DET,away,4278562,Paul Reed,F,False,False,26.0,16.0,5.0,2.0,1.0,1.0,3.0,3.0,2.0,6.0,11.0,0.0,0.0,4.0,4.0,-5.0,espn_api
 401910029,2026,2026-11-22,Pistons,Detroit,DET,away,4683771,Ronald Holland II,F,False,False,10.0,2.0,4.0,0.0,0.0,1.0,0.0,2.0,2.0,1.0,6.0,0.0,0.0,0.0,0.0,-13.0,espn_api
 401910029,2026,2026-11-22,Pistons,Detroit,DET,away,2596112,Javonte Green,G,False,False,18.0,6.0,3.0,1.0,1.0,0.0,2.0,0.0,3.0,2.0,5.0,2.0,5.0,0.0,0.0,-6.0,espn_api
@@ -14,7 +14,7 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,4431680,Onyeka Okongwu,F,True,False,29.0,6.0,9.0,2.0,0.0,1.0,1.0,3.0,6.0,2.0,9.0,1.0,4.0,1.0,2.0,-10.0,espn_api
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,4701230,Jalen Johnson,F,True,False,30.0,12.0,11.0,0.0,1.0,0.0,3.0,6.0,5.0,4.0,10.0,0.0,3.0,4.0,4.0,-12.0,espn_api
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,4278039,Nickeil Alexander-Walker,G,True,False,28.0,27.0,2.0,1.0,0.0,0.0,2.0,0.0,2.0,8.0,18.0,6.0,10.0,5.0,5.0,-7.0,espn_api
-401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,4869342,Dyson Daniels,G,True,False,39.0,5.0,14.0,8.0,5.0,3.0,3.0,7.0,7.0,2.0,9.0,0.0,3.0,1.0,2.0,9.0,espn_api
+401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,4869342,Dyson Daniels,G,True,False,39.0,5.0,14.0,8.0,5.0,2.0,3.0,7.0,7.0,2.0,9.0,0.0,3.0,1.0,2.0,9.0,espn_api
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,5149077,Kingston Flemings,G,True,False,27.0,10.0,5.0,6.0,1.0,0.0,2.0,1.0,4.0,3.0,10.0,1.0,4.0,3.0,4.0,-9.0,espn_api
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,4280151,Corey Kispert,F,False,False,19.0,18.0,4.0,3.0,1.0,0.0,0.0,2.0,2.0,7.0,13.0,4.0,10.0,0.0,0.0,21.0,espn_api
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,5106262,Zuby Ejiofor,F,False,False,19.0,4.0,4.0,1.0,0.0,0.0,0.0,2.0,2.0,2.0,9.0,0.0,4.0,0.0,0.0,20.0,espn_api
@@ -24,10 +24,10 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,3146557,Jock Landale,C,False,True,,,,,,,,,,,,,,,,,espn_api
 401910029,2026,2026-11-22,Hawks,Atlanta,ATL,home,4431941,RayJ Dennis,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,4222252,Isaiah Hartenstein,C,True,False,23.0,2.0,8.0,4.0,1.0,0.0,3.0,0.0,8.0,1.0,5.0,0.0,0.0,0.0,1.0,-21.0,espn_api
-401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,3133626,Kenrich Williams,G,True,False,26.0,12.0,4.0,2.0,1.0,0.0,3.0,2.0,2.0,5.0,10.0,2.0,4.0,0.0,1.0,-16.0,espn_api
+401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,3133626,Kenrich Williams,G,True,False,26.0,12.0,4.0,2.0,1.0,0.0,2.0,2.0,2.0,5.0,10.0,2.0,4.0,0.0,1.0,-16.0,espn_api
 401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,4432185,Micah Peavy,G,True,False,31.0,9.0,6.0,1.0,2.0,0.0,1.0,2.0,4.0,4.0,7.0,1.0,1.0,0.0,0.0,-7.0,espn_api
 401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,4683778,Jared McCain,G,True,False,29.0,20.0,2.0,3.0,0.0,0.0,1.0,0.0,2.0,7.0,17.0,2.0,7.0,4.0,5.0,-22.0,espn_api
-401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,4900671,Ajay Mitchell,G,True,False,22.0,17.0,3.0,3.0,2.0,0.0,3.0,2.0,1.0,6.0,17.0,2.0,3.0,3.0,5.0,-6.0,espn_api
+401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,4900671,Ajay Mitchell,G,True,False,22.0,17.0,3.0,3.0,2.0,0.0,4.0,2.0,1.0,6.0,17.0,2.0,3.0,3.0,5.0,-6.0,espn_api
 401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,4684208,Brooks Barnhizer,F,False,False,19.0,8.0,4.0,2.0,0.0,0.0,1.0,1.0,3.0,2.0,3.0,0.0,0.0,4.0,5.0,5.0,espn_api
 401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,4702384,Nique Clifford,G,False,False,26.0,11.0,3.0,0.0,2.0,0.0,1.0,1.0,2.0,5.0,11.0,1.0,3.0,0.0,0.0,8.0,espn_api
 401910030,2026,2026-11-22,Thunder,Oklahoma City,OKC,away,5105800,Josh Dix,G,False,False,32.0,13.0,5.0,4.0,0.0,0.0,0.0,2.0,3.0,5.0,8.0,3.0,5.0,0.0,0.0,12.0,espn_api
@@ -52,9 +52,9 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910030,2026,2026-11-22,Heat,Miami,MIA,home,4837356,Tre Donaldson,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4566434,Franz Wagner,F,True,False,32.0,16.0,8.0,6.0,2.0,0.0,2.0,2.0,6.0,7.0,18.0,0.0,3.0,2.0,2.0,-24.0,espn_api
 401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4277847,Wendell Carter Jr.,C,True,False,26.0,9.0,6.0,3.0,1.0,1.0,2.0,1.0,5.0,4.0,6.0,1.0,2.0,0.0,0.0,-12.0,espn_api
-401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4066320,Desmond Bane,G,True,False,33.0,17.0,1.0,5.0,1.0,0.0,2.0,1.0,0.0,7.0,14.0,3.0,8.0,0.0,0.0,-5.0,espn_api
+401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4066320,Desmond Bane,G,True,False,33.0,17.0,1.0,5.0,1.0,0.0,1.0,1.0,0.0,7.0,14.0,3.0,8.0,0.0,0.0,-5.0,espn_api
 401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4432165,Jalen Suggs,G,True,False,22.0,9.0,4.0,2.0,0.0,0.0,0.0,1.0,3.0,2.0,11.0,0.0,6.0,5.0,5.0,-17.0,espn_api
-401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4712849,Anthony Black,G,True,False,35.0,14.0,5.0,2.0,2.0,0.0,1.0,2.0,3.0,5.0,12.0,2.0,4.0,2.0,2.0,-6.0,espn_api
+401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4712849,Anthony Black,G,True,False,35.0,14.0,5.0,2.0,2.0,0.0,2.0,2.0,3.0,5.0,12.0,2.0,4.0,2.0,2.0,-6.0,espn_api
 401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4278572,Jamal Cain,F,False,False,9.0,2.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,espn_api
 401910031,2026,2026-11-22,Magic,Orlando,ORL,away,4702382,Tristan da Silva,F,False,False,27.0,18.0,3.0,0.0,0.0,0.0,1.0,0.0,3.0,6.0,10.0,4.0,7.0,2.0,2.0,-14.0,espn_api
 401910031,2026,2026-11-22,Magic,Orlando,ORL,away,6478,Nikola Vucevic,C,False,False,17.0,5.0,3.0,3.0,2.0,0.0,0.0,0.0,3.0,2.0,6.0,1.0,4.0,0.0,0.0,-7.0,espn_api
