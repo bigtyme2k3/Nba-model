@@ -1,0 +1,12 @@
+game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
+2026-11-27,401909326,STATUS_SCHEDULED,False,False,New York Knicks,Miami Heat,0,0,0,0,,,,,,,,,NY -4.5,222.5,Madison Square Garden,0,2026-11-27T14:17:48.261998
+2026-11-27,401909327,STATUS_SCHEDULED,False,False,Detroit Pistons,Milwaukee Bucks,0,0,0,0,,,,,,,,,DET -9.5,218.5,Little Caesars Arena,0,2026-11-27T14:17:48.262013
+2026-11-27,401909328,STATUS_SCHEDULED,False,False,Indiana Pacers,Philadelphia 76ers,0,0,0,0,,,,,,,,,PHI -3.5,229.5,Gainbridge Fieldhouse,0,2026-11-27T14:17:48.262040
+2026-11-27,401909329,STATUS_SCHEDULED,False,False,Toronto Raptors,Brooklyn Nets,0,0,0,0,,,,,,,,,TOR -9.5,219.5,Scotiabank Arena,0,2026-11-27T14:17:48.262048
+2026-11-27,401909330,STATUS_SCHEDULED,False,False,Boston Celtics,Atlanta Hawks,0,0,0,0,,,,,,,,,BOS -8.5,221.5,TD Garden,0,2026-11-27T14:17:48.262055
+2026-11-27,401909331,STATUS_SCHEDULED,False,False,Minnesota Timberwolves,Memphis Grizzlies,0,0,0,0,,,,,,,,,MIN -4.5,222.5,Target Center,0,2026-11-27T14:17:48.262061
+2026-11-27,401909332,STATUS_SCHEDULED,False,False,Phoenix Suns,Dallas Mavericks,0,0,0,0,,,,,,,,,PHX -2.5,226.5,Mortgage Matchup Center,0,2026-11-27T14:17:48.262068
+2026-11-27,401909333,STATUS_SCHEDULED,False,False,San Antonio Spurs,Los Angeles Lakers,0,0,0,0,,,,,,,,,SA -6.5,226.5,Frost Bank Center,0,2026-11-27T14:17:48.262082
+2026-11-27,401909334,STATUS_SCHEDULED,False,False,Utah Jazz,Denver Nuggets,0,0,0,0,,,,,,,,,DEN -10.5,229.5,Delta Center,0,2026-11-27T14:17:48.262091
+2026-11-27,401909335,STATUS_SCHEDULED,False,False,LA Clippers,New Orleans Pelicans,0,0,0,0,,,,,,,,,LAC -2.5,231.5,Intuit Dome,0,2026-11-27T14:17:48.262097
+2026-11-27,401909336,STATUS_SCHEDULED,False,False,Portland Trail Blazers,Golden State Warriors,0,0,0,0,,,,,,,,,POR -9.5,221.5,Moda Center,0,2026-11-27T14:17:48.262106
