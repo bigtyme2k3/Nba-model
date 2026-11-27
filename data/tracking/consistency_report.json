@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-26T21:48:32.285327+00:00",
+  "generated_at_utc": "2026-11-27T08:05:54.141668+00:00",
   "version": "consistency-v2.0",
   "note": "TREND rows are monitored thresholds (consistency tracking, alternate lines), never wagers. LINE rows are exact sportsbook lines; units are what following would have returned at the recorded best price. Only BET rows are qualified selections.",
   "graded": 762,

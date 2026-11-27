@@ -65,9 +65,9 @@ game_id,season,game_date,team_name,team_location,team_abbr,home_away,player_id,p
 401910038,2026,2026-11-23,Thunder,Oklahoma City,OKC,away,2991350,Alex Caruso,G,False,True,,,,,,,,,,,,,,,,,espn_api
 401910038,2026,2026-11-23,Pacers,Indiana,IND,home,3149673,Pascal Siakam,F,True,False,35.0,20.0,8.0,5.0,0.0,0.0,1.0,2.0,6.0,9.0,18.0,2.0,5.0,0.0,0.0,5.0,espn_api
 401910038,2026,2026-11-23,Pacers,Indiana,IND,home,4017837,Ivica Zubac,C,True,False,26.0,14.0,15.0,1.0,0.0,0.0,1.0,8.0,7.0,6.0,13.0,0.0,0.0,2.0,2.0,-5.0,espn_api
-401910038,2026,2026-11-23,Pacers,Indiana,IND,home,3133603,Kelly Oubre Jr.,G,True,False,28.0,20.0,4.0,2.0,0.0,2.0,2.0,2.0,2.0,8.0,13.0,4.0,7.0,0.0,0.0,-3.0,espn_api
+401910038,2026,2026-11-23,Pacers,Indiana,IND,home,3133603,Kelly Oubre Jr.,G,True,False,28.0,20.0,4.0,2.0,1.0,2.0,2.0,2.0,2.0,8.0,13.0,4.0,7.0,0.0,0.0,-3.0,espn_api
 401910038,2026,2026-11-23,Pacers,Indiana,IND,home,4395712,Andrew Nembhard,G,True,False,38.0,15.0,2.0,6.0,2.0,0.0,1.0,0.0,2.0,6.0,15.0,2.0,6.0,1.0,2.0,6.0,espn_api
-401910038,2026,2026-11-23,Pacers,Indiana,IND,home,5105854,Braden Smith,G,True,False,24.0,6.0,2.0,6.0,1.0,0.0,0.0,1.0,1.0,2.0,8.0,1.0,2.0,1.0,2.0,-4.0,espn_api
+401910038,2026,2026-11-23,Pacers,Indiana,IND,home,5105854,Braden Smith,G,True,False,24.0,6.0,2.0,6.0,0.0,0.0,0.0,1.0,1.0,2.0,8.0,1.0,2.0,1.0,2.0,-4.0,espn_api
 401910038,2026,2026-11-23,Pacers,Indiana,IND,home,2580365,Larry Nance Jr.,F,False,False,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,espn_api
 401910038,2026,2026-11-23,Pacers,Indiana,IND,home,4278355,Obi Toppin,F,False,False,24.0,17.0,6.0,4.0,0.0,0.0,2.0,0.0,6.0,6.0,14.0,2.0,8.0,3.0,3.0,5.0,espn_api
 401910038,2026,2026-11-23,Pacers,Indiana,IND,home,4398207,Jalen Slawson,F,False,False,20.0,16.0,10.0,2.0,1.0,4.0,1.0,4.0,6.0,5.0,9.0,3.0,3.0,3.0,4.0,6.0,espn_api
