@@ -1,6 +1,6 @@
 {
   "status": "READY",
-  "rows": 145824,
+  "rows": 146056,
   "players": 1089,
   "seasons": [
     2021,
@@ -11,9 +11,9 @@
     2026
   ],
   "min_game_date": "2021-10-19",
-  "max_game_date": "2026-11-25",
-  "profile_rows": 591,
-  "rotation_rows": 591,
+  "max_game_date": "2026-11-27",
+  "profile_rows": 590,
+  "rotation_rows": 590,
   "leakage_policy": "ROLLING_FEATURES_SHIFTED_ONE_GAME",
   "actual_minutes_separate": true,
   "outputs": [

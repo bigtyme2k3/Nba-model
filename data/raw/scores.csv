@@ -308,3 +308,8 @@ game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,awa
 2026-11-01,401909904,STATUS_FINAL,True,False,Indiana Pacers,Brooklyn Nets,90,98,-8,188,19.0,21.0,22.0,28.0,20.0,23.0,28.0,27.0,,,Gainbridge Fieldhouse,17274,2026-11-28T08:05:09.573514
 2026-11-01,401909905,STATUS_FINAL,True,False,Golden State Warriors,LA Clippers,124,112,12,236,29.0,34.0,29.0,32.0,37.0,20.0,28.0,27.0,,,Chase Center,18064,2026-11-28T08:05:09.573524
 2026-11-01,401909906,STATUS_FINAL,True,False,Los Angeles Lakers,Toronto Raptors,131,125,6,256,36.0,30.0,38.0,27.0,23.0,31.0,28.0,43.0,,,crypto.com Arena,19057,2026-11-28T08:05:09.573533
+2026-11-28,401910046,STATUS_SCHEDULED,False,False,Washington Wizards,Orlando Magic,0,0,0,0,,,,,,,,,ORL -3.5,219.5,Capital One Arena,0,2026-11-28T14:17:05.384832
+2026-11-28,401910047,STATUS_SCHEDULED,False,False,Charlotte Hornets,Brooklyn Nets,0,0,0,0,,,,,,,,,CHA -5.5,212.5,Spectrum Center,0,2026-11-28T14:17:05.384851
+2026-11-28,401910048,STATUS_SCHEDULED,False,False,Chicago Bulls,Indiana Pacers,0,0,0,0,,,,,,,,,CHI -3.5,234.5,United Center,0,2026-11-28T14:17:05.384862
+2026-11-28,401910049,STATUS_SCHEDULED,False,False,Milwaukee Bucks,Oklahoma City Thunder,0,0,0,0,,,,,,,,,OKC -11.5,228.5,Fiserv Forum,0,2026-11-28T14:17:05.384873
+2026-11-28,401910050,STATUS_SCHEDULED,False,False,Houston Rockets,Philadelphia 76ers,0,0,0,0,,,,,,,,,HOU -12.5,219.5,Toyota Center (Houston),0,2026-11-28T14:17:05.384882
