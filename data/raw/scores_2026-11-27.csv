@@ -1,12 +1,12 @@
 game_date,game_id,status,is_final,in_progress,home_team,away_team,home_score,away_score,actual_spread,actual_total,home_q1,home_q2,home_q3,home_q4,away_q1,away_q2,away_q3,away_q4,posted_spread,posted_total,venue,attendance,scraped_at
-2026-11-27,401909326,STATUS_FINAL,True,False,New York Knicks,Miami Heat,105,108,-3,213,21.0,23.0,35.0,26.0,31.0,29.0,26.0,22.0,,,Madison Square Garden,19812,2026-11-28T08:04:59.326709
-2026-11-27,401909327,STATUS_FINAL,True,False,Detroit Pistons,Milwaukee Bucks,113,98,15,211,24.0,24.0,42.0,23.0,29.0,21.0,26.0,22.0,,,Little Caesars Arena,19109,2026-11-28T08:04:59.326734
-2026-11-27,401909328,STATUS_FINAL,True,False,Indiana Pacers,Philadelphia 76ers,87,111,-24,198,22.0,22.0,14.0,29.0,30.0,25.0,30.0,26.0,,,Gainbridge Fieldhouse,17274,2026-11-28T08:04:59.326749
-2026-11-27,401909329,STATUS_FINAL,True,False,Toronto Raptors,Brooklyn Nets,124,100,24,224,31.0,32.0,39.0,22.0,27.0,28.0,24.0,21.0,,,Scotiabank Arena,19800,2026-11-28T08:04:59.326762
-2026-11-27,401909330,STATUS_FINAL,True,False,Boston Celtics,Atlanta Hawks,86,87,-1,173,29.0,22.0,18.0,17.0,14.0,25.0,31.0,17.0,,,TD Garden,19156,2026-11-28T08:04:59.326775
-2026-11-27,401909331,STATUS_FINAL,True,False,Minnesota Timberwolves,Memphis Grizzlies,109,114,-5,223,25.0,25.0,31.0,28.0,32.0,29.0,21.0,32.0,,,Target Center,18517,2026-11-28T08:04:59.326786
-2026-11-27,401909332,STATUS_FINAL,True,False,Phoenix Suns,Dallas Mavericks,109,113,-4,222,29.0,34.0,32.0,14.0,28.0,25.0,25.0,35.0,,,Mortgage Matchup Center,17071,2026-11-28T08:04:59.326799
-2026-11-27,401909333,STATUS_FINAL,True,False,San Antonio Spurs,Los Angeles Lakers,99,96,3,195,14.0,24.0,30.0,31.0,27.0,27.0,14.0,28.0,,,Frost Bank Center,18918,2026-11-28T08:04:59.326818
-2026-11-27,401909334,STATUS_FINAL,True,False,Utah Jazz,Denver Nuggets,107,120,-13,227,22.0,31.0,32.0,22.0,27.0,25.0,33.0,35.0,,,Delta Center,17867,2026-11-28T08:04:59.326830
-2026-11-27,401909335,STATUS_FINAL,True,False,LA Clippers,New Orleans Pelicans,104,105,-1,209,28.0,22.0,27.0,27.0,29.0,25.0,26.0,25.0,,,Intuit Dome,17927,2026-11-28T08:04:59.326842
-2026-11-27,401909336,STATUS_FINAL,True,False,Portland Trail Blazers,Golden State Warriors,116,94,22,210,37.0,30.0,24.0,25.0,11.0,33.0,34.0,16.0,,,Moda Center,19395,2026-11-28T08:04:59.326853
+2026-11-27,401909326,STATUS_FINAL,True,False,New York Knicks,Miami Heat,105,108,-3,213,21.0,23.0,35.0,26.0,31.0,29.0,26.0,22.0,,,Madison Square Garden,19812,2026-11-28T16:35:59.273131
+2026-11-27,401909327,STATUS_FINAL,True,False,Detroit Pistons,Milwaukee Bucks,113,98,15,211,24.0,24.0,42.0,23.0,29.0,21.0,26.0,22.0,,,Little Caesars Arena,19109,2026-11-28T16:35:59.273147
+2026-11-27,401909328,STATUS_FINAL,True,False,Indiana Pacers,Philadelphia 76ers,87,111,-24,198,22.0,22.0,14.0,29.0,30.0,25.0,30.0,26.0,,,Gainbridge Fieldhouse,17274,2026-11-28T16:35:59.273156
+2026-11-27,401909329,STATUS_FINAL,True,False,Toronto Raptors,Brooklyn Nets,124,100,24,224,31.0,32.0,39.0,22.0,27.0,28.0,24.0,21.0,,,Scotiabank Arena,19800,2026-11-28T16:35:59.273172
+2026-11-27,401909330,STATUS_FINAL,True,False,Boston Celtics,Atlanta Hawks,86,87,-1,173,29.0,22.0,18.0,17.0,14.0,25.0,31.0,17.0,,,TD Garden,19156,2026-11-28T16:35:59.273186
+2026-11-27,401909331,STATUS_FINAL,True,False,Minnesota Timberwolves,Memphis Grizzlies,109,114,-5,223,25.0,25.0,31.0,28.0,32.0,29.0,21.0,32.0,,,Target Center,18517,2026-11-28T16:35:59.273197
+2026-11-27,401909332,STATUS_FINAL,True,False,Phoenix Suns,Dallas Mavericks,109,113,-4,222,29.0,34.0,32.0,14.0,28.0,25.0,25.0,35.0,,,Mortgage Matchup Center,17071,2026-11-28T16:35:59.273207
+2026-11-27,401909333,STATUS_FINAL,True,False,San Antonio Spurs,Los Angeles Lakers,99,96,3,195,14.0,24.0,30.0,31.0,27.0,27.0,14.0,28.0,,,Frost Bank Center,18918,2026-11-28T16:35:59.273226
+2026-11-27,401909334,STATUS_FINAL,True,False,Utah Jazz,Denver Nuggets,107,120,-13,227,22.0,31.0,32.0,22.0,27.0,25.0,33.0,35.0,,,Delta Center,17867,2026-11-28T16:35:59.273236
+2026-11-27,401909335,STATUS_FINAL,True,False,LA Clippers,New Orleans Pelicans,104,105,-1,209,28.0,22.0,27.0,27.0,29.0,25.0,26.0,25.0,,,Intuit Dome,17927,2026-11-28T16:35:59.273243
+2026-11-27,401909336,STATUS_FINAL,True,False,Portland Trail Blazers,Golden State Warriors,116,94,22,210,37.0,30.0,24.0,25.0,11.0,33.0,34.0,16.0,,,Moda Center,19395,2026-11-28T16:35:59.273267
